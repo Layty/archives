@@ -1,0 +1,143 @@
+rxrate 9%
+rx-19167 156418   8pkts/per int
+tx-20140 1636476
+
+控制发包速率50%
+rxrate 25%
+rx-18436 169240	 9pkts/per int
+tx-20105 642842
+CPU利用率同非线速情况一致
+
+控制发包速率30%
+rxrate 25%
+rx-21006 167888	 8pkts/per int
+tx-21848 352583
+CPU利用率同非线速情况一致
+
+控制发包速率5%
+rxrate 100%
+rx-17568 33802	 1.5pkts/per int
+tx-17500 33803
+CPU0的sirq 25%，cpu1的整体利用率10%，sirq5%
+
+远端，公用一个cpu0
+rxrate 9%
+rx-16661 156554	  9pkts/per int
+tx-18927 1599945
+cpu利用率，cpu0 sirq的利用率为100%
+
+[BEGIN] 2014/3/18 星期二 11:00:17
+ 51:    3422770    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1134670        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734958   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3564219       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     157908     150263     131394     157758   Local timer interrupts
+ 51:    3441837    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1154841        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734958   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3584359       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     158159     150436     131507     157931   Local timer interrupts
+ 51:    3460898    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1175010        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734959   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3604498       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     158411     150603     131624     158095   Local timer interrupts
+ 51:    3480215    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1195252        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734959   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3624705       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     158664     150774     131734     158275   Local timer interrupts
+ 51:    3499152    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1215402        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734960   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3644828       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     158915     150947     131834     158439   Local timer interrupts
+ 51:    3518224    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1235551        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734960   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3664945       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     159167     151124     131957     158599   Local timer interrupts
+ 51:    3537275    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1255739        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734961   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3685098       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     159419     151297     132062     158769   Local timer interrupts
+ 51:    3556196    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1275938        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734961   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3705265       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     159671     151475     132184     158944   Local timer interrupts
+ 51:    3575299    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1296067        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734962   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3725362       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     159922     151636     132308     159125   Local timer interrupts
+ 51:    3594258    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1316255        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734962   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3745519       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     160174     151797     132435     159292   Local timer interrupts
+ 51:    3613333    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1336514        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734963   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3765750       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     160427     151964     132538     159464   Local timer interrupts
+ 51:    3632443    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1356742        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734963   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3785947       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     160680     152124     132672     159641   Local timer interrupts
+ 51:    3651494    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1377010        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734964   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3806186       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     160933     152301     132767     159825   Local timer interrupts
+ 51:    3670728    8394267     115514         17   PCI-MSI-edge      eth2-rx-0
+ 52:    7151842      57032      72626      11651   PCI-MSI-edge      eth2-tx-0
+ 53:    1986455    1397153        575    2584736   PCI-MSI-edge      eth2
+ 54:     129871         35      39969    6734964   PCI-MSI-edge      eth3-rx-0
+ 55:       1695    3826296       2116    8420666   PCI-MSI-edge      eth3-tx-0
+ 56:       1240      72514      57427    2567478   PCI-MSI-edge      eth3
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC:     161184     152472     132904     159982   Local timer interrupts
+
+[END] 2014/3/18 星期二 11:00:34

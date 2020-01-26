@@ -1,0 +1,3 @@
+rmmod igb
+insmod kopak/netmap_lin.ko
+insmod kopak/igb.ko

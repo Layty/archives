@@ -1,0 +1,5 @@
+insmod kopak/netmap_lin.ko
+insmod kopak/asic_base.ko
+insmod kopak/asic_nic.ko
+insmod kopak/asic_tables.ko
+

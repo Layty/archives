@@ -1,0 +1,4 @@
+rmmod asic_tables
+rmmod asic_nic
+rmmod asic_base
+rmmod netmap_lin

@@ -1,0 +1,316 @@
+PF_RING is a high speed packet capture library that turns a commodity PC into an efficient and cheap
+network measurement box suitable for both packet and active traffic analysis and manipulation.
+Moreover, PF_RING opens totally new markets as it enables the creation of efficient application such as
+traffic balancers or packet filters in a matter of lines of codes.
+PF_RING是一个高效快速的抓包库，可以把一台普通的电脑变成一个高效，便宜的网络性能测量盒子用于网络包的流量分析
+和处理。
+另外，PF_RING完全打开了一个新的市场因为它使得创建高效的应用比如负载均衡器或数据包过滤器变成只需要写几行代码的事情。
+This manual is divided in two parts:
+? PF_RING installation and configuration.
+? PF_RING SDK.
+这个手册分成以下两部分：
+1.PF_RING的安装和配置
+2.PF_RING 开发包
+
+3.Welcome to PF_RING
+PF_RING’s architecture is depicted in the figure below.
+PF_RING的系统结构图如下图所示
+图
+The main building blocks are:
+主要的构成模块包括：
+? The accelerated kernel driver that provides low-level packet copying into the kernel PF_RINGs.
+1.加速内核驱动程序提供低级别的把数据包拷贝到PF_RINGs内核模块。
+? The user space PF_RING SDK that provides transparent PF_RING-support to user-space
+applications.
+2.用户空间PF_RING开发包用于提供对用户空间应用的支持。
+? Specialized PF_RING-aware drivers (optional) that allow to further enhance packet capture by
+efficiently copying packets from the driver to PF_RING without passing through the kernel data
+structures. Please note that PF_RING can operate with any NIC driver, but for maximum
+performance it is necessary to use these specialized drivers that can be found into the kernel/
+directory part of the PF_RING distribution. Note that the way drivers pass packets to PF_RING is
+selected when the PF_RING kernel module is loaded by means of the transparent_mode
+parameter.
+3.专门的PF_RING-aware驱动程序（可选的）通过把数据包直接从驱动拷贝到PF_RING而不通过内核的数据结构（应该指的是
+零拷贝吧？）可以进一步提高数据包的抓取能力。请注意PF_RING可以使用任何的网卡驱动程序，但为了达到最好的性能必须使用
+以下的特别的驱动程序，这些驱动程序可以在PF_RING分发程序的kernet根目录下找到（从svn上下载的文件实际是在根目录下的
+drivers目录下）。注意当PF_RING内核模块加载的时候根据传入的transparent_mode参数来确定以哪种方式把数据包传到PF_RING。
+PF_RING implements a new socket type (named PF_RING) on which user-space applications can speak
+with the PF_RING kernel module. Applications can obtain a PF_RING handle, and issue API calls that are
+described later in this manual. A handle can be bound to a:
+PF_RING注册了一个新的socket类型（叫做PF_RING)，使用这种方式用户空间的应用可以和PF_RING的内核模块进行通讯。
+应用可以获取一个PF_RING句柄，API函数会在稍后描述。一个句柄可以被绑定到：
+? Physical network interface.
+1.物理网络接口
+? A RX queue, only on multi-queue network adapters.
+2.一个RX队列，只有在多个网络适配器的时候。
+? To the ‘any’ virtual interface that means packets received/sent on all system interfaces are accepted.
+3.“任何”虚拟接口，这意味着所有的系统接口上接收/发送的数据包被接受。
+As specified above, packets are read from a memory ring allocated at creation time. Incoming packets
+are copied by the kernel module to the ring, and read by the user-space applications. No per-packet
+memory allocation/deallocation is performed. Once a packet has been read from the ring, the space
+used in the ring for storing the packet just read will be used for accommodating future packets. This
+means that applications willing to keep a packet archive, must store themselves the packets just read as
+the PF_RING will not preserve them.
+基于以上的规定，数据包被从一个环形的内存缓冲中读取。传入的数据包被拷贝到内核环形缓存模块，并且被用户空间应用读取。
+在执行阶段没有内存的分配/释放操作。一旦一个存放于环形缓存区的数据包被读走，这个数据包占用的空间就可以被后来的包
+占用。这意味着应用需要有自己的保存数据包的手段，因为PF_RING不会保存它们。
+PF_RING supports both legacy BPF filters (i.e. those supported by pcap-based applications such as
+tcpdump), and also two additional types of filters (named wildcard and precise filters, depending on the
+fact that some or all filter elements are specified) that provide developers a wide choice of options. Filters
+are evaluated inside the PF_RING module thus in kernel. Some modern adapters such as Intel NICs
+based on 82599, support hardware-based filters that are also supported by PF_RING via specified API
+calls (e.g. pfring_set_hw_rule). PF_RING filters (except hw filters) can have an action specified, for telling
+to the PF_RING kernel module what action needs to be performed when a given packet matches the
+filter. Actions include pass/don’t pass the filter to the user space application, stop evaluating the filter
+chain, or reflect packet. In PF_RING, packet reflection is the ability to transmit (unmodified) the packet
+matching the filter onto a network interface (this except the interface on which the packet has been
+received). The whole reflection functionality is implemented inside the PF_RING kernel module, and the
+only activity requested to the user-space application is the filter specification without any further packet
+processing.
+PF_RING即支持传统的BPF过滤器（比如那些基于pcap的应用象tcpdump),也支持其它两种类型的过滤器（叫做通配符和精确过滤器，
+depending on the fact that some or all filter elements are specified)为开发人员提供多种选择。Filters
+are evaluated inside the PF_RING module thus in kernel.一些基于Intel 82599芯片的网卡，支持基于硬件的过滤也支持通过
+PF_RING的API进行调用。（e.g. pfring_set_hw_rule).PF_RING过滤器（除了hw过滤器)可以指定一个指定的动作，当一个数据包
+与过滤器匹配时可以让PF_RING内核模块执行一个指定的动作。Actions include pass/don’t pass the filter to the user space application, stop evaluating the filter
+chain, or reflect packet. 在PF_RING中，数据包反射是指在一个网络接口上发送匹配数据包的能力
+（除了那些在接口上已经收到的数据包）(这句字面上应该是这个意思，但完全看不懂）。整个反射功能都在PF_RING的内核模块中实现，
+only activity requested to the user-space application is the filter specification without any further packet
+processing.
+The packet journey in PF_RING is quite long
+数据包在PF_RING中的旅程是很长的
+图
+before being queued into a PF_RING ring
+在环形缓存区中数据包排队的过程
+图
+PF_RING can also increase the performance of packet capture applications by implementing two
+mechanisms named balancing and clustering. These mechanisms allow applications, willing to partition
+the set of packets to handle, to handle a portion of the whole packet stream while sending all the
+remaining packets to the other members of the cluster. This means that different applications opening
+PF_RING sockets can bind them to a specific cluster Id (via pfring_set_cluster) for joining the forces and
+each analyze a portion of the packets.
+PF_RING也可以通过两种机制提高应用抓包的能力，一种叫负载均衡，一种叫集群。这些机制允许应用对要处理的数据包进行分区，
+只处理整个数据包流的一部分，同时发送所有剩下的数据包到其它的机群中的成员。这意味着不同的应用打开的PF_RING sockets
+能够绑定到一个指定的cluster Id (via pfring_set_cluster)加入到操作队列并且只解析一部分的数据包。
+图
+The way packets are partitioned across cluster sockets is specified in the cluster policy that can be either
+per-flow (i.e. all the packets belonging to the same tuple <proto, ip src/dst, port src/dst>) that is the
+default or round-robin. This means that if you select per-flow balancing, all the packets belonging to the
+same flow (i.e. the 5-tuple specified above) will go to the same application, whereas with round-robin all
+the apps will receive the same amount of packets but there is no guarantee that packets belonging to
+the same queue will be received by a single application. So in one hand per-flow balancing allows you
+to preserve the application logic as in this case the application will receive a subset of all packets but this
+traffic will be consistent. On the other hand if you have a specific flow that takes most of the traffic, then
+the application that will handle such flow will be over-flooded by packets and thus the traffic will not be
+heavily balanced.
+（看不懂，暂不翻译，看起来好象是讲分流的机制）
+
+As previously stated, PF_RING can work both on top of standard NIC drivers, or on top of PF_RING aware
+drivers for improving packet capture. In addition to these drivers, for some selected adapters, it is
+possible to use other driver types that further increase packet capture. The first family of drivers is named
+TNAPI, that allow packets to be pushed more efficiently into PF_RING by means of kernel threads
+activated directly by the TNAPI driver.
+如上所述，PF_RING即可以工作在标准的网卡驱动之上，也可以为了提高抓包的性能而工作在PF_RING aware（怎么翻译？） 
+驱动之上。除了这些驱动程序，针对一些特定的适配器，也可以使用其它一些类型的驱动程序来进一步提高抓包性能。
+第一种驱动程序的类型就叫做TNAPI，使用TNAPI驱动程序允许数据包被更有效的推到PF_RING通过内核直接激活的线程。
+图
+For those users that instead need maximum packet capture speed, it is also possible to use a different
+type of driver named DNA, that allows packets to be read directly from the network interface by
+simultaneously bypassing both the Linux kernel and the PF_RING module.
+对于那些需要最快抓包速度的用户，也可能使用一种不同类型的叫DNA的驱动程序，这种驱动程序允许数据包被直接从网络
+接口读取而绕过linux内核和PF_RING模块。
+
+4. PF_RING Installation
+4.PF_RING的安装
+When you download PF_RING you fetch the following components:
+当你下载PF_RING时你可以获取到以下几个组件：
+? The PF_RING user-space SDK.
+1.PF_RING用户空间开发包
+? An enhanced version of the libpcap library that transparently takes advantage of PF_RING if
+installed, or fallback to the standard behavior if not installed.
+2.一个加强版的libpcap库，如果被安装的话它可以透明的利用到PF_RING，
+or fallback to the standard behavior if not installed.（如果不被安装将退回到标准的抓包方式（这是一句废话吧？）
+? The PF_RING kernel module.
+3.PF_RING的内核模块
+? PF_RING aware drivers for different chips of various vendors.
+4.PF_RING修改过的各种不同厂商不同芯片的驱动程序。
+? (Legacy) An automatic patch mechanism allows you to automatically patch a vanilla kernel with
+PF_RING.
+5.（传统的）一个自动补丁机制允许你自动为linux内核打上PF_RING补丁。(4.x以后的版本应该是不需要打补丁了，所以没有这个文件
+夹）
+PF_RING is downloaded by means of SVN as explained in http://www.ntop.org/get-started/download/.
+PF_RING可以在下面的网址通过svn下载。http://www.ntop.org/get-started/download/.
+The PF_RING source code layout is the following:
+PF_RING源代码的文件布局结构如下：
+? doc/
+? drivers/
+? kernel/
+? legacy/
+? Makefile
+? README
+? README.DNA
+? README.FIRST
+? userland/
+? vPF_RING/
+You can compile the entire tree typing make (as normal, non-root, user) from the main directory
+你可以在根目录下执行make对代码树进行编绎。
+4.1. Linux Kernel Module Installation
+4.1 Linux内核模块的安装
+In order to compile the PF_RING kernel module you need to have the linux kernel headers (or kernel
+source) installed.
+如果要编绎PF_RING的内核模块你需要有linux 内核的头文件（或内核的源代码），安装：
+$ cd <PF_RING PATH>/kernel
+$ make
+Note that:
+注意以下几点：
+? the kernel installation requires super user (root) capabilities.
+1.内核的安装需要超级用户的权限。
+? For some Linux distributions a kernel installation/compilation package is provided.
+2.对于一些Linux发行版，需要提供内核的安装/编绎包。
+? As of PF_RING 4.x you NO LONGER NEED to patch the linux kernel as in previous PF_RING versions
+3.PF_RING 4.x以后的版本不再需要象以前的版本一样对内核打补丁。
+
+5. Running PF_RING
+5.运行PF_RING
+Before using any PF_RING application the pf_ring kernel module should be loaded (as superuser):
+在使用任何PF_RING应用之前都要先加载pf_ring内核模块（使用超级用户）：
+# insmod <PF_RING PATH>/kernel/pf_ring.ko [transparent_mode=0|1|2]
+[min_num_slots=x][enable_tx_capture=1|0] [ enable_ip_defrag=1|0] [quick_mode=1|0]
+Note:
+注意：
+? transparent_mode=0 (default)
+Packets are received via the standard Linux interface. Any driver can use this mode.
+1.默认情况下transparent_mode=0
+ 数据包将使用标准的Linux接口获取。所有的驱动程序都可以使用这种模式。
+? transparent_mode=1 (Both vanilla and PF_RING-aware drivers)
+Packets are memcpy() to PF_RING and also to the standard Linux path.
+2.transparent_mode=1 (只有vanilla and PF_RING-aware两种驱动支持)
+数据包将使用memcpy()的方式传到PF_RING并且还是使用标准的Linux路径。
+? transparent_mode=2 (PF_RING -aware drivers only)
+Packets are ONLY memcpy() to PF_RING and not to the standard Linux path (i.e. tcpdump won't see
+anything).
+3.transparent_mode=2 (只支持PF_RING -aware驱动)
+数据包只被memcpy() 到PF_RING并且不拷贝到标准的Linux路径（象tcpdump这类工具将抓取不到任何数据）
+The higher is the transparent_mode value, the faster it gets packet capture.
+transparent_mode的值越高，抓包的速度越快。
+Other parameters:
+其它参数：
+? min_num_slots
+Min number of ring slots (default — 4096).
+1.min_num_slots
+环形缓存区的最小数目（默认是4096)（这个参数是什么意思？）
+? enable_tx_capture
+Set to 1 to capture outgoing packets, set to 0 to disable capture outgoing packets (default — RX+TX).
+2.enable_tx_capture
+设置成1表示要抓取发出的数据包，设置成0表示不允许抓取发送的数据包（默认是都抓取-RX+TX).
+? enable_ip_defrag
+Set to 1 to enable IP defragmentation, only rx traffic is defragmented.
+3.enable_ip_defrag 
+设置成1表示允许IP碎片整理，只有接收时才需要碎片整理。
+? quick_mode
+Set to 1 to run at full speed but with up to one socket per interface.
+4.quick_mode
+设置成1表示全速运行但只能允许一个接口一个socket（什么意思？）
+5.1. Checking PF_RING Device Configuration
+5.1. 检查PF_RING的设备配置
+When PF_RING is activated, a new entry /proc/net/pf_ring is created.
+当PF_RING激活后，一个新的目录 /proc/net/pf_ring 将会被创建。
+# ls /proc/net/pf_ring/
+info plugins_info
+# cat /proc/net/pf_ring/info
+Version : 5.1.0
+Ring slots : 4096
+Slot version : 13
+Capture TX : Yes [RX+TX]
+IP Defragment : No
+Socket Mode : Standard
+Transparent mode : Yes (mode 0)
+Total rings : 0
+Total plugins : 2
+# cat /proc/net/pf_ring/plugins_info
+ID Plugin
+2 sip [SIP protocol analyzer]
+PF_RING User’s Guide v.5.1.0
+9
+12 rtp [RTP protocol analyzer]
+PF_RING allows users to install plugins for handling custom traffic. Those plugins are also registered in
+the pf_ring /proc tree and can be listed by typing the plugins_info file.
+
+5.2. Libpfring and Libpcap Installation
+5.2. Libpfring和Libpcap的安装
+Both libpfring (userspace PF_RING library) and libpcap are distributed in source format. They can be
+compiled as follows:
+libpfring（用户空间的PF_RING库）和libpcap都以源代码的方式发布。它们可以使用以下方式进行编绎：
+$ cd <PF_RING PATH>/userland/lib
+$ ./configure
+$ make
+$ sudo make install（root用户下使用sudo命令会出错，直接用root用户执行make install就可以）
+$ cd ../libpcap
+$ ./configure
+$ make
+
+Note that the lib is reentrant hence it’s necessary to link your PF_RING-enabled applications also against
+the -lpthread library.
+注意（完全看不懂？什么意思？需要用到线程库？）
+                           IMPORTANT
+                           重要提示
+Legacy pcap-based applications need to be recompiled against the new libpcap and
+linked with a PF_RING enabled libpcap.a in order to take advantage of PF_RING. Do
+not expect to use PF_RING without recompiling your existing application.
+传统的基于pcap的应用需要重新编绎使用新的libpcap并且需要一个指向PF_RING的链接叫libpcap.a为了使用到PF_RING的优势。
+别指望不重新编绎已有的应用而用上PF_RING。
+
+5.3. Application Examples
+5.3. 应用例子
+If you are new to PF_RING, you can start with some examples. The userland/examples folder is rich of
+ready-to-use PF_RING applications:
+如果你是PF_RING的新用户，你可以使用下面的例子。在userland/examples文件夹下是丰富的ready-to-use PF_RING应用。
+$ cd <PF_RING PATH>/userland/examples
+$ ls *.c
+alldevs.c pfcount.c pfmap.c
+dummy_plugin_pfcount.c pfcount_82599.c pfsend.c
+forwarder.c pfcount_bundle.c pfsystest.c
+interval.c pfcount_dummy_plugin.c preflect.c
+pcap2nspcap.c pfcount_multichannel.c pwrite.c
+pcount.c pfdnabounce.c vdevice_simulator.c
+pfbounce.c pffilter_test.c
+$ make
+
+For instance, pfcount allows you to receive packets printing some statistics:
+例如，pfcount这个例子允许你接收数据包并打印状态：
+# ./pfcount -i eth0
+Using PF_RING v.5.1.0
+...
+PF_RING User’s Guide v.5.1.0
+10
+=========================
+Absolute Stats: [19919331 pkts rcvd][0 pkts dropped]
+Total Pkts=19919331/Dropped=0.0 %
+19'919'331 pkts - 1'195'159'860 bytes [9'959'331.86 pkt/sec - 4'780.47
+Mbit/sec]
+=========================
+Actual Stats: 6654505 pkts [1'000.02 ms][6'654'305.37 pkt/sec]
+=========================
+
+Another example is pfsend, which allows you to send packets (random packets, or optionally a .pcap file
+can be used) at a specific rate:
+另外一个例子是pfsend，它允许你发送数据包（随机的数据包，或者可选的一个.pcap文件）在一个指定的频率下：
+# ./pfsend -f 64byte_packets.pcap -n 0 -i eth1 -r 5
+...
+TX rate: [current 7'585'044.84 pps/5.10 Gbps][average 7'585'896.26 pps/
+5.10 Gbps][total 15'172'187.00 pkts]
+
+5.4. PF_RING Additional Modules
+5.4. PF_RING的其它模块
+As of version 4.7, the PF_RING library has a new modular architecture, making it possible to use
+additional components other than the standard PF_RING kernel module. These components are
+compiled inside the library according to the supports detected by the configure script.
+Currently, the set of additional modules includes:
+在4.7版本以后，PF_RING库有了一个新的模块化架构，它可以让你使用除了标准的PF_RING内核模块外的其它的组件。
+These components are
+compiled inside the library according to the supports detected by the configure script.
+当前，这些其它模块包括：
+? DAG module.
+This module adds native support for Endace DAG cards in PF_RING. In order to use this module it’s
+necessary to have the dag library (4.x or later) installed and to link your PF_RING-enabled
+application using the -ldag flag.
+1.DAG module.

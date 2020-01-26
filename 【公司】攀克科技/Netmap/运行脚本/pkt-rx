@@ -1,0 +1,3 @@
+#!/bin/bash
+/root/kopak/pkt-gen -i $1 -f rx
+

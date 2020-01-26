@@ -1,0 +1,6 @@
+insmod orikopak/asic_base.ko
+insmod orikopak/asic_nic.ko
+insmod orikopak/asic_tables.ko
+insmod orikopak/pakflow_fastpath.ko
+insmod orikopak/asic_api_register.ko
+

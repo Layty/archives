@@ -1,0 +1,5 @@
+rmmod asic_api_register
+rmmod pakflow_fastpath
+rmmod asic_tables
+rmmod asic_nic
+rmmod asic_base
