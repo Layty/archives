@@ -1,0 +1,48 @@
+#!/bin/sh
+
+DNSPOD_STATUS_FILE="/tmp/.dnspod/status"
+
+install()
+{
+	mkdir -p "$HOME"/bin "$HOME"/etc
+	cp ./dnspod-utils.lua "$HOME"/bin/
+	cp ./cacert.pem ./dnspod.conf "$HOME"/etc/
+	start
+}
+
+uninstall()
+{
+	stop
+}
+
+start()
+{
+	# Do an update on first startup
+	start-stop-daemon -S -b -x dnspod-utils.lua -- cron
+
+	crontab - <<EOF
+*/10 * * * *  ( . /etc/environment; dnspod-utils.lua cron )
+EOF
+	haecli appctl autostart -S 88
+}
+
+stop()
+{
+	haecli appctl noautostart
+	crontab -r
+	rm -rf /tmp/.dnspod
+}
+
+status()
+{
+	if crontab -l >/dev/null 2>&1; then
+		if [ -s $DNSPOD_STATUS_FILE ]; then
+			local __msg=`cat $DNSPOD_STATUS_FILE`
+			echo "{ \"status\" : \"MSG: $__msg\" }"
+		else
+			echo "{ \"status\" : \"running\" }"
+		fi
+	else
+		echo "{ \"status\" : \"stopped\" }"
+	fi
+}

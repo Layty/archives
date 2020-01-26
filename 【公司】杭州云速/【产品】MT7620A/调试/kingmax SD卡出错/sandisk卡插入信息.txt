@@ -1,0 +1,29 @@
+# msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<584>
+msdc0 -> ops_get_cd return<1> <- msdc_ops_get_cd() : L<2313> PID<kworker/u:1><0x17>
+msdc0 -> ================ <- msdc_set_mclk() : L<682> PID<kworker/u:1><0x17>
+msdc0 -> !!! Set<400KHz> Source<48000KHz> -> sclk<400KHz> <- msdc_set_mclk() : L<683> PID<kworker/u:1><0x17>
+msdc0 -> ================ <- msdc_set_mclk() : L<684> PID<kworker/u:1><0x17>
+msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> SD data latch edge<1> <- msdc_ops_set_ios() : L<2246> PID<kworker/u:1><0x17>
+msdc0 -> ================ <- msdc_set_mclk() : L<682> PID<kworker/u:1><0x17>
+msdc0 -> !!! Set<48000KHz> Source<48000KHz> -> sclk<48000KHz> <- msdc_set_mclk() : L<683> PID<kworker/u:1><0x17>
+msdc0 -> ================ <- msdc_set_mclk() : L<684> PID<kworker/u:1><0x17>
+mmc0: new high speed SDHC card at address aaaa
+mmcblk0: mmc0:aaaa SU32G 29.7 GiB 
+ mmcblk0: p1 p2 < p5 p6 p7 >
+attempt to access beyond end of device
+mmcblk0p2: rw=0, want=4, limit=2
+EXT4-fs (mmcblk0p2): unable to read superblock
+attempt to access beyond end of device
+mmcblk0p2: rw=0, want=4, limit=2
+EXT4-fs (mmcblk0p2): unable to read superblock
+attempt to access beyond end of device
+mmcblk0p2: rw=0, want=4, limit=2
+EXT4-fs (mmcblk0p2): unable to read superblock
+

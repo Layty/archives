@@ -1,0 +1,92 @@
+==========esw_interrupt  ============
+==========esw_interrupt  ============
+==========esw_interrupt  ============
+==========esw_interrupt  ============
+==========esw_interrupt  ============
+==========esw_interrupt  ============
+==========esw_interrupt  ============
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> cmd<8> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> cmd<5> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> cmd<55> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> cmd<55> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> cmd<55> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000202> <- msdc_irq() : L<2375>
+msdc0 -> XXX CMD<55> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> XXX CMD<1> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> set mclk to 0!!! <- msdc_set_mclk() : L<629> PID<kworker/u:1><0x16>
+msdc0 -> set mclk to 0!!! <- msdc_set_mclk() : L<629> PID<kworker/u:1><0x16>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> cmd<52> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> cmd<52> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> cmd<0> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> cmd<8> card<0> power<2> <- msdc_ops_request() : L<2098> PID<kworker/u:1><0x16>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<removed> <- msdc_tasklet_card() : L<583>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<583>
+
+
+解决方案：
+struct msdc_hw msdc0_hw = {
+	.clk_src        = 0,
+	.cmd_edge       = MSDC_SMPL_FALLING,
+	.data_edge      = MSDC_SMPL_FALLING,
+	.clk_drv        = 4,
+	.cmd_drv        = 4,
+	.dat_drv        = 4,
+	.data_pins      = 4,
+	.data_offset    = 0,
+	.flags          = MSDC_SYS_SUSPEND | MSDC_WP_PIN_EN | MSDC_CD_PIN_EN | MSDC_REMOVABLE | MSDC_HIGHSPEED,
+//	.flags          = MSDC_SYS_SUSPEND | MSDC_WP_PIN_EN | MSDC_CD_PIN_EN | MSDC_REMOVABLE,
+};
+
+将MSDC_CD_PIN_EN去掉，表示检测cd信号没有被连上，便不会触发插入拔除中断。

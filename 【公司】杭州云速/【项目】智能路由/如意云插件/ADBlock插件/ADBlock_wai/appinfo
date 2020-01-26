@@ -1,0 +1,22 @@
+plugin_ID:557
+plugin_Name:广告过滤
+plugin_VersionName: 1.0.0.2
+plugin_VersionCode: 01000000
+plugin_RomVersionH: 9.9.9.9
+plugin_RomVersionL: 1.0.0.7
+plugin_MobVersionH: 9.9
+plugin_MobVersionL: 1.0
+plugin_XPKGVersion: 1.0
+plugin_IntallPath: /opt/app/ADBlock/
+plugin_Source: 1
+plugin_Autorun: 0
+plugin_Space: 501750
+plugin_MD5: f03713a50655ed461c04b0b5afb353af
+plugin_Info: 从此，广告已成往事
+plugin_Author:  zhangjianfei3@gmail.com
+plugin_Officeapp: 0
+plugin_State: 2
+plugin_Largeicon:/opt/app/ADBlock/icon/large.jpg
+plugin_Smallicon:/opt/app/ADBlock/icon/small.png
+plugin_InstallDate: 2013-11-1 02:01:01
+ 

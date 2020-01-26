@@ -1,0 +1,53 @@
+Linux telephony interface: v1.00
+sdhci: Secure Digital Host Controller Interface driver
+sdhci: Copyright(c) Pierre Ossman
+MTK MSDC device init.
+mtk-sd: MediaTek MT6575 MSDC Driver
+u32 classifier
+    Performance counters on
+nf_conntrack version 0.5.0 (1885 buckets, 7540 max)
+IPVS: Registered protocols ()
+IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+IPVS: ipvs loaded.
+GRE over IPv4 demultiplexor driver
+gre: can't add protocol
+ip_tables: (C) 2000-2006 Netfilter Core Team, Type=Restricted Cone
+TCP cubic registered
+NET: Registered protocol family 10
+NET: Registered protocol family 17
+L2TP core driver, V2.0
+PPPoL2TP kernel driver, V2.0
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+Freeing unused kernel memory: 4436k freed
+msdc0 -> ================ <- msdc_set_mclk() : L<682> PID<kworker/u:1><0x17>
+msdc0 -> !!! Set<400KHz> Source<48000KHz> -> sclk<400KHz> <- msdc_set_mclk() : L<683> PID<kworker/u:1><0x17>
+msdc0 -> ================ <- msdc_set_mclk() : L<684> PID<kworker/u:1><0x17>
+init started: BusyBox v1.12.1 (Algorithmics/MIPS FPU Emulator v1.5
+2014-1msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+2-24 22:17:22 CST)
+startingmsdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+ pid 32, tty '': '/etc_ro/rcS'
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+devpts: called with bogus options
+Welcome to
+    ______msdc0 -> SD data latch edge<1> <- msdc_ops_set_ios() : L<2246> PID<kworker/u:1><0x17>
+_ msdc0 -> ================ <- msdc_set_mclk() : L<682> PID<kworker/u:1><0x17>
+ _msdc0 -> !!! Set<48000KHz> Source<48000KHz> -> sclk<48000KHz> <- msdc_set_mclk() : L<683> PID<kworker/u:1><0x17>
+__msdc0 -> ================ <- msdc_set_mclk() : L<684> PID<kworker/u:1><0x17>
+____  ___     __  ____   _  _   ___
+    |  ___  \|   __  ||   |   |__||    \ | || | /  /
+    | |___| ||  |__| ||   |__  __ |     \| || |/  /
+    |   _   /|   _   ||      ||  || |\     ||     \
+    |__| \__\|__| |__||______||__||_| \____||_|\___\
+
+   	             =System Architecture Department=
+
+	init Gpio!!!
+	pid [42] register irq 13
+mmc0: new high speed SDHC card at address 59b4
+mmcblk0: mmc0:59b4 SD16G 14.7 GiB 
+ mmcblk0: p1

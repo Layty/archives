@@ -1,0 +1,18 @@
+请基于 http://192.168.13.231/Laketune_SV/CablePacket/Firmware/linux_version/linux-2.6.x/11n/V100_T80XXEWL_T52X4EWL_R603W/trunk/1.0
+Rev26168 上合入这个修改，修改前为LLLLW（P0 P1 P2 P3 P4分别对应为vth0 vth1 vth2 vth3 wvth0），修改后为WLLLL（P0 P1 P2 P3 P4分别对应为wvth0 vth0 vth1 vth2 vth3）
+
+[huangcd@cvn234 RT288x_SDK]$ cd ..
+[huangcd@cvn234 R603W_sync2]$ svn info
+Path: .
+Working Copy Root Path: /home/huangcd/R603W_sync2
+URL: http://192.168.13.231/Laketune_SV/CablePacket/Firmware/linux_version/linux-2.6.x/11n/V100_T80XXEWL_T52X4EWL_R603W/trunk/1.0
+Repository Root: http://192.168.13.231/Laketune_SV/CablePacket
+Repository UUID: a15b0a2f-a801-814b-9188-54b363ea959c
+Revision: 26168
+Node Kind: directory
+Schedule: normal
+Last Changed Author: huangcd
+Last Changed Rev: 26168
+Last Changed Date: 2015-05-06 20:55:40 +0800 (Wed, 06 May 2015)
+
+[huangcd@cvn234 R603W_sync2]$ 

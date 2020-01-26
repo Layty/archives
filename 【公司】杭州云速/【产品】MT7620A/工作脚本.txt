@@ -1,0 +1,69 @@
+﻿ifconfig br0 192.168.20.1
+mkdir /tmp/mmcblk0p1;umount /dev/mmcblk0p1;mount /dev/mmcblk0p1 /tmp/mmcblk0p1/
+PATH=$PATH:/tmp/mmcblk0p1/app/bin;export LD_LIBRARY_PATH=/tmp/mmcblk0p1/app/lib;export
+mkdir /tmp/run;killall goahead
+lighttpd -f /tmp/mmcblk0p1/app/etc/lighttpd/lighttpd.conf -m /tmp/mmcblk0p1/app/lib/lighttpd/
+wifidog -c /tmp/mmcblk0p1/app/etc/wifidog.conf
+
+
+
+ifconfig br0 192.168.20.1;mkdir /tmp/mmcblk0p1;umount /dev/mmcblk0p1;mount /dev/mmcblk0p1 /tmp/mmcblk0p1/;PATH=$PATH:/tmp/mmcblk0p1/app/bin;export LD_LIBRARY_PATH=/tmp/mmcblk0p1/app/lib;export;mkdir /tmp/run;killall goahead;lighttpd -f /tmp/mmcblk0p1/app/etc/lighttpd/lighttpd.conf -m /tmp/mmcblk0p1/app/lib/lighttpd/
+
+mkdir -p chmod 0600 /etc/wifizcmd/;tftp 192.168.20.66 -gr password.rsync;chmod 0600 /etc/wifizcmd/password.rsync
+mkdir -p /home/pengrf/wifidog/target/etc/;touch /home/pengrf/wifidog/target/etc/wifidog-msg.html;
+wifidog -c /tmp/mmcblk0p1/app/etc/wifidog.conf
+
+###########################################
+PATH=$PATH:/tmp/mmcblk0p1/app/bin;export LD_LIBRARY_PATH=/tmp/mmcblk0p1/app/lib;export;
+mkdir /tmp/run;lighttpd -f /tmp/mmcblk0p1/app/etc/lighttpd/lighttpd.conf -m /tmp/mmcblk0p1/app/lib/lighttpd/
+/bin/echo -n inet_up > /tmp/inet_stat
+mkdir -p /home/pengrf/wifidog/target/etc/;touch /home/pengrf/wifidog/target/etc/wifidog-msg.html;wifidog -c /tmp/mmcblk0p1/app/etc/wifidog.conf
+###########################################
+PATH=$PATH:/tmp/mmcblk0p1/app/bin;export LD_LIBRARY_PATH=/tmp/mmcblk0p1/app/lib;wifidog -c /tmp/mmcblk0p1/app/etc/wifidog.conf -f -d 7
+###########################################
+
+
+#################### rsync ###########################
+
+rsync -vzrtopg --delete  --progress syncdata@112.124.45.150::resource /tmp/mmcblk0p1/www/resource --password-file=/etc/wifizcmd/password.rsync
+rsync -vzrtopg --delete --progress syncdata@112.124.45.150::shopdownload  /tmp/mmcblk0p1/www/wwwroot/shop/download --password-file=/etc/wifizcmd/password.rsync
+
+######################################################
+
+
+################### dnsmasq ##########################
+/usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -k
+
+
+#######################################################
+
+find RT288x_SDK/ -perm -100 -type f -exec svn propset svn:executable on {} \;
+
+
+################## 版本 ################
+amts w emac 000C43763063;amts w wmac1 000C43763163;amts w wmac2 000C43763263;amts w esn ysr804wprfzzton00063;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+
+amts w emac 000C43763067;amts w wmac1 000C43763167;amts w wmac2 000C43763267;amts w esn ysr804wprfzzton00067;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763068;amts w wmac1 000C43763168;amts w wmac2 000C43763268;amts w esn ysr804wprfzzton00068;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763069;amts w wmac1 000C43763169;amts w wmac2 000C43763269;amts w esn ysr804wprfzzton00069;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763070;amts w wmac1 000C43763170;amts w wmac2 000C43763270;amts w esn ysr804wprfzzton00070;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763071;amts w wmac1 000C43763171;amts w wmac2 000C43763271;amts w esn ysr804wprfzzton00071;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763072;amts w wmac1 000C43763172;amts w wmac2 000C43763272;amts w esn ysr804wprfzzton00072;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763073;amts w wmac1 000C43763173;amts w wmac2 000C43763273;amts w esn ysr804wprfzzton00073;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+
+nvram_set 2860 WAN_MAC_ADDR "00:0C:43:76:30:68"
+nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+nvram_set 2860 WAN_MAC_ADDR "00:0C:43:76:20:66"
+nvram_set 2860 macCloneEnabled 1
+
+############## 版本 54~58 ############
+amts w emac 000C43763054;amts w wmac1 000C43763154;amts w wmac2 000C43763254;amts w esn ysr804wprfzzton00054;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763055;amts w wmac1 000C43763155;amts w wmac2 000C43763255;amts w esn ysr804wprfzzton00055;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763056;amts w wmac1 000C43763156;amts w wmac2 000C43763256;amts w esn ysr804wprfzzton00056;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763057;amts w wmac1 000C43763157;amts w wmac2 000C43763257;amts w esn ysr804wprfzzton00057;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+amts w emac 000C43763058;amts w wmac1 000C43763158;amts w wmac2 000C43763258;amts w esn ysr804wprfzzton00058;nvram_set 2860 WAN_MAC_ADDR "FF:FF:FF:FF:FF:FF"
+
+############# 驿站通 #################
+CONFIG_USER_ZZTON=y
+. /sbin/config.sh
+

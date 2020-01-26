@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cwmp>
+	<model>
+		<object name="InternetGatewayDevice"   >
+			<param name="DeviceSummary" type="s1024" get_func="TRF_Get_DeviceSummary"/>
+			<param name="LANDeviceNumberOfEntries" type="uint" get_func="TRF_Get_LANDeviceNumberOfEntries"/>
+			<param name="WANDeviceNumberOfEntries" type="uint" get_func="TRF_Get_WANDeviceNumberOfEntries"/>
+			<object name="X_NGB_UserInfo">
+				<param name="UserName" rw="0" type="s1024" get_func="cpe_get_userinfo_username" />
+				<param name="UserId" rw="1" type="s1024" get_func="cpe_get_userinfo_userid" set_func="cpe_set_userinfo_userid"/>
+				<param name="Status" rw="1" type="uint" get_func="cpe_get_userinfo_status" set_func="cpe_set_userinfo_status"/>
+				<param name="Limit" rw="1" type="uint" get_func="cpe_get_userinfo_limit" set_func="cpe_set_userinfo_limit"/>
+				<param name="Times" rw="1" type="uint" get_func="cpe_get_userinfo_times" set_func="cpe_set_userinfo_times"/>
+				<param name="Result" rw="1" type="uint" get_func="cpe_get_userinfo_result" set_func="cpe_set_userinfo_result"/>
+			</object>
+			<object name="DeviceInfo">
+				<param name="SpecVersion" rw="0" type="s16" get_func="cpe_get_igd_di_specversion"/>
+				<param name="HardwareVersion" type="s64" rw="0" get_func="cpe_get_igd_di_hardwareversion"/>
+				<param name="SoftwareVersion" type="s64" rw="0" get_func="cpe_get_igd_di_softwareversion"/>
+				<param name="ProvisioningCode" type="s64" rw="1" get_func="cpe_get_igd_di_provisioningcode" set_func="cpe_set_igd_di_provisioningcode"/>
+				<param name="Manufacturer" type="s64" rw="0" get_func="cpe_get_igd_di_manufacturer"/>
+				<param name="ManufacturerOUI" type="s16" rw="0" get_func="cpe_get_igd_di_manufactureroui"/>
+				<param name="ProductClass" type="s64" rw="0" get_func="cpe_get_igd_di_productclass"/>
+				<param name="SerialNumber" type="s64" rw="0" get_func="cpe_get_igd_di_serialnumber"/>
+				<param name="VendorConfigFileNumberOfEntries" rw="0" type="uint" get_func="cpe_get_igd_di_configfilenum"/>
+				<param name="ModelName" rw="0" type="s64" get_func="cpe_get_igd_di_modelname"/>
+				<param name="UpTime" rw="0" type="uint" get_func="cpe_get_igd_di_uptime"/>
+				<param name="Description" rw="0" type="s256" get_func="cpe_get_igd_di_description"/>
+				<param name="FirstUseDate" rw="0" type="dt" get_func="cpe_get_igd_di_firstusedate"/>
+				<object name="X_OCN_IPProtocolVersion">
+					<param name="Mode" rw="1" type="int" get_func="cpe_get_igd_di_ipprotocolversionmode" set_func="cpe_set_igd_di_ipprotocolversionmode"/>
+				</object>
+				<object name="Vendor-ConfigFile">
+					<object name="1">
+						<param name="Name" rw="0" type="s64" get_func="cpe_get_igd_di_configname"/>
+						<param name="Version" rw="0" type="s16" get_func="cpe_get_igd_di_configversion"/>
+						<param name="Date" rw="0" type="dt" get_func="cpe_get_igd_di_configdate"/>
+						<param name="Description" rw="0" type="s256" get_func="cpe_get_igd_di_configdes"/>
+					</object>
+				</object>
+				<object name="X_NGB_ReConnect">
+					<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_di_reconnect" set_func="cpe_set_igd_di_reconnect"/>
+				</object>
+				<object name="X_NGB_ALGAbility">
+					<param name="H323Enable" rw="1" type="bool" get_func="cpe_get_igd_di_h323enable" set_func="cpe_set_igd_di_h323enable"/>
+					<param name="SIPEnable" rw="1" type="bool" get_func="cpe_get_igd_di_sipenable" set_func="cpe_set_igd_di_sipenable"/>
+					<param name="RTSPEnable" rw="1" type="bool" get_func="cpe_get_igd_di_rtspenable" set_func="cpe_set_igd_di_rtspenable"/>
+					<param name="L2TPEnable" rw="1" type="bool" get_func="cpe_get_igd_di_l2tpenable" set_func="cpe_set_igd_di_l2tpenable"/>
+					<param name="IPSECEnable" rw="1" type="bool" get_func="cpe_get_igd_di_ipsecenable" set_func="cpe_set_igd_di_ipsecenable"/>
+					<param name="FTPEnable" rw="1" type="bool" get_func="cpe_get_igd_di_ftpenable" set_func="cpe_set_igd_di_ftpenable"/>
+				</object>
+				<object name="X_NGB_TeleVitionAccount">
+					<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_user_enable" set_func="cpe_set_igd_user_enable"/>
+					<param name="Password" rw="1" type="s256" get_func="cpe_get_igd_user_pass" set_func="cpe_set_igd_user_pass"/>
+				</object>
+				<object name="X_NGB_DHCPOPTION60" rw="1" del_func="cpe_del_func"   add_func="cpe_add_func">
+					<object name="1">
+						<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_option_enable" set_func="cpe_set_igd_option_enable"/>
+						<param name="Type" rw="1" type="int" get_func="cpe_get_igd_option_type" set_func="cpe_set_igd_option_type"/>
+						<param name="Value" rw="1" type="s256" get_func="cpe_get_igd_option_value" set_func="cpe_set_igd_option_value"/>
+					</object>
+				</object>
+				<object name="X_NGB_Monitor"   rw="1" >
+					<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_enable" set_func="cpe_set_igd_enable"/>
+				    <param name="MonitorNumberOfEntries" rw="1" type="uint" get_func="cpe_get_igd_monitornumberOfentries" set_func="cpe_set_igd_monitornumberOfentries"/>
+					<object  name="MonitorConfig" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func" >
+						<object name="1">
+							<param name="ParaList" rw="1" type="s256" get_func="cpe_get_igd_paralist" set_func="cpe_set_igd_paralist"/>
+							<param name="TimeList" rw="1" type="s256" get_func="cpe_get_igd_timelist" set_func="cpe_set_igd_timelist"/>
+						</object>
+					</object>
+				</object>
+				<object name="X_NGB_Alarm"   rw="1" >
+					<param name="Enable" rw="1" type="bool" get_func="cpe_get_igdalarm_enable" set_func="cpe_set_igdalarm_enable"/>
+				    <param name="AlarmNumberOfEntries" rw="1" type="uint" get_func="cpe_get_igd_alarmnumberOfentries" set_func="cpe_set_igd_alarmnumberOfentries"/>
+					<object  name="AlarmConfig" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func" >
+						<object name="1">
+							<param name="ParaList" rw="1" type="s256" get_func="cpe_get_igd_alarmparaList" set_func="cpe_set_igd_alarmparaList"/>
+							<param name="Limit-Max" rw="1" type="s256" get_func="cpe_get_igd_alarmlimitmax" set_func="cpe_set_igd_alarmlimitmax"/>
+							<param name=" Limit-Min" rw="1" type="s256" get_func="cpe_get_igd_alarmlimitmin" set_func="cpe_set_igd_alarmlimitmin"/>
+							<param name="TimeList" rw="1" type="s256" get_func="cpe_get_igd_alarmtimelist" set_func="cpe_set_igd_alarmtimelist"/>
+							<param name="Mode" rw="1" type="uint" get_func="cpe_get_igd_alarmmode" set_func="cpe_set_igd_alarmmode"/>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object name="X_NGB_UplinkQoS"   rw="1" >
+					<param name="Mode" rw="1" type="s256" get_func="cpe_get_igd_qosmode" set_func="cpe_set_igd_qosmode"/>
+					<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_qosen" set_func="cpe_set_igd_qosen"/>
+					<param name="Bandwidth" rw="1" type="uint" get_func="cpe_get_igd_qosbandwidth" set_func="cpe_set_igd_qosbandwidth"/>
+					<param name="Plan" rw="1" type="s256" get_func="cpe_get_igd_qosplan" set_func="cpe_set_igd_qosplan"/>
+					<param name="EnableForceWeight" rw="1" type="bool" get_func="cpe_get_igd_qosenableforceweight" set_func="cpe_set_igd_qosenableforceweight"/>
+					<param name="EnableDSCPMark" rw="1" type="bool" get_func="cpe_get_igd_qosenabledscpmark" set_func="cpe_set_igd_qosenabledscpmark"/>
+					<param name="Enable802-1_P" rw="1" type="uint" get_func="cpe_get_igd_qosenable802" set_func="cpe_set_igd_qosenable802"/>
+					<object  name="PriorityQueue" del_func="cpe_del_func_qos"  rw="1" add_func="cpe_add_func_qos" >
+						<object name="1">
+							<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_qospriorityqueue_en" set_func="cpe_set_igd_qospriorityqueue_en"/>
+							<param name="Priority" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_priority" set_func="cpe_set_igd_qospriorityqueue_priority"/>
+							<param name="Weight" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_weight" set_func="cpe_set_igd_qospriorityqueue_weight"/>
+						</object>
+						<object name="2">
+							<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_qospriorityqueue_en" set_func="cpe_set_igd_qospriorityqueue_en"/>
+							<param name="Priority" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_priority" set_func="cpe_set_igd_qospriorityqueue_priority"/>
+							<param name="Weight" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_weight" set_func="cpe_set_igd_qospriorityqueue_weight"/>
+						</object>
+						<object name="3">
+							<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_qospriorityqueue_en" set_func="cpe_set_igd_qospriorityqueue_en"/>
+							<param name="Priority" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_priority" set_func="cpe_set_igd_qospriorityqueue_priority"/>
+							<param name="Weight" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_weight" set_func="cpe_set_igd_qospriorityqueue_weight"/>
+						</object>
+						<object name="4">
+							<param name="Enable" rw="1" type="bool" get_func="cpe_get_igd_qospriorityqueue_en" set_func="cpe_set_igd_qospriorityqueue_en"/>
+							<param name="Priority" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_priority" set_func="cpe_set_igd_qospriorityqueue_priority"/>
+							<param name="Weight" rw="1" type="uint" get_func="cpe_get_igd_qospriorityqueue_weight" set_func="cpe_set_igd_qospriorityqueue_weight"/>
+						</object>
+					</object>
+					<object  name="App" del_func="cpe_del_func_qos"  rw="1" add_func="cpe_add_func_qos" >
+						<object name="1">
+							<param name="AppName" rw="1" type="s256" get_func="cpe_get_igd_qospriorityapp_name" set_func="cpe_set_igd_qospriorityapp_name"/>
+							<param name="ClassQueue" rw="1" type="uint" get_func="cpe_get_igd_qospriorityapp_classqueue" set_func="cpe_set_igd_qospriorityapp_classqueue"/>
+						</object>
+					</object>
+					<object  name="Classification" del_func="cpe_del_func_qos"  rw="1" add_func="cpe_add_func_qos" >
+						<object name="1">
+							<param name="ClassQueue" rw="1" type="uint" get_func="cpe_get_igd_qospriorityclassification_classqueue" set_func="cpe_set_igd_qospriorityclassification_classqueue"/>
+							<param name="DSCPMarkValue" rw="1" type="uint" get_func="cpe_get_igd_qospriorityclassification_dscpmarkvalue" set_func="cpe_set_igd_qospriorityclassification_dscpmarkvalue"/>
+							<param name="802-1_P_Value" rw="1" type="uint" get_func="cpe_get_igd_qospriorityclassification_802" set_func="cpe_set_igd_qospriorityclassification_802"/>
+						</object>
+					</object>
+			</object>
+			<object name="ManagementServer">
+				<param name="ConnectionRequestURL" rw="0" type="s256" get_func="cpe_get_igd_ms_connectionrequesturl"/>
+				<param name="ConnectionRequestUsername" rw="1" type="s256" get_func="cpe_get_igd_ms_connectionrequestusername" set_func="cpe_set_igd_ms_connectionrequestusername"/>
+				<param name="ConnectionRequestPassword" rw="1" type="s256" get_func="cpe_get_igd_ms_connectionrequestpassword" set_func="cpe_set_igd_ms_connectionrequestpassword"/>
+				<param name="Username" rw="1" type="s256" get_func="cpe_get_igd_ms_username" set_func="cpe_set_igd_ms_username"/>
+				<param name="Password" rw="1" type="s256" get_func="cpe_get_igd_ms_password" set_func="cpe_set_igd_ms_password"/>
+				<param name="URL" type="s256" rw="1" get_func="cpe_get_igd_ms_url" set_func="cpe_set_igd_ms_url"/>
+				<param name="PeriodicInformEnable" rw="1"  type="bool" get_func="cpe_get_igd_ms_PeriodicInformEnable" set_func="cpe_set_igd_ms_PeriodicInformEnable"/>
+				<param name="PeriodicInformInterval" rw="1"  type="uint" get_func="cpe_get_igd_ms_PeriodicInformInterval" set_func="cpe_set_igd_ms_PeriodicInformInterval"/>
+				<param name="PeriodicInformTime" rw="1" type="dt" get_func="cpe_get_igd_ms_PeriodicInformTime" set_func="cpe_set_igd_ms_PeriodicInformTime"/>
+				<param name="mac" type="s" rw="0" get_func="cpe_get_igd_ms_mac" />
+				<param name="ipaddr" type="s" rw="0" get_func="cpe_get_igd_ms_ipaddr" />
+				<param name="CvnEocMac" type="s" rw="0" get_func="cpe_get_igd_ms_eoc_mac" />
+				<param name="CvnRemoteControlEn" type="uint" rw="1" get_func="cpe_get_igd_ms_eoc_remotecontrol" set_func="cpe_set_igd_ms_eoc_remotecontrol"/>
+			</object>
+			<object name="WANDevice" rw="1" refresh_func="cpe_refresh_igd_wandevice" del_func="cpe_del_func"   add_func="cpe_add_func">
+				<object name="1" >
+					<param name="WANConnectionNumberOfEntries" rw="0"  type="uint" get_func="TRF_Get_WANDeviceNumberOfEntries"/>
+					<object name="WANEthernetInterfaceConfig" refresh_func="" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+						<param name="Enable" rw="1"  type="bool" get_func="cpe_get_wanetherneten" set_func="cpe_set_wanetherneten"/>
+						<param name="Status" rw="0"  type="s256" get_func="cpe_get_wanethernetstatus"/>
+						<param name="MACAddress" rw="0"  type="s" get_func="cpe_get_wanethernetmac"/>
+						<param name="MaxBitRate" rw="1"  type="s" get_func="cpe_get_wanethernetmaxbiterate" set_func="cpe_set_wanethernetmaxbiterate"/>
+						<param name="DuplexMode" rw="1"  type="s" get_func="cpe_get_wanethernetduplexmode" set_func="cpe_set_wanethernetduplexmode"/>
+						<object name="Stats" refresh_func="">
+							<param name="BytesSent" rw="0"  type="uint" get_func="cpe_get_wanethernetbytessent"/>
+							<param name="PacketsSent" rw="0"  type="uint" get_func="cpe_get_wanethernetpacketssent"/>
+							<param name="PacketsReceived" rw="0"  type="uint" get_func="cpe_get_wanethernetpacketsreceived"/>
+							<param name="BytesReceived" rw="0"  type="uint" get_func="cpe_get_wanethernetbytesreceived"/>
+						</object>
+					</object>
+					<object name="WANConnectionDevice" refresh_func="cpe_refresh_igd_wanconnectiondevice" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+						<object name="1" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+							<param name="WANIPConnectionNumberOfEntries" rw="0"  type="uint" get_func="cpe_get_wanipnum"/>
+							<param name="WANPPPConnectionNumberOfEntries" rw="0"  type="uint" get_func="cpe_get_wanpppoe"/>
+							<object name="WANIPConnection" refresh_func="cpe_refresh_igd_wanipconnection" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+								<object name="1">
+									<param name="Enable" rw="1" type="bool" get_func="cpe_get_wanip_enable" set_func="cpe_set_wanip_enable"/>
+									<param name="Name" rw="1" type="s256" get_func="cpe_get_wanip_name" set_func="cpe_set_wanip_name"/>
+									<param name="ConnectionType" rw="1" type="s" get_func="cpe_get_wanip_connectiontype" set_func="cpe_set_wanip_connectiontype"/>
+									<param name="AddressingType" noti_rw="1" rw="1" type="s" get_func="cpe_get_wanip_addressingtype" set_func="cpe_set_wanip_addressingtype"/>
+									<param name="ExternalIPAddress" noti_rw="1" rw="1" type="s" get_func="cpe_get_wanip_externalipaddress" set_func="cpe_set_wanip_externalipaddress"/>
+									<param name="SubnetMask" noti_rw="1" rw="1"  type="s" get_func="cpe_get_wanip_subnetmask" set_func="cpe_set_wanip_subnetmask"/>
+									<param name="DefaultGateway" rw="1" type="s" get_func="cpe_get_wanip_defaultgateway" set_func="cpe_set_wanip_defaultgateway"/>
+									<param name="DNSEnabled" rw="1" type="bool" get_func="cpe_get_wanip_dnsable" set_func="cpe_set_wanip_dnsable"/>
+									<param name="DNSOverrideAllowed" rw="1" type="bool" get_func="cpe_get_wanip_dnsoverrideallowed" set_func="cpe_set_wanip_dnsoverrideallowed"/>
+									<param name="DNSServers" rw="1" type="s" get_func="cpe_get_wanip_dnspriservers" set_func="cpe_set_wanip_dnspriservers"/>
+									<param name="X_NGB_ServiceList" rw="1" type="s" get_func="cpe_get_servicelist" set_func="cpe_set_servicelist"/>
+									<param name="X_NGB_LanInterface" rw="1" type="s" get_func="cpe_get_laninterface" set_func="cpe_set_laninterface"/>
+									<param name="X_NGB_LanInterface-DHCPEnable" rw="1" type="s" get_func="cpe_get_laninterface_dhcpenable" set_func="cpe_set_laninterface_dhcpenable"/>
+									<param name="X_NGB_MulticastVlan" rw="1" type="int" get_func="cpe_get_wan_vlanid" set_func="cpe_set_wan_vlanid"/>
+									<param name="ConnectionStatus" rw="0" type="s" get_func="cpe_get_wan_connectionstatus"/>
+									<param name="NATEnabled" rw="1" type="bool" get_func="cpe_get_wan_natenabled" set_func="cpe_set_wan_natenabled"/>
+								</object>
+							</object>
+							<object name="WANEthernetLinkConfig" refresh_func="cpe_refresh_igd_wanipconnection" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+									<param name="X_NGB_Enable" rw="1" type="bool" get_func="cpe_get_wan_vlan_ocn_enable" set_func="cpe_set_wan_vlan_ocn_enable"/>
+									<param name="X_NGB_Mode" rw="1" type="uint" get_func="cpe_get_wan_vlan_enable" set_func="cpe_set_wan_vlan_enable"/>
+									<param name="X_NGB_VLANIDMark" rw="1" type="uint" get_func="cpe_get_wan_vlanid" set_func="cpe_set_wan_vlanid"/>
+									<param name="X_NGB_802-1pMark" rw="1" type="uint" get_func="cpe_get_wan_vlanpri" set_func="cpe_set_wan_vlanpri"/>
+									<param name="CvnUpLimit" rw="1" type="uint" get_func="cpe_get_wan_upLimit" set_func="cpe_set_wan_upLimit"/>
+									<param name="CvnDownLimit" rw="1" type="uint" get_func="cpe_get_wan_downLimit" set_func="cpe_set_wan_downLimit"/>
+							</object>
+							<object name="WANPPPConnection" refresh_func="cpe_refresh_igd_wanipconnection" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+								<object name="1">
+									<param name="Enable" rw="1" type="bool" get_func="cpe_get_wanppoe_enable" set_func="cpe_set_wanppoe_enable"/>
+									<param name="Name" rw="1" type="s256" get_func="cpe_get_wanip_name" set_func="cpe_set_wanip_name"/>
+									<param name="Username" rw="1" type="s" get_func="cpe_get_wanppp_username" set_func="cpe_set_wanppp_username"/>
+									<param name="Password" rw="1" type="s" get_func="cpe_get_wanppp_password" set_func="cpe_set_wanppp_password"/>
+									<param name="ConnectionType" rw="1" type="s" get_func="cpe_get_wanppoe_connectiontype" set_func="cpe_set_wanppoe_connectiontype"/>
+									<param name="ExternalIPAddress" type="s" rw="1" get_func="cpe_get_wanip_externalipaddress" set_func="cpe_set_wanip_externalipaddress"/>
+									<param name="DefaultGateway" rw="1" type="s" get_func="cpe_get_wanip_defaultgateway" set_func="cpe_set_wanip_defaultgateway"/>
+									<param name="DNSEnabled" rw="1" type="bool" get_func="cpe_get_wanip_dnsable" set_func="cpe_set_wanip_dnsable"/>
+									<param name="DNSOverrideAllowed" rw="1" type="bool" get_func="cpe_get_wanip_dnsoverrideallowed" set_func="cpe_set_wanip_dnsoverrideallowed"/>
+									<param name="DNSServers" rw="1" type="s" get_func="cpe_get_wanip_dnspriservers" set_func="cpe_set_wanip_dnspriservers"/>
+									<param name="X_NGB_ServiceList" rw="1" type="s" get_func="cpe_get_servicelist" set_func="cpe_set_servicelist"/>
+									<param name="X_NGB_LanInterface" rw="1" type="s" get_func="cpe_get_laninterface" set_func="cpe_set_laninterface"/>
+									<param name="X_NGB_LanInterface-DHCPEnable" rw="1" type="s" get_func="cpe_get_laninterface_dhcpenable" set_func="cpe_set_laninterface_dhcpenable"/>
+									<param name="X_NGB_MulticastVlan" rw="1" type="int" get_func="cpe_get_wan_vlanid" set_func="cpe_set_wan_vlanid"/>
+									<param name="ConnectionStatus" rw="0" type="s" get_func="cpe_get_wan_connectionstatus"/>
+									<param name="NATEnabled" rw="1" type="bool" get_func="cpe_get_wan_natenabled" set_func="cpe_set_wan_natenabled"/>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object name="LANDevice" refresh_func="cpe_refresh_landevice" del_func="cpe_del_func" rw="1" add_func="cpe_add_func">
+					<object name="1" >
+						<param name="LANEthernetInterfaceNumberOfEntries" rw="0"  type="uint" get_func="cpe_get_lan_interfacenumber"/>
+						<param name="LANUSBInterfaceNumberOfEntries" rw="0"  type="uint" get_func="cpe_get_lan_usbinterfacenumber"/>
+						<param name="LANWLANConfigurationNumberOfEntries" rw="0"  type="uint" get_func="cpe_get_lan_wlannum"/>
+						<object name="LANHostConfigManagement" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+							<param name="DHCPServerEnable" rw="1" type="bool" get_func="cpe_get_lan_dhcpenable" set_func="cpe_set_lan_dhcpenable"/>
+							<param name="MinAddress" rw="1" type="s" get_func="cpe_get_lan_starip" set_func="cpe_set_lan_starip"/>
+							<param name="MaxAddress" rw="1" type="s" get_func="cpe_get_lan_endip" set_func="cpe_set_lan_endip"/>
+							<param name="DNSServers" rw="1" type="s" get_func="cpe_get_lan_firstdns" set_func="cpe_set_lan_firstdns"/>
+							<param name="DHCPLeaseTime" rw="1" type="int" get_func="cpe_get_lan_leasetime" set_func="cpe_set_lan_leasetime"/>
+							<object name="IPInterface" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+								<object name="1">
+									<param name="IPInterfaceAddressingType" rw="1" type="s" get_func="cpe_get_lan_iptype" set_func="cpe_set_lan_iptype"/>
+									<param name="Enable" rw="1" type="bool" get_func="cpe_get_lan_ipenable" set_func="cpe_set_lan_ipenable"/>
+									<param name="IPInterfaceIPAddress" rw="1" type="s" get_func="cpe_get_lan_ipaddress" set_func="cpe_set_lan_ipaddress"/>
+									<param name="IPInterfaceSubnetMask" rw="1" type="s" get_func="cpe_get_lan_subnetmask" set_func="cpe_set_lan_subnetmask"/>
+								</object>
+							</object>
+							<object name="DHCPStaticAddress" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+								<object name="1" >
+									<param name="Enable" rw="1" type="bool" get_func="cpe_get_lan_staticbinden" set_func="cpe_set_lan_staticbinden"/>
+									<param name="Chaddr" rw="1" type="s" get_func="cpe_get_lan_staticbindmac" set_func="cpe_set_lan_staticbindmac"/>
+									<param name="Yiaddr" rw="1" type="s" get_func="cpe_get_lan_staticbindip" set_func="cpe_set_lan_staticbindip"/>
+								</object>
+								<object name="2" >
+									<param name="Enable" rw="1" type="bool" get_func="cpe_get_lan_staticbinden" set_func="cpe_set_lan_staticbinden"/>
+									<param name="Chaddr" rw="1" type="s" get_func="cpe_get_lan_staticbindmac" set_func="cpe_set_lan_staticbindmac"/>
+									<param name="Yiaddr" rw="1" type="s" get_func="cpe_get_lan_staticbindip" set_func="cpe_set_lan_staticbindip"/>
+								</object>
+								<object name="3">
+									<param name="Enable" rw="1" type="bool" get_func="cpe_get_lan_staticbinden" set_func="cpe_set_lan_staticbinden"/>
+									<param name="Chaddr" rw="1" type="s" get_func="cpe_get_lan_staticbindmac" set_func="cpe_set_lan_staticbindmac"/>
+									<param name="Yiaddr" rw="1" type="s" get_func="cpe_get_lan_staticbindip" set_func="cpe_set_lan_staticbindip"/>
+								</object>
+							</object>
+							<param name="IPRouters" rw="1" type="s64" get_func="cpe_get_lan_ipaddress" set_func="cpe_set_lan_ipaddress"/>
+							<param name="SubnetMask" rw="1" type="s" get_func="cpe_get_lan_subnetmask" set_func="cpe_set_lan_subnetmask"/>
+							<param name="X_NGB_STB-MinAddress" rw="0" type="s" get_func="cpe_get_lan_stbmin"/>
+							<param name="X_NGB_STB-MaxAddress" rw="0" type="s" get_func="cpe_get_lan_stbmax"/>
+							<param name="X_NGB_Phone-MinAddress" rw="0" type="s" get_func="cpe_get_lan_phmin"/>
+							<param name="X_NGB_Phone-MaxAddress" rw="0" type="s" get_func="cpe_get_lan_phmax"/>
+							<param name="X_NGB_Camera-MinAddress" rw="0" type="s" get_func="cpe_get_lan_camin"/>
+							<param name="X_NGB_Camera-MaxAddress" rw="0" type="s" get_func="cpe_get_lan_camax"/>
+							<param name="X_NGB_Computer-MinAddress" rw="0" type="s" get_func="cpe_get_lan_commin"/>
+							<param name="X_NGB_Computer-MaxAddress" rw="0" type="s" get_func="cpe_get_lan_commax"/>
+						</object>
+						<object name="LANEthernetInterfaceConfig" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+							<object name="1">
+								<param name="Status" rw="0" type="s" get_func="cpe_get_lan_status"/>
+								<param name="Name" rw="0" type="s16" get_func="cpe_get_lan_name"/>
+								<param name="Enable" rw="1" type="bool" get_func="cpe_get_lan_en" set_func="cpe_set_lan_en"/>
+								<param name="MACAddress" rw="0" type="s" get_func="cpe_get_lan_mac"/>
+								<param name="MACAddressControlEnabled" rw="1" type="bool" get_func="cpe_get_lan_macctl" set_func="cpe_set_lan_macctl"/>
+								<param name="DuplexMode" rw="1" type="s" get_func="cpe_get_lan_duplexMode" set_func="cpe_set_lan_duplexMode"/>
+								<param name="MaxBitRate" rw="1" type="s" get_func="cpe_get_lan_maxbitrate" set_func="cpe_set_lan_maxbitrate"/>
+								<param name="CvnMaclimit" rw="1" type="uint" get_func="cpe_get_lan_macLimit" set_func="cpe_set_lan_macLimit"/>
+								<param name="CvnMacinuse" rw="0" type="uint" get_func="cpe_get_lan_macinuse" />
+								<param name="CvnUpLimit" rw="1" type="uint" get_func="cpe_get_lan_upLimit" set_func="cpe_set_lan_upLimit"/>
+								<param name="CvnDownLimit" rw="1" type="uint" get_func="cpe_get_lan_downLimit" set_func="cpe_set_lan_downLimit"/>
+								<param name="CvnBwlimit" rw="1" type="uint" get_func="cpe_get_lan_bwlimit" set_func="cpe_set_lan_bwlimit"/>
+								<param name="CvnMwlimit" rw="1" type="uint" get_func="cpe_get_lan_mwlimit" set_func="cpe_set_lan_mwlimit"/>
+								<object name="Stats" refresh_func="">
+									<param name="BytesSent" rw="0" type="uint" get_func="cpe_get_lan_bytessent" />
+									<param name="BytesReceived" rw="0" type="uint" get_func="cpe_get_lan_bytesreceived" />
+									<param name="PacketsSent" rw="0" type="uint" get_func="cpe_get_lan_packetssent" />
+									<param name="PacketsReceived" rw="0" type="uint" get_func="cpe_get_lan_packetsreceived" />
+								</object>
+							</object>
+						</object>
+						<object name="WLANConfiguration" refresh_func="cpe_refresh_wlanconfiguration" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+						<object name="1" >
+							<param name="X_NGB_APModuleEnable" rw="1" type="bool" get_func="cpe_get_wlan_apmoduleenable" set_func="cpe_set_wlan_apmoduleenable"/>
+							<param name="Standard" rw="1" type="s" get_func="cpe_get_wlan_apmodetype" set_func="cpe_set_wlan_apmodetype"/>
+							<param name="X_NGB_PowerValue" rw="1" type="uint" get_func="cpe_get_wlan_powervalue" set_func="cpe_set_wlan_powervalue"/>
+							<param name="Channel" rw="1" type="uint" get_func="cpe_get_wlan_channel" set_func="cpe_set_wlan_channel"/>
+							<param name="ChannelsInUse" rw="0" type="s1024" get_func="cpe_get_wlan_channelsinuse" />
+							<param name="X_NGB_RFBand" rw="1" type="uint" get_func="cpe_get_wlan_rfband" set_func="cpe_set_wlan_rfband"/>
+							<param name="X_NGB_Powerlevel" rw="1" type="uint" get_func="cpe_get_wlan_powerlevel" set_func="cpe_set_wlan_powerlevel"/>
+							<param name="X_NGB_WPSKeyWord" rw="1" type="uint" get_func="cpe_get_wlan_wpskeyword" set_func="cpe_set_wlan_wpskeyword"/>
+							<param name="SSID" rw="1" type="s" get_func="cpe_get_wlan_ssidname" set_func="cpe_set_wlan_ssidname"/>
+							<param name="Name" rw="1" type="s" get_func="cpe_get_wlan_ssidname" set_func="cpe_set_wlan_ssidname"/>
+							<param name="Enable" rw="1" type="bool" get_func="cpe_get_wlan_ssidenable" set_func="cpe_set_wlan_ssidenable"/>
+							<param name="BSSID" rw="0" type="s" get_func="cpe_get_wlan_bssid" set_func=""/>
+							<param name="X_NGB_SSIDHide" rw="1" type="bool" get_func="cpe_get_wlan_ssidhide" set_func="cpe_set_wlan_ssidhide"/>
+							<param name="X_NGB_APIsolate" rw="1" type="bool" get_func="cpe_get_wlan_isolation" set_func="cpe_set_wlan_isolation"/>
+							<param name="CvnSuffix" rw="1" type="bool" get_func="cpe_get_wlan_suffix" set_func="cpe_set_wlan_suffix"/>
+    						<param name="X_NGB_ChannelWidth" rw="1" type="uint" get_func="cpe_get_wlan_channelwidth" set_func="cpe_set_wlan_channelwidth"/>
+							<param name="X_NGB_GuardInterval" rw="1" type="bool" get_func="cpe_get_wlan_guardinterval" set_func="cpe_set_wlan_guardinterval"/>
+							<param name="CvnExpendchannal" rw="1" type="uint" get_func="cpe_get_wlan_expendchannal" set_func="cpe_set_wlan_expendchannal"/>
+							<param name="BeaconType" rw="1" type="s" get_func="cpe_get_wlan_authmode" set_func="cpe_set_wlan_authmode"/>
+							<param name="WEPKeyIndex" rw="1" type="uint" get_func="cpe_get_wlan_defaultkeyid" set_func="cpe_set_wlan_defaultkeyid"/>
+							<param name="CvnDelMacAddress" rw="1" type="s"  set_func="cpe_set_wlan_delmacaddress"/>
+							<param name="CvnAddlMacAddress" rw="1" type="s" set_func="cpe_set_wlan_addlmacaddress"/>
+							<param name="CvnMACAddressControlPolicy" rw="1" type="s" get_func="cpe_get_wlan_accesspolicy" set_func="cpe_set_wlan_accesspolicy"/>
+							<param name="CvnAllowedMACAddresses" rw="0" type="s" get_func="cpe_get_wlan_accesscontrollist"/>
+							<param name="CvnForbidMACAddresses" rw="0" type="s" get_func="cpe_get_wlan_forbidcontrollist" />
+							<param name="WPAEncryptionModes" rw="1" type="s" get_func="cpe_get_wlan_encryptype" set_func="cpe_set_wlan_encryptype"/>
+							<param name="WEPEncryptionLevel" rw="1" type="s64" get_func="cpe_get_wlan_weplevel" set_func="cpe_set_wlan_weplevel"/>
+							<param name="BasicEncryptionModes" rw="1" type="s" get_func="cpe_get_wlan_BasicEncryptionModes" set_func="cpe_set_wlan_BasicEncryptionModes"/>
+							<param name="BasicAuthenticationMode" rw="1" type="s" get_func="cpe_get_BasicAuthenticationMode" set_func="cpe_set_BasicAuthenticationMode"/>
+							<param name="WPAAuthenticationMode" rw="1" type="s" get_func="cpe_get_WPAAuthenticationMode" set_func="cpe_set_WPAAuthenticationMode"/>
+							<param name="CvnMacinuse" rw="0" type="uint" get_func="cpe_get_wlan_macinuse" />
+							<param name="CvnMaclimit" rw="1" type="uint" get_func="cpe_get_wlan_maclimit" set_func="cpe_set_wlan_maclimit"/>
+							<param name="CvnUpLimit" rw="1" type="uint" get_func="cpe_get_wlan_upLimit" set_func="cpe_set_wlan_upLimit"/>
+							<param name="CvnDownLimit" rw="1" type="uint" get_func="cpe_get_wlan_downLimit" set_func="cpe_set_wlan_downLimit"/>
+							<param name="CvnBwlimit" rw="1" type="uint" get_func="cpe_get_wlan_bwlimit" set_func="cpe_set_wlan_bwlimit"/>
+							<param name="CvnMwlimit" rw="1" type="uint" get_func="cpe_get_wlan_mwlimit" set_func="cpe_set_wlan_mwlimit"/>
+							
+							<param name="KeyPassphrase" rw="1" type="s" get_func="cpe_get_wlan_keypassphrase" set_func="cpe_set_wlan_keypassphrase"/>
+							<param name="PossibleDataTransmitRates" rw="1" type="s" get_func="cpe_get_wlan_possibledatatransmitrates" set_func="cpe_set_wlan_possibledatatransmitrates"/>
+							<param name="DeviceOperationMode" rw="1" type="s" get_func="cpe_get_wlan_deviceOperationMode" set_func="cpe_set_wlan_deviceOperationMode"/>
+							<param name="TotalBytesReceived" rw="0" type="uint" get_func="cpe_get_wlan_totalbytesreceived" />
+							<param name="AutoRateFallBackEnabled" rw="1" type="bool" get_func="cpe_get_wlan_autoratefallbackenabled" set_func="cpe_set_wlan_autoratefallbackenabled"/>
+							<param name="MACAddressControlEnabled" rw="1" type="bool" get_func="cpe_get_wlan_macaddresscontrolenabled" set_func="cpe_set_wlan_macaddresscontrolenabled"/>
+							<param name="LocationDescription" rw="1" type="s" get_func="cpe_get_wlan_locationdescription" set_func="cpe_set_wlan_locationdescription"/>
+							<param name="PossibleChannels" rw="1" type="s" get_func="cpe_get_wlan_PossibleChannels" set_func="cpe_set_wlan_PossibleChannels"/>
+							<param name="OperationalDataTransmitRates" rw="1" type="s" get_func="cpe_get_wlan_operationaldatatransmitrates" set_func="cpe_set_wlan_operationaldatatransmitrates"/>
+							<param name="TotalPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_totalpacketssent" />
+							<param name="PeerBSSID" rw="1" type="s" get_func="cpe_get_wlan_peerbssid" set_func="cpe_set_wlan_peerbssid"/>
+							<param name="TransmitPower" rw="1" type="uint" get_func="cpe_get_wlan_transmitpower" set_func="cpe_set_wlan_transmitpower"/>
+							<param name="TransmitPowerSupported" rw="1" type="uint" get_func="cpe_get_wlan_transmitpowersupported" set_func="cpe_set_wlan_transmitpowersupported"/>
+							<param name="RegulatoryDomain" rw="1" type="s" get_func="cpe_get_wlan_RegulatoryDomain" set_func="cpe_set_wlan_regulatorydomain"/>
+							<param name="AuthenticationServiceMode" rw="1" type="s" get_func="cpe_get_wlan_authenticationservicemode" set_func="cpe_set_wlan_authenticationservicemode"/>
+							<param name="UAPSDSupported" rw="1" type="bool" get_func="cpe_get_wlan_uapsdsupported" set_func="cpe_set_wlan_uapsdsupported"/>
+							<param name="TotalIntegrityFailures" rw="0" type="uint" get_func="cpe_get_wlan_totalintegrityfailures" />
+							<param name="TotalAssociations" rw="0" type="uint" get_func="cpe_get_wlan_totalassociations" />
+							<param name="WMMEnable" rw="1" type="bool" get_func="cpe_get_wlan_wmme" set_func="cpe_set_wlan_wmme"/>
+							<param name="SSIDAdvertisementEnabled" rw="1" type="bool" get_func="cpe_get_wlan_ssidadvertisementenabled" set_func="cpe_set_wlan_ssidadvertisementenabled"/>
+							<param name="AutoChannelEnable" rw="1" type="bool" get_func="cpe_get_wlan_autochannelenable" set_func="cpe_set_wlan_autochannelenable"/>
+							<param name="InsecureOOBAccessEnabled" rw="1" type="bool" get_func="cpe_get_wlan_insecureoobaccessenabled" set_func="cpe_set_wlan_insecureoobaccessenabled"/>
+							<param name="IEEE11iEncryptionModes" rw="1" type="s" get_func="cpe_get_wlan_ieee11iencryptionmodes" set_func="cpe_set_wlan_ieee11iencryptionmodes"/>
+							<param name="BasicDataTransmitRates" rw="1" type="s" get_func="cpe_get_wlan_basicdatatransmitrates" set_func="cpe_set_wlan_basicdatatransmitrates"/>
+							<param name="IEEE11iAuthenticationMode" rw="1" type="s" get_func="cpe_get_wlan_ieee11iauthenticationmode" set_func="cpe_set_wlan_ieee11iauthenticationmode"/>
+							<param name="UAPSDEnable" rw="1" type="bool" get_func="cpe_get_wlan_uapsdenable" set_func="cpe_set_wlan_uapsdenable"/>
+							<param name="RadioEnabled" rw="1" type="bool" get_func="cpe_get_wlan_radioenabled" set_func="cpe_set_wlan_radioenabled"/>
+							<param name="TotalPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_totalpacketsdeceived" />
+							<param name="TotalBytesSent" rw="0" type="uint" get_func="cpe_get_wlan_totalbytessent" />
+							<param name="BeaconAdvertisementEnabled" rw="1" type="bool" get_func="cpe_get_wlan_beaconsdvertisementenabled" set_func="cpe_set_wlan_beaconsdvertisementenabled"/>
+							<param name="MaxBitRate" rw="1" type="s" get_func="cpe_get_wlan_maxbitrate" set_func="cpe_set_wlan_maxbitrate"/>
+							<param name="WMMSupported" rw="0" type="bool" get_func="cpe_get_wlan_wmmsupported" />
+							<param name="TotalPSKFailures" rw="0" type="uint" get_func="cpe_get_wlan_totalpskfailures" />
+							<param name="DistanceFromRoot" rw="1" type="uint" get_func="cpe_get_wlan_sistancedromroot" set_func="cpe_set_wlan_sistancedromroot" />
+							<param name="Status" rw="0" type="s" get_func="cpe_get_wlan_status" />
+							<object name="PreSharedKey" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+								<object name="1">
+									<param name="PreSharedKey" rw="1" type="s" get_func="cpe_get_wlan_wpapsk" set_func="cpe_set_wlan_wpapsk"/>
+									<param name="KeyPassphrase" rw="1" type="s" get_func="cpe_get_wlan_wpapsk" set_func="cpe_set_wlan_wpapsk"/>
+									
+									<param name="CvnUpdatePeriod" rw="1" type="uint" get_func="cpe_get_wlan_updateperiod" set_func="cpe_set_wlan_updateperiod"/>
+								</object>
+							</object>
+							<object name="WEPKey" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+								<object name="1">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+								<object name="2">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+								<object name="3">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+								<object name="4">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+							</object>
+							<object name="Stats" refresh_func="">
+								<param name="ErrorsSent" rw="0" type="uint" get_func="cpe_get_wlan_errorssent" />
+								<param name="ErrorsReceived" rw="0" type="uint" get_func="cpe_get_wlan_errorsreceived" />
+								<param name="UnicastPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_unicastpacketssent" />
+								<param name="UnicastPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_unicastpacketsreceived" />
+								<param name="DiscardPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_discardpacketssent" />
+								<param name="DiscardPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_discardpacketsreceived" />
+								<param name="MulticastPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_multicastpacketssent" />
+								<param name="MulticastPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_multicastpacketsreceived" />
+								<param name="BroadcastPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_broadcastpacketssent" />
+								<param name="BroadcastPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_broadcastpacketsreceived" />
+								<param name="UnknownProtoPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_unknownprotopacketsreceived" />
+							</object>
+							<object name="AssociatedDevice" refresh_func="">
+									<object name="1">
+										<param name="AssociatedDeviceMACAddress" rw="0" type="s" get_func="cpe_get_wlan_associateddevicemacaddress" />
+										<param name="AssociatedDeviceIPAddress" rw="0" type="s64" get_func="cpe_get_wlan_associateddeviceipaddress" />
+										<param name="AssociatedDeviceAuthenticationState" rw="bool" type="uint" get_func="cpe_get_wlan_sssociateddeviceauthenticationstate" />
+										<param name="LastRequestedUnicastCipher" rw="0" type="s256" get_func="cpe_get_wlan_lastrequestedunicastcipher" />
+										<param name="LastRequestedMulticastCipher" rw="0" type="s256" get_func="cpe_get_wlan_lastrequestedmulticastcipher" />
+										<param name="LastPMKId" rw="0" type="s256" get_func="cpe_get_wlan_lastpmkid" />
+										<param name="LastDataTransmitRate" rw="0" type="s16" get_func="cpe_get_wlan_lastdatatransmitrate" />
+									</object>
+								</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object name="LANInterfaces" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+				<param name="LANEthernetInterfaceNumberOfEntries" get_func="cpe_get_lanethernet_interfacenumber"/>
+				<param name="LANUSBInterfaceNumberOfEntries" get_func="cpe_get_laninterfaces_usbinterfacenumber"/>
+				<param name="LANWLANConfigurationNumberOfEntries" get_func="cpe_get_lanwlanconfigurationnumberOfnntries"/>
+				<object name="LANEthernetInterfaceConfig" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+					<object name="1">
+						<param name="Status" rw="0" type="s" get_func="cpe_get_lan_status"/>
+						<param name="Enable" rw="1" type="bool" get_func="cpe_get_lan_en" set_func="cpe_set_lan_en"/>
+						<param name="Name" rw="0" type="s16" get_func="cpe_get_lan_name"/>
+						<param name="MACAddress" rw="0" type="s" get_func="cpe_get_lan_mac"/>
+						<param name="MACAddressControlEnabled" rw="1" type="bool" get_func="cpe_get_lan_macctl" set_func="cpe_set_lan_macctl"/>
+						<param name="DuplexMode" rw="1" type="s" get_func="cpe_get_lan_duplexMode" set_func="cpe_set_lan_duplexMode"/>
+						<param name="MaxBitRate" rw="1" type="s" get_func="cpe_get_lan_maxbitrate" set_func="cpe_set_lan_maxbitrate"/>
+						<param name="CvnMaclimit" rw="1" type="uint" get_func="cpe_get_lan_macLimit" set_func="cpe_set_lan_macLimit"/>
+						<param name="CvnMacinuse" rw="0" type="uint" get_func="cpe_get_lan_macinuse" />
+						<param name="CvnUpLimit" rw="1" type="uint" get_func="cpe_get_lan_upLimit" set_func="cpe_set_lan_upLimit"/>
+						<param name="CvnDownLimit" rw="1" type="uint" get_func="cpe_get_lan_downLimit" set_func="cpe_set_lan_downLimit"/>
+						<param name="CvnBwlimit" rw="1" type="uint" get_func="cpe_get_lan_bwlimit" set_func="cpe_set_lan_bwlimit"/>
+						<param name="CvnMwlimit" rw="1" type="uint" get_func="cpe_get_lan_mwlimit" set_func="cpe_set_lan_mwlimit"/>
+						<object name="Stats" refresh_func="">
+							<param name="BytesSent" rw="0" type="uint" get_func="cpe_get_lan_bytessent" />
+							<param name="BytesReceived" rw="0" type="uint" get_func="cpe_get_lan_bytesreceived" />
+							<param name="PacketsSent" rw="0" type="uint" get_func="cpe_get_lan_packetssent" />
+							<param name="PacketsReceived" rw="0" type="uint" get_func="cpe_get_lan_packetsreceived" />
+							<param name="ErrorsSent" rw="0" type="uint" get_func="cpe_get_lan_errorssent" />
+							<param name="ErrorsReceived" rw="0" type="uint" get_func="cpe_get_lan_errorsreceived" />
+							<param name="UnicastPacketsSent" rw="0" type="uint" get_func="cpe_get_lan_unicastpacketssent" />
+							<param name="UnicastPacketsReceived" rw="0" type="uint" get_func="cpe_get_lan_unicastpacketsreceived" />
+							<param name="DiscardPacketsSent" rw="0" type="uint" get_func="cpe_get_lan_discardpacketssent" />
+							<param name="DiscardPacketsReceived" rw="0" type="uint" get_func="cpe_get_lan_discardpacketsreceived" />
+							<param name="MulticastPacketsSent" rw="0" type="uint" get_func="cpe_get_lan_multicastpacketssent" />
+							<param name="MulticastPacketsReceived" rw="0" type="uint" get_func="cpe_get_lan_multicastpacketsreceived" />
+							<param name="BroadcastPacketsSent" rw="0" type="uint" get_func="cpe_get_lan_broadcastpacketssent" />
+							<param name="BroadcastPacketsReceived" rw="0" type="uint" get_func="cpe_get_an_broadcastpacketsreceived" />
+							<param name="UnknownProtoPacketsReceived" rw="0" type="uint" get_func="cpe_get_lan_unknownprotopacketsreceived" />
+						</object>
+					</object>
+				</object>
+				<object name="WLANConfiguration" refresh_func="cpe_refresh_wlanconfiguration" del_func="cpe_del_func"   rw="1" add_func="cpe_add_func">
+						<object name="1" >
+							<param name="X_NGB_APModuleEnable" rw="1" type="bool" get_func="cpe_get_wlan_apmoduleenable" set_func="cpe_set_wlan_apmoduleenable"/>
+							<param name="Standard" rw="1" type="s" get_func="cpe_get_wlan_apmodetype" set_func="cpe_set_wlan_apmodetype"/>
+							<param name="X_NGB_PowerValue" rw="1" type="uint" get_func="cpe_get_wlan_powervalue" set_func="cpe_set_wlan_powervalue"/>
+							<param name="Channel" rw="1" type="uint" get_func="cpe_get_wlan_channel" set_func="cpe_set_wlan_channel"/>
+							<param name="ChannelsInUse" rw="0" type="s1024" get_func="cpe_get_wlan_channelsinuse" />
+							<param name="X_NGB_RFBand" rw="1" type="uint" get_func="cpe_get_wlan_rfband" set_func="cpe_set_wlan_rfband"/>
+							<param name="X_NGB_Powerlevel" rw="1" type="uint" get_func="cpe_get_wlan_powerlevel" set_func="cpe_set_wlan_powerlevel"/>
+							<param name="X_NGB_WPSKeyWord" rw="1" type="uint" get_func="cpe_get_wlan_wpskeyword" set_func="cpe_set_wlan_wpskeyword"/>
+							<param name="SSID" rw="1" type="s" get_func="cpe_get_wlan_ssidname" set_func="cpe_set_wlan_ssidname"/>
+							<param name="Name" rw="1" type="s" get_func="cpe_get_wlan_ssidname" set_func="cpe_set_wlan_ssidname"/>
+							<param name="Enable" rw="1" type="bool" get_func="cpe_get_wlan_ssidenable" set_func="cpe_set_wlan_ssidenable"/>
+							<param name="BSSID" rw="0" type="s" get_func="cpe_get_wlan_bssid" set_func=""/>
+							<param name="X_NGB_SSIDHide" rw="1" type="bool" get_func="cpe_get_wlan_ssidhide" set_func="cpe_set_wlan_ssidhide"/>
+							<param name="X_NGB_APIsolate" rw="1" type="bool" get_func="cpe_get_wlan_isolation" set_func="cpe_set_wlan_isolation"/>
+							<param name="CvnSuffix" rw="1" type="bool" get_func="cpe_get_wlan_suffix" set_func="cpe_set_wlan_suffix"/>
+    						<param name="X_NGB_ChannelWidth" rw="1" type="uint" get_func="cpe_get_wlan_channelwidth" set_func="cpe_set_wlan_channelwidth"/>
+							<param name="X_NGB_GuardInterval" rw="1" type="bool" get_func="cpe_get_wlan_guardinterval" set_func="cpe_set_wlan_guardinterval"/>
+							<param name="CvnExpendchannal" rw="1" type="uint" get_func="cpe_get_wlan_expendchannal" set_func="cpe_set_wlan_expendchannal"/>
+							<param name="BeaconType" rw="1" type="s" get_func="cpe_get_wlan_authmode" set_func="cpe_set_wlan_authmode"/>
+							<param name="WEPKeyIndex" rw="1" type="uint" get_func="cpe_get_wlan_defaultkeyid" set_func="cpe_set_wlan_defaultkeyid"/>
+							<param name="CvnDelMacAddress" rw="1" type="s"  set_func="cpe_set_wlan_delmacaddress"/>
+							<param name="CvnAddlMacAddress" rw="1" type="s" set_func="cpe_set_wlan_addlmacaddress"/>
+							<param name="CvnMACAddressControlPolicy" rw="1" type="s" get_func="cpe_get_wlan_accesspolicy" set_func="cpe_set_wlan_accesspolicy"/>
+							<param name="CvnAllowedMACAddresses" rw="0" type="s" get_func="cpe_get_wlan_accesscontrollist"/>
+							<param name="CvnForbidMACAddresses" rw="0" type="s" get_func="cpe_get_wlan_forbidcontrollist" />
+							<param name="WPAEncryptionModes" rw="1" type="s" get_func="cpe_get_wlan_encryptype" set_func="cpe_set_wlan_encryptype"/>
+							<param name="WEPEncryptionLevel" rw="1" type="s64" get_func="cpe_get_wlan_weplevel" set_func="cpe_set_wlan_weplevel"/>
+							<param name="BasicEncryptionModes" rw="1" type="s" get_func="cpe_get_wlan_BasicEncryptionModes" set_func="cpe_set_wlan_BasicEncryptionModes"/>
+							<param name="BasicAuthenticationMode" rw="1" type="s" get_func="cpe_get_BasicAuthenticationMode" set_func="cpe_set_BasicAuthenticationMode"/>
+							<param name="WPAAuthenticationMode" rw="1" type="s" get_func="cpe_get_WPAAuthenticationMode" set_func="cpe_set_WPAAuthenticationMode"/>
+							<param name="CvnMacinuse" rw="0" type="uint" get_func="cpe_get_wlan_macinuse" />
+							<param name="CvnMaclimit" rw="1" type="uint" get_func="cpe_get_wlan_maclimit" set_func="cpe_set_wlan_maclimit"/>
+							<param name="CvnUpLimit" rw="1" type="uint" get_func="cpe_get_wlan_upLimit" set_func="cpe_set_wlan_upLimit"/>
+							<param name="CvnDownLimit" rw="1" type="uint" get_func="cpe_get_wlan_downLimit" set_func="cpe_set_wlan_downLimit"/>
+							<param name="CvnBwlimit" rw="1" type="uint" get_func="cpe_get_wlan_bwlimit" set_func="cpe_set_wlan_bwlimit"/>
+							<param name="CvnMwlimit" rw="1" type="uint" get_func="cpe_get_wlan_mwlimit" set_func="cpe_set_wlan_mwlimit"/>
+							
+							<param name="KeyPassphrase" rw="1" type="s" get_func="cpe_get_wlan_keypassphrase" set_func="cpe_set_wlan_keypassphrase"/>
+							<param name="PossibleDataTransmitRates" rw="1" type="s" get_func="cpe_get_wlan_possibledatatransmitrates" set_func="cpe_set_wlan_possibledatatransmitrates"/>
+							<param name="DeviceOperationMode" rw="1" type="s" get_func="cpe_get_wlan_deviceOperationMode" set_func="cpe_set_wlan_deviceOperationMode"/>
+							<param name="TotalBytesReceived" rw="0" type="uint" get_func="cpe_get_wlan_totalbytesreceived" />
+							<param name="AutoRateFallBackEnabled" rw="1" type="bool" get_func="cpe_get_wlan_autoratefallbackenabled" set_func="cpe_set_wlan_autoratefallbackenabled"/>
+							<param name="MACAddressControlEnabled" rw="1" type="bool" get_func="cpe_get_wlan_macaddresscontrolenabled" set_func="cpe_set_wlan_macaddresscontrolenabled"/>
+							<param name="LocationDescription" rw="1" type="s" get_func="cpe_get_wlan_locationdescription" set_func="cpe_set_wlan_locationdescription"/>
+							<param name="PossibleChannels" rw="1" type="s" get_func="cpe_get_wlan_PossibleChannels" set_func="cpe_set_wlan_PossibleChannels"/>
+							<param name="OperationalDataTransmitRates" rw="1" type="s" get_func="cpe_get_wlan_operationaldatatransmitrates" set_func="cpe_set_wlan_operationaldatatransmitrates"/>
+							<param name="TotalPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_totalpacketssent" />
+							<param name="PeerBSSID" rw="1" type="s" get_func="cpe_get_wlan_peerbssid" set_func="cpe_set_wlan_peerbssid"/>
+							<param name="TransmitPower" rw="1" type="uint" get_func="cpe_get_wlan_transmitpower" set_func="cpe_set_wlan_transmitpower"/>
+							<param name="TransmitPowerSupported" rw="1" type="uint" get_func="cpe_get_wlan_transmitpowersupported" set_func="cpe_set_wlan_transmitpowersupported"/>
+							<param name="RegulatoryDomain" rw="1" type="s" get_func="cpe_get_wlan_RegulatoryDomain" set_func="cpe_set_wlan_regulatorydomain"/>
+							<param name="AuthenticationServiceMode" rw="1" type="s" get_func="cpe_get_wlan_authenticationservicemode" set_func="cpe_set_wlan_authenticationservicemode"/>
+							<param name="UAPSDSupported" rw="1" type="bool" get_func="cpe_get_wlan_uapsdsupported" set_func="cpe_set_wlan_uapsdsupported"/>
+							<param name="TotalIntegrityFailures" rw="0" type="uint" get_func="cpe_get_wlan_totalintegrityfailures" />
+							<param name="TotalAssociations" rw="0" type="uint" get_func="cpe_get_wlan_totalassociations" />
+							<param name="WMMEnable" rw="1" type="bool" get_func="cpe_get_wlan_wmme" set_func="cpe_set_wlan_wmme"/>
+							<param name="SSIDAdvertisementEnabled" rw="1" type="bool" get_func="cpe_get_wlan_ssidadvertisementenabled" set_func="cpe_set_wlan_ssidadvertisementenabled"/>
+							<param name="AutoChannelEnable" rw="1" type="bool" get_func="cpe_get_wlan_autochannelenable" set_func="cpe_set_wlan_autochannelenable"/>
+							<param name="InsecureOOBAccessEnabled" rw="1" type="bool" get_func="cpe_get_wlan_insecureoobaccessenabled" set_func="cpe_set_wlan_insecureoobaccessenabled"/>
+							<param name="IEEE11iEncryptionModes" rw="1" type="s" get_func="cpe_get_wlan_ieee11iencryptionmodes" set_func="cpe_set_wlan_ieee11iencryptionmodes"/>
+							<param name="BasicDataTransmitRates" rw="1" type="s" get_func="cpe_get_wlan_basicdatatransmitrates" set_func="cpe_set_wlan_basicdatatransmitrates"/>
+							<param name="IEEE11iAuthenticationMode" rw="1" type="s" get_func="cpe_get_wlan_ieee11iauthenticationmode" set_func="cpe_set_wlan_ieee11iauthenticationmode"/>
+							<param name="UAPSDEnable" rw="1" type="bool" get_func="cpe_get_wlan_uapsdenable" set_func="cpe_set_wlan_uapsdenable"/>
+							<param name="RadioEnabled" rw="1" type="bool" get_func="cpe_get_wlan_radioenabled" set_func="cpe_set_wlan_radioenabled"/>
+							<param name="TotalPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_totalpacketsdeceived" />
+							<param name="TotalBytesSent" rw="0" type="uint" get_func="cpe_get_wlan_totalbytessent" />
+							<param name="BeaconAdvertisementEnabled" rw="1" type="bool" get_func="cpe_get_wlan_beaconsdvertisementenabled" set_func="cpe_set_wlan_beaconsdvertisementenabled"/>
+							<param name="MaxBitRate" rw="1" type="s" get_func="cpe_get_wlan_maxbitrate" set_func="cpe_set_wlan_maxbitrate"/>
+							<param name="WMMSupported" rw="0" type="bool" get_func="cpe_get_wlan_wmmsupported" />
+							<param name="TotalPSKFailures" rw="0" type="uint" get_func="cpe_get_wlan_totalpskfailures" />
+							<param name="DistanceFromRoot" rw="1" type="uint" get_func="cpe_get_wlan_sistancedromroot" set_func="cpe_set_wlan_sistancedromroot" />
+							<param name="Status" rw="0" type="s" get_func="cpe_get_wlan_status" />
+								<object name="PreSharedKey" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+									<object name="1">
+										<param name="PreSharedKey" rw="1" type="s" get_func="cpe_get_wlan_wpapsk" set_func="cpe_set_wlan_wpapsk"/>
+										<param name="KeyPassphrase" rw="1" type="s" get_func="cpe_get_wlan_wpapsk" set_func="cpe_set_wlan_wpapsk"/>
+										
+										<param name="CvnUpdatePeriod" rw="1" type="uint" get_func="cpe_get_wlan_updateperiod" set_func="cpe_set_wlan_updateperiod"/>
+									</object>
+								</object>
+							<object name="WEPKey" refresh_func="" del_func="cpe_del_func"  rw="1" add_func="cpe_add_func">
+								<object name="1">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+								<object name="2">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+								<object name="3">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+								<object name="4">
+									<param name="WEPKey" rw="1" type="s" get_func="cpe_get_wlan_keystr" set_func="cpe_set_wlan_keystr"/>
+								</object>
+							</object>
+							<object name="Stats" refresh_func="">
+								<param name="ErrorsSent" rw="0" type="uint" get_func="cpe_get_wlan_errorssent" />
+								<param name="ErrorsReceived" rw="0" type="uint" get_func="cpe_get_wlan_errorsreceived" />
+								<param name="UnicastPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_unicastpacketssent" />
+								<param name="UnicastPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_unicastpacketsreceived" />
+								<param name="DiscardPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_discardpacketssent" />
+								<param name="DiscardPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_discardpacketsreceived" />
+								<param name="MulticastPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_multicastpacketssent" />
+								<param name="MulticastPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_multicastpacketsreceived" />
+								<param name="BroadcastPacketsSent" rw="0" type="uint" get_func="cpe_get_wlan_broadcastpacketssent" />
+								<param name="BroadcastPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_broadcastpacketsreceived" />
+								<param name="UnknownProtoPacketsReceived" rw="0" type="uint" get_func="cpe_get_wlan_unknownprotopacketsreceived" />
+							</object>
+							<object name="AssociatedDevice" refresh_func="">
+									<object name="1">
+										<param name="AssociatedDeviceMACAddress" rw="0" type="s" get_func="cpe_get_wlan_associateddevicemacaddress" />
+										<param name="AssociatedDeviceIPAddress" rw="0" type="s64" get_func="cpe_get_wlan_associateddeviceipaddress" />
+										<param name="AssociatedDeviceAuthenticationState" rw="bool" type="uint" get_func="cpe_get_wlan_sssociateddeviceauthenticationstate" />
+										<param name="LastRequestedUnicastCipher" rw="0" type="s256" get_func="cpe_get_wlan_lastrequestedunicastcipher" />
+										<param name="LastRequestedMulticastCipher" rw="0" type="s256" get_func="cpe_get_wlan_lastrequestedmulticastcipher" />
+										<param name="LastPMKId" rw="0" type="s256" get_func="cpe_get_wlan_lastpmkid" />
+										<param name="LastDataTransmitRate" rw="0" type="s16" get_func="cpe_get_wlan_lastdatatransmitrate" />
+									</object>
+								</object>
+						</object>
+					</object>
+			</object>
+			<object name="Layer2Bridging" refresh_func="" >
+				<param name="BridgeNumberOfEntries" get_func=""/>
+				<param name="FilterNumberOfEntries" get_func=""/>
+				<param name="MarkingNumberOfEntries" get_func=""/>
+				<param name="AvailableInterfaceNumberOfEntries" get_func="cpe_get_availableInterfacenumberOfEntries" />
+				<object name="Bridge" refresh_func="cpe_refresh_Bridge" del_func="cpe_del_func" rw="1" add_func="cpe_add_func">
+					<object name="1" del_func="cpe_del_func" rw="1" add_func="cpe_add_func">
+						<object name="Port" del_func="cpe_del_func" rw="1" add_func="cpe_add_func">
+							<object name="1">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="2">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="3">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="4">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="5">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="6">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="7">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+							<object name="8">
+								<param name="PortEnable" rw="1" type="s" get_func="cpe_get_wan_bound_brstr" set_func="cpe_set_wan_bound_brstr"/>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object name="IPPingDiagnostics" refresh_func="">
+				<param name="DiagnosticsState" rw="1" type="s" get_func="cpe_get_igd_ms_diagnosticsstate" set_func="cpe_set_igd_ms_diagnosticsstate"/>
+				<param name="Interface" rw="1" type="s256" get_func="cpe_get_igd_ms_interface" set_func="cpe_set_igd_ms_interface"/>
+				<param name="Host" rw="1" type="s256" get_func="cpe_get_igd_ms_host" set_func="cpe_set_igd_ms_host"/>
+				<param name="NumberOfRepetitions" rw="1" type="uint" get_func="cpe_get_igd_ms_numberOfrepetitions" set_func="cpe_set_igd_ms_numberOfrepetitions"/>
+				<param name="Timeout" rw="1" type="uint" get_func="cpe_get_igd_ms_timeout" set_func="cpe_set_igd_ms_timeout"/>
+				<param name="DataBlockSize" type="uint" rw="1" get_func="cpe_get_igd_ms_datablockSize" set_func="cpe_set_igd_ms_datablockSize"/>
+				<param name="DSCP" rw="1"  type="uint" get_func="cpe_get_igd_ms_dscp" set_func="cpe_set_igd_ms_dscp"/>
+				<param name="SuccessCount" rw="0" type="uint" get_func="cpe_get_igd_ms_successcount" set_func="cpe_set_igd_ms_successcount"/>
+				<param name="FailureCount" rw="0" type="uint" get_func="cpe_get_igd_ms_failurecount" set_func="cpe_set_igd_ms_failurecount"/>
+				<param name="AverageResponseTime" rw="0"  type="uint" get_func="cpe_get_igd_ms_averageresponsetime" set_func="cpe_set_igd_ms_averageresponsetime"/>
+				<param name="MinimumResponseTime" rw="0" type="uint" get_func="cpe_get_igd_ms_minimumresponsetime" set_func="cpe_set_igd_ms_minimumresponsetime"/>
+				<param name="MaximumResponseTime" rw="0" type="uint" get_func="cpe_get_igd_ms_maximumresponsetime" set_func="cpe_set_igd_ms_maximumresponsetime"/>
+			</object>
+			<object name="UploadDiagnostics" refresh_func="">
+				<param name="DiagnosticsState" rw="1" type="s" get_func="cpe_get_iplaod_diagnosticsstate" set_func="cpe_set_iplaod_diagnosticsstate"/>
+				<param name="Interface" rw="1" type="s256" get_func="cpe_get_iplaod_interface" set_func="cpe_set_iplaod_interface"/>
+				<param name="UploadURL" rw="1" type="s256" get_func="cpe_get_iplaod_uploadurl" set_func="cpe_set_iplaod_uploadurl"/>
+				<param name="DSCP" rw="1" type="uint" get_func="cpe_get_iplaod_dscp" set_func="cpe_set_iplaod_dscp"/>
+				<param name="EthernetPriority" rw="1" type="uint" get_func="cpe_get_iplaod_ethernetpriority" set_func="cpe_set_iplaod_ethernetpriority"/>
+				<param name="TestFileLength" type="uint" rw="1" get_func="cpe_get_iplaod_testfilelength" set_func="cpe_set_iplaod_testfilelength"/>
+				<param name="ROMTime" rw="0"  type="dt" get_func="cpe_get_iplaod_romtime" set_func="cpe_set_iplaod_romtime"/>
+				<param name="BOMTime" rw="0" type="dt" get_func="cpe_get_iplaod_bomtime" set_func="cpe_set_iplaod_bomtime"/>
+				<param name="EOMTime" rw="0" type="dt" get_func="cpe_get_iplaod_eomtime" set_func="cpe_set_iplaod_eomtime"/>
+				<param name="TotalBytesSent" rw="0"  type="uint" get_func="cpe_get_iplaod_totalbytessent" set_func="cpe_set_iplaod_totalbytessent"/>
+				<param name="TCPOpenRequestTime" rw="0" type="dt" get_func="cpe_get_iplaod_tcpopenrequesttime" set_func="cpe_set_iplaod_tcpopenrequesttime"/>
+				<param name="TCPOpenResponseTime" rw="0" type="dt" get_func="cpe_get_iplaod_tcpopenResponsetime" set_func="cpe_set_iplaod_tcpopenResponsetime"/>
+			</object>
+			<object name="DownloadDiagnostics" refresh_func="">
+				<param name="DiagnosticsState" rw="1" type="s" get_func="cpe_get_download_diagnosticsstate" set_func="cpe_set_download_diagnosticsstate"/>
+				<param name="Interface" rw="1" type="s256" get_func="cpe_get_download_interface" set_func="cpe_set_download_interface"/>
+				<param name="DownloadURL" rw="1" type="s256" get_func="cpe_get_download_uploadurl" set_func="cpe_set_download_uploadurl"/>
+				<param name="DSCP" rw="1" type="uint" get_func="cpe_get_download_dscp" set_func="cpe_set_download_dscp"/>
+				<param name="EthernetPriority" rw="1" type="uint" get_func="cpe_get_download_ethernetpriority" set_func="cpe_set_download_ethernetpriority"/>
+				<param name="ROMTime" rw="0"  type="dt" get_func="cpe_get_download_romtime" set_func="cpe_set_download_romtime"/>
+				<param name="BOMTime" rw="0" type="dt" get_func="cpe_get_download_bomtime" set_func="cpe_set_download_bomtime"/>
+				<param name="EOMTime" rw="0" type="dt" get_func="cpe_get_download_eomtime" set_func="cpe_set_download_eomtime"/>
+				<param name="TestBytesReceived" rw="0"  type="uint" get_func="cpe_get_download_testbytesreceived" set_func="cpe_set_download_testbytesreceived"/>
+				<param name="TotalBytesReceived" rw="0"  type="uint" get_func="cpe_get_download_totalbytesreceived" set_func="cpe_set_download_totalbytesreceived"/>
+				<param name="TCPOpenRequestTime" rw="0" type="dt" get_func="cpe_get_download_tcpopenrequesttime" set_func="cpe_set_download_tcpopenrequesttime"/>
+				<param name="TCPOpenResponseTime" rw="0" type="dt" get_func="cpe_get_download_tcpopenResponsetime" set_func="cpe_set_download_tcpopenResponsetime"/>
+			</object>
+			<object name="TraceRouteDiagnostics" refresh_func="">
+					<param name="DiagnosticsState" rw="1" type="s" get_func="cpe_get_traceroute_state" set_func="cpe_set_traceroute_state"/>
+					<param name="Interface" rw="1" type="s256" get_func="cpe_get_traceroute_interface" set_func="cpe_set_traceroute_interface" />
+					<param name="Host" rw="1" type="s256" get_func="cpe_get_traceroute_host" set_func="cpe_set_traceroute_host"/>
+					<param name="NumberOfTries" rw="1" type="uint" get_func="cpe_get_traceroute_numberOftries" set_func="cpe_set_traceroute_numberOftries"/>
+					<param name="Timeout" rw="1" type="uint" get_func="cpe_get_traceroute_timeout" set_func="cpe_set_traceroute_timeout"/>
+					<param name="DataBlockSize" rw="1" type="uint" get_func="cpe_get_traceroute_datablocksize" set_func="cpe_set_traceroute_datablocksize"/>
+					<param name="DSCP" rw="1" type="uint" get_func="cpe_get_traceroute_dscp" set_func="cpe_set_traceroute_dscp"/>
+					<param name="MaxHopCount" rw="1" type="uint" get_func="cpe_get_traceroute_maxhopcount" set_func="cpe_set_traceroute_maxhopcount"/>
+					<param name="ResponseTime" rw="0" type="uint" get_func="cpe_get_traceroute_responsetime" />
+					<param name="RouteHopsNumberOfEntries" rw="0" type="uint" get_func="cpe_get_traceroute_routehopsnumberOfentries" />
+					<object name="RouteHops" refresh_func="">
+						<object name="1" refresh_func="">
+							<param name="HopHost" rw="0" type="s256" get_func="cpe_get_traceroute_hophost" />
+							<param name="HopHostAddress" rw="0" type="s" get_func="cpe_get_traceroute_hophostaddress" />
+							<param name="HopErrorCode" rw="0" type="uint" get_func="cpe_get_traceroute_hoperrorcode" />
+							<param name="HopRTTimes" rw="0" type="s256" get_func="cpe_get_traceroute_hoprttimes" />
+						</object>
+					</object>
+			</object>
+			<object name="Capabilities" refresh_func="">
+				<object name="PerformanceDiagnostic" refresh_func="">
+					<param name="DownloadTransports" rw="0" type="s" get_func="cpe_get_siagnostic_downloadtransports"/>
+					<param name="UploadTransports" rw="0" type="s" get_func="cpe_get_siagnostic_uploadtransports" />
+				</object>
+			</object>
+		</object>
+	</model>
+</cwmp>

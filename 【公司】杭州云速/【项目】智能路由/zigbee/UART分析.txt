@@ -1,0 +1,482 @@
+UART
+1、采用FIFO模式
+2、16byte receive buffer
+3、16byte transmit buffer
+4、驱动文件linux-2.6.21.x/drivers/serial/8250.c
+5、16550-compatible register set
+6、tty核心层相关代码/drivers/char/tty_io.c 
+7、tty线路规程相关代码/drivers/char/n_tty.c
+
+########## 启动打印 ###########
+[17179570.776000] Serial: 8250/16550 driver $Revision: 1.9 $ 2 ports, IRQ sharing disabled
+[17179570.780000] serial8250: ttyS0 at I/O 0xb0000500 (irq = 37) is a 16550A
+[17179570.784000] serial8250: ttyS1 at I/O 0xb0000c00 (irq = 12) is a 16550A
+
+###### 驱动要点 ########
+
+1、基于8250UART，模块初始化创建出两个串口设备
+./.config:805:CONFIG_SERIAL_8250_RUNTIME_UARTS=2
+static unsigned int nr_uarts = CONFIG_SERIAL_8250_RUNTIME_UARTS;
+
+#define CONFIG_SERIAL_8250_NR_UARTS 2
+#define UART_NR	CONFIG_SERIAL_8250_NR_UARTS
+
+/* serial 8250模块，串口设备，port结构体*/			
+struct uart_8250_port {
+	struct uart_port	port;
+	struct timer_list	timer;		/* "no irq" timer */
+	struct list_head	list;		/* ports on this IRQ */
+	unsigned short		capabilities;	/* port capabilities */
+	unsigned short		bugs;		/* port bugs */
+	unsigned int		tx_loadsz;	/* transmit fifo load size */
+	unsigned char		acr;
+	unsigned char		ier;
+	unsigned char		lcr;
+	unsigned char		mcr;
+	unsigned char		mcr_mask;	/* mask of user bits */
+	unsigned char		mcr_force;	/* mask of forced bits */
+	unsigned char		lsr_break_flag;
+
+	/*
+	 * We provide a per-port pm hook.
+	 */
+	void			(*pm)(struct uart_port *port,
+				      unsigned int state, unsigned int old);
+};
+
+module_init(serial8250_init);
+	|->static int __init serial8250_init(void)
+		|->serial8250_register_ports(struct uart_driver *drv, struct device *dev)
+			|->static void __init serial8250_isa_init_ports(void)
+
+static int __init serial8250_init(void)
+{
+	int ret, i;
+
+	/* nr_uarts，用户配置串口的port数量
+		UART_NR, serial8250最大port数量
+	*/
+	if (nr_uarts > UART_NR)
+		nr_uarts = UART_NR;
+
+	printk(KERN_INFO "Serial: 8250/16550 driver $Revision: 1.9 $ "
+		"%d ports, IRQ sharing %sabled\n", nr_uarts,
+		share_irqs ? "en" : "dis");
+
+	/* 
+	* 中断锁
+	*/
+	for (i = 0; i < NR_IRQS; i++)
+		spin_lock_init(&irq_lists[i].lock);
+
+	/*
+	*   serial8250_reg表示在tty驱动体系中，tty设备驱动结构体。
+	*	注册8250到tty核心层
+		static struct uart_driver serial8250_reg = {
+		.owner			= THIS_MODULE,
+		.driver_name		= "serial",
+		.dev_name		= "ttyS",
+		.major			= TTY_MAJOR,
+		.minor			= 64,
+		.nr			= UART_NR,
+		.cons			= SERIAL8250_CONSOLE,
+		};
+	*/
+	ret = uart_register_driver(&serial8250_reg);
+	if (ret)
+		goto out;
+
+	serial8250_isa_devs = platform_device_alloc("serial8250",
+						    PLAT8250_DEV_LEGACY);
+	if (!serial8250_isa_devs) {
+		ret = -ENOMEM;
+		goto unreg_uart_drv;
+	}
+
+	ret = platform_device_add(serial8250_isa_devs);
+	if (ret)
+		goto put_dev;
+
+	/* 对tty设备驱动8250的每个port口进行初始化工作  */
+	serial8250_register_ports(&serial8250_reg, &serial8250_isa_devs->dev);
+
+	/*  
+	* serial8250_isa_driver表示在platform驱动体系中，platform设备驱动结构体。
+	* 每个驱动体系中，对设备驱动的要求是不一样的，
+		static struct platform_driver serial8250_isa_driver = {
+			.probe		= serial8250_probe,
+			.remove		= __devexit_p(serial8250_remove),
+			.suspend	= serial8250_suspend,
+			.resume		= serial8250_resume,
+			.driver		= {
+				.name	= "serial8250",
+				.owner	= THIS_MODULE,
+			},
+		};
+	*/
+	ret = platform_driver_register(&serial8250_isa_driver);
+	if (ret == 0)
+		goto out;
+
+	platform_device_del(serial8250_isa_devs);
+ put_dev:
+	platform_device_put(serial8250_isa_devs);
+ unreg_uart_drv:
+	uart_unregister_driver(&serial8250_reg);
+ out:
+	return ret;
+}
+
+			
+/**
+ *	uart_register_driver - register a driver with the uart core layer
+ *	@drv: low level driver structure
+ *
+ *	Register a uart driver with the core driver.  We in turn register
+ *	with the tty layer, and initialise the core driver per-port state.
+ *
+ *	We have a proc file in /proc/tty/driver which is named after the
+ *	normal driver.
+ *
+ *	drv->port should be NULL, and the per-port structures should be
+ *	registered using uart_add_one_port after this call has succeeded.
+ */
+int uart_register_driver(struct uart_driver *drv)
+{
+	struct tty_driver *normal = NULL;
+	int i, retval;
+
+	BUG_ON(drv->state);
+
+	/*
+	 * Maybe we should be using a slab cache for this, especially if
+	 * we have a large number of ports to handle.
+	 * 为tty设备驱动8250的state结构分配空间，drv->nr表示设备port口数量，uart_start表示port口状态
+	 
+	  * This is the state information which is persistent across opens.
+	  * The low level driver must not to touch any elements contained
+	  * within.
+	 struct uart_state {
+		unsigned int		close_delay;		//msec 
+		unsigned int		closing_wait;		//msec 
+
+	#define USF_CLOSING_WAIT_INF	(0)
+	#define USF_CLOSING_WAIT_NONE	(~0U)
+
+		int			count;
+		int			pm_state;
+		struct uart_info	*info;
+		struct uart_port	*port;
+
+		struct mutex		mutex;
+	};
+	 */
+	drv->state = kzalloc(sizeof(struct uart_state) * drv->nr, GFP_KERNEL);
+	retval = -ENOMEM;
+	if (!drv->state)
+		goto out;
+
+	/* 为tty驱动分配内存空间 ，drv-nr表示tty设备驱动具有几个port口*/
+	normal  = alloc_tty_driver(drv->nr);
+	if (!normal)
+		goto out;
+
+	/* tty设备驱动8250 tty_driver指向tty驱动 */
+	drv->tty_driver = normal;
+
+	/* 初始化tty设备驱动相关结构 */
+	normal->owner		= drv->owner;
+	normal->driver_name	= drv->driver_name;
+	normal->name		= drv->dev_name;
+	normal->major		= drv->major;
+	normal->minor_start	= drv->minor;
+	normal->type		= TTY_DRIVER_TYPE_SERIAL;
+	normal->subtype		= SERIAL_TYPE_NORMAL;
+	normal->init_termios	= tty_std_termios;
+	normal->init_termios.c_cflag = B9600 | CS8 | CREAD | HUPCL | CLOCAL;
+	normal->init_termios.c_ispeed = normal->init_termios.c_ospeed = 9600;
+	normal->flags		= TTY_DRIVER_REAL_RAW | TTY_DRIVER_DYNAMIC_DEV;
+	/* 将tty设备驱动核心数据结构放在tty_driver的driver_state下 */
+	normal->driver_state    = drv;
+	
+	/*
+	 * This structure describes all the operations that can be
+	 * done on the physical hardware.
+	struct uart_ops {
+		unsigned int	(*tx_empty)(struct uart_port *);
+		void		(*set_mctrl)(struct uart_port *, unsigned int mctrl);
+		unsigned int	(*get_mctrl)(struct uart_port *);
+		void		(*stop_tx)(struct uart_port *);
+		void		(*start_tx)(struct uart_port *);
+		void		(*send_xchar)(struct uart_port *, char ch);
+		void		(*stop_rx)(struct uart_port *);
+		void		(*enable_ms)(struct uart_port *);
+		void		(*break_ctl)(struct uart_port *, int ctl);
+		int		(*startup)(struct uart_port *);
+		void		(*shutdown)(struct uart_port *);
+		void		(*set_termios)(struct uart_port *, struct ktermios *new,
+						   struct ktermios *old);
+		void		(*pm)(struct uart_port *, unsigned int state,
+					  unsigned int oldstate);
+		int		(*set_wake)(struct uart_port *, unsigned int state);
+
+		
+		* Return a string describing the type of the port
+		const char *(*type)(struct uart_port *);
+
+		
+		* Release IO and memory resources used by the port.
+		* This includes iounmap if necessary.
+		void		(*release_port)(struct uart_port *);
+
+		
+		* Request IO and memory resources used by the port.
+		* This includes iomapping the port if necessary.
+		int		(*request_port)(struct uart_port *);
+		void		(*config_port)(struct uart_port *, int);
+		int		(*verify_port)(struct uart_port *, struct serial_struct *);
+		int		(*ioctl)(struct uart_port *, unsigned int, unsigned long);
+	};
+	
+	tty驱动可以完成硬件操作
+	static const struct tty_operations uart_ops = {
+		.open		= uart_open,
+		.close		= uart_close,
+		.write		= uart_write,
+		.put_char	= uart_put_char,
+		.flush_chars	= uart_flush_chars,
+		.write_room	= uart_write_room,
+		.chars_in_buffer= uart_chars_in_buffer,
+		.flush_buffer	= uart_flush_buffer,
+		.ioctl		= uart_ioctl,
+		.throttle	= uart_throttle,
+		.unthrottle	= uart_unthrottle,
+		.send_xchar	= uart_send_xchar,
+		.set_termios	= uart_set_termios,
+		.stop		= uart_stop,
+		.start		= uart_start,
+		.hangup		= uart_hangup,
+		.break_ctl	= uart_break_ctl,
+		.wait_until_sent= uart_wait_until_sent,
+	#ifdef CONFIG_PROC_FS
+		.read_proc	= uart_read_proc,
+	#endif
+		.tiocmget	= uart_tiocmget,
+		.tiocmset	= uart_tiocmset,
+	};
+	*/
+	tty_set_operations(normal, &uart_ops);
+
+	/*
+	 * Initialise the UART state(s).
+	 */
+	for (i = 0; i < drv->nr; i++) {
+		struct uart_state *state = drv->state + i;
+
+		state->close_delay     = 500;	/* .5 seconds */
+		state->closing_wait    = 30000;	/* 30 seconds */
+
+		mutex_init(&state->mutex);
+	}
+
+	/* tty核心将自己的tty驱动注册上 */
+	retval = tty_register_driver(normal);
+ out:
+	if (retval < 0) {
+		put_tty_driver(normal);
+		kfree(drv->state);
+	}
+	return retval;
+}
+
+/*
+ * Called by a tty driver to register itself.
+ */
+int tty_register_driver(struct tty_driver *driver)
+{
+	int error;
+        int i;
+	dev_t dev;
+	void **p = NULL;
+
+	if (driver->flags & TTY_DRIVER_INSTALLED)
+		return 0;
+
+	if (!(driver->flags & TTY_DRIVER_DEVPTS_MEM)) {
+		p = kmalloc(driver->num * 3 * sizeof(void *), GFP_KERNEL);
+		if (!p)
+			return -ENOMEM;
+		memset(p, 0, driver->num * 3 * sizeof(void *));
+	}
+
+	if (!driver->major) {
+		error = alloc_chrdev_region(&dev, driver->minor_start, driver->num,
+						driver->name);
+		if (!error) {
+			driver->major = MAJOR(dev);
+			driver->minor_start = MINOR(dev);
+		}
+	} else {
+		dev = MKDEV(driver->major, driver->minor_start);
+		error = register_chrdev_region(dev, driver->num, driver->name);
+	}
+	if (error < 0) {
+		kfree(p);
+		return error;
+	}
+
+	if (p) {
+		driver->ttys = (struct tty_struct **)p;
+		driver->termios = (struct ktermios **)(p + driver->num);
+		driver->termios_locked = (struct ktermios **)(p + driver->num * 2);
+	} else {
+		driver->ttys = NULL;
+		driver->termios = NULL;
+		driver->termios_locked = NULL;
+	}
+	
+	/*
+		tty_fops展现的是最外层的用户接口，用户对文件进行open、read、wirte操作均在此处实现。
+		读写操作通过tty线路规程完成，相关代码在/drivers/char/n_tty.c。
+		static const struct file_operations tty_fops = {
+			.llseek		= no_llseek,
+			.read		= tty_read,
+			.write		= tty_write,
+			.poll		= tty_poll,
+			.ioctl		= tty_ioctl,
+			.open		= tty_open,
+			.release	= tty_release,
+			.fasync		= tty_fasync,
+		};
+	*/
+	cdev_init(&driver->cdev, &tty_fops);
+	driver->cdev.owner = driver->owner;
+	error = cdev_add(&driver->cdev, dev, driver->num);
+	if (error) {
+		unregister_chrdev_region(dev, driver->num);
+		driver->ttys = NULL;
+		driver->termios = driver->termios_locked = NULL;
+		kfree(p);
+		return error;
+	}
+
+	if (!driver->put_char)
+		driver->put_char = tty_default_put_char;
+	
+	/* tty_drivers为全局tty驱动列表头，将tty驱动挂载上去 */
+	list_add(&driver->tty_drivers, &tty_drivers);
+	
+	if ( !(driver->flags & TTY_DRIVER_DYNAMIC_DEV) ) {
+		for(i = 0; i < driver->num; i++)
+			/* 使用mkdev，根据port口数量，创建tty设备 */
+		    tty_register_device(driver, i, NULL);
+	}
+	proc_tty_register_driver(driver);
+	return 0;
+}
+			
+
+/*
+*	与tty核心层建立连接有两个时机
+*	1、此函数最后直接调用uart_add_one_port。
+*	2、热插拔的设备，
+*	在platform驱动体系中,调用serial8250_probe->serial8250_register_port->uart_add_one_port.
+*	struct plat_serial8250_port *p = dev->dev.platform_data; dev为platform_device
+*	struct uart_port port为tty核心层port结构体。
+*/			
+static void __init
+serial8250_register_ports(struct uart_driver *drv, struct device *dev)
+{
+	int i;
+
+	serial8250_isa_init_ports();
+
+	for (i = 0; i < nr_uarts; i++) {
+		struct uart_8250_port *up = &serial8250_ports[i];
+
+		up->port.dev = dev;
+		/* */
+		uart_add_one_port(drv, &up->port);
+	}
+}
+
+			
+/*
+*	此函数在8250模块初始化的时候调用，注意port的定义static struct uart_8250_port serial8250_ports[UART_NR];
+* 	serial8250_ports被初始化后，并没有与tty核心层建立连接。
+*/
+static void __init serial8250_isa_init_ports(void)
+{
+	struct uart_8250_port *up;
+	static int first = 1;
+	int i;
+
+	if (!first)
+		return;
+	first = 0;
+
+	for (i = 0; i < nr_uarts; i++) {
+		struct uart_8250_port *up = &serial8250_ports[i];
+
+		up->port.line = i;
+		spin_lock_init(&up->port.lock);
+
+		init_timer(&up->timer);
+		up->timer.function = serial8250_timeout;
+
+		/*
+		 * ALPHA_KLUDGE_MCR needs to be killed.
+		 */
+		up->mcr_mask = ~ALPHA_KLUDGE_MCR;
+		up->mcr_force = ALPHA_KLUDGE_MCR;
+
+		/* 
+		tty设备驱动8250的每个port口的一系列操作函数进行挂载
+		static struct uart_ops serial8250_pops = {
+			.tx_empty	= serial8250_tx_empty,
+			.set_mctrl	= serial8250_set_mctrl,
+			.get_mctrl	= serial8250_get_mctrl,
+			.stop_tx	= serial8250_stop_tx,
+			.start_tx	= serial8250_start_tx,
+			.stop_rx	= serial8250_stop_rx,
+			.enable_ms	= serial8250_enable_ms,
+			.break_ctl	= serial8250_break_ctl,
+			.startup	= serial8250_startup,
+			.shutdown	= serial8250_shutdown,
+			.set_termios	= serial8250_set_termios,
+			.pm		= serial8250_pm,
+			.type		= serial8250_type,
+			.release_port	= serial8250_release_port,
+			.request_port	= serial8250_request_port,
+			.config_port	= serial8250_config_port,
+			.verify_port	= serial8250_verify_port,
+		};
+		*/
+		up->port.ops = &serial8250_pops;
+	}
+
+	/*
+	 *	old_serial_port记录着与芯片相关的port信息，如iomem、irq。
+	 *	记录在include/asm-mips/serial.h文件中。
+		static const struct old_serial_port old_serial_port[] = {
+			SERIAL_PORT_DFNS  //defined in asm/serial.h 
+		};
+	*/
+	for (i = 0, up = serial8250_ports;
+	     i < ARRAY_SIZE(old_serial_port) && i < nr_uarts;
+	     i++, up++) {
+		up->port.iobase   = old_serial_port[i].port;
+		up->port.irq      = irq_canonicalize(old_serial_port[i].irq);
+		up->port.uartclk  = old_serial_port[i].baud_base * 16;
+		up->port.flags    = old_serial_port[i].flags;
+		up->port.hub6     = old_serial_port[i].hub6;
+		up->port.membase  = old_serial_port[i].iomem_base;
+		up->port.iotype   = old_serial_port[i].io_type;
+		up->port.regshift = old_serial_port[i].iomem_reg_shift;
+		if (share_irqs)
+			up->port.flags |= UPF_SHARE_IRQ;
+	}
+}
+
+
+2、基于8250UART，模块初始化创建出两个串口设备

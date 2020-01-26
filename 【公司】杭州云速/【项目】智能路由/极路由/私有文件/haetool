@@ -1,0 +1,451 @@
+#!/bin/sh
+
+DEVELROOT="_"
+
+__realpath_of()
+{
+	( cd "$1" >/dev/null 2>&1 && pwd )
+}
+
+get_develroot_or_exit()
+{
+	DEVELROOT=`uci get appengine.global.develroot`
+	if [ -z "$DEVELROOT" -o ! -d $DEVELROOT/etc ]; then
+		echo "*** '$DEVELROOT' is not a valid AppEngine root directory."
+		exit 15
+	fi
+}
+
+#
+# Scan a single directory in the embedded file system and
+#  symbolic-link to specified directory, check updates of
+#  the source files and do necessary restart to the
+#  corresponding service.
+#
+# $1 - init.d service name
+# $2 - configuration directory in the embedded file system
+# $3 - directory in main file system for linking files to,
+#      an empty string for doing not create symbolic links
+#
+scan_dir_and_do()
+{
+	local __svc="$1"
+	local confdir="$2"
+	local linkdir="$3"
+	local markfile="/var/run/zz-${__svc}_restarted"
+	local need_reload=N
+
+	local srcfile filename dstlink
+
+	# Unlink missing files
+	if [ -n "$linkdir" ]; then
+		mkdir -p "$linkdir"
+		for dstlink in $linkdir/zz-*; do
+			[ -L "$dstlink" ] || continue
+			if [ ! -e "$dstlink" ]; then
+				rm -f "$dstlink"
+				need_reload=Y
+			fi
+		done
+	fi
+
+	# Check modifications of source directory and link new files
+	for srcfile in $confdir/*; do
+		[ -f "$srcfile" ] || continue
+		filename=`basename "$srcfile"`
+		if [ -n "$linkdir" ]; then
+			dstlink="$linkdir/zz-$filename"
+			[ -L "$dstlink" ] || ln -s "$srcfile" "$dstlink"
+		fi
+		[ ! -e "$markfile" -o "$srcfile" -nt "$markfile" ] && need_reload=Y
+	done
+
+	if [ $need_reload = Y ]; then
+		echo "AppEngine: Restarting $__svc ..."
+		/etc/init.d/$__svc stop >/dev/null 2>&1
+		if /etc/init.d/$__svc start; then
+			touch "$markfile"
+			return 0
+		else
+			return 1
+		fi
+	else
+		return 0
+	fi
+}
+
+# $1 - init.d service name
+# $2 - directory in main file system for symbolic links
+stop_dir_and_do()
+{
+	local __svc="$1"
+	local linkdir="$2"
+	local markfile="/var/run/zz-${__svc}_restarted"
+	local need_reload=N
+
+	local dstlink
+	for dstlink in $linkdir/zz-*; do
+		[ -L "$dstlink" ] || continue
+		rm -f "$dstlink"
+		need_reload=Y
+	done
+
+	if [ $need_reload = Y ]; then
+		echo "AppEngine: Restarting $__svc ..."
+		/etc/init.d/$__svc restart
+		touch "$markfile"
+	fi
+}
+
+#
+# Check attached configuration of each service and reload it
+# if any configuration has changed.
+#
+do_config_reload()
+{
+	# List all possible services if none was specified
+	local services=""
+	local app_home=""
+	local __svc
+
+	for __svc in "$@"; do
+		case "$__svc" in
+			--app-home=*)
+				app_home=`expr X"$__svc" : '[^=]*=\(.*\)'`
+				;;
+			*)
+				services="$services$__svc "
+				;;
+		esac
+	done
+	# If no service specified, we assume all to be reloaded
+	if [ -z "$services" ]; then
+		services="kproxy dnsmasq firewall hosts resolvconf"
+	fi
+	if [ -z "$app_home" ]; then
+		echo "*** haetool config-reload: Home directory of App is required."
+		return 1
+	fi
+
+	# Scan configuration files in the embedded file system,
+	# and take them into effect.
+	local app_home_abs=`__realpath_of "$DEVELROOT$app_home"`
+	if [ -z "$app_home_abs" ]; then
+		echo "*** Home directory '$app_home' does not exist."
+		return 1
+	fi
+	# Security check: confirm this directory is under AppEngine root
+	case "$app_home_abs" in
+		"$DEVELROOT/"*) : ;;
+		*) echo "*** Specified directory is out of AppEngine root."; return 1;;
+	esac
+
+	local reconfigure_ok=Y
+	mkdir -p /var/run
+	# Scan each directory and check configuration files
+	for __svc in $services; do
+		case "$__svc" in
+			kproxy)
+				scan_dir_and_do kproxy "$app_home_abs"/etc/kproxy.d /etc/kproxy.d || reconfigure_ok=N
+				;;
+			dnsmasq)
+				scan_dir_and_do dnsmasq "$app_home_abs"/etc/dnsmasq.d /tmp/dnsmasq.d || reconfigure_ok=N
+				;;
+			firewall)
+				scan_dir_and_do firewall "$app_home_abs"/etc/firewall.d /tmp/firewall-ae.d || reconfigure_ok=N
+				;;
+			hosts)
+				scan_dir_and_do dnsmasq "$app_home_abs"/etc/hosts.d /etc/hosts.d || reconfigure_ok=N
+				;;
+			resolvconf)
+				if [ -f /tmp/resolv.conf.auto ]; then
+					cp -f /tmp/resolv.conf.auto "$DEVELROOT"/tmp/
+					chmod 666 "$DEVELROOT"/tmp/resolv.conf.auto
+				fi
+				;;
+			*)
+				echo "*** Undefined service: $__svc"
+				reconfigure_ok=N
+				;;
+		esac
+	done
+
+	if [ $reconfigure_ok = Y ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Disable enclosed configurations
+do_config_stop()
+{
+	# List all possible services if none was specified
+	local services=""
+	local app_home=""
+	local __svc
+
+	for __svc in "$@"; do
+		case "$__svc" in
+			--*) : ;;
+			*) services="$services$__svc ";;
+		esac
+	done
+	# If no service specified, we assume all to be reloaded
+	if [ -z "$services" ]; then
+		services="kproxy dnsmasq firewall hosts"
+	fi
+
+	local __svc
+	for __svc in $services; do
+		case "$__svc" in
+			kproxy) stop_dir_and_do kproxy /etc/kproxy.d;;
+			dnsmasq) stop_dir_and_do dnsmasq /tmp/dnsmasq.d;;
+			firewall) stop_dir_and_do firewall /tmp/firewall.d;;
+			hosts) stop_dir_and_do dnsmasq /etc/hosts.d;;
+			*) echo "*** Undefined service: $__svc";;
+		esac
+	done
+}
+
+# Mount a device or a directory of main filesystem to a directory in AppEngine
+# $1: source device or directory
+# $2: destination directory
+# $3: filesystem type (optional)
+do_request_mount()
+{
+	local srcpath="$1"
+	local dstpath_rel="$2"
+
+	if [ -z "$dstpath_rel" ]; then
+		echo "*** Invalid destination mount point '$dstpath_rel'."
+		return 1
+	fi
+	local dstpath_abs=`__realpath_of "$DEVELROOT$dstpath_rel"`
+	if [ -z "$dstpath_abs" ]; then
+		echo "*** Destination mount point '$dstpath_rel' does not exist."
+		return 1
+	fi
+	# Security check: confirm this directory is under AppEngine root
+	case "$dstpath_abs" in
+		"$DEVELROOT/"*) : ;;
+		*) echo "*** Destination directory is out of AppEngine root."; return 1;;
+	esac
+
+	case "$srcpath" in
+		/tmp/data/xunlei) : ;;
+		*) echo "*** Request to '$srcpath' is forbidden."; return 1;;
+	esac
+
+	mkdir -p "$srcpath"
+	while umount "$dstpath_abs" 2>/dev/null; do :; done
+	mount --bind "$srcpath" "$dstpath_abs"
+}
+
+# Unmount a location in AppEngine filesystem
+do_request_umount()
+{
+	local dstpath_rel="$1"
+
+	if [ -z "$dstpath_rel" ]; then
+		echo "*** Invalid destination mount point '$dstpath_rel'."
+		return 1
+	fi
+	local dstpath_abs=`__realpath_of "$DEVELROOT$dstpath_rel"`
+	if [ -z "$dstpath_abs" ]; then
+		echo "*** Destination mount point '$dstpath_rel' does not exist."
+		return 1
+	fi
+	# Security check: confirm this directory is under AppEngine root
+	case "$dstpath_abs" in
+		"$DEVELROOT/"*) : ;;
+		*) echo "*** Destination directory is out of AppEngine root.";;
+	esac
+
+	umount "$dstpath_abs"
+	while umount "$dstpath_abs" 2>/dev/null; do :; done
+	return 0
+}
+
+# Generate App entry script at /etc/market/<appname>.script
+# $1: App name
+generate_hae_script_regular()
+{
+	local appname="$1"
+	cat > /etc/market/"$appname".script <<EOF
+#!/bin/sh
+MARKET_NAME='$appname'
+. /etc/appengine/script-regular.common
+EOF
+}
+
+generate_hae_script_super()
+{
+	local appname="$1"
+	cat > /etc/market/"$appname".script <<EOF
+#!/bin/sh
+MARKET_NAME='$appname'
+. /etc/appengine/script-super.common
+EOF
+}
+
+do_postinst_dir()
+{
+	local appname="$1"
+	local appconf_rel_dir="$2"
+
+	if [ -z "$appname" -o -z "$appconf_rel_dir" ]; then
+		echo "*** You must specify both App name and App content directory."
+		return 14
+	fi
+
+	local appconf_abs_dir=$DEVELROOT$appconf_rel_dir
+
+	# 'chroot' to install
+	if chroot $DEVELROOT haecli postinst "$appname" "$appconf_rel_dir"; then
+		:
+	else
+		return $?
+	fi
+
+	# Copy files to /etc/market
+	if [ "$APPENGINE_MODE" = 2 ]; then
+		generate_hae_script_super "$appname"
+	else
+		generate_hae_script_regular "$appname"
+	fi
+	cp $appconf_abs_dir/app.json /etc/market/"$appname".info 2>/dev/null
+
+	return 0
+}
+
+do_install_app()
+{
+	local appname="$1"
+	local appprog_tarball="$2"
+	local appconf_tarball="$3"
+
+	if [ ! -f "$appprog_tarball" ]; then
+		echo "*** Installer tarball '$appprog_tarball' not found."
+		return 16
+	fi
+	if [ -n "$appconf_tarball" -a ! -f "$appconf_tarball" ]; then
+		echo "*** Configuration tarball '$appconf_tarball' not found."
+		return 16
+	fi
+
+	echo "Installing HAE App '$appname' ..."
+
+	# The directory relative to App Engine root
+	local appconf_rel_dir="/cloud/$appname."`date +%s`
+	local appconf_abs_dir="$DEVELROOT$appconf_rel_dir"
+
+	mkdir -p "$appconf_abs_dir"
+	tar zxf "$appprog_tarball" -C "$appconf_abs_dir"
+	[ -n "$appconf_tarball" ] && tar zxf "$appconf_tarball" -C "$appconf_abs_dir"
+
+	# 'chroot' to perform 'install'
+	chroot $DEVELROOT haecli postinst "$appname" "$appconf_rel_dir" || {
+		local __rc=$?
+		rm -rf "$appconf_abs_dir"
+		return $__rc
+	}
+
+	# Copy files to /etc/market
+	if [ "$APPENGINE_MODE" = 2 ]; then
+		generate_hae_script_super "$appname"
+	else
+		generate_hae_script_regular "$appname"
+	fi
+	cp $appconf_abs_dir/app.json /etc/market/"$appname".info 2>/dev/null
+
+	rm -rf "$appconf_abs_dir"
+	return 0
+}
+
+do_reconfigure_app()
+{
+	local appname="$1"
+	local appconf_tarball="$2"
+
+	if [ ! -f "$appconf_tarball" ]; then
+		echo "*** Configuration tarball '$appconf_tarball' not found."
+		return 16
+	fi
+
+	echo "Reconfiguring HAE App '$appname' ..."
+
+	# The directory relative to App Engine root
+	local appconf_rel_dir="/cloud/$appname."`date +%s`
+	local appconf_abs_dir="$DEVELROOT$appconf_rel_dir"
+
+	mkdir -p "$appconf_abs_dir"
+	tar zxf "$appconf_tarball" -C "$appconf_abs_dir"
+
+	# 'chroot' to perform 'reconfigure'
+	chroot $DEVELROOT haecli reconfigure "$appname" "$appconf_rel_dir" || {
+		local __rc=$?
+		rm -rf "$appconf_abs_dir"
+		return $__rc
+	}
+
+	rm -rf "$appconf_abs_dir"
+	return 0
+}
+
+do_uninstall_app()
+{
+	local appname="$1"
+	echo "Uninstalling HAE App '$appname' ..."
+	chroot $DEVELROOT haecli uninstall "$appname"
+}
+
+#
+action="$1"
+shift 1
+
+case "$action" in
+	config-reload)
+		get_develroot_or_exit
+		do_config_reload "$@"
+		;;
+	config-stop)
+		do_config_stop "$@"
+		;;
+	request-mount)
+		get_develroot_or_exit
+		do_request_mount "$@"
+		;;
+	request-umount|request-unmount)
+		get_develroot_or_exit
+		do_request_umount "$@"
+		;;
+	postinst)       # Old AppEngine mode
+		get_develroot_or_exit
+		do_postinst_dir "$@"
+		;;
+	install)        # New AppEngine mode
+		get_develroot_or_exit
+		do_install_app "$@"
+		;;
+	uninstall)      # New AppEngine mode
+		get_develroot_or_exit
+		do_uninstall_app "$@"
+		;;
+	reconfigure)    # New AppEngine mode
+		get_develroot_or_exit
+		do_reconfigure_app "$@"
+		;;
+	*)
+		cat <<EOF
+HiWiFi App Engine toolkit script.
+Usage:"
+ $0 config-reload|config-attach|config-detach ...
+ $0 request-mount|request-umount ...
+ $0 postinst <appname> <chroot_app_dir>
+ $0 install <appname> <appprog_tarball> [appconf_tarball]
+ $0 uninstall <appname>
+ $0 reconfigure <appname> <appconf_tarball>
+EOF
+		;;
+esac

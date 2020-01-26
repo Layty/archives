@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>广告过滤</title>
+	<script type='text/javascript' src='jqscripts'></script>
+		<style type='text/css'>
+			*{
+				margin:0 0;
+				padding:0 0;
+				font-family:'微软雅黑';
+			}
+
+			a{
+				text-decoration:none;
+			}
+			
+			ul{
+				list-style-type: none;
+			}
+
+			body{
+				background:#ededed;
+			}
+
+			.nav{
+				height:63px;
+				background:url('comimg?path=title_box.jpg') repeat-x center;
+			}
+
+			.common {
+				width: 940px;
+				margin: 0 auto;
+			}
+
+			.nav .nav_head .logo{
+				display: block;
+				float: left;
+				margin-top: 15px;
+				width: 105px;
+				height: 30px;
+				background: url('comimg?path=logo.png') no-repeat center;
+			}
+
+			.navigation {
+				width: 940px;
+				height: 54px;
+				margin: 54px auto;
+				background: url('comimg?path=fast_box.png') no-repeat center;
+			}
+
+			.navigation .navigation_title {
+				color: #666;
+				padding-top: 15px;
+				padding-left: 17px;
+			}
+
+			.navigation .navigation_title a{
+				color:#666;
+			}
+
+			.demo_content{
+	width:940px;
+	height:450px;
+	background:white;
+	border:1px solid #CCC;
+	margin:0 auto;
+			}
+
+			.demo_content .demo_box{
+				width:380px;
+				height:380px;
+				margin-top:50px;
+			}
+
+			.demo_content .demo_left{
+				float:left;
+				margin-left:100px;
+			}
+
+			.demo_content .demo_right{
+	float:right;
+	margin-right:50px;
+	position: relative;
+			}
+
+			.demo_config{
+	width:370px;
+	color:#666;
+	visibility: hidden;
+			}
+
+			.demo_config ul li{
+				margin-top:20px;
+				width:260px;
+				height: 40px;
+			}
+
+			.demo_left_span{
+	display: block;
+	float:left;
+	width:100px;
+	margin-top:8px;
+			}
+
+			.demo_right_input{
+	display: block;
+	float: right;
+	width:150px;
+	height:25px;
+	margin-top: 5px;
+			}
+
+			.demo_btn{
+				display: block;
+				width:66px;
+				height:26px;
+				background: url('customimg?path=ADBlock/html/button1.png');
+				text-align: center;
+			}
+
+			.demo_btn:hover{
+				background: url('customimg?path=ADBlock/html/button1_click.png');	
+			}
+
+			.demo_btn b{
+				display: block;
+				font-weight: 300;
+				font-size:14px;
+				color:white;
+				padding-top:2px;
+			}
+
+			.demo_save{
+				float: right;
+			}
+			
+			.author{
+	width: 125px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	font-size: 14px;
+	text-align: right;
+	color: #666;
+			}
+			
+			.runstatus{
+	float:right;
+	color: #F00;
+			}
+			
+			.progress{
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+
+			.start_thread,.stop_thread{
+				margin-left:15px;
+				float:left;
+			}
+			
+			.downloadpcapp{
+				position: absolute;
+				left: 10px;
+				top: 150px;
+				margin-left:5px;
+			}
+			
+		</style>
+</head>
+	<body>
+		<div class='nav'>
+			<div class='nav_head common'>
+				<a href='http://r.xcloud.cc' target='_blank' class='logo'></a>
+				<span class='version'></span>
+				<a href='javascript:void(0)' id='getupdate' class='getupdate'><span class='getupdate_def'></span></a>
+				<span class='updatewords'></span>
+			</div>
+		</div>
+
+		<div class="navigation">
+			<div class="navigation_title">
+				<a href="comreturn">主页</a> >> 广告过滤（每5天03:00自动更新adblock-lazy过滤列表）
+		  </div>
+		</div>
+
+		<div class="demo_content">
+			<div class='demo_box demo_left'>
+				<div class='demo_config'>
+					<ul>
+	                    <li><span class='demo_left_span'>自动更新:</span><input type='text' class='demo_right_input config0'></li>
+						<li><span class='demo_left_span'>更新频度:</span><input type='text' class='demo_right_input config1'></li>
+				  <li>
+							<a href='javascript:void(0)' class='demo_btn demo_save'>
+								<b>保存设置</b>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class='demo_box demo_right demo_flag' rel='0'>
+            <div class="runstatus">...</div>
+				<a href='javascript:void(0)' class='demo_btn start_thread'><b>重载列表</b></a>
+				<!--<a href='javascript:void(0)' class='demo_btn stop_thread'><b>停止插件</b></a>-->
+               <div class='author'>
+              ferstar<br/>
+            如意云社区<br/>
+            <a href="http://bbs.xcloud.cc/" target="_blank">bbs.xcloud.cc</a>
+              </div>
+              <div class='progress'><img src="customimg?path=ADBlock/html/progress.gif" width="176" height="220"></div>
+			</div>
+		</div>
+	</body>
+	<script type='text/javascript'>
+		var tmp = null
+		var tmp1 = null
+		
+//		tmp="/usr/local/app Success.\n/usr/local/app 557,1";
+//		tmp1 = tmp.split("\n");
+//		tmp2 = tmp1[tmp1.length-1].split(",");
+//		tmp2 = tmp2[tmp2.length-1];
+//		alert(tmp2);
+//		if(tmp2 == "0")
+//		alert('启动');
+		
+		// get status
+		$.ajax({
+			url:'comcmd',
+			data:{cmd:'/usr/local/app/xipk runstatus 557'},
+			dataType:'json',
+			type:'post',
+			success:function(r){
+				tmp = r.resdata;
+				tmp1 = tmp.split("\n");
+				tmp2 = tmp1[tmp1.length-2].split(",");
+				tmp2 = tmp2[tmp2.length-1];
+				if(tmp2 == "0"){
+					$('.runstatus').text('已启用');
+				}else{
+					$('.runstatus').text('已停止');
+				}
+			}
+		})
+		
+		// load config
+		$.ajax({
+			url:'comcmd',
+			data:{cmd:'/usr/local/app/xipk',data:'getconfig',data1:'557'},
+			dataType:'json',
+			type:'post',
+			success:function(r){
+				//alert(r.resdata);
+				tmp = r.resdata;
+				tmp1= tmp.split("//");
+				for(var i=0;i<tmp1.length;i++){
+					tmp = tmp1[i].split(",")
+					$('.config'+i).val(tmp[1])
+				}
+				$('.progress').hide();
+			}
+		})
+
+		// save config
+		$('.demo_save').live('click',function(){
+			// get val
+			var val0 = $('.config0').val();
+			var val1 = $('.config1').val();
+			// var val2 = $('.config2').val();
+			// var val3 = $('.config3').val();
+			// var val4 = $('.config4').val();
+			$.ajax({
+				url:'comcmd',
+				data:{cmd:'/usr/local/app/xipk setconfig 557 '+'key0='+val0+' key1='+val1},
+				dataType:'json',
+				type:'post',
+				success:function(r){
+					tmp = r.resdata;
+					if(tmp.length == 8)
+						window.location.reload();
+				}
+			})
+		})
+
+		// start thread
+		$('.start_thread').live('click',function(){
+			$.ajax({
+				url:'comcmd',
+				data:{cmd:'/usr/local/app/xipk start 557'},
+				dataType:'json',
+				type:'post',
+				success:function(r){
+					tmp = r.resdata;
+					tmp1 = tmp.split("\n");
+					tmp2 = tmp1[tmp1.length-2];
+					if(tmp2.length == 7)
+						window.location.reload();
+				}
+			})			
+		})
+
+		$('.stop_thread').live('click',function(){
+			$.ajax({
+				url:'comcmd',
+				data:{cmd:'/usr/local/app/xipk stop 557'},
+				dataType:'json',
+				type:'post',
+				success:function(r){
+					tmp = r.resdata;
+					tmp1 = tmp.split("\n");
+					tmp2 = tmp1[tmp1.length-2];
+					if(tmp2.length == 7)
+						window.location.reload();
+				}
+			})			
+		})		
+	</script>
+</html>

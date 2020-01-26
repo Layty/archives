@@ -1,0 +1,18 @@
+################ tf卡插入大卡，在极路由中可检测到卡的存在，输出信息 ############
+(none) login: msdc0 -> MSDC_INT_CDSC irq<0x00000002> <- msdc_irq() : L<2375>
+msdc0 -> card found<inserted> <- msdc_tasklet_card() : L<584>
+msdc0 -> ops_get_cd return<1> <- msdc_ops_get_cd() : L<2313> PID<kworker/u:1><0x17>
+msdc0 -> set mclk to 0!!! <- msdc_set_mclk() : L<630> PID<kworker/u:1><0x17>
+msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<8> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<55> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<55> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<55> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<55> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<1> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> set mclk to 0!!! <- msdc_set_mclk() : L<630> PID<kworker/u:1><0x17>

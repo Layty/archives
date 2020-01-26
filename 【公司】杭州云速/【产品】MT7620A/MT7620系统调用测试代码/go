@@ -1,0 +1,4 @@
+export CC=/home/xw/Tools/Toolchain/buildroot-gcc342/bin/mipsel-linux-gcc
+export CFLAGS=-L/home/xw/Tools/Toolchain/buildroot-gcc342/include
+export LDFLAGS=-L/home/xw/Tools/Toolchain/buildroot-gcc342/lib
+make

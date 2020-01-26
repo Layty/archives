@@ -1,0 +1,34 @@
+format:
+~ # iwpriv ra0
+ra0       Available private ioctl :
+          set (8BE2) : set 1536 char & get   0     
+          show (8BF1) : set 1024 char & get   0     
+          get_site_survey (8BED) : set 1024 char & get 1024 char
+          set_wsc_oob (8BF9) : set 1024 char & get 1024 char
+          get_mac_table (8BEF) : set 1024 char & get 1024 char
+          e2p (8BE7) : set 1024 char & get 1024 char
+          bbp (8BE3) : set 1024 char & get 1024 char
+          mac (8BE5) : set 1024 char & get 1024 char
+          rf (8BF3) : set 1024 char & get 1024 char
+          get_ba_table (8BF6) : set 1024 char & get 1024 char
+          stat (8BE9) : set 1024 char & get 1024 char
+
+
+
+format:
+iwpriv ra show
+
+parameter list:
+driverinfo : show driver version
+stat : show statistics counter
+stainfo : show mac address of associated STAs
+stacountinfo : show TRx byte count of associated STAs
+stasecinfo : show security infomation of associated STAs
+bainfo : show BlockAck Information
+connStatus : show AP-Client connection information
+reptinfo : show MAC Repeater information
+wdsinfo : show WDS link list
+igmpinfo : show all entries in the IGMP Snooping Table
+mbss : show MBSS PHY mode information
+blockch : show DFS blocked channel list
+

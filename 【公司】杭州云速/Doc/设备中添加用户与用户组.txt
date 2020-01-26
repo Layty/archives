@@ -1,0 +1,18 @@
+在设备中涉及到用户与用户组文件有两个
+/etc/group		配置用户组
+/etc/password	配置用户
+
+比如添加mini用户到设备，过程如下
+1、
+echo mini:x:10:mini >> /etc/group
+$ cat group 
+admin:x:0:admin
+mini:x:10:mini
+
+2、
+echo mini::10:10:Adminstrator:/:/bin/sh >> /etc/passwd
+$ cat passwd
+admin:Set3SOP4xSiUk:0:0:Adminstrator:/:/bin/sh
+mini::10:10:Adminstrator:/:/bin/sh
+
+3、使用telnet，可用mini登录到设备

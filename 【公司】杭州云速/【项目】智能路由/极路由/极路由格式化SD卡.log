@@ -1,0 +1,2968 @@
+root@Hiwifi:~# while true;do date; ps; sleep 1;done
+Wed Jul 22 11:40:01 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18060 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8356 root         0 SW<  [kdmflush]
+ 8357 root         0 SW<  [kcryptd_io]
+ 8358 root         0 SW<  [kcryptd]
+ 8368 root         0 SW<  [ext4-dio-unwrit]
+ 8369 root         0 SW   [ext4lazyinit]
+ 8391 root         0 SW<  [ext4-dio-unwrit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8733 root         0 SW   [flush-253:0]
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 8953 root         0 Z    [sh]
+ 8960 root      1668 R    ps
+Wed Jul 22 11:40:02 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18060 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8356 root         0 SW<  [kdmflush]
+ 8357 root         0 SW<  [kcryptd_io]
+ 8358 root         0 SW<  [kcryptd]
+ 8368 root         0 SW<  [ext4-dio-unwrit]
+ 8369 root         0 SW   [ext4lazyinit]
+ 8391 root         0 SW<  [ext4-dio-unwrit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8733 root         0 SW   [flush-253:0]
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 8962 root         0 Z    [sh]
+ 9017 root      1668 R    ps
+Wed Jul 22 11:40:03 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18060 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8356 root         0 SW<  [kdmflush]
+ 8357 root         0 SW<  [kcryptd_io]
+ 8358 root         0 SW<  [kcryptd]
+ 8368 root         0 SW<  [ext4-dio-unwrit]
+ 8369 root         0 SW   [ext4lazyinit]
+ 8391 root         0 SW<  [ext4-dio-unwrit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8733 root         0 SW   [flush-253:0]
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 9019 root         0 Z    [sh]
+ 9057 root         0 Z    [pkill]
+ 9059 root      1668 R    ps
+Wed Jul 22 11:40:04 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18060 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8356 root         0 SW<  [kdmflush]
+ 8357 root         0 SW<  [kcryptd_io]
+ 8358 root         0 SW<  [kcryptd]
+ 8368 root         0 SW<  [ext4-dio-unwrit]
+ 8369 root         0 SW   [ext4lazyinit]
+ 8391 root         0 SW<  [ext4-dio-unwrit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8733 root         0 SW   [flush-253:0]
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 9062 root      1668 R    ps
+Wed Jul 22 11:40:05 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 DW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18068 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8356 root         0 SW<  [kdmflush]
+ 8357 root         0 SW<  [kcryptd_io]
+ 8358 root         0 SW<  [kcryptd]
+ 8368 root         0 SW<  [ext4-dio-unwrit]
+ 8369 root         0 SW   [ext4lazyinit]
+ 8391 root         0 SW<  [ext4-dio-unwrit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8733 root         0 SW   [flush-253:0]
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9092 root      1668 R    ps
+ 9095 root       804 R    fuser -m -k /tmp/storage/mmcblk0p2
+Wed Jul 22 11:40:07 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 DW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18068 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8369 root         0 SW   [ext4lazyinit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9109 root      1668 R    ps
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9113 root      1704 S    {hotplug-call} /bin/sh /sbin/hotplug-call block
+ 9114 root      1696 D    dd if /dev/zero of /dev/mmcblk0 bs 32k count 4
+ 9118 root      1704 R    {hotplug-call} /bin/sh /sbin/hotplug-call block
+Wed Jul 22 11:40:08 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18068 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8369 root         0 SW   [ext4lazyinit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9170 root      1668 S    fdisk -u /dev/mmcblk0
+ 9172 root      1668 R    ps
+Wed Jul 22 11:40:09 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2108 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18068 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8369 root         0 SW   [ext4lazyinit]
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 8952 root      1660 S    sleep 10
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9178 root      1660 S    sleep 1
+ 9222 root      1668 R    ps
+ 9223 root      1704 S    {hotplug-call} /bin/sh /sbin/hotplug-call block
+Wed Jul 22 11:40:10 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18080 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9305 root      1660 S    yes YES
+ 9306 root      1828 R <  cryptsetup luksFormat /dev/mmcblk0p1 -c aes-cbc-plai
+ 9308 root      1668 R    ps
+ 9309 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 9310 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 9311 root      1660 R    ls -l /etc/downloader/dep/
+ 9312 root      1660 S    wc -l
+ 9313 root      2080 R    /usr/bin/fcgi-cgi -c 2
+Wed Jul 22 11:40:13 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 R    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18080 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6244 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9305 root      1660 S    yes YES
+ 9306 root      2076 D <  cryptsetup luksFormat /dev/mmcblk0p1 -c aes-cbc-plai
+ 9313 root      3944 S    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9316 root      1660 S    sleep 10
+ 9321 root      1668 R    ps
+ 9322 root      1672 S    sh -c cat /proc/mtd | grep bdinfo | awk -F: '{printf
+ 9325 root         0 RW   [awk]
+ 9326 root      1684 R    {hotplug-call} /bin/sh /sbin/hotplug-call block
+Wed Jul 22 11:40:14 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18080 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6252 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9313 root      4244 R    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9316 root      1660 S    sleep 10
+ 9326 root      1704 S    {hotplug-call} /bin/sh /sbin/hotplug-call block
+ 9331 root      2076 D <  cryptsetup luksOpen /dev/mmcblk0p1 cryptdata -d /tmp
+ 9334 root      3356 R    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9352 root      1668 R    ps
+ 9353 root         0 SW<  [kdmflush]
+ 9354 root         0 SW<  [kcryptd_io]
+ 9355 root         0 SW<  [kcryptd]
+ 9357 root      1704 R    [hotplug-call]
+Wed Jul 22 11:40:15 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 RW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18080 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 R    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9366 root      1732 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mapper/c
+ 9436 root      1668 R    ps
+ 9437 root         8 R    [fcgi-cgi]
+Wed Jul 22 11:40:16 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18080 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9366 root      1732 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mapper/c
+ 9556 root      1668 R    ps
+ 9557 root      1672 R    {hotplug-call} /bin/sh /sbin/hotplug-call block
+Wed Jul 22 11:40:17 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 DW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18088 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9366 root      1732 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mapper/c
+ 9610 root      1668 R    ps
+Wed Jul 22 11:40:18 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 RW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4456 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18088 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1744 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9615 root      1668 R    ps
+Wed Jul 22 11:40:19 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 RW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18088 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1744 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9617 root      4420 R    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9625 root      1668 R    ps
+Wed Jul 22 11:40:21 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 RW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18088 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1744 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9628 root      1668 R    ps
+Wed Jul 22 11:40:22 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 RW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18092 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1744 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9638 root      1668 R    ps
+Wed Jul 22 11:40:23 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18100 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1760 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9645 root      1660 S    sleep 10
+ 9647 root      1668 R    ps
+Wed Jul 22 11:40:24 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 DW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18100 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1760 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9645 root      1660 S    sleep 10
+ 9657 root      1668 R    ps
+Wed Jul 22 11:40:25 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18100 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9680 root      2076 D <  cryptsetup luksOpen /dev/mmcblk0p1 cryptdata -d /tmp
+ 9699 root      1668 R    ps
+Wed Jul 22 11:40:26 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18116 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8573 root      5532 S    nginx: master process /usr/sbin/nginx
+ 8575 nobody    6256 S    nginx: worker process
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 DW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9798 root      1668 R    ps
+ 9807 root      1724 S    {20-nginx} /bin/sh /etc/rc.common /etc/hotplug.d/blo
+ 9810 root      1704 S    {hotplug-call} /bin/sh /sbin/hotplug-call block
+Wed Jul 22 11:40:28 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2112 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18032 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8837 root      3120 S    /usr/sbin/smbd -D
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+ 9968 root      4196 R    lua /etc/cron/360/plums_report_installed_plugins
+ 9970 root      1736 S    {filetransit} /bin/sh /etc/rc.common /etc/hotplug.d/
+ 9975 root      1668 R    ps
+ 9981 root       628 R    ls /sys/fs/cgroup
+Wed Jul 22 11:40:29 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18032 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8839 root      3216 S    /usr/sbin/nmbd -D
+ 9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+ 9968 root         0 Z    [lua]
+ 9970 root      1736 S    {filetransit} /bin/sh /etc/rc.common /etc/hotplug.d/
+ 9987 root      1732 S    {samba} /bin/sh /etc/rc.common /etc/init.d/samba sto
+10003 root      1660 S    sleep 1
+10006 root      1668 R    ps
+Wed Jul 22 11:40:30 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18032 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 8839 root         0 Z    [nmbd]
+ 9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+ 9970 root      1740 S    {filetransit} /bin/sh /etc/rc.common /etc/hotplug.d/
+10029 root         0 SW   [flush-253:0]
+10046 root      1732 S    {samba} /bin/sh /etc/rc.common /etc/init.d/samba sta
+10073 root      1780 R    {samba} /bin/sh /etc/rc.common /etc/init.d/samba sta
+10081 root      1668 R    ps
+Wed Jul 22 11:40:31 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18032 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10117 root      1724 S    {mobile} /bin/sh /etc/rc.common /etc/hotplug.d/block
+10137 root      1732 S    {samba} /bin/sh /etc/rc.common /etc/init.d/samba res
+10149 root      1780 R    {samba} /bin/sh /etc/rc.common /etc/init.d/samba res
+10157 root      1668 R    ps
+Wed Jul 22 11:40:32 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18040 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9071 root      1080 S    storaged -d
+ 9072 root         0 Z    [storaged-call]
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10215 root      1668 R    ps
+Wed Jul 22 11:40:33 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18040 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9071 root      1080 S    storaged -d
+ 9072 root         0 Z    [storaged-call]
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10240 root      1668 R    ps
+Wed Jul 22 11:40:34 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18040 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9071 root      1080 S    storaged -d
+ 9072 root         0 Z    [storaged-call]
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10243 root      1668 R    ps
+Wed Jul 22 11:40:35 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18040 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9071 root         0 Z    [storaged]
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10246 root      1668 R    ps
+Wed Jul 22 11:40:36 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18044 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10249 root      1668 R    ps
+Wed Jul 22 11:40:37 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18044 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10252 root      1668 R    ps
+Wed Jul 22 11:40:38 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18044 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10255 root      1668 R    ps
+Wed Jul 22 11:40:39 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18044 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 RW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10258 root      1668 R    ps
+Wed Jul 22 11:40:40 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18044 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10261 root      1668 R    ps
+Wed Jul 22 11:40:42 CST 2015
+  PID USER       VSZ STAT COMMAND
+    1 root      1668 S    init
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW<  [cpuset]
+    7 root         0 SW<  [khelper]
+   59 root         0 SW   [sync_supers]
+   61 root         0 SW   [bdi-default]
+   63 root         0 SW<  [kblockd]
+   94 root         0 SW   [kswapd0]
+  145 root         0 SW   [fsnotify_mark]
+  205 root         0 SW   [mtdblock0]
+  210 root         0 SW   [mtdblock1]
+  215 root         0 SW   [mtdblock2]
+  220 root         0 SW   [mtdblock3]
+  225 root         0 SW   [mtdblock4]
+  230 root         0 SW   [mtdblock5]
+  235 root         0 SW   [mtdblock6]
+  240 root         0 SW   [mtdblock7]
+  245 root         0 SW   [mtdblock8]
+  250 root         0 SW   [mtdblock9]
+  259 root         0 SW   [kworker/u:2]
+  266 root         0 SW   [kworker/0:1]
+  295 root         0 SW   [mmcqd/0]
+  508 root         0 SWN  [jffs2_gcd_mtd5]
+  537 root      1716 S    {rcS} /bin/sh /etc/init.d/rcS S boot
+  539 root      1668 S    logger -s -p 6 -t sysinit
+  599 root         0 SW<  [crypto]
+  615 root         0 SW   [khubd]
+  784 root      1080 S    storaged -d
+  796 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+  808 root       884 S    /sbin/ubusd
+  884 nobody     792 S    /usr/sbin/atd
+  905 mosquitt  1360 S    /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+  943 root      4460 S    /usr/sbin/wpad -s
+  975 root      1132 S    /usr/bin/hboardd -d -f /etc/hboard.conf
+ 1153 root      1524 S    /sbin/netifd -d 0xffffffff
+ 1417 root         0 SW   [RtmpCmdQTask]
+ 1419 root         0 SW   [RtmpWscTask]
+ 2025 root         0 SW   [kworker/0:2]
+ 2455 root         0 SW   [flush-179:0]
+ 3519 root      1156 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 3627 root      1684 S    /usr/sbin/crond -c /etc/crontabs -l 8
+ 3637 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3653 root       896 S    /usr/bin/logservice /etc/logservice/logservice.conf
+ 3697 nobody    2384 S    /usr/sbin/htpdate -4 -d -l -s -t -T 1433327440 -u no
+ 3854 root      2080 S    /usr/bin/fcgi-cgi -c 2
+ 3957 root      4460 S    /usr/lib/cmagent/cmagent
+ 4294 root      2116 S    lua /usr/sbin/mqtt_wireless_sub.lua
+ 4314 root      1680 S    udhcpc -p /var/run/udhcpc-eth2.2.pid -s /lib/netifd/
+ 4497 root      1168 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf -u root
+ 4627 root       796 S    /usr/sbin/gatekeeper -d -p /var/run/gatekeeper.pid
+ 4709 root      1960 S    /usr/bin/orayapp 18600757915 19870618
+ 4804 root     18044 S    /usr/sbin/rsyslogd -f /etc/rsyslog.conf -i /var/run/
+ 4911 root      1148 S    /usr/sbin/miniupnpd -f /var/etc/miniupnpd.conf
+ 5185 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 5446 root      1248 R    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 102
+ 5447 root      1680 S    -ash
+ 5463 root      1680 S    -ash
+ 7021 root         0 SW   [kworker/0:0]
+ 7420 root         0 SW   [flush-mtd-unmap]
+ 7490 root       772 S    /usr/sbin/haerpd -d
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+10029 root         0 SW   [flush-253:0]
+10189 root      3120 S    /usr/sbin/smbd -D
+10191 root      3216 S    /usr/sbin/nmbd -D
+10213 root      1660 S    sleep 10
+10264 root      1668 R    ps
+
+
+
+
+
+
+
+
+
+1、
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 
+ 2、
+ 
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9305 root      1660 S    yes YES
+ 9306 root      1828 R <  cryptsetup luksFormat /dev/mmcblk0p1 -c aes-cbc-plai
+ 9308 root      1668 R    ps
+ 9309 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 9310 root      1680 S    {etm_monitor} /bin/sh +x /etc/xunlei/lib/etm_monitor
+ 9311 root      1660 R    ls -l /etc/downloader/dep/
+ 9312 root      1660 S    wc -l
+ 9313 root      2080 R    /usr/bin/fcgi-cgi -c 2
+ 
+ 3、
+ 
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9305 root      1660 S    yes YES
+ 9306 root      2076 D <  cryptsetup luksFormat /dev/mmcblk0p1 -c aes-cbc-plai
+ 9313 root      3944 S    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9316 root      1660 S    sleep 10
+ 9321 root      1668 R    ps
+ 9322 root      1672 S    sh -c cat /proc/mtd | grep bdinfo | awk -F: '{printf
+ 9325 root         0 RW   [awk]
+ 9326 root      1684 R    {hotplug-call} /bin/sh /sbin/hotplug-call block
+ 
+ 4、
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9313 root      4244 R    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9316 root      1660 S    sleep 10
+ 9326 root      1704 S    {hotplug-call} /bin/sh /sbin/hotplug-call block
+ 9331 root      2076 D <  cryptsetup luksOpen /dev/mmcblk0p1 cryptdata -d /tmp
+ 9334 root      3356 R    {turbo} /usr/bin/lua /www/cgi-bin/turbo
+ 9352 root      1668 R    ps
+ 9353 root         0 SW<  [kdmflush]
+ 9354 root         0 SW<  [kcryptd_io]
+ 9355 root         0 SW<  [kcryptd]
+ 9357 root      1704 R    [hotplug-call]
+ 
+ 5、
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 R    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9366 root      1732 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mapper/c
+ 9436 root      1668 R    ps
+ 9437 root         8 R    [fcgi-cgi]
+ 
+ 6、 9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9366 root      1732 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mapper/c
+ 9556 root      1668 R    ps
+ 9557 root      1672 R    {hotplug-call} /bin/sh /sbin/hotplug-call block
+ 
+ 7、
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9366 root      1732 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mapper/c
+ 9610 root      1668 R    ps
+ 
+ 
+ 8、
+  9071 root      1080 S    storaged -d
+ 9072 root      1724 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9112 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9316 root      1660 S    sleep 10
+ 9363 root         0 SW<  [kdmflush]
+ 9364 root         0 SW<  [kcryptd_io]
+ 9365 root         0 SW<  [kcryptd]
+ 9613 root      1744 D    mkfs.ext4 -O ^has_journal -b 2048 -m 1 /dev/mmcblk0p
+ 9628 root      1668 R    ps
+ 
+ 9、
+  9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 DW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9798 root      1668 R    ps
+ 9807 root      1724 S    {20-nginx} /bin/sh /etc/rc.common /etc/hotplug.d/blo
+ 9810 root      1704 S    {hotplug-call} /bin/sh /sbin/hotplug-call block
+ 
+ 10、
+  9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+ 9968 root      4196 R    lua /etc/cron/360/plums_report_installed_plugins
+ 9970 root      1736 S    {filetransit} /bin/sh /etc/rc.common /etc/hotplug.d/
+ 9975 root      1668 R    ps
+ 9981 root       628 R    ls /sys/fs/cgroup
+ 
+ 11、
+  9071 root      1080 S    storaged -d
+ 9072 root      1728 S    {storaged-call} /bin/sh /usr/sbin/storaged-call /dev
+ 9645 root      1660 S    sleep 10
+ 9676 root       884 S    /sbin/hotplug2 --override --persistent --set-rules-f
+ 9715 root         0 SW<  [kdmflush]
+ 9716 root         0 SW<  [kcryptd_io]
+ 9717 root         0 SW<  [kcryptd]
+ 9724 root         0 SW<  [ext4-dio-unwrit]
+ 9731 root         0 SW   [ext4lazyinit]
+ 9748 root         0 SW<  [ext4-dio-unwrit]
+ 9910 root      5532 S    nginx: master process /usr/sbin/nginx
+ 9911 nobody    6244 S    nginx: worker process
+ 9970 root      1740 S    {filetransit} /bin/sh /etc/rc.common /etc/hotplug.d/
+10029 root         0 SW   [flush-253:0]
+10046 root      1732 S    {samba} /bin/sh /etc/rc.common /etc/init.d/samba sta
+10073 root      1780 R    {samb

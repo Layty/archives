@@ -1,0 +1,332 @@
+[BEGIN] 2016/7/23 15:11:32
+
+# 
+# 
+# iwpriv ra1 set Debug=3
+[  135.604000] ==>Set_Debug_Proc()
+[  135.612000] <==Set_Debug_Proc(RTDebugLevel = 3)
+# [  136.468000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  137.480000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  138.492000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  139.504000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  140.516000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  141.528000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  142.540000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  143.552000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  144.564000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  145.576000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  146.588000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  147.600000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  148.612000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  149.624000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  150.636000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  151.648000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  152.660000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  153.672000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  154.160000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.180000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.196000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.216000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.232000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.252000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.268000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.288000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.304000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.324000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.340000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.360000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.376000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.396000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.412000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.432000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.448000] drivers/net/wireless/mt_wifi_ap/../mt_wifi/embedded/ap/ap_auth.c:406 assert pEntry->Aid == Elem->Wcidfailed
+[  154.468000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]ac:81:12:36:5d:8b
+[  154.488000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  154.712000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  154.724000] ac:81:12:36:5d:8b fail to complete ASSOC in 5 sec
+[  154.736000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.756000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.772000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.792000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.808000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.828000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.844000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.864000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.880000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.900000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.916000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.936000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.952000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  154.972000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  154.988000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  155.008000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  155.024000] MtAsicDelWcidTab():wcid_idx=0x1
+[  155.032000] RTMPSearchPMKIDCache - IF(0) not found
+[  155.040000] APCleanupPsQueue(): (0xc01ef49c)...
+[  155.052000] MacTableDeleteEntry1 - Total= 0
+[  155.060000] AndesSendCmdMsg: Command type = ed, Extension command type = 27
+[  155.072000] BUG: AndesSendCmdMsg is called from invalid context(in_interrupt/need_wait/msg :100 / 1)
+[  155.092000] CmdEdcaParameterSet:(ret = 1)
+[  155.104000] CmdSlotTimeSet:(ret = 0)
+[  155.108000] MtAsicSetSlotTime(1226): SetSlotTime!
+[  155.196000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]ac:81:12:36:5d:8b
+[  155.212000] remove key table:wcid[1]
+[  155.220000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x20008b5d
+[  155.236000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0x361281ac
+[  155.248000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  155.260000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  155.284000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x30008b5d
+[  155.300000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0x361281ac
+[  155.312000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000000
+[  155.328000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  155.344000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  155.360000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  155.368000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  155.520000] PeerAssocReqSanity - SsidLen = 17  
+[  155.528000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  155.540000] Rates[1]=84 8b 96 24 30 48 6c
+[  155.548000] Not RSN IE, maybe WMM IE!!!
+[  155.556000] PeerAssocReqCmmSanity() - success
+[  155.564000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=0
+[  155.576000] remove key table:wcid[1]
+[  155.584000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x20008b5d
+[  155.596000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0x361281ac
+[  155.612000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  155.624000] ASSOC - MBSS(0), receive ASSOC request from ac:81:12:36:5d:8b
+[  155.640000] ASSOC - Send ASSOC response (Status=0)...
+[  155.648000] ra[0] ASSOC_REQ Threshold = 0, PktMaxRssi=-29
+[  155.660000] -----> WscBuildAssocRespIE
+[  155.668000] <----- WscBuildAssocRespIE
+[  155.676000] ####### Send L2 Frame Mac=ac:81:12:36:5d:8b
+[  155.684000] ASSOC - 
+[  155.684000] 	Assign AID=1 to STA ac:81:12:36:5d:8b
+[  155.700000] ASSOC - legacy STA
+[  155.704000] 
+[  155.704000] ASSOC - MODE=0, MCS=0
+[  155.716000] 	AuthMode=9, WepStatus=8, WpaState=3, GroupKeyWepStatus=4
+[  155.728000] 	WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  155.800000] Receive EAPOL-Start frame, TYPE = 1 
+[  155.808000] !!! report EAPOL DATA to MLME (len=13) !!!
+[  155.820000] CurOpMode=0x00
+[  155.824000] -----> WscEAPOLStartAction
+[  155.832000] WscState = 13
+[  155.836000] WscEAPOLStartAction - receive EAPOL-Start from ac:81:12:36:5d:8b
+[  155.852000] WscEAPOLStartAction(ra0) - send EAP-Req(Id) to ac:81:12:36:5d:8b
+[  155.864000] -----> WscSendEapReqId
+[  155.872000] <----- WscSendEapReqId
+[  155.880000] <----- WscEAPOLStartAction
+[  156.176000] Current TP=0 < Threshold(10), turn-off TxOP
+[  156.184000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (-30), RssiOffset=-3
+[  156.200000] CmdSlotTimeSet:(ret = 0)
+[  156.208000] MtAsicSetSlotTime(1226): SetSlotTime!
+[  157.200000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  158.212000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  159.224000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  160.236000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  160.800000] Receive EAPOL-Start frame, TYPE = 1 
+[  160.812000] !!! report EAPOL DATA to MLME (len=13) !!!
+[  160.820000] CurOpMode=0x00
+[  160.824000] -----> WscEAPOLStartAction
+[  160.832000] WscState = 13
+[  160.840000] Ignore EAPOL-Start.
+[  160.844000] <----- WscEAPOLStartAction
+[  160.896000] -----> WscEAPOLTimeOutAction
+[  160.900000] WscState = 13
+[  160.908000] -----> WscSendMessage
+[  160.912000] <----- WscSendMessage
+[  160.920000] <----- WscEAPOLTimeOutAction
+[  160.944000] Receive EAP-Packet frame, TYPE = 0, Length = 198
+[  160.956000] !!! report EAPOL DATA to MLME (len=210) !!!
+[  160.968000] CurOpMode=0x00
+[  160.972000] WpsSmProcess::  EAPOL Packet.  Code = 2.    Type = 254
+[  160.984000] -----> WscEAPAction
+[  160.992000] (WscEAPAction)Elem->MsgLen: 82f1b800, len = 184
+[  161.000000] 0x0000 : 10 4a 00 01 10 10 22 00 01 06 10 1a 00 10 b7 bf 
+[  161.016000] 0x0010 : b6 2a 73 4c 3a f8 93 83 2c 4b 50 bd c9 eb 10 39 
+[  161.028000] 0x0020 : 00 10 e0 4a c4 ce ca 42 34 e8 87 c9 52 e8 7f 11 
+[  161.040000] 0x0030 : d9 11 10 48 00 10 f7 b8 f7 8d 1d dd 46 48 a9 79 
+[  161.052000] 0x0040 : d0 91 1f c0 e8 c4 10 04 00 02 00 3f 10 10 00 02 
+[  161.068000] 0x0050 : 00 0f 10 0d 00 01 03 10 08 00 02 00 8c 10 21 00 
+[  161.080000] 0x0060 : 09 4d 69 63 72 6f 73 6f 66 74 10 23 00 07 57 69 
+[  161.092000] 0x0070 : 6e 64 6f 77 73 10 24 00 08 36 2e 31 2e 37 36 30 
+[  161.104000] 0x0080 : 31 10 42 00 01 30 10 54 00 08 00 01 00 50 f2 04 
+[  161.116000] 0x0090 : 00 01 10 11 00 09 50 52 46 45 4e 47 2d 50 43 10 
+[  161.132000] 0x00a0 : 3c 00 01 01 10 02 00 02 00 01 10 09 00 02 00 00 
+[  161.144000] 0x00b0 : 10 2d 00 04 00 06 00 01 
+[  161.152000] WscEAPAction: Addr: ac:81:12:36:5d:8b, MsgType: 0x06, bUPnPMsg: FALSE
+[  161.168000] WscEAPAction: apidex=0.
+[  161.176000] -----> WscCheckNonce
+[  161.180000] check Enrollee Nonce
+[  161.188000] Nonce match!!
+[  161.192000] <----- WscCheckNonce
+[  161.200000] WscEapEnrolleeAction Enter!
+[  161.208000] MsgType=0x6, WscState=13, bUPnPMsg=0!
+[  161.216000] WscEapEnrolleeAction : Rx M2D
+[  161.224000] ProcessMessageM2D : 
+[  161.232000] BuildMessageNACK : 
+[  161.236000] -----> WscSendMessage
+[  161.244000] <----- WscSendMessage
+[  161.248000] WscEapEnrolleeAction : rv = 0
+[  161.256000] <----- WscEAPAction
+[  161.268000] Current TP=0 < Threshold(10), turn-off TxOP
+[  161.276000] Receive EAP-Packet frame, TYPE = 0, Length = 70
+[  161.288000] !!! report EAPOL DATA to MLME (len=82) !!!
+[  161.984000] ASSOC - 1 receive DIS-ASSOC request 
+[  161.992000] ASSOC - receive DIS-ASSOC(seq-3308) request from ac:81:12:36:5d:8b, reason=8
+[  162.276000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 216
+[  163.288000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  164.300000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  165.312000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  166.272000] -----> WscEAPOLTimeOutAction
+[  166.276000] WscState = 16
+[  166.284000] <----- WscEAPOLTimeOutAction
+[  166.324000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  167.336000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  168.348000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  169.360000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+
+# [  170.372000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+
+# [  171.296000] -----> WscEAPOLTimeOutAction
+[  171.300000] WscState = 16
+[  171.308000] <----- WscEAPOLTimeOutAction
+[  171.384000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  172.396000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  173.408000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  174.420000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  175.432000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  176.320000] -----> WscEAPOLTimeOutAction
+[  176.324000] WscState = 16
+[  176.332000] -----> WscSendEapFail
+[  176.336000] Send DEAUTH frame with ReasonCode(3) to ac:81:12:36:5d:8b 
+[  176.352000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.372000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.388000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.408000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.424000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.444000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.460000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.480000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.496000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.516000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.528000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.552000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.564000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.588000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.600000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  176.624000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  176.636000] MtAsicDelWcidTab():wcid_idx=0x1
+[  176.644000] RTMPSearchPMKIDCache - IF(0) not found
+[  176.656000] APCleanupPsQueue(): (0xc01ef49c)...
+[  176.664000] MacTableDeleteEntry1 - Total= 0
+[  176.672000] AndesSendCmdMsg: Command type = ed, Extension command type = 27
+[  176.688000] BUG: AndesSendCmdMsg is called from invalid context(in_interrupt/need_wait/msg :100 / 1)
+[  176.704000] CmdEdcaParameterSet:(ret = 1)
+[  176.712000] <----- WscSendEapFail
+[  176.720000] <----- WscEAPOLTimeOutAction
+[  176.732000] CmdSlotTimeSet:(ret = 0)
+[  176.740000] MtAsicSetSlotTime(1226): SetSlotTime!
+[  176.828000] Not expected one of them is 0, TxTotalByteCnt = 8, RxTotalByteCnt = 0
+[  177.840000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  178.852000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  179.864000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  180.876000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  181.888000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  182.900000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  183.912000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  184.924000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  185.752000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]ac:81:12:36:5d:8b
+[  185.768000] remove key table:wcid[1]
+[  185.776000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x20008b5d
+[  185.792000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0x361281ac
+[  185.804000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  185.820000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  185.840000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x30008b5d
+[  185.856000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0x361281ac
+[  185.872000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000000
+[  185.884000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  185.900000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  185.916000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  185.924000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  185.944000] PeerAssocReqSanity - SsidLen = 17  
+[  185.952000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  185.968000] Rates[1]=84 8b 96 24 30 48 6c
+[  185.976000] Not RSN IE, maybe WMM IE!!!
+[  185.980000] PeerAssocReqCmmSanity() - success
+[  185.992000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=0
+[  186.004000] remove key table:wcid[1]
+[  186.008000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x20008b5d
+[  186.024000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  186.040000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0x361281ac
+[  186.052000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  186.068000] ASSOC - MBSS(0), receive ASSOC request from ac:81:12:36:5d:8b
+[  186.080000] ASSOC - Send ASSOC response (Status=0)...
+[  186.092000] ra[0] ASSOC_REQ Threshold = 0, PktMaxRssi=-30
+[  186.100000] -----> WscBuildAssocRespIE
+[  186.108000] <----- WscBuildAssocRespIE
+[  186.116000] ####### Send L2 Frame Mac=ac:81:12:36:5d:8b
+[  186.128000] ASSOC - 
+[  186.128000] 	Assign AID=1 to STA ac:81:12:36:5d:8b
+[  186.140000] ASSOC - legacy STA
+[  186.148000] 
+[  186.148000] ASSOC - MODE=0, MCS=0
+[  186.156000] 	AuthMode=9, WepStatus=8, WpaState=3, GroupKeyWepStatus=4
+[  186.168000] 	WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  186.184000] CmdSlotTimeSet:(ret = 0)
+[  186.192000] MtAsicSetSlotTime(1226): SetSlotTime!
+[  186.228000] Receive EAPOL-Start frame, TYPE = 1 
+[  186.236000] !!! report EAPOL DATA to MLME (len=13) !!!
+[  186.248000] CurOpMode=0x00
+[  186.252000] -----> WscEAPOLStartAction
+[  186.260000] WscState = 3
+[  186.264000] WscEAPOLStartAction - receive EAPOL-Start from ac:81:12:36:5d:8b
+[  186.280000] WscEAPOLStartAction(ra0) - send EAP-Req(Id) to ac:81:12:36:5d:8b
+[  186.292000] -----> WscSendEapReqId
+[  186.300000] <----- WscSendEapReqId
+[  186.308000] <----- WscEAPOLStartAction
+[  187.048000] Current TP=0 < Threshold(10), turn-off TxOP
+[  187.056000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (-28), RssiOffset=-3
+[  188.072000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  189.084000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  190.096000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  191.108000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  191.228000] Receive EAPOL-Start frame, TYPE = 1 
+[  191.236000] !!! report EAPOL DATA to MLME (len=13) !!!
+[  191.248000] CurOpMode=0x00
+[  191.252000] -----> WscEAPOLStartAction
+[  191.260000] WscState = 3
+[  191.268000] WscEAPOLStartAction - receive EAPOL-Start from ac:81:12:36:5d:8b
+[  191.280000] WscEAPOLStartAction(ra0) - send EAP-Req(Id) to ac:81:12:36:5d:8b
+[  191.296000] -----> WscSendEapReqId
+[  191.300000] <----- WscSendEapReqId
+[  191.308000] <----- WscEAPOLStartAction
+[  191.316000] -----> WscEAPOLTimeOutAction
+[  191.324000] -----> WscSendEapFail
+[  191.328000] <----- WscSendEapFail
+[  191.336000] -----> WscBuildBeaconIE
+[  191.344000] <----- WscBuildBeaconIE
+[  191.348000] -----> WscBuildProbeRespIE, apidx = 0
+[  191.360000] <----- WscBuildProbeRespIE
+[  191.368000] WscTimeOutProcess
+[  191.372000] <----- WscEAPOLTimeOutAction
+[  191.380000] Receive EAP-Packet frame, TYPE = 0, Length = 35
+[  191.392000] !!! report EAPOL DATA to MLME (len=47) !!!
+[  192.180000] Current TP=0 < Threshold(10), turn-off TxOP
+[  193.188000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  193.608000] ASSOC - 1 receive DIS-ASSOC request 
+[  193.620000] ASSOC - receive DIS-ASSOC(seq-3411) request from ac:81:12:36:5d:8b, reason=8
+[  194.200000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  195.212000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  196.224000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  197.236000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  198.248000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  199.260000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  200.272000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  201.284000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  202.296000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  203.308000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  204.320000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  205.332000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  206.344000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+
+[END] 2016/7/23 15:13:05

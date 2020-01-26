@@ -1,0 +1,4 @@
+openssl genrsa -out auth.key 1024
+openssl rsa -in auth.key -pubout -out auth_pub.key
+openssl dgst -sha256 -out app_info.sig -sign auth.key -keyform PEM app_info.xml
+openssl dgst -sha256 -keyform PEM -verify auth_pub.key -signature app_info.sig app_info.xml

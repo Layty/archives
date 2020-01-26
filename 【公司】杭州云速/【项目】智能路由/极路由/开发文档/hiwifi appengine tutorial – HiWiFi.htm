@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0054)https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      hiwifi/appengine/tutorial – HiWiFi
+    </title>
+    
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="https://code.hiwifi.com/search">
+        <link rel="help" href="https://code.hiwifi.com/wiki/TracGuide">
+        <link rel="alternate" href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial?format=txt" type="text/x-trac-wiki" title="纯文本">
+        <link rel="up" href="https://code.hiwifi.com/wiki/hiwifi/appengine" title="查看父页面">
+        <link rel="start" href="https://code.hiwifi.com/wiki">
+        <link rel="stylesheet" href="./hiwifi appengine tutorial – HiWiFi_files/trac.css" type="text/css"><link rel="stylesheet" href="./hiwifi appengine tutorial – HiWiFi_files/wiki.css" type="text/css">
+        <link rel="shortcut icon" href="https://code.hiwifi.com/chrome/common/trac.ico" type="image/x-icon">
+        <link rel="icon" href="https://code.hiwifi.com/chrome/common/trac.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="https://code.hiwifi.com/search/opensearch" title="搜索 HiWiFi">
+    <script type="text/javascript" src="./hiwifi appengine tutorial – HiWiFi_files/jquery.js"></script><script type="text/javascript" src="./hiwifi appengine tutorial – HiWiFi_files/babel.js"></script><script type="text/javascript" src="./hiwifi appengine tutorial – HiWiFi_files/zh_CN.js"></script><script type="text/javascript" src="./hiwifi appengine tutorial – HiWiFi_files/trac.js"></script><script type="text/javascript" src="./hiwifi appengine tutorial – HiWiFi_files/search.js"></script><script type="text/javascript" src="./hiwifi appengine tutorial – HiWiFi_files/folding.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://code.hiwifi.com/"><img src="./hiwifi appengine tutorial – HiWiFi_files/hiwifi.png" alt="HiWiFi"></a>
+      </div>
+      <form id="search" action="https://code.hiwifi.com/search" method="get">
+        <div>
+          <label for="proj-search">搜索:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="搜索">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="https://code.hiwifi.com/login">登录</a></li><li><a href="https://code.hiwifi.com/prefs">个人设置</a></li><li><a href="https://code.hiwifi.com/wiki/TracGuide">帮助/指南</a></li><li class="last"><a href="https://code.hiwifi.com/about">关于Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="https://code.hiwifi.com/wiki">Wiki</a></li><li><a href="https://code.hiwifi.com/report">查看任务单</a></li><li class="last"><a href="https://code.hiwifi.com/search">搜索</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="查看 WikiStart" href="https://code.hiwifi.com/wiki">wiki</a><a class="pathentry" href="https://code.hiwifi.com/wiki/hiwifi" title="查看 hiwifi">hiwifi</a><span class="pathentry sep">/</span><a class="pathentry" href="https://code.hiwifi.com/wiki/hiwifi/appengine" title="查看 hiwifi/appengine">appengine</a><span class="pathentry sep">/</span><a class="pathentry" href="./hiwifi appengine tutorial – HiWiFi_files/hiwifi appengine tutorial – HiWiFi.htm" title="查看 hiwifi/appengine/tutorial">tutorial</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>上下文导航</h2>
+          <ul>
+              <li class="first"><a href="https://code.hiwifi.com/wiki/hiwifi/appengine">向上</a></li><li><a href="https://code.hiwifi.com/wiki/WikiStart">起始页</a></li><li><a href="https://code.hiwifi.com/wiki/TitleIndex">索引</a></li><li class="last"><a href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial?action=history">历史</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby">
+            <span><a href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial?action=diff&version=22" title="由 lao9 编辑的 22: 调整了路由器变成开发机的方式">最后修改于</a> <a class="timeline" href="https://code.hiwifi.com/timeline?from=2015-07-09T18%3A30%3A02%2B08%3A00&precision=second" title="时间线中的2015-07-09T18:30:02+08:00">8天</a> 前</span>
+            <span class="trac-print">Last modified on 07/09/15 18:30:02</span>
+          </div>
+          <div id="wikipage"><h1 id="HiWiFi应用开发实例解析">HiWiFi应用开发实例解析<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial#HiWiFi应用开发实例解析" title="链接到这一节"> ¶</a></h1>
+<h2 id="使用HiWiFiAppEngine">使用 <a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/HiWiFi">HiWiFi</a> App Engine<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial#使用HiWiFiAppEngine" title="链接到这一节"> ¶</a></h2>
+<p>
+一、前提条件
+</p>
+<ol><li>首先，你应该拥有至少一台HiWiFi路由器，任何带扩展存储的极路由型号均可。若您手中还没有极路由，可以到这里购买： <br>
+<a class="ext-link" href="http://www.jd.com/pinpai/700-37469.html"><span class="icon">​</span>http://www.jd.com/pinpai/700-37469.html</a> <br>
+<a class="ext-link" href="http://store.hiwifi.com/"><span class="icon">​</span>http://store.hiwifi.com/</a>
+</li></ol><ol start="2"><li>其次，你应该拥有一个“小极通行证”（也就是你逛极客社区、登录App平台以及手机客户端登录用的那个帐号），并与你购买的路由器绑定。若没有请先到这里注册： <br>
+<a class="ext-link" href="https://user.hiwifi.com/register"><span class="icon">​</span>https://user.hiwifi.com/register</a>
+</li></ol><p>
+二、成为开发者、申请开发机权限
+</p>
+<blockquote>
+<p>
+默认情况下，你的HiWiFi通行证是普通用户角色，你的HiWiFi路由器也是普通用户组权限，此时可以安装HiWiFi所有已发布的插件，但不能进行开发。
+</p>
+</blockquote>
+<ol><li>申请开发者：<br>
+请登录 <a class="ext-link" href="http://open.hiwifi.com/"><span class="icon">​</span>http://open.hiwifi.com/</a> 按要求提交所需信息，点“提交申请”，会进入管理员人工审核流程。<br>
+小提示：
+<ul><li>请在“开发者能力自述”中尽量详细地描述你的技术情况，例如Linux相关、OpenWrt相关、C语言开发、脚本程序编写能力等，这样更容易获得通过；
+</li><li>最好将你希望用来开发的【路由器MAC】也包含在申请资料里面，这样管理员看到后会直接将路由器的开发机权限开启；
+</li><li>若申请迟迟没有被审核，可以直接联系管理员。
+</li></ul></li></ol><ol start="2"><li>申请开发机权限：<br>
+请到 <a class="ext-link" href="https://app.hiwifi.com/"><span class="icon">​</span>https://app.hiwifi.com/</a> 下，切换到拟申请开发机的路由器标签下，通过"路由器信息 &gt; 高级设置 &gt; 申请"，来打开路由器的SSH权限。注意：变成开发机的路由器，将不再享受质保和本机的技术支持，且不能变回普通路由器。
+</li></ol><p>
+三、登录 <a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/HiWiFi">HiWiFi</a> App Engine 运行环境
+</p>
+<ol><li>安装/重新安装插件“<a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/HiWiFi">HiWiFi</a> App Engine”：<br>
+如果你以前装过 <a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/HiWiFi">HiWiFi</a> App Engine 插件，请在加入开发组后重新安装它，以启用SSH登录权限。
+</li></ol><ol start="2"><li>SSH登录路由器：<br>
+使用Putty、SecureCRT等SSH终端软件登录路由器，登录信息为：
+<ul><li>地址：路由器LAN口地址<br>
+</li><li>端口：22<br>
+</li><li>帐号/密码：hiwifi / admin
+</li></ul></li></ol><h2 id="开发第一个插件-DNSPod">开发第一个插件 - DNSPod<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial#开发第一个插件-DNSPod" title="链接到这一节"> ¶</a></h2>
+<ol><li>编写一个用于利用DNSPod API设置动态解析的程序，编程语言可以用shell、lua，也可用C/C++编写再利用HiWiFi SDK编译成可执行文件（请参考：<a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto">HiWiFi SDK 使用方法</a>）。<br>
+本例中的程序被保存在bin/dnspod-utils.lua，调用方法为：<br>
+<pre class="wiki">dnspod-utils.lua set &lt;DNSPod帐号&gt; &lt;密码&gt; &lt;主域名&gt; &lt;子域名&gt; [被绑定的IP]
+</pre>其中，“被绑定的IP”可以为空，默认绑定到路由器对应的公网IP。<br>
+这个脚本的具体实现，请查看附件。
+</li></ol><ol start="2"><li>插件所包含的文件
+<pre class="wiki">dnspod/
+├── cacert.pem
+├── dnspod.conf
+├── dnspod-utils.lua
+└── script
+</pre>下面对上述文件做逐一解析。
+</li></ol><ol start="3"><li>插件的入口脚本 -- script
+“script”脚本是插件所有操作的入口脚本，安装、卸载、启动、停止、状态查询操作分别在代码中对应 install、uninstall、start、stop、status 函数。“DNSPod动态域名”插件的script脚本及注释如下。
+<pre class="wiki">#!/bin/sh
+
+# 临时文件，用于存储定时任务的运行状态，dnspod-utils.lua 脚本执行过程中若
+# 遇到错误会将错误原因写入该文件，status方法若发现该文件则将文件内容作为
+# 提示消息输出，否则输出“running”，具体用法请参考status函数。
+DNSPOD_STATUS_FILE="/tmp/.dnspod/status"
+
+# 插件安装入口函数
+install()
+{
+    # 拷贝所有文件至插件home目录之下
+    mkdir -p "$HOME"/bin "$HOME"/etc
+    cp ./dnspod-utils.lua "$HOME"/bin/
+    cp ./cacert.pem ./dnspod.conf "$HOME"/etc/
+
+    # 安装成功后启动插件
+    # 注意：此处直接将start函数的返回值作为install状态返回，启动失败即会使得安装失败
+    start
+}
+
+# 插件卸载函数
+uninstall()
+{
+    # 卸载之前先停止运行
+    stop
+
+    # 此处没有删除文件的操作，原因是 App Engine 会将插件的home目录整体删除，
+    # 所以对于home目录下的文件，无须显式清理.
+}
+
+# 插件启动方法
+start()
+{
+    # 引用参数文件，将参数变量包含到当前脚本中
+    . $HOME/etc/dnspod.conf
+
+    # 插件启动时先执行一次动态解析，以使解析立即生效
+    dnspod-utils.lua set "$DNSPODACCOUNT" "$DNSPODPASSWORD" "$DNSPODDOMAIN" "$DNSPODSUBDOMAIN"
+
+    # 添加上述命令为定时任务，每10分钟执行一次动态解析
+    crontab - &lt;&lt;EOF
+*/10 * * * *  ( . /etc/environment; dnspod-utils.lua set "$DNSPODACCOUNT" "$DNSPODPASSWORD" "$DNSPODDOMAIN" "$DNSPODSUBDOMAIN" )
+EOF
+
+    # App Engine 内置方法“appctl autostart”，将当前插件设置为路由器启动时自动运行
+    haecli appctl autostart -S 88
+}
+
+# 插件停止方法
+stop()
+{
+    # 用户若点击“停止插件”时，则取消该插件的自动运行
+    haecli appctl noautostart
+
+    # 删除当前插件创建的定时任务
+    crontab -r
+
+    # 清理临时文件
+    rm -rf /tmp/.dnspod
+
+    # stop函数无须关心返回值
+}
+
+# 插件状态查询
+status()
+{
+    # 检查定时任务状态，若存在则表示运行中.
+    #
+    # 运行中，若发现状态文件有数据，则将消息发送给云平台，JSON串格式为：
+    #  { "status": "MSG: XXXXXXXXXXX" }；否则为正常运行，输出JSON：
+    #  { "status": "running" }
+    #
+    # 未运行，输出JSON：
+    #  { "status": "stopped" }
+
+    if crontab -l &gt;/dev/null 2&gt;&amp;1; then
+        if [ -s $DNSPOD_STATUS_FILE ]; then
+            local __msg=`cat $DNSPOD_STATUS_FILE`
+            echo "{ \"status\" : \"MSG: $__msg\" }"
+        else
+            echo "{ \"status\" : \"running\" }"
+        fi
+    else
+        echo "{ \"status\" : \"stopped\" }"
+    fi
+}
+
+</pre></li></ol><ol start="4"><li>插件打包及提交
+<ul><li>在插件目录下列出所有文件如下：
+<pre class="wiki">hello@ubuntu:~/dnspod$ ls -l
+total 268
+-rw-rw-r-- 1 hello hello 250283 Aug 13 15:50 cacert.pem
+-rw-rw-r-- 1 hello hello    157 Jul 31 19:43 dnspod.conf
+-rwxrwxr-x 1 hello hello   8074 Aug 13 15:49 dnspod-utils.lua
+-rwxrwxr-x 1 hello hello    767 Aug 13 15:54 script
+</pre></li><li>在该目录下执行命令“tar zcvf dnspod.tgz *”进行打包：
+<pre class="wiki">hello@ubuntu:~/dnspod$ tar zcvf dnspod.tgz *
+cacert.pem
+dnspod.conf
+dnspod-utils.lua
+script
+hello@ubuntu:~/dnspod$ ls
+cacert.pem  dnspod.conf  dnspod.tgz  dnspod-utils.lua  script
+hello@ubuntu:~/dnspod$
+</pre></li></ul></li></ol><ul><li>待提交的新插件被审核后，或需提交新版本，登录开放平台（open.hiwifi.com），将前面生成的dnspod.tgz文件包作为新版本提交。<br>
+开放平台版本上传的具体方法请参看开放平台相关文档：<a class="ext-link" href="https://open.hiwifi.com/open.php?m=doc&a=index"><span class="icon">​</span>https://open.hiwifi.com/open.php?m=doc&amp;a=index</a>
+</li></ul><ol start="5"><li>插件本地测试及调试方法
+<ul><li>以 hiwifi 帐号，通过 SSH 登录 App Engine ，执行：
+<pre class="wiki">haecli create-app dnspod
+</pre>会创建名为dnspod一个空插件 ；
+</li><li>将 dnspod.tgz scp 上传到 App Engine 的 /tmp 目录下；
+</li><li>然后，再以“dnspod”帐号登录 App Engine ，解压该文件包到一空目录，执行 script 中的 install 方法进行安装，命令如下：
+<pre class="wiki">mkdir aaa
+cd aaa
+tar zxvf ../dnspod.tgz
+. ./script
+install
+</pre></li></ul></li></ol></div>
+        
+        
+      </div>
+      
+    <div id="attachments" class="collapsed">
+        <h3 class="foldable"><a id="no1" href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial#no1">附件</a></h3>
+        <ul>
+            <li>
+    <a href="https://code.hiwifi.com/attachment/wiki/hiwifi/appengine/tutorial/dnspod-20140813.1628.tgz" title="查看附件">dnspod-20140813.1628.tgz</a><a href="https://code.hiwifi.com/raw-attachment/wiki/hiwifi/appengine/tutorial/dnspod-20140813.1628.tgz" class="trac-rawlink" title="下载">​</a>
+       (<span title="141891 字节">138.6 KB</span>) -
+      added by <em>rssn</em> <a class="timeline" href="https://code.hiwifi.com/timeline?from=2014-08-13T16%3A32%3A19%2B08%3A00&precision=second" title="时间线中的2014-08-13T16:32:19+08:00">11个月</a> ago.
+              <q>DNSPod动态域名插件代码</q>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+    <div id="altlinks">
+      <h3>用其他格式下载:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="https://code.hiwifi.com/wiki/hiwifi/appengine/tutorial?format=txt">纯文本</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="./hiwifi appengine tutorial – HiWiFi_files/trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">由 <a href="http://www.edgewall.org/">Edgewall Software</a> 的 <a href="https://code.hiwifi.com/about"><strong>Trac 0.12.5</strong></a><br>
+        提供动力</p>
+      <p class="right">请访问Trac开源项目<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

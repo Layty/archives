@@ -1,0 +1,19 @@
+【Changelog】
+V1.2
+修改3.1、3.2，增加3.8.2
+1、确定TCP连接端口为80
+2、细化心跳路由客户端配置文件
+[server_conf]
+    ip-domain = xxx;xxx;xxx[xxx表示IP地址或域名地址]
+	default-ip= xxx;xxx;xxx[xxx表示ip地址]
+
+[connect_conf]
+	connect-interval = xx[xx表示多少秒]
+	retry-count = xx[xx表示次数]
+	retry-interval = xx[xx表示重传间隔]
+	unconnect-interval = xx[xx表示未连接状态重传间隔]
+3、确定心跳服务器地址配置和连接配置可由TR069来定义。
+
+V1.1
+修改SRS 3.1
+1、心跳服务器IP保存至配置文件中，可兼容解析域名和IP地址。

@@ -1,0 +1,66 @@
+iptables -A INPUT -i wangw.4095 -p icmp -j DROP
+iptables -A INPUT -i *wan -p icmp -j DROP
+iptables -t filter -nvL
+
+
+iptables -A INPUT -i *wan -p tcp --dport 53 -j ACCEPT
+iptables -A INPUT -i *wan -p tcp --dport 80 -j DROP
+iptables -A INPUT -i *wan -p tcp --dport 80 -j DROP
+
+
+iptables -A INPUT -i *wan -p icmp -j DROP
+iptables -A INPUT -i *wan -p tcp --dport 53 -j DROP
+iptables -A INPUT -i *wan -p udp --dport 53 -j DROP
+iptables -A INPUT -i *wan -p tcp --dport 80 -j DROP
+iptables -A INPUT -i *wan -p udp --dport 80 -j DROP
+
+iptables -A INPUT -i *wan -p tcp --dport 80 --tcp-flags FIN,SYN,RST,ACK SYN -j DROP
+iptables -A INPUT -i *wan -p tcp --dport 53 --tcp-flags FIN,SYN,RST,ACK SYN -j DROP
+
+
+iptables -A INPUT -i *wan -p tcp --dport 80 -m --state --syn -j DROP
+iptables -A INPUT -i *wan -p tcp --dport 80 -m --state --syn -j DROP
+
+iptables -A INPUT -i *wan -m state -p tcp --dport 80 --state NEW,INVALID -j DROP
+
+iptables -A INPUT -i *wan -m state -p tcp --dport 53 --state NEW,INVALID -j DROP
+iptables -A INPUT -p tcp --tcp-flags RST RST -j DROP
+iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP
+
+
+iptables -A INPUT -p tcp --tcp-flags RST RST -j DROP
+iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP
+
+
+#######  shared wep #####################
+iwpriv ra1 set AuthMode=shared;iwpriv ra1 set EncrypType=wep;iwpriv ra1 set Key1=0123456789;iwpriv ra1 set DefaultKeyID=1;iwpriv ra1 set IEEE8021X=0
+
+
+####### bxmit #############
+/home/pengrf/601/market/auth_fixpro/platform/appm/flowlimit
+/home/pengrf/601/market/auth_fixpro/sdk/RT288x_SDK/source/linux-2.6.36.x/net/8021q/bw_limit.c
+
+dev.c
+./net/core/dev.c:186:extern int bwlimit_en;
+./net/core/dev.c:2211:    if (bwlimit_en)
+./net/core/dev.c:3042:    if (bwlimit_en)
+
+
+vlan.c
+./net/8021q/vlan.c:63:void bwlimit_dump_init_proc(void);
+./net/8021q/vlan.c:64:void bwlimit_dump_cleanup_proc(void);
+./net/8021q/vlan.c:65:void bwlimit_en_init_proc(void);
+./net/8021q/vlan.c:66:void bwlimit_en_cleanup_proc(void);
+./net/8021q/vlan.c:67:void bwlimit_uluu_init_proc(void);
+./net/8021q/vlan.c:68:void bwlimit_uluu_cleanup_proc(void);
+./net/8021q/vlan.c:776:    bwlimit_dump_init_proc();
+./net/8021q/vlan.c:777:    bwlimit_en_init_proc();
+./net/8021q/vlan.c:778:    bwlimit_uluu_init_proc();	
+./net/8021q/vlan.c:798:    bwlimit_dump_cleanup_proc();
+./net/8021q/vlan.c:799:    bwlimit_en_cleanup_proc();
+./net/8021q/vlan.c:800:    bwlimit_uluu_cleanup_proc();
+
+vlan_dev.c
+./net/8021q/vlan_dev.c:41:extern int bwlimit_en;
+./net/8021q/vlan_dev.c:199:        if (bwlimit_en)
+./net/8021q/vlan_dev.c:402:    if (bwlimit_en)

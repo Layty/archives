@@ -1,0 +1,547 @@
+[BEGIN] 2014/10/28 14:35:33# wifidog -c /tmp/mmcblk0p1/app/etc/wifidog.conf -f -d 7
+[6][Thu Jan  1 03:51:22 1970][20658](conf.c:638) Reading configuration file '/tmp/mmcblk0p1/app/etc/wifidog.conf'
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: GatewayID, value: wifiap
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: GatewayInterface, value: br0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: AuthServer, value: {
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:345) Adding 192.168.20.1:80 (SSL: 443) /wifiap/wifidog/ to the auth server list
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:372) Auth server added
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: GatewayPort, value: 8060
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: HTTPDName, value: WebPortalSvr
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: HTTPDMaxConn, value: 30
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: HTTPDRealm, value: WebPortal
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: CheckInterval, value: 10
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: ClientTimeout, value: 4
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: FirewallRuleSet, value: global
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:409) Adding Firewall Rule Set global
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:472) Firewall Rule Set global added.
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: FirewallRuleSet, value: validating-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:409) Adding Firewall Rule Set validating-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [allow to 0.0.0.0/0]
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:495) leftover: allow to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:577) Adding Firewall Rule allow (null) port (null) to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:472) Firewall Rule Set validating-users added.
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: FirewallRuleSet, value: known-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:409) Adding Firewall Rule Set known-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [allow to 0.0.0.0/0]
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:495) leftover: allow to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:577) Adding Firewall Rule allow (null) port (null) to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:472) Firewall Rule Set known-users added.
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: FirewallRuleSet, value: unknown-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:409) Adding Firewall Rule Set unknown-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [allow udp port 53]
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:495) leftover: allow udp port 53
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:577) Adding Firewall Rule allow udp port 53 to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [allow tcp port 53]
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:495) leftover: allow tcp port 53
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:577) Adding Firewall Rule allow tcp port 53 to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [allow udp port 67]
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:495) leftover: allow udp port 67
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:577) Adding Firewall Rule allow udp port 67 to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [allow tcp port 67]
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:495) leftover: allow tcp port 67
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:577) Adding Firewall Rule allow tcp port 67 to 0.0.0.0/0
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:472) Firewall Rule Set unknown-users added.
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:687) Parsing token: FirewallRuleSet, value: locked-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:409) Adding Firewall Rule Set locked-users
+[7][Thu Jan  1 03:51:22 1970][20658](conf.c:448) p1 = [FirewallRule]; p2 = [block to 0.0.0.0/0]
+[7][Thu Jan  1 03:51:23 1970][20658](conf.c:495) leftover: block to 0.0.0.0/0
+[7][Thu Jan  1 03:51:23 1970][20658](conf.c:577) Adding Firewall Rule block (null) port (null) to 0.0.0.0/0
+[7][Thu Jan  1 03:51:23 1970][20658](conf.c:472) Firewall Rule Set locked-users added.
+[7][Thu Jan  1 03:51:23 1970][20658](gateway.c:313) Initializing signal handlers
+[6][Thu Jan  1 03:51:23 1970][20658](gateway.c:372) Setting started_time
+[7][Thu Jan  1 03:51:23 1970][20658](gateway.c:382) Finding IP address of br0
+[7][Thu Jan  1 03:51:23 1970][20658](gateway.c:387) br0 = 192.168.20.1
+[5][Thu Jan  1 03:51:23 1970][20658](gateway.c:402) Creating web server on 192.168.20.1:8060
+[7][Thu Jan  1 03:51:23 1970][20658](gateway.c:408) Assigning callbacks to web server
+[6][Thu Jan  1 03:51:23 1970][20658](firewall.c:216) Removing Firewall rules
+[7][Thu Jan  1 03:51:23 1970][20658](fw_iptables.c:363) Destroying our iptables entries
+[7][Thu Jan  1 03:51:23 1970][20658](fw_iptables.c:370) Destroying chains in the MANGLE table
+[7][Thu Jan  1 03:51:23 1970][20658](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Trusted from mangle.PREROUTING
+[7][Thu Jan  1 03:51:23 1970][20658](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:23 1970][20658](gateway.c:263) Handler for SIGCHLD reaped child PID 20659
+[7][Thu Jan  1 03:51:23 1970][20658](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Outgoi: iptables -t filter -X WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_AuthServers
+iptables: No chain/target/match by that name.
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:120) iptables command failed(256): iptables -t filter -X WiFiDog_br0_AuthServers
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Locked
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Global
+iptables: No chain/target/match by that name.
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:120) iptables command failed(256): iptables -t filter -X WiFiDog_br0_Global
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Validate
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Known
+iptables: No chain/target/match by that name.
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:120) iptables command failed(256): iptables -t filter -X WiFiDog_br0_Known
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Unknown
+[6][Thu Jan  1 03:51:25 1970][20658](firewall.c:159) Creating ICMP socket
+[6][Thu Jan  1 03:51:25 1970][20658](firewall.c:169) Initializing Firewall
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:234) Locking config
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:234) Config locked
+[7][Thu Jan  1 03:51:25 1970][20658](util.c:307) get_ext_iface(): Autodectecting the external interface from routing table
+[6][Thu Jan  1 03:51:25 1970][20658](util.c:315) get_ext_iface(): Detected eth2.2 as the default interface after try 1
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t mangle -N WiFiDog_br0_Trusted
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t mangle -N WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t mangle -N WiFiDog_br0_Incoming
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t mangle -I PREROUTING 1 -i br0 -j WiFiDog_br0_Outgoing
+sh: : not found
+[3][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:118) iptables command failed(32512): iptables -t mangle -I PREROUTING 1 -i br0 -j WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t mangle -I PREROUTING 1 -i br0 -j WiFiDog_br0_Trusted
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t mangle -I POSTROUTING 1 -o br0 -j WiFiDog_br0_Incoming
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -N WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -N WiFiDog_br0_WIFI2Router
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -N WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -N WiFiDog_br0_Global
+[7][Thu Jan  1 03:51:25 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -N WiFiDog_br0_Unknown
+[7][Thu Jan  1 03:51:26 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -N WiFiDog_br0_AuthServers
+[7][Thu Jan  1 03:51:26 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -A PREROUTING -i br0 -j WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:51:26 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -A WiFiDog_br0_Outgoing -d 192.168.20.1 -j WiFiDog_br0_WIFI2Router
+[7][Thu Jan  1 03:51:26 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -A WiFiDog_br0_WIFI2Router -j ACCEPT
+[7][Thu Jan  1 03:51:26 1970][20658](fw_iptables.c:111) Executing command: iptables -t nat -A WiFiDog_br0_Outgoing -j WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:51:26 1970][20658](fw_[7][Thu Jan  1 03:51:37 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:51:37 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:37 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 28460
+[7][Thu Jan  1 03:51:37 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:37 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 28555
+[7][Thu Jan  1 03:51:37 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:51:37 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:51:37 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:51:37 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:51:38 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:51:38 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:51:38 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:51:38 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:51:38 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13898&sys_memfree=73804&sys_load=0.08&wifidog_uptime=15 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:51:38 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:51:38 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+[7][Thu Jan  1 03:51:47 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:51:47 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:47 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 28652
+[7][Thu Jan  1 03:51:47 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:47 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 28747
+[7][Thu Jan  1 03:51:47 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:51:47 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:51:47 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:51:47 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:51:48 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:51:48 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:51:48 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:51:48 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:51:48 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13908&sys_memfree=73804&sys_load=0.07&wifidog_uptime=25 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:51:48 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:51:48 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+
+
+[7][Thu Jan  1 03:51:57 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:51:57 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:57 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 28844
+[7][Thu Jan  1 03:51:57 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:51:57 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 28939
+[7][Thu Jan  1 03:51:57 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:51:57 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:51:57 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:51:57 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:51:58 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:51:58 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:51:58 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:51:58 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:51:58 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13918&sys_memfree=73804&sys_load=0.21&wifidog_uptime=35 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:51:58 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:51:58 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+
+
+[7][Thu Jan  1 03:52:07 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:52:07 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:07 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29036
+[7][Thu Jan  1 03:52:07 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:07 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29131
+[7][Thu Jan  1 03:52:07 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:52:07 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:52:07 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:52:07 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:52:08 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:52:08 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:52:08 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:52:08 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:52:08 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13928&sys_memfree=73796&sys_load=0.33&wifidog_uptime=45 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:52:08 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:52:08 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+[6][Thu Jan  1 03:52:08 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[7][Thu Jan  1 03:52:08 1970][29228](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:08 1970][29228](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+[6][Thu Jan  1 03:52:08 1970][29228](http.c:124) Got client MAC address for ip 192.168.20.66: 00:e0:4c:80:36:58
+[6][Thu Jan  1 03:52:08 1970][29228](http.c:134) Captured 192.168.20.66 requesting [http%3A//192.168.20.1%3A8060/favicon.ico] and re-directing them to login page
+[7][Thu Jan  1 03:52:08 1970][29228](http.c:214) Redirecting client browser to http://192.168.20.1:80/wifiap/wifidog/login/?gw_address=192.168.20.1&gw_port=8060&gw_id=wifiap&mac=00:e0:4c:80:36:58&url=http%3A//192.168.20.1%3A8060/favicon.ico
+[7][Thu Jan  1 03:52:08 1970][29228](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:08 1970][29228](httpd_thread.c:73) Closing connection with 192.168.20.66
+[6][Thu Jan  1 03:52:11 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[6][Thu Jan  1 03:52:11 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[6][Thu Jan  1 03:52:12 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[7][Thu Jan  1 03:52:12 1970][29231](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:12 1970][29231](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+[6][Thu Jan  1 03:52:12 1970][29231](http.c:124) Got client MAC address for ip 192.168.20.66: 00:e0:4c:80:36:58
+[6][Thu Jan  1 03:52:12 1970][29231](http.c:134) Captured 192.168.20.66 requesting [http%3A//192.168.20.1%3A8060/] and re-directing them to login page
+[7][Thu Jan  1 03:52:12 1970][29231](http.c:214) Redirecting client browser to http://192.168.20.1:80/wifiap/wifidog/login/?gw_address=192.168.20.1&gw_port=8060&gw_id=wifiap&mac=00:e0:4c:80:36:58&url=http%3A//192.168.20.1%3A8060/
+[7][Thu Jan  1 03:52:12 1970][29231](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:12 1970][29231](httpd_thread.c:73) Closing connection with 192.168.20.66
+[7][Thu Jan  1 03:52:17 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:52:17 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:17 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29232
+[7][Thu Jan  1 03:52:17 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:17 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29327
+[7][Thu Jan  1 03:52:17 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:52:17 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:52:17 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:52:17 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:52:18 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:52:18 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:52:18 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:52:18 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:52:18 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13938&sys_memfree=73696&sys_load=0.43&wifidog_uptime=55 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:52:18 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:52:18 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+[7][Thu Jan  1 03:52:21 1970][29229](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:21 1970][29229](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+Invalid request path ''
+[7][Thu Jan  1 03:52:21 1970][29229](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:21 1970][29229](httpd_thread.c:73) Closing connection with 192.168.20.66
+[7][Thu Jan  1 03:52:21 1970][29230](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:21 1970][29230](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+Invalid request path ''
+[7][Thu Jan  1 03:52:21 1970][29230](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:21 1970][29230](httpd_thread.c:73) Closing connection with 192.168.20.66
+[6][Thu Jan  1 03:52:25 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[7][Thu Jan  1 03:52:25 1970][29424](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:25 1970][29424](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:25 1970][29424](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:25 1970][29424](httpd_thread.c:73) Closing connection with 192.168.20.66
+[6][Thu Jan  1 03:52:25 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[7][Thu Jan  1 03:52:25 1970][29425](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:25 1970][29425](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+[6][Thu Jan  1 03:52:25 1970][29425](http.c:124) Got client MAC address for ip 192.168.20.66: 00:e0:4c:80:36:58
+[6][Thu Jan  1 03:52:25 1970][29425](http.c:134) Captured 192.168.20.66 requesting [http%3A//192.168.20.1%3A8060/favicon.ico] and re-directing them to login page
+[7][Thu Jan  1 03:52:25 1970][29425](http.c:214) Redirecting client browser to http://192.168.20.1:80/wifiap/wifidog/login/?gw_address=192.168.20.1&gw_port=8060&gw_id=wifiap&mac=00:e0:4c:80:36:58&url=http%3A//192.168.20.1%3A8060/favicon.ico
+[7][Thu Jan  1 03:52:25 1970][29425](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:25 1970][29425](httpd_thread.c:73) Closing connection with 192.168.20.66
+[7][Thu Jan  1 03:52:27 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:52:27 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:27 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29426
+[7][Thu Jan  1 03:52:27 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:27 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29521
+[7][Thu Jan  1 03:52:27 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:52:27 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:52:27 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:52:27 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:52:28 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:52:28 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:52:28 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:52:28 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:52:28 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13948&sys_memfree=73688&sys_load=0.52&wifidog_uptime=65 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:52:28 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:52:28 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+[6][Thu Jan  1 03:52:29 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[6][Thu Jan  1 03:52:29 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[6][Thu Jan  1 03:52:29 1970][20658](gateway.c:474) Received connection from 192.168.20.66, spawning worker thread
+[7][Thu Jan  1 03:52:29 1970][29620](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:29 1970][29620](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+[6][Thu Jan  1 03:52:29 1970][29620](http.c:124) Got client MAC address for ip 192.168.20.66: 00:e0:4c:80:36:58
+[6][Thu Jan  1 03:52:29 1970][29620](http.c:134) Captured 192.168.20.66 requesting [http%3A//192.168.20.1%3A8060/wifiap] and re-directing them to login page
+[7][Thu Jan  1 03:52:29 1970][29620](http.c:214) Redirecting client browser to http://192.168.20.1:80/wifiap/wifidog/login/?gw_address=192.168.20.1&gw_port=8060&gw_id=wifiap&mac=00:e0:4c:80:36:58&url=http%3A//192.168.20.1%3A8060/wifiap
+[7][Thu Jan  1 03:52:29 1970][29620](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:29 1970][29620](httpd_thread.c:73) Closing connection with 192.168.20.66
+[7][Thu Jan  1 03:52:37 1970][28169](auth.c:83) Running fw_counter()
+[7][Thu Jan  1 03:52:37 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:37 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29621
+[7][Thu Jan  1 03:52:37 1970][28169](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:37 1970][28169](gateway.c:263) Handler for SIGCHLD reaped child PID 29716
+[7][Thu Jan  1 03:52:37 1970][28169](firewall.c:237) Locking client list
+[7][Thu Jan  1 03:52:37 1970][28169](firewall.c:237) Client list locked
+[7][Thu Jan  1 03:52:37 1970][28169](firewall.c:348) Unlocking client list
+[7][Thu Jan  1 03:52:37 1970][28169](firewall.c:348) Client list unlocked
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:72) Running ping()
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:109) Entering ping()
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:188) Locking config
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:188) Config locked
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:232) Level 1: Calculated 1 auth servers in list
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:248) Level 1: Resolving auth server [192.168.20.1]
+[7][Thu Jan  1 03:52:38 1970][28171](util.c:146) Locking wd_gethostbyname()
+[7][Thu Jan  1 03:52:38 1970][28171](util.c:146) wd_gethostbyname() locked
+[7][Thu Jan  1 03:52:38 1970][28171](util.c:161) Unlocking wd_gethostbyname()
+[7][Thu Jan  1 03:52:38 1970][28171](util.c:161) wd_gethostbyname() unlocked
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:308) Level 1: Resolving auth server [192.168.20.1] succeeded = [192.168.20.1]
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:333) Level 1: Connecting to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:359) Level 1: Successfully connected to auth server 192.168.20.1:80
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:190) Unlocking config
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:190) Config unlocked
+[7][Thu Jan  1 03:52:38 1970][28171](centralserver.c:197) Connected to auth server
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:167) HTTP Request to Server: [GET /wifiap/wifidog/ping/?gw_id=wifiap&sys_uptime=13958&sys_memfree=73616&sys_load=0.67&wifidog_uptime=75 HTTP/1.0
+User-Agent: WiFiDog 20090925
+Host: 192.168.20.1
+
+]
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:171) Reading response
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:199) Read 179 bytes, total now 179
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:217) Done reading reply, total 179 bytes
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:221) HTTP Response from Server: [HTTP/1.0 200 OK
+X-Powered-By: PHP/5.4.27
+Content-type: text/html
+Content-Length: 9
+Connection: close
+Date: Thu, 01 Jan 1970 03:52:38 GMT
+Server: lighttpd/1.4.30
+
+Pong
+88 1]
+[7][Thu Jan  1 03:52:38 1970][28171](ping_thread.c:228) Auth Server Says: Pong
+[7][Thu Jan  1 03:52:39 1970][29618](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:39 1970][29618](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+Invalid request path ''
+[7][Thu Jan  1 03:52:39 1970][29618](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:39 1970][29618](httpd_thread.c:73) Closing connection with 192.168.20.66
+[7][Thu Jan  1 03:52:39 1970][29619](httpd_thread.c:65) Processing request from 192.168.20.66
+[7][Thu Jan  1 03:52:39 1970][29619](httpd_thread.c:66) Calling httpdProcessRequest() for 192.168.20.66
+Invalid request path ''
+[7][Thu Jan  1 03:52:39 1970][29619](httpd_thread.c:68) Returned from httpdProcessRequest() for 192.168.20.66
+[7][Thu Jan  1 03:52:39 1970][29619](httpd_thread.c:73) Closing connection with 192.168.20.66
+^C[6][Thu Jan  1 03:52:42 1970][28171](gateway.c:273) Handler for termination caught signal 2
+[6][Thu Jan  1 03:52:42 1970][28171](gateway.c:281) Cleaning up and exiting
+[6][Thu Jan  1 03:52:42 1970][28171](gateway.c:284) Flushing firewall rules...
+[6][Thu Jan  1 03:52:42 1970][28171](firewall.c:212) Closing ICMP socket
+[6][Thu Jan  1 03:52:42 1970][28171](firewall.c:216) Removing Firewall rules
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:363) Destroying our iptables entries
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:370) Destroying chains in the MANGLE table
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Trusted from mangle.PREROUTING
+[6][Thu Jan  1 03:52:42 1970][28170](gateway.c:273) Handler for termination caught signal 2
+[6][Thu Jan  1 03:52:42 1970][28170](gateway.c:277) Another thread already began global termination handler. I'm exiting
+[6][Thu Jan  1 03:52:42 1970][28169](gateway.c:273) Handler for termination caught signal 2
+[6][Thu Jan  1 03:52:42 1970][28169](gateway.c:277) Another thread already began global termination handler. I'm exiting
+[6][Thu Jan  1 03:52:42 1970][20658](gateway.c:273) Handler for termination caught signal 2
+[6][Thu Jan  1 03:52:42 1970][20658](gateway.c:277) Another thread already began global termination handler. I'm exiting
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:464) Deleting rule 1 from mangle.PREROUTING because it mentions WiFiDog_br0_Trusted
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -D PREROUTING 1
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Trusted from mangle.PREROUTING
+[7][Thu Jan  1 03:52:42 1970][28171](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:42 1970][28171](gateway.c:263) Handler for SIGCHLD reaped child PID 30003
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Outgoing from mangle.PREROUTING
+[7][Thu Jan  1 03:52:42 1970][28171](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:42 1970][28171](gateway.c:263) Handler for SIGCHLD reaped child PID 30098
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Incoming from mangle.POSTROUTING
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:464) Deleting rule 1 from mangle.POSTROUTING because it mentions WiFiDog_br0_Incoming
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -D POSTROUTING 1
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Incoming from mangle.POSTROUTING
+[7][Thu Jan  1 03:52:42 1970][28171](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:42 1970][28171](gateway.c:263) Handler for SIGCHLD reaped child PID 30383
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -F WiFiDog_br0_Trusted
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -F WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -F WiFiDog_br0_Incoming
+[7][Thu Jan  1 03:52:42 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -X WiFiDog_br0_Trusted
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -X WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t mangle -X WiFiDog_br0_Incoming
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:386) Destroying chains in the NAT table
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Outgoing from nat.PREROUTING
+[7][Thu Jan  1 03:52:43 1970][28171](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:43 1970][28171](gateway.c:263) Handler for SIGCHLD reaped child PID 31048
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:464) Deleting rule 5 from nat.PREROUTING because it mentions WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -D PREROUTING 5
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_Outgoing from nat.PREROUTING
+[7][Thu Jan  1 03:52:43 1970][28171](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:43 1970][28171](gateway.c:263) Handler for SIGCHLD reaped child PID 31238
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -F WiFiDog_br0_AuthServers
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -F WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -F WiFiDog_br0_WIFI2Router
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -F WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:52:43 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -F WiFiDog_br0_Global
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -F WiFiDog_br0_Unknown
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -X WiFiDog_br0_AuthServers
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -X WiFiDog_br0_Outgoing
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -X WiFiDog_br0_WIFI2Router
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -X WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -X WiFiDog_br0_Global
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t nat -X WiFiDog_br0_Unknown
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:406) Destroying chains in the FILTER table
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:448) Attempting to destroy all mention of WiFiDog_br0_WIFI2Internet from filter.FORWARD
+[7][Thu Jan  1 03:52:44 1970][28171](gateway.c:259) Handler for SIGCHLD called. Trying to reap a child
+[7][Thu Jan  1 03:52:44 1970][28171](gateway.c:263) Handler for SIGCHLD reaped child PID 32473
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:52:44 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_AuthServers
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_Locked
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_Global
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_Validate
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_Known
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -F WiFiDog_br0_Unknown
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_WIFI2Internet
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_AuthServers
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Locked
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Global
+[7][Thu Jan  1 03:52:45 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Validate
+[7][Thu Jan  1 03:52:46 1970][28171](fw_iptables.c:111) Executing command: iptables -t filter -X WiFiDog_br0_Known
+[7][Thu Jan  1 03:52:46 1970][28171](fw_iptables.c:111) Exe
+# 
+# 
+[END] 2014/10/28 14:39:33

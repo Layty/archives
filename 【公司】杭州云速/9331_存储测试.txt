@@ -1,0 +1,95 @@
+
+mkdir /tmp/sda1;mount /dev/sda1 /tmp/sda1
+mkdir /tmp/sdb4;mount /dev/sdb4 /tmp/sdb4
+
+
+mkdir /tmp/sda1;mount /dev/sda1 /tmp/sda1
+mkdir /tmp/sdb1;mount /dev/sdb1 /tmp/sdb1
+
+
+time dd if=/dev/zero of=256M.file bs=1024 count=262144
+time cat 256M.file > /dev/null 
+
+tf卡
+/tmp/sda1 # time dd if=/dev/zero of=256M.file bs=1024 count=262144
+262144+0 records in
+262144+0 records out
+real	1m 8.81s
+user	0m 0.29s
+sys	0m 7.18s
+
+/tmp/sda1 # time cat 256M.file > /dev/null 
+real	0m 16.78s
+user	0m 0.08s
+sys	0m 2.77s
+
+u盘
+/tmp/sdb1 # time dd if=/dev/zero of=256M.file bs=1024 count=262144
+262144+0 records in
+262144+0 records out
+real	1m 16.54s
+user	0m 0.22s
+sys	0m 6.67s
+
+/tmp/sdb1 # time cat 256M.file > /dev/null
+real	0m 14.56s
+user	0m 0.06s
+sys	0m 3.33s
+
+tf->u盘
+/tmp/sdb1 # time cp ../sda1/256M.file .
+real	1m 27.06s
+user	0m 0.16s
+sys	0m 11.70s
+
+u盘->tf
+/tmp/sda1 # time cp ../sdb1/256M.file . 
+real	1m 10.88s
+user	0m 0.17s
+sys	0m 9.03s
+
+
+~                                                                               
+#!/bin/sh                                                                       
+                                                                                
+i=0                                                                             
+while [ $i -lt 10 ]                                                             
+do                                                                              
+        rm /tmp/sdb1/256M.file                                                  
+        time cp /tmp/sda1/256M.file /tmp/sdb1/ >> /tmp/sda1_sdb1 2>&1           
+        i=`expr $i + 1`                                                         
+done 
+
+
+
+/tmp # cat sda1_sdb1 
+real	1m 10.52s
+user	0m 0.19s
+sys	0m 8.95s
+real	1m 10.10s
+user	0m 0.18s
+sys	0m 8.83s
+real	1m 21.38s
+user	0m 0.20s
+sys	0m 8.88s
+real	1m 20.46s
+user	0m 0.18s
+sys	0m 8.91s
+real	1m 19.27s
+user	0m 0.14s
+sys	0m 8.94s
+real	1m 24.51s
+user	0m 0.26s
+sys	0m 9.31s
+real	1m 28.19s
+user	0m 0.16s
+sys	0m 8.98s
+real	1m 28.14s
+user	0m 0.18s
+sys	0m 8.84s
+real	1m 30.53s
+user	0m 0.12s
+sys	0m 8.88s
+real	1m 27.29s
+user	0m 0.19s
+sys	0m 8.84s

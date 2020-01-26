@@ -1,0 +1,643 @@
+   39 admin     1964 S    telnetd
+   41 admin      836 S    reset_dog
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 1468 admin     1964 S    udhcpc -i eth2.2 -s /sbin/udhcpc.sh -p /var/run/udhcp
+ 2154 admin     1968 S    /bin/sh /bin/inet_chk.sh
+ 7814 admin     1964 S    klogd
+ 8874 admin     1016 S    dnsmasq --conf-file=/etc/dnsmasq_intra.conf
+ 8995 admin     1964 S    sleep 3
+ 8996 admin     1968 R    ps
+#
+# killall
+# killall inet_chk.sh
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   37 admin     1736 S    goahead
+   39 admin     1964 S    telnetd
+   41 admin      836 S    reset_dog
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 1468 admin     1964 S    udhcpc -i eth2.2 -s /sbin/udhcpc.sh -p /var/run/udhcp
+ 7814 admin     1964 S    klogd
+ 8874 admin     1016 S    dnsmasq --conf-file=/etc/dnsmasq_intra.conf
+ 9064 admin        0 Z    [sleep]
+ 9066 admin     1968 R    ps
+#
+# killall dnsmasq
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   37 admin     1736 S    goahead
+   39 admin     1964 S    telnetd
+   41 admin      836 S    reset_dog
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 1468 admin     1964 S    udhcpc -i eth2.2 -s /sbin/udhcpc.sh -p /var/run/udhcp
+ 7814 admin     1964 S    klogd
+ 9068 admin     1968 R    ps
+#
+# killall udhcpc
+Received SIGTERM
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   37 admin     1736 S    goahead
+   39 admin     1964 S    telnetd
+   41 admin      836 S    reset_dog
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 7814 admin     1964 S    klogd
+ 9070 admin     1968 R    ps
+#
+#
+# killall reset_dog
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   37 admin     1736 S    goahead
+   39 admin     1964 S    telnetd
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 7814 admin     1964 S    klogd
+ 9072 admin     1968 R    ps
+#
+#
+# killall goahead
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   39 admin     1964 S    telnetd
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 7814 admin     1964 S    klogd
+ 9074 admin     1968 R    ps
+# killall telnetd
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 7814 admin     1964 S    klogd
+ 9076 admin     1968 R    ps
+# killall klogd
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   36 admin     1128 S    nvram_daemon
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 9078 admin     1968 R    ps
+#
+#
+# killall nvram_daemon
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 9080 admin     1968 R    ps
+#
+#
+#
+#
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   84 admin        0 SW   [mmcqd]
+  203 admin     1976 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 9081 admin     1968 R    ps
+#
+#
+# cd /tmp/mmcblk0p1/
+# ls
+usb.bin-copy  usb.bin
+# ls -l
+-rwxrwxrwx    1 0        0               0 usb.bin-copy
+-rwxrwxrwx    1 0        0       1073741824 usb.bin
+# rm usb.bin
+# ls
+usb.bin-copy
+# ps
+  PID USER       VSZ STAT COMMAND
+    1 admin     1968 S    init
+    2 admin        0 SW   [kthreadd]
+    3 admin        0 SW   [ksoftirqd/0]
+    4 admin        0 SW   [kworker/0:0]
+    5 admin        0 SW   [kworker/u:0]
+    6 admin        0 SW<  [khelper]
+    7 admin        0 SW   [sync_supers]
+    8 admin        0 SW   [bdi-default]
+    9 admin        0 SW<  [kblockd]
+   10 admin        0 SW   [khubd]
+   11 admin        0 SW<  [kmmcd]
+   12 admin        0 SW   [kswapd0]
+   13 admin        0 SW<  [crypto]
+   17 admin        0 SW   [mtdblock0]
+   18 admin        0 SW   [mtdblock1]
+   19 admin        0 SW   [mtdblock2]
+   20 admin        0 SW   [mtdblock3]
+   21 admin        0 SW   [mtdblock4]
+   22 admin        0 SW   [kworker/u:1]
+   29 admin        0 SW   [kworker/0:1]
+   84 admin        0 SW   [mmcqd]
+  203 admin     2008 S    /bin/sh
+  590 admin        0 SW   [RtmpCmdQTask]
+  595 admin        0 SW   [RtmpCmdQTask]
+  596 admin        0 SW   [RtmpWscTask]
+ 9086 admin     1968 R    ps
+# ls
+usb.bin-copy
+#
+# cd
+# ls
+media   sbin    mnt     proc    init    var     usr     tmp
+etc_ro  home    bin     dev     lib     sys     etc
+# time dd if=/tmp/mmcblk0p1/usb.bin of=/dev/null bs=1024 count=1048576
+dd: can't open '/tmp/mmcblk0p1/usb.bin': No such file or directory
+Command exited with non-zero status 1
+real    0m 0.00s
+user    0m 0.00s
+sys     0m 0.00s
+#
+# time dd if=/dev/zero of=/tmp/mmcllk0p1/usb.bin bs=1024 count=1048576
+dd: can't open '/tmp/mmcllk0p1/usb.bin': No such file or directory
+Command exited with non-zero status 1
+real    0m 0.00s
+user    0m 0.00s
+sys     0m 0.00s
+# pwd
+/
+# ls
+media   sbin    mnt     proc    init    var     usr     tmp
+etc_ro  home    bin     dev     lib     sys     etc
+# cd /tmp/
+/tmp/mmcblk0/    /tmp/mmcblk0p1/  /tmp/run/
+# cd /tmp/mmcblk0p1/
+# ls
+usb.bin-copy
+#
+#
+# time dd if=/dev/zero of=/tmp/mmcblk0p1/usb.bin bs=1024 count=1048576
+1048576+0 records in
+1048576+0 records out
+real    1m 34.89s
+user    0m 1.30s
+sys     0m 22.44s
+#
+# ls
+usb.bin-copy  usb.bin
+# rm usb.bin-copy
+#
+# time cp /tmp/mmcblk0p1/usb.bin /tmp/mmcblk0p1/usb.bin-copy
+real    2m 13.95s
+user    0m 0.31s
+sys     0m 22.69s
+#
+# time dd if=/tmp/mmcblk0p1/usb.bin of=/dev/null bs=1024 count=1048576
+dd invoked oom-killer: gfp_mask=0x201da, order=0, oom_adj=0, oom_score_adj=0
+Call Trace:[<8001b1fc>] 0x8001b1fc
+[<8001b1fc>] 0x8001b1fc
+[<800771f4>] 0x800771f4
+[<80077534>] 0x80077534
+[<80077a14>] 0x80077a14
+[<8007bb94>] 0x8007bb94
+[<8007bb30>] 0x8007bb30
+[<80075e54>] 0x80075e54
+[<80420000>] 0x80420000
+[<8007e468>] 0x8007e468
+[<8007e644>] 0x8007e644
+[<8007eaa4>] 0x8007eaa4
+[<8007eaa4>] 0x8007eaa4
+[<800b7744>] 0x800b7744
+[<8007483c>] 0x8007483c
+[<800746a0>] 0x800746a0
+[<800a068c>] 0x800a068c
+[<80034c28>] 0x80034c28
+[<80034c48>] 0x80034c48
+[<8000840c>] 0x8000840c
+[<80034aec>] 0x80034aec
+[<800a0774>] 0x800a0774
+[<800a0750>] 0x800a0750
+[<800a0a30>] 0x800a0a30
+[<8000a124>] 0x8000a124
+
+Mem-Info:
+Normal per-cpu:
+CPU    0: hi:   42, btch:   7 usd:   6
+active_anon:31 inactive_anon:43 isolated_anon:0
+ active_file:4 inactive_file:1 isolated_file:0
+ unevictable:27212 dirty:0 writeback:0 unstable:0
+ free:511 slab_reclaimable:650 slab_unreclaimable:1682
+ mapped:102 shmem:0 pagetables:12 bounce:0
+Normal free:2044kB min:2048kB low:2560kB high:3072kB active_anon:124kB inactive_
+anon:172kB active_file:16kB inactive_file:4kB unevictable:108848kB isolated(anon
+):0kB isolated(file):0kB present:130048kB mlocked:0kB dirty:0kB writeback:0kB ma
+pped:408kB shmem:0kB slab_reclaimable:2600kB slab_unreclaimable:6728kB kernel_st
+ack:224kB pagetables:48kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanne
+d:33 all_unreclaimable? yes
+lowmem_reserve[]: 0 0
+Normal: 511*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*20
+48kB 0*4096kB = 2044kB
+27217 total pagecache pages
+32768 pages RAM
+1417 pages reserved
+281 pages shared
+30229 pages non-shared
+[ pid ]   uid  tgid total_vm      rss cpu oom_adj oom_score_adj name
+[  203]     0   203      502      120   0       0             0 sh
+[ 9102]     0  9102      491       69   0       0             0 time
+[ 9103]     0  9103      491       73   0       0             0 dd
+Out of memory: Kill process 203 (sh) score 1 or sacrifice child
+Killed process 9102 (time) total-vm:1964kB, anon-rss:56kB, file-rss:220kB
+Killdd invoked oom-killer: gfp_mask=0x201da, order=0, oom_adj=0, oom_score_adj=0
+
+Call Trace:
+           #[<8001b1fc>] 0x8001b1fc
+ [<8001b1fc>] 0x8001b1fc
+[<800771f4>] 0x800771f4
+[<80077534>] 0x80077534
+[<80077a14>] 0x80077a14
+[<8007bb94>] 0x8007bb94
+[<8007bb30>] 0x8007bb30
+[<80075e54>] 0x80075e54
+[<80420000>] 0x80420000
+[<8007e468>] 0x8007e468
+[<8007e644>] 0x8007e644
+[<8007eaa4>] 0x8007eaa4
+[<8007eaa4>] 0x8007eaa4
+[<800b7744>] 0x800b7744
+[<8007483c>] 0x8007483c
+[<800746a0>] 0x800746a0
+[<800a068c>] 0x800a068c
+[<80034c28>] 0x80034c28
+[<80034c48>] 0x80034c48
+[<8000840c>] 0x8000840c
+[<80034aec>] 0x80034aec
+[<800a0774>] 0x800a0774
+[<800a0750>] 0x800a0750
+[<800a0a30>] 0x800a0a30
+[<8000a124>] 0x8000a124
+
+Mem-Info:
+Normal per-cpu:
+CPU    0: hi:   42, btch:   7 usd:  30
+active_anon:17 inactive_anon:43 isolated_anon:0
+ active_file:4 inactive_file:1 isolated_file:0
+ unevictable:27212 dirty:0 writeback:0 unstable:0
+ free:504 slab_reclaimable:650 slab_unreclaimable:1683
+ mapped:99 shmem:0 pagetables:9 bounce:0
+Normal free:2016kB min:2048kB low:2560kB high:3072kB active_anon:68kB inactive_a
+non:172kB active_file:16kB inactive_file:4kB unevictable:108848kB isolated(anon)
+:0kB isolated(file):0kB present:130048kB mlocked:0kB dirty:0kB writeback:0kB map
+ped:396kB shmem:0kB slab_reclaimable:2600kB slab_unreclaimable:6732kB kernel_sta
+ck:216kB pagetables:36kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned
+:33 all_unreclaimable? yes
+lowmem_reserve[]: 0 0
+Normal: 504*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*20
+48kB 0*4096kB = 2016kB
+27217 total pagecache pages
+32768 pages RAM
+1417 pages reserved
+226 pages shared
+30215 pages non-shared
+[ pid ]   uid  tgid total_vm      rss cpu oom_adj oom_score_adj name
+[  203]     0   203      502      120   0       0             0 sh
+[ 9103]     0  9103      491       73   0       0             0 dd
+Out of memory: Kill process 203 (sh) score 1 or sacrifice child
+Killed process 203 (sh) total-vm:2008kB, anon-rss:116kB, file-rss:364kB
+process '/bin/sh' (pid 203) exited. Scheduling for restart.
+starting pid 9104, tty '/dev/ttyS1': '/bin/sh'
+
+
+BusyBox v1.12.1 (2014-11-26 13:06:19 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+
+
+
+
+
+
+# time cat /tmp/mmcblk0p1/usb.bin > /dev/null
+cat invoked oom-killer: gfp_mask=0x201da, order=0, oom_adj=0, oom_score_adj=0
+Call Trace:[<8001b1fc>] 0x8001b1fc
+[<8001b1fc>] 0x8001b1fc
+[<800771f4>] 0x800771f4
+[<800576f8>] 0x800576f8
+[<80077534>] 0x80077534
+[<80077a14>] 0x80077a14
+[<8007bb94>] 0x8007bb94
+[<8007bb30>] 0x8007bb30
+[<80420000>] 0x80420000
+[<8007e468>] 0x8007e468
+[<8007e644>] 0x8007e644
+[<8007440c>] 0x8007440c
+[<8007440c>] 0x8007440c
+[<800a068c>] 0x800a068c
+[<c0783974>] 0xc0783974
+[<80041a24>] 0x80041a24
+[<80041a04>] 0x80041a04
+[<800a0774>] 0x800a0774
+[<800a0750>] 0x800a0750
+[<80041b20>] 0x80041b20
+[<800a0a30>] 0x800a0a30
+[<800156a8>] 0x800156a8
+[<8000a124>] 0x8000a124
+
+Mem-Info:
+Normal per-cpu:
+CPU    0: hi:   42, btch:   7 usd:  22
+active_anon:1 inactive_anon:61 isolated_anon:0
+ active_file:4 inactive_file:0 isolated_file:0
+ unevictable:27355 dirty:0 writeback:0 unstable:0
+ free:512 slab_reclaimable:520 slab_unreclaimable:1677
+ mapped:102 shmem:0 pagetables:14 bounce:0
+Normal free:2048kB min:2048kB low:2560kB high:3072kB active_anon:4kB inactive_an
+on:244kB active_file:16kB inactive_file:0kB unevictable:109420kB isolated(anon):
+0kB isolated(file):0kB present:130048kB mlocked:0kB dirty:0kB writeback:0kB mapp
+ed:408kB shmem:0kB slab_reclaimable:2080kB slab_unreclaimable:6708kB kernel_stac
+k:224kB pagetables:56kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned:
+33 all_unreclaimable? yes
+lowmem_reserve[]: 0 0
+Normal: 512*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*20
+48kB 0*4096kB = 2048kB
+27359 total pagecache pages
+32768 pages RAM
+1417 pages reserved
+271 pages shared
+30213 pages non-shared
+[ pid ]   uid  tgid total_vm      rss cpu oom_adj oom_score_adj name
+[ 9104]     0  9104      492      102   0       0             0 sh
+[ 9105]     0  9105      491       70   0       0             0 time
+[ 9106]     0  9106      491       68   0       0             0 cat
+Out of memory: Kill process 9104 (sh) score 1 or sacrifice child
+Killed process 9105 (time) total-vm:1964kB, anon-rss:60kB, file-rss:220kB
+Killed
+cat invoked oom-killer: gfp_mask=0x201da, order=0, oom_adj=0, oom_score_adj=0
+Call Trace:[<8001b1fc>] 0x8001b1fc
+[<8001b1fc>] 0x8001b1fc
+[<800771f4>] 0x800771f4
+[<80077534>] 0x80077534
+[<80077a14>] 0x80077a14
+[<8007bb94>] 0x8007bb94
+[<8007bb30>] 0x8007bb30
+[<80420000>] 0x80420000
+[<8007e468>] 0x8007e468
+[<8007e644>] 0x8007e644
+[<8007440c>] 0x8007440c
+[<8007440c>] 0x8007440c
+[<800a068c>] 0x800a068c
+[<c0783974>] 0xc0783974
+[<80041a24>] 0x80041a24
+[<80041a04>] 0x80041a04
+[<800a0774>] 0x800a0774
+[<800a0750>] 0x800a0750
+[<80041b20>] 0x80041b20
+[<800a0a30>] 0x800a0a30
+[<800156a8>] 0x800156a8
+[<8000a124>] 0x8000a124
+
+Mem-Info:
+Normal per-cpu:
+CPU    0: hi:   42, btch:   7 usd:  40
+active_anon:1 inactive_anon:46 isolated_anon:0
+ active_file:4 inactive_file:0 isolated_file:0
+ unevictable:27355 dirty:0 writeback:0 unstable:0
+ free:512 slab_reclaimable:520 slab_unreclaimable:1678
+ mapped:100 shmem:0 pagetables:11 bounce:0
+Normal free:2048kB min:2048kB low:2560kB high:3072kB active_anon:4kB inactive_an
+on:184kB active_file:16kB inactive_file:0kB unevictable:109420kB isolated(anon):
+0kB isolated(file):0kB present:130048kB mlocked:0kB dirty:0kB writeback:0kB mapp
+ed:400kB shmem:0kB slab_reclaimable:2080kB slab_unreclaimable:6712kB kernel_stac
+k:216kB pagetables:44kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned:
+24 all_unreclaimable? yes
+lowmem_reserve[]: 0 0
+Normal: 512*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*20
+48kB 0*4096kB = 2048kB
+27359 total pagecache pages
+32768 pages RAM
+1417 pages reserved
+217 pages shared
+30197 pages non-shared
+[ pid ]   uid  tgid total_vm      rss cpu oom_adj oom_score_adj name
+[ 9104]     0  9104      494      103   0       0             0 sh
+[ 9106]     0  9106      491       68   0       0             0 cat
+Out of memory: Kill process 9104 (sh) score 1 or sacrifice child
+Killed process 9104 (sh) total-vm:1976kB, anon-rss:64kB, file-rss:348kB
+process '/bin/sh' (pid 9104) exited. Scheduling for restart.
+starting pid 9107, tty '/dev/ttyS1': '/bin/sh'
+
+
+BusyBox v1.12.1 (2014-11-26 13:06:19 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+#

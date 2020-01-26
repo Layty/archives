@@ -1,0 +1,43 @@
+iwpriv ra1 set WscConfMode=7
+iwpriv ra1 set WscConfStatus=2
+iwpriv ra1 set WscMode=2
+iwpriv ra1 set WscGetConf=1
+iwpriv ra1 set WscStop=0
+
+iwpriv ra1 set WscStatus=0
+
+iwpriv ra1 set WscVersion=10
+iwpriv ra1 set WscV2Support=1
+
+
+==========
+iwpriv ra1 set WscConfMode=7
+iwpriv ra1 set WscConfStatus=2
+iwpriv ra1 set WscVersion=10
+iwpriv ra1 set WscConfMethods=010c
+
+
+=========
+iwpriv ra1 set WscConfMode=7
+iwpriv ra1 set WscConfStatus=2
+iwpriv ra1 set WscVersion=10
+iwpriv ra1 set WscV2Support=0
+
+=================
+iwpriv ra1 set Debug=3
+iwpriv ra1 set WscConfMode=7 
+iwpriv ra1 set WscConfStatus=2
+iwpriv ra1 set WscMode=2 
+iwpriv ra1 set WscGetConf=1 
+
+iwpriv ra1 set Debug=0
+
+iwpriv ra0 commands val
+wsc_conf_mode                   {0, 1, 2}
+                                                ::Set WPS conf mode
+                                                0: WPS Disabled
+                                                1: Enrollee
+                                                2: Registrar
+
+iwpriv ra0 wsc_conf_mode 2												
+iwpriv ra0 wsc_conf_mode 3

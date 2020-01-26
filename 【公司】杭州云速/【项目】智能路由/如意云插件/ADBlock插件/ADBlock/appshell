@@ -1,0 +1,233 @@
+#!/bin/sh
+set -x
+
+# Attention: 此文件被大量改动，不适合作为模板使用！
+
+Parameter_num=$#
+Parameter_one=$1
+PathNow=`dirname $0`  #当前执行appshell的路径
+PathInstall="/opt/app"
+LastValue=
+IpkName="ADBlock*.ipk"
+BinName="ADBlock"
+
+#1，判断参数是否合法
+FunParamLegal()
+{
+	if [ ${Parameter_num} -ne 1 ];then
+		echo "Fail:Parameter Err."
+		exit 1
+	fi
+}
+
+#查看进程号
+CheckProgressNum()
+{
+	local L_NumProgress=""
+	local L_Line=""
+	local L_TmpFile="/tmp/NumProgress"
+	local L_Tmp=""
+	
+	ps | grep "./${BinName}" > ${L_TmpFile}
+	
+	while read L_Line
+	do
+		L_Tmp=`echo ${L_Line} | grep "grep ./${BinName}"`
+		if [ "${L_Tmp}" == "" ];then
+			L_Tmp=`echo ${L_Line} | awk -F " " '{print $5}' | awk -F " " '{print $1}'`
+			if [ "${L_Tmp}" != "./${BinName}" ];then
+				continue
+			else
+				L_NumProgress=`echo ${L_Line} | awk -F " " '{print $1}'`
+				break
+			fi
+		fi
+		
+		break			
+	done < ${L_TmpFile}
+
+	rm -f ${L_TmpFile}
+	
+	echo ${L_NumProgress}
+}
+
+
+#安装函数
+Install()
+{
+	local L_ExitStatus=0
+
+	#进入当前 appshell 的目录
+	cd ${PathNow}
+	
+	#查看/opt/app 目录是否存在 ,如果不存在则创建这样一个目录
+	if [ ! -d "${PathInstall}" ];then
+		mkdir -p ${PathInstall}
+	fi
+	
+	#ipk 文件存在
+	if [ -f ${IpkName} ];then
+		tar xzvf ${IpkName} -C ${PathInstall}
+		LastValue=$?
+		if [ ${LastValue} -eq 0 ];then
+			#cp -f ${PathInstall}/ADBlock/etc/dnsmasq.ads /etc/dnsmasq.ads
+			#cp -f ${PathInstall}/ADBlock/script/updnsmasq.sh /etc/updnsmasq.sh
+			grep conf-file /etc/dnsmasq.conf || echo -e "#add dnsmasq.ads rule list.\nconf-file=/opt/app/ADBlock/etc/dnsmasq.ads" >> /etc/dnsmasq.conf
+			echo "0 3 */5 * * /opt/app/ADBlock/script/updnsmasq.sh" >> /etc/crontabs/root
+			#deal with the offical start up bug.(vi /etc/init.d/mjpg-streamer 54/67 80%))
+			if test $( cat /etc/init.d/mjpg-streamer | grep 'crontab /etc/mjpg-streamer.conf' | wc -l ) -ne 0 ; then
+				echo "0 3 */5 * * /opt/app/ADBlock/script/updnsmasq.sh" >> /etc/mjpg-streamer.conf
+			fi
+			sync
+			/etc/init.d/cron restart
+			/etc/init.d/dnsmasq restart
+			echo "Success."
+			L_ExitStatus=0
+		else
+			echo "Fail:Install Err."
+			L_ExitStatus=3
+		fi
+	else
+		echo "Fail:Install file is not exist."
+		L_ExitStatus=2
+	fi
+	cd -
+	exit ${L_ExitStatus}
+}
+
+#卸载函数
+unInstall()
+{
+	local L_ExitStatus=0
+	local L_NumProgress=""
+	
+	#杀掉线程
+	L_NumProgress=`CheckProgressNum`
+	if [ "${L_NumProgress}" != "" ];then
+		kill -9 ${L_NumProgress}
+	fi	
+
+	#进入当前 appshell 的目录
+	cd ${PathNow}
+		rm  -fr ../ADBlock
+	cd -
+	
+	#删除其他
+	#rm -f /etc/dnsmasq.ads
+	#rm -f /etc/updnsmasq.sh
+	sed -i '/dnsmasq.ads/d' /etc/dnsmasq.conf
+	sed -i '/updnsmasq.sh/d' /etc/crontabs/root
+	#deal with the offical start up bug.(vi /etc/init.d/mjpg-streamer 54/67 80%))
+	if test $( cat /etc/init.d/mjpg-streamer | grep 'crontab /etc/mjpg-streamer.conf' | wc -l ) -ne 0 ; then
+		sed -i '/updnsmasq.sh/d' /etc/mjpg-streamer.conf
+	fi
+	sync
+	/etc/init.d/cron restart
+	/etc/init.d/dnsmasq restart
+
+	exit ${L_ExitStatus}
+}
+
+#启动函数
+Start()
+{
+	local L_ExitStatus=0
+	
+	/opt/app/ADBlock/script/updnsmasq.sh
+	LastValue=$?
+	if [ ${LastValue} -eq 0 ];then
+		echo "Success."
+		L_ExitStatus=0
+	else
+		echo "Fail:Start Err."
+		L_ExitStatus=4
+	fi
+
+	exit ${L_ExitStatus}	
+}
+
+#停止函数
+Stop()
+{
+	local L_ExitStatus=0
+	echo "Fail: dnsmasq should not be stopped."
+	L_ExitStatus=4
+		
+	exit ${L_ExitStatus}	
+}
+
+
+#重新启动函数
+Restart()
+{
+	local L_ExitStatus=0
+	
+	/etc/init.d/dnsmasq restart
+	LastValue=$?
+	if [ ${LastValue} -eq 0 ];then
+		echo "Success."
+		L_ExitStatus=0
+	else
+		echo "Fail:Start Err."
+		L_ExitStatus=4
+	fi
+
+	exit ${L_ExitStatus}	
+}
+
+#查看运行状态函数
+CheckRunStatus()
+{
+	local L_ExitStatus=0
+	
+	#查看程序运行状态
+	if [ $(ps | grep "dnsmasq" | wc -l) -gt 1 ]; then
+		echo "Success."
+		L_ExitStatus=0
+	else
+		echo "Success."
+		L_ExitStatus=1		
+	fi	
+
+	exit ${L_ExitStatus}	
+}
+
+#主函数
+Main()
+{
+	#安装
+	if [ "${Parameter_one}" = "install" ];then
+		Install
+	
+	#卸载
+	elif [ "${Parameter_one}" = "uninstall" ];then
+		unInstall
+	
+	#启动
+	elif [ "${Parameter_one}" = "start" ];then
+		Start
+	
+	#停止
+	elif [ "${Parameter_one}" = "stop" ];then
+		Stop	
+	
+	#重启
+	elif [ "${Parameter_one}" = "restart" ];then
+		Restart
+		
+	#查看运行状态
+	elif [ "${Parameter_one}" = "runstatus" ];then
+		CheckRunStatus
+		
+	#输入参数错误
+	else
+		echo "ERR:Parameter Err."
+		exit 1	
+	fi
+}
+
+#检查参数是否合法
+FunParamLegal
+
+#执行主函数
+Main

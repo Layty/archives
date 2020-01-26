@@ -1,0 +1,3 @@
+echo "$ename,$appuser,$apphome,$install_auth,$enable_login" > ${profile_dir}/"$appuser"
+
+$ename,$appuser,$apphome,$install_auth,$enable_login,auth_list(16½øÖÆ)

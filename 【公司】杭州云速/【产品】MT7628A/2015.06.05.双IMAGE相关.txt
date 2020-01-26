@@ -1,0 +1,33 @@
+
+相比Ralink_ApSoC_SDK_4000_20120222主要修改点：
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\user\mkimage\mkimage.c
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\user\mkimage\include\image.h
+
+【新增的文件】
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\user\LoaderCheckSum\md5CheckSum.c
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\user\LoaderCheckSum\LoaderChecksum.c
+
+【mtd分区修改为使用内核启动传入的参数中获取，而不是默认的.c文件中获取】
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\linux-2.6.21.x\drivers\mtd\ralink\ralink_spi.c
+
+
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\vendors\Ralink\T52X4EWL\Makefile 【生成app 使用了修改后的mkimage工具(因为使用了1024字节的new_head)】
+
+下面两个工具是2进制直接上库的
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\vendors\Ralink\T52X4EWL\mkfs.jffs2
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\vendors\Ralink\T52X4EWL\md5checksum
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\source\vendors\Ralink\T52X4EWL\boot_args.8M32M
+
+在主makefile的第一个target（ALL）中，最后被我们新增了一个动作，就是调用Makfile.8M,额外把8MB fullimage也做好了（包含jfffs2分区）
+Y:\tag_T5214EWL-OM_V1.0.5.5\RT288x_SDK\tools\single_img\T52X4EWL\Makefile.8M
+
+vendor-makefile
+uboot
+
+
+
+
+
+
+
+

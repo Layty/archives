@@ -1,0 +1,1093 @@
+# iwpriv ra1 set Debug=3    
+[  468.744000] ==>Set_Debug_Proc()
+[  468.752000] <==Set_Debug_Proc(RTDebugLevel = 3)
+# [  468.764000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  469.776000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  470.788000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  471.800000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  472.812000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  473.824000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  474.836000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  475.848000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  476.860000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  477.872000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  478.884000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  479.896000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  480.908000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  481.300000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]00:21:6b:73:c0:36
+[  481.316000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  481.328000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  481.368000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]00:21:6b:73:c0:36
+[  481.384000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  481.396000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  481.432000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]00:21:6b:73:c0:36
+[  481.448000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  481.460000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  481.500000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]00:21:6b:73:c0:36
+[  481.516000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  481.528000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  481.564000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]00:21:6b:73:c0:36
+[  481.580000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  481.588000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  481.928000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  482.940000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  483.952000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  484.964000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  485.976000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  486.988000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  488.000000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  489.012000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  490.024000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  491.036000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  492.048000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  493.060000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  494.072000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  495.084000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  496.096000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  497.108000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  497.696000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]30:75:12:e6:4f:86
+[  497.716000] MacTableInsertEntry(): INIT UAPSD MR ENTRYuapsd> MaxSPLength = 0!
+[  497.728000] remove key table:wcid[1]
+[  497.736000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2000864f
+[  497.752000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  497.764000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  497.776000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  497.800000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  497.816000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  497.828000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000000
+[  497.844000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  497.860000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  497.872000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  497.884000] AndesMTRxProcessEvent (seq=7)
+[  497.892000] CmdEdcaParameterSet:(ret = 0)
+[  497.900000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  497.916000] PeerAssocReqSanity - SsidLen = 16  
+[  497.924000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  497.936000] Rates[1]=84 8b 96 24 30 48 6c
+[  497.944000] Received RSNIE in Assoc-Req: c0191ae0, len = 22
+[  497.956000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  497.968000] 0x0010 : 00 0f ac 02 00 00 
+[  497.976000] PeerAssocReqSanity - IE_HT_CAP
+[  497.984000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  497.996000] Not RSN IE, maybe WMM IE!!!
+[  498.004000] PeerAssocReqCmmSanity() - success
+[  498.012000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  498.024000] remove key table:wcid[1]
+[  498.032000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  498.044000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  498.060000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  498.072000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  498.084000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  498.096000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  498.108000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x90
+[  498.128000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  498.144000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  498.160000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  498.176000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  498.192000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  498.204000] ASSOC - Send ASSOC response (Status=0)...
+[  498.216000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-56
+[  498.224000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  498.236000] ASSOC - 
+[  498.236000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  498.252000] Peer - 11n HT Info
+[  498.256000]  HT Cap Info: 
+[  498.260000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  498.276000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  498.292000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  498.304000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  498.316000]  HT Parm Info: 
+[  498.320000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  498.332000]  HT MCS set: 
+[  498.336000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  498.348000]  Ext HT Cap Info: 
+[  498.356000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  498.368000] 
+[  498.368000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  498.388000]  Ext Cap Info: 
+[  498.396000]          Bss2040CoexistMgmt=0
+[  498.400000] 
+[  498.400000] ASSOC - Update AP OperaionMode=2, fAnyStationIsLegacy=0, fAnyStation20Only=1, fAnyStationNonGF=1
+[  498.400000] 
+[  498.428000]  Ext Cap Info: 
+[  498.432000]          Bss2040CoexistMgmt=0
+[  498.440000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  498.452000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  498.568000] Enqueue EAPoL-Start-PSK for sta(30:75:12:e6:4f:86) 
+[  498.576000] WpaEAPOLStartAction ===> 
+[  498.584000]  PortSecured(2), WpaState(7), AuthMode(7), PMKID_CacheIdx(255) 
+[  498.600000] ===> WPAStart4WayHS
+[  498.608000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  498.620000] PeerAddBAReqAction ==> (Wcid = 1)
+[  498.628000] Receive EAPOL-Key frame, TYPE = 3, Length = 117
+[  498.640000] !!! report EAPOL DATA to MLME (len=129) !!!
+[  498.648000] BA - PeerAddBAReqAction----> 
+[  498.656000] Rcv Wcid(1) AddBAReq
+[  498.664000] BARecSessionAdd(1): Idx = 1, BAWinSize(req 64) = 64
+[  498.676000] Start Seq = 00000000
+[  498.680000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 65535, basize=64, isAdd=1, ses_type=Recp(2)
+[  498.704000] MACEntry[1]RXBAbitmap = 0x1. BARecWcidArray=1
+[  498.716000] PeerAddBAReqAction(1): TID(0), BufSize(64) <== 
+[  498.728000] CntlEnqueueForRecv(): BAR-Wcid(1), Tid (0)
+[  498.736000] BAR(1) : Tid (0) - 0001:ffff
+[  498.744000] Receive EAPoL-Key frame from STA 30-75-12-E6-4F-86
+[  498.756000] ===> PeerPairMsg2Action 
+[  498.764000] RTMPInsertRSNIE : no PMKID-List included(0).
+[  498.776000] <=== PeerPairMsg2Action: send Msg3 of 4-way 
+[  498.784000] Receive EAPOL-Key frame, TYPE = 3, Length = 95
+[  498.796000] !!! report EAPOL DATA to MLME (len=107) !!!
+[  498.828000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (-64), RssiOffset=-3
+[  499.344000] Current TP=0 < Threshold(10), turn-off TxOP
+[  499.352000] AndesSendCmdMsg: Command type = ed, Extension command type = 27
+[  499.368000] BUG: AndesSendCmdMsg is called from invalid context
+[  499.376000] CmdEdcaParameterSet:(ret = 1)
+[  499.776000] WPARetryExec---> ReTryCounter=11, WpaState=9 
+[  499.784000] WPARetryExec::ReTry MSG3 of 4-way Handshake
+[  499.796000] ===> WPAPairMsg3Retry 
+[  499.800000] RTMPInsertRSNIE : no PMKID-List included(0).
+[  500.412000] Current TP=0 < Threshold(10), turn-off TxOP
+[  500.812000] WPARetryExec---> ReTryCounter=12, WpaState=9 
+[  500.820000] WPARetryExec::ReTry MSG3 of 4-way Handshake
+[  500.832000] ===> WPAPairMsg3Retry 
+[  500.836000] RTMPInsertRSNIE : no PMKID-List included(0).
+[  501.448000] Not expected one of them is 0, TxTotalByteCnt = 155, RxTotalByteCnt = 0
+[  501.848000] WPARetryExec---> ReTryCounter=13, WpaState=9 
+[  501.856000] WPARetryExec::ReTry MSG3 of 4-way Handshake
+[  501.868000] ===> WPAPairMsg3Retry 
+[  501.872000] RTMPInsertRSNIE : no PMKID-List included(0).
+[  502.484000] Current TP=0 < Threshold(10), turn-off TxOP
+[  502.884000] WPARetryExec---> ReTryCounter=14, WpaState=9 
+[  502.892000] WPARetryExec::MSG3 timeout, pEntry->ReTryCounter = 14
+[  502.904000] Send DEAUTH frame with ReasonCode(15) to 30:75:12:e6:4f:86 
+[  502.916000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  502.940000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  502.952000] BARecSessionTearDown===>Wcid=1.TID=0 
+[  502.964000]  ===>Idx = 1, Wcid=1.TID=0, REC_BA_Status = 3 
+[  502.976000] ==> MlmeDELBAAction(), Initiator(0) 
+[  502.984000] BA - MlmeDELBAAction() . 3 DELBA sent. Initiator(0)
+[  502.996000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Recp(2)
+[  503.016000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.040000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.052000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.076000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.088000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.108000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.124000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.144000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.160000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.180000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.196000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.216000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.232000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  503.252000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  503.268000] MtAsicDelWcidTab():wcid_idx=0x1
+[  503.276000] RTMPSearchPMKIDCache - IF(1) not found
+[  503.284000] APCleanupPsQueue(): (0xc01f0ddc)...
+[  503.296000] RtmpCleanupPsQueue (0xc01c3854)...
+[  503.304000] RtmpCleanupPsQueue (0xc01c3860)...
+[  503.312000] RtmpCleanupPsQueue (0xc01c386c)...
+[  503.320000] RtmpCleanupPsQueue (0xc01c3878)...
+[  503.328000] uapsd> clear UAPSD queues!
+[  503.336000] MacTableDeleteEntry1 - Total= 0
+[  503.344000] AndesSendCmdMsg: Command type = ed, Extension command type = 27
+[  503.360000] BUG: AndesSendCmdMsg is called from invalid context
+[  503.372000] CmdEdcaParameterSet:(ret = 1)
+[  503.980000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  504.992000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  506.004000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  507.016000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  508.028000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  509.040000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  510.052000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  511.064000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  511.840000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]30:75:12:e6:4f:86
+[  511.856000] MacTableInsertEntry(): INIT UAPSD MR ENTRYuapsd> MaxSPLength = 0!
+[  511.868000] remove key table:wcid[1]
+[  511.876000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2000864f
+[  511.892000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  511.904000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  511.920000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  511.940000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  511.956000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  511.972000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000000
+[  511.984000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  512.000000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  512.016000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  512.028000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  512.040000] PeerAssocReqSanity - SsidLen = 16  
+[  512.048000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  512.060000] Rates[1]=84 8b 96 24 30 48 6c
+[  512.068000] Received RSNIE in Assoc-Req: c01987c8, len = 22
+[  512.080000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  512.092000] 0x0010 : 00 0f ac 02 00 00 
+[  512.100000] PeerAssocReqSanity - IE_HT_CAP
+[  512.108000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  512.120000] Not RSN IE, maybe WMM IE!!!
+[  512.124000] PeerAssocReqCmmSanity() - success
+[  512.136000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  512.148000] remove key table:wcid[1]
+[  512.152000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  512.168000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  512.184000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  512.196000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  512.208000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  512.220000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  512.232000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x90
+[  512.252000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  512.268000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  512.284000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  512.300000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  512.312000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  512.328000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  512.344000] ASSOC - Send ASSOC response (Status=0)...
+[  512.352000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-62
+[  512.364000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  512.376000] ASSOC - 
+[  512.376000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  512.388000] Peer - 11n HT Info
+[  512.396000]  HT Cap Info: 
+[  512.400000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  512.416000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  512.428000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  512.440000]  HT Parm Info: 
+[  512.444000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  512.456000]  HT MCS set: 
+[  512.460000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  512.472000]  Ext HT Cap Info: 
+[  512.480000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  512.492000] 
+[  512.492000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  512.512000]  Ext Cap Info: 
+[  512.516000]          Bss2040CoexistMgmt=0
+[  512.524000] 
+[  512.524000] ASSOC - Update AP OperaionMode=2, fAnyStationIsLegacy=0, fAnyStation20Only=1, fAnyStationNonGF=1
+[  512.524000] 
+[  512.548000]  Ext Cap Info: 
+[  512.556000]          Bss2040CoexistMgmt=0
+[  512.560000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  512.576000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  512.668000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.688000] Enqueue EAPoL-Start-PSK for sta(30:75:12:e6:4f:86) 
+[  512.700000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.716000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.736000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.752000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.772000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.788000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (0), RssiOffset=-3
+[  512.804000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.824000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.840000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.860000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.876000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.896000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.912000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.932000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.948000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  512.968000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  512.984000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  513.000000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  513.008000] WpaEAPOLStartAction ===> 
+[  513.016000]  PortSecured(2), WpaState(7), AuthMode(7), PMKID_CacheIdx(255) 
+[  513.032000] ===> WPAStart4WayHS
+[  513.040000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  513.048000] PeerAssocReqSanity - SsidLen = 16  
+[  513.060000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  513.072000] Rates[1]=84 8b 96 24 30 48 6c
+[  513.080000] Received RSNIE in Assoc-Req: c0193480, len = 22
+[  513.088000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  513.104000] 0x0010 : 00 0f ac 02 00 00 
+[  513.112000] PeerAssocReqSanity - IE_HT_CAP
+[  513.120000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  513.128000] Not RSN IE, maybe WMM IE!!!
+[  513.136000] PeerAssocReqCmmSanity() - success
+[  513.144000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  513.156000] remove key table:wcid[1]
+[  513.164000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  513.180000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  513.192000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x18001805
+[  513.208000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  513.220000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  513.232000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  513.244000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x91
+[  513.264000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  513.280000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  513.296000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  513.308000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  513.324000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  513.340000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  513.356000] ASSOC - Send ASSOC response (Status=0)...
+[  513.364000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-68
+[  513.376000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  513.384000] ASSOC - 
+[  513.384000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  513.400000] Peer - 11n HT Info
+[  513.404000]  HT Cap Info: 
+[  513.412000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  513.428000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  513.440000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  513.452000]  HT Parm Info: 
+[  513.456000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  513.468000]  HT MCS set: 
+[  513.472000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  513.484000]  Ext HT Cap Info: 
+[  513.488000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  513.504000] 
+[  513.504000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  513.524000]  Ext Cap Info: 
+[  513.528000]          Bss2040CoexistMgmt=0
+[  513.536000] 
+[  513.536000] ASSOC - Update AP OperaionMode=2, fAnyStationIsLegacy=0, fAnyStation20Only=1, fAnyStationNonGF=1
+[  513.536000] 
+[  513.560000]  Ext Cap Info: 
+[  513.568000]          Bss2040CoexistMgmt=0
+[  513.572000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  513.588000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  513.640000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.660000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.676000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.696000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.712000] Enqueue EAPoL-Start-PSK for sta(30:75:12:e6:4f:86) 
+[  513.724000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.744000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.760000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.780000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.796000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.816000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.832000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.852000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.868000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (0), RssiOffset=-3
+[  513.884000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.904000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.920000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  513.940000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  513.956000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  513.972000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  513.984000] WpaEAPOLStartAction ===> 
+[  513.992000]  PortSecured(2), WpaState(7), AuthMode(7), PMKID_CacheIdx(255) 
+[  514.004000] ===> WPAStart4WayHS
+[  514.012000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  514.020000] PeerAssocReqSanity - SsidLen = 16  
+[  514.032000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  514.044000] Rates[1]=84 8b 96 24 30 48 6c
+[  514.052000] Received RSNIE in Assoc-Req: c0195488, len = 22
+[  514.064000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  514.076000] 0x0010 : 00 0f ac 02 00 00 
+[  514.084000] PeerAssocReqSanity - IE_HT_CAP
+[  514.092000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  514.100000] Not RSN IE, maybe WMM IE!!!
+[  514.108000] PeerAssocReqCmmSanity() - success
+[  514.116000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  514.128000] remove key table:wcid[1]
+[  514.136000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  514.152000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  514.164000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x18001805
+[  514.180000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  514.192000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  514.204000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  514.216000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x91
+[  514.236000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  514.252000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  514.268000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  514.284000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  514.296000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  514.312000] ASSOC - Send ASSOC response (Status=0)...
+[  514.324000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-45
+[  514.332000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  514.344000] ASSOC - 
+[  514.344000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  514.356000] Peer - 11n HT Info
+[  514.364000]  HT Cap Info: 
+[  514.368000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  514.384000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  514.396000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  514.412000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  514.424000]  HT Parm Info: 
+[  514.428000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  514.440000]  HT MCS set: 
+[  514.444000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  514.456000]  Ext HT Cap Info: 
+[  514.464000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  514.476000] 
+[  514.476000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  514.496000]  Ext Cap Info: 
+[  514.500000]          Bss2040CoexistMgmt=0
+[  514.508000] 
+[  514.508000] ASSOC - Update AP OperaionMode=2, fAnyStationIsLegacy=0, fAnyStation20Only=1, fAnyStationNonGF=1
+[  514.508000] 
+[  514.532000]  Ext Cap Info: 
+[  514.540000]          Bss2040CoexistMgmt=0
+[  514.548000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  514.560000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  514.676000] Enqueue EAPoL-Start-PSK for sta(30:75:12:e6:4f:86) 
+[  514.704000] WpaEAPOLStartAction ===> 
+[  514.712000]  PortSecured(2), WpaState(7), AuthMode(7), PMKID_CacheIdx(255) 
+[  514.728000] ===> WPAStart4WayHS
+[  514.736000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  514.932000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (0), RssiOffset=-3
+[  515.444000] Not expected one of them is 0, TxTotalByteCnt = 99, RxTotalByteCnt = 0
+[  515.736000] WPARetryExec---> ReTryCounter=1, WpaState=8 
+[  515.744000] WPARetryExec::ReTry MSG1 of 4-way Handshake
+[  515.756000] ===> WPAStart4WayHS
+[  515.764000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  516.472000] Not expected one of them is 0, TxTotalByteCnt = 99, RxTotalByteCnt = 0
+[  516.764000] WPARetryExec---> ReTryCounter=2, WpaState=8 
+[  516.772000] WPARetryExec::ReTry MSG1 of 4-way Handshake
+[  516.784000] ===> WPAStart4WayHS
+[  516.792000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+
+# [  516.916000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  516.936000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  516.952000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  516.972000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  516.988000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.008000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.024000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.044000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.060000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.080000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.096000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.116000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.132000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.152000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.168000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.188000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.204000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  517.220000] AUTH_RSP - Send AUTH response (SUCCESS)...
+
+# [  517.236000] PeerAssocReqSanity - SsidLen = 16  
+[  517.244000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  517.256000] Rates[1]=84 8b 96 24 30 48 6c
+[  517.264000] Received RSNIE in Assoc-Req: c0196e28, len = 22
+[  517.276000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  517.288000] 0x0010 : 00 0f ac 02 00 00 
+[  517.296000] PeerAssocReqSanity - IE_HT_CAP
+[  517.304000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  517.312000] Not RSN IE, maybe WMM IE!!!
+[  517.320000] PeerAssocReqCmmSanity() - success
+[  517.332000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  517.344000] remove key table:wcid[1]
+[  517.348000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  517.364000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  517.380000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x18001805
+[  517.392000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  517.404000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  517.416000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  517.428000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x91
+[  517.452000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  517.464000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  517.480000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  517.496000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  517.508000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  517.524000] ASSOC - Send ASSOC response (Status=0)...
+[  517.536000] Not expected one of them is 0, TxTotalByteCnt = 99, RxTotalByteCnt = 0
+[  517.552000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-46
+[  517.560000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  517.572000] ASSOC - 
+[  517.572000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  517.584000] Peer - 11n HT Info
+[  517.592000]  HT Cap Info: 
+[  517.596000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  517.612000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  517.624000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  517.636000]  HT Parm Info: 
+[  517.640000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  517.652000]  HT MCS set: 
+[  517.656000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  517.668000]  Ext HT Cap Info: 
+[  517.676000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  517.688000] 
+[  517.688000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  517.708000]  Ext Cap Info: 
+[  517.716000]          Bss2040CoexistMgmt=0
+[  517.720000] 
+[  517.720000] ASSOC - Update AP OperaionMode=2, fAnyStationIsLegacy=0, fAnyStation20Only=1, fAnyStationNonGF=1
+[  517.720000] 
+[  517.748000]  Ext Cap Info: 
+[  517.752000]          Bss2040CoexistMgmt=0
+[  517.760000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  517.772000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  517.792000] WPARetryExec---> ReTryCounter=1, WpaState=7 
+[  517.800000] WPARetryExec::ReTry MSG1 of 4-way Handshake
+[  517.812000] ===> WPAStart4WayHS
+[  517.820000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+
+# [  517.860000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.884000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.896000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.920000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.932000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.956000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  517.972000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  517.992000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.008000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.028000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.044000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.064000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (0), RssiOffset=-3
+[  518.080000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.096000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.116000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.132000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.152000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.168000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  518.184000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  518.196000] PeerAssocReqSanity - SsidLen = 16  
+[  518.204000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  518.216000] Rates[1]=84 8b 96 24 30 48 6c
+[  518.224000] Received RSNIE in Assoc-Req: c01987c8, len = 22
+[  518.236000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  518.248000] 0x0010 : 00 0f ac 02 00 00 
+[  518.256000] PeerAssocReqSanity - IE_HT_CAP
+[  518.264000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  518.276000] Not RSN IE, maybe WMM IE!!!
+[  518.284000] PeerAssocReqCmmSanity() - success
+[  518.292000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  518.304000] remove key table:wcid[1]
+[  518.312000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  518.324000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  518.340000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x18001805
+[  518.352000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  518.368000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  518.380000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  518.388000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x91
+[  518.412000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  518.428000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  518.440000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  518.456000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  518.472000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  518.488000] ASSOC - Send ASSOC response (Status=0)...
+[  518.496000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-47
+[  518.508000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  518.520000] ASSOC - 
+[  518.520000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  518.532000] Peer - 11n HT Info
+[  518.536000]  HT Cap Info: 
+[  518.544000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  518.560000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  518.572000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  518.584000]  HT Parm Info: 
+[  518.588000] Not expected one of them is 0, TxTotalByteCnt = 99, RxTotalByteCnt = 0
+[  518.604000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  518.612000]  HT MCS set: 
+[  518.620000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  518.632000]  Ext HT Cap Info: 
+[  518.636000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  518.648000] 
+[  518.648000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  518.672000]  Ext Cap Info: 
+[  518.676000]          Bss2040CoexistMgmt=0
+[  518.684000] 
+[  518.684000] ASSOC - Update AP OperaionMode=2, fAnyStationIsLegacy=0, fAnyStation20Only=1, fAnyStationNonGF=1
+[  518.684000] 
+[  518.708000]  Ext Cap Info: 
+[  518.716000]          Bss2040CoexistMgmt=0
+[  518.720000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  518.732000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+[  518.820000] WPARetryExec---> ReTryCounter=1, WpaState=7 
+[  518.828000] WPARetryExec::ReTry MSG1 of 4-way Handshake
+[  518.840000] ===> WPAStart4WayHS
+[  518.848000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  518.856000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.880000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.892000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.916000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.928000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.952000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  518.964000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  518.988000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  519.000000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  519.024000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  519.036000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  519.060000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  519.072000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  519.096000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  519.108000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  519.132000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (0), RssiOffset=-3
+[  519.148000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  519.160000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  519.176000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  519.648000] Not expected one of them is 0, TxTotalByteCnt = 99, RxTotalByteCnt = 0
+[  519.848000] WPARetryExec---> ReTryCounter=2, WpaState=8 
+[  519.856000] WPARetryExec::ReTry MSG1 of 4-way Handshake
+[  519.868000] ===> WPAStart4WayHS
+[  519.876000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  520.684000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  520.876000] WPARetryExec---> ReTryCounter=3, WpaState=8 
+[  520.884000] WPARetryExec::Retry MSG1, the last try
+[  520.896000] ===> WPAStart4WayHS
+[  520.904000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  521.712000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  522.724000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  522.736000] 30:75:12:e6:4f:86 fail to complete ASSOC in 5 sec
+[  522.748000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.768000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  522.784000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.804000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  522.820000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.840000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  522.856000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.876000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  522.892000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.912000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  522.928000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.948000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  522.964000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  522.984000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  523.000000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  523.020000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  523.036000] MtAsicDelWcidTab():wcid_idx=0x1
+[  523.044000] RTMPSearchPMKIDCache - IF(1) not found
+[  523.052000] APCleanupPsQueue(): (0xc01f0ddc)...
+[  523.064000] RtmpCleanupPsQueue (0xc01c3854)...
+[  523.072000] RtmpCleanupPsQueue (0xc01c3860)...
+[  523.080000] RtmpCleanupPsQueue (0xc01c386c)...
+[  523.088000] RtmpCleanupPsQueue (0xc01c3878)...
+[  523.096000] uapsd> clear UAPSD queues!
+[  523.104000] MacTableDeleteEntry1 - Total= 0
+[  523.112000] AndesSendCmdMsg: Command type = ed, Extension command type = 27
+[  523.128000] BUG: AndesSendCmdMsg is called from invalid context
+[  523.140000] CmdEdcaParameterSet:(ret = 1)
+[  524.148000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  525.160000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  526.172000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  527.184000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  528.196000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  529.208000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  530.220000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  531.232000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  532.244000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  533.256000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  534.268000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  535.244000] AUTH - MBSS(1), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]30:75:12:e6:4f:86
+[  535.260000] MacTableInsertEntry(): INIT UAPSD MR ENTRYuapsd> MaxSPLength = 0!
+[  535.276000] remove key table:wcid[1]
+[  535.284000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2000864f
+[  535.296000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  535.312000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  535.324000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  535.348000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  535.360000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  535.376000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000000
+[  535.392000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  535.404000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  535.420000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  535.432000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  535.448000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  535.460000] PeerAssocReqSanity - SsidLen = 16  
+[  535.472000] PeerAssocReqSanity - IE_SUPP_RATES., Len=8. Rates[0]=82
+[  535.484000] Rates[1]=84 8b 96 24 30 48 6c
+[  535.492000] Received RSNIE in Assoc-Req: c0190e10, len = 22
+[  535.500000] 0x0000 : 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 
+[  535.516000] 0x0010 : 00 0f ac 02 00 00 
+[  535.524000] PeerAssocReqSanity - IE_HT_CAP
+[  535.532000] PeerAssocReqSanity - IE_EXT_CAPABILITY!
+[  535.540000] Not RSN IE, maybe WMM IE!!!
+[  535.548000] PeerAssocReqCmmSanity() - success
+[  535.556000] ap_cmm_peer_assoc_req_action():pEntry->func_tb_idx=1
+[  535.568000] remove key table:wcid[1]
+[  535.576000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2011864f
+[  535.592000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  535.604000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  535.616000] ASSOC - MBSS(1), receive ASSOC request from 30:75:12:e6:4f:86
+[  535.632000] WPA_ExtractSuiteFromRSNIE : Extract RSN Capabilities
+[  535.644000] APValidateRSNIE : (AID#1 WepStatus=AES)
+[  535.652000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=2, StatusFlag=0x90
+[  535.676000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3011864f
+[  535.692000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  535.704000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x58001805
+[  535.720000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  535.736000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x821040
+[  535.752000] ASSOC - Send ASSOC response (Status=0)...
+[  535.760000] ra[1] ASSOC_REQ Threshold = 0, PktMaxRssi=-47
+[  535.772000] ####### Send L2 Frame Mac=30:75:12:e6:4f:86
+[  535.784000] ASSOC - 
+[  535.784000]  Assign AID=1 to STA 30:75:12:e6:4f:86
+[  535.796000] Peer - 11n HT Info
+[  535.804000]  HT Cap Info: 
+[  535.808000]           HT_RX_LDPC(1), BW(0), MIMOPS(3), GF(0), ShortGI_20(1), ShortGI_40(0)
+[  535.824000]           TxSTBC(0), RxSTBC(1), DelayedBA(0), A-MSDU(0), CCK_40(1)
+[  535.836000]           PSMP(0), Forty_Mhz_Intolerant(0), L-SIG(0)
+[  535.848000]  HT Parm Info: 
+[  535.852000]           MaxRx A-MPDU Factor(3), MPDU Density(5)
+[  535.864000]  HT MCS set: 
+[  535.868000]           RxMCS(ff 00 00 00 00) MaxRxMbps(0) TxMCSSetDef(00)
+[  535.880000]  Ext HT Cap Info: 
+[  535.888000]           PCO(0), TransTime(0), MCSFeedback(0), +HTC(0), RDG(0)
+[  535.900000] 
+[  535.900000] Peer - MODE=2, BW=0, MCS=7, ShortGI=0, MaxRxFactor=3, MpduDensity=5, MIMOPS=3, AMSDU=0
+[  535.920000]  Ext Cap Info: 
+[  535.924000]          Bss2040CoexistMgmt=0
+[  535.932000] 
+[  535.932000] ASSOC - Update AP OperaionMode=3, fAnyStationIsLegacy=1, fAnyStation20Only=1, fAnyStationNonGF=1
+[  535.932000] 
+[  535.960000]  Ext Cap Info: 
+[  535.964000]          Bss2040CoexistMgmt=0
+[  535.972000]  AuthMode=7, WepStatus=6, WpaState=7, GroupKeyWepStatus=6
+[  535.984000]  WMMCap=1, RalinkAgg=0, PiggyBack=0, RDG=0, TxAMSDU=0, IdleTimeout=300
+
+# [  536.100000] Enqueue EAPoL-Start-PSK for sta(30:75:12:e6:4f:86) 
+[  536.108000] WpaEAPOLStartAction ===> 
+[  536.116000]  PortSecured(2), WpaState(7), AuthMode(7), PMKID_CacheIdx(255) 
+[  536.132000] ===> WPAStart4WayHS
+[  536.140000] <=== WPAStart4WayHS: send Msg1 of 4-way 
+[  536.152000] PeerAddBAReqAction ==> (Wcid = 1)
+[  536.160000] Receive EAPOL-Key frame, TYPE = 3, Length = 117
+[  536.172000] !!! report EAPOL DATA to MLME (len=129) !!!
+[  536.184000] BA - PeerAddBAReqAction----> 
+[  536.192000] Rcv Wcid(1) AddBAReq
+[  536.196000] BARecSessionAdd(1): Idx = 1, BAWinSize(req 64) = 64
+[  536.208000] Start Seq = 00000000
+[  536.216000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 65535, basize=64, isAdd=1, ses_type=Recp(2)
+[  536.236000] MACEntry[1]RXBAbitmap = 0x1. BARecWcidArray=1
+[  536.248000] PeerAddBAReqAction(1): TID(0), BufSize(64) <== 
+[  536.260000] CntlEnqueueForRecv(): BAR-Wcid(1), Tid (0)
+[  536.272000] BAR(1) : Tid (0) - 0001:ffff
+[  536.276000] Receive EAPoL-Key frame from STA 30-75-12-E6-4F-86
+[  536.288000] ===> PeerPairMsg2Action 
+[  536.296000] RTMPInsertRSNIE : no PMKID-List included(0).
+[  536.308000] <=== PeerPairMsg2Action: send Msg3 of 4-way 
+[  536.320000] Receive EAPOL-Key frame, TYPE = 3, Length = 95
+[  536.328000] !!! report EAPOL DATA to MLME (len=107) !!!
+[  536.340000] Receive EAPoL-Key frame from STA 30-75-12-E6-4F-86
+[  536.352000] ===> PeerPairMsg4Action
+[  536.360000] AP SETKEYS DONE - WPA2, AuthMode(7)=WPA2PSK, WepStatus(6)=AES, GroupWepStatus(6)=AES
+[  536.360000] 
+[  536.460000] Current TP=0 < Threshold(10), turn-off TxOP
+[  536.468000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (-47), RssiOffset=-3
+[  537.484000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 1158
+[  538.496000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 180
+[  539.100000] BA Ori Session Timeout(1) : Send ADD BA again
+[  539.112000] BA - Send ADDBA request. StartSeq = 4,  FrameLen = 33. BufSize = 64
+[  539.124000] PeerAddBARspAction ==> Wcid(1)
+[  539.132000]           StatusCode = 0
+[  539.140000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 4, basize=64, isAdd=1, ses_type=Ori(1)
+[  539.160000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x01000007
+[  539.176000] BAOriSessionAdd():TXBAbitmap=1, AMSDUCap=0, BAWinSize=64, TimeOut=0
+[  539.508000] Current TP=0 < Threshold(10), turn-off TxOP
+[  539.588000] 
+[  539.588000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  539.600000] AndesMTRxProcessEvent (seq=8)
+[  539.608000] RtmpCleanupPsQueue (0xc01c3854)...
+[  539.616000] RtmpCleanupPsQueue (0xc01c3860)...
+[  539.624000] RtmpCleanupPsQueue (0xc01c386c)...
+[  539.632000] RtmpCleanupPsQueue (0xc01c3878)...
+[  539.644000] uapsd> clear UAPSD queues!
+[  539.892000] 
+[  539.892000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  539.904000] AndesMTRxProcessEvent (seq=9)
+[  540.072000] RtmpCleanupPsQueue (0xc01c3854)...
+[  540.080000] RtmpCleanupPsQueue (0xc01c3860)...
+[  540.088000] RtmpCleanupPsQueue (0xc01c386c)...
+[  540.100000] RtmpCleanupPsQueue (0xc01c3878)...
+[  540.108000] uapsd> clear UAPSD queues!
+[  540.504000] 
+[  540.504000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  540.516000] AndesMTRxProcessEvent (seq=10)
+[  540.552000] Current TP=0 < Threshold(10), turn-off TxOP
+[  540.620000] RtmpCleanupPsQueue (0xc01c3854)...
+[  540.628000] RtmpCleanupPsQueue (0xc01c3860)...
+[  540.636000] RtmpCleanupPsQueue (0xc01c386c)...
+[  540.644000] RtmpCleanupPsQueue (0xc01c3878)...
+[  540.656000] uapsd> clear UAPSD queues!
+[  540.708000] 
+[  540.708000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  540.720000] AndesMTRxProcessEvent (seq=11)
+[  540.760000] RtmpCleanupPsQueue (0xc01c3854)...
+[  540.768000] RtmpCleanupPsQueue (0xc01c3860)...
+[  540.776000] RtmpCleanupPsQueue (0xc01c386c)...
+[  540.784000] RtmpCleanupPsQueue (0xc01c3878)...
+[  540.792000] uapsd> clear UAPSD queues!
+[  540.808000] 
+[  540.808000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  540.820000] AndesMTRxProcessEvent (seq=12)
+[  540.896000] RtmpCleanupPsQueue (0xc01c3854)...
+[  540.904000] RtmpCleanupPsQueue (0xc01c3860)...
+[  540.916000] RtmpCleanupPsQueue (0xc01c386c)...
+[  540.924000] RtmpCleanupPsQueue (0xc01c3878)...
+[  540.932000] uapsd> clear UAPSD queues!
+[  541.012000] 
+[  541.012000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.024000] AndesMTRxProcessEvent (seq=13)
+[  541.048000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.056000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.064000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.072000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.080000] uapsd> clear UAPSD queues!
+[  541.112000] 
+[  541.112000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.124000] AndesMTRxProcessEvent (seq=14)
+[  541.184000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.196000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.204000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.212000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.220000] uapsd> clear UAPSD queues!
+[  541.316000] 
+[  541.316000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.328000] AndesMTRxProcessEvent (seq=15)
+[  541.336000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.348000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.356000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.364000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.372000] uapsd> clear UAPSD queues!
+[  541.420000] 
+[  541.420000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.432000] AndesMTRxProcessEvent (seq=1)
+[  541.464000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.472000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.480000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.488000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.496000] uapsd> clear UAPSD queues!
+[  541.520000] 
+[  541.520000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.532000] AndesMTRxProcessEvent (seq=2)
+[  541.600000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.608000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.616000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.624000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.636000] uapsd> clear UAPSD queues!
+[  541.640000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 368
+[  541.724000] 
+[  541.724000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.736000] AndesMTRxProcessEvent (seq=3)
+[  541.744000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.752000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.760000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.772000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.780000] uapsd> clear UAPSD queues!
+[  541.824000] 
+[  541.824000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.836000] AndesMTRxProcessEvent (seq=4)
+[  541.880000] RtmpCleanupPsQueue (0xc01c3854)...
+[  541.888000] RtmpCleanupPsQueue (0xc01c3860)...
+[  541.896000] RtmpCleanupPsQueue (0xc01c386c)...
+[  541.904000] RtmpCleanupPsQueue (0xc01c3878)...
+[  541.912000] uapsd> clear UAPSD queues!
+[  541.928000] 
+[  541.928000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  541.940000] AndesMTRxProcessEvent (seq=5)
+[  542.064000] RtmpCleanupPsQueue (0xc01c3854)...
+[  542.072000] RtmpCleanupPsQueue (0xc01c3860)...
+[  542.080000] RtmpCleanupPsQueue (0xc01c386c)...
+[  542.088000] RtmpCleanupPsQueue (0xc01c3878)...
+[  542.100000] uapsd> clear UAPSD queues!
+[  542.132000] 
+[  542.132000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  542.144000] AndesMTRxProcessEvent (seq=6)
+[  542.252000] RtmpCleanupPsQueue (0xc01c3854)...
+[  542.260000] RtmpCleanupPsQueue (0xc01c3860)...
+[  542.268000] RtmpCleanupPsQueue (0xc01c386c)...
+[  542.276000] RtmpCleanupPsQueue (0xc01c3878)...
+[  542.288000] uapsd> clear UAPSD queues!
+[  542.336000] 
+[  542.336000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  542.348000] AndesMTRxProcessEvent (seq=7)
+[  542.432000] RtmpCleanupPsQueue (0xc01c3854)...
+[  542.440000] RtmpCleanupPsQueue (0xc01c3860)...
+[  542.452000] RtmpCleanupPsQueue (0xc01c386c)...
+[  542.460000] RtmpCleanupPsQueue (0xc01c3878)...
+[  542.468000] uapsd> clear UAPSD queues!
+[  542.536000] 
+[  542.536000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  542.552000] AndesMTRxProcessEvent (seq=8)
+[  542.572000] RtmpCleanupPsQueue (0xc01c3854)...
+[  542.580000] RtmpCleanupPsQueue (0xc01c3860)...
+[  542.592000] RtmpCleanupPsQueue (0xc01c386c)...
+[  542.600000] RtmpCleanupPsQueue (0xc01c3878)...
+[  542.608000] uapsd> clear UAPSD queues!
+[  542.640000] 
+[  542.640000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  542.652000] AndesMTRxProcessEvent (seq=9)
+[  542.708000] RtmpCleanupPsQueue (0xc01c3854)...
+[  542.716000] RtmpCleanupPsQueue (0xc01c3860)...
+[  542.728000] RtmpCleanupPsQueue (0xc01c386c)...
+[  542.736000] RtmpCleanupPsQueue (0xc01c3878)...
+[  542.744000] uapsd> clear UAPSD queues!
+[  542.752000] Current TP=0 < Threshold(10), turn-off TxOP
+[  542.844000] 
+[  542.844000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  542.856000] AndesMTRxProcessEvent (seq=10)
+[  542.864000] RtmpCleanupPsQueue (0xc01c3854)...
+[  542.872000] RtmpCleanupPsQueue (0xc01c3860)...
+[  542.880000] RtmpCleanupPsQueue (0xc01c386c)...
+[  542.892000] RtmpCleanupPsQueue (0xc01c3878)...
+[  542.900000] uapsd> clear UAPSD queues!
+[  543.556000] 
+[  543.556000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  543.568000] AndesMTRxProcessEvent (seq=11)
+[  543.808000] Current TP=0 < Threshold(10), turn-off TxOP
+[  543.832000] RtmpCleanupPsQueue (0xc01c3854)...
+[  543.844000] RtmpCleanupPsQueue (0xc01c3860)...
+[  543.852000] RtmpCleanupPsQueue (0xc01c386c)...
+[  543.860000] RtmpCleanupPsQueue (0xc01c3878)...
+[  543.868000] uapsd> clear UAPSD queues!
+[  543.876000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  543.960000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.064000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.164000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.268000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.316000] DRS: TxTotalCnt <= 15, switch to MCS7 according to RSSI (-43), RssiOffset=-3
+[  544.368000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.472000] 
+[  544.472000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  544.484000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.492000] AndesMTRxProcessEvent (seq=12)
+[  544.524000] RtmpCleanupPsQueue (0xc01c3854)...
+[  544.532000] RtmpCleanupPsQueue (0xc01c3860)...
+[  544.540000] RtmpCleanupPsQueue (0xc01c386c)...
+[  544.552000] RtmpCleanupPsQueue (0xc01c3878)...
+[  544.560000] uapsd> clear UAPSD queues!
+[  544.576000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.676000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.780000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  544.868000] Current TP=0 < Threshold(10), turn-off TxOP
+[  545.080000] 
+[  545.080000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  545.096000] AndesMTRxProcessEvent (seq=13)
+[  545.104000] RtmpCleanupPsQueue (0xc01c3854)...
+[  545.112000] RtmpCleanupPsQueue (0xc01c3860)...
+[  545.120000] RtmpCleanupPsQueue (0xc01c386c)...
+[  545.128000] RtmpCleanupPsQueue (0xc01c3878)...
+[  545.136000] uapsd> clear UAPSD queues!
+[  545.488000] 
+[  545.488000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  545.500000] AndesMTRxProcessEvent (seq=14)
+[  545.516000] RtmpCleanupPsQueue (0xc01c3854)...
+[  545.528000] RtmpCleanupPsQueue (0xc01c3860)...
+[  545.536000] RtmpCleanupPsQueue (0xc01c386c)...
+[  545.544000] RtmpCleanupPsQueue (0xc01c3878)...
+[  545.552000] uapsd> clear UAPSD queues!
+[  545.876000] Current TP=0 < Threshold(10), turn-off TxOP
+[  546.200000] 
+[  546.200000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  546.212000] AndesMTRxProcessEvent (seq=15)
+[  546.580000] RtmpCleanupPsQueue (0xc01c3854)...
+[  546.588000] RtmpCleanupPsQueue (0xc01c3860)...
+[  546.596000] RtmpCleanupPsQueue (0xc01c386c)...
+[  546.608000] RtmpCleanupPsQueue (0xc01c3878)...
+[  546.616000] uapsd> clear UAPSD queues!
+[  546.708000] 
+[  546.708000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  546.720000] AndesMTRxProcessEvent (seq=1)
+[  546.728000] RtmpCleanupPsQueue (0xc01c3854)...
+[  546.736000] RtmpCleanupPsQueue (0xc01c3860)...
+[  546.748000] RtmpCleanupPsQueue (0xc01c386c)...
+[  546.756000] RtmpCleanupPsQueue (0xc01c3878)...
+[  546.764000] uapsd> clear UAPSD queues!
+[  546.812000] 
+[  546.812000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  546.824000] AndesMTRxProcessEvent (seq=2)
+[  546.860000] RtmpCleanupPsQueue (0xc01c3854)...
+[  546.868000] RtmpCleanupPsQueue (0xc01c3860)...
+[  546.876000] RtmpCleanupPsQueue (0xc01c386c)...
+[  546.884000] RtmpCleanupPsQueue (0xc01c3878)...
+[  546.896000] uapsd> clear UAPSD queues!
+[  546.912000] 
+[  546.912000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  546.924000] AndesMTRxProcessEvent (seq=3)
+[  547.000000] Current TP=0 < Threshold(10), turn-off TxOP
+[  547.008000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.016000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.028000] RtmpCleanupPsQueue (0xc01c386c)...
+[  547.036000] RtmpCleanupPsQueue (0xc01c3878)...
+[  547.044000] uapsd> clear UAPSD queues!
+[  547.052000] tbtt_tasklet: clear MCAST/BCAST TIM bit 
+[  547.116000] 
+[  547.116000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  547.128000] AndesMTRxProcessEvent (seq=4)
+[  547.144000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.156000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.164000] RtmpCleanupPsQueue (0xc01c386c)...
+[  547.172000] RtmpCleanupPsQueue (0xc01c3878)...
+[  547.180000] uapsd> clear UAPSD queues!
+[  547.216000] 
+[  547.216000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  547.232000] AndesMTRxProcessEvent (seq=5)
+[  547.280000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.288000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.296000] RtmpCleanupPsQueue (0xc01c386c)...
+[  547.308000] RtmpCleanupPsQueue (0xc01c3878)...
+[  547.316000] uapsd> clear UAPSD queues!
+[  547.420000] 
+[  547.420000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  547.432000] AndesMTRxProcessEvent (seq=6)
+[  547.440000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.452000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.460000] RtmpCleanupPsQueue (0xc01c386c)...
+[  547.468000] RtmpCleanupPsQueue (0xc01c3878)...
+[  547.476000] uapsd> clear UAPSD queues!
+[  547.524000] 
+[  547.524000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  547.536000] AndesMTRxProcessEvent (seq=7)
+[  547.556000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.568000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.576000] RtmpCleanupPsQueue (0xc01c386c)...
+[  547.584000] RtmpCleanupPsQueue (0xc01c3878)...
+[  547.592000] uapsd> clear UAPSD queues!
+[  547.624000] 
+[  547.624000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  547.636000] AndesMTRxProcessEvent (seq=8)
+[  547.696000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.704000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.712000] RtmpCleanupPsQueue (0xc01c386c)...
+[  547.720000] RtmpCleanupPsQueue (0xc01c3878)...
+[  547.732000] uapsd> clear UAPSD queues!
+[  547.828000] 
+[  547.828000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  547.840000] AndesMTRxProcessEvent (seq=9)
+[  547.976000] RtmpCleanupPsQueue (0xc01c3854)...
+[  547.984000] RtmpCleanupPsQueue (0xc01c3860)...
+[  547.992000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.004000] RtmpCleanupPsQueue (0xc01c3878)...
+[  548.012000] uapsd> clear UAPSD queues!
+[  548.032000] 
+[  548.032000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  548.044000] Current TP=0 < Threshold(10), turn-off TxOP
+[  548.056000] AndesMTRxProcessEvent (seq=10)
+[  548.160000] RtmpCleanupPsQueue (0xc01c3854)...
+[  548.168000] RtmpCleanupPsQueue (0xc01c3860)...
+[  548.176000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.184000] RtmpCleanupPsQueue (0xc01c3878)...
+[  548.196000] uapsd> clear UAPSD queues!
+[  548.236000] 
+[  548.236000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  548.248000] AndesMTRxProcessEvent (seq=11)
+[  548.344000] RtmpCleanupPsQueue (0xc01c3854)...
+[  548.352000] RtmpCleanupPsQueue (0xc01c3860)...
+[  548.360000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.372000] RtmpCleanupPsQueue (0xc01c3878)...
+[  548.380000] uapsd> clear UAPSD queues!
+[  548.440000] 
+[  548.440000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  548.452000] AndesMTRxProcessEvent (seq=12)
+[  548.528000] RtmpCleanupPsQueue (0xc01c3854)...
+[  548.536000] RtmpCleanupPsQueue (0xc01c3860)...
+[  548.548000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.556000] RtmpCleanupPsQueue (0xc01c3878)...
+[  548.564000] uapsd> clear UAPSD queues!
+[  548.640000] 
+[  548.640000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  548.656000] AndesMTRxProcessEvent (seq=13)
+[  548.668000] RtmpCleanupPsQueue (0xc01c3854)...
+[  548.676000] RtmpCleanupPsQueue (0xc01c3860)...
+[  548.684000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.692000] RtmpCleanupPsQueue (0xc01c3878)...
+[  548.704000] uapsd> clear UAPSD queues!
+[  548.744000] 
+[  548.744000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  548.756000] AndesMTRxProcessEvent (seq=14)
+[  548.804000] RtmpCleanupPsQueue (0xc01c3854)...
+[  548.812000] RtmpCleanupPsQueue (0xc01c3860)...
+[  548.824000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.832000] RtmpCleanupPsQueue (0xc01c3878)...
+[  548.840000] uapsd> clear UAPSD queues!
+[  548.948000] 
+[  548.948000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  548.960000] AndesMTRxProcessEvent (seq=15)
+[  548.968000] RtmpCleanupPsQueue (0xc01c3854)...
+[  548.976000] RtmpCleanupPsQueue (0xc01c3860)...
+[  548.984000] RtmpCleanupPsQueue (0xc01c386c)...
+[  548.996000] RtmpCleanupPsQueue (0xc01c3878)...
+[  549.004000] uapsd> clear UAPSD queues!
+[  549.148000] Current TP=0 < Threshold(10), turn-off TxOP
+[  549.252000] 
+[  549.252000] uapsd> ----> UAPSD_SP_PacketCheck(555)
+[  549.268000] AndesMTRxProcessEvent (seq=1)

@@ -1,0 +1,22 @@
+plugin_ID:786
+plugin_Name:ExtremeExFAT
+plugin_VersionName: 1.0.0.5
+plugin_VersionCode: 01000005
+plugin_RomVersionH: 9.9.9.9
+plugin_RomVersionL: 1.3.1.1
+plugin_MobVersionH: 9.9
+plugin_MobVersionL: 1.0
+plugin_XPKGVersion: 1.0
+plugin_IntallPath: /opt/app/ExtremeExFAT/
+plugin_Source: 1
+plugin_Autorun: 0
+plugin_Space: 719730
+plugin_MD5: 3b281c107e20f7a6cc967d5cbc2a3e90
+plugin_Info: exFAT(Extended File Allocation Table)文件系统支持
+plugin_Author:  Dragon, www.bdmod.com
+plugin_Officeapp: 0
+plugin_State: 2
+plugin_Largeicon:/opt/app/helloworld/icon/large.jpg
+plugin_Smallicon:/opt/app/helloworld/icon/small.png
+plugin_InstallDate: 2013-11-1 02:01:01
+ 

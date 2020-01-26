@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0049)https://code.hiwifi.com/wiki/hiwifi/cross-compile -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      hiwifi/cross-compile – HiWiFi
+    </title>
+    
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="https://code.hiwifi.com/search">
+        <link rel="help" href="https://code.hiwifi.com/wiki/TracGuide">
+        <link rel="alternate" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile?format=txt" type="text/x-trac-wiki" title="纯文本">
+        <link rel="up" href="https://code.hiwifi.com/wiki/hiwifi" title="查看父页面">
+        <link rel="start" href="https://code.hiwifi.com/wiki">
+        <link rel="stylesheet" href="./hiwifi cross-compile – HiWiFi_files/trac.css" type="text/css"><link rel="stylesheet" href="./hiwifi cross-compile – HiWiFi_files/wiki.css" type="text/css">
+        <link rel="shortcut icon" href="https://code.hiwifi.com/chrome/common/trac.ico" type="image/x-icon">
+        <link rel="icon" href="https://code.hiwifi.com/chrome/common/trac.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="https://code.hiwifi.com/search/opensearch" title="搜索 HiWiFi">
+    <script type="text/javascript" src="./hiwifi cross-compile – HiWiFi_files/jquery.js"></script><script type="text/javascript" src="./hiwifi cross-compile – HiWiFi_files/babel.js"></script><script type="text/javascript" src="./hiwifi cross-compile – HiWiFi_files/zh_CN.js"></script><script type="text/javascript" src="./hiwifi cross-compile – HiWiFi_files/trac.js"></script><script type="text/javascript" src="./hiwifi cross-compile – HiWiFi_files/search.js"></script><script type="text/javascript" src="./hiwifi cross-compile – HiWiFi_files/folding.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://code.hiwifi.com/"><img src="./hiwifi cross-compile – HiWiFi_files/hiwifi.png" alt="HiWiFi"></a>
+      </div>
+      <form id="search" action="https://code.hiwifi.com/search" method="get">
+        <div>
+          <label for="proj-search">搜索:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="搜索">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="https://code.hiwifi.com/login">登录</a></li><li><a href="https://code.hiwifi.com/prefs">个人设置</a></li><li><a href="https://code.hiwifi.com/wiki/TracGuide">帮助/指南</a></li><li class="last"><a href="https://code.hiwifi.com/about">关于Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="https://code.hiwifi.com/wiki">Wiki</a></li><li><a href="https://code.hiwifi.com/report">查看任务单</a></li><li class="last"><a href="https://code.hiwifi.com/search">搜索</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="查看 WikiStart" href="https://code.hiwifi.com/wiki">wiki</a><a class="pathentry" href="https://code.hiwifi.com/wiki/hiwifi" title="查看 hiwifi">hiwifi</a><span class="pathentry sep">/</span><a class="pathentry" href="./hiwifi cross-compile – HiWiFi_files/hiwifi cross-compile – HiWiFi.htm" title="查看 hiwifi/cross-compile">cross-compile</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>上下文导航</h2>
+          <ul>
+              <li class="first"><a href="https://code.hiwifi.com/wiki/hiwifi">向上</a></li><li><a href="https://code.hiwifi.com/wiki/WikiStart">起始页</a></li><li><a href="https://code.hiwifi.com/wiki/TitleIndex">索引</a></li><li class="last"><a href="https://code.hiwifi.com/wiki/hiwifi/cross-compile?action=history">历史</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby">
+            <span><a href="https://code.hiwifi.com/wiki/hiwifi/cross-compile?action=diff&version=1" title="版本 1 来自 rssn">最后修改于</a> <a class="timeline" href="https://code.hiwifi.com/timeline?from=2014-06-25T23%3A47%3A00%2B08%3A00&precision=second" title="时间线中的2014-06-25T23:47:00+08:00">13个月</a> 前</span>
+            <span class="trac-print">Last modified on 06/25/14 23:47:00</span>
+          </div>
+          <div id="wikipage"><h1 id="像本机gcc一样使用的交叉编译环境建立方法">像本机gcc一样使用的交叉编译环境建立方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile#像本机gcc一样使用的交叉编译环境建立方法" title="链接到这一节"> ¶</a></h1>
+<h2 id="原理">原理<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile#原理" title="链接到这一节"> ¶</a></h2>
+<ul><li>编写一个脚本 - cross-compile.sh，利用OpenWrt的交叉编译器，将系统的gcc, g++, ld等命令“替换”成交叉编译的相应命令。实际上并没有真正替换，而是在指定目录下创建gcc, g++, ld等软链接，指向OpenWrt下对应的的mipsel-openwrt-linux-gcc, ... 等命令，再将该目录加到PATH的最前面。这样一来，执行gcc调用的就是交叉编译器的gcc。这样一来，调试路由器程序时会很方便，不必按照package编译。
+</li><li>为了支持通过执行“make”直接编译内核模块，脚本中 export 了环境变量 KERNELPATH ，指向OpenWrt的内核代码根目录；同时“替换”了 uname 命令，使内核的编译脚本认为当前系统（uname -m）是 mips 平台。
+</li></ul><h2 id="交叉编译环境使用方法">交叉编译环境使用方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile#交叉编译环境使用方法" title="链接到这一节"> ¶</a></h2>
+<ul><li>cross-compile.sh脚本位于platform的OpenWrt源码的scripts目录下；
+</li><li>假设本地已有编译完成的OpenWrt源码（或toolchain根目录），位于 ./hc5761/ ，则执行
+<pre class="wiki">./hc5761/scripts/cross-compile.sh ./hc5761
+</pre></li><li>为路由器编译程序
+<pre class="wiki">cd &lt;GNU make项目目录&gt;
+make
+</pre></li><li>确认生成的是路由器CPU的目标程序
+<pre class="wiki">file &lt;target_binaries&gt;    # 【确认生成的是路由器CPU上的程序】
+</pre></li></ul><h2 id="两种交叉编译方法">两种交叉编译方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile#两种交叉编译方法" title="链接到这一节"> ¶</a></h2>
+<ul><li>基于 GNU configure 的项目
+<ul><li>下载/解压被编译的代码，进入到代码目录下；
+</li><li>执行：
+<pre class="wiki">cross-compile.sh &lt;openwrt_root&gt; -n
+</pre>进入到添加PATH变量目录的子shell中，可直接执行 xxxx-openwrt-linux-gcc ；
+</li><li>执行 ./configure ，选项: --host=xxxx-openwrt-linux ，例如：
+<pre class="wiki">./configure --host=mips-openwrt-linux
+</pre></li><li>执行:
+<pre class="wiki">make
+</pre></li></ul></li><li>基于 GNU make 的项目
+<ul><li>执行：
+<pre class="wiki">cross-compile.sh &lt;openwrt_root&gt;
+</pre>进入到边加PATH变量目录的子shell中，直接执行 gcc 调用的是交叉编译器的 gcc ；
+</li><li>进入到Makefile项目的代码目录下，执行：
+<pre class="wiki">make
+</pre></li></ul></li></ul><h2 id="使用举例">使用举例<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile#使用举例" title="链接到这一节"> ¶</a></h2>
+<ol><li>编译GNU软件包：
+<pre class="wiki">hiwifi@precise-vmx:~$ ls
+cross-compile.sh  hc5761  revinetd-1.0.2.tar.gz
+hiwifi@precise-vmx:~$ ./hc5761/scripts/cross-compile.sh ./hc5761 -n
+[cross-compile@hc5761:~]$
+[cross-compile@hc5761:~]$ tar -zxvf revinetd-1.0.2.tar.gz
+revinetd-1.0.2/
+revinetd-1.0.2/TODO
+...
+[cross-compile@hc5761:~]$ cd revinetd-1.0.2/
+[cross-compile@hc5761:~/revinetd-1.0.2]$ ./configure --host=mipsel-openwrt-linux
+configure: WARNING: If you wanted to set the --build type, don't use --host.
+    If a cross compiler is detected then cross compile mode will be used.
+checking for mipsel-openwrt-linux-gcc... mipsel-openwrt-linux-gcc
+checking for C compiler default output file name... a.out
+...
+config.status: creating config.h
+config.status: config.h is unchanged
+[cross-compile@hc5761:~/revinetd-1.0.2]$
+[cross-compile@hc5761:~/revinetd-1.0.2]$ make
+mipsel-openwrt-linux-gcc -Wall -g -O2  -DHAVE_CONFIG_H   -c -o getopt.o getopt.c
+mipsel-openwrt-linux-gcc -Wall -g -O2  -DHAVE_CONFIG_H   -c -o revinetd.o revinetd.c
+mipsel-openwrt-linux-gcc -Wall -g -O2  -DHAVE_CONFIG_H   -c -o misc.o misc.c
+mipsel-openwrt-linux-gcc -Wall -g -O2  -DHAVE_CONFIG_H   -c -o proxy.o proxy.c
+mipsel-openwrt-linux-gcc -Wall -g -O2  -DHAVE_CONFIG_H   -c -o server.o server.c
+mipsel-openwrt-linux-gcc -Wall -g -O2  -DHAVE_CONFIG_H   -c -o relay_agt.o relay_agt.c
+mipsel-openwrt-linux-gcc -o revinetd getopt.o revinetd.o misc.o proxy.o server.o relay_agt.o
+[cross-compile@hc5761:~/revinetd-1.0.2]$
+[cross-compile@hc5761:~/revinetd-1.0.2]$ file revinetd         # 【确认编译出的目标代码为mipsel平台】
+revinetd: ELF 32-bit LSB executable, MIPS, MIPS32 rel2 version 1, dynamically linked (uses shared libs), with unknown capability 0xf41 = 0x756e6700, with unknown capability 0x70100 = 0x3040000, not stripped
+[cross-compile@hc5761:~/revinetd-1.0.2]$
+</pre></li></ol><ol start="2"><li>快速编译：
+<pre class="wiki">justin@precise-vmx:~/app/hae-runtime/src$ cross-compile.sh /home/justin/hc6361/platform make install
+rm -f *.o haerpc haerpd appctl
+gcc -Wall -c -o haerpc.o haerpc.c
+gcc -o haerpc haerpc.o
+gcc -Wall -c -o haerpd.o haerpd.c
+gcc -o haerpd haerpd.o
+gcc -Wall -c -o appctl.o appctl.c
+gcc -o appctl appctl.o
+`haerpd' -&gt; `../base-files/tmp/hae.elfs/ar71xx/haerpd'
+`haerpc' -&gt; `../base-files/tmp/hae.elfs/ar71xx/haerpc'
+`appctl' -&gt; `../base-files/tmp/hae.elfs/ar71xx/appctl'
+justin@precise-vmx:~/app/hae-runtime/src$
+</pre></li></ol></div>
+        
+        
+      </div>
+      
+    <div id="attachments" class="collapsed">
+        <h3 class="foldable"><a id="no1" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile#no1">附件</a></h3>
+        <ul>
+            <li>
+    <a href="https://code.hiwifi.com/attachment/wiki/hiwifi/cross-compile/cross-compile.sh" title="查看附件">cross-compile.sh</a><a href="https://code.hiwifi.com/raw-attachment/wiki/hiwifi/cross-compile/cross-compile.sh" class="trac-rawlink" title="下载">​</a>
+       (<span title="6688 字节">6.5 KB</span>) -
+      added by <em>rssn</em> <a class="timeline" href="https://code.hiwifi.com/timeline?from=2015-02-16T14%3A48%3A08%2B08%3A00&precision=second" title="时间线中的2015-02-16T14:48:08+08:00">5个月</a> ago.
+            </li>
+        </ul>
+    </div>
+
+    </div>
+    <div id="altlinks">
+      <h3>用其他格式下载:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile?format=txt">纯文本</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="./hiwifi cross-compile – HiWiFi_files/trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">由 <a href="http://www.edgewall.org/">Edgewall Software</a> 的 <a href="https://code.hiwifi.com/about"><strong>Trac 0.12.5</strong></a><br>
+        提供动力</p>
+      <p class="right">请访问Trac开源项目<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

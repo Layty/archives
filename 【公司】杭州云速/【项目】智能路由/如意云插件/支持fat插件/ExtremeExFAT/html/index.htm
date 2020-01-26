@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>ExtremeExFAT</title>
+	<script type='text/javascript' src='jqscripts'></script>
+		<style type='text/css'>
+			*{
+				margin:0 0;
+				padding:0 0;
+				font-family:'微软雅黑';
+			}
+
+			a{
+				text-decoration:none;
+			}
+			
+			ul{
+				list-style-type: none;
+			}
+
+			body{
+				background:#ededed;
+			}
+
+			.nav{
+				height:63px;
+				background:url('comimg?path=title_box.jpg') repeat-x center;
+			}
+
+			.common {
+				width: 940px;
+				margin: 0 auto;
+			}
+
+			.nav .nav_head .logo{
+				display: block;
+				float: left;
+				margin-top: 15px;
+				width: 105px;
+				height: 30px;
+				background: url('comimg?path=logo.png') no-repeat center;
+			}
+
+			.navigation {
+				width: 940px;
+				height: 54px;
+				margin: 54px auto;
+				background: url('comimg?path=fast_box.png') no-repeat center;
+			}
+
+			.navigation .navigation_title {
+				color: #666;
+				padding-top: 15px;
+				padding-left: 17px;
+			}
+
+			.navigation .navigation_title a{
+				color:#666;
+			}
+
+			.demo_content{
+	width:940px;
+	height:450px;
+	background:white;
+	border:1px solid #CCC;
+	margin:0 auto;
+			}
+
+			.demo_content .demo_box{
+				width:380px;
+				height:380px;
+				margin-top:50px;
+			}
+
+			.demo_content .demo_left{
+				float:left;
+				margin-left:100px;
+				color: #F63;
+			}
+
+			.demo_content .demo_right{
+	float:right;
+	margin-right:50px;
+	position: relative;
+			}
+
+			.demo_config{
+	width:370px;
+	color:#666;
+	visibility: visible;
+			}
+
+			.demo_config ul li{
+				margin-top:20px;
+				width:260px;
+				height: 40px;
+			}
+
+			.demo_left_span{
+	display: block;
+	float:left;
+	width:100px;
+	margin-top:8px;
+			}
+
+			.demo_right_input{
+	display: block;
+	float: right;
+	width:150px;
+	height:25px;
+	margin-top: 5px;
+			}
+
+			.demo_btn{
+				display: block;
+				width:66px;
+				height:26px;
+				background: url('customimg?path=ExtremeExFAT/html/button1.png');
+				text-align: center;
+			}
+
+			.demo_btn:hover{
+				background: url('customimg?path=ExtremeExFAT/html/button1_click.png');	
+			}
+
+			.demo_btn b{
+				display: block;
+				font-weight: 300;
+				font-size:14px;
+				color:white;
+				padding-top:2px;
+			}
+
+			.demo_save{
+				float: right;
+			}
+			
+			.demo_reset{
+				float: left;
+				margin-left:20px;
+			}
+			
+			.author{
+	width: 125px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	font-size: 14px;
+	text-align: right;
+	color: #666;
+			}
+			
+			.runstatus{
+	float:right;
+	color: #F00;
+			}
+			
+			.progress{
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+
+			.start_thread,.stop_thread{
+				margin-left:15px;
+				float:left;
+			}
+		</style>
+</head>
+	<body>
+		<div class='nav'>
+			<div class='nav_head common'>
+				<a href='http://r.xcloud.cc' target='_blank' class='logo'></a>
+				<span class='version'></span>
+				<a href='javascript:void(0)' id='getupdate' class='getupdate'><span class='getupdate_def'></span></a>
+				<span class='updatewords'></span>
+			</div>
+		</div>
+
+		<div class="navigation">
+			<div class="navigation_title">
+				<a href="comreturn">主页</a> >> ExtremeExFAT（exFAT文件系统支持）
+		  </div>
+		</div>
+
+		<div class="demo_content">
+			<div class='demo_box demo_left'>
+            exFAT是特别适合于闪存的文件系统，现在如意云可以支持exFAT了！
+              <br>
+              <br>
+              对于大容量U盘来说，NTFS文件系统因为影响U盘寿命而不适合使用，而exFAT文件系统更为适用。并且exFAT是windows和mac的通用文件系统格式。exFAT支持大容量存储设备、支持单个大文件超过4G、簇大小可高达32MB、改进了剩余空间分配性能、支持访问控制。<br>
+              <br>
+              本插件一方面极大延长官方可扩展ROM机制的U盘寿命；另一方面让大量MAC系统用户的exFAT可移动盘被路由器识别。
+<!--<div class='demo_config'>
+					<ul>
+						<li><span class='demo_left_span'>NFS共享目录:</span><input type='text' class='demo_right_input config0'></li>
+                        <li><span class='demo_left_span'>共享参数:</span><input type='text' class='demo_right_input config1'></li>
+				  <li>
+                  <a href='javascript:void(0)' class='demo_btn demo_reset'>
+								<b>恢复默认</b>
+							</a>
+							<a href='javascript:void(0)' class='demo_btn demo_save'>
+								<b>保存设置</b>
+							</a>
+						</li>
+					</ul>
+				</div>-->
+		  </div>
+			<div class='demo_box demo_right demo_flag' rel='0'>
+            <div class="runstatus">...</div>
+				<!--<a href='javascript:void(0)' class='demo_btn start_thread'><b>启动插件</b></a>
+				<a href='javascript:void(0)' class='demo_btn stop_thread'><b>停止插件</b></a>-->
+              <div class='author'>
+              Dragon<br/>
+            Extreme M.O.D<br/>
+            <a href="http://www.bdmod.com" target="_blank">www.bdmod.com</a>
+              </div>
+              <div class='progress'><img src="customimg?path=ExtremeExFAT/html/progress.gif" width="176" height="220"></div>
+			</div>
+		</div>
+	</body>
+	<script type='text/javascript'>
+		var tmp = null
+		var tmp1 = null
+		
+		// get status
+		$.ajax({
+			url:'comcmd',
+			data:{cmd:'/usr/local/app/xipk runstatus 786'},
+			dataType:'json',
+			type:'post',
+			success:function(r){
+				tmp = r.resdata;
+				tmp1 = tmp.split("\n");
+				tmp2 = tmp1[tmp1.length-2].split(",");
+				tmp2 = tmp2[tmp2.length-1];
+				if(tmp2 == "0"){
+					$('.runstatus').text('已启动');
+				}else{
+					$('.runstatus').text('已停止');
+				}
+			}
+		})
+		
+		// load config
+		$.ajax({
+			url:'comcmd',
+			data:{cmd:'/usr/local/app/xipk',data:'getconfig',data1:'786'},
+			dataType:'json',
+			type:'post',
+			success:function(r){
+				tmp = r.resdata;
+				tmp1= tmp.split("//");
+				for(var i=0;i<tmp1.length;i++){
+					tmp = tmp1[i].split(",")
+					$('.config'+i).val(tmp[1])
+				}
+				$('.progress').hide();
+			}
+		})
+
+		// save config
+		$('.demo_save').live('click',function(){
+			// get val
+			var val0 = $('.config0').val();
+			// var val1 = $('.config1').val();
+			// var val2 = $('.config2').val();
+			// var val3 = $('.config3').val();
+			// var val4 = $('.config4').val();
+			$.ajax({
+				url:'comcmd',
+				data:{cmd:'/usr/local/app/xipk setconfig 786 '+'key0='+val0},
+				dataType:'json',
+				type:'post',
+				success:function(r){
+					tmp = r.resdata;
+					if(tmp.length == 8)
+						window.location.reload();
+				}
+			})
+		})
+
+		// start thread
+		$('.start_thread').live('click',function(){
+			$.ajax({
+				url:'comcmd',
+				data:{cmd:'/usr/local/app/xipk start 786'},
+				dataType:'json',
+				type:'post',
+				success:function(r){
+					tmp = r.resdata;
+					tmp1 = tmp.split("\n");
+					tmp2 = tmp1[tmp1.length-2];
+					if(tmp2.length == 7)
+						window.location.reload();
+				}
+			})
+		})
+
+		$('.stop_thread').live('click',function(){
+			$.ajax({
+				url:'comcmd',
+				data:{cmd:'/usr/local/app/xipk stop 786'},
+				dataType:'json',
+				type:'post',
+				success:function(r){
+					tmp = r.resdata;
+					tmp1 = tmp.split("\n");
+					tmp2 = tmp1[tmp1.length-2];
+					if(tmp2.length == 7)
+						window.location.reload();
+				}
+			})			
+		})		
+	</script>
+</html>

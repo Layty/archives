@@ -1,0 +1,21 @@
+/*********************************************************************
+ * TYPEDEFS
+ */
+typedef struct
+{
+  uint8  Head[4];
+  uint16 Type;
+  uint8  SourAddrType;
+  uint8  *SourAddr;
+  uint8  DestAddrType;
+  uint8  *DestAddr;
+  uint16 SeqNumber;
+  uint16 Dataleng;
+  uint8  *MEDData;
+}MEDFrame_t;
+
+
+
+############ 示例程序
+
+zstack\ZMain\TI2530ZNP\ZMain.c

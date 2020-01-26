@@ -1,0 +1,81 @@
+================================================== 8b58db =======================================
+
+~ # iwpriv ra1 stat
+ra1       stat:
+
+Tx success                      = 25517
+Tx retry count                  = 36
+Tx fail to Rcv ACK after retry  = 0
+RTS Success Rcv CTS             = 0
+RTS Fail Rcv CTS                = 0
+Rx success                      = 257509
+Rx with CRC                     = 37131
+Rx drop due to out of resource  = 0
+Rx duplicate frame              = 100
+False CCA (one second)          = 0
+RSSI-A                          = -73
+RSSI-B (if available)           = 0
+RSSI-C (if available)           = 0
+
+efuseFreeNumber                 = 13
+
+~ # iwpriv ra0 show stat
+TransmitCountFromOS = 672
+TransmittedFragmentCount = -2143119084
+MulticastTransmittedFrameCount = 145
+FailedCount = 0
+RetryCount = 36
+MultipleRetryCount = 0
+RTSSuccessCount = 0
+RTSFailureCount = 0
+ACKFailureCount = 0
+FrameDuplicateCount = 100
+ReceivedFragmentCount = 262826
+MulticastReceivedFrameCount = 38
+Rx drop due to out of resource  = 0
+RealFcsErrCount = 37877
+TransmittedFrameCount = 26369
+WEPUndecryptableCount = 0
+
+===Some 11n statistics variables: 
+TransmittedAMSDUCount = 0
+TransmittedOctetsInAMSDU = 0
+ReceivedAMSDUCount = 0
+ReceivedOctesInAMSDUCount = 0
+TransmittedAMPDUCount = 0
+TransmittedMPDUsInAMPDUCount = 0
+TransmittedOctetsInAMPDUCount = 0
+MPDUInReceivedAMPDUCount = 0
+-- IF-ra0 -- 
+Packets Received = 109
+Packets Sent = 59
+Bytes Received = 13607
+Byte Sent = 4424
+Error Packets Received = 0
+Drop Received Packets = 12
+-- IF-ra0 end -- 
+-- IF-ra1 -- 
+Packets Received = 0
+Packets Sent = 0
+Bytes Received = 0
+Byte Sent = 0
+Error Packets Received = 0
+Drop Received Packets = 0
+-- IF-ra1 end -- 
+-- IF-ra2 -- 
+Packets Received = 0
+Packets Sent = 0
+Bytes Received = 0
+Byte Sent = 0
+Error Packets Received = 0
+Drop Received Packets = 0
+-- IF-ra2 end -- 
+-- IF-ra3 -- 
+Packets Received = 0
+Packets Sent = 0
+Bytes Received = 0
+Byte Sent = 0
+Error Packets Received = 0
+Drop Received Packets = 0
+-- IF-ra3 end -- 
+====================

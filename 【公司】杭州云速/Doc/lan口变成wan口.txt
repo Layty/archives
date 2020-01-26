@@ -1,0 +1,13 @@
+
+1、首先确定需要更改网口在哪个接口上，接口名是什么。比如为eth2.1
+
+2、将接口从桥上删除，便是取消其lan口属性
+（1）brctl show
+查看eth2.1属于哪个桥口，比如是br0
+（2）brctl delif br0 eth2.1
+将eth2.1从桥br0上删除
+
+3、这时候eth2.1便是一个独立的网口，我们将dhcp客户端下在这个网口上，便可以使这个网口获取dhcp配置，充当wan口使用
+（1）udhcpc -i eth2.1 -s /sbin/udhcpc.sh -p /var/run/udhcpc.pid
+指定eth2.1上运行dhcp客户端
+

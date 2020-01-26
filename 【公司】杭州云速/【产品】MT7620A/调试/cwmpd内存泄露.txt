@@ -1,0 +1,95 @@
+# RTMP_TimerListAdd: add timer obj c056ac68!
+RTMP_TimerListAdd: add timer obj c056ae20!
+Rcv Wcid(1) AddBAReq
+Start Seq = 00000000
+RTMP_TimerListAdd: add timer obj c05806bc!
+RTMP_TimerListAdd: add timer obj c057e8ac!
+http read response failed. return code is 204, 204scheme:   [http]
+user:     []
+password: []
+host:     [115.236.87.227]
+port:     [8088]
+uri: [/]
+Rcv Wcid(1) AddBAReq
+Start Seq = 00000000
+Rcv Wcid(1) AddBAReq
+Start Seq = 00000000
+inet_chk.sh invoked oom-killer: gfp_mask=0xd0, order=1, oom_adj=0, oom_score_adj=0
+Call Trace:[<8001b1fc>] 0x8001b1fc
+[<8001b1fc>] 0x8001b1fc
+[<800771f4>] 0x800771f4
+[<80077534>] 0x80077534
+[<80077a14>] 0x80077a14
+[<8007bb94>] 0x8007bb94
+[<8007bb30>] 0x8007bb30
+[<800ab3fc>] 0x800ab3fc
+[<800ab3cc>] 0x800ab3cc
+[<8008f388>] 0x8008f388
+[<8009d358>] 0x8009d358
+[<8009d074>] 0x8009d074
+[<8003a170>] 0x8003a170
+[<8003a0d0>] 0x8003a0d0
+[<800a1b0c>] 0x800a1b0c
+[<800a1c68>] 0x800a1c68
+[<800b6e58>] 0x800b6e58
+[<8003a778>] 0x8003a778
+[<800a9e8c>] 0x800a9e8c
+[<800a9e4c>] 0x800a9e4c
+[<8001abdc>] 0x8001abdc
+[<8001a81c>] 0x8001a81c
+[<8000a124>] 0x8000a124
+[<8000a124>] 0x8000a124
+
+Mem-Info:
+Normal per-cpu:
+CPU    0: hi:   42, btch:   7 usd:  22
+active_anon:10482 inactive_anon:10527 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:6
+ unevictable:5182 dirty:0 writeback:0 unstable:0
+ free:1344 slab_reclaimable:515 slab_unreclaimable:1904
+ mapped:347 shmem:0 pagetables:146 bounce:0
+Normal free:5376kB min:2048kB low:2560kB high:3072kB active_anon:41928kB inactive_anon:42108kB active_file:0kB inactive_file:0kB unevictable:20728kB isolated(anon):0kB isolated(file):24kB present:130048kB mlocked:0kB dirty:0kB writeback:0kB mapped:1388kB shmem:0kB slab_reclaimable:2060kB slab_unreclaimable:7616kB kernel_stack:472kB pagetables:584kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned:6 all_unreclaimable? yes
+lowmem_reserve[]: 0 0
+Normal: 1164*4kB 90*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 5376kB
+5188 total pagecache pages
+32768 pages RAM
+1417 pages reserved
+12246 pages shared
+18312 pages non-shared
+[ pid ]   uid  tgid total_vm      rss cpu oom_adj oom_score_adj name
+[   36]     0    36      282       63   0       0             0 nvram_daemon
+[   37]     0    37      434      169   0       0             0 goahead
+[   39]     0    39      491       58   0       0             0 telnetd
+[   41]     0    41      209       56   0       0             0 reset_dog
+[  216]     0   216      494      111   0       0             0 sh
+[ 2007]     0  2007      491       48   0       0             0 udhcpc
+[ 7155]     0  7155      492      101   0       0             0 inet_chk.sh
+[ 7162]     0  7162    19807    19510   0       0             0 cwmpd
+[12783]     0 12783      491       70   0       0             0 klogd
+[13458]     0 13458     1121      136   0       0             0 lighttpd
+[13483]     0 13483     3887      323   0       0             0 php-fcgi
+[13548]     0 13548     3887      324   0       0             0 php-fcgi
+[13589]     0 13589     3887      323   0       0             0 php-fcgi
+[13623]     0 13623     3887      323   0       0             0 php-fcgi
+[13683]     0 13683     3887      292   0       0             0 php-fcgi
+[13685]     0 13685     3887      293   0       0             0 php-fcgi
+[13693]     0 13693     3887      292   0       0             0 php-fcgi
+[13756]     0 13756     3918      394   0       0             0 php-fcgi
+[13847]     0 13847      469       84   0       0             0 wifidog
+[19128]     0 19128    19807    19510   0       0             0 cwmpd
+[19129]     0 19129    19807    19510   0       0             0 cwmpd
+[19235]     0 19235    19807    19510   0       0             0 cwmpd
+[19316]     0 19316      254      116   0       0             0 dnsmasq
+[20933]     0 20933      469       84   0       0             0 wifidog
+[20934]     0 20934      469       84   0       0             0 wifidog
+[20935]     0 20935      469       84   0       0             0 wifidog
+[20936]     0 20936      469       84   0       0             0 wifidog
+[23747]     0 23747    10289     9860   0       0             0 cwmpd
+[26191]     0 26191      491       95   0       0             0 sh
+[26192]     0 26192      659       75   0       0             0 iptables
+[26196]     0 26196      492       39   0       0             0 inet_chk.sh
+Out of memory: Kill process 7162 (cwmpd) score 592 or sacrifice child
+Killed process 19128 (cwmpd) total-vm:79228kB, anon-rss:77436kB, file-rss:604kB
+[3][Thu Jan  1 01:01:11 1970][20936](ping_thread.c:203) Timed out reading data via select() from auth server
+[3][Thu Jan  1 01:01:51 1970][20936](ping_thread.c:203) Timed out reading data via select() from auth server
+[3][Thu Jan  1 01:02:31 1970][20936](ping_thread.c:203) Timed out reading data via select() from auth server

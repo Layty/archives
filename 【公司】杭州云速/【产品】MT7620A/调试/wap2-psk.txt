@@ -1,0 +1,28 @@
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+Rcv Wcid(1) AddBAReq
+Start Seq = 00000000
+RTMP_TimerListAdd: add timer obj c05806bc!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+Rcv Wcid(1) AddBAReq
+Start Seq = 00000000
+AP SETKEYS DONE - WPA2, AuthMode(7)=WPA2PSK, WepStatus(6)=AES, GroupWepStatus(4)=TKIP
+
+RTMP_TimerListAdd: add timer obj c056b698!
+RTMP_TimerListAdd: add timer obj c056b850!
+RTMP_TimerListAdd: add timer obj c057e8e8!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+MIC Different in pairwise msg 2 of 4-way handshake!
+AP SETKEYS DONE - WPA2, AuthMode(7)=WPA2PSK, WepStatus(6)=AES, GroupWepStatus(4)=TKIP
+AP SETKEYS DONE - WPA2, AuthMode(7)=WPA2PSK, WepStatus(6)=AES, GroupWepStatus(4)=TKIP

@@ -1,0 +1,57 @@
+# wifidog -c /tmp/mmcblk0p1/app/etc/wifidog.conf -f
+[6][Thu Jan  1 00:05:08 1970][7742](conf.c:638) Reading configuration file '/tmp/mmcblk0p1/app/etc/wifidog.conf'
+[6][Thu Jan  1 00:05:08 1970][7742](gateway.c:372) Setting started_time
+[5][Thu Jan  1 00:05:08 1970][7742](gateway.c:402) Creating web server on 192.168.199.168:8060
+[6][Thu Jan  1 00:05:08 1970][7742](firewall.c:216) Removing Firewall rules
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+[6][Thu Jan  1 00:05:10 1970][7742](firewall.c:159) Creating ICMP socket
+[6][Thu Jan  1 00:05:10 1970][7742](firewall.c:169) Initializing Firewall
+[6][Thu Jan  1 00:05:10 1970][7742](util.c:315) get_ext_iface(): Detected eth2.2 as the default interface after try 1
+[5][Thu Jan  1 00:05:13 1970][7742](gateway.c:449) Waiting for connections
+[6][Thu Jan  1 00:05:13 1970][15631](util.c:353) ONLINE status became ON
+[6][Thu Jan  1 00:05:13 1970][15631](firewall.c:191) Clearing the authservers list
+[6][Thu Jan  1 00:05:13 1970][15631](firewall.c:200) Setting the authservers list
+[6][Thu Jan  1 00:05:13 1970][15631](util.c:395) AUTH_ONLINE status became ON
+[4][Thu Jan  1 00:05:13 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:05:23 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:05:33 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:05:43 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:05:53 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:06:03 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:06:13 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:06:23 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:06:33 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:06:43 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:06:53 1970][15631](ping_thread.c:224) Auth server did NOT say pong!
+[4][Thu Jan  1 00:07:03 1970][15631](ping_thread.c:224) Auth server did NOT say pong!

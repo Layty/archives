@@ -1,0 +1,172 @@
+#
+# iptables -t filter -nvL
+Chain INPUT (policy ACCEPT 1290 packets, 158K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+ 1287  157K malicious_input_filter  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain FORWARD (policy ACCEPT 12733 packets, 6994K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+  471 45308 WiFiDog_br1_WIFI2Internet  all  --  *ra3   *       0.0.0.0/0            0.0.0.0/0
+12734 6994K web_filter  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+12733 6994K macipport_filter  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+12733 6994K malicious_filter  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+  853 50028 TCPMSS     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x06/0x02 TCPMSS clamp to PMTU
+
+Chain OUTPUT (policy ACCEPT 1167 packets, 268K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_AuthServers (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+  276 35506 ACCEPT     all  --  *      *       0.0.0.0/0            115.236.87.227
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            115.236.87.227
+
+Chain WiFiDog_br1_Global (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_Known (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain WiFiDog_br1_Locked (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_Unknown (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    1    65 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:53
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:53
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:67
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:67
+    0     0 REJECT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:8000 reject-with icmp-port-unreachable
+  194  9737 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-port-unreachable
+
+Chain WiFiDog_br1_Validate (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain WiFiDog_br1_WIFI2Internet (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           state INVALID
+  127  7620 TCPMSS     tcp  --  *      wangw.1  0.0.0.0/0            0.0.0.0/0           tcp flags:0x06/0x02 TCPMSS clamp to PMTU
+  471 45308 WiFiDog_br1_AuthServers  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 WiFiDog_br1_Locked  all  --  *      *       0.0.0.0/0            0.0.0.0/0           MARK match 0x254
+  195  9802 WiFiDog_br1_Global  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 WiFiDog_br1_Validate  all  --  *      *       0.0.0.0/0            0.0.0.0/0           MARK match 0x1
+    0     0 WiFiDog_br1_Known  all  --  *      *       0.0.0.0/0            0.0.0.0/0           MARK match 0x2
+  195  9802 WiFiDog_br1_Unknown  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain macipport_filter (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain malicious_filter (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+  486 29160 synflood_filter  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x17/0x02
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x3F/0x29
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x3F/0x37
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x3F/0x00
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x06/0x06
+    0     0            tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x03/0x03
+
+Chain malicious_input_filter (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+  112  6720 synflood_input_filter  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x17/0x02
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x3F/0x29
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x3F/0x37
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x3F/0x00
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x06/0x06
+    0     0            tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x03/0x03
+
+Chain synflood_filter (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain synflood_input_filter (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain web_filter (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    1   577 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp WEBSTR match url www.baidu.com reject-with tcp-reset
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp WEBSTR match url www.sina.com reject-with tcp-reset
+# server is ready
+server is ready
+
+#
+
+#
+# iptables -t mangle -nvL
+Chain PREROUTING (policy ACCEPT 15369 packets, 7403K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+ 1150  120K WiFiDog_br1_Trusted  all  --  *ra3   *       0.0.0.0/0            0.0.0.0/0
+ 1150  120K WiFiDog_br1_Outgoing  all  --  *ra3   *       0.0.0.0/0            0.0.0.0/0
+
+Chain INPUT (policy ACCEPT 1337 packets, 162K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain FORWARD (policy ACCEPT 13274 packets, 7044K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 1191 packets, 269K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain POSTROUTING (policy ACCEPT 14272 packets, 7303K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+ 7026  720K WiFiDog_br1_Incoming  all  --  *      *ra3    0.0.0.0/0            0.0.0.0/0
+
+Chain WiFiDog_br1_Incoming (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_Outgoing (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_Trusted (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+# server is ready
+
+#
+#
+# iptables -t nat -nvL
+Chain PREROUTING (policy ACCEPT 1518 packets, 255K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+ 1636  255K port_forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+ 1636  255K DMZ        all  --  *      *       0.0.0.0/0            0.0.0.0/0
+  325 22906 WiFiDog_br1_Outgoing  all  --  *ra3   *       0.0.0.0/0            0.0.0.0/0
+
+Chain POSTROUTING (policy ACCEPT 13 packets, 2036 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+  459 27551 MASQUERADE  all  --  *      *wan    0.0.0.0/0            0.0.0.0/0
+
+Chain OUTPUT (policy ACCEPT 44 packets, 3918 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain DMZ (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_AuthServers (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+   34  2040 ACCEPT     all  --  *      *       0.0.0.0/0            115.236.87.227
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            115.236.87.227
+
+Chain WiFiDog_br1_Global (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain WiFiDog_br1_Outgoing (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+   16  1004 WiFiDog_br1_WIFI2Router  all  --  *      *       0.0.0.0/0            192.168.1.1
+  309 21902 WiFiDog_br1_WIFI2Internet  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain WiFiDog_br1_Unknown (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+  309 21902 WiFiDog_br1_AuthServers  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+  275 19862 WiFiDog_br1_Global  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+  102  6120 REDIRECT   tcp  --  *ra3   *       0.0.0.0/0            0.0.0.0/0           tcp dpt:80 redir ports 2060
+
+Chain WiFiDog_br1_WIFI2Internet (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           MARK match 0x2
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           MARK match 0x1
+  309 21902 WiFiDog_br1_Unknown  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain WiFiDog_br1_WIFI2Router (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+   16  1004 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain port_forward (1 references)
+ pkts bytes target     prot opt in     out     source               destination

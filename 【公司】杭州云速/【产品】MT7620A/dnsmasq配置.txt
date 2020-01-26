@@ -1,0 +1,55 @@
+###################### openwrt dnsmasq.conf #####################
+udhcpd /etc/udhcpd.conf 
+
+root@OpenWrt:/# cat /var/etc/dnsmasq.conf 
+# auto-generated config file from /etc/config/dhcp
+conf-file=/etc/dnsmasq.conf
+dhcp-authoritative
+domain-needed
+localise-queries
+read-ethers
+bogus-priv
+expand-hosts
+domain=lan
+server=/lan/
+dhcp-leasefile=/tmp/dhcp.leases
+resolv-file=/tmp/resolv.conf.auto
+addn-hosts=/tmp/hosts
+conf-dir=/tmp/dnsmasq.d
+stop-dns-rebind
+rebind-localhost-ok
+dhcp-broadcast=tag:needs-broadcast
+
+
+host-record=OpenWrt.lan,OpenWrt,192.168.1.1
+
+
+dhcp-range=lan,192.168.1.100,192.168.1.249,255.255.255.0,12h
+
+###################################################################
+
+
+
+
+######################### r603w ####################################
+file:lan_new.sh
+dnsmasq --conf-file=/tmp/dnsmasq.conf --resolv-file=/etc/resolv.conf &
+
+# cat /tmp/dnsmasq.conf 
+resolv-file=/etc/resolv.dnsmasq
+dhcp-leasefile=/tmp/dnsmasq.leases
+dhcp-lease-max=50
+dhcp-authoritative
+interface=br0
+dhcp-range=br0,192.168.20.100,192.168.20.200,86400
+dhcp-option=br0,option:dns-server,192.168.20.1,8.8.8.8
+interface=br1
+dhcp-range=br1,192.168.30.100,192.168.30.200,86400
+dhcp-option=br1,option:dns-server,192.168.30.1,8.8.8.8
+dhcp-host=br0,
+dhcp-host=br0,
+dhcp-host=br0,
+
+# cat /etc/resolv.conf 
+# 
+

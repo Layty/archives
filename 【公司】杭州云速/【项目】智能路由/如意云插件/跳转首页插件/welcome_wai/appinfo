@@ -1,0 +1,22 @@
+plugin_ID:818
+plugin_Name:welcome
+plugin_VersionName: 0.1.0.0
+plugin_VersionCode: 00100000
+plugin_RomVersionH: 9.9.9.9
+plugin_RomVersionL: 1.0.0.7
+plugin_MobVersionH: 9.9
+plugin_MobVersionL: 1.0
+plugin_XPKGVersion: 1.0
+plugin_IntallPath: /opt/app/welcome/
+plugin_Source: 1
+plugin_Autorun: 1
+plugin_Space: 44771
+plugin_MD5: 
+plugin_Info: 上网欢迎页，可用来做web认证，品牌推广，界面内容可自定义。
+plugin_Author: liuwt123@gmail.com
+plugin_Officeapp: 0
+plugin_State: 2
+plugin_Largeicon:/opt/app/welcome/icon/large.jpg
+plugin_Smallicon:/opt/app/welcome/icon/small.png
+plugin_InstallDate: 
+ 

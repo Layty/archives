@@ -1,0 +1,194 @@
+;****************************************************************************************
+;
+; MTKUQ.inf
+;
+;   This installation script supports 2000 & XP for the
+;   MediaTek MT7603 USB series Wireless LAN Card.
+;
+;   Copyright (c)2002 ~ 2013, MediaTek Technology Corp., All Rights Reserved
+;   All Rights Reserved.
+;   Developed by Mediatek Technology, Corp. -- http://www.mediatek.com
+;
+;****************************************************************************************
+
+[Version]
+DriverVer=01/07/2015, 0.00.02.0027
+Signature="$Chicago$"
+Compatible=1
+Class=Net
+ClassGUID={4d36e972-e325-11ce-bfc1-08002be10318}
+Provider=%Provider%
+CatalogFile         = mtkuq.cat
+CatalogFile.NTamd64 = mtkuqx.cat
+
+
+[ControlFlags]
+	ExcludeFromSelect = *
+
+[Manufacturer]
+%V_Provider%=Adapters, NTAMD64
+
+
+;*******************************************************************************************
+; x86 
+;*******************************************************************************************
+[Adapters]
+; DisplayName                Section                DeviceID
+; -----------                -------                --------
+;%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7603&MI_02
+;%UsbDumpr_MT7632.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7603&MI_02
+;%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7603
+%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7606
+%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7636&MI_02
+
+;*******************************************************************************************
+; x64 
+;*******************************************************************************************
+[Adapters.NTAMD64]
+; DisplayName                Section                DeviceID
+; -----------                -------                --------
+;%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7603&MI_02
+;%UsbDumpr_MT7632.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7603&MI_02
+;%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7603
+%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7606
+%UsbDumpr_MT7603.DeviceDesc%   =UsbDumpr_MT7603.ndi,      USB\VID_0E8D&PID_7636&MI_02
+
+;*******************************************************************************************
+; x86 NT specific entries
+;*******************************************************************************************
+
+[UsbDumpr_MT7603.ndi.NT]
+AddReg=Common.reg, UsbDumpr_MT7603.ndi.NT.reg
+Characteristics=0x84              ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType=5
+CopyFiles=NT.CopyFiles
+
+; NT services sections
+[UsbDumpr_MT7603.ndi.NT.Services]
+AddService=UsbDumpr_MT7603, 2, UsbDumpr_MT7603.Service, common.EventLog
+
+;*******************************************************************************************
+; x64 NT specific entries
+;*******************************************************************************************
+
+[UsbDumpr_MT7603.ndi.NTamd64]
+AddReg=Common.reg, UsbDumpr_MT7603.ndi.NT.reg
+Characteristics=0x84              ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType=5
+CopyFiles=NTamd64.CopyFiles
+
+; NT services sections
+[UsbDumpr_MT7603.ndi.NTamd64.Services]
+AddService=UsbDumpr_MT7603, 2, UsbDumpr_MT7603.Service.NTamd64, common.EventLog
+
+
+[UsbDumpr_MT7603.ndi.reg]
+HKR, ,                            NTMPDriver,      0, MTKUQ.sys
+HKR, Ndi,                         DeviceID,        0, "USB\VID_0E8D&PID_7603&MI_02"
+
+HKR, ,                            RunningWin9X,    0, "1"
+HKR, ,                            DevLoader,       0, *ndis
+HKR, ,                            DeviceVxDs,      0, MTKUQ.sys
+HKR, ,                            EnumPropPages,   0, "netdi.dll,EnumPropPages"
+
+;
+; NDIS Info
+;
+HKR, NDIS,                        LogDriverName,   0, "MTKUQ"
+HKR, NDIS,                        MajorNdisVersion,1, 03
+HKR, NDIS,                        MinorNdisVersion,1, 0A
+
+HKR, ,                            BusType,         0, 5
+HKR, NDI,                         CardType,        0, "PCI"
+
+;
+; Interfaces
+;
+HKR, Ndi\Interfaces,              DefUpper,        0, "ndis3"
+HKR, Ndi\Interfaces,              DefLower,        0, "ethernet"
+HKR, Ndi\Interfaces,              UpperRange,      0, "ndis3"
+HKR, Ndi\Interfaces,              LowerRange,      0, "ethernet"
+
+;
+; Install sections
+;HKR,Ndi\Install,ndis3,,"UsbDumpr_MT7603.install"
+
+
+;*******************************************************************************************
+; common regs for NT and W9x
+;*******************************************************************************************
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,"Parameters","BulkUsbEnable",0x10001,1
+
+
+;*******************************************************************************************
+; DestinationDirs
+;*******************************************************************************************
+
+[DestinationDirs]
+NT.CopyFiles=12    ; system32\drivers subdirectory on NT x86
+NTamd64.CopyFiles=12    ; system32\drivers subdirectory on NT x64
+
+
+[NT.CopyFiles]
+MTKUQ.sys ; NT Installation
+
+[NTamd64.CopyFiles]
+MTKUQX.sys ; NT Installation
+
+[SourceDisksNames]
+1=%INSTALL_DISK_STR%,,,
+
+[SourceDisksFiles] 
+MTKUQ.sys=1
+
+[SourceDisksFiles.amd64]
+MTKUQX.sys=1
+
+;*******************************************************************************************
+; NT specific
+;*******************************************************************************************
+
+[UsbDumpr_MT7603.ndi.NT.reg]
+HKR, Ndi,                         Service,         0, "UsbDumpr_MT7603"
+HKR, Ndi\Interfaces,              UpperRange,      0, "ndis5"
+HKR, Ndi\Interfaces,              LowerRange,      0, "ethernet"
+
+[UsbDumpr_MT7603.Service]
+DisplayName=%UsbDumpr_MT7603.Service.DispName%
+ServiceType=1                	;%SERVICE_KERNEL_DRIVER%
+StartType=3                	;%SERVICE_AUTO_START%
+ErrorControl=1                	;%SERVICE_ERROR_NORMAL%
+ServiceBinary=%12%\MTKUQ.sys
+LoadOrderGroup=NDIS
+
+[UsbDumpr_MT7603.Service.NTamd64]
+DisplayName=%UsbDumpr_MT7603.Service.DispName%
+ServiceType=1                	;%SERVICE_KERNEL_DRIVER%
+StartType=3                	;%SERVICE_AUTO_START%
+ErrorControl=1                	;%SERVICE_ERROR_NORMAL%
+ServiceBinary=%12%\MTKUQX.sys
+LoadOrderGroup=NDIS
+
+[common.EventLog]
+AddReg=common.AddEventLog.reg
+
+[common.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000,"%%SystemRoot%%\System32\netevent.dll"
+HKR, , TypesSupported,   0x00010001, 7
+
+
+;*******************************************************************************************
+; Strings
+;*******************************************************************************************
+
+[strings]
+Provider   = "MediaTek"
+V_Provider = "MediaTek Technology Corp."
+
+UsbDumpr_MT7603.DeviceDesc = "MediaTek QATest USB WDM Driver"
+UsbDumpr_MT7632.DeviceDesc = "MT7632 QATest USB WDM Driver"
+
+UsbDumpr_MT7603.Service.DispName = "MediaTek QATest USB WDM Driver Service"
+INSTALL_DISK_STR = "MT7603 QATest Wireless LAN Installation Disk"

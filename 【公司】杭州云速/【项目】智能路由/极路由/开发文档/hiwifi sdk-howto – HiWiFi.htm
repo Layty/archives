@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0045)https://code.hiwifi.com/wiki/hiwifi/sdk-howto -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      hiwifi/sdk-howto – HiWiFi
+    </title>
+    
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="https://code.hiwifi.com/search">
+        <link rel="help" href="https://code.hiwifi.com/wiki/TracGuide">
+        <link rel="alternate" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto?format=txt" type="text/x-trac-wiki" title="纯文本">
+        <link rel="up" href="https://code.hiwifi.com/wiki/hiwifi" title="查看父页面">
+        <link rel="start" href="https://code.hiwifi.com/wiki">
+        <link rel="stylesheet" href="./hiwifi sdk-howto – HiWiFi_files/trac.css" type="text/css"><link rel="stylesheet" href="./hiwifi sdk-howto – HiWiFi_files/wiki.css" type="text/css">
+        <link rel="shortcut icon" href="https://code.hiwifi.com/chrome/common/trac.ico" type="image/x-icon">
+        <link rel="icon" href="https://code.hiwifi.com/chrome/common/trac.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="https://code.hiwifi.com/search/opensearch" title="搜索 HiWiFi">
+    <script type="text/javascript" src="./hiwifi sdk-howto – HiWiFi_files/jquery.js"></script><script type="text/javascript" src="./hiwifi sdk-howto – HiWiFi_files/babel.js"></script><script type="text/javascript" src="./hiwifi sdk-howto – HiWiFi_files/zh_CN.js"></script><script type="text/javascript" src="./hiwifi sdk-howto – HiWiFi_files/trac.js"></script><script type="text/javascript" src="./hiwifi sdk-howto – HiWiFi_files/search.js"></script><script type="text/javascript" src="./hiwifi sdk-howto – HiWiFi_files/folding.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://code.hiwifi.com/"><img src="./hiwifi sdk-howto – HiWiFi_files/hiwifi.png" alt="HiWiFi"></a>
+      </div>
+      <form id="search" action="https://code.hiwifi.com/search" method="get">
+        <div>
+          <label for="proj-search">搜索:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="搜索">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="https://code.hiwifi.com/login">登录</a></li><li><a href="https://code.hiwifi.com/prefs">个人设置</a></li><li><a href="https://code.hiwifi.com/wiki/TracGuide">帮助/指南</a></li><li class="last"><a href="https://code.hiwifi.com/about">关于Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="https://code.hiwifi.com/wiki">Wiki</a></li><li><a href="https://code.hiwifi.com/report">查看任务单</a></li><li class="last"><a href="https://code.hiwifi.com/search">搜索</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="查看 WikiStart" href="https://code.hiwifi.com/wiki">wiki</a><a class="pathentry" href="https://code.hiwifi.com/wiki/hiwifi" title="查看 hiwifi">hiwifi</a><span class="pathentry sep">/</span><a class="pathentry" href="./hiwifi sdk-howto – HiWiFi_files/hiwifi sdk-howto – HiWiFi.htm" title="查看 hiwifi/sdk-howto">sdk-howto</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>上下文导航</h2>
+          <ul>
+              <li class="first"><a href="https://code.hiwifi.com/wiki/hiwifi">向上</a></li><li><a href="https://code.hiwifi.com/wiki/WikiStart">起始页</a></li><li><a href="https://code.hiwifi.com/wiki/TitleIndex">索引</a></li><li class="last"><a href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto?action=history">历史</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby">
+            <span><a href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto?action=diff&version=19" title="版本 19 来自 rssn">最后修改于</a> <a class="timeline" href="https://code.hiwifi.com/timeline?from=2014-10-15T17%3A11%3A05%2B08%3A00&precision=second" title="时间线中的2014-10-15T17:11:05+08:00">9个月</a> 前</span>
+            <span class="trac-print">Last modified on 10/15/14 17:11:05</span>
+          </div>
+          <div id="wikipage"><h1 id="HiWiFiSDK使用方法"><a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/HiWiFi">HiWiFi</a> SDK 使用方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#HiWiFiSDK使用方法" title="链接到这一节"> ¶</a></h1>
+<h2 id="a1.SDK下载地址">1. SDK下载地址<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#a1.SDK下载地址" title="链接到这一节"> ¶</a></h2>
+<ul><li>HC5661/HC5761（极1S/极2）：<br>
+<a class="ext-link" href="http://pan.baidu.com/s/1pJt2j6V"><span class="icon">​</span>http://pan.baidu.com/s/1pJt2j6V</a>  （Ubuntu 12.04，64位）<br>
+<a class="ext-link" href="http://pan.baidu.com/s/1bnD3g8v"><span class="icon">​</span>http://pan.baidu.com/s/1bnD3g8v</a>  （Ubuntu 12.04，32位）
+</li><li>HC6361（极1）：<br>
+<a class="ext-link" href="http://pan.baidu.com/s/1jGqUnWi"><span class="icon">​</span>http://pan.baidu.com/s/1jGqUnWi</a>  （Ubuntu 12.04，32位）
+</li><li>链接可能会过期，如发现不能下载，请大家及时报告：<a class="mail-link" href="mailto:sdk#hiwifi.tw"><span class="icon">​</span>sdk#hiwifi.tw</a>
+</li></ul><h2 id="a2.安装使用方法">2. 安装使用方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#a2.安装使用方法" title="链接到这一节"> ¶</a></h2>
+<ul><li>安装Ubuntu 12.04，根据提供的SDK选择32位或64位系统;
+</li><li>配置开发环境：
+<pre class="wiki">apt-get install subversion git build-essential libncurses5-dev zlib1g-dev gawk unzip gettext libssl-dev intltool openjdk-6-jre-headless optipng
+ln -sf bash /bin/sh
+</pre></li><li>创建系统帐号hiwifi，确保其主目录位于/home/hiwifi ;
+</li><li>将hc5761-sdk-amd64.tar.gz解压到hiwifi的主目录中, 即代码目录位于/home/hiwifi/hc5761 ;
+</li></ul><h2 id="a3.程序编译方法">3. 程序编译方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#a3.程序编译方法" title="链接到这一节"> ¶</a></h2>
+<h3 id="方法一以package方式编译C代码">方法一：以package方式编译C代码<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#方法一以package方式编译C代码" title="链接到这一节"> ¶</a></h3>
+<ul><li>按照OpenWrt格式将代码目录放到hc5761/package下面;
+</li><li>在hc5761/目录下执行make menuconfig , 选中添加的package（M）, 保存退出;
+</li><li>执行: 
+<pre class="wiki">make package/&lt;package目录名&gt;/compile V=s
+</pre></li></ul><h3 id="方法二使用OpenWrt工具链中的编译器直接交叉编译程序">方法二：使用OpenWrt工具链中的编译器直接交叉编译程序<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#方法二使用OpenWrt工具链中的编译器直接交叉编译程序" title="链接到这一节"> ¶</a></h3>
+<blockquote>
+<p>
+工具包中提供了名为cross-compile.sh的脚本, 在hc5761/主目录下执行:
+</p>
+<pre class="wiki">./scripts/cross-compile.sh ./
+</pre><p>
+之后, 该shell环境中的gcc, g++, ld等命令即引用到交叉编译工具的相应命令。详细使用方法请参考<a class="wiki" href="https://code.hiwifi.com/wiki/hiwifi/cross-compile">像本机gcc一样使用的交叉编译环境建立方法</a>，或SDK工具包中的cross-compile.docx。
+</p>
+</blockquote>
+<h2 id="a4.添加feeds中的软件包的方法">4. 添加feeds中的软件包的方法<a class="anchor" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto#a4.添加feeds中的软件包的方法" title="链接到这一节"> ¶</a></h2>
+<ul><li>以增加 libffmpeg 为例：
+<pre class="wiki">./scripts/feeds update
+./scripts/feeds install ffmpeg
+</pre></li><li>然后执行：
+<pre class="wiki">make menuconfig
+</pre></li><li>在 Libraries 里把libffmpeg-xxxx 选中（M）,再执行：
+<pre class="wiki">make package/ffmpeg/compile
+make package/ffmpeg/install
+</pre></li></ul></div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>用其他格式下载:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="https://code.hiwifi.com/wiki/hiwifi/sdk-howto?format=txt">纯文本</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="./hiwifi sdk-howto – HiWiFi_files/trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">由 <a href="http://www.edgewall.org/">Edgewall Software</a> 的 <a href="https://code.hiwifi.com/about"><strong>Trac 0.12.5</strong></a><br>
+        提供动力</p>
+      <p class="right">请访问Trac开源项目<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

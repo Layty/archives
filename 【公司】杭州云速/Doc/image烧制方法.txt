@@ -1,0 +1,41 @@
+准备工作：
+0、image是完整flash信息，烧写使用的是非正规方法，平时不建议使用。烧写后mac地址和长久存储区域会被清空。
+1、输入命令cat /proc/mtd，确认存在mtd0: 00800000 00010000 "ALL"这一行信息，如下
+# cat /proc/mtd 
+dev:    size   erasesize  name
+mtd0: 00800000 00010000 "ALL"
+mtd1: 00030000 00010000 "Bootloader"
+mtd2: 00010000 00010000 "Config"
+mtd3: 00010000 00010000 "Factory"
+mtd4: 003a0000 00010000 "Kernel1"
+mtd5: 003a0000 00010000 "Kernel2"
+mtd6: 00060000 00010000 "disk"
+mtd7: 00010000 00010000 "Cvnenv"
+
+2、读取设备物理口mac信息，000C43305077（不同设备mac地址不同）为物理口mac地址，将这个地址先保存到文档中，烧写过程需要使用。如下
+# amts r emac
+success,000C43305077
+
+3、读取设备无线mac信息，000C43305008（不同设备mac地址不同）为无线mac地址，将这个地址先保存到文档中，烧写过程需要使用。如下
+# amts r wmac
+success,000C43305008
+
+
+
+
+烧写方法：
+1、使用telnet登陆到设备中，登陆用户名/密码：linux_root/5up
+2、进入临时目录
+cd /tmp
+3、使用tftp工具上传
+tftp severip -gr image文件
+4、烧录
+cat imaget文件 > /dev/mtdblock0
+5、命令完成后，等待5秒，重启
+rebot
+
+6、将之前保存的物理口mac烧写到设备
+amts w emac 000C43305077
+
+7、将之前保存的无线口mac烧写到设备
+amts w wmac 000C43305008

@@ -1,0 +1,12 @@
+CC = /usr/local/armv5-marvell-eabi-softfp/bin/arm-linux-gcc
+
+all:test
+
+test: main.c
+
+    $(CC) mian.c -o  test
+
+
+clean:
+
+    -rm -rf test

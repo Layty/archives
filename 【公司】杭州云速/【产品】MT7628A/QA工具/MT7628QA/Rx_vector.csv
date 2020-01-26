@@ -1,0 +1,7 @@
+Name,Cycle_Index,Bit_Start,Bit_End,Signed,Fraction
+TX_Rate,1,0,6,0,5
+STBC,1,7,8,0,0
+IB_RSSI_RX,3,16,23,1,0
+test2,4,5,9,0,0
+test3,4,5,9,0,0
+abcd,3,16,23,1,0

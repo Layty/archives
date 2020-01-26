@@ -1,0 +1,713 @@
+[BEGIN] 2016/8/2 11:50:33
+
+# 
+# 
+# # # iw
+iwconfig  iwpriv
+# # iwpriv ra1 set Debug=3
+[ 3085.236000] ==>Set_Debug_Proc()
+[ 3085.244000] <==Set_Debug_Proc(RTDebugLevel = 3)
+# [ 3085.884000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+
+# [ 3086.896000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3087.060000] -----> WscSendUPnPMessage
+[ 3087.068000] <----- WscSendUPnPMessage
+[ 3087.144000] -----> WscSendUPnPMessage
+[ 3087.148000] <----- WscSendUPnPMessage
+if[ 3087.908000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0# ifconfig ra[ 3088.920000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+1 down[ 3089.932000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+
+[ 3090.088000] ===> rt28xx_close
+[ 3090.096000] ---> APShutdown
+[ 3090.100000] !!! APStop !!!
+[ 3090.108000] MacTableReset
+[ 3090.112000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.120000] AndesMTRxProcessEvent (seq=13)
+[ 3090.128000] CmdEdcaParameterSet:(ret = 0)
+[ 3090.136000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.148000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.156000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.164000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.172000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.184000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.192000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.200000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.208000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.220000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.228000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.236000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.244000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.256000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.264000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.272000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.280000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.292000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.300000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.308000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.316000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.324000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.336000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.344000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.352000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.364000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.372000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.380000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.388000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.396000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.408000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.416000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.424000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.432000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.444000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.452000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.460000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.468000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.480000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.488000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.496000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.504000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.516000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.524000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.532000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.540000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.552000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.560000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.568000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.576000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.588000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.596000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.604000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.612000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.624000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.632000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.640000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.648000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.660000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.668000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.676000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.684000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.696000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.704000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.712000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.720000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.732000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.740000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.748000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.756000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.768000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.776000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.784000] Delete pEntry !!!!!!!!!!!!!!!!!!!!!
+[ 3090.792000] McastPsQueue.Number 0...
+[ 3090.800000] 2McastPsQueue.Number 0...
+[ 3090.808000] MtAsicSetPreTbtt(): bss_idx=0, PreTBTT timeout = 0x0
+[ 3090.820000] MtAsicSetPiggyBack(763): Not support for HIF_MT yet!
+[ 3090.832000] --->Disable TSF synchronization
+[ 3090.840000] PciMlmeRadioOFF===>
+[ 3090.848000] MTPciPollTxRxEmpty
+[ 3091.460000] <--- APShutdown
+[ 3091.464000] ==> MlmeHalt
+[ 3091.472000] <---MlmeThread
+
+[ 3091.652000] --->Disable TSF synchronization
+[ 3091.664000] <== MlmeHalt
+[ 3091.672000] <---RTPCICmdThread
+[ 3091.676000]  [wsc_write_dat_file_thread] RtmpOSTaskWait false and break .....
+[ 3091.692000] tx_kickout_fail_count = 0
+[ 3091.700000] tx_timeout_fail_count = 0
+[ 3091.704000] rx_receive_fail_count = 0
+[ 3091.712000] alloc_cmd_msg = 42
+[ 3091.720000] free_cmd_msg = 42
+[ 3091.724000] NICEraseFirmware
+[ 3091.736000] <=== rt28xx_close
+
+[ 3091.740000] br1: port 3(ra1) entering forwarding state
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# # ifconfig ra1 down# iwpriv ra1 set Debug=3# ifconfig ra1 up
+[ 3097.564000] MAC[Ver:Rev/ID=0x76280000 : 0x00007628]
+[ 3097.576000] hif_sys_init()-->
+[ 3097.580000] hif_sys_init():Disable WPDMA
+[ 3097.588000] TxRing[0]: total 64 entry initialized
+[ 3097.600000] TxRing[1]: total 64 entry initialized
+[ 3097.608000] TxRing[2]: total 64 entry initialized
+[ 3097.616000] TxRing[3]: total 64 entry initialized
+[ 3097.628000] TX_BCN DESC a2dc1000 size = 320
+[ 3097.636000] RX[0] DESC a2dc3000 size = 2048
+[ 3097.648000] RX[1] DESC a2dc4000 size = 1024
+[ 3097.656000] ==>  DMAIdle, GloCfg=0x52000870
+[ 3097.664000] -->TX_RING_0[0x4310]: Base=0x2db3000, Cnt=64!
+[ 3097.676000] -->TX_RING_1[0x4300]: Base=0x2db6000, Cnt=64!
+[ 3097.684000] -->TX_RING_2[0x4320]: Base=0x2db7000, Cnt=64!
+[ 3097.696000] -->TX_RING_3[0x4330]: Base=0x2db8000, Cnt=64!
+[ 3097.708000] -->TX_BMC_RING [0x4380]: Base=0x2dc2000, Cnt=64!
+[ 3097.716000] -->TX_RING_MGMT[0x4340]: Base=0x2db9000, Cnt=128!
+[ 3097.728000] -->TX_RING_BCN: Base=0x2dc1000, Cnt=20!
+[ 3097.740000] -->TX_RING_CTRL: Base=0x2dc0000, Cnt=128!
+[ 3097.748000] -->RX_RING0[0x4400]: Base=0x2dc3000, Cnt=128
+[ 3097.760000] -->RX_RING1[0x4410]: Base=0x2dc4000, Cnt=128
+[ 3097.768000] <--hif_sys_init(), Success!
+[ 3097.776000] -->WscThreadInit()
+[ 3097.784000] <--WscThreadInit(), status=0!
+[ 3097.792000] --> MLME Initialize
+[ 3097.800000]  [wsc_write_dat_file_thread] start .....
+[ 3097.808000]  [wsc_write_dat_file_thread] while .....
+[ 3097.820000] <-- MLME Initialize
+[ 3097.824000] --> UserCfgInit
+[ 3097.832000] --> UserCfgInit. BACapability = 0x3034040
+[ 3097.844000] <-- UserCfgInit
+[ 3097.848000] CountryRegion=1
+[ 3097.856000] CountryRegionABand=4
+[ 3097.864000] CountryCode=CN 
+[ 3097.868000] BssidNum=4
+[ 3097.872000] --> rtmp_nv_init_cvn
+[ 3097.880000] I/F(SSID1) SSIDPrefix=0
+[ 3097.888000] I/F(SSID2) SSIDPrefix=0
+[ 3097.892000] I/F(SSID3) SSIDPrefix=0
+[ 3097.900000] I/F(SSID4) SSIDPrefix=0
+[ 3097.908000] SSID[0]=ChinaNGB-longjing1
+[ 3097.916000] SSID[1]=CVN_WIFI2
+[ 3097.920000] SSID[2]=CVN_WIFI3
+[ 3097.928000] SSID[3]=CVN_WIFI4
+[ 3097.932000] Channel=1
+[ 3097.936000] cfg_mode=9
+[ 3097.944000] BSS0 PhyMode=14
+[ 3097.948000] cfg_mode=9
+[ 3097.952000] Old WirelessMode:B/G(0x6), New WirelessMode:B/G/gN(0xe)!
+[ 3097.964000] wmode_band_equal(): Band Equal!
+[ 3097.972000] RT_CfgSetWirelessMode(): Set WMODE=B/G/gN(0xe)
+[ 3097.984000] PhyMode=14
+[ 3097.988000] BasicRate=15
+[ 3097.992000] BeaconPeriod=100
+[ 3098.000000] FreqDelta=0
+[ 3098.004000] DtimPeriod=1
+[ 3098.008000] TxPower=100
+[ 3098.016000] BGProtection=0
+[ 3098.020000] OLBCDetection=0
+[ 3098.024000] TxPreamble=1
+[ 3098.032000] RTSThreshold=2347
+[ 3098.036000] FragThreshold=2346
+[ 3098.044000] TxBurst=1
+[ 3098.048000] PktAggregate=0
+[ 3098.052000] I/F(ra0) WmmCapable=1
+[ 3098.060000] I/F(ra1) WmmCapable=1
+[ 3098.068000] I/F(ra2) WmmCapable=1
+[ 3098.072000] I/F(ra3) WmmCapable=1
+[ 3098.080000] I/F(ra0) DLSCapable=0
+[ 3098.088000] APAifsn[0]=3
+[ 3098.092000] APAifsn[1]=7
+[ 3098.096000] APAifsn[2]=1
+[ 3098.100000] APAifsn[3]=1
+[ 3098.108000] APCwmin[0]=4
+[ 3098.112000] APCwmin[1]=4
+[ 3098.116000] APCwmin[2]=3
+[ 3098.120000] APCwmin[3]=2
+[ 3098.128000] APCwmax[0]=6
+[ 3098.132000] APCwmax[1]=10
+[ 3098.136000] APCwmax[2]=4
+[ 3098.140000] APCwmax[3]=3
+[ 3098.148000] APTxop[0]=0
+[ 3098.152000] APTxop[1]=0
+[ 3098.156000] APTxop[2]=94
+[ 3098.160000] APTxop[3]=47
+[ 3098.168000] APACM[0]=0
+[ 3098.172000] APACM[1]=0
+[ 3098.176000] APACM[2]=0
+[ 3098.180000] APACM[3]=0
+[ 3098.184000] BSSAifsn[0]=3
+[ 3098.192000] BSSAifsn[1]=7
+[ 3098.196000] BSSAifsn[2]=2
+[ 3098.200000] BSSAifsn[3]=2
+[ 3098.208000] BSSCwmin[0]=4
+[ 3098.212000] BSSCwmin[1]=4
+[ 3098.216000] BSSCwmin[2]=3
+[ 3098.224000] BSSCwmin[3]=2
+[ 3098.228000] BSSCwmax[0]=10
+[ 3098.232000] BSSCwmax[1]=10
+[ 3098.240000] BSSCwmax[2]=4
+[ 3098.244000] BSSCwmax[3]=3
+[ 3098.248000] BSSTxop[0]=0
+[ 3098.252000] BSSTxop[1]=0
+[ 3098.260000] BSSTxop[2]=94
+[ 3098.264000] BSSTxop[3]=47
+[ 3098.268000] BSSACM[0]=0
+[ 3098.276000] BSSACM[1]=0
+[ 3098.280000] BSSACM[2]=0
+[ 3098.284000] BSSACM[3]=0
+[ 3098.288000] AckPolicy[0]=0
+[ 3098.296000] AckPolicy[1]=0
+[ 3098.300000] AckPolicy[2]=0
+[ 3098.304000] AckPolicy[3]=0
+[ 3098.312000] IF(ra0) ApCfg_Set_MaxStaNum_Proc::(MaxStaNum=32)
+[ 3098.320000] IF(ra1) ApCfg_Set_MaxStaNum_Proc::(MaxStaNum=32)
+[ 3098.332000] IF(ra2) ApCfg_Set_MaxStaNum_Proc::(MaxStaNum=32)
+[ 3098.344000] IF(ra3) ApCfg_Set_MaxStaNum_Proc::(MaxStaNum=32)
+[ 3098.356000] I/F(ra0) NoForwarding=0
+[ 3098.364000] I/F(ra1) NoForwarding=0
+[ 3098.368000] I/F(ra2) NoForwarding=0
+[ 3098.376000] I/F(ra3) NoForwarding=0
+[ 3098.384000] NoForwardingBTNBSSID=0
+[ 3098.392000] I/F(ra0) HideSSID=0
+[ 3098.396000] I/F(ra1) HideSSID=0
+[ 3098.404000] I/F(ra2) HideSSID=0
+[ 3098.408000] I/F(ra3) HideSSID=0
+[ 3098.416000] I/F(ra0) StationKeepAliveTime=0
+[ 3098.424000] AutoChannelAtBootup=0
+[ 3098.432000] ShortSlot=1
+[ 3098.436000] IEEE80211H=0
+[ 3098.440000] RDRegion=0
+[ 3098.444000] IF(ra0)::AuthMode=9
+[ 3098.452000] IF(ra1)::AuthMode=0
+[ 3098.460000] IF(ra2)::AuthMode=0
+[ 3098.464000] IF(ra3)::AuthMode=0
+[ 3098.472000] I/F(ra0) EncrypType=8
+[ 3098.476000] I/F(ra1) EncrypType=1
+[ 3098.484000] I/F(ra2) EncrypType=1
+[ 3098.492000] I/F(ra3) EncrypType=1
+[ 3098.496000] I/F(ra0) ReKeyMethod=0
+[ 3098.504000] I/F(ra1) ReKeyMethod=0
+[ 3098.512000] I/F(ra2) ReKeyMethod=0
+[ 3098.516000] I/F(ra3) ReKeyMethod=0
+[ 3098.524000] I/F(ra0) ReKeyInterval=3600
+[ 3098.532000] I/F(ra1) ReKeyInterval=3600
+[ 3098.540000] I/F(ra2) ReKeyInterval=3600
+[ 3098.548000] I/F(ra3) ReKeyInterval=3600
+[ 3098.556000] I/F(ra0) PMKCachePeriod=150000
+[ 3098.564000] I/F(ra1) PMKCachePeriod=150000
+[ 3098.572000] I/F(ra2) PMKCachePeriod=150000
+[ 3098.580000] I/F(ra3) PMKCachePeriod=150000
+[ 3098.588000] I/F(ra0) WPAPSK_KEY=
+[ 3098.596000] WPAPSK Key length(0) error, required 8 ~ 64 characters!(keyStr=)
+[ 3098.608000] I/F(ra1) WPAPSK_KEY=
+[ 3098.616000] WPAPSK Key length(0) error, required 8 ~ 64 characters!(keyStr=)
+[ 3098.628000] I/F(ra2) WPAPSK_KEY=
+[ 3098.636000] WPAPSK Key length(0) error, required 8 ~ 64 characters!(keyStr=)
+[ 3098.648000] I/F(ra3) WPAPSK_KEY=
+[ 3098.656000] WPAPSK Key length(0) error, required 8 ~ 64 characters!(keyStr=)
+[ 3098.668000] I/F(ra0) WPAPSK Key => 
+[ 3098.676000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.688000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.700000] 
+[ 3098.704000] I/F(ra1) WPAPSK Key => 
+[ 3098.708000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.720000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.732000] 
+[ 3098.736000] I/F(ra2) WPAPSK Key => 
+[ 3098.740000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.752000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.764000] 
+[ 3098.768000] I/F(ra3) WPAPSK Key => 
+[ 3098.776000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.784000] 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:
+[ 3098.796000] 
+[ 3098.800000] I/F(ra0) DefaultKeyID(0~3)=0
+[ 3098.808000] I/F(ra1) DefaultKeyID(0~3)=0
+[ 3098.816000] I/F(ra2) DefaultKeyID(0~3)=0
+[ 3098.824000] I/F(ra3) DefaultKeyID(0~3)=0
+[ 3098.832000] Key1Str is Invalid key length(0) or Type(0)
+[ 3098.840000] Key1Str is Invalid key length(0) or Type(0)
+[ 3098.852000] Key1Str is Invalid key length(0) or Type(0)
+[ 3098.864000] Key1Str is Invalid key length(0) or Type(0)
+[ 3098.872000] Key2Str is Invalid key length(0) or Type(0)
+[ 3098.884000] Key2Str is Invalid key length(0) or Type(0)
+[ 3098.896000] Key2Str is Invalid key length(0) or Type(0)
+[ 3098.904000] Key2Str is Invalid key length(0) or Type(0)
+[ 3098.916000] Key3Str is Invalid key length(0) or Type(0)
+[ 3098.928000] Key3Str is Invalid key length(0) or Type(0)
+[ 3098.936000] Key3Str is Invalid key length(0) or Type(0)
+[ 3098.948000] Key3Str is Invalid key length(0) or Type(0)
+[ 3098.960000] Key4Str is Invalid key length(0) or Type(0)
+[ 3098.968000] Key4Str is Invalid key length(0) or Type(0)
+[ 3098.980000] Key4Str is Invalid key length(0) or Type(0)
+[ 3098.988000] Key4Str is Invalid key length(0) or Type(0)
+[ 3099.000000] AccessPolicy0=0
+[ 3099.008000] AccessControlList0=Get 0 Mac Address
+[ 3099.016000] AccessPolicy1=0
+[ 3099.020000] AccessControlList1=Get 0 Mac Address
+[ 3099.032000] AccessPolicy2=0
+[ 3099.036000] AccessControlList2=Get 0 Mac Address
+[ 3099.044000] AccessPolicy3=0
+[ 3099.052000] AccessControlList3=Get 0 Mac Address
+[ 3099.064000] own_ip_addr=(0)
+[ 3099.072000] session_timeout_interval=0
+[ 3099.080000] I/F(ra0) PreAuth=0
+[ 3099.084000] I/F(ra1) PreAuth=0
+[ 3099.092000] I/F(ra2) PreAuth=0
+[ 3099.096000] I/F(ra3) PreAuth=0
+[ 3099.104000] IF(ra0), IEEE8021X=0
+[ 3099.108000] IF(ra1), IEEE8021X=0
+[ 3099.116000] IF(ra2), IEEE8021X=0
+[ 3099.124000] IF(ra3), IEEE8021X=0
+[ 3099.132000] HT: Protection  = Disable
+[ 3099.140000] HT: BA Decline  = Disable
+[ 3099.148000] HT: Auto BA  = Enable
+[ 3099.156000] HT: RDG = Disable
+[ 3099.160000] HT: Tx A-MSDU = Disable
+[ 3099.168000] HT: MPDU Density = 5
+[ 3099.176000] HT: BA Windw Size = 64
+[ 3099.180000] HT: Guard Interval = 400
+[ 3099.188000] HT: Operate Mode = Mixed Mode
+[ 3099.196000] HT: Channel Width = 40 MHz
+[ 3099.204000] HT: Ext Channel = ABOVE
+[ 3099.212000] (IF-ra0) HT: MCS = AUTO(33)
+[ 3099.220000] (IF-ra1) HT: MCS = AUTO(33)
+[ 3099.228000] (IF-ra2) HT: MCS = AUTO(33)
+[ 3099.236000] (IF-ra3) HT: MCS = AUTO(33)
+[ 3099.244000] HT: STBC = 0
+[ 3099.248000] HT: Tx Stream = 2
+[ 3099.256000] HT: Rx Stream = 2
+[ 3099.260000] HT: Disallow TKIP mode = OFF
+[ 3099.268000] HT: 20/40 BssCoexSupport = OFF
+[ 3099.276000] I/F(ra0) WscConfMode=7
+[ 3099.284000] I/F(ra0) WscConfStatus=1
+[ 3099.292000] WCNTest=0
+[ 3099.312000] RT_CfgSetWscPinCode():Wsc PinCode=0
+[ 3099.324000] RTMPSetProfileParameters - WscVendorPinCode= (1)
+[ 3099.336000] MCUSysInit
+[ 3099.340000] AndesMTPciFwInit
+[ 3099.344000] ==>  DMAIdle, GloCfg=0x52000850
+[ 3099.352000] <== RT28XXDMAEnable(): WPDMABurstSIZE = 3
+[ 3099.364000] load fw image from fw_header_image
+[ 3099.372000] AndesMTLoadFwMethod1(2174)::pChipCap->fw_len(63056)
+[ 3099.384000] FW Version:_e2_mp
+[ 3099.392000] FW Build Date:20150211175503
+[ 3099.400000] AndesMTRxProcessEvent (seq=1)
+[ 3099.408000] CmdReStartDLRsp: WiFI FW Download Success
+[ 3099.524000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3099.608000] Start address = 100000, DL length = 63020, Data mode = 80000000
+[ 3099.624000] AndesMTRxProcessEvent (seq=2)
+[ 3099.632000] CmdAddressLenReq:(ret = 0)
+[ 3099.640000] CmdFwStartReq: override = 1, address = 1048576
+[ 3099.648000] AndesMTRxProcessEvent (seq=3)
+[ 3099.656000] CmdStartDLRsp: WiFI FW Download Success
+[ 3099.668000] NICLoadFirmware::load fw spent 304ms
+[ 3099.676000] MtAsicDMASchedulerInit(): DMA Scheduler Mode=0(LMAC)
+[ 3099.688000] efuse_probe: efuse = 10000012
+[ 3099.696000] RtmpChipOpsEepromHook::e2p_type=2, inf_Type=4
+[ 3099.708000] RtmpEepromGetDefault::e2p_dafault=2
+[ 3099.716000] RtmpChipOpsEepromHook: E2P type(2), E2pAccessMode = 2, E2P default = 2
+[ 3099.732000] NVM is FLASH mode
+[ 3099.736000] Allocate 8192 memory for BA reordering
+[ 3099.748000] 1. Phy Mode = 14
+[ 3099.752000] NICReadEEPROMParameters()-->
+[ 3099.760000] --> rtmp_nv_init
+[ 3099.928000] AndesMTRxProcessEvent (seq=4)
+[ 3099.936000] Initialize MAC Address from E2PROM 
+[ 3099.944000] E2PROM MAC: =00:0c:43:e1:76:78
+[ 3099.952000] Use the MAC address what is assigned from EEPROM. 
+[ 3099.964000] E2PROM: Version = 2, FAE release #0
+[ 3099.972000] Country Region from e2p = ffff
+[ 3099.980000] AndesMTRxProcessEvent (seq=5)
+[ 3099.988000] NICReadEEPROMParameters(): AfterAdjust, RxPath = 2, TxPath = 2
+[ 3100.004000] NICReadEEPROMParameters(): RxPath = 2, TxPath = 2, RfIcType = 4
+[ 3100.016000] E2PROM: G Tssi[-4 .. +4] = 0 0 0 0 - 0 -0 0 0 0, step=0, tuning=0
+[ 3100.032000] E2PROM: A Tssi[-4 .. +4] = 127 127 127 0 - 0 -0 0 0 0, step=0, tuning=0
+[ 3100.044000] E2PROM: RF FreqOffset=0x0 
+[ 3100.052000] ALNAGain0 = 0, ALNAGain1 = 0, ALNAGain2 = 0
+[ 3100.064000] delta_tx_pwr_bw40_g_band = -2
+[ 3100.072000] tssi_0_slope_g_band = 192
+[ 3100.080000] tssi_0_offset_g_band = 202
+[ 3100.088000] tssi_0_target_pwr_g_band = 35
+[ 3100.096000] tx_0_chl_pwr_delta_g_band[G_BAND_LOW] = 0
+[ 3100.104000] tx_0_chl_pwr_delta_g_band[G_BAND_MID] = 0
+[ 3100.116000] tx_0_chl_pwr_delta_g_band[G_BAND_HI] = 0
+[ 3100.124000] tssi_1_slope_g_band = 64
+[ 3100.132000] tssi_1_offset_g_band = 202
+[ 3100.140000] tssi_1_target_pwr_g_band = 35
+[ 3100.148000] tx_1_chl_pwr_delta_g_band[G_BAND_LOW] = 0
+[ 3100.156000] tx_1_chl_pwr_delta_g_band[G_BAND_MID] = 0
+[ 3100.168000] tx_1_chl_pwr_delta_g_band[G_BAND_HI] = 0
+[ 3100.176000] mt7628_read_chl_pwr()--->
+[ 3100.184000] E2PROM: TxPower[000], Channel=1, Power[Tx0:35, Tx1:35]
+[ 3100.196000] E2PROM: TxPower[001], Channel=2, Power[Tx0:35, Tx1:35]
+[ 3100.208000] E2PROM: TxPower[002], Channel=3, Power[Tx0:35, Tx1:35]
+[ 3100.220000] E2PROM: TxPower[003], Channel=4, Power[Tx0:35, Tx1:35]
+[ 3100.232000] E2PROM: TxPower[004], Channel=5, Power[Tx0:35, Tx1:35]
+[ 3100.244000] E2PROM: TxPower[005], Channel=6, Power[Tx0:35, Tx1:35]
+[ 3100.256000] E2PROM: TxPower[006], Channel=7, Power[Tx0:35, Tx1:35]
+[ 3100.268000] E2PROM: TxPower[007], Channel=8, Power[Tx0:35, Tx1:35]
+[ 3100.280000] E2PROM: TxPower[008], Channel=9, Power[Tx0:35, Tx1:35]
+[ 3100.292000] E2PROM: TxPower[009], Channel=10, Power[Tx0:35, Tx1:35]
+[ 3100.308000] E2PROM: TxPower[010], Channel=11, Power[Tx0:35, Tx1:35]
+[ 3100.320000] E2PROM: TxPower[011], Channel=12, Power[Tx0:35, Tx1:35]
+[ 3100.332000] E2PROM: TxPower[012], Channel=13, Power[Tx0:35, Tx1:35]
+[ 3100.344000] E2PROM: TxPower[013], Channel=14, Power[Tx0:35, Tx1:35]
+[ 3100.356000] NICReadEEPROMParameters: pAd->Antenna.field.BoardType = 3, IS_MINI_CARD(pAd) = 0, IS_RT5390U(pAd) = 0
+[ 3100.376000] <--NICReadEEPROMParameters()
+[ 3100.384000] 2. Phy Mode = 14
+[ 3100.388000] ---> APInitialize
+[ 3100.396000] <--- APInitialize
+[ 3100.400000] 3. Phy Mode = 14
+[ 3100.408000] NICInitializeAdapter():--> 
+[ 3100.416000] ==>  DMAIdle, GloCfg=0x52000875
+[ 3100.424000] --> NICInitializeAsic
+[ 3100.428000] NICInitPwrPinCfg(11): Not support for HIF_MT yet!
+[ 3100.440000] NICInitializeAsic(651): Not support rtmp_mac_sys_reset () for HIF_MT yet!
+[ 3100.456000] NICInitializeAsic():device act as PCI driver
+[ 3100.468000] mt_mac_init()-->
+[ 3100.472000] MtAsicInitMac()-->
+[ 3100.480000] AndesMTRxProcessEvent (seq=6)
+[ 3100.488000] CmdMultipleMacRegAccessWrite: offset: = 800c0068
+[ 3100.500000] AndesMTRxProcessEvent (seq=7)
+[ 3100.508000] mt7628_init_mac_cr()-->
+[ 3100.512000] MtAsicSetMacMaxLen(1241): Set the Max RxPktLen=1024!
+[ 3100.524000] <--mt_mac_init()
+[ 3100.532000] 	WTBL Segment 1 info:
+[ 3100.540000] 		MemBaseAddr/FID:0x28000/0
+[ 3100.544000] 		EntrySize/Cnt:32/128
+[ 3100.552000] 	WTBL Segment 2 info:
+[ 3100.560000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3100.576000] 		MemBaseAddr/FID:0x40000/0
+[ 3100.580000] 		EntrySize/Cnt:64/128
+[ 3100.588000] 	WTBL Segment 3 info:
+[ 3100.596000] 		MemBaseAddr/FID:0x42000/64
+[ 3100.604000] 		EntrySize/Cnt:64/128
+[ 3100.608000] 	WTBL Segment 4 info:
+[ 3100.616000] 		MemBaseAddr/FID:0x44000/128
+[ 3100.624000] 		EntrySize/Cnt:32/128
+[ 3100.632000] MtAsicUpdateRxWCIDTable(0):Write WTBL 1 Addr:0x28000, Value:0xeffff
+[ 3100.644000] MtAsicUpdateRxWCIDTable(0):Write WTBL 1 Addr:0x28004, Value:0xffffffff
+[ 3100.660000] MtAsicUpdateRxWCIDTable(0):Write WTBL 1 Addr:0x28008, Value:0x0
+[ 3100.676000] MtAsicUpdateRxWCIDTable(0):Write WTBL 1 Addr:0x2800c, Value:0x800000
+[ 3100.688000] MtAsicUpdateRxWCIDTable(0):Write WTBL 1 Addr:0x28010, Value:0x40
+[ 3100.704000] AsicSetDevMac(): Set OwnMac=00:0c:43:e1:76:78
+[ 3100.712000] Current MAC: =00:0c:43:e1:76:78
+[ 3100.720000] MTBbpInit(): Init BBP Registers
+[ 3100.732000] <-- NICInitializeAsic
+[ 3100.736000] <--NICInitializeAdapter()
+[ 3100.744000] --> NICInitAsicFromEEPROM
+[ 3100.752000] AntCfgInit(2891): Not support for HIF_MT yet!
+[ 3100.764000] InitRFRegisters(): Init RF Registers
+[ 3100.772000] TxPath = 2, RxPath = 2, RFIC=23
+[ 3100.780000] <-- NICInitAsicFromEEPROM
+[ 3100.788000] tx_pwr_comp_init()-->
+[ 3100.792000] RTMPSetPhyMode(): PhyMode=14, channel=1 
+[ 3100.804000] CountryCode(2.4G/5G)=1/4, RFIC=23, PHY mode=14, support 13 channels
+[ 3100.816000] SupportedChannelList:
+[ 3100.824000] 	Channel # 1: Pwr0/1 = 35/35, Flags = 40
+[ 3100.824000]  	Channel # 2: Pwr0/1 = 35/35, Flags = 40
+[ 3100.836000]  	Channel # 3: Pwr0/1 = 35/35, Flags = 40
+[ 3100.848000]  	Channel # 4: Pwr0/1 = 35/35, Flags = 40
+[ 3100.856000]  	Channel # 5: Pwr0/1 = 35/35, Flags = 40
+[ 3100.868000]  	Channel # 6: Pwr0/1 = 35/35, Flags = 40
+[ 3100.876000]  	Channel # 7: Pwr0/1 = 35/35, Flags = 40
+[ 3100.888000]  	Channel # 8: Pwr0/1 = 35/35, Flags = 40
+[ 3100.896000]  	Channel # 9: Pwr0/1 = 35/35, Flags = 40
+[ 3100.908000]  	Channel # 10: Pwr0/1 = 35/35, Flags = 40
+[ 3100.916000]  	Channel # 11: Pwr0/1 = 35/35, Flags = 40
+[ 3100.928000]  	Channel # 12: Pwr0/1 = 35/35, Flags = 40
+[ 3100.936000]  	Channel # 13: Pwr0/1 = 35/35, Flags = 40
+[ 3100.948000]  MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3100.968000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3100.988000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3101.004000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3101.020000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3101.032000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3101.052000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3101.068000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3101.084000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3101.100000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3101.116000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3101.132000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3101.152000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3101.164000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3101.184000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3101.196000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3101.216000] RTMPSetHT : HT_mode(0), ExtOffset(1), MCS(33), BW(1), STBC(0), SHORTGI(1)
+[ 3101.232000] RTMPSetHT : RxBAWinLimit = 64
+[ 3101.240000] RTMPSetHT : AMsduSize = 0, MimoPs = 3, MpduDensity = 5, MaxRAmpduFactor = 3
+[ 3101.256000] bbp_set_bw(): Set PhyBW as 40MHz.l
+[ 3101.264000] EDCA [#0]: AIFSN CWmin CWmax  TXOP(us)  ACM
+[ 3101.276000]      AC_BE       3      4      6         0     0
+[ 3101.284000]      AC_BK       7      4     10         0     0
+[ 3101.296000]      AC_VI       1      3      4      3008     0
+[ 3101.308000]      AC_VO       1      2      3      1504     0
+[ 3101.320000] AndesMTRxProcessEvent (seq=8)
+[ 3101.504000] CmdEdcaParameterSet:(ret = 0)
+[ 3101.512000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3101.524000] MlmeUpdateHtTxRates()===> 
+[ 3101.532000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3101.540000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3101.556000] MlmeUpdateHtTxRates():<=== 
+[ 3101.560000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3101.572000] MlmeUpdateHtTxRates()===> 
+[ 3101.580000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3101.588000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3101.604000] MlmeUpdateHtTxRates():<=== 
+[ 3101.612000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3101.620000] MlmeUpdateHtTxRates()===> 
+[ 3101.628000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3101.644000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3101.652000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3101.664000] MlmeUpdateHtTxRates():<=== 
+[ 3101.672000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3101.684000] MlmeUpdateHtTxRates()===> 
+[ 3101.692000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3101.700000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3101.716000] MlmeUpdateHtTxRates():<=== 
+[ 3101.720000] MCS Set = ff ff 00 00 01
+[ 3101.728000] MtAsicSetChBusyStat(826): Not support for HIF_MT yet!
+[ 3101.740000] NDIS_STATUS_MEDIA_DISCONNECT Event B!
+[ 3101.752000] ===> APStartUp
+[ 3101.756000] --->Disable TSF synchronization
+[ 3101.764000] [PMF]ap_pmf_init:: apidx=0, MFPC=0, MFPR=0, SHA256=0
+[ 3101.776000] ==> RTMPMakeRSNIE(AP-ra0)
+[ 3101.784000] The primary RSNIE: c015f4e2, len = 26
+[ 3101.792000] 0x0000 : 00 50 f2 01 01 00 00 50 f2 02 02 00 00 50 f2 02 
+[ 3101.804000] 0x0010 : 00 50 f2 04 01 00 00 50 f2 02 
+[ 3101.816000] [PMF]RTMPMakeRsnIeCap: RSNIE Capability MFPC=0, MFPR=0
+[ 3101.828000] The secondary RSNIE: c015f5e1, len = 24
+[ 3101.836000] 0x0000 : 01 00 00 0f ac 02 02 00 00 0f ac 02 00 0f ac 04 
+[ 3101.852000] 0x0010 : 01 00 00 0f ac 02 00 00 
+[ 3101.860000] [PMF]ap_pmf_init:: apidx=1, MFPC=0, MFPR=0, SHA256=0
+[ 3101.872000] [PMF]ap_pmf_init:: apidx=2, MFPC=0, MFPR=0, SHA256=0
+[ 3101.884000] [PMF]ap_pmf_init:: apidx=3, MFPC=0, MFPR=0, SHA256=0
+[ 3101.896000] RTMPSetHT : HT_mode(0), ExtOffset(1), MCS(33), BW(1), STBC(0), SHORTGI(1)
+[ 3101.912000] RTMPSetHT : RxBAWinLimit = 64
+[ 3101.920000] RTMPSetHT : AMsduSize = 0, MimoPs = 3, MpduDensity = 5, MaxRAmpduFactor = 3
+[ 3101.936000] bbp_set_bw(): Set PhyBW as 40MHz.l
+[ 3101.944000] EDCA [#0]: AIFSN CWmin CWmax  TXOP(us)  ACM
+[ 3101.952000]      AC_BE       3      4      6         0     0
+[ 3101.964000]      AC_BK       7      4     10         0     0
+[ 3101.976000]      AC_VI       1      3      4      3008     0
+[ 3101.988000]      AC_VO       1      2      3      1504     0
+[ 3102.000000] AndesMTRxProcessEvent (seq=9)
+[ 3102.008000] CmdEdcaParameterSet:(ret = 0)
+[ 3102.016000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3102.024000] MlmeUpdateHtTxRates()===> 
+[ 3102.032000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.040000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.056000] MlmeUpdateHtTxRates():<=== 
+[ 3102.064000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3102.072000] MlmeUpdateHtTxRates()===> 
+[ 3102.080000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.092000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.104000] MlmeUpdateHtTxRates():<=== 
+[ 3102.112000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3102.120000] MlmeUpdateHtTxRates()===> 
+[ 3102.128000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.140000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.152000] MlmeUpdateHtTxRates():<=== 
+[ 3102.160000] RTMPSetIndividualHT : Desired MCS = 33
+[ 3102.168000] MlmeUpdateHtTxRates()===> 
+[ 3102.176000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.188000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.200000] MlmeUpdateHtTxRates():<=== 
+[ 3102.208000] EDCA [#0]: AIFSN CWmin CWmax  TXOP(us)  ACM
+[ 3102.220000]      AC_BE       3      4      6         0     0
+[ 3102.228000]      AC_BK       7      4     10         0     0
+[ 3102.240000]      AC_VI       1      3      4      3008     0
+[ 3102.252000]      AC_VO       1      2      3      1504     0
+[ 3102.264000] AndesMTRxProcessEvent (seq=10)
+[ 3102.272000] CmdEdcaParameterSet:(ret = 0)
+[ 3102.280000] AndesMTRxProcessEvent (seq=11)
+[ 3102.288000] CmdEdcaParameterSet:(ret = 0)
+[ 3102.296000] MtAsicSetRalinkBurstMode(2919): Not support for HIF_MT yet!
+[ 3102.312000] MtAsicSetPiggyBack(763): Not support for HIF_MT yet!
+[ 3102.324000] AsicSetBssid():SetBSSID=00:0c:43:e1:76:78,curr_bssid_idx=0
+[ 3102.336000] ap_hw_tb_init():Reset WCID Table
+[ 3102.344000] MtAsicDelWcidTab():wcid_idx=0xff
+[ 3102.368000] ap_hw_tb_init():Reset Sec Table
+[ 3102.376000] bbp_set_bw(): Set PhyBW as 40MHz.l
+[ 3102.384000] mt7628_bbp_adjust() : extAbove, ChannelWidth=1, Channel=1, ExtChanOffset=1(1) 
+[ 3102.400000] CmdChannelSwitch: control_chl = 1, central_chl = 3, BW = 1,TXStream = 2, RXStream = 2, scan(0)
+[ 3102.424000] AndesMTRxProcessEvent (seq=12)
+[ 3102.432000] mt7628_switch_channel(): Switch to Ch#3(2T2R), BBP_BW=1
+[ 3102.448000] MlmeSetTxPreamble = SHORT PREAMBLE
+[ 3102.456000] MtAsicSetTxPreamble(2898): Not support for HIF_MT yet!
+[ 3102.468000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3102.480000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3102.500000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3102.516000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3102.532000] MlmeUpdateHtTxRates()===> 
+[ 3102.540000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.552000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.564000] MlmeUpdateHtTxRates():<=== 
+[ 3102.572000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3102.584000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3102.604000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3102.620000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3102.636000] MlmeUpdateHtTxRates()===> 
+[ 3102.644000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.656000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.668000] MlmeUpdateHtTxRates():<=== 
+[ 3102.676000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3102.692000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3102.704000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3102.724000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3102.736000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3102.756000] MlmeUpdateHtTxRates()===> 
+[ 3102.764000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.772000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.788000] MlmeUpdateHtTxRates():<=== 
+[ 3102.796000] MlmeUpdateTxRates():[MaxSupport = 54] = MaxDesire 54 Mbps
+[ 3102.808000]  MlmeUpdateTxRates(): (MaxDesire=54, MaxSupport=54, MaxTxRate=54, MinRate=1, Rate Switching =1)
+[ 3102.828000]  MlmeUpdateTxRates(): (TxRate=54, RtsRate=11, BasicRateBitmap=0x015f)
+[ 3102.840000] MlmeUpdateTxRates(): (MlmeTransmit=0x0, MinHTPhyMode=0, MaxHTPhyMode=0x0, HTPhyMode=0x0)
+[ 3102.860000] MlmeUpdateHtTxRates()===> 
+[ 3102.868000]  MlmeUpdateHtTxRates():<---.AMsduSize = 0  
+[ 3102.876000] TX: MCS[0] = ff (choose 15), BW = 1, ShortGI = 1, MODE = 2,  
+[ 3102.892000] MlmeUpdateHtTxRates():<=== 
+[ 3102.900000] MtAsicAddSharedKeyEntry(1308): Not support for HIF_MT yet!
+[ 3102.916000] ### BSS(0) AuthMode(9)=WPA1PSKWPA2PSK, WepStatus(8)=TKIPAES, AccessControlList.Policy=0
+[ 3102.932000] ### BSS(1) AuthMode(0)=OPEN, WepStatus(1)=NONE, AccessControlList.Policy=0
+[ 3102.948000] ### BSS(2) AuthMode(0)=OPEN, WepStatus(1)=NONE, AccessControlList.Policy=0
+[ 3102.964000] ### BSS(3) AuthMode(0)=OPEN, WepStatus(1)=NONE, AccessControlList.Policy=0
+[ 3102.980000] --->MtAsicEnableBssSync():
+[ 3102.988000] MtAsicSetPreTbtt(): bss_idx=0, PreTBTT timeout = 0xf0
+[ 3103.000000]  WPA_APSetGroupRekeyAction : Group rekey method= 0 , interval = 0xe10
+[ 3103.016000] Main bssid = 00:0c:43:e1:76:78
+[ 3103.024000] <=== APStartUp
+[ 3103.028000] ==> RTMPEnableRxTx
+[ 3103.032000] ==>  DMAIdle, GloCfg=0x52000875
+[ 3103.044000] <== RT28XXDMAEnable(): WPDMABurstSIZE = 3
+[ 3103.052000] <== RTMPEnableRxTx
+[ 3103.060000] <==== rt28xx_init, Status=0
+[ 3103.068000] Generate UUID for apidx(0)
+[ 3103.072000] The UUID Hex string is:2880288028801880a880000c43e17678
+[ 3103.088000] The UUID ASCII string is:28802880-2880-1880-a880-000c43e17678!
+[ 3103.100000] -----> WscInitRegistrarPair
+[ 3103.108000] <----- WscInitRegistrarPair
+[ 3103.116000] -----> WscBuildBeaconIE
+[ 3103.120000] <----- WscBuildBeaconIE
+[ 3103.128000] -----> WscBuildProbeRespIE, apidx = 0
+[ 3103.140000] <----- WscBuildProbeRespIE
+[ 3103.144000] Generate UUID for apidx(1)
+[ 3103.152000] The UUID Hex string is:2880288028801880a880020c43d17678
+[ 3103.164000] The UUID ASCII string is:28802880-2880-1880-a880-020c43d17678!
+[ 3103.180000] Generate UUID for apidx(2)
+[ 3103.188000] The UUID Hex string is:2880288028801880a880020c43e17678
+[ 3103.200000] The UUID ASCII string is:28802880-2880-1880-a880-020c43e17678!
+[ 3103.212000] Generate UUID for apidx(3)
+[ 3103.220000] The UUID Hex string is:2880288028801880a880020c43f17678
+[ 3103.232000] The UUID ASCII string is:28802880-2880-1880-a880-020c43f17678!
+[ 3103.248000] mt7628_set_ed_cca: TURN OFF EDCCA  mac 0x10618 = 0xd7083f0f
+[ 3103.260000] WiFi Startup Cost (ra1): 5.696s
+[ 3103.448000] br1: port 3(ra1) entering forwarding state
+[ 3103.460000] br1: port 3(ra1) entering forwarding state
+# [ 3103.900000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3104.912000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3105.924000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3106.936000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3107.948000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3108.960000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3109.972000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[ 3110.984000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+
+[END] 2016/8/2 11:51:14

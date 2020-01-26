@@ -1,0 +1,173 @@
+[  712.940000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  713.952000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  714.964000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  715.976000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  716.988000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  718.000000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  719.012000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  720.024000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  721.036000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  722.048000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  723.060000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  724.072000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  725.084000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  726.096000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  727.108000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  728.120000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  729.132000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  730.128000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=1, Status=0 from [wcid=255]30:75:12:e6:4f:86
+[  730.144000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  730.160000] MacTableInsertEntry(): INIT UAPSD MR ENTRYuapsd> MaxSPLength = 0!
+[  730.176000] remove key table:wcid[1]
+[  730.180000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2000864f
+[  730.196000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  730.212000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  730.224000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  730.244000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3000864f
+[  730.260000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  730.276000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000008
+[  730.292000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  730.304000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  730.320000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  730.332000] AndesMTRxProcessEvent (seq=15)
+[  730.340000] CmdEdcaParameterSet:(ret = 0)
+[  730.348000] AUTH - Send AUTH seq#2 (Challenge)
+[  730.360000] Decrypt AUTH seq#3 successfully
+[  730.368000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.392000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.404000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.428000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.440000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.464000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.476000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.500000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.512000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.536000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.552000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.572000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.588000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.608000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.624000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  730.644000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  730.660000] AUTH - MBSS(0), Rcv AUTH seq#3, Alg=1, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  730.676000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  730.988000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.008000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.024000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.044000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.060000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.080000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.096000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.116000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.132000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.152000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.168000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.188000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.204000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.224000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.240000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.260000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.276000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  731.292000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=1, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  731.308000] AUTH - Send AUTH seq#2 (Challenge)
+[  731.320000] Decrypt AUTH seq#3 successfully
+[  731.328000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.352000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.364000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.388000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.400000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.424000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.436000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.460000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.472000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.496000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.508000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.532000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.544000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.568000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.580000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.604000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.616000] AUTH - MBSS(0), Rcv AUTH seq#3, Alg=1, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  731.632000] AUTH_RSP - Send AUTH response (SUCCESS)...
+[  731.948000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  731.968000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  731.984000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.004000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.020000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.040000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.056000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.076000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.092000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.112000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.128000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.148000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.164000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.184000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.200000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.220000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.236000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=1]30:75:12:e6:4f:86
+[  732.252000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  732.264000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.284000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.300000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.320000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.336000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.356000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.372000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.392000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.408000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.428000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.444000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=5, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.464000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.480000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=6, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.500000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.516000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=7, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  732.536000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  732.552000] MtAsicDelWcidTab():wcid_idx=0x1
+[  732.560000] RTMPSearchPMKIDCache - IF(0) not found
+[  732.568000] APCleanupPsQueue(): (0xc01f0ddc)...
+[  732.576000] RtmpCleanupPsQueue (0xc01c3854)...
+[  732.588000] RtmpCleanupPsQueue (0xc01c3860)...
+[  732.596000] RtmpCleanupPsQueue (0xc01c386c)...
+[  732.604000] RtmpCleanupPsQueue (0xc01c3878)...
+[  732.612000] uapsd> clear UAPSD queues!
+[  732.620000] MacTableDeleteEntry1 - Total= 0
+[  732.628000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  732.644000] AndesMTRxProcessEvent (seq=1)
+[  732.652000] CmdEdcaParameterSet:(ret = 0)
+[  732.660000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  732.896000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=0, Status=0 from [wcid=255]30:75:12:e6:4f:86
+[  732.916000] AUTH_RSP - Peer AUTH fail (Status = 13)...
+[  732.924000] AUTH - Alg=0, Seq=1, AuthMode=1
+[  733.644000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  734.656000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  735.668000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  736.680000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  737.692000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  738.704000] Not expected one of them is 0, TxTotalByteCnt = 0, RxTotalByteCnt = 0
+[  739.288000] AUTH - MBSS(0), Rcv AUTH seq#1, Alg=1, Status=0 from [wcid=255]30:75:12:e6:4f:86
+[  739.308000] MacTableInsertEntry(): INIT UAPSD MR ENTRYuapsd> MaxSPLength = 0!
+[  739.320000] remove key table:wcid[1]
+[  739.328000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28020, Value:0x2000864f
+[  739.340000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  739.356000] CmdProcAddRemoveKey(1):Write WTBL 1 Addr:0x28028, Value:0x0
+[  739.368000] MtAsicUpdateRxWCIDTable(): WCID=1 mac_entry->type=131073, pMacEntry->MaxHTPhyMode.field.MODE=0, StatusFlag=0x0
+[  739.392000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28020, Value:0x3000864f
+[  739.408000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28024, Value:0xe6127530
+[  739.420000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28028, Value:0x40000008
+[  739.436000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x2802c, Value:0x800800
+[  739.452000] MtAsicUpdateRxWCIDTable(1):Write WTBL 1 Addr:0x28030, Value:0x21040
+[  739.464000] MacTableInsertEntry(): alloc entry #1, Total= 1
+[  739.476000] AndesMTRxProcessEvent (seq=2)
+[  739.484000] CmdEdcaParameterSet:(ret = 0)
+[  739.492000] AUTH - Send AUTH seq#2 (Challenge)
+[  739.508000] Decrypt AUTH seq#3 successfully
+[  739.516000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=0, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  739.536000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  739.552000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=1, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  739.572000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  739.588000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=2, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  739.608000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  739.624000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=3, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)
+[  739.644000] MtAsicUpdateBASession(): ent->wtbl_addr[1]=0x4007c, val=0x00000000
+[  739.660000] MtAsicUpdateBASession():Update BA Session Info of wcid(1)=>tid=4, sn = 0, basize=0, isAdd=0, ses_type=Ori(1)

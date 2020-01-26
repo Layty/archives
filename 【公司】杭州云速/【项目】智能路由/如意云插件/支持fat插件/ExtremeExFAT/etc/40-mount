@@ -1,0 +1,597 @@
+#!/bin/sh
+ 
+# Copyright (C) 2009 OpenWrt.org  (C) 2010 OpenWrt.org.cn  (C)2014 Dragon, www.bdmod.com
+ 
+blkdev=`dirname $DEVPATH`
+dev_iso="sda"
+iso_size="124"
+iso_name=".128M.iso"
+dev_usb_state_file="/tmp/usbstate"
+automount_usb()
+{
+	mount_device=$1
+	usb_dev=$2
+	
+	if [ $usb_dev = "$dev_iso" ]; then
+	
+	check_opt=`mount | grep "/opt"`
+
+	if [ -z "$check_opt" ]; then
+	
+	if [ ! -f /mnt/$mount_device/$iso_name ]; then
+
+		free_size=`df -m | grep -w $mount_device  | awk  '{print $4}'`
+
+		if [ "$free_size" -lt "$iso_size" ]
+		then
+		#echo "lesss /dev/"$device"freesize="$free_size >> /tmp/usbfree
+		check_iso $mount_device $usb_dev
+		return
+		fi
+		set_dev_state $usb_dev "iso" "starting"
+		echo "/dev/"$mount_device "/mnt/"${mount_device} > /tmp/usbdir
+		dd if=/dev/zero of=/mnt/$mount_device/$iso_name bs=1M count=128
+mkfs.ext4 /mnt/$mount_device/$iso_name<<-EOF
+Y
+EOF
+	else
+		set_dev_state $usb_dev "iso" "starting"
+	fi
+	mkdir -p /opt
+
+	mount_ret=$(mount /mnt/$mount_device/$iso_name /opt 2>&1)
+	mount_ret_erro=`echo $mount_ret | grep failed`		
+			
+	if [ ! -z "$mount_ret_erro" ]; then
+	echo "/dev/"$mount_device "/mnt/"${mount_device} > /tmp/usbdir
+	dd if=/dev/zero of=/mnt/$mount_device/$iso_name bs=1M count=128
+	mkfs.ext4 /mnt/$mount_device/$iso_name<<-EOF
+	mount /mnt/$mount_device/$iso_name /opt
+	Y
+	EOF
+	fi
+	
+	echo "/dev/"$mount_device "/mnt/"${mount_device} > /tmp/usbdir
+	
+	capbility=`/usr/local/localshell/getcapability`
+	
+	if [ "$capbility" = "RY-1" ]; then
+		/usr/local/localshell/samba-init
+	fi
+	start_config ${mount_device}
+	start_all
+	set_dev_state $usb_dev "iso" "end"
+	
+	fi
+	else
+		set_dev_state $usb_dev "null" "null"
+
+	fi
+}
+check_mount() {
+
+	mount_dev=$1
+	mount_dev_head=$2
+
+	tail_dev=`cat /proc/partitions | grep $mount_dev_head | awk '{print $(NF)}' | tail -1`
+
+	if [ "$tail_dev" = "$mount_dev" ]; then
+		 set_dev_state $mount_dev "mount" "Mounted"
+	fi 
+}
+check_iso() {
+
+	mount_dev_iso=$1
+	mount_dev_head_iso=$2
+
+	tail_dev_iso=`cat /proc/partitions | grep $mount_dev_head_iso | awk '{print $(NF)}' | tail -1`
+
+	if [ "$tail_dev_iso" = "$mount_dev_iso" ]; then
+		 set_dev_state $mount_dev_iso "iso" "needspace"
+	fi 
+}
+set_dev_state() {
+
+	if [ ! -f $dev_usb_state_file ]; then
+		return
+	fi
+	 usb_dev_head=$1
+	 cmd=$2
+	 param=$3
+	
+	 case "$cmd" in
+	 iso)   
+		if [ "$param" = "starting" ]; then
+			echo -n "$param " >> $dev_usb_state_file
+		elif [ "$param" = "needspace" ]; then
+			echo -n "$param " >> $dev_usb_state_file
+		elif [ "$param" = "end" ]; then
+			sed -i "s/starting/$param/g" $dev_usb_state_file
+		fi
+		
+		;;
+	 mount)
+		if [ "$param" = "Mounted" ]; then
+			echo "Mounted" >> $dev_usb_state_file
+		fi
+
+            ;;
+	null)
+		usb_state_org=`cat $dev_usb_state_file | grep -w $usb_dev_head | awk '{printf $4}'| tail -1 `
+		
+		if [ -z "$usb_state_org" ]; then
+			echo -n "$param " >> $dev_usb_state_file
+		else
+			if [ "$usb_state_org" != "null" &&  "$usb_state_org" != "end" ]; then
+			echo -n "$param " >> $dev_usb_state_file
+			fi
+		fi
+
+		
+
+            ;;
+
+    esac
+
+}
+start_SafeAcc() {
+	if [ -f /opt/etc/init.d/SafeAcc ]; then
+		/opt/etc/init.d/SafeAcc start
+	fi
+}
+stop_SafeAcc() {
+        if [ -f /opt/etc/init.d/SafeAcc ]; then
+		/opt/etc/init.d/SafeAcc stop
+	fi
+}
+
+start_config() {
+        if [ -f /usr/local/xcloud/bin/searchSharePath.sh ]; then
+		/usr/local/xcloud/bin/searchSharePath.sh $1 /mnt/$1
+	fi
+}
+del_samba_index="0"
+samba_config() {
+	
+ samba_cmd=$1 
+
+ case "$samba_cmd" in
+        add)
+		samba_dev=$2 
+ 		samba_path=$3 
+		uci add samba samba
+		uci set samba.@samba[-1].name=xRouter
+		uci set samba.@samba[-1].workgroup=WORKGROUP
+		uci set samba.@samba[-1].description=xRouter
+		uci set samba.@samba[-1].homes=1
+		uci add samba sambashare
+		uci set samba.@sambashare[-1].name=xRouter_MNT_$samba_dev
+		uci set samba.@sambashare[-1].path=$samba_path
+		uci set samba.@sambashare[-1].read_only=no
+		uci set samba.@sambashare[-1].guest_ok=yes
+		uci set samba.@sambashare[-1].create_mask=0700
+		uci set samba.@sambashare[-1].dir_mask=0700
+ 		uci commit samba 
+	 ;;
+	del)	
+		samba_index=$2 
+		uci delete samba.@samba[$samba_index]
+		uci delete samba.@sambashare[$samba_index]
+		uci commit samba
+	 ;;
+	search)	
+		samba_path=$2 
+		del_samba_index=`uci show samba | grep $samba_path | awk -F "]" '{print $1}' | awk -F "[" '{print $2}'`
+		
+	 ;;
+
+    esac
+
+}
+start_samba() {
+
+        if [ -f /etc/init.d/samba ]; then
+		/etc/init.d/samba start
+	fi
+}
+stop_samba() {
+        if [ -f /etc/init.d/samba ]; then
+		/etc/init.d/samba stop
+	 fi
+}
+
+get_sdxx_data() {
+	 dev_sd=$1
+
+	if [ -s $dev_usb_state_file ]; then
+	   usb_manufact_dev=`cat $dev_usb_state_file | grep -w $dev_sd `
+		if [ ! -z "$usb_manufact_dev" ] ;then
+			return
+	  	fi
+	fi
+
+	 total_disk_size_bytes=`fdisk -l | grep -w $dev_sd | awk '{printf $5}'`
+		if [ ! -z "$total_disk_size_bytes" ] ;then
+
+			if [ "$total_disk_size_bytes" -lt "1000000000" ]
+			then
+			total_disk_size_mb=`echo "$total_disk_size_bytes " | awk '{printf("%0.3f\n",$1/1000000)}'`
+			total_disk_size=`printf "%s%s" "$total_disk_size_mb" "MB"`
+			else
+			total_disk_size_g=`echo "$total_disk_size_bytes " | awk '{printf("%0.3f\n",$1/1000000000)}'`
+			total_disk_size=`printf "%s%s" "$total_disk_size_g" "G"`
+			fi
+			echo -n "NULL $dev_sd $total_disk_size " >> $dev_usb_state_file
+		fi
+
+}
+start_gpio() {
+	gpioctl dirout 39 && gpioctl set 39
+}
+stop_gpio() {
+	gpioctl dirin 39
+}
+start_all() {
+	start_SafeAcc 1>/dev/null 2>&1
+	start_gpio 1>/dev/null 2>&1
+	ctl_plugin start 1>/dev/null 2>&1
+}
+delete_samba_share() {
+	samba_config search /mnt/$1
+	samba_config del $del_samba_index
+}
+stop_all() {
+	/etc/init.d/xcloud stop 1>/dev/null 2>&1
+	stop_SafeAcc 1>/dev/null 2>&1	
+	ctl_plugin stop 1>/dev/null 2>&1
+	delete_samba_share $1	
+}
+
+kill_all() {
+	PIDS=`fuser -m $1`
+
+	 if [ ! -z "$PIDS" ];then
+		
+		for line in $PIDS
+		do
+			if [ "$line" -eq "1" ]; then
+				break
+			fi
+  			kill -9 $line 
+		done
+ 	fi
+}
+Path="/opt/app/appinstalled/"
+AutoRun_Udisk="2"
+
+ctl_plugin() {
+		cd $Path
+		AllFile=`ls ./`
+		for EachFile in ${AllFile}
+		do
+			
+			AutoRun=`cat ${EachFile} | grep "plugin_Autorun" |awk -F ":" '{print $2}' | awk -F " " '{print $1}'`
+
+			 if  [ "$AutoRun" = "$AutoRun_Udisk" ]; then
+				AppInstallPath=`cat ${EachFile} | grep "plugin_IntallPath"  |awk -F ":" '{print $2}' | awk -F " " '{print $1}'`
+			 	echo "AppInstall="$AppInstallPath
+				AppShellCtl=`printf "%sappshell %s"  "$AppInstallPath" "$1"`
+				echo "AppShellCtl="$AppShellCtl
+				$AppShellCtl
+ 
+			 fi
+		done
+
+}
+wait_jffs2() {
+		while [ "null" = "null" ]; do
+			isjffs=`cat /proc/mounts | grep jffs2 `
+	
+				 if  [ ! -z "$isjffs" ]; then
+				 		sleep 3
+				 		break
+				 fi
+				 		sleep 1
+		done
+}
+USB_MNT_TMP="/tmp/usbdir"
+if [ `basename $blkdev` != "block" ]; then
+ 
+    device=`basename $DEVPATH`
+    case "$ACTION" in
+        add)
+        	 wait_jffs2 
+		 device=`basename $DEVPATH`
+   		 dev_head_temp=`dirname  $DEVPATH`
+		 dev_head=`basename $dev_head_temp`
+		 isusb_flash=`echo $dev_head | grep mtd`
+		 get_sdxx_data $dev_head
+		 if [ -z "$isusb_flash"]; then
+  		 
+   		 partition=`printf "%s:%s" "$dev_head" "$device"`
+   		 echo $partition>> /tmp/usbdev
+		 mkdir -p /mnt/$device
+                # vfat & ntfs-3g check
+                if  [ `which fdisk` ]; then
+                        isntfs=`fdisk -l | grep -w $device | grep NTFS`
+
+                        isvfat=`fdisk -l | grep -w $device | grep FAT32`
+                        islinux=`fdisk -l | grep -w $device | grep Linux`
+                        ishfs=`fdisk -l | grep  -w $device | grep HFS`
+                        isfuse=`lsmod | grep fuse`
+                        isntfs3g=`which ntfs-3g`
+                else
+                        isntfs=""
+
+                        isvfat=""
+                        islinux=""
+                        ishfs=""
+                fi
+                # exFat check
+                if [ `which blkid` ]; then
+                	isexFat=`blkid | grep -w $device | grep exfat`
+                else
+                	isexFat=""
+                fi
+                
+                if [ "$isexFat" ]; then
+                	mount_ret=$(mount.exfat-fuse /dev/$device /mnt/$device 2>&1)
+                	mount_ret_erro=`echo $mount_ret | grep Failed`
+                	if [ -z "$mount_ret_erro" ];then
+                		automount_usb $device $dev_head 1>/dev/null 2>&1
+                		samba_config add $device /mnt/$device 1>/dev/null 2>&1
+                		start_samba $device
+                		echo "Success"
+                		check_mount $device $dev_head
+                	else
+                		echo "Error"
+                	fi
+                # mount with ntfs-3g if possible, else with default mount
+                elif [ "$isntfs" -a "$isfuse" -a "$isntfs3g" ]; then
+			
+ 			mount_ret=$(ntfs-3g -o noatime,big_writes,async,nls=utf8 /dev/$device /mnt/$device 2>&1)
+			#echo "mount_ret ntfs = "$mount_ret
+			    mount_ret_erro=`echo $mount_ret | grep Failed`		
+				
+			     if [ -z "$mount_ret_erro" ];then					
+                      automount_usb $device $dev_head 1>/dev/null 2>&1
+
+			samba_config add $device /mnt/$device 1>/dev/null 2>&1
+
+			start_samba $device
+
+			echo "Success"
+			check_mount $device $dev_head
+			else
+			echo "Error"
+			fi
+
+                elif [ "$isvfat" ]; then
+			  mount_ret=$(mount -t vfat -o iocharset=utf8,rw,umask=0000,dmask=0000,fmask=0000 /dev/$device /mnt/$device 2>&1)
+			   
+			  mount_ret_erro=`echo $mount_ret | grep failed`		
+				
+			     if [ -z "$mount_ret_erro" ];then
+			
+                        automount_usb $device $dev_head 1>/dev/null 2>&1
+				samba_config add $device /mnt/$device 1>/dev/null 2>&1
+                       	start_samba $device
+
+			
+			check_mount $device $dev_head
+			echo "Success"
+			else
+				echo "Error"
+			fi
+		elif [ "$islinux" ]; then
+
+                         mount_ret=$(mount -t ext4 /dev/$device /mnt/$device 2>&1)
+				
+			    mount_ret_erro=`echo $mount_ret | grep failed`		
+				
+			     if [ -z "$mount_ret_erro" ];then
+			    automount_usb $device $dev_head 1>/dev/null 2>&1
+				samba_config add $device /mnt/$device 1>/dev/null 2>&1
+				start_samba $device
+
+				echo "Success"
+				check_mount $device $dev_head
+				else
+				echo "Error"
+				fi
+
+		  elif [ "$ishfs" ]; then
+
+			    mount_ret=$(mount -o force -t hfsplus /dev/$device /mnt/$device 2>&1)
+				
+			    mount_ret_erro=`echo $mount_ret | grep failed`		
+				
+			     if [ -z "$mount_ret_erro" ];then
+			    automount_usb $device $dev_head 1>/dev/null 2>&1
+				samba_config add $device /mnt/$device 1>/dev/null 2>&1
+				start_samba $device
+
+				echo "Success"
+				check_mount $device $dev_head
+				else
+				echo "Error"
+			      fi
+                else
+			  mount_success="no"  
+			  mount_ret=$(ntfs-3g -o nls=utf8 /dev/$device /mnt/$device 2>&1)
+			    mount_ret_erro=`echo $mount_ret | grep Failed `
+			   
+				#echo "mount_ret_erro = "$mount_ret_erro
+				 if [ -z "$mount_ret_erro" ];	then
+			   		mount_success="yes"
+				 fi
+
+				 if [ "$mount_success" = "no" ]; then
+			   		 mount_ret=$(mount -t vfat -o iocharset=utf8,rw,umask=0000,dmask=0000,fmask=0000 /dev/$device /mnt/$device 2>&1)
+				
+			    		mount_ret_erro=`echo $mount_ret | grep failed `
+
+					if [ -z "$mount_ret_erro" ];then
+			   			mount_success="yes"
+					fi
+				fi
+				
+				if [ "$mount_success" = "no" ];	then
+			   		 mount_ret=$(mount -t ext4 /dev/$device /mnt/$device 2>&1)
+					
+			    		mount_ret_erro=`echo $mount_ret | grep failed `
+
+					if [ -z "$mount_ret_erro" ];then
+			   			mount_success="yes"
+					fi
+				fi
+
+				if [ "$mount_success" = "no" ];	then
+			   		mount_ret=$(mount -o force -t hfsplus /dev/$device /mnt/$device 2>&1)
+					 
+			    		mount_ret_erro=`echo $mount_ret | grep failed `
+
+					if [ -z "$mount_ret_erro" ];then
+			   			mount_success="yes"
+					fi
+				fi
+
+
+			     if [ "$mount_success" = "yes" ];	then
+			    automount_usb $device $dev_head 1>/dev/null 2>&1
+					samba_config add $device /mnt/$device 1>/dev/null 2>&1
+					start_samba $device
+
+				check_mount $device $dev_head
+				echo "Success"
+				else
+				echo "Error"
+				fi
+
+
+	
+                fi
+			 
+
+		if [ -f /dev/${device}/swapfile ]; then
+			mkswap /dev/${device}/swapfile
+			swapon /dev/${device}/swapfile
+		fi
+ 		 else
+ 			partition=`printf "%s:%s" "$dev_head" "$device"`
+   			 echo $partition
+			fi
+                     ;;
+        remove)
+		dev_head_temp=`dirname  $DEVPATH`
+   		dev_head=`basename $dev_head_temp`
+     		partition=`printf "%s:%s" "$dev_head" "$device"`
+
+		check_dev_mount=`cat /tmp/usbdev | grep $device | awk -F ":" '{printf $2}'`
+		
+		if [ -z "$check_dev_mount" ]; then
+			return
+		fi
+
+		stop_samba
+
+		devicedir=$(cat ${USB_MNT_TMP} | awk '{printf $2}' |  grep -w $device ) 1>/dev/null 2>&1
+
+		if [ "$devicedir" =  "" ] ;then
+
+			kill_all /mnt/$device 1>/dev/null 2>&1
+
+			if [ -f /dev/${device}/swapfile ]; then
+			swapoff /dev/${device}/swapfile
+			fi
+
+			umount_device_ret=$(umount /mnt/$device 2>&1 ) 
+
+			umount_device_ret_erro=`echo $umount_device_ret | grep "can't"`
+		
+			if [ -z "$umount_device_ret_erro" ];then
+				delete_samba_share ${device}
+				rm -r /mnt/$device 1>/dev/null 2>&1
+				sed -i "/${partition}/d" /tmp/usbdev
+				sed -i "/${dev_head}/d" $dev_usb_state_file
+				 
+				check_all_mount=`cat /tmp/usbdev`
+		
+				if [ ! -z "$check_all_mount" ]; then
+				
+					start_samba $device  1>/dev/null 2>&1
+
+				fi
+				return
+			fi
+
+			sed -i "/${partition}/d" /tmp/usbdev
+
+		fi
+
+		usb_mounted_patition=`basename $devicedir`
+
+		if [ "$usb_mounted_patition" =  "$device" ] ;then
+
+	 	kill_all /mnt/$device 1>/dev/null 2>&1
+		kill_all /opt 1>/dev/null 2>&1
+
+		if [ -f /dev/${device}/swapfile ]; then
+			swapoff /dev/${device}/swapfile
+		fi
+ 
+		stop_all ${device} 
+
+		umount_ret=$(umount /opt 2>&1)
+
+		umount_ret_erro=`echo $umount_ret | grep can't `		
+		if [ -z "$umount_ret" ];then
+		
+		losetup_ret=$(losetup -d /dev/loop0 2>&1)
+
+		losetup_ret_erro=`echo $losetup_ret | grep failed `
+		
+		if [ -z "$losetup_ret_erro" ];then
+
+		umount_device_ret=$(umount /mnt/$device 2>&1 )
+
+		umount_device_ret_erro=`echo $umount_device_ret | grep "can't"`
+		
+		if [ -z "$umount_device_ret_erro" ];then
+           	rm -r /mnt/$device 1>/dev/null 2>&1
+           	rm -r /opt 1>/dev/null 2>&1
+           	rm -fr /tmp/usbdir 1>/dev/null 2>&1
+
+		stop_gpio 1>/dev/null 2>&1
+ 		/etc/init.d/xcloud start  1>/dev/null 2>&1
+		sed -i "/${partition}/d" /tmp/usbdev
+		sed -i "/${dev_head}/d" $dev_usb_state_file
+
+		check_all_mount=`cat /tmp/usbdev`
+		
+		if [ ! -z "$check_all_mount" ]; then
+				
+			start_samba $device 1>/dev/null 2>&1
+
+		fi
+
+		echo "Success"
+		else
+		start_all
+		echo "Error umount" > /tmp/usberror
+		fi
+		else
+			start_all
+		echo "Error losetup " > /tmp/usberror
+		fi
+		else
+		start_all
+		echo "Error umount /opt " > /tmp/usberror
+		fi
+		else
+		echo "Dev Error" > /tmp/usberror
+		fi
+               ;;
+    esac
+ 
+fi

@@ -1,0 +1,102 @@
+# 
+# iwpriv ra1 set WscConfMode=7
+# iwpriv ra1 set WscConfStatus=2
+# 
+# 
+# 
+# iwpriv ra1 set WscVersion=10
+# [  169.112000] Call Trace:
+[  169.116000] [<8001b32c>] dump_stack+0x8/0x34
+[  169.128000] [<802273cc>] AndesSendCmdMsg+0x48/0x9d8
+[  169.136000] [<8022fdac>] CmdEdcaParameterSet+0xa0/0x10c
+[  169.148000] [<8021ab90>] MtAsicSetWmmParam+0xc8/0x154
+[  169.156000] [<8021e500>] MtAsicUpdateTxOP+0x54/0xbc
+[  169.168000] [<801daf38>] rtmp_tx_burst_set+0x94/0x9c
+[  169.176000] [<80211584>] MacTableInsertEntry+0x370/0x838
+[  169.188000] [<801a3bb0>] APPeerAuthReqAtIdleAction+0x610/0x7cc
+[  169.200000] [<801cc168>] MlmeHandler+0x22c/0x318
+[  169.208000] [<801cc324>] MlmeThread+0xd0/0xf0
+[  169.216000] [<80050214>] kthread+0x88/0x90
+[  169.224000] [<8001745c>] kernel_thread_helper+0x10/0x18
+[  169.236000] 
+[  169.408000] Call Trace:
+[  169.412000] [<8001b32c>] dump_stack+0x8/0x34
+[  169.420000] [<801a3cf8>] APPeerAuthReqAtIdleAction+0x758/0x7cc
+[  169.432000] [<801cc168>] MlmeHandler+0x22c/0x318
+[  169.440000] [<801cc324>] MlmeThread+0xd0/0xf0
+[  169.448000] [<80050214>] kthread+0x88/0x90
+[  169.456000] [<8001745c>] kernel_thread_helper+0x10/0x18
+[  169.468000] 
+[  169.472000] Call Trace:
+[  169.476000] [<8001b32c>] dump_stack+0x8/0x34
+[  169.484000] [<802273cc>] AndesSendCmdMsg+0x48/0x9d8
+[  169.496000] [<8022fedc>] CmdSlotTimeSet+0xc4/0x138
+[  169.504000] [<8021ae74>] MtAsicSetSlotTime+0x20/0x74
+[  169.516000] [<801dd86c>] CMDHandler+0x274/0x3a8
+[  169.524000] [<80236b3c>] RTPCICmdThread+0x170/0x1ec
+[  169.532000] [<80050214>] kthread+0x88/0x90
+[  169.540000] [<8001745c>] kernel_thread_helper+0x10/0x18
+[  169.552000] 
+[  169.556000] CmdSlotTimeSet:(ret = 0)
+[  170.432000] Call Trace:
+[  170.436000] [<8001b32c>] dump_stack+0x8/0x34
+[  170.444000] [<802273cc>] AndesSendCmdMsg+0x48/0x9d8
+[  170.452000] [<8022fdac>] CmdEdcaParameterSet+0xa0/0x10c
+[  170.464000] [<8021ab90>] MtAsicSetWmmParam+0xc8/0x154
+[  170.472000] [<8021e500>] MtAsicUpdateTxOP+0x54/0xbc
+[  170.484000] [<801db000>] TxOPUpdatingAlgo+0xc0/0x234
+[  170.492000] [<801ccc74>] MlmePeriodicExec+0x270/0x4e0
+[  170.504000] [<80204c34>] rtmp_timer_MlmePeriodicExec+0x24/0x50
+[  170.516000] [<80041bd8>] run_timer_softirq+0xf4/0x1d0
+[  170.524000] [<8003b87c>] __do_softirq+0xbc/0x158
+[  170.532000] [<8003b980>] do_softirq+0x68/0x70
+[  170.544000] [<8000840c>] ret_from_irq+0x0/0x4
+[  170.552000] [<80016b14>] r4k_wait_irqoff+0x20/0x24
+[  170.560000] [<80017498>] cpu_idle+0x34/0x58
+[  170.568000] [<804948b8>] start_kernel+0x348/0x360
+[  170.580000] 
+[  170.580000] AndesSendCmdMsg: Command type = ed, Extension command type = 27
+[  170.596000] BUG: AndesSendCmdMsg is called from invalid context(in_interrupt/need_wait/msg :100 / 1)
+[  174.628000] WpsSmProcess::  EAPOL Packet.  Code = 2.    Type = 1
+
+# 
+# 
+# [  183.540000] Call Trace:
+[  183.544000] [<8001b32c>] dump_stack+0x8/0x34
+[  183.552000] [<801a3cf8>] APPeerAuthReqAtIdleAction+0x758/0x7cc
+[  183.564000] [<801cc168>] MlmeHandler+0x22c/0x318
+[  183.576000] [<801cc324>] MlmeThread+0xd0/0xf0
+[  183.584000] [<80050214>] kthread+0x88/0x90
+[  183.592000] [<8001745c>] kernel_thread_helper+0x10/0x18
+[  183.600000] 
+[  183.604000] drivers/net/wireless/mt_wifi_ap/../mt_wifi/embedded/ap/ap_auth.c:406 assert pEntry->Aid == Elem->Wcidfailed
+[  183.628000] Call Trace:
+[  183.632000] [<8001b32c>] dump_stack+0x8/0x34
+[  183.640000] [<802273cc>] AndesSendCmdMsg+0x48/0x9d8
+[  183.652000] [<8022fedc>] CmdSlotTimeSet+0xc4/0x138
+[  183.660000] [<8021ae74>] MtAsicSetSlotTime+0x20/0x74
+[  183.672000] [<801dd86c>] CMDHandler+0x274/0x3a8
+[  183.680000] [<80236b3c>] RTPCICmdThread+0x170/0x1ec
+[  183.688000] [<80050214>] kthread+0x88/0x90
+[  183.696000] [<8001745c>] kernel_thread_helper+0x10/0x18
+[  183.708000] 
+[  183.712000] CmdSlotTimeSet:(ret = 0)
+[  183.952000] WpsSmProcess::  EAPOL Packet.  Code = 2.    Type = 1
+[  183.984000] WpsSmProcess::  EAPOL Packet.  Code = 2.    Type = 254
+[  184.000000] WpsSmProcess::  EAPOL Packet.  Code = 2.    Type = 254
+[  184.012000] Call Trace:
+[  184.016000] [<8001b32c>] dump_stack+0x8/0x34
+[  184.024000] [<802273cc>] AndesSendCmdMsg+0x48/0x9d8
+[  184.036000] [<8022fdac>] CmdEdcaParameterSet+0xa0/0x10c
+[  184.044000] [<8021ab90>] MtAsicSetWmmParam+0xc8/0x154
+[  184.056000] [<8021e500>] MtAsicUpdateTxOP+0x54/0xbc
+[  184.064000] [<801daf10>] rtmp_tx_burst_set+0x6c/0x9c
+[  184.076000] [<80211dd0>] MacTableDeleteEntry+0x28c/0x5ac
+[  184.084000] [<801fb6a4>] MlmeDeAuthAction+0x148/0x218
+[  184.096000] [<802486c0>] WscSendEapFail+0x234/0x27c
+[  184.104000] [<80254664>] WscEAPAction+0x10dc/0x1410
+[  184.116000] [<8024def4>] WpsSmProcess+0x494/0x63c
+[  184.124000] [<8024fc6c>] wsc_write_dat_file_thread+0x108/0x188
+[  184.136000] [<80050214>] kthread+0x88/0x90
+[  184.144000] [<8001745c>] kernel_thread_helper+0x10/0x18
+[  184.156000] 

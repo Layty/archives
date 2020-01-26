@@ -1,0 +1,329 @@
+## Booting image at bc050000 ...
+raspi_read: from:50000 len:40 
+   Image Name:   Linux Kernel Image
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    6058399 Bytes =  5.8 MB
+   Load Address: 80000000
+   Entry Point:  8000c310
+raspi_read: from:50040 len:5c719f 
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+No initrd
+## Transferring control to Linux (at address 8000c310) ...
+## Giving linux memsize in MB, 128
+
+Starting kernel ...
+
+
+LINUX started...
+
+ THIS IS ASIC
+Linux version 2.6.36+ (pengrf@cvn234) (gcc version 3.4.2) #31 Tue Dec 16 20:45:38 CST 2014
+
+ The CPU feqenuce set to 580 MHz
+
+ MIPS CPU sleep mode enabled.
+ PCIE: bypass PCIe DLL.
+ PCIE: Elastic buffer control: Addr:0x68 -> 0xB4
+ disable all power about PCIe
+CPU revision is: 00019650 (MIPS 24Kc)
+Software DMA cache coherency
+Determined physical RAM map:
+ memory: 08000000 @ 00000000 (usable)
+Initrd not found or empty - disabling initrd
+Zone PFN ranges:
+  Normal   0x00000000 -> 0x00008000
+Movable zone start PFN for each node
+early_node_map[1] active PFN ranges
+    0: 0x00000000 -> 0x00008000
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 32512
+Kernel command line: console=ttyS1,57600n8 root=/dev/ram0 console=ttyS0
+PID hash table entries: 512 (order: -1, 2048 bytes)
+Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+Primary instruction cache 64kB, VIPT, , 4-waylinesize 32 bytes.
+Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+Writing ErrCtl register=000317fd
+Readback ErrCtl register=000317fd
+Memory: 120812k/131072k available (3461k kernel code, 10260k reserved, 760k data, 4592k init, 0k highmem)
+NR_IRQS:128
+console [ttyS1] enabled
+Calibrating delay loop... 386.04 BogoMIPS (lpj=772096)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+RALINK_GPIOMODE = 1a301c
+RALINK_GPIOMODE = 18301c
+PPLL_CFG1=0xe5c000
+MT7620 PPLL lock
+PPLL_DRV =0x80080504
+start PCIe register access
+RALINK_RSTCTRL = 2400000
+RALINK_CLKCFG1 = 75afffc0
+
+*************** MT7620 PCIe RC mode *************
+PCIE0 enabled
+init_rt2880pci done
+bio: create slab <bio-0> at 0
+vgaarb: loaded
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+pci 0000:00:00.0: BAR 0: can't assign mem (size 0x80000000)
+pci 0000:00:00.0: BAR 8: assigned [mem 0x20000000-0x201fffff]
+pci 0000:00:00.0: BAR 1: assigned [mem 0x20200000-0x2020ffff]
+pci 0000:00:00.0: BAR 1: set to [mem 0x20200000-0x2020ffff] (PCI address [0x20200000-0x2020ffff]
+pci 0000:01:00.0: BAR 0: assigned [mem 0x20000000-0x200fffff]
+pci 0000:01:00.0: BAR 0: set to [mem 0x20000000-0x200fffff] (PCI address [0x20000000-0x200fffff]
+pci 0000:01:00.1: BAR 0: assigned [mem 0x20100000-0x201fffff]
+pci 0000:01:00.1: BAR 0: set to [mem 0x20100000-0x201fffff] (PCI address [0x20100000-0x201fffff]
+pci 0000:00:00.0: PCI bridge to [bus 01-01]
+pci 0000:00:00.0:   bridge window [io  disabled]
+pci 0000:00:00.0:   bridge window [mem 0x20000000-0x201fffff]
+pci 0000:00:00.0:   bridge window [mem pref disabled]
+BAR0 at slot 0 = 0
+bus=0x0, slot = 0x0
+res[0]->start = 0
+res[0]->end = 0
+res[1]->start = 20200000
+res[1]->end = 2020ffff
+res[2]->start = 0
+res[2]->end = 0
+res[3]->start = 0
+res[3]->end = 0
+res[4]->start = 0
+res[4]->end = 0
+res[5]->start = 0
+res[5]->end = 0
+bus=0x1, slot = 0x0
+res[0]->start = 20000000
+res[0]->end = 200fffff
+res[1]->start = 0
+res[1]->end = 0
+res[2]->start = 0
+res[2]->end = 0
+res[3]->start = 0
+res[3]->end = 0
+res[4]->start = 0
+res[4]->end = 0
+res[5]->start = 0
+res[5]->end = 0
+bus=0x1, slot = 0x0
+res[0]->start = 20100000
+res[0]->end = 201fffff
+res[1]->start = 0
+res[1]->end = 0
+res[2]->start = 0
+res[2]->end = 0
+res[3]->start = 0
+res[3]->end = 0
+res[4]->start = 0
+res[4]->end = 0
+res[5]->start = 0
+res[5]->end = 0
+Switching to clocksource Ralink Systick timer
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+TCP: Hash tables configured (established 4096 bind 4096)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+RT3xxx EHCI/OHCI init.
+NTFS driver 2.1.29 [Flags: R/W].
+fuse init (API version 7.15)
+msgmni has been set to 235
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 254)
+io scheduler noop registered (default)
+led=22, on=4000, off=1, blinks,=1, reset=1, time=4000
+Ralink gpio driver initialized
+Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+serial8250: ttyS0 at MMIO 0x10000500 (irq = 37) is a 16550A
+serial8250: ttyS1 at MMIO 0x10000c00 (irq = 12) is a 16550A
+brd: module loaded
+deice id : c2 20 18 c2 20 (2018c220)
+MX25L12805D(c2 2018c220) (16384 Kbytes)
+mtd .name = raspi, .size = 0x01000000 (0M) .erasesize = 0x00000010 (0K) .numeraseregions = 65536
+Creating 5 MTD partitions on "raspi":
+0x000000000000-0x000001000000 : "ALL"
+0x000000000000-0x000000030000 : "Bootloader"
+0x000000030000-0x000000040000 : "Config"
+0x000000040000-0x000000050000 : "Factory"
+0x000000050000-0x000001000000 : "Kernel"
+rdm_major = 253
+SMACCR1 -- : 0x0000000c
+SMACCR0 -- : 0x43763073
+Ralink APSoC Ethernet Driver Initilization. v3.0  256 rx/tx descriptors allocated, mtu = 1500!
+SMACCR1 -- : 0x0000000c
+SMACCR0 -- : 0x43763073
+PROC INIT OK!
+PPP generic driver version 2.4.2
+PPP MPPE Compression module registered
+NET: Registered protocol family 24
+PPTP driver version 0.8.5
+IMQ driver loaded successfully.
+	Hooking IMQ before NAT on PREROUTING.
+	Hooking IMQ after NAT on POSTROUTING.
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+rt3xxx-ehci rt3xxx-ehci: Ralink EHCI Host Controller
+rt3xxx-ehci rt3xxx-ehci: new USB bus registered, assigned bus number 1
+rt3xxx-ehci rt3xxx-ehci: irq 18, io mem 0x101c0000
+rt3xxx-ehci rt3xxx-ehci: USB 0.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+rt3xxx-ohci rt3xxx-ohci: RT3xxx OHCI Controller
+rt3xxx-ohci rt3xxx-ohci: new USB bus registered, assigned bus number 2
+rt3xxx-ohci rt3xxx-ohci: irq 18, io mem 0x101c1000
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+Linux telephony interface: v1.00
+sdhci: Secure Digital Host Controller Interface driver
+sdhci: Copyright(c) Pierre Ossman
+MTK MSDC device init.
+mtk-sd: MediaTek MT6575 MSDC Driver
+u32 classifier
+    Performance counters on
+nf_conntrack version 0.5.0 (1887 buckets, 7548 max)
+IPVS: Registered protocols ()
+IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+IPVS: ipvs loaded.
+GRE over IPv4 demultiplexor driver
+gre: can't add protocol
+ip_tables: (C) 2000-2006 Netfilter Core Team, Type=Restricted Cone
+TCP cubic registered
+NET: Registered protocol family 10
+NET: Registered protocol family 17
+L2TP core driver, V2.0
+PPPoL2TP kernel driver, V2.0
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+Freeing unused kernel memory: 4592k freed
+msdc0 -> ================ <- msdc_set_mclk() : L<682> PID<kworker/u:1><0x16>
+msdc0 -> !!! Set<400KHz> Source<48000KHz> -> sclk<400KHz> <- msdc_set_mclk() : L<683> PID<kworker/u:1><0x16>
+msdc0 -> ================ <- msdc_set_mclk() : L<684> PID<kworker/u:1><0x16>
+init started: BusyBox v1.12.1 Algorithmics/MIPS FPU Emulator v1.5
+(2014-12-10 21:39:43 CST)
+starting devpts: called with bogus options
+pid msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+31, msdc0 -> XXX CMD<52> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+tty '': '/etc_ro/rcS'
+usb 1-1: new high speed USB device using rt3xxx-ehci and address 2
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+Welcome to
+    _______  _______  ___     __  ____   _  _   ___
+    |  ___  msdc0 -> XXX CMD<5> MSDC_INT_CMDTMO <- msdc_irq() : L<2450>
+\|   __  ||   |   |__||    \ | || | /  /
+    | |___| ||  |__| ||   |__  __ |     \| || |/  /
+    |   _   /|   _   ||      ||  || |\     ||     \
+    |__| \__\|__| |__||______||__||_| \____||_|\___\
+
+   	             =System Architecture Department=
+
+	init Gpio!!!
+	pid [41] register irq 13
+hub 1-1:1.0: USB hub found
+hub 1-1:1.0: 4 ports detected
+msdc0 -> SD data latch edge<1> <- msdc_ops_set_ios() : L<2246> PID<kworker/u:1><0x16>
+msdc0 -> ================ <- msdc_set_mclk() : L<682> PID<kworker/u:1><0x16>
+msdc0 -> !!! Set<48000KHz> Source<48000KHz> -> sclk<48000KHz> <- msdc_set_mclk() : L<683> PID<kworker/u:1><0x16>
+msdc0 -> ================ <- msdc_set_mclk() : L<684> PID<kworker/u:1><0x16>
+mmc0: new high speed SDHC card at address aaaa
+mmcblk0: mmc0:aaaa SS32G 29.7 GiB 
+ mmcblk0: p1
+internet.sh
+Could not open mtd device
+crc = 0
+RT2860 config error len:0, reset system
+Could not open mtd device
+
+##### disable 1st wireless interface #####
+default 2860
+
+##### disable 2nd wireless interface #####
+rmmod: rt2860v2_ap_net: No such file or directory
+rmmod: rt2860v2_ap: No such file or directory
+rmmod: rt2860v2_ap_util: No such file or directory
+rmmod: MT7610_ap_net: No such file or directory
+rmmod: MT7610_ap: No such file or directory
+rmmod: MT7610_ap_util: No such file or directory
+Could not open mtd device
+default rtdev
+Could not open mtd device
+crc = 0
+iNIC config error len:0, reset system
+insmod: rt2860v2_ap_util.ko: module not found
+rt2860v2_ap: module license 'unspecified' taints kernel.
+Disabling lock debugging due to kernel taint
+
+
+=== pAd = c0510000, size = 476960 ===
+
+<-- RTMPAllocTxRxRingMemory, Status=0
+<-- RTMPAllocAdapterBlock, Status=0
+AP Driver version-2.7.1.6
+insmod: rt2860v2_ap_net.ko: module not found
+insmod: MT7610_ap_util.ko: module not found
+
+
+=== pAd = c0a02000, size = 909440 ===
+
+<-- RTMPAllocTxRxRingMemory, Status=0
+<-- RTMPAllocAdapterBlock, Status=0
+device_id =0x7650
+==>MT76x0_WLAN_ChipOnOff(): OnOff:1, pAd->WlanFunCtrl:0x0, Reg-WlanFunCtrl=0xff000002
+MACVersion = 0x76502000
+insmod: MT7610_ap_net.ko: module not found
+The system is going down NOW!
+Sending SIGTERM to all processes
+Sending SIGKILL to all processes
+Requesting system reboot
+Restarting system.
+
+
+U-Boot 1.1.3 (Oct 27 2014 - 21:31:05)
+
+Board: Ralink APSoC DRAM:  128 MB
+relocate_code Pointer at: 87f70000
+enable ephy clock...done. rf reg 29 = 5
+SSC disabled.
+******************************
+Software System Reset Occurred
+******************************
+spi_wait_nsec: 29 
+spi device id: c2 20 18 c2 20 (2018c220)
+find flash: MX25L12805D
+raspi_read: from:30000 len:1000 
+*** Warning - bad CRC, using default environment
+
+============================================ 
+Ralink UBoot Version: 4.2.S.1
+-------------------------------------------- 
+ASIC 7620_MP (Port5<->Phy)
+DRAM component: 1024 Mbits DDR, width 16
+DRAM bus: 16 bit
+Total memory: 128 MBytes
+Flash component: SPI Flash
+Date:Oct 27 2014  Time:21:31:05
+============================================ 
+icache: sets:512, ways:4, linesz:32 ,total:65536
+dcache: sets:256, ways:4, linesz:32 ,total:32768 
+
+ ##### The CPU freq = 580 MHZ #### 
+ estimate memory size =128 Mbytes
+
+Please choose the operation: 
+   1: Load system code to SDRAM via TFTP. 
+   2: Load system code then write to Flash via TFTP. 
+   3: Boot system code via Flash (default).
+   4: Entr boot command line interface.
+   7: Load Boot Loader code then write to Flash via Serial. 
+   9: Load Boot Loader code then write to Flash via TFTP. 

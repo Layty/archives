@@ -1,0 +1,145 @@
+#####   openssl rsautl用法 ############
+root@bt:~/rsa-op# openssl rsautl -h
+Usage: rsautl [options]
+-in file        input file
+-out file       output file
+-inkey file     input key
+-keyform arg    private key format - default PEM
+-pubin          input is an RSA public
+-certin         input is a certificate carrying an RSA public key
+-ssl            use SSL v2 padding
+-raw            use no padding
+-pkcs           use PKCS#1 v1.5 padding (default)
+-oaep           use PKCS#1 OAEP
+-sign           sign with private key
+-verify         verify with public key
+-encrypt        encrypt with public key
+-decrypt        decrypt with private key
+-hexdump        hex dump output
+-engine e       use engine e, possibly a hardware device.
+-passin arg    pass phrase source
+
+#####    使用ssh-keygen产生rsa密钥 ############
+
+# 产生rsa密钥，id_rsa（私钥） id_rsa.pub(公钥)
+ssh-keygen -t rsa
+
+# 使用公钥加密文件，产生unable to load Private Key错误
+openssl rsautl -encrypt -in hello -inkey id_rsa.pub -out hello_ssh_pubencry
+
+# 使用私钥加密文件，产生加密文件
+openssl rsautl -encrypt -in hello -inkey id_rsa -out hello_ssh_priencry
+
+
+# 使用私钥解密文件，成功解密文件
+openssl rsautl -decrypt -in hello_ssh_priencry -inkey id_rsa -out hello_ssh_pridecry
+
+# 使用公钥解密文件，产生unable to load Private Key错误
+openssl rsautl -decrypt -in hello_ssh_priencry -inkey id_rsa.pub -out hello_ssh_pubdecry
+
+
+########  使用openssl原生自带的方法 #############
+
+# 产生rsa密钥
+openssl genrsa -out test.key 1024
+
+# 将这个文件中的公钥提取出来
+openssl rsa -in test.key -pubout -out test_pub.key
+
+
+# 使用公钥加密文件，产生unable to load Private Key错误
+openssl rsautl -encrypt -in hello -inkey test_pub.key -out 1
+
+# 使用公钥加密文件，加上-pubin选项，不会产生unable to load Private Key错误
+openssl rsautl -encrypt -in hello -inkey test_pub.key -pubin -out 2
+
+# 使用私钥加密文件，产生加密文件
+openssl rsautl -encrypt -in hello -inkey test.key -out 3
+
+
+# 使用私钥解密公钥加密的文件，成功解密文件
+openssl rsautl -decrypt -in 2 -inkey test.key -out 2_pridecry
+
+# 使用私钥解密用私钥加密的文件，成功解密文件
+openssl rsautl -decrypt -in 3 -inkey test.key -out 3_pridecry
+
+
+# 使用公钥解密私钥加密的文件，产生unable to load Private Key错误
+openssl rsautl -decrypt -in 3 -inkey test_pub.key -out 3_pubdecry
+
+
+# 使用公钥解密私钥加密的文件，产生A private key is needed for this operation错误
+openssl rsautl -decrypt -in 3 -inkey test_pub.key -pubin -out 3_pubdecry
+
+# 使用公钥解密公钥加密的文件，产生A private key is needed for this operation错误
+openssl rsautl -decrypt -in 2 -inkey test_pub.key -pubin -out 2_pubdecry
+
+# 使用公钥解密私钥加密的文件，产生unable to load Private Key错误
+openssl rsautl -decrypt -in 2 -inkey test_pub.key -out 2_pubdecry
+
+############## openssl文件签名与验证 ###########
+root@bt:~/rsa-op# openssl rsa
+rsa [options] <infile >outfile
+where options are
+ -inform arg     input format - one of DER NET PEM
+ -outform arg    output format - one of DER NET PEM
+ -in arg         input file
+ -sgckey         Use IIS SGC key format
+ -passin arg     input file pass phrase source
+ -out arg        output file
+ -passout arg    output file pass phrase source
+ -des            encrypt PEM output with cbc des
+ -des3           encrypt PEM output with ede cbc des using 168 bit key
+ -aes128, -aes192, -aes256
+                 encrypt PEM output with cbc aes
+ -text           print the key in text
+ -noout          do not print key out
+ -modulus        print the RSA key modulus
+ -check          verify key consistency
+ -pubin          expect a public key in input file
+ -pubout         output a public key
+ -engine e       use engine e, possibly a hardware device.
+ 
+root@bt:~/rsa-op# openssl dgst -h
+unknown option '-h'
+options are
+-c              to output the digest with separating colons
+-d              to output debug info
+-hex            output as hex dump
+-binary         output in binary form
+-sign   file    sign digest using private key in file
+-verify file    verify a signature using public key in file
+-prverify file  verify a signature using private key in file
+-keyform arg    key file format (PEM or ENGINE)
+-signature file signature to verify
+-binary         output in binary form
+-hmac key       create hashed MAC with key
+-engine e       use engine e, possibly a hardware device.
+-md5            to use the md5 message digest algorithm (default)
+-md4            to use the md4 message digest algorithm
+-md2            to use the md2 message digest algorithm
+-sha1           to use the sha1 message digest algorithm
+-sha            to use the sha message digest algorithm
+-sha224         to use the sha224 message digest algorithm
+-sha256         to use the sha256 message digest algorithm
+-sha384         to use the sha384 message digest algorithm
+-sha512         to use the sha512 message digest algorithm
+-mdc2           to use the mdc2 message digest algorithm
+-ripemd160      to use the ripemd160 message digest algorithm
+
+ 
+# 查看密钥文件中内容
+openssl rsa -inform PEM -in test.key -text
+
+# 查看密钥文件是否正确
+openssl rsa -inform PEM -in test.key -check
+
+# 使用私钥给hello文件进行签名，生成签名文件hello.sig
+openssl dgst -sha256 -out hello.sig -sign test.key -keyform PEM hello 
+
+# 使用公钥校验hello.sig文件是否与hello文件内容相同，结果只会返回Verified OK或Verification Failure
+openssl dgst -sha256 -keyform PEM -verify test_pub.key -signature hello.sig hello
+
+# 可以看到恢复数据的输出，不过输出的是经过sha256哈希过的
+openssl rsautl -in hello.sig -inkey test_pub.key -pubin -verify -hexdump
+
