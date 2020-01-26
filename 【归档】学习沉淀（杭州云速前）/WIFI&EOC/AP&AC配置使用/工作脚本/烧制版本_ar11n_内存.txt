@@ -1,0 +1,36 @@
+----------------------------在内存中烧制ar11n版本---------------------
+set tftpserver 192.168.6.22
+set serverip 192.168.6.22
+set ipaddr 192.168.6.100
+
+tftpboot 0x2000000 vmlinux64.img; bootm 0x2000000
+
+set tftpserver 192.168.100.111
+set serverip 192.168.100.111
+set ipaddr 192.168.100.100
+
+tftpboot 0xa000000 vmlinux64.img; bootm 0xa000000
+
+
+tftpboot 0xa000000 AQWAREnv1.3.14.1.bin; bootm 0xa000000    //AQ2110-N
+
+tftpboot 0x2000000 AQWAREnv1.3.14.1.bin; bootm 0x2000000    //AQ2110-H
+
+在PC上启动tftp server.准备为DUT 下载版本。在Cavium ART目录下有这样一个文件cavium_art_11n.img，在DUT 的串口上执行如下命令：
+tftpboot 0xa000000 cavium_art_11n.img; bootm 0xa000000
+如果是降成本设备，请输入如下命令：
+tftpboot 0x2000000 cavium_art_11n.img; bootm 0x2000000 productplatform=apv14
+如果是ap_v3，请输入如下命令：
+tftpboot 0x2000000 cavium_art_11n.img; bootm 0x2000000 productplatform=apv3
+
+
+------------------------在内存中烧制ar11n版本 设置平台与网口网速----------------
+set tftpserver 192.168.100.111
+set serverip 192.168.100.111
+set ipaddr 192.168.100.100
+
+tftpboot 0x2000000 vmlinux64.img; bootm 0x2000000 productplatform=apv14 ethspd=1000
+
+
+------------------------------------------------------------
+make BOARD_TYPE=db12x BUILD_TYPE=jffs2 ETH_CONFIG=_s17

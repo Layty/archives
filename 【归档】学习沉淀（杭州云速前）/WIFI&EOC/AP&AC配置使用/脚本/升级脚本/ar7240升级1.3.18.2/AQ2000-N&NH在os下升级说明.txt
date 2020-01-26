@@ -1,0 +1,5 @@
+OS命令行下升级方式：
+ap93_upgrade  version.image      //version.image为升级包
+
+双系统同步方式：
+sync_version next //表示将正在执行的kernel同步到另一个kernel上

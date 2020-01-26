@@ -1,0 +1,32 @@
+-----------------------------------创建11a-----------------------
+wlanconfig ath create wlandev wifi0 wlanmode ap
+iwpriv ath0 mode 11nght40plus
+iwconfig ath0 essid pengruofeng
+iwconfig ath0 channel 1
+brctl addif default ath0
+ifconfig ath0 up
+
+-------------------------ar11n设置11n相关参数-------------
+iwpriv ath0 extoffset 1
+iwpriv ath0 cwmmode 2
+iwpriv ath0 chextoffset 1
+iwpriv ath0 get_chextoffset
+iwpriv ath0 chwidth 2
+iwpriv ath0 get_chwidth
+iwpriv ath0 cwmenable 0
+iwpriv ath0 get_cwmenable
+
+--------------------改换信道----------------
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11a
+iwconfig ath0 channel 36
+ifconfig ath0 up
+
+
+---------------改换模式-------------------
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11naht40plus
+iwconfig ath0 channel 149
+ifconfig ath0 up

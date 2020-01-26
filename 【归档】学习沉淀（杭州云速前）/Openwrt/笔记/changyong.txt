@@ -1,0 +1,16 @@
+Ô¶³Ì×¥°ü×ÀÃæ 10.0.9.86 linktrust linktrust112233
+
+filter('802.11 Data')  & filter('ICMP') 
+
+30-14-4a-4b-33-87	V2		1234567890
+30:14:4A:4B:33:9F	V2-openwrt	1234567890
+68-a3-c4-1b-26-3d	V2-openwrt-pc	1234567890
+2c-b0-5d-3f-1f-97	NETGEAR87	fancyrabbit434
+
+2e:b0:5d:3f:1f:98	NETGEAR-GUEST
+30:14:4A:4B:33:70	V2-E-pengrf
+
+Ñ¸½ÝÍø¿¨£º40-16-9f-1c-31-04
+netgearÍø¿¨£º e0:91:f5:59:90:97
+
+route add 10.0.9.0 mask 255.255.255.0 10.0.3.254 IF 13

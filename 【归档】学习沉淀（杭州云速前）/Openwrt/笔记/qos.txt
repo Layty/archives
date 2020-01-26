@@ -1,0 +1,57 @@
+cd /home/zhangchao/kernel/compat-wireless-2012-02-06
+make KLIB=/home/zhangchao/kernel/linux-2.6.24 KLIB_BUILD=/home/zhangchao/kernel/linux-2.6.24
+
+cd /home/zhangchao/kernel/compat-wireless-2012-02-06/drivers/net/wireless/ath/ath9k
+scp ath9k.ko root@10.0.3.113:/root
+
+ifconfig br0 10.0.3.110
+scp 10.0.3.113:/root/ath9k.ko .
+
+insmod ath9k.kohostapd -B hostapd-mini.conf
+
+ifconfig br0 192.168.1.1
+brctl addif br0 wlan0
+
+rmmod ath9k
+
+
+/* These must match mac80211 skb queue mapping numbers */
+#define WME_AC_VO   0
+#define WME_AC_VI   1
+#define WME_AC_BE   2
+#define WME_AC_BK   3
+#define WME_NUM_AC  4
+
+#define TID_TO_WME_AC(_tid)				\
+	((((_tid) == 0) || ((_tid) == 3)) ? WME_AC_BE :	\
+	 (((_tid) == 1) || ((_tid) == 2)) ? WME_AC_BK :	\
+	 (((_tid) == 4) || ((_tid) == 5)) ? WME_AC_VI :	\
+	 WME_AC_VO)
+	 node init,ac->txq[0]:f771d8c0
+node init,ac->txq[1]:f771d8dc
+node init,ac->txq[2]:f771d8f8
+node init,ac->txq[3]:f771d914
+
+skb_get_queue_mapping:0
+sc->tx.txqmap[0]:f76aa1f4
+sc->tx.txqmap[1]:f76aa278
+sc->tx.txqmap[2]:f76aa2fc
+sc->tx.txqmap[3]:f76aa380
+skb's tindno:0
+an's tid[0] to ac:f771d340
+an's tid[1] to ac:f771d398
+an's tid[2] to ac:f771d3f0
+an's tid[3] to ac:f771d448
+an's tid[4] to ac:f771d4a0
+an's tid[5] to ac:f771d4f8
+an's tid[6] to ac:f771d550
+an's tid[7] to ac:f771d5a8
+an's tid[8] to ac:f771d600
+an's tid[9] to ac:f771d658
+an's tid[10] to ac:f771d6b0
+an's tid[11] to ac:f771d708
+an's tid[12] to ac:f771d760
+an's tid[13] to ac:f771d7b8
+an's tid[14] to ac:f771d810
+an's tid[15] to ac:f771d868
+tid->ac-txq:f76aa2fc,txq:f76aa1f4

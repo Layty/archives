@@ -1,0 +1,581 @@
+/*[一下大部分函数在recv.c中，在文件夹ath/ath9k下，属于ath层面]*/
+
+int ath_rx_tasklet(struct ath_softc *sc, int flush, bool hp)
+{
+/*[整个流程为软中断tasklet触发]*/
+	struct ath_buf *bf;
+	struct sk_buff *skb = NULL, *requeue_skb, *hdr_skb;
+	struct ieee80211_rx_status *rxs;
+	struct ath_hw *ah = sc->sc_ah;
+	struct ath_common *common = ath9k_hw_common(ah);
+	struct ieee80211_hw *hw = sc->hw;
+	struct ieee80211_hdr *hdr;
+	int retval;
+	bool decrypt_error = false;
+	struct ath_rx_status rs;
+	enum ath9k_rx_qtype qtype;
+	bool edma = !!(ah->caps.hw_caps & ATH9K_HW_CAP_EDMA);
+	int dma_type;
+	u8 rx_status_len = ah->caps.rx_status_len;
+	u64 tsf = 0;
+	u32 tsf_lower = 0;
+	unsigned long flags;
+
+	if (edma)
+		dma_type = DMA_BIDIRECTIONAL;
+	else
+		dma_type = DMA_FROM_DEVICE;
+
+	qtype = hp ? ATH9K_RX_QUEUE_HP : ATH9K_RX_QUEUE_LP;
+	/*[接收包的队列只有两种，一种为高优先级，一种为低优先级]*/
+	spin_lock_bh(&sc->rx.rxbuflock);
+	/*[整个收包处理过程在自旋锁的保护下，并且为禁止下半部中断-这段代码只能在一个cpu上运行，除非是硬中断抢占]*/
+
+	tsf = ath9k_hw_gettsf64(ah);
+	tsf_lower = tsf & 0xffffffff;
+
+	do {
+	/*[如果遇到下列情况之一将会退出循环，1.要求清除所有接收包且flush=0；2.bf为空]*/
+		/* If handling rx interrupt and flush is in progress => exit */
+		if ((sc->sc_flags & SC_OP_RXFLUSH) && (flush == 0))
+			break;
+
+		memset(&rs, 0, sizeof(rs));
+		if (edma)
+			bf = ath_edma_get_next_rx_buf(sc, &rs, qtype);
+		else
+			bf = ath_get_next_rx_buf(sc, &rs);
+		/*[取出待处理的bf结构，里面包含skb数据，同时还返回了收包描述符映射的rs信息]*/
+
+		if (!bf)
+			break;
+
+		skb = bf->bf_mpdu;
+		/*[取出bf中的skb数据]*/
+		if (!skb)
+			continue;
+
+		/*
+		 * Take frame header from the first fragment and RX status from
+		 * the last one.
+		 */
+		if (sc->rx.frag)
+			hdr_skb = sc->rx.frag;
+		else
+			hdr_skb = skb;
+
+		hdr = (struct ieee80211_hdr *) (hdr_skb->data + rx_status_len);
+		rxs = IEEE80211_SKB_RXCB(hdr_skb);
+		if (ieee80211_is_beacon(hdr->frame_control) &&
+		    !is_zero_ether_addr(common->curbssid) &&
+		    !compare_ether_addr(hdr->addr3, common->curbssid))
+			rs.is_mybeacon = true;
+		else
+			rs.is_mybeacon = false;
+
+		ath_debug_stat_rx(sc, &rs);
+
+		/*
+		 * If we're asked to flush receive queue, directly
+		 * chain it back at the queue without processing it.
+		 */
+		if (sc->sc_flags & SC_OP_RXFLUSH)
+		/*[被要求清除所有接收包队列，则调用丢包流程]*/
+			goto requeue_drop_frag;
+
+		rxs->mactime = (tsf & ~0xffffffffULL) | rs.rs_tstamp;
+		if (rs.rs_tstamp > tsf_lower &&
+		    unlikely(rs.rs_tstamp - tsf_lower > 0x10000000))
+			rxs->mactime -= 0x100000000ULL;
+
+		if (rs.rs_tstamp < tsf_lower &&
+		    unlikely(tsf_lower - rs.rs_tstamp > 0x10000000))
+			rxs->mactime += 0x100000000ULL;
+		/*[rxs->mactime为u64，rs.rs_tstamp为u32]*/
+		
+		retval = ath9k_rx_skb_preprocess(common, hw, hdr, &rs,
+						 rxs, &decrypt_error);
+		/*[rate,rssi]*/
+		
+		if (retval)
+			goto requeue_drop_frag;
+
+		/* Ensure we always have an skb to requeue once we are done
+		 * processing the current buffer's skb */
+		requeue_skb = ath_rxbuf_alloc(common, common->rx_bufsize, GFP_ATOMIC);
+	
+		/* If there is no memory we ignore the current RX'd frame,
+		 * tell hardware it can give us a new frame using the old
+		 * skb and put it at the tail of the sc->rx.rxbuf list for
+		 * processing. */
+		if (!requeue_skb)
+			goto requeue_drop_frag;
+				
+		/* Unmap the frame */
+		dma_unmap_single(sc->dev, bf->bf_buf_addr,
+				 common->rx_bufsize,
+				 dma_type);
+				 
+		skb_put(skb, rs.rs_datalen + ah->caps.rx_status_len);
+		if (ah->caps.rx_status_len)
+			skb_pull(skb, ah->caps.rx_status_len);
+
+		if (!rs.rs_more)
+			ath9k_rx_skb_postprocess(common, hdr_skb, &rs,
+						 rxs, decrypt_error);
+
+		/* We will now give hardware our shiny new allocated skb */
+		bf->bf_mpdu = requeue_skb;
+		bf->bf_buf_addr = dma_map_single(sc->dev, requeue_skb->data,
+						 common->rx_bufsize,
+						 dma_type);
+		/*[通常来说，含有数据的skb会被消耗掉，skb的数据区域bf->bf_buf_addr也会被解除dma映射，这时将要重新分配一个skb结构requeue_skb，然后将其数据区域
+		（common->rx_bufsize为收包描述符+mpdu（即帧数据）之和）变成成dma映射。但如果分配requeue_skb失败的话，那么将会放弃处理此skb包数据（等于说是如果内存不够，
+		不足以分配skb包的话，那么收包将会终止），然后再将其bf送回到rx_edma->rx_buffers以便这个skb可以重新使用。
+		注意：skb是可消耗品，但bf不是消耗品，接收描述符通常在收包数据前端，有些驱动描述符也会专门分配一个环形描述符缓冲区，aquila中这个描述符结构是被收包数据前端
+		接受描述符赋值而来]*/
+		
+		if (unlikely(dma_mapping_error(sc->dev,
+			  bf->bf_buf_addr))) {
+			dev_kfree_skb_any(requeue_skb);
+			bf->bf_mpdu = NULL;
+			bf->bf_buf_addr = 0;
+			ath_err(common, "dma_mapping_error() on RX\n");
+			ieee80211_rx(hw, skb);
+			break;
+		}
+		/*[requeue_skb的dma映射失败的话，skb包将会继续出来，但bf->bf_mpdu（即skb）将会置成null，bf->bf_buf_addr（即用于dma的数据物理地址）也将会置成0。这个错误
+		是非常严重的，因为它将完全把一个bf置成一个废物，如果有大量此类错误连续发生，bf变少，收包将会变得不可用。]*/
+
+		if (rs.rs_more) {
+			/*
+			 * rs_more indicates chained descriptors which can be
+			 * used to link buffers together for a sort of
+			 * scatter-gather operation.
+			 */
+			if (sc->rx.frag) {
+				/* too many fragments - cannot handle frame */
+				dev_kfree_skb_any(sc->rx.frag);
+				dev_kfree_skb_any(skb);
+				skb = NULL;
+			}
+			sc->rx.frag = skb;
+			goto requeue;
+		}
+
+		if (sc->rx.frag) {
+			int space = skb->len - skb_tailroom(hdr_skb);
+
+			sc->rx.frag = NULL;
+
+			if (pskb_expand_head(hdr_skb, 0, space, GFP_ATOMIC) < 0) {
+				dev_kfree_skb(skb);
+				goto requeue_drop_frag;
+			}
+
+			skb_copy_from_linear_data(skb, skb_put(hdr_skb, skb->len),
+						  skb->len);
+			dev_kfree_skb_any(skb);
+			skb = hdr_skb;
+		}
+
+
+		if (ah->caps.hw_caps & ATH9K_HW_CAP_ANT_DIV_COMB) {
+
+			/*
+			 * change the default rx antenna if rx diversity
+			 * chooses the other antenna 3 times in a row.
+			 */
+			if (sc->rx.defant != rs.rs_antenna) {
+				if (++sc->rx.rxotherant >= 3)
+					ath_setdefantenna(sc, rs.rs_antenna);
+			} else {
+				sc->rx.rxotherant = 0;
+			}
+
+		}
+
+		if (rxs->flag & RX_FLAG_MMIC_STRIPPED)
+			skb_trim(skb, skb->len - 8);
+
+		spin_lock_irqsave(&sc->sc_pm_lock, flags);
+
+		if ((sc->ps_flags & (PS_WAIT_FOR_BEACON |
+				     PS_WAIT_FOR_CAB |
+				     PS_WAIT_FOR_PSPOLL_DATA)) ||
+		    ath9k_check_auto_sleep(sc))
+			ath_rx_ps(sc, skb, rs.is_mybeacon);
+		spin_unlock_irqrestore(&sc->sc_pm_lock, flags);
+
+		if ((ah->caps.hw_caps & ATH9K_HW_CAP_ANT_DIV_COMB) && sc->ant_rx == 3)
+			ath_ant_comb_scan(sc, &rs);
+
+		ieee80211_rx(hw, skb);
+		/*[进入mac80211层的收包流程]*/
+		
+requeue_drop_frag:
+		if (sc->rx.frag) {
+			dev_kfree_skb_any(sc->rx.frag);
+			sc->rx.frag = NULL;
+		}
+requeue:
+		if (edma) {
+			list_add_tail(&bf->list, &sc->rx.rxbuf);
+			ath_rx_edma_buf_link(sc, qtype);
+		} else {
+			list_move_tail(&bf->list, &sc->rx.rxbuf);
+			ath_rx_buf_link(sc, bf);
+			if (!flush)
+				ath9k_hw_rxena(ah);
+		}
+		/*[无论是丢弃流程还是已经接收完毕流程，bf都将会进入sc->rx.rxbuf以便重新利用，只不过接收完毕的流程bf中的skb是重新构造的，而丢弃流程skb将会重新利用]*/
+	} while (1);
+
+	spin_unlock_bh(&sc->rx.rxbuflock);
+
+	if (!(ah->imask & ATH9K_INT_RXEOL)) {
+		ah->imask |= (ATH9K_INT_RXEOL | ATH9K_INT_RXORN);
+		ath9k_hw_set_interrupts(ah);
+	}
+
+	return 0;
+}
+
+static struct ath_buf *ath_edma_get_next_rx_buf(struct ath_softc *sc,
+						struct ath_rx_status *rs,
+						enum ath9k_rx_qtype qtype)
+{
+	struct ath_rx_edma *rx_edma = &sc->rx.rx_edma/*[qtype]*/;
+	struct sk_buff *skb;
+	struct ath_buf *bf;
+
+	while (ath_edma_get_buffers(sc, qtype));
+	skb = __skb_dequeue(&rx_edma->rx_buffers);
+	/*[经过ath_edma_get_buffers函数后，包已经映射到dma缓冲区，存入rx_edma->rx_buffers中，从rx_edma->rx_buffers取出skb]*/
+	if (!skb)
+		return NULL;
+
+	bf = SKB_CB_ATHBUF(skb);
+	ath9k_hw_process_rxdesc_edma(sc->sc_ah, rs, skb->data);
+	/*[这里调用ath9k_hw_process_rxdesc_edma函数要区别ath_edma_get_buffers中调用ath9k_hw_process_rxdesc_edma，在ath_edma_get_buffers中只会走rxs==null那里面的流程，
+	区别在于ath_edma_get_buffers感兴趣在是否可以使用这个描述符，但不会实际处理它。而这里是已经知道可以使用，需要去处理这个描述符，将信息存入rs/*[ath_rx_status]*/中。]*/
+	return bf;
+}
+/*[这个函数主要用于返回需要处理的bf，这些bf中的数据都是映射到dma缓冲区完毕的]*/
+
+static bool ath_edma_get_buffers(struct ath_softc *sc,
+				 enum ath9k_rx_qtype qtype)
+{
+	struct ath_rx_edma *rx_edma = &sc->rx.rx_edma/*[qtype]*/;
+	struct ath_hw *ah = sc->sc_ah;
+	struct ath_common *common = ath9k_hw_common(ah);
+	struct sk_buff *skb;
+	struct ath_buf *bf;
+	int ret;
+
+	skb = skb_peek(&rx_edma->rx_fifo);
+	/*[从rx_edma->rx_fifo取出可用skb]*/
+	if (!skb)
+		return false;
+
+	bf = SKB_CB_ATHBUF(skb);
+	BUG_ON(!bf);
+
+	dma_sync_single_for_cpu(sc->dev, bf->bf_buf_addr,
+				common->rx_bufsize, DMA_FROM_DEVICE);
+	/*[同步dma数据，接收网卡数据，首先for_cpu是将dma控制权交给cpu，DMA_FROM_DEVICE是将dma缓冲区的内容从设备同步刷新过来。
+	注意数据大小为common->rx_bufsize，则意味着整个收包描述符+mpdu（即帧数据）之和]*/
+	ret = ath9k_hw_process_rxdesc_edma(ah, NULL, skb->data);
+	/*[处理收包描述符]*/
+	if (ret == -EINPROGRESS) {
+		/*let device gain the buffer again*/
+		dma_sync_single_for_device(sc->dev, bf->bf_buf_addr,
+				common->rx_bufsize, DMA_FROM_DEVICE);
+		/*[如果发现数据状态是-EINPROGRESS，可能意味着正在处理的意思，则再将bf->bf_buf_addr代表的网络数据再次刷新并将控制权还给设备，
+		首先for_device将dma控制权交给设备，使用DMA_FROM_DEVICE是将dma缓冲区的内容从设备同步刷新过来。
+		注意数据大小为common->rx_bufsize]*/
+		return false;
+	}
+
+	__skb_unlink(skb, &rx_edma->rx_fifo);
+	/*[将skb从rx_edma->rx_fifo链中脱离出来]*/
+	if (ret == -EINVAL) {
+		/* corrupt descriptor, skip this one and the following one */
+		/*[如果发现描述符是无效的，list_add_tail将bf重新加入到sc->rx.rxbuf，然后ath_rx_edma_buf_link会将sc->rx.rxbuf重置，
+		为什么要处理两个skb，难道一个描述符管理两个skb？]*/
+		list_add_tail(&bf->list, &sc->rx.rxbuf);
+		ath_rx_edma_buf_link(sc, qtype);
+		skb = skb_peek(&rx_edma->rx_fifo);
+		if (!skb)
+			return true;
+
+		bf = SKB_CB_ATHBUF(skb);
+		BUG_ON(!bf);
+
+		__skb_unlink(skb, &rx_edma->rx_fifo);
+		list_add_tail(&bf->list, &sc->rx.rxbuf);
+		ath_rx_edma_buf_link(sc, qtype);
+		return true;
+	}
+	skb_queue_tail(&rx_edma->rx_buffers, skb);
+	/*[将描述符正常的skb放入rx_edma->rx_buffers待进一步处理]*/
+
+	return true;
+}
+/*[这个函数中可以学到rx_edma->rx_fifo与rx_edma->rx_buffers存放这都是skb结构，其中rx_edma->rx_fifo是设备可用的skb，数据还没有从设备传输到dma缓冲区，
+而rx_edma->rx_buffers则是数据已经从设备传输到dma缓冲区，可以进一步处理了。
+对于错误的描述符包，重新放入sc->rx.rxbuf，rx.rxbuf应该代表处理过的包，需要将重新置位然后放入到rx_edma->rx_fifo以便设备继续使用]*/
+
+static bool ath_rx_edma_buf_link(struct ath_softc *sc,
+				 enum ath9k_rx_qtype qtype)
+{
+	struct ath_hw *ah = sc->sc_ah;
+	struct ath_rx_edma *rx_edma;
+	struct sk_buff *skb;
+	struct ath_buf *bf;
+
+	rx_edma = &sc->rx.rx_edma/*[qtype]*/;
+	if (skb_queue_len(&rx_edma->rx_fifo) >= rx_edma->rx_fifo_hwsize)
+		return false;
+
+	bf = list_first_entry(&sc->rx.rxbuf, struct ath_buf, list);
+	list_del_init(&bf->list);
+	/*[将用完的ath_buf从sc->rx.rxbuf中取出]*/
+	
+	skb = bf->bf_mpdu;
+	/*[将skb从bf->bf_mpdu中取出，这里的skb有两种情况：1、如果数据已经成功提交给上层，这个skb就是重新分配过的；2、如果是失败丢包流程，这个skb还是老的skb。]*/
+	
+	ATH_RXBUF_RESET(bf);
+	/*[设置bf状态位可以非陈旧的，即可以准备放入rx_edma->rx_fifo以便设备继续使用]*/
+	memset(skb->data, 0, ah->caps.rx_status_len);
+	dma_sync_single_for_device(sc->dev, bf->bf_buf_addr,
+				ah->caps.rx_status_len, DMA_TO_DEVICE);
+	/*[将skb中描述符部分的内存清0，然后刷新cache到dma缓冲区并将控制权提交给设备，
+	首先for_device是将dma控制权交给设备，然后DMA_TO_DEVICE是刷新cache到dma缓冲区
+	注意数据大小为ah->caps.rx_status_len，即对描述符进行刷新，因为前面对描述符进行了清0操作]*/
+
+	SKB_CB_ATHBUF(skb) = bf;
+	/*[如果是上述情况1的成功流程，skb的cb为null，必须让bf赋值]*/
+	ath9k_hw_addrxbuf_edma(ah, bf->bf_buf_addr, qtype);
+	/*[将bf->bf_buf_addr为数据的物理地址设置到寄存器中，这是表示该地址可以收包的最后一步，但实现机制不祥。
+	但可以知道的是只要进过这一步，dma就可以将收包自动传输到该地址的内存上，
+	只有进过这步，才有资格将skb放入rx_edma->rx_fifo中，因为去接收包是是直接找rx_edma->rx_fifo的]*/
+	skb_queue_tail(&rx_edma->rx_fifo, skb);
+	/*[将重置好的skb放入rx_edma->rx_fifo中]*/
+
+	return true;
+}
+
+/*[以下大部分函数在rx.c中，在文件夹net/mac80211下，属于mac80211层面]*/
+
+/*
+ * This is the receive path handler. It is called by a low level driver when an
+ * 802.11 MPDU is received from the hardware.
+ */
+void ieee80211_rx(struct ieee80211_hw *hw, struct sk_buff *skb)
+{
+	struct ieee80211_local *local = hw_to_local(hw);
+	struct ieee80211_rate *rate = NULL;
+	struct ieee80211_supported_band *sband;
+	struct ieee80211_rx_status *status = IEEE80211_SKB_RXCB(skb);
+
+	WARN_ON_ONCE(softirq_count() == 0);
+
+	if (WARN_ON(status->band < 0 ||
+		    status->band >= IEEE80211_NUM_BANDS))
+		goto drop;
+
+	sband = local->hw.wiphy->bands/*[status->band]*/;
+	/*[hw为mac80211结构，wiphy为cfg80211结果，openwrt这套软件体系中，底层用到上层结构变量的情况很多，上层主动用到底层的却不多见]*/
+	if (WARN_ON(!sband))
+		goto drop;
+
+	/*
+	 * If we're suspending, it is possible although not too likely
+	 * that we'd be receiving frames after having already partially
+	 * quiesced the stack. We can't process such frames then since
+	 * that might, for example, cause stations to be added or other
+	 * driver callbacks be invoked.
+	 */
+	if (unlikely(local->quiescing || local->suspended))
+		goto drop;
+
+	/*
+	 * The same happens when we're not even started,
+	 * but that's worth a warning.
+	 */
+	if (WARN_ON(!local->started))
+		goto drop;
+
+	if (likely(!(status->flag & RX_FLAG_FAILED_PLCP_CRC))) {
+		/*
+		 * Validate the rate, unless a PLCP error means that
+		 * we probably can't have a valid rate here anyway.
+		 */
+
+		if (status->flag & RX_FLAG_HT) {
+			/*
+			 * rate_idx is MCS index, which can be /*[0-76]*/
+			 * as documented on:
+			 *
+			 * http://wireless.kernel.org/en/developers/Documentation/ieee80211/802.11n
+			 *
+			 * Anything else would be some sort of driver or
+			 * hardware error. The driver should catch hardware
+			 * errors.
+			 */
+			if (WARN((status->rate_idx < 0 ||
+				 status->rate_idx > 76),
+				 "Rate marked as an HT rate but passed "
+				 "status->rate_idx is not "
+				 "an MCS index /*[0-76]*/: %d (0x%02x)\n",
+				 status->rate_idx,
+				 status->rate_idx))
+				goto drop;
+		} else {
+			if (WARN_ON(status->rate_idx < 0 ||
+				    status->rate_idx >= sband->n_bitrates))
+				goto drop;
+			rate = &sband->bitrates/*[status->rate_idx]*/;
+		}
+	}
+
+	status->rx_flags = 0;
+
+	/*
+	 * key references and virtual interfaces are protected using RCU
+	 * and this requires that we are in a read-side RCU section during
+	 * receive processing
+	 */
+	rcu_read_lock();
+
+	/*
+	 * Frames with failed FCS/PLCP checksum are not returned,
+	 * all other frames are returned without radiotap header
+	 * if it was previously present.
+	 * Also, frames with less than 16 bytes are dropped.
+	 */
+	skb = ieee80211_rx_monitor(local, skb, rate);
+	/*[如果开启了monitor模式的接口，接收的数据包将分发到每个monitor模式的接口]*/
+	if (!skb) {
+		rcu_read_unlock();
+		return;
+	}
+
+	ieee80211_tpt_led_trig_rx(local,
+			((struct ieee80211_hdr *)skb->data)->frame_control,
+			skb->len);
+	__ieee80211_rx_handle_packet(hw, skb);
+
+	rcu_read_unlock();
+
+	return;
+ drop:
+	kfree_skb(skb);
+}
+/*[ieee80211_rx为收包流程中，ath到mac80211的接口，在ath层中的ath_rx_tasklet函数中被调用。注意下函数参数换成了hw，这是mac80211层的主要结构]*/
+
+static void ieee80211_rx_handlers_result(struct ieee80211_rx_data *rx,
+					 ieee80211_rx_result res)
+{
+	switch (res) {
+	case RX_DROP_MONITOR:
+		I802_DEBUG_INC(rx->sdata->local->rx_handlers_drop);
+		if (rx->sta)
+			rx->sta->rx_dropped++;
+		/* fall through */
+	case RX_CONTINUE: {
+		struct ieee80211_rate *rate = NULL;
+		struct ieee80211_supported_band *sband;
+		struct ieee80211_rx_status *status;
+
+		status = IEEE80211_SKB_RXCB((rx->skb));
+
+		sband = rx->local->hw.wiphy->bands/*[status->band]*/;
+		if (!(status->flag & RX_FLAG_HT))
+			rate = &sband->bitrates/*[status->rate_idx]*/;
+
+		ieee80211_rx_cooked_monitor(rx, rate);
+		break;
+		}
+	case RX_DROP_UNUSABLE:
+		I802_DEBUG_INC(rx->sdata->local->rx_handlers_drop);
+		if (rx->sta)
+			rx->sta->rx_dropped++;
+		dev_kfree_skb(rx->skb);
+		break;
+	case RX_QUEUED:
+		I802_DEBUG_INC(rx->sdata->local->rx_handlers_queued);
+		break;
+	}
+}
+
+static void ieee80211_rx_handlers(struct ieee80211_rx_data *rx)
+{
+	ieee80211_rx_result res = RX_DROP_MONITOR;
+	struct sk_buff *skb;
+
+#define CALL_RXH(rxh)			\
+	do {				\
+		res = rxh(rx);		\
+		if (res != RX_CONTINUE)	\
+			goto rxh_next;  \
+	} while (0);
+
+	spin_lock(&rx->local->rx_skb_queue.lock);
+	if (rx->local->running_rx_handler)
+		goto unlock;
+
+	rx->local->running_rx_handler = true;
+
+	while ((skb = __skb_dequeue(&rx->local->rx_skb_queue))) {
+		spin_unlock(&rx->local->rx_skb_queue.lock);
+
+		/*
+		 * all the other fields are valid across frames
+		 * that belong to an aMPDU since they are on the
+		 * same TID from the same station
+		 */
+		rx->skb = skb;
+
+		CALL_RXH(ieee80211_rx_h_decrypt)
+		/*[数据包解密流程]*/
+		CALL_RXH(ieee80211_rx_h_check_more_data)
+		CALL_RXH(ieee80211_rx_h_uapsd_and_pspoll)
+		CALL_RXH(ieee80211_rx_h_sta_process)
+		CALL_RXH(ieee80211_rx_h_defragment)
+		/*[处理数据包帧分片流程]*/
+		CALL_RXH(ieee80211_rx_h_michael_mic_verify)
+		/* must be after MMIC verify so header is counted in MPDU mic */
+#ifdef CONFIG_MAC80211_MESH
+		if (ieee80211_vif_is_mesh(&rx->sdata->vif))
+			CALL_RXH(ieee80211_rx_h_mesh_fwding);
+#endif
+		CALL_RXH(ieee80211_rx_h_amsdu)
+		/*[处理amsdu数据包]*/
+		CALL_RXH(ieee80211_rx_h_data)
+		/*[处理数据帧，会先转化成802.3帧然后送到内核协议栈]*/
+		CALL_RXH(ieee80211_rx_h_ctrl)
+		/*[控制帧只会处理很小一部分]*/
+		CALL_RXH(ieee80211_rx_h_mgmt_check)
+		CALL_RXH(ieee80211_rx_h_action)
+		/*[处理action帧]*/
+		CALL_RXH(ieee80211_rx_h_userspace_mgmt)
+		/*[在ap模式下时，将管理帧上传到cfg80211，再到hostapd中做处理；这里设计的很巧妙，这里将管理帧传上去并不是通过一般情况下的那种二层raw sock，而是一种全新的模式，
+		通过nl80211层，以传参数的方式传入应用层再到hostapd，这中特别的方式成为nl80211。所以我们可以看到在hostapd配置的时候，driver一栏写的是nl80211。]*/
+		CALL_RXH(ieee80211_rx_h_action_return)
+		CALL_RXH(ieee80211_rx_h_mgmt)
+		/*[非ap模式下的管理帧处理]*/
+
+ rxh_next:
+		ieee80211_rx_handlers_result(rx, res);
+		spin_lock(&rx->local->rx_skb_queue.lock);
+#undef CALL_RXH
+	}
+
+	rx->local->running_rx_handler = false;
+
+ unlock:
+	spin_unlock(&rx->local->rx_skb_queue.lock);
+}
+/*[这个函数中包含了绝大多数包的处理流程]*/

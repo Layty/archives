@@ -1,0 +1,41 @@
+---------------这段代码是ar11n中分配管理帧的skb的函数，虽然是管理帧，但对80211帧skb分配很有借鉴意义------
+struct sk_buff *
+    ieee80211_getmgtframe(u_int8_t **frm, u_int pktlen)
+{
+    const u_int align = sizeof(u_int32_t);
+    struct ieee80211_cb *cb;
+    struct sk_buff *skb;
+    u_int len;
+
+    len = roundup(sizeof(struct ieee80211_frame) + pktlen, 4);
+    skb = dev_alloc_skb(len + align-1);
+    if (skb != NULL)
+    {
+        u_int off = ((unsigned long) skb->data) % align;
+        if (off != 0)
+            skb_reserve(skb, align - off);
+
+        cb = (
+        struct ieee80211_cb *)skb->cb;
+        cb->ni = NULL;
+        cb->flags = 0;
+
+        skb_reserve(skb, sizeof(struct ieee80211_frame));
+        *frm = skb_put(skb, pktlen);
+    }
+    return skb;
+}
+
+第2行：返回分配后skb的指针
+第3行：传入frm以*frm返回回去了，最后代表skb->tail移动前的位置，但其实就是skb->data的位置，pktlen是除去80211帧头的最大长度分配缓冲区
+第10行：整个帧的长度调整为以4字节对齐
+第11行：dev_alloc_skb会进行两次内存分配，一次是分配skb本身这个结构，固定大小；一次是分别skb指向的buffer缓存区。在分配缓存区是会再多分配个skb_shared_info结构的大小。
+第12~16行：还是会担心被分配的首地址本身没有对齐4字节的大小，所以在11行多分配了align-1的大小以方便后面对齐，然后14~16行判断是否对齐了4字节的大小，没有的话就，空出多于部分，让skb->data对齐即可，skb->head无所谓。
+第23行：保留ieee80211_frame帧头的大小。
+第24行：在末尾加入除去80211帧头最大长度大小区域。
+
+其他函数注解
+dev_alloc_skb：分配了两个结构大小，初始化skb->len为0，skb->head、skb->data、skb->tail都指向缓存区首地址，skb->end指向缓存区末地址。
+在分配缓存区时，dev_alloc_skb也会对齐缓存区的size和skb首地址对齐，但这是他默认的对齐，因此有必要在外层加上以自己的对齐方式较为稳妥。
+skb_reserve：让skb->data，skb->tail向后移动len的大小，skb->len大小不变。
+skb_put：skb->tail向后移动len的大小，skb->len大小增加len。

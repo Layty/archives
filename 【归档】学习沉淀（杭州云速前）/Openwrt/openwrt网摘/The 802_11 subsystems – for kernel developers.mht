@@ -1,0 +1,1420 @@
+From: =?utf-8?Q?=E7=94=B1_Windows_Internet_Explorer_8_=E4=BF=9D=E5=AD=98?=
+Subject: =?utf-8?Q?The_802.11_subsystems_=E2=80=93_for_kern?=
+	=?utf-8?Q?el_developers?=
+Date: Mon, 20 Feb 2012 17:58:00 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://linuxwireless.org/80211books/index.html
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7600.16807
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>The 802.11 =
+subsystems =E2=80=93 for kernel developers</TITLE>
+<META content=3D"text/html; charset=3DUTF-8" http-equiv=3DContent-Type>
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7600.16912"><LINK=20
+title=3D"The 802.11 subsystems =E2=80=93 for kernel developers" =
+rel=3Dhome=20
+href=3D"index.html"><LINK title=3D"The cfg80211 subsystem" rel=3Dnext=20
+href=3D"cfg80211-developers-guide.html"></HEAD>
+<BODY>
+<DIV class=3Dnavheader>
+<TABLE summary=3D"Navigation header" width=3D"100%">
+  <TBODY>
+  <TR>
+    <TH colSpan=3D3 align=3Dmiddle>The 802.11 subsystems =E2=80=93 for =
+kernel=20
+  developers</TH></TR>
+  <TR>
+    <TD width=3D"20%" align=3Dleft>&nbsp;</TD>
+    <TH width=3D"60%" align=3Dmiddle>&nbsp;</TH>
+    <TD width=3D"20%" align=3Dright>&nbsp;<A accessKey=3Dn=20
+      =
+href=3D"http://linuxwireless.org/80211books/cfg80211-developers-guide.htm=
+l">Next</A></TD></TR></TBODY></TABLE>
+<HR>
+</DIV>
+<DIV lang=3Den class=3Dset title=3D"The 802.11 subsystems =E2=80=93 for =
+kernel developers"=20
+xml:lang=3D"en">
+<DIV class=3Dtitlepage>
+<DIV>
+<DIV>
+<H1 class=3Dtitle><A id=3Didp47112></A>The 802.11 subsystems =E2=80=93 =
+for kernel=20
+developers</H1></DIV>
+<DIV>
+<H2 class=3Dsubtitle>Explaining wireless 802.11 networking in the Linux =
+kernel=20
+</H2></DIV>
+<DIV>
+<DIV class=3Dauthorgroup>
+<DIV class=3Dauthor>
+<H3 class=3Dauthor><SPAN class=3Dfirstname>Johannes</SPAN> <SPAN=20
+class=3Dsurname>Berg</SPAN></H3>
+<DIV class=3Daffiliation>
+<DIV class=3Daddress>
+<P><CODE class=3Demail>&lt;<A class=3Demail=20
+href=3D"mailto:johannes@sipsolutions.net">johannes@sipsolutions.net</A>&g=
+t;</CODE></P></DIV></DIV></DIV></DIV></DIV>
+<DIV>
+<P class=3Dcopyright>Copyright =C2=A9 2007-2009 Johannes Berg</P></DIV>
+<DIV>
+<DIV class=3Dlegalnotice title=3D"Legal Notice"><A id=3Didp603048></A>
+<P>This documentation is free software; you can redistribute it and/or =
+modify it=20
+under the terms of the GNU General Public License version 2 as published =
+by the=20
+Free Software Foundation. </P>
+<P>This documentation is distributed in the hope that it will be useful, =
+but=20
+WITHOUT ANY WARRANTY; without even the implied warranty of =
+MERCHANTABILITY or=20
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for =
+more=20
+details. </P>
+<P>You should have received a copy of the GNU General Public License =
+along with=20
+this documentation; if not, write to the Free Software Foundation, Inc., =
+59=20
+Temple Place, Suite 330, Boston, MA 02111-1307 USA </P>
+<P>For more details see the file COPYING in the source distribution of =
+Linux.=20
+</P></DIV></DIV>
+<DIV>
+<DIV class=3Dabstract title=3DAbstract>
+<P class=3Dtitle><STRONG>Abstract</STRONG></P>
+<P>These books attempt to give a description of the various subsystems =
+that play=20
+a role in 802.11 wireless networking in Linux. Since these books are for =
+kernel=20
+developers they attempts to document the structures and functions used =
+in the=20
+kernel as well as giving a higher-level overview. </P>
+<P>The reader is expected to be familiar with the 802.11 standard as =
+published=20
+by the IEEE in 802.11-2007 (or possibly later versions). References to =
+this=20
+standard will be given as "802.11-2007 8.1.5". </P></DIV></DIV></DIV>
+<HR>
+</DIV>
+<DIV class=3Dtoc>
+<P><STRONG>Table of Contents</STRONG></P>
+<DL>
+  <DT><SPAN class=3Dbook><A=20
+  =
+href=3D"http://linuxwireless.org/80211books/cfg80211-developers-guide.htm=
+l">The=20
+  cfg80211 subsystem</A></SPAN></DT>
+  <DD>
+  <DL>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch01.html">1. Device =
+
+    registration</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-band.html"=
+><SPAN>enum=20
+      ieee80211_band</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 supported=20
+      frequency bands </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-channel-fl=
+ags.html"><SPAN>enum=20
+      ieee80211_channel_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 channel=20
+      flags </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-channel.=
+html"><SPAN>struct=20
+      ieee80211_channel</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 channel=20
+      definition </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-rate-flags=
+.html"><SPAN>enum=20
+      ieee80211_rate_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 rate flags=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-rate.htm=
+l"><SPAN>struct=20
+      ieee80211_rate</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 bitrate=20
+      definition </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-sta-ht-c=
+ap.html"><SPAN>struct=20
+      ieee80211_sta_ht_cap</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 STA's HT=20
+      capabilities </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-supporte=
+d-band.html"><SPAN>struct=20
+      ieee80211_supported_band</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+      frequency band definition </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-cfg80211-signal-type=
+.html"><SPAN>enum=20
+      cfg80211_signal_type</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 signal=20
+      type </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-wiphy-params-flags.h=
+tml"><SPAN>enum=20
+      wiphy_params_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+      set_wiphy_params bitfield values </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-wiphy-flags.html"><S=
+PAN>enum=20
+      wiphy_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+wiphy capability=20
+      flags </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-wiphy.html"><SPAN>=
+struct=20
+      wiphy</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+wireless hardware=20
+      description </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-wireless-dev.html"=
+><SPAN>struct=20
+      wireless_dev</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+wireless=20
+      per-netdev state </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-new.html"><SPAN>wip=
+hy_new</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 create a new wiphy for use with =
+cfg80211 </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-register.html"><SPA=
+N>wiphy_register</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 register a wiphy with cfg80211 =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-unregister.html"><S=
+PAN>wiphy_unregister</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 deregister a wiphy from cfg80211 =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-free.html"><SPAN>wi=
+phy_free</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 free wiphy </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-name.html"><SPAN>wi=
+phy_name</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get wiphy name </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-dev.html"><SPAN>wip=
+hy_dev</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get wiphy dev pointer </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-priv.html"><SPAN>wi=
+phy_priv</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 return priv from wiphy </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-priv-to-wiphy.html"><SPAN=
+>priv_to_wiphy</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 return the wiphy containing the priv =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-set-wiphy-dev.html"><SPAN=
+>set_wiphy_dev</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 set device pointer for wiphy =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wdev-priv.html"><SPAN>wde=
+v_priv</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 return wiphy priv from wireless_dev=20
+    </SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch02.html">2. =
+Actions and=20
+    configuration</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-ops.html"=
+><SPAN>struct=20
+      cfg80211_ops</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+backend=20
+      description for wireless configuration </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-vif-params.html"><=
+SPAN>struct=20
+      vif_params</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+describes virtual=20
+      interface parameters </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-key-params.html"><=
+SPAN>struct=20
+      key_params</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+key information=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-survey-info-flags.ht=
+ml"><SPAN>enum=20
+      survey_info_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 survey=20
+      information flags </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-survey-info.html">=
+<SPAN>struct=20
+      survey_info</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+channel survey=20
+      response </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-beacon-parameters.=
+html"><SPAN>struct=20
+      beacon_parameters</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 beacon=20
+      parameters </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-plink-actions.html">=
+<SPAN>enum=20
+      plink_actions</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+actions to=20
+      perform in mesh peers </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-station-parameters=
+.html"><SPAN>struct=20
+      station_parameters</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 station=20
+      parameters </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-station-info-flags.h=
+tml"><SPAN>enum=20
+      station_info_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 station=20
+      information flags </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-rate-info-flags.html=
+"><SPAN>enum=20
+      rate_info_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 bitrate info=20
+      flags </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-rate-info.html"><S=
+PAN>struct=20
+      rate_info</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+bitrate information=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-station-info.html"=
+><SPAN>struct=20
+      station_info</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+station=20
+      information </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-monitor-flags.html">=
+<SPAN>enum=20
+      monitor_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+monitor flags=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-enum-mpath-info-flags.htm=
+l"><SPAN>enum=20
+      mpath_info_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 mesh path=20
+      information flags </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-mpath-info.html"><=
+SPAN>struct=20
+      mpath_info</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+mesh path=20
+      information </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-bss-parameters.htm=
+l"><SPAN>struct=20
+      bss_parameters</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 BSS parameters=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-txq-para=
+ms.html"><SPAN>struct=20
+      ieee80211_txq_params</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 TX queue=20
+      parameters </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-crypto-se=
+ttings.html"><SPAN>struct=20
+      cfg80211_crypto_settings</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94 Crypto=20
+      settings </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-auth-requ=
+est.html"><SPAN>struct=20
+      cfg80211_auth_request</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+      Authentication request data </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-assoc-req=
+uest.html"><SPAN>struct=20
+      cfg80211_assoc_request</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+      (Re)Association request data </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-deauth-re=
+quest.html"><SPAN>struct=20
+      cfg80211_deauth_request</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+      Deauthentication request data </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-disassoc-=
+request.html"><SPAN>struct=20
+      cfg80211_disassoc_request</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+      Disassociation request data </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-ibss-para=
+ms.html"><SPAN>struct=20
+      cfg80211_ibss_params</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 IBSS=20
+      parameters </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-connect-p=
+arams.html"><SPAN>struct=20
+      cfg80211_connect_params</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+      Connection parameters </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-pmksa.htm=
+l"><SPAN>struct=20
+      cfg80211_pmksa</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 PMK Security=20
+      Association </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-send-rx-auth.htm=
+l"><SPAN>cfg80211_send_rx_auth</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of processed =
+authentication </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-send-auth-timeou=
+t.html"><SPAN>cfg80211_send_auth_timeout</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of timed out =
+authentication </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-send-rx-assoc.ht=
+ml"><SPAN>cfg80211_send_rx_assoc</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of processed =
+association </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-send-assoc-timeo=
+ut.html"><SPAN>cfg80211_send_assoc_timeout</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of timed out =
+association </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-send-deauth.html=
+"><SPAN>cfg80211_send_deauth</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of processed =
+deauthentication=20
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API---cfg80211-send-deauth.ht=
+ml"><SPAN>__cfg80211_send_deauth</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of processed =
+deauthentication=20
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-send-disassoc.ht=
+ml"><SPAN>cfg80211_send_disassoc</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of processed =
+disassociation </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API---cfg80211-send-disassoc.=
+html"><SPAN>__cfg80211_send_disassoc</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of processed =
+disassociation </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-ibss-joined.html=
+"><SPAN>cfg80211_ibss_joined</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify cfg80211 that device joined =
+an IBSS=20
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-connect-result.h=
+tml"><SPAN>cfg80211_connect_result</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify cfg80211 of connection result =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-roamed.html"><SP=
+AN>cfg80211_roamed</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify cfg80211 of roaming =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-disconnected.htm=
+l"><SPAN>cfg80211_disconnected</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify cfg80211 that connection was =
+dropped=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-ready-on-channel=
+.html"><SPAN>cfg80211_ready_on_channel</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of remain_on_channel =
+start </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-remain-on-channe=
+l-expired.html"><SPAN>cfg80211_remain_on_channel_expired</SPAN></A></SPAN=
+><SPAN=20
+      class=3Drefpurpose> =E2=80=94 remain_on_channel duration expired =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-new-sta.html"><S=
+PAN>cfg80211_new_sta</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify userspace about station =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-rx-mgmt.html"><S=
+PAN>cfg80211_rx_mgmt</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of received, =
+unprocessed management frame=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-mgmt-tx-status.h=
+tml"><SPAN>cfg80211_mgmt_tx_status</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of TX status for =
+management frame=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-cqm-rssi-notify.=
+html"><SPAN>cfg80211_cqm_rssi_notify</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 connection quality monitoring rssi =
+event </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-cqm-pktloss-noti=
+fy.html"><SPAN>cfg80211_cqm_pktloss_notify</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify userspace about packetloss to =
+peer </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-michael-mic-fail=
+ure.html"><SPAN>cfg80211_michael_mic_failure</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notification of Michael MIC failure =
+(TKIP)=20
+    </SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch03.html">3. =
+Scanning and BSS=20
+    list handling</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-ssid.html=
+"><SPAN>struct=20
+      cfg80211_ssid</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+SSID description=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-scan-requ=
+est.html"><SPAN>struct=20
+      cfg80211_scan_request</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 scan=20
+      request description </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-scan-done.html">=
+<SPAN>cfg80211_scan_done</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify that scan finished =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-cfg80211-bss.html"=
+><SPAN>struct=20
+      cfg80211_bss</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+BSS description=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-inform-bss-frame=
+.html"><SPAN>cfg80211_inform_bss_frame</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 inform cfg80211 of a received BSS =
+frame </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-inform-bss.html"=
+><SPAN>cfg80211_inform_bss</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 inform cfg80211 of a new BSS =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-unlink-bss.html"=
+><SPAN>cfg80211_unlink_bss</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 unlink BSS from internal data =
+structures </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-find-ie.html"><S=
+PAN>cfg80211_find_ie</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 find information element in data =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-bss-get-ie.html=
+"><SPAN>ieee80211_bss_get_ie</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 find IE with given ID =
+</SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch04.html">4. =
+Utility=20
+    functions</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-channel-to-freq=
+uency.html"><SPAN>ieee80211_channel_to_frequency</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 convert channel number to frequency =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-frequency-to-ch=
+annel.html"><SPAN>ieee80211_frequency_to_channel</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 convert frequency to channel number =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-channel.htm=
+l"><SPAN>ieee80211_get_channel</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get channel struct from wiphy for =
+specified frequency=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-response-ra=
+te.html"><SPAN>ieee80211_get_response_rate</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get basic rate for a given rate =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-hdrlen.html"><S=
+PAN>ieee80211_hdrlen</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get header length in bytes from =
+frame control=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-hdrlen-from=
+-skb.html"><SPAN>ieee80211_get_hdrlen_from_skb</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get header length from data =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-radiotap=
+-iterator.html"><SPAN>struct=20
+      ieee80211_radiotap_iterator</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+      tracks walk thru present radiotap args </SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch05.html">5. Data =
+path=20
+    helpers</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-data-to-8023.ht=
+ml"><SPAN>ieee80211_data_to_8023</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 convert an 802.11 data frame to =
+802.3 </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-data-from-8023.=
+html"><SPAN>ieee80211_data_from_8023</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 convert an 802.3 frame to 802.11 =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-amsdu-to-8023s.=
+html"><SPAN>ieee80211_amsdu_to_8023s</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 decode an IEEE 802.11n A-MSDU frame =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-classify8021d.ht=
+ml"><SPAN>cfg80211_classify8021d</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 determine the 802.1p/1d tag for a =
+data frame=20
+      </SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch06.html">6. =
+Regulatory=20
+    enforcement infrastructure</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-regulatory-hint.html"><SP=
+AN>regulatory_hint</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 driver hint to the wireless core a =
+regulatory domain=20
+      </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-apply-custom-regula=
+tory.html"><SPAN>wiphy_apply_custom_regulatory</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 apply a custom driver regulatory =
+domain </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-freq-reg-info.html"><SPAN=
+>freq_reg_info</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 get regulatory information for the =
+given frequency=20
+      </SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch07.html">7. RFkill =
+
+    integration</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-rfkill-set-hw-state=
+.html"><SPAN>wiphy_rfkill_set_hw_state</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 notify cfg80211 about hw block state =
+</SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-rfkill-start-pollin=
+g.html"><SPAN>wiphy_rfkill_start_polling</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 start polling rfkill </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-wiphy-rfkill-stop-polling=
+.html"><SPAN>wiphy_rfkill_stop_polling</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 stop polling rfkill =
+</SPAN></DT></DL></DD>
+    <DT><SPAN class=3Dchapter><A=20
+    href=3D"http://linuxwireless.org/80211books/bk01ch08.html">8. Test=20
+    mode</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-testmode-alloc-r=
+eply-skb.html"><SPAN>cfg80211_testmode_alloc_reply_skb</SPAN></A></SPAN><=
+SPAN=20
+      class=3Drefpurpose> =E2=80=94 allocate testmode reply </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-testmode-reply.h=
+tml"><SPAN>cfg80211_testmode_reply</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 send the reply skb </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-testmode-alloc-e=
+vent-skb.html"><SPAN>cfg80211_testmode_alloc_event_skb</SPAN></A></SPAN><=
+SPAN=20
+      class=3Drefpurpose> =E2=80=94 allocate testmode event </SPAN></DT>
+      <DT><SPAN class=3Drefentrytitle><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/API-cfg80211-testmode-event.h=
+tml"><SPAN>cfg80211_testmode_event</SPAN></A></SPAN><SPAN=20
+      class=3Drefpurpose> =E2=80=94 send the event =
+</SPAN></DT></DL></DD></DL></DD>
+  <DT><SPAN class=3Dbook><A=20
+  =
+href=3D"http://linuxwireless.org/80211books/mac80211-developers-guide.htm=
+l">The=20
+  mac80211 subsystem</A></SPAN></DT>
+  <DD>
+  <DL>
+    <DT><SPAN class=3Dpart><A=20
+    href=3D"http://linuxwireless.org/80211books/bk02pt01.html">I. The =
+basic=20
+    mac80211 driver interface</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/basics.html">1. Basic =
+hardware=20
+      handling</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-hw.html"=
+><SPAN>struct=20
+        ieee80211_hw</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 hardware=20
+        information and state </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-hw-flags.h=
+tml"><SPAN>enum=20
+        ieee80211_hw_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 hardware=20
+        flags </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-SET-IEEE80211-DEV.html"><=
+SPAN>SET_IEEE80211_DEV</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 set device for 802.11 hardware =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-SET-IEEE80211-PERM-ADDR.h=
+tml"><SPAN>SET_IEEE80211_PERM_ADDR</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 set the permanent MAC address for =
+802.11 hardware=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-ops.html=
+"><SPAN>struct=20
+        ieee80211_ops</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 callbacks from=20
+        mac80211 to the driver </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-alloc-hw.html">=
+<SPAN>ieee80211_alloc_hw</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 Allocate a new hardware device =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-register-hw.htm=
+l"><SPAN>ieee80211_register_hw</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 Register hardware device =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-unregister-hw.h=
+tml"><SPAN>ieee80211_unregister_hw</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 Unregister a hardware device =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-free-hw.html"><=
+SPAN>ieee80211_free_hw</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 free hardware descriptor =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/phy-handling.html">2. =
+PHY=20
+      configuration</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-conf.htm=
+l"><SPAN>struct=20
+        ieee80211_conf</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 configuration=20
+        of the device </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-conf-flags=
+.html"><SPAN>enum=20
+        ieee80211_conf_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+        configuration flags </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/iface-handling.html">3. =
+Virtual=20
+      interfaces</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-vif.html=
+"><SPAN>struct=20
+        ieee80211_vif</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 per-interface=20
+        data </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/rx-tx.html">4. Receive =
+and=20
+      transmit processing</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/rx-tx.html#idp4290832">what=20
+        should be here</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt01ch04s02.html">Frame=20
+        format</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt01ch04s03.html">Packet =
+
+        alignment</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt01ch04s04.html">Calling=
+=20
+        into mac80211 from interrupts</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt01ch04s05.html">functio=
+ns/definitions</A></SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/filters.html">5. Frame =
+
+      filtering</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-filter-fla=
+gs.html"><SPAN>enum=20
+        ieee80211_filter_flags</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+        hardware filter flags </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/workqueue.html">6. The =
+mac80211=20
+      workqueue</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-queue-work.html=
+"><SPAN>ieee80211_queue_work</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 add work onto the mac80211 =
+workqueue </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-queue-delayed-w=
+ork.html"><SPAN>ieee80211_queue_delayed_work</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 add work onto the mac80211 =
+workqueue=20
+      </SPAN></DT></DL></DD></DL></DD>
+    <DT><SPAN class=3Dpart><A=20
+    href=3D"http://linuxwireless.org/80211books/advanced.html">II. =
+Advanced driver=20
+    interface</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/led-support.html">7. =
+LED=20
+      support</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-tx-led-name=
+.html"><SPAN>ieee80211_get_tx_led_name</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get name of TX LED </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-rx-led-name=
+.html"><SPAN>ieee80211_get_rx_led_name</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get name of RX LED </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-assoc-led-n=
+ame.html"><SPAN>ieee80211_get_assoc_led_name</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get name of association LED =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-radio-led-n=
+ame.html"><SPAN>ieee80211_get_radio_led_name</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get name of radio LED </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-tpt-blin=
+k.html"><SPAN>struct=20
+        ieee80211_tpt_blink</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94=20
+        throughput blink description </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-tpt-led-tr=
+igger-flags.html"><SPAN>enum=20
+        ieee80211_tpt_led_trigger_flags</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose>=20
+        =E2=80=94 throughput trigger flags </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-create-tpt-led-=
+trigger.html"><SPAN>ieee80211_create_tpt_led_trigger</SPAN></A></SPAN><SP=
+AN=20
+        class=3Drefpurpose> =E2=80=94 create throughput LED trigger =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/hardware-crypto-offload.html"=
+>8.=20
+      Hardware crypto acceleration</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-set-key-cmd.html"><S=
+PAN>enum=20
+        set_key_cmd</SPAN></A></SPAN><SPAN class=3Drefpurpose> =E2=80=94 =
+key command=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-key-conf=
+.html"><SPAN>struct=20
+        ieee80211_key_conf</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 key=20
+        information </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-key-flags.=
+html"><SPAN>enum=20
+        ieee80211_key_flags</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 key flags=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-tkip-p1k.ht=
+ml"><SPAN>ieee80211_get_tkip_p1k</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get a TKIP phase 1 key =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-tkip-p1k-iv=
+.html"><SPAN>ieee80211_get_tkip_p1k_iv</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get a TKIP phase 1 key for IV32 =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-tkip-p2k.ht=
+ml"><SPAN>ieee80211_get_tkip_p2k</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 get a TKIP phase 2 key =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-key-removed.htm=
+l"><SPAN>ieee80211_key_removed</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 disable hw acceleration for key =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/powersave.html">9. =
+Powersave=20
+      support</A></SPAN></DT>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/beacon-filter.html">10. =
+Beacon=20
+      filter support</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-beacon-loss.htm=
+l"><SPAN>ieee80211_beacon_loss</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 inform hardware does not receive =
+beacons=20
+      </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/qos.html">11. Multiple =
+queues=20
+      and QoS support</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-tx-queue=
+-params.html"><SPAN>struct=20
+        ieee80211_tx_queue_params</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+        transmit queue configuration </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/AP.html">12. Access =
+point mode=20
+      support</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Dsection><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/AP.html#ps-client">support =
+for=20
+        powersaving clients</A></SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-get-buffered-bc=
+.html"><SPAN>ieee80211_get_buffered_bc</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 accessing buffered broadcast and =
+multicast frames=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-beacon-get.html=
+"><SPAN>ieee80211_beacon_get</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 beacon generation function =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-sta-eosp-irqsaf=
+e.html"><SPAN>ieee80211_sta_eosp_irqsafe</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 notify mac80211 about end of SP =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-frame-rele=
+ase-type.html"><SPAN>enum=20
+        ieee80211_frame_release_type</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+        frame release reason </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-sta-ps-transiti=
+on.html"><SPAN>ieee80211_sta_ps_transition</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 PS transition for connected sta =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-sta-ps-transiti=
+on-ni.html"><SPAN>ieee80211_sta_ps_transition_ni</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 PS transition for connected sta =
+(in process context)=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-sta-set-buffere=
+d.html"><SPAN>ieee80211_sta_set_buffered</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 inform mac80211 about =
+driver-buffered frames=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-sta-block-awake=
+.html"><SPAN>ieee80211_sta_block_awake</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 block station from waking up =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/multi-iface.html">13. =
+Supporting=20
+      multiple virtual interfaces</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-iterate-active-=
+interfaces.html"><SPAN>ieee80211_iterate_active_interfaces</SPAN></A></SP=
+AN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 iterate active interfaces =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-iterate-active-=
+interfaces-atomic.html"><SPAN>ieee80211_iterate_active_interfaces_atomic<=
+/SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 iterate active interfaces =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/station-handling.html">14.=20
+      Station handling</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-sta.html=
+"><SPAN>struct=20
+        ieee80211_sta</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 station table=20
+        entry </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-sta-notify-cmd.html"=
+><SPAN>enum=20
+        sta_notify_cmd</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 sta notify=20
+        command </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-find-sta.html">=
+<SPAN>ieee80211_find_sta</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 find a station </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-find-sta-by-ifa=
+ddr.html"><SPAN>ieee80211_find_sta_by_ifaddr</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 find a station on hardware =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/hardware-scan-offload.html">1=
+5.=20
+      Hardware scan offload</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-scan-completed.=
+html"><SPAN>ieee80211_scan_completed</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 completed hardware scan =
+</SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/aggregation.html">16.=20
+      Aggregation</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/aggregation.html#idp4949976">=
+TX=20
+        A-MPDU aggregation</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt02ch16s02.html">RX=20
+        A-MPDU aggregation</A></SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-ampdu-mlme=
+-action.html"><SPAN>enum=20
+        ieee80211_ampdu_mlme_action</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+        A-MPDU actions </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/smps.html">17. Spatial =
+
+      Multiplexing Powersave (SMPS)</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-request-smps.ht=
+ml"><SPAN>ieee80211_request_smps</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 request SM PS transition =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-ieee80211-smps-mode.=
+html"><SPAN>enum=20
+        ieee80211_smps_mode</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 spatial=20
+        multiplexing power save mode </SPAN></DT></DL></DD></DL></DD>
+    <DT><SPAN class=3Dpart><A=20
+    href=3D"http://linuxwireless.org/80211books/rate-control.html">III. =
+Rate=20
+    control interface</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/ratecontrol-api.html">18. =
+Rate=20
+      Control API</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-start-tx-ba-ses=
+sion.html"><SPAN>ieee80211_start_tx_ba_session</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 Start a tx Block Ack session. =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-start-tx-ba-cb-=
+irqsafe.html"><SPAN>ieee80211_start_tx_ba_cb_irqsafe</SPAN></A></SPAN><SP=
+AN=20
+        class=3Drefpurpose> =E2=80=94 low level driver ready to =
+aggregate. </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-stop-tx-ba-sess=
+ion.html"><SPAN>ieee80211_stop_tx_ba_session</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 Stop a Block Ack session. =
+</SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-ieee80211-stop-tx-ba-cb-i=
+rqsafe.html"><SPAN>ieee80211_stop_tx_ba_cb_irqsafe</SPAN></A></SPAN><SPAN=
+=20
+        class=3Drefpurpose> =E2=80=94 low level driver ready to stop =
+aggregate.=20
+        </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-enum-rate-control-changed=
+.html"><SPAN>enum=20
+        rate_control_changed</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 flags to=20
+        indicate which parameter changed </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-ieee80211-tx-rate-=
+control.html"><SPAN>struct=20
+        ieee80211_tx_rate_control</SPAN></A></SPAN><SPAN =
+class=3Drefpurpose> =E2=80=94=20
+        rate control information for/from RC algo </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-rate-control-send-low.htm=
+l"><SPAN>rate_control_send_low</SPAN></A></SPAN><SPAN=20
+        class=3Drefpurpose> =E2=80=94 helper for drivers for =
+management/no-ack frames=20
+        </SPAN></DT></DL></DD></DL></DD>
+    <DT><SPAN class=3Dpart><A=20
+    href=3D"http://linuxwireless.org/80211books/internal.html">IV.=20
+    Internals</A></SPAN></DT>
+    <DD>
+    <DL>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/key-handling.html">19. =
+Key=20
+      handling</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/key-handling.html#idp5063512"=
+>Key=20
+        handling basics</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt04ch19s02.html">MORE=20
+        TBD</A></SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/rx-processing.html">20. =
+Receive=20
+      processing</A></SPAN></DT>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/tx-processing.html">21. =
+Transmit=20
+      processing</A></SPAN></DT>
+      <DT><SPAN class=3Dchapter><A=20
+      href=3D"http://linuxwireless.org/80211books/sta-info.html">22. =
+Station info=20
+      handling</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/sta-info.html#idp5068976">Pro=
+gramming=20
+        information</A></SPAN></DT>
+        <DT><SPAN class=3Dsect1><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/bk02pt04ch22s02.html">STA=20
+        information lifetime rules</A></SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/aggregation-internals.html">2=
+3.=20
+      Aggregation</A></SPAN></DT>
+      <DD>
+      <DL>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-sta-ampdu-mlme.htm=
+l"><SPAN>struct=20
+        sta_ampdu_mlme</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 STA=20
+        aggregation information. </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-tid-ampdu-tx.html"=
+><SPAN>struct=20
+        tid_ampdu_tx</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 TID aggregation=20
+        information (Tx). </SPAN></DT>
+        <DT><SPAN class=3Drefentrytitle><A=20
+        =
+href=3D"http://linuxwireless.org/80211books/API-struct-tid-ampdu-rx.html"=
+><SPAN>struct=20
+        tid_ampdu_rx</SPAN></A></SPAN><SPAN class=3Drefpurpose> =
+=E2=80=94 TID aggregation=20
+        information (Rx). </SPAN></DT></DL></DD>
+      <DT><SPAN class=3Dchapter><A=20
+      =
+href=3D"http://linuxwireless.org/80211books/synchronisation.html">24.=20
+      =
+Synchronisation</A></SPAN></DT></DL></DD></DL></DD></DL></DIV></DIV>
+<DIV class=3Dnavfooter>
+<HR>
+
+<TABLE summary=3D"Navigation footer" width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD width=3D"40%" align=3Dleft>&nbsp;</TD>
+    <TD width=3D"20%" align=3Dmiddle>&nbsp;</TD>
+    <TD width=3D"40%" align=3Dright>&nbsp;<A accessKey=3Dn=20
+      =
+href=3D"http://linuxwireless.org/80211books/cfg80211-developers-guide.htm=
+l">Next</A></TD></TR>
+  <TR>
+    <TD vAlign=3Dtop width=3D"40%" align=3Dleft>&nbsp;</TD>
+    <TD width=3D"20%" align=3Dmiddle>&nbsp;</TD>
+    <TD vAlign=3Dtop width=3D"40%" align=3Dright>&nbsp;The cfg80211=20
+  subsystem</TD></TR></TBODY></TABLE></DIV></BODY></HTML>

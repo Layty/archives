@@ -1,0 +1,17 @@
+
+	int i = 0;
+	printk("#########%s##########\n",__func__);
+	while (i <= skb->len)
+	{
+		if ((0 != (i%8)) || (0 == i))
+		{
+			printk("%02x ",skb->data[i]);
+			i++;
+			continue;
+		}
+		printk("\n");
+		printk("%02x ",skb->data[i]);
+		i++;					 
+	}
+	printk("############################\n",__func__);
+	printk("\n\n");

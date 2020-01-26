@@ -1,0 +1,1789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0078)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-12013/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;5 Programming With the Solaris
+Software (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 5 Programming With the Solaris Software (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 5 Programming With the Solaris Software (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 5 Programming With the Solaris Software (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 5 Programming With the Solaris Software (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 5 Programming With the Solaris Software (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 5 Programming With the Solaris Software (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;5 Programming With the Solaris
+Software</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html"><em>Previous</em>: Chapter&nbsp;4 Programming
+with Synchronization Objects</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html"><em>Next</em>: Chapter&nbsp;6 Programming With
+Solaris Threads</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vqa2"></a><h1 class="sol">Chapter&nbsp;5 Programming With the Solaris
+Software</h1>
+<a name=""></a><p>This chapter describes how multithreading interacts with the Solaris
+software and how the software has changed to support multithreading.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-1/index.html">Forking Issues in Process Creation</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-48932/index.html">Process Creation: <tt>exec</tt> and  <tt>exit</tt> Issues</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-90808/index.html">Timers, Alarms, and Profiling</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-79044/index.html">Nonlocal Goto: <tt>setjmp</tt> and  <tt>longjmp</tt></a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-64857/index.html">Resource Limits</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-51573/index.html">LWPs and Scheduling Classes</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-61908/index.html">Extending Traditional Signals</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-99376/index.html">I/O Issues</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vqa4"></a><h1 class="sol">Forking Issues in Process Creation</h1>
+<p>The default handling of <kbd><b>fork()</b></kbd> in the Solaris 9 product
+and earlier Solaris releases is somewhat different from the way <kbd><b>fork()</b></kbd> is
+handled in POSIX threads. For Solaris releases after Solaris 9, <kbd><b>fork()</b></kbd> 
+behaves as specified for POSIX threads in all cases.</p>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqa4/index.html#gen-28594">Table 5–1</a> compares the
+differences and similarities of <kbd><b>fork()</b></kbd> handling in Solaris
+threads and pthreads. When the comparable interface is not available either
+in POSIX threads or in Solaris threads, the `—' character appears in
+the table column.</p>
+<a name="gen-28594"></a>Table 5–1  Comparing POSIX and Solaris  <kbd><b>fork()</b></kbd> Handling<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">&nbsp;
+</th><th scope="col" align="left" valign="top">
+<p>Solaris Interface&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>POSIX Threads Interface&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>Fork-one model&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>fork1(2)</tt>
+</p>
+<p>
+<tt>fork(2)</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>fork(2)</tt>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Fork-all model&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>forkall(2)</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>forkall(2)</tt>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Fork safety&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>—&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>pthread_atfork(3C)</tt>
+</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqa6"></a><h2 class="sol">Fork-One Model</h2>
+<p>As shown in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqa4/index.html#gen-28594">Table 5–1</a>,
+the behavior of the pthreads <tt>fork(2)</tt> function is the same
+as the behavior of the Solaris <tt>fork1(2)</tt> function. Both
+the pthreads  <tt>fork(2)</tt> function and the Solaris <tt>fork1(2)</tt> function create a new process, duplicating the complete address
+space in the child. However, both functions duplicate only the calling thread
+in the child process.</p>
+<p>
+<a name="gen-ix424"></a>Duplication of the calling thread in the child process is useful
+when the child process immediately calls <kbd><b>exec()</b></kbd>, which
+is what happens after most calls to  <kbd><b>fork()</b></kbd>. In this case,
+the child process does not need a duplicate of any thread other than the thread
+that called <kbd><b>fork()</b></kbd>.</p>
+<p>In the child, do not call any library functions after calling <kbd><b>fork()</b></kbd>  and before calling <kbd><b>exec()</b></kbd>. One of the library
+functions might use a lock that was held in the parent at the time of the <kbd><b>fork()</b></kbd>. The child process may execute only Async-Signal-Safe operations
+until one of the  <kbd><b>exec()</b></kbd> handlers is called. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-26/index.html">Signal Handlers and Async-Signal Safety</a> for more
+information about Async-Signal-Safe functions.</p>
+<a name="6mba5vqa8"></a><h3 class="sol">Fork-One Safety Problem and Solution</h3>
+<p>Besides the usual concerns such as locking shared data, a library should
+be well behaved with respect to forking a child process when only the thread
+that called  <kbd><b>fork()</b></kbd> is running. The problem is that the
+sole thread in the child process might try to grab a lock held by a thread
+not duplicated in the child.</p>
+<p>Most programs are not likely to encounter this problem. Most programs
+call  <kbd><b>exec()</b></kbd> in the child right after the return from <kbd><b>fork()</b></kbd>. However, if the program has to carry out actions in the child
+before calling  <kbd><b>exec()</b></kbd>, or never calls <kbd><b>exec()</b></kbd>,
+then the child  <b>could</b> encounter deadlocks. Each library
+writer should provide a safe solution, although not providing a fork-safe
+library is not a large concern because this condition is rare.</p>
+<p>For example, assume that T1 is in the middle of printing something and
+holds a lock for <kbd><b>printf()</b></kbd>, when T2 forks a new process.
+In the child process, if the sole thread (T2) calls <kbd><b>printf()</b></kbd>,
+T2 promptly deadlocks.</p>
+<p>The POSIX <kbd><b>fork()</b></kbd> or Solaris <kbd><b>fork1()</b></kbd> function
+duplicates only the thread that calls <kbd><b>fork()</b></kbd> or <kbd><b>fork1()</b></kbd> . If you call Solaris <kbd><b>forkall()</b></kbd> to duplicate
+all threads, this issue is not a concern.</p>
+<p>However, <kbd><b>forkall()</b></kbd> can cause other problems and should
+be used with care. For instance, if a thread calls <kbd><b>forkall()</b></kbd>,
+the parent thread performing I/O to a file is replicated in the child process.
+Both copies of the thread will continue performing I/O to the same file, one
+in the parent and one in the child, leading to malfunctions or file corruption.</p>
+<p>To prevent deadlock when calling <kbd><b>fork1()</b></kbd>, ensure
+that no locks are being held at the time of forking. The most obvious way
+to prevent deadlock is to have the forking thread acquire all the locks that
+could possibly be used by the child. Because you cannot acquire all locks
+for <kbd><b>printf()</b></kbd> because  <kbd><b>printf()</b></kbd> is owned
+by <kbd>libc</kbd>, you must ensure that  <kbd><b>printf()</b></kbd> is
+not being used at <kbd><b>fork()</b></kbd> time.</p>
+<hr><b>Tip – </b><p>The Thread Analyzer utility included in the Sun Studio software
+enables you to detect deadlocks in a running program. See <a href="http://docs.oracle.com/docs/cd/E19205-01/820-0619/index.html"><cite>Sun Studio 12: Thread Analyzer User’s Guide</cite></a> for more information.</p>
+<hr>
+<p>To manage the locks in your library, you should perform the following
+actions:</p>
+<a name=""></a><ul>
+<li>
+<p>Identify all the locks used by the library.</p>
+
+
+</li>
+<li>
+<p>Identify the locking order for the locks used by the library.
+If a strict locking order is not used, then lock acquisition must be managed
+carefully.</p>
+
+
+</li>
+<li>
+<p>Arrange to acquire all locks at fork time.</p>
+
+
+</li>
+</ul>
+<p>In the following example, the list of locks used by the library is { <tt>L1,...Ln</tt>}. The locking order for these locks is also <tt>L1...Ln</tt>.</p>
+<a name=""></a><pre>mutex_lock(L1);
+mutex_lock(L2);
+fork1(...);
+mutex_unlock(L1);
+mutex_unlock(L2);</pre>
+<p>When using either Solaris threads or POSIX threads, you can add a call
+to  <tt>pthread_atfork(f1, f2, f3)</tt> in your library's <kbd><b>.init()</b></kbd> section. The <kbd><b>f1()</b></kbd>, <kbd><b>f2()</b></kbd>, <kbd><b>f3()</b></kbd> are defined as follows:</p>
+<a name=""></a><pre>f1() /* This is executed just before the process forks. */
+{
+ mutex_lock(L1); |
+ mutex_lock(...); | -- ordered in lock order
+ mutex_lock(Ln); |
+ } V
+
+f2() /* This is executed in the child after the process forks. */
+ {
+ mutex_unlock(L1);
+ mutex_unlock(...);
+ mutex_unlock(Ln);
+ }
+
+f3() /* This is executed in the parent after the process forks. */
+ {
+ mutex_unlock(L1);
+ mutex_unlock(...);
+ mutex_unlock(Ln);
+ } </pre>
+<a name="6mba5vqaa"></a><h4 class="sol">Virtual Forks–vfork</h4><p>
+<a name="gen-ix428"></a><a name="gen-ix429"></a>The standard  <tt>vfork(2)</tt> function is unsafe in
+multithreaded programs. <tt>vfork(2)</tt> , like <tt>fork1(2)</tt>,
+copies only the calling thread in the child process. As in nonthreaded implementations, <kbd><b>vfork()</b></kbd> does not copy the address space for the child process.</p>
+<p>
+<a name="gen-ix430"></a>Be careful that the thread in the child process does not change
+memory before the thread calls <tt>exec(2)</tt>. <kbd><b>vfork()</b></kbd> gives
+the parent address space to the child. The parent gets its address space back
+after the child calls  <kbd><b>exec()</b></kbd> or exits. The child must
+not change the state of the parent.</p>
+<p>For example, disastrous problems occur if you create new threads between
+the call to <kbd><b>vfork()</b></kbd> and the call to <kbd><b>exec()</b></kbd>.</p>
+
+<a name="6mba5vqab"></a><h4 class="sol">Solution: pthread_atfork</h4><p>
+<a name="indexterm-259"></a><a name="indexterm-260"></a>Use <kbd><b>pthread_atfork()</b></kbd> to prevent deadlocks whenever
+you use the fork-one model.</p>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+int pthread_atfork(void (*<var>prepare</var>) (void), void (*
+<var>parent</var>) (void),
+    void (*<var>child</var>) (void) );</pre>
+<p>The <kbd><b>pthread_atfork()</b></kbd> function declares <kbd><b>fork()</b></kbd> handlers
+that are called before and after <kbd><b>fork()</b></kbd> in the context
+of the thread that called <kbd><b>fork()</b></kbd>.</p>
+<a name=""></a><ul>
+<li>
+<p>The <var>prepare</var> handler is called before
+ <kbd><b>fork()</b></kbd> starts.</p>
+
+
+</li>
+<li>
+<p>The <var>parent</var> handler is called after
+ <kbd><b>fork()</b></kbd> returns in the parent.</p>
+
+
+</li>
+<li>
+<p>The <var>child</var> handler is called after
+ <kbd><b>fork()</b></kbd> returns in the child.</p>
+
+
+</li>
+</ul>
+<p>Any handler argument can be set to <tt>NULL</tt>. The order
+in which successive calls to <kbd><b>pthread_atfork()</b></kbd> are made
+is significant.</p>
+<p>For example, a <var>prepare</var> handler could acquire
+all the mutexes needed. Then the <var>parent</var> and <var>child</var>  handlers could release the mutexes. The <var>prepare</var> handler acquiring all required mutexes ensures that all relevant
+locks are held by the thread calling the fork function <b>before</b> the
+process is forked. This technique prevents a deadlock in the child.</p>
+<p>See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-atfork-3c/index.html">pthread_atfork(3C)</a> man page for more information.</p>
+
+<a name="6mba5vqac"></a><h2 class="sol">Fork-All Model</h2>
+<p>The Solaris <tt>forkall</tt>(2) function duplicates the address
+space and all the threads in the child. Address space duplication is useful,
+for example, when the child process never calls <tt>exec</tt>(2)
+but does use its copy of the parent address space.</p>
+<p>When one thread in a process calls Solaris <tt>forkall</tt>(2),
+threads that are blocked in an interruptible system call will return <samp>EINTR</samp>.</p>
+<p>
+<a name="gen-ix433"></a><a name="gen-ix434"></a><a name="gen-ix435"></a><a name="gen-ix436"></a>Be careful not to create locks that are held by both the parent
+and child processes. Locks held in both parent and child processes occur when
+locks are allocated in shared memory by calling <kbd><b>mmap()</b></kbd> with
+the <tt>MAP_SHARED</tt> flag. This problem does not occur if the
+fork-one model is used.</p>
+<a name="6mba5vqad"></a><h2 class="sol">Choosing the Right Fork</h2>
+<p>Starting with the Solaris 10 release, a call to <kbd><b>fork()</b></kbd> is
+identical to a call to <kbd><b>fork1()</b></kbd>. Specifically, only the
+calling thread is replicated in the child process. The behavior is the same
+as the POSIX  <kbd><b>fork()</b></kbd>.</p>
+<p>In previous releases of the Solaris software, the behavior of <kbd><b>fork()</b></kbd>  was dependent on whether the application was linked with the
+POSIX threads library. When linked with <kbd><b>-lthread</b></kbd> (Solaris
+threads) but not linked with <kbd><b>-lpthread</b></kbd> (POSIX threads), <kbd><b>fork()</b></kbd> was the same as <kbd><b>forkall()</b></kbd>. When linked
+with <kbd><b>-lpthread</b></kbd>, regardless of whether <kbd><b>fork()</b></kbd> was
+also linked with <kbd><b>-lthread</b></kbd> , <kbd><b>fork()</b></kbd> was
+the same as <kbd><b>fork1()</b></kbd>.</p>
+<p>Starting with the Solaris 10 release, neither <kbd><b>-lthread</b></kbd> nor
+ <kbd><b>-lpthread</b></kbd> is required for multithreaded applications. The <kbd><b>-mt</b></kbd> option is used to indicate that you are compiling a multithreaded
+application. The standard C library provides all threading support for both
+sets of application program interfaces.  Applications that require <b>replicate
+all</b> fork semantics must call  <kbd><b>forkall()</b></kbd>.</p>
+<a name="6mba5vqae"></a><h1 class="sol">Process Creation: <tt>exec</tt> and
+ <tt>exit</tt> Issues</h1>
+<p>
+<a name="gen-ix437"></a><a name="gen-ix438"></a><a name="gen-ix439"></a>Both the <tt>exec</tt>(2)
+and <tt>exit</tt>(2) system calls work as these functions do in
+single-threaded processes with the following exception. In a multithreaded
+application, the functions destroy all the threads in the address space. Both
+calls block until all the execution resources, and so all active threads,
+are destroyed.</p>
+<p>When <kbd><b>exec()</b></kbd> rebuilds the process, <kbd><b>exec()</b></kbd> creates
+a single lightweight process (LWP). The process startup code builds the initial
+thread. As usual, if the initial thread returns, the thread calls <kbd><b>exit()</b></kbd> and
+the process is destroyed.</p>
+<p>When all the threads in a process exit, the process exits. A call to
+any  <kbd><b>exec()</b></kbd> function from a process with more than one
+thread terminates all threads, and loads and executes the new executable image.
+No destructor functions are called.</p>
+<a name="6mba5vqah"></a><h1 class="sol">Timers, Alarms, and Profiling</h1>
+<p>Over several releases, the Solaris OS has evolved to a per-process mode
+for alarms, interval timers, and profiling.</p>
+<a name="6mba5vqaj"></a><h2 class="sol">Timers</h2>
+<p>
+<a name="indexterm-261"></a>All timers are per-process except for the real time profile interval
+timer, which is per_LWP. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5167/setitimer-2/index.html">setitimer(2)</a> man page for a description
+of the <tt>ITIMER_REALPROF</tt> timer.</p>
+<p>The timer IDs of per-process timers are usable from any LWP. The expiration
+signals are generated for the process rather than directed to a specific LWP.</p>
+<p>The per-process timers are deleted only by <tt>timer_delete</tt>(3RT),
+or when the process terminates.</p>
+<a name="6mba5vqak"></a><h2 class="sol">Alarms</h2>
+<p>
+<a name="indexterm-262"></a>Alarms operate at the
+process level, not at the thread level. The <kbd><b>alarm()</b></kbd> function
+sends the signal <tt>SIGALRM</tt> to the calling process rather
+than the calling thread.</p>
+<a name="6mba5vqal"></a><h2 class="sol">Profiling a Multithreaded Program</h2>
+<p>
+<a name="indexterm-263"></a>The <kbd><b>profil()</b></kbd> system call
+for multithreaded processes has global impact on all LWPs and threads in the
+process. Threads cannot use <kbd><b>profil()</b></kbd> for individual thread
+profiling. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5167/profil-2/index.html">profil(2)</a> man
+page for more information. </p>
+<hr><b>Tip – </b><p>The Performance Analyzer tool, included in the Sun Studio software,
+can be used for extensive profiling of multithreaded and single threaded programs.
+The tool enables you to see in detail what a thread is doing at any given
+point. See the <a href="http://developers.sun.com/sunstudio/">Sun
+Studio web page</a> and <a href="http://docs.oracle.com/docs/cd/E19205-01/820-3845/index.html"><cite>Sun Studio Information Center</cite></a> for more
+information.</p>
+<hr>
+<a name="6mba5vqam"></a><h1 class="sol">Nonlocal Goto: <tt>setjmp</tt> and
+ <tt>longjmp</tt>
+</h1>
+<p>
+<a name="gen-ix446"></a><a name="gen-ix447"></a>The scope of <kbd><b>setjmp()</b></kbd> and <kbd><b>longjmp()</b></kbd> is
+limited to one thread, which is acceptable most of the time. However, the
+limited scope does mean that a thread that handles a signal can execute a <kbd><b>longjmp()</b></kbd> only when a <kbd><b>setjmp()</b></kbd> is performed in
+the same thread.</p>
+<a name="6mba5vqap"></a><h1 class="sol">Resource Limits</h1>
+<a name="gen-ix448"></a><p>
+<a name="gen-ix449"></a>Resource limits are set on the entire process and are determined
+by adding the resource use of all threads in the process. When a soft resource
+limit is exceeded, the offending thread is sent the appropriate signal. The
+sum of the resources that are used in the process is available through <tt>getrusage</tt>(3C).</p>
+<a name="6mba5vqaq"></a><h1 class="sol">LWPs and Scheduling Classes</h1>
+<p>
+<a name="indexterm-264"></a>The Solaris
+kernel has three ranges of dispatching priority. The highest-priority range
+(100 to 159) corresponds to the Realtime (RT) scheduling class.  The middle-priority
+range (60 to 99) corresponds to the system (SYS) scheduling class.  The system
+class cannot be applied to a user process. The lowest-priority range (0 to
+59) is shared by the timesharing (TS), interactive (IA), fair-share (FSS),
+and fixed priority (FX) scheduling classes.</p>
+<p>
+<a name="gen-ix458"></a><a name="gen-ix453"></a><a name="gen-ix454"></a>A
+scheduling class is maintained for each LWP. When a process is created, the
+initial LWP inherits the scheduling class and priority of the creating LWP
+in the parent process. As more threads are created, their associated LWPs
+also inherit this scheduling class and priority.</p>
+<p>Threads have the scheduling class and priority of their underlying LWPs.
+Each LWP in a process can have a unique scheduling class and priority that
+are visible to the kernel.</p>
+<p>
+<a name="indexterm-265"></a>Thread priorities regulate contention for synchronization objects.
+By default, LWPs are in the timesharing class. For compute-bound multithreading,
+thread priorities are not very useful. For multithreaded applications that
+use the MT libraries to do synchronization frequently, thread priorities are
+more meaningful.</p>
+<p>
+<a name="gen-ix466"></a>The scheduling class is set by <tt>priocntl</tt>(2).
+How you specify the first two arguments determines whether only the calling
+LWP or all the LWPs of one or more processes are affected. The third argument
+of <kbd><b>priocntl()</b></kbd> is the command, which can be one of the following
+commands.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="gen-ix467"></a><a name="indexterm-266"></a><tt>PC_GETCID</tt> -
+Get the class ID and class attributes for a specific class.</p>
+
+
+</li>
+<li>
+<p>
+<a name="gen-ix468"></a><a name="indexterm-267"></a><tt>PC_GETCLINFO</tt> -
+Get the class name and class attributes for a specific class.</p>
+
+
+</li>
+<li>
+<p>
+<a name="gen-ix469"></a><a name="indexterm-268"></a><tt>PC_GETPARMS</tt> - Get the class identifier and the class-specific scheduling parameters
+of a process, an LWP with a process, or a group of processes.</p>
+
+
+</li>
+<li>
+<p>
+<a name="gen-ix470"></a><a name="indexterm-269"></a><tt>PC_SETPARMS</tt> -
+Set the class identifier and the class-specific scheduling parameters of a
+process, an LWP with a process, or a group of processes.</p>
+
+
+</li>
+</ul>
+<p>The user-level priority of an LWP is its priority within its class,
+not its dispatch priority. This does not change over time except by the application
+of the     <kbd><b>priocntl()</b></kbd> system call.  The kernel determines
+the dispatch priority of an LWP based on its scheduling class, its priority
+within that class, and possibly other factors such as its recently-used CPU
+time.</p>
+<a name="6mba5vqas"></a><h2 class="sol">Timeshare Scheduling</h2>
+<p>
+<a name="ggeyn"></a><a name="ggezk"></a><a name="ggeyh"></a>Timeshare scheduling attempts
+to distribute processor resources fairly among the LWPs in the timesharing
+(TS) and interactive (IA) scheduling classes.</p>
+<p>
+<a name="indexterm-270"></a>The <tt>priocntl</tt>(2) call sets the class priority of one or more processes
+or LWPs. The normal range of timesharing class priorities is -60 to +60. The
+higher the value, the higher the kernel dispatch priority. The default timesharing
+class priority is 0.</p>
+<p>
+<a name="indexterm-271"></a>The old concept of a <tt>nice</tt> value for a process,
+where a lower <tt>nice</tt> value means a higher priority, is maintained
+for all of the TS, IA, and FSS scheduling classes.  The old <tt>nice</tt>-based <tt>setpriority</tt>(3C) and <tt>nice</tt>(2) interfaces continue
+to work by mapping <tt>nice</tt> values into priority values.  Setting
+a <tt>nice</tt> value changes the priority and vice-versa.  The
+range of <tt>nice</tt> values is -20 to +20.  A <tt>nice</tt> value
+of 0 corresponds to a priority of 0. A <tt>nice</tt> value of -20
+corresponds to a priority of +60.</p>
+<p>
+<a name="indexterm-272"></a>The dispatch priority of time-shared LWPs is calculated from the
+instantaneous CPU use rate of the LWP and from its class priority. The class
+priority indicates the relative priority of the LWPs to the timeshare scheduler.</p>
+<p>LWPs with a smaller class priority value get a smaller, but nonzero,
+share of the total processing. An LWP that has received a larger amount of
+processing is given lower dispatch priority than an LWP that has received
+little or no processing.</p>
+<a name="6mba5vqat"></a><h2 class="sol">Realtime Scheduling</h2>
+<p>
+<a name="gen-ix480"></a><a name="gen-ix481"></a><a name="gen-ix482"></a>The Realtime class
+(<tt>RT</tt>) can be applied to a whole process or to one or more
+LWPs in a process. You must have superuser privilege to use the Realtime class.</p>
+<p>The normal range of realtime class priorities is 0 to 59. The dispatch
+priority of an LWP in the realtime class is fixed at its class priority plus
+100.</p>
+<p>
+<a name="gen-ix485"></a>The scheduler always dispatches the highest-priority
+Realtime LWP. The high-priority Realtime LWP preempts a lower-priority LWP
+when a higher-priority LWP becomes runnable. A preempted LWP is placed at
+the head of its level queue.</p>
+<p>A Realtime LWP retains control of a processor until the LWP is preempted,
+the LWP suspends, or its Realtime priority is changed. LWPs in the RT class
+have absolute priority over processes in the TS class.</p>
+<p>A new LWP inherits the scheduling class of the parent process or LWP.
+An RT class LWP inherits the parent's time slice, whether finite or infinite.</p>
+<p>A finite time slice LWP runs until the LWP terminates, blocks on an
+I/O event, gets preempted by a higher-priority runnable Realtime process,
+or the time slice expires.</p>
+<p>An LWP with an infinite time slice ceases execution only when the LWP
+terminates, blocks, or is preempted.</p>
+<a name="6mba5vqau"></a><h2 class="sol">Fair Share Scheduling</h2>
+<p>
+<a name="indexterm-273"></a><a name="indexterm-274"></a>The fair share scheduler (FSS)
+scheduling class allows allocation of CPU time based on shares.</p>
+<p>The normal range of fair share scheduler class priorities is -60 to
+60, which get mapped by the scheduler into dispatch priorities in the same
+range (0 to 59) as the TS and IA scheduling classes. All LWPs in a process
+must run in the same scheduling class. The FSS class schedules individual
+LWPs, not whole processes. Thus, a mix of processes in the FSS and TS/IA classes
+could result in unexpected scheduling behavior in both cases.</p>
+<p>The TS/IA or the FSS scheduling class processes do not compete for the
+same CPUs. Processor sets enable mixing TS/IA with FSS in a system. However,
+all processes in each processor set must be in either the TS/IA or the FSS
+scheduling class.</p>
+<a name="6mba5vqav"></a><h2 class="sol">Fixed Priority Scheduling</h2>
+<p>
+<a name="indexterm-275"></a><a name="indexterm-276"></a>The FX, fixed priority, scheduling
+class assigns fixed priorities and time quantum not adjusted to accommodate
+resource consumption. Process priority can be changed only by the process
+that assigned the priority or an appropriately privileged process. For more
+information about FX, see the <tt>priocntl</tt>(1) and  <tt>dispadmin</tt>(1M) man pages.</p>
+<p>The normal range of fixed priority scheduler class priorities is 0 to
+60, which get mapped by the scheduler into dispatch priorities in the same
+range (0 to 59) as the TS and IA scheduling classes.</p>
+<a name="6mba5vqb0"></a><h1 class="sol">Extending Traditional Signals</h1>
+<p>
+<a name="gen-ix500"></a><a name="gen-ix501"></a>The traditional UNIX signal model is extended to threads in a
+fairly natural way. The key characteristics are that the signal disposition
+is process-wide, but the signal mask is per-thread. The process-wide disposition
+of signals is established using the traditional mechanisms <tt>signal</tt>(3C), <tt>sigaction</tt>(2), and so on.</p>
+<p>
+<a name="gen-ix502"></a><a name="gen-ix503"></a><a name="gen-ix504"></a>When a signal handler is marked <tt>SIG_DFL</tt> or
+ <tt>SIG_IGN</tt>, the action on receipt of a signal is performed
+on the entire receiving process. These signals include exit, core dump, stop,
+continue, and ignore. The action on receipt of these signals is carried out
+on all threads in the process. Therefore, the issue of which thread picks
+the signal is nonexistent. The exit, core dump, stop, continue, and ignore
+signals have no handlers. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5173/signal.h-3head/index.html">signal.h(3HEAD)</a> man page for basic information
+about signals.</p>
+<p>
+<a name="gen-ix506"></a>Each thread has its own signal mask. The signal mask lets a thread
+block some signals while the thread uses memory or another state that is also
+used by a signal handler. All threads in a process share the set of signal
+handlers that are set up by  <tt>sigaction</tt>(2) and its variants.</p>
+<p>
+<a name="indexterm-277"></a><a name="indexterm-278"></a><a name="indexterm-279"></a>A thread in one process cannot send
+a signal to a specific thread in another process. A signal sent by <tt>kill</tt>(2),
+ <tt>sigsend</tt>(2), or <tt>sigqueue</tt>(3RT) to a process
+is handled by any receptive threads in the process.</p>
+<p>
+<a name="gen-ix518"></a><a name="gen-ix519"></a><a name="gen-ix520"></a><a name="gen-ix521"></a>Signals are divided into the following categories: traps, exceptions,
+and interrupts. Traps and exceptions are synchronously generated signals.
+Interrupts are asynchronously generated signals.</p>
+<p>As in traditional UNIX, if a signal is pending, additional occurrences
+of that signal normally have no additional effect. A pending signal is represented
+by a bit, not by a counter. However, signals that are posted through the <tt>sigqueue</tt>(3RT) interface allow multiple instances of the same signal
+to be queued to the process.</p>
+<p>As is the case with single-threaded processes, when a thread receives
+a signal while blocked in a system call, the thread might return early. When
+a thread returns early, the thread either returns an <samp>EINTR</samp> error
+code, or, in the case of I/O calls, with fewer bytes transferred than requested.</p>
+<p>
+<a name="gen-ix523"></a><a name="gen-ix524"></a><a name="gen-ix525"></a>Of particular importance to multithreaded programs is the effect
+of signals on <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-cond-wait-3c/index.html">pthread_cond_wait(3C)</a>. This call usually returns without error, a return
+value of zero, only in response to a <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-cond-signal-3c/index.html">pthread_cond_signal(3C)</a> or a <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-cond-broadcast-3c/index.html">pthread_cond_broadcast(3C)</a>. However, if the waiting thread receives a traditional
+UNIX signal, <kbd><b>pthread_cond_wait()</b></kbd>  returns with a return
+value of zero even though the wakeup was spurious. </p>
+<a name="6mba5vqb2"></a><h2 class="sol">Synchronous Signals</h2>
+<p>
+<a name="indexterm-280"></a><a name="indexterm-281"></a><a name="indexterm-282"></a><a name="gen-ix528"></a><a name="gen-ix529"></a><a name="gen-ix530"></a>Traps,
+such as <tt>SIGILL</tt>, <tt>SIGFPE</tt>, and <tt>SIGSEGV</tt>, result from an operation on the thread, such as dividing by zero
+or making reference to nonexistent memory. A trap is handled only by the thread
+that caused the trap. Several threads in a process can generate and handle
+the same type of trap simultaneously.</p>
+<p>The idea of signals to individual threads is easily extended for synchronously
+generated signals. The handler is invoked on the thread that generated the
+synchronous signal.</p>
+<p>
+<a name="gen-ix531"></a>However, if the process chooses not to establish
+an appropriate signal handler, the default action is taken when a trap occurs.
+The default action occurs even if the offending thread is blocked on the generated
+signal. The default action for such signals is to terminate the process, perhaps
+with a core dump.</p>
+<p>Such a synchronous signal usually means that something is seriously
+wrong with the whole process, not just with a thread. In this case, terminating
+the process is often a good choice.</p>
+<a name="6mba5vqb3"></a><h2 class="sol">Asynchronous Signals</h2>
+<p>
+<a name="gfswf"></a><a name="gfswq"></a><a name="gen-ix532"></a><a name="gen-ix533"></a>Interrupts, such as <tt>SIGINT</tt> and <tt>SIGIO</tt>,
+are asynchronous with any thread and result from some action outside the process.
+These interrupts might be signals sent explicitly by another process, or might
+represent external actions such as a user typing a Control-C.</p>
+<p>An interrupt can be handled by any thread whose signal mask allows the
+interrupt. When more than one thread is able to receive the interrupt, only
+one thread is chosen.</p>
+<p>When multiple occurrences of the same signal are sent to a process,
+then each occurrence can be handled by a separate thread. However, the available
+threads must not have the signal masked. When all threads have the signal
+masked, then the signal is marked <b>pending</b> and the first
+thread to unmask the signal handles the signal.</p>
+<a name="6mba5vqb4"></a><h2 class="sol">Continuation Semantics</h2>
+<p>Continuation semantics are the traditional way to deal with signals.
+When a signal handler returns, control resumes where the process was at the
+time of the interruption. This control resumption is well suited for asynchronous
+signals in single-threaded processes, as shown in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqb4/index.html#gen-28231">Example 5–1</a>.</p>
+<p>
+<a name="gen-ix534"></a>This control resumption is also used as the exception-handling
+mechanism in other programming languages, such as PL/1.</p>
+<a name="gen-28231"></a><hr><h5 class="sol">Example 5–1  Continuation Semantics</h5><br><a name=""></a><pre>unsigned int nestcount;
+
+unsigned int A(int i, int j) {
+    nestcount++;
+
+    if (i==0)
+        return(j+1)
+    else if (j==0)
+        return(A(i-1, 1));
+    else
+        return(A(i-1, A(i, j-1)));
+}
+
+void sig(int i) {
+    printf("nestcount = %d\n", nestcount);
+}
+
+main() {
+    sigset(SIGINT, sig);
+    A(4,4);
+}</pre>
+<hr>
+<a name="6mba5vqb5"></a><h2 class="sol">Operations on Signals</h2>
+<p>This section describes the operations on signals.</p>
+<a name=""></a><a name=""></a><table width="100%" cellpadding="10" cellspacing="0" border="1">
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-19/index.html">Setting the Thread's Signal Mask</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-20/index.html">Sending a Signal to a Specific Thread</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-75415/index.html">Waiting for a Specified Signal</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-22/index.html">Waiting for Specified Signal Within a Given Time</a>
+</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p> 
+</p><a name="6mba5vqb7"></a><h3 class="sol">Setting the Thread's Signal Mask</h3>
+<p>
+<a name="gen-ix535"></a><a name="gen-ix536"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-sigmask-3c/index.html">pthread_sigmask(3C)</a> does for a thread what <tt>sigprocmask</tt>(2)
+does for a process.  <kbd><b>pthread_sigmask()</b></kbd> sets the thread's
+signal mask. When a new thread is created, its initial mask is inherited from
+its creator.</p>
+<p>The call to <kbd><b>sigprocmask()</b></kbd> in a multithreaded process
+is equivalent to a call to <kbd><b>pthread_sigmask()</b></kbd>. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5167/sigprocmask-2/index.html">sigprocmask(2)</a> man page for
+more information.</p>
+<a name="6mba5vqb8"></a><h3 class="sol">Sending a Signal to a Specific Thread</h3>
+<p>
+<a name="indexterm-283"></a><a name="gen-ix537"></a><a name="gen-ix538"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-kill-3c/index.html">pthread_kill(3C)</a> is the thread analog of <tt>kill</tt>(2).
+A <kbd><b>pthread_kill()</b></kbd> call sends a signal to a specific thread.
+A signal that is sent to a specified thread is different from a signal that
+is sent to a process. When a signal is sent to a process, the signal can be
+handled by any thread in the process. A signal sent by <kbd><b>pthread_kill()</b></kbd> can
+be handled only by the specified thread.</p>
+<p>You can use <kbd><b>pthread_kill()</b></kbd> to send signals only to
+threads in the current process. Because the thread identifier, type <var>thread_t</var>, is local in scope, you cannot name a thread outside
+the scope of the current process.</p>
+<p>On receipt of a signal by the target thread, the action invoked (handler,
+ <tt>SIG_DFL</tt>, or <tt>SIG_IGN</tt>) is global, as
+usual. If you send <tt>SIG</tt><var>XXX</var> to
+a thread, and <tt>SIG</tt><var>XXX</var> to kill
+a process, the whole process is killed when the target thread receives the
+signal.</p>
+<a name="6mba5vqb9"></a><h3 class="sol">Waiting for a Specified Signal</h3>
+<a name="gen-ix539"></a><p>For multithreaded programs, <tt>sigwait</tt>(2) is the preferred
+interface to use because <kbd><b>sigwait()</b></kbd> deals well with asynchronously
+generated signals.</p>
+<p>
+<kbd><b>sigwait()</b></kbd> causes the calling thread to wait until
+any signal identified by the <kbd><b>sigwait()</b></kbd> function's  <var>set</var> argument is delivered to the thread. While the thread is
+waiting, signals identified by the <var>set</var> argument
+are unmasked, but the original mask is restored when the call returns.</p>
+<p>All signals identified by the <var>set</var> argument
+must be blocked on all threads, including the calling thread. Otherwise, <kbd><b>sigwait()</b></kbd> might not work correctly.</p>
+<p>Use <kbd><b>sigwait()</b></kbd> to separate threads from asynchronous
+signals. You can create one thread that listens for asynchronous signals while
+you create other threads to block any asynchronous signals set to this process.</p>
+<p>The following example shows the syntax of <kbd><b>sigwait()</b></kbd> .</p>
+<a name=""></a><pre>#include &lt;signal.h&gt;
+int sigwait(const sigset_t *<var>set</var>, int *<var>sig</var>
+);</pre>
+<p>When the signal is delivered,  <kbd><b>sigwait()</b></kbd> clears the
+pending signal and places the signal number in <var>sig</var>.
+Many threads can call <kbd><b>sigwait()</b></kbd> at the same time, but only
+one thread returns for each signal that is received.</p>
+<p>With <kbd><b>sigwait()</b></kbd>, you can treat asynchronous signals
+synchronously. A thread that deals with such signals calls <kbd><b>sigwait()</b></kbd> and
+returns as soon as a signal arrives. By ensuring that all threads, including
+the caller of  <kbd><b>sigwait()</b></kbd>, mask asynchronous signals, ensures
+signals are handled only by the intended handler and are handled safely.</p>
+<p>By always masking all signals in all threads and calling <kbd><b>sigwait()</b></kbd> as
+necessary, your application is much safer for threads that depend on signals.</p>
+<p>Usually, you create one or more threads that call <kbd><b>sigwait()</b></kbd> to
+wait for signals. Because <kbd><b>sigwait()</b></kbd> retrieves even masked
+signals, be sure to block the signals of interest in all other threads so
+the signals are not accidentally delivered.</p>
+<p>
+<a name="gen-ix540"></a>When a signal arrives, a signal-handling thread returns
+from <kbd><b>sigwait()</b></kbd> , handles the signal, and calls <kbd><b>sigwait()</b></kbd> again to wait for more signals. The signal-handling thread is
+not restricted to using Async-Signal-Safe functions. The signal-handling thread
+can synchronize with other threads in the usual way. The Async-Signal-Safe
+category is defined in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-59005/index.html">MT Interface Safety Levels</a>.</p>
+<hr><b>Note – </b><p>
+<kbd><b>sigwait()</b></kbd> cannot receive synchronously generated
+signals.</p>
+<hr>
+<a name="6mba5vqba"></a><h3 class="sol">Waiting for Specified Signal Within a Given Time</h3>
+<p>
+<a name="gen-ix542"></a><tt>sigtimedwait</tt>(3RT) is similar to <tt>sigwait</tt>(2)
+ except that <kbd><b>sigtimedwait()</b></kbd> fails and returns an error
+when a signal is not received in the indicated amount of time. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5171/sigtimedwait-3rt/index.html">sigtimedwait(3RT)</a> man page for more information.</p>
+<a name="6mba5vqbb"></a><h2 class="sol">Thread-Directed Signals</h2>
+<p>
+<a name="gen-ix543"></a>The UNIX signal mechanism is extended with the idea of thread-directed
+signals. Thread-directed signals are just like ordinary asynchronous signals,
+except that thread-directed signals are sent to a particular thread instead
+of to a process.</p>
+<p>
+<a name="gen-ix544"></a>A separate thread that waits for asynchronous signals can be safer
+and easier than installing a signal handler that processes the signals.</p>
+<p>
+<a name="gen-ix545"></a><a name="gen-ix546"></a><a name="gen-ix547"></a>A better way to deal with asynchronous
+signals is to treat these signals synchronously. By calling <tt>sigwait(2)</tt>,
+a thread can wait until a signal occurs. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-75415/index.html">Waiting for a Specified Signal</a>.</p>
+<a name="gen-ex-24"></a><hr><h5 class="sol">Example 5–2  Asynchronous Signals and sigwait(2)</h5><br><a name=""></a><pre>main() {
+    sigset_t set;
+    void runA(void);
+    int sig;
+
+    sigemptyset(&amp;set);
+    sigaddset(&amp;set, SIGINT);
+    pthread_sigmask(SIG_BLOCK, &amp;set, NULL);
+    pthread_create(NULL, 0, runA, NULL, PTHREAD_DETACHED, NULL);
+
+    while (1) {
+        sigwait(&amp;set, &amp;sig);
+        printf("nestcount = %d\n", nestcount);
+        printf("received signal %d\n", sig);
+    }
+}
+
+void runA() {
+    A(4,4);
+    exit(0);
+}</pre>
+<hr>
+<p>
+<a name="gen-ix548"></a>This example modifies the code of <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqb4/index.html#gen-28231">Example 5–1</a>. The main routine masks the <tt>SIGINT</tt> signal, creates a child thread that calls function A of the previous
+example, and issues  <kbd><b>sigwait()</b></kbd> to handle the <tt>SIGINT</tt> signal.</p>
+<p>Note that the signal is masked in the compute thread because the compute
+thread inherits its signal mask from the main thread. The main thread is protected
+from  <tt>SIGINT</tt> while, and only while, the thread is not blocked
+inside of  <kbd><b>sigwait()</b></kbd>.</p>
+<p>Also, note that no danger exists of having system calls interrupted
+when you use <kbd><b>sigwait()</b></kbd>.</p>
+<a name="6mba5vqbc"></a><h2 class="sol">Completion Semantics</h2>
+<p>
+<a name="gen-ix549"></a>Another way to deal with signals is with completion semantics.</p>
+<p>Use completion semantics when a signal indicates that something so catastrophic
+has happened that no reason exists to continue executing the current code
+block. The signal handler runs instead of the remainder of the block that
+had the problem. In other words, the signal handler completes the block.</p>
+<p>
+<a name="gen-ix550"></a>In <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqbc/index.html#gen-49222">Example 5–3</a>,
+the block in question is the body of the <tt>then</tt> part of the <tt>if</tt> statement. The call to <tt>setjmp(3C)</tt> saves the
+current register state of the program in <var>jbuf</var> and
+returns 0, thereby executing the block.</p>
+<a name="gen-49222"></a><hr><h5 class="sol">Example 5–3  Completion Semantics</h5><br><a name=""></a><pre>sigjmp_buf jbuf;
+void mult_divide(void) {
+    int a, b, c, d;
+    void problem();
+
+    sigset(SIGFPE, problem);
+    while (1) {
+        if (sigsetjmp(&amp;jbuf) == 0) {
+            printf("Three numbers, please:\n");
+            scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+            d = a*b/c;
+            printf("%d*%d/%d = %d\n", a, b, c, d);
+        }
+    }
+}
+
+void problem(int sig) {
+    printf("Couldn't deal with them, try again\n");
+    siglongjmp(&amp;jbuf, 1);
+}</pre>
+<hr>
+<p>
+<a name="gen-ix551"></a>If a <tt>SIGFPE</tt> floating-point exception occurs,
+the signal handler is invoked.</p>
+<p>
+<a name="gen-ix552"></a>The signal handler calls <tt>siglongjmp(3C)</tt>, which
+restores the register state saved in <var>jbuf</var>, causing
+the program to return from  <kbd><b>sigsetjmp()</b></kbd> again. The registers
+that are saved include the program counter and the stack pointer.</p>
+<p>
+<a name="gen-ix553"></a><a name="gen-ix554"></a>This time, however, <tt>sigsetjmp(3C)</tt> returns the
+second argument of  <kbd><b>siglongjmp()</b></kbd>, which is 1. Notice that
+the block is skipped over, only to be executed during the next iteration of
+the <tt>while</tt> loop.</p>
+<p>
+<a name="gen-ix555"></a><a name="gen-ix556"></a>You can use <tt>sigsetjmp(3C)</tt> and <tt>siglongjmp(3C)</tt> in multithreaded programs. Be careful that a thread never does
+a <kbd><b>siglongjmp()</b></kbd> that uses the results of another thread's <kbd><b>sigsetjmp()</b></kbd>.</p>
+<p>
+<a name="gen-ix557"></a><a name="gen-ix558"></a>Also,  <kbd><b>sigsetjmp()</b></kbd> and <kbd><b>siglongjmp()</b></kbd> restore
+as well as save the signal mask, but <tt>setjmp(3C)</tt> and <tt>longjmp(3C)</tt> do not.</p>
+<p>Use <kbd><b>sigsetjmp()</b></kbd> and <kbd><b>siglongjmp()</b></kbd> when
+you work with signal handlers.</p>
+<p>
+<a name="gen-ix559"></a>Completion semantics are often used to deal with exceptions. In
+particular, the Sun Ada<sup>TM</sup> programming language uses this
+model.</p>
+<hr><b>Note – </b><p>
+<a name="gen-ix560"></a>Remember, <tt>sigwait</tt>(2) should <b>never</b> be
+used with synchronous signals.</p>
+<hr>
+<a name="6mba5vqbd"></a><h2 class="sol">Signal Handlers and Async-Signal Safety</h2>
+<p>
+<a name="gen-ix561"></a>A
+concept that is similar to thread safety is Async-Signal safety. Async-Signal-Safe
+operations are guaranteed not to interfere with operations that are being
+interrupted.</p>
+<p>The problem of Async-Signal safety arises when the actions of a signal
+handler can interfere with the operation that is being interrupted.</p>
+<p>
+<a name="gen-ix562"></a>For example, suppose a program is in the middle of a call to <tt>printf</tt>(3C), and a signal occurs whose handler calls <kbd><b>printf()</b></kbd>.
+In this case, the output of the two <kbd><b>printf()</b></kbd> statements
+would be intertwined. To avoid the intertwined output, the handler should
+not directly call <kbd><b>printf()</b></kbd>  when <kbd><b>printf()</b></kbd> might
+be interrupted by a signal.</p>
+<p>This problem cannot be solved by using synchronization primitives. Any
+attempt to synchronize between the signal handler and the operation being
+synchronized would produce an immediate deadlock.</p>
+<p>Suppose that <kbd><b>printf()</b></kbd> is to protect itself by using
+a mutex. Now, suppose that a thread that is in a call to <kbd><b>printf()</b></kbd> and
+so holds the lock on the mutex is interrupted by a signal.</p>
+<p>If the handler calls <kbd><b>printf()</b></kbd>, the thread that holds
+the lock on the mutex attempts to take the mutex again. Attempting to take
+the mutex results in an instant deadlock.</p>
+<p>To avoid interference between the handler and the operation, ensure
+that the situation never arises. Perhaps you can mask off signals at critical
+moments, or invoke only Async-Signal-Safe operations from inside signal handlers.</p>
+<p>
+<a name="indexterm-284"></a>The only routines that POSIX guarantees
+to be Async-Signal-Safe are listed in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqbd/index.html#gen-95948">Table 5–2</a>. Any signal handler can safely call in to one of these functions.</p>
+<a name="gen-95948"></a>Table 5–2  Async-Signal-Safe Functions<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>_Exit()</b></kbd>  
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>fpathconf()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>read()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigset()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>_exit()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>fstat()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>readlink()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigsuspend()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>abort()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>fsync()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>recv()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sockatmark()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>accept()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>ftruncate()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>recvfrom()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>socket()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>access()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getegid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>recvmsg()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>socketpair()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>aio_error()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>geteuid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>rename()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>stat()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>aio_return()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getgid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>rmdir()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>symlink()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>aio_suspend()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getgroups()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>select()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sysconf()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>alarm()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getpeername()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sem_post()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcdrain()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>bind()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getpgrp()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>send()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcflow()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cfgetispeed()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getpid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sendmsg()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcflush()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cfgetospeed()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getppid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sendto()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcgetattr()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cfsetispeed()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getsockname()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>setgid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcgetattr()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cfsetospeed()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getsockopt()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>setpgid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcsendbreak()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>chdir()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>getuid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>setsid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcsetattr()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>chmod()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>kill()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>setsockopt()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>tcsetpgrp()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>chown()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>link()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>setuid()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>time()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>clock_gettime()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>listen()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>shutdown()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>timer_getoverrun()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>close()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>lseek()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigaction()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>timer_gettime()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>connect()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>lstat()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigaddset()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>timer_settime()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>creat()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>mkdir()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigdelset()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>times()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>dup()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>mkfifo()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigemptyset()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>umask()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>dup2()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>open()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigfillset()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>uname()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>execle()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pathconf()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigismember()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>ulink()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>execve()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pause()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sleep()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>utime()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>fchmod()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pipe()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>signal()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>wait()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>fchown()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>poll()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigpause()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>waitpid()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>fcntl()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>posix_trace_event()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigpending()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>write()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>fdatasync()</b></kbd> 
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pselect()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigprocmask()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">&nbsp;
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>fork()</b></kbd>  
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>raise()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sigqueue()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">&nbsp;
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqbe"></a><h2 class="sol">Interrupted Waits on Condition Variables</h2>
+<p>
+<a name="gen-ix564"></a><a name="gen-ix565"></a><a name="gen-ix567"></a><a name="indexterm-285"></a><a name="gen-ix578"></a>When an unmasked
+caught signal is delivered to a thread waiting on a condition variable, when
+the signal handler returns,  the thread returns from the condition wait function
+with a  spurious wakeup: <kbd><b>pthread_cond_wait()</b></kbd> and <kbd><b>pthread_cond_timedwait()</b></kbd> return 0 even though no call to <kbd><b>pthread_cond_signal()</b></kbd> or <kbd><b>pthread_cond_broadcast()</b></kbd> was made by another thread. Whether <tt>SA_RESTART</tt> has been specified as a flag to <kbd><b>sigaction()</b></kbd> has
+no effect here. The <kbd><b>pthread_cond_wait()</b></kbd> and <kbd><b>pthread_cond_timedwait()</b></kbd> functions are not automatically restarted.  In all cases, the
+associated mutex lock is reacquired before returning from the condition wait.</p>
+<p>Re-acquisition of the associated mutex lock does not imply that the
+mutex is locked while the thread is executing the signal handler. The state
+of the mutex in the signal handler is undefined.</p>
+<a name="6mba5vqbf"></a><h1 class="sol">I/O Issues</h1>
+<p>One of the attractions of multithreaded programming is I/O performance.
+The traditional UNIX API gave you little assistance in this area. You either
+used the facilities of the file system or bypassed the file system entirely.</p>
+<p>This section shows how to use threads to get more flexibility through
+I/O concurrency and multibuffering. This section also discusses the differences
+and similarities between the approaches of synchronous I/O with threads, and
+asynchronous I/O with and without threads.</p>
+<a name="6mba5vqbh"></a><h2 class="sol">I/O as a Remote Procedure Call</h2>
+<p>
+<a name="gen-ix581"></a><a name="gen-ix582"></a>In the traditional
+UNIX model, I/O appears to be synchronous, as if you were placing a remote
+procedure call to the I/O device. Once the call returns, then the I/O has
+completed, or at least appears to have completed. A write request, for example,
+might merely result in the transfer of the data to a buffer in the operating
+environment.</p>
+<p>The advantage of this model is familiar concept of procedure calls.</p>
+<p>
+<a name="gen-ix583"></a><a name="gen-ix584"></a>An alternative
+approach not found in traditional UNIX systems is the asynchronous model,
+in which an I/O request merely starts an operation. The program must somehow
+discover when the operation completes.</p>
+<p>The asynchronous model is not as simple as the synchronous model. But,
+the asynchronous model has the advantage of allowing concurrent I/O and processing
+in traditional, single-threaded UNIX processes.</p>
+<a name="6mba5vqbi"></a><h2 class="sol">Tamed Asynchrony</h2>
+<p>
+<a name="gen-ix585"></a>You can get most of the benefits of asynchronous I/O by using
+synchronous I/O in a multithreaded program. With asynchronous I/O, you would
+issue a request and check later to determine when the I/O completes. You can
+instead have a separate thread perform the I/O synchronously. The main thread
+can then check for the completion of the operation at some later time perhaps
+by calling <tt>pthread_join</tt>(3C).</p>
+<a name="6mba5vqbj"></a><h2 class="sol">Asynchronous I/O</h2>
+<a name="gen-ix586"></a><p>
+<a name="gen-ix587"></a><a name="gen-ix588"></a>In most situations, asynchronous
+I/O is not required because its effects can be achieved with the use of threads,
+with each thread execution of synchronous I/O. However, in a few situations,
+threads cannot achieve what asynchronous I/O can.</p>
+<p>
+<a name="gen-ix589"></a><a name="gen-ix590"></a>The most straightforward example is writing to a tape drive to
+make the tape drive stream. Streaming prevents the tape drive from stopping
+while the drive is being written to. The tape moves forward at high speed
+while supplying a constant stream of data that is written to tape.</p>
+<p>To support streaming, the tape driver in the kernel should use threads.
+The tape driver in the kernel must issue a queued write request when the tape
+driver responds to an interrupt. The interrupt indicates that the previous
+tape-write operation has completed.</p>
+<p>Threads cannot guarantee that asynchronous writes are ordered because
+the order in which threads execute is indeterminate. You cannot, for example,
+specify the order of a write to a tape.</p>
+<a name="6mba5vqbl"></a><h3 class="sol">Asynchronous I/O Operations</h3>
+<a name=""></a><pre>#include &lt;aio.h&gt;
+
+int aio_read(struct aiocb *aiocbp);
+
+int aio_write(struct aiocb *aiocbp);
+
+int aio_error(const struct aiocb *aiocbp);
+
+ssize_t aio_return(struct aiocb *aiocbp);
+
+int aio_suspend(struct aiocb *list[], int nent,
+    const struct timespec *timeout);
+
+int aio_waitn(struct aiocb *list[], uint_t nent, uint_t *nwait,
+    const struct timespec *timeout);
+
+int aio_cancel(int fildes, struct aiocb *aiocbp);</pre>
+<p>
+<a name="indexterm-286"></a><a name="indexterm-287"></a><a name="indexterm-288"></a><a name="indexterm-289"></a><tt>aio_read</tt>(3RT) and <tt>aio_write</tt>(3RT) are similar
+in concept to <tt>pread</tt>(2) and <tt>pwrite</tt>(2),
+except that the parameters of the I/O operation are stored in an asynchronous
+I/O control block (<tt>aiocbp</tt>) that is passed to <kbd><b>aio_read()</b></kbd> or <kbd><b>aio_write()</b></kbd>:</p>
+<a name=""></a><pre>    aiocbp-&gt;aio_fildes;    /* file descriptor */
+    aiocbp-&gt;aio_buf;       /* buffer */
+    aiocbp-&gt;aio_nbytes;    /* I/O request size */
+    aiocbp-&gt;aio_offset;    /* file offset */</pre>
+<p>In addition, if desired, an asynchronous notification type (most commonly
+a queued signal) can be specified in the '<tt>struct sigevent</tt>'
+member:</p>
+<a name=""></a><pre>    aiocbp-&gt;aio_sigevent;  /* notification type */</pre>
+<p>A call to <kbd><b>aio_read()</b></kbd> or <kbd><b>aio_write()</b></kbd> results
+in the initiation or queueing of an I/O operation. The call returns without
+blocking.</p>
+<p>
+<a name="indexterm-290"></a><a name="indexterm-291"></a>The <tt>aiocbp</tt> value may be used as an argument to <tt>aio_error</tt>(3RT)
+and <tt>aio_return</tt>(3RT) in order to determine the error status
+and return status of the asynchronous operation while it is proceeding.</p>
+<a name="6mba5vqbm"></a><h3 class="sol">Waiting for I/O Operation to Complete</h3>
+<p>
+<a name="indexterm-292"></a><a name="indexterm-293"></a><a name="indexterm-294"></a><a name="indexterm-295"></a><a name="indexterm-296"></a>You can wait for one or more outstanding
+asynchronous I/O operations to complete by calling <kbd><b>aio_suspend()</b></kbd> or <kbd><b>aio_waitn()</b></kbd>. Use <kbd><b>aio_error()</b></kbd>  and <kbd><b>aio_return()</b></kbd> on the completed asynchronous I/O control blocks to determine
+the success or failure of the I/O operation.</p>
+<p>The <kbd><b>aio_suspend()</b></kbd> and <kbd><b>aio_waitn()</b></kbd> functions
+take a <var>timeout</var> argument, which indicates how long
+the caller is willing to wait. A <tt>NULL</tt> pointer means that
+the caller is willing to wait indefinitely. A pointer to a structure containing
+a zero value means that the caller is unwilling to wait at all.</p>
+<p>You might start an asynchronous I/O operation, do some work, then call <kbd><b>aio_suspend()</b></kbd> or <kbd><b>aio_waitn()</b></kbd> to wait for the request
+to complete. Or you can rely on the asynchronous notification event specified
+in <kbd><b>aio_sigevent()</b></kbd> to occur to notify you when the operation
+completes.  </p>
+<p>
+<a name="indexterm-297"></a>Finally,
+a pending asynchronous I/O operation can be cancelled by calling <kbd><b>aio_cancel()</b></kbd>.  This function is called with the address of the I/O control
+block that was used to initiate the I/O operation.</p>
+<a name="6mba5vqbn"></a><h2 class="sol">Shared I/O and New I/O System Calls</h2>
+<p>
+<a name="gen-ix611"></a><a name="gen-ix612"></a>When multiple threads perform
+concurrent I/O operations with the same file descriptor, you might discover
+that the traditional UNIX I/O interface is not thread safe. The problem occurs
+with nonsequential I/O where the <tt>lseek</tt>(2) system call sets
+the file offset. The file offset is then used in the next <tt>read</tt>(2)
+or <tt>write</tt>(2) call to indicate where in the file the operation
+should start. When two or more threads are issuing an <kbd><b>lseek()</b></kbd> to
+the same file descriptor, a conflict results.</p>
+<p>
+<a name="gen-ix613"></a><a name="gen-ix614"></a>To avoid this conflict, use the <kbd><b>pread()</b></kbd> and <kbd><b>pwrite()</b></kbd> system calls.</p>
+<a name=""></a><pre>#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+
+ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);
+
+ssize_t pwrite(int filedes, void *buf, size_t nbyte,
+    off_t offset);</pre>
+<p>
+<a name="gen-ix615"></a><a name="gen-ix616"></a><a name="gen-ix617"></a><tt>pread</tt>(2) and <tt>pwrite</tt>(2) behave
+just like <tt>read</tt> (2) and <tt>write</tt>(2) except
+that <tt>pread</tt>(2) and <tt>pwrite</tt>(2) take an
+additional argument, the file offset. With this argument, you specify the
+offset without using <tt>lseek</tt>(2), so multiple threads can
+use these routines safely for I/O on the same file descriptor.</p>
+<a name="6mba5vqbo"></a><h2 class="sol">Alternatives to <tt>getc</tt> and <tt>putc</tt>
+</h2>
+<p>
+<a name="gen-ix618"></a><a name="gen-ix619"></a>An additional problem occurs with
+standard I/O. Programmers are accustomed to routines, such as <tt>getc</tt>(3C)
+and <tt>putc</tt>(3C) , that are implemented as macros, being very
+quick. Because of the speed of <tt>getc</tt>(3C) and <tt>putc</tt>(3C),
+these macros can be used within the inner loop of a program with no concerns
+about efficiency.</p>
+<p>However, when <tt>getc</tt>(3C) and <tt>putc</tt>(3C)
+are made thread safe the macros suddenly become more expensive. The macros
+now require at least two internal subroutine calls, to lock and unlock a mutex.</p>
+<p>
+<a name="gen-ix620"></a><a name="gen-ix621"></a>To get around this problem, alternative versions of these routines
+are supplied: <tt>getc_unlocked</tt>(3C) and <tt>putc_unlocked</tt>(3C).</p>
+<p>
+<a name="gen-ix622"></a><a name="gen-ix623"></a><tt>getc_unlocked</tt>(3C)  and <tt>putc_unlocked</tt>(3C)
+do not acquire locks on a mutex. These <kbd><b>getc_unlocked()</b></kbd> or <kbd><b>putc_unlocked()</b></kbd> macros are as quick as the original, nonthread-safe
+versions of <tt>getc</tt>(3C)  and <tt>putc</tt>(3C).</p>
+<p>
+<a name="gen-ix624"></a><a name="gen-ix625"></a>However, to use these macros in a thread-safe way, you must explicitly
+lock and release the mutexes that protect the standard I/O streams, using <tt>flockfile</tt>(3C) and  <tt>funlockfile</tt>(3C). The calls
+to these latter routines are placed outside the loop. Calls to <kbd><b>getc_unlocked()</b></kbd> or <kbd><b>putc_unlocked()</b></kbd> are placed inside the loop.</p>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html"><em>Previous</em>: Chapter&nbsp;4 Programming
+with Synchronization Objects</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html"><em>Next</em>: Chapter&nbsp;6 Programming With
+Solaris Threads</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

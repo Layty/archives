@@ -1,0 +1,9 @@
+winmain.c
+  APP_Init()  
+    InitializeGui()
+    SmlLogInit()
+    WSAStartup
+    MgmtTree_Init
+      MtStore_Init & MtStore_LoadTree
+        MtStore_OpenNode(rootnode) & treeNode=Tree_GetRootNode
+        MtStore_FillNode(Handle, rootNode, treeNode)

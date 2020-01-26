@@ -1,0 +1,31 @@
+
+
+http://witestlab.poly.edu/wiki/Madwifi%20TutorialMadwifi Tutorial ?
+
+
+This is a tutorial on Madwifi code. In order to understand you need to go through the basis of the transmission and reception prcedure as well as the basic structures used in Madwifi. Firstly it is better for you to read the following document which includes the common notations in Madwifi code.
+
+Introduction to Madwifi 
+
+sk_buff is probably the most important data structure in the madwifi code.This is a document describing the main members and functions of this structure.
+
+sk_buff description_Lin.doc 
+
+Then you should go into the details of transmission procedure. The documents below describe the 3 most important functions in Tx. Tx starts by calling ath_hardstart, and ath_hardstart calls any other main functions directly or not. 
+
+ath_hardstart
+ieee80211_encap.doc
+ath_tx_start.doc 
+
+Then you shoud have a careful look into the reception procedure. The documents below describe the 3 most important functions in Rx. Rx starts by calling ath_rx_tasklet, and ath_rx_tasklet calls any other main functions directly or not. 
+
+ath_rx_tasklet.doc
+ieee80211_input.doc
+ieee80211_decap.doc 
+
+The next issue is queue handling. 
+
+Dynamic rate adaptation: Madwifi offers 3 algorithms for rate adaptation of wireless networks. They are the Onoe algorithm, AMRR and Sample Rate, as discussed in the following document.
+Rate_adaption_algorithm.rtf
+
+

@@ -1,0 +1,540 @@
+]
+
+SYSTEM>
+SYSTEM> en
+SYSTEM# show interface eth1-12
+Interface eth1-12 is up, line protocol detection is disabled
+  index 5 metric 1 mtu 1500
+  flags: <UP,BROADCAST,MULTICAST>
+  HWaddr: 00:1f:64:12:00:70
+    0 input packets (0 multicast), 0 bytes, 0 dropped
+    0 input errors, 0 length, 0 overrun, 0 CRC, 0 frame
+    0 fifo, 0 missed
+    0 output packets, 0 bytes, 0 dropped
+    0 output errors, 0 aborted, 0 carrier, 0 fifo, 0 heartbeat
+    0 window, 0 collisions
+SYSTEM#
+SYSTEM# show interface eth1-11
+Interface eth1-11 is up, line protocol detection is disabled
+  index 4 metric 1 mtu 1500
+  flags: <UP,BROADCAST,RUNNING,MULTICAST>
+  HWaddr: 00:1f:64:12:00:70
+  inet6 fe80::21f:64ff:fe12:70/64
+    182 input packets (182 multicast), 18337 bytes, 0 dropped
+    0 input errors, 0 length, 0 overrun, 0 CRC, 0 frame
+    0 fifo, 0 missed
+    4 output packets, 368 bytes, 0 dropped
+    0 output errors, 0 aborted, 0 carrier, 0 fifo, 0 heartbeat
+    0 window, 0 collisions
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM# show interface eth1-9
+Interface eth1-9 is up, line protocol detection is disabled
+  index 2 metric 1 mtu 1500
+  flags: <UP,BROADCAST,RUNNING,MULTICAST>
+  HWaddr: 00:1f:64:12:00:70
+  inet 192.168.6.215/24 broadcast 192.168.6.255
+  inet6 fe80::21f:64ff:fe12:70/64
+    14765 input packets (11300 multicast), 7189717 bytes, 0 dropped
+    0 input errors, 0 length, 0 overrun, 0 CRC, 0 frame
+    0 fifo, 0 missed
+    900 output packets, 86525 bytes, 0 dropped
+    0 output errors, 0 aborted, 0 carrier, 0 fifo, 0 heartbeat
+    0 window, 0 collisions
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM#
+SYSTEM# conf t
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# interface eth1-12
+SYSTEM(config-if)# q
+SYSTEM(config)#
+SYSTEM(config)# interface eth1-11
+SYSTEM(config-if)# q
+SYSTEM(config)# show interface eth1-11
+Interface eth1-11 is up, line protocol detection is disabled
+  index 4 metric 1 mtu 1500
+  flags: <UP,BROADCAST,RUNNING,MULTICAST>
+  HWaddr: 00:1f:64:12:00:70
+  inet6 fe80::21f:64ff:fe12:70/64
+    247 input packets (247 multicast), 23932 bytes, 0 dropped
+    0 input errors, 0 length, 0 overrun, 0 CRC, 0 frame
+    0 fifo, 0 missed
+    4 output packets, 368 bytes, 0 dropped
+    0 output errors, 0 aborted, 0 carrier, 0 fifo, 0 heartbeat
+    0 window, 0 collisions
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# interface eth1-11
+SYSTEM(config-if)# ip address 192.168.6.214/24
+SYSTEM(config-if)# q
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# show interface eth1-12
+Interface eth1-12 is up, line protocol detection is disabled
+  index 5 metric 1 mtu 1500
+  flags: <UP,BROADCAST,MULTICAST>
+  HWaddr: 00:1f:64:12:00:70
+    0 input packets (0 multicast), 0 bytes, 0 dropped
+    0 input errors, 0 length, 0 overrun, 0 CRC, 0 frame
+    0 fifo, 0 missed
+    0 output packets, 0 bytes, 0 dropped
+    0 output errors, 0 aborted, 0 carrier, 0 fifo, 0 heartbeat
+    0 window, 0 collisions
+SYSTEM(config)# show interface eth1-11
+Interface eth1-11 is up, line protocol detection is disabled
+  index 4 metric 1 mtu 1500
+  flags: <UP,BROADCAST,RUNNING,MULTICAST>
+  HWaddr: 00:1f:64:12:00:70
+  inet 192.168.6.214/24 broadcast 192.168.6.255
+  inet6 fe80::21f:64ff:fe12:70/64
+    266 input packets (266 multicast), 25431 bytes, 0 dropped
+    0 input errors, 0 length, 0 overrun, 0 CRC, 0 frame
+    0 fifo, 0 missed
+    4 output packets, 368 bytes, 0 dropped
+    0 output errors, 0 aborted, 0 carrier, 0 fifo, 0 heartbeat
+    0 window, 0 collisions
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# q
+% Ambiguous command.
+SYSTEM(config)#
+SYSTEM(config)# qpmz
+SYSTEM(hidden-debug)# st
+sh-3.1# ping 192.168.6.215
+PING 192.168.6.215 (192.168.6.215) 56(84) bytes of data.
+64 bytes from 192.168.6.215: icmp_seq=1 ttl=64 time=0.097 ms
+
+--- 192.168.6.215 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.097/0.097/0.097/0.000 ms
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1#
+sh-3.1# exit
+logout
+SYSTEM(hidden-debug)# exit
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+root@Autelan Technology Co:/jffs#
+root@Autelan Technology Co:/jffs#
+root@Autelan Technology Co:/jffs#
+root@Autelan Technology Co:/jffs#
+root@Autelan Technology Co:/jffs#
+root@Autelan Technology Co:/jffs# cd ..
+root@Autelan Technology Co:/# ls
+bin         jffs        proc        tmp         www
+dev         lib         root        usr
+etc         lost+found  sbin        var
+root@Autelan Technology Co:/# iwconfig
+lo        no wireless extensions.
+
+wifi0     no wireless extensions.
+
+wifi1     no wireless extensions.
+
+eth0      no wireless extensions.
+
+default   no wireless extensions.
+
+ath.1-1   IEEE 802.11na  ESSID:"aaaaa"
+          Mode:Master  Frequency:5.745 GHz  Access Point: 00:02:03:04:05:06
+          Bit Rate:144.4 Mb/s   Tx-Power=19 dBm
+          RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-96 dBm  Noise level=-95 dBm
+          Rx invalid nwid:376  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath.0-4   IEEE 802.11ng  ESSID:"localwlan"
+          Mode:Master  Frequency:2.437 GHz  Access Point: 00:1F:64:12:34:57
+          Bit Rate:144.4 Mb/s   Tx-Power=20 dBm
+          RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-96 dBm  Noise level=-95 dBm
+          Rx invalid nwid:239  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+root@Autelan Technology Co:/# ifconfig
+ath.0-4   Link encap:Ethernet  HWaddr 00:1F:64:12:34:57
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:0 dropped:1660 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:6720 (6.5 KiB)
+
+ath.1-1   Link encap:Ethernet  HWaddr 00:02:03:04:05:06
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:802383 errors:399 dropped:399 overruns:0 frame:0
+          TX packets:408992 errors:0 dropped:4 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:1190362816 (1.1 GiB)  TX bytes:33720543 (32.1 MiB)
+
+default   Link encap:Ethernet  HWaddr 00:02:03:04:05:06
+          inet addr:192.168.6.69  Bcast:192.168.6.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1843 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:114 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:200230 (195.5 KiB)  TX bytes:8244 (8.0 KiB)
+
+eth0      Link encap:Ethernet  HWaddr 00:03:7F:FF:FF:FF
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:409704 errors:1 dropped:1 overruns:0 frame:0
+          TX packets:802504 errors:0 dropped:0 overruns:168734 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:26469385 (25.2 MiB)  TX bytes:1175932040 (1.0 GiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:3 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:160 (160.0 B)  TX bytes:160 (160.0 B)
+
+wifi0     Link encap:Ethernet  HWaddr 00:1F:64:12:34:57
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:319 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:511
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:2 Memory:b8100000-b811ffff
+
+wifi1     Link encap:UNSPEC  HWaddr 00-02-03-04-05-06-00-4D-00-00-00-00-00-00-00-00
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:460 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:511
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:64 Memory:b0000000-b0020000
+
+
+sh-3.1# ifconfig
+eth1-9    Link encap:Ethernet  HWaddr 00:1F:64:12:00:70
+          inet addr:192.168.6.215  Bcast:192.168.6.255  Mask:255.255.255.0
+          inet6 addr: fe80::21f:64ff:fe12:70/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:14888 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1022 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:7197912 (6.8 MiB)  TX bytes:93432 (91.2 KiB)
+
+eth1-10   Link encap:Ethernet  HWaddr 00:1F:64:12:00:70
+          inet addr:10.10.10.1  Bcast:10.10.10.255  Mask:255.255.255.0
+          inet6 addr: fe80::21f:64ff:fe12:70/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:256 (256.0 b)  TX bytes:278 (278.0 b)
+
+eth1-11   Link encap:Ethernet  HWaddr 00:1F:64:12:00:70
+          inet addr:192.168.6.214  Bcast:192.168.6.255  Mask:255.255.255.0
+          inet6 addr: fe80::21f:64ff:fe12:70/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:714 errors:0 dropped:0 overruns:0 frame:1
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:63554 (62.0 KiB)  TX bytes:368 (368.0 b)
+
+eth1-12   Link encap:Ethernet  HWaddr 00:1F:64:12:00:70
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:57 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:57 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:5288 (5.1 KiB)  TX bytes:5288 (5.1 KiB)
+
+pimreg    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+          UP RUNNING NOARP  MTU:1472  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+wlan0-2   Link encap:Ethernet  HWaddr 00:00:00:00:00:00
+          inet addr:2.2.2.1  Bcast:2.2.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::21f:64ff:fe12:70/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1416  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 b)  TX bytes:368 (368.0 b)
+
+
+
+		  
+SYSTEM(config)# interface eth1-12
+SYSTEM(config-if)# no ip address  192.168.6.214/24
+% Can't find address
+SYSTEM(config-if)#
+SYSTEM(config-if)#
+SYSTEM(config-if)#
+SYSTEM(config-if)# q
+SYSTEM(config)# interface eth1-11
+SYSTEM(config-if)# no ip address  192.168.6.214/24
+SYSTEM(config-if)# q
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# interface eth1-11
+SYSTEM(config-if)# ip address 192.168.7.214/24
+SYSTEM(config-if)# q
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# qpmz
+SYSTEM(hidden-debug)# st
+sh-3.1# ping 192.168.6.215
+PING 192.168.6.215 (192.168.6.215) 56(84) bytes of data.
+64 bytes from 192.168.6.215: icmp_seq=1 ttl=64 time=0.090 ms
+
+sh-3.1#
+sh-3.1# exit
+logout
+SYSTEM(hidden-debug)# exit
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# show wtp l
+wtp list summary:
+1 WTPs Online
+----------------------------------------------------------------------
+0 WTP Join state
+0 WTP Configure state
+0 WTP Datacheck state
+1 WTP Run state
+0 WTP Imagedata state
+0 WTP Bak_run state
+0 WTP Quit state
+==============================================================================
+WTPID WTPMAC            WTPIP                 RunState   State
+2     00:1F:64:12:34:56 192.168.6.69:32768    run        used
+==============================================================================
+0 WTP Join state
+0 WTP Configure state
+0 WTP Datacheck state
+1 WTP Run state
+0 WTP Imagedata state
+0 WTP Bak_run state
+0 WTP Quit state
+----------------------------------------------------------------------
+SYSTEM(config)# config radio 2-0
+SYSTEM(config-radio 2-0)# q
+SYSTEM(config)# config radio 2-1
+SYSTEM(config-radio 2-1)# list
+  (add|del) wds remote brmac MAC
+  (tx_chainmask|rx_chainmask) (1.0.0|0.1.0|1.1.0|0.0.1|1.0.1|0.1.1|1.1.1)
+  11n (ampdu|amsdu) (enable|disable)
+  11n (ampdu|amsdu) limit VALUE
+  11n (ampdu|amsdu) subframe VALUE
+  11n cwmode (ht20|ht20/40|ht40)
+  11n guard interval (800|400)
+  11n mcs <0-31>
+  beaconinterval <25-1000>
+  bss <0-7> (no|wlan|bss) interface
+  channel CHANNEL
+  channel offset (up|down)
+  dtim <1-15>
+  end
+  exit
+  fragmentation <256-2346>
+  help
+  list
+  longretry <1-15>
+  mode (11a|11b|11g|11b/g|11b/g/n|11a/n)
+  preamble (short|long)
+  quit
+  radio (enable|disable)
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)# mode 11
+11a      11a/n    11b      11b/g    11b/g/n  11g
+SYSTEM(config-radio 2-1)# mode 11
+11a      11a/n    11b      11b/g    11b/g/n  11g
+SYSTEM(config-radio 2-1)# mode 11
+11a      11a/n    11b      11b/g    11b/g/n  11g
+SYSTEM(config-radio 2-1)# mode 11
+11a      11a/n    11b      11b/g    11b/g/n  11g
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)# list
+  (add|del) wds remote brmac MAC
+  (tx_chainmask|rx_chainmask) (1.0.0|0.1.0|1.1.0|0.0.1|1.0.1|0.1.1|1.1.1)
+  11n (ampdu|amsdu) (enable|disable)
+  11n (ampdu|amsdu) limit VALUE
+  11n (ampdu|amsdu) subframe VALUE
+  11n cwmode (ht20|ht20/40|ht40)
+  11n guard interval (800|400)
+  11n mcs <0-31>
+  beaconinterval <25-1000>
+  bss <0-7> (no|wlan|bss) interface
+  channel CHANNEL
+  channel offset (up|down)
+  dtim <1-15>
+  end
+  exit
+  fragmentation <256-2346>
+  help
+  list
+  longretry <1-15>
+  mode (11a|11b|11g|11b/g|11b/g/n|11a/n)
+  preamble (short|long)
+  quit
+  radio (enable|disable)
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)# 11n
+ampdu   amsdu   cwmode  guard   mcs
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht40
+Radio 2-1 set cwmode ht40 successfully .
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+ht20     ht20/40  ht40
+SYSTEM(config-radio 2-1)# 11n cwmode ht
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)#
+SYSTEM(config-radio 2-1)# list
+  (add|del) wds remote brmac MAC
+  (tx_chainmask|rx_chainmask) (1.0.0|0.1.0|1.1.0|0.0.1|1.0.1|0.1.1|1.1.1)
+  11n (ampdu|amsdu) (enable|disable)
+  11n (ampdu|amsdu) limit VALUE
+  11n (ampdu|amsdu) subframe VALUE
+  11n cwmode (ht20|ht20/40|ht40)
+  11n guard interval (800|400)
+  11n mcs <0-31>
+  beaconinterval <25-1000>
+  bss <0-7> (no|wlan|bss) interface
+  channel CHANNEL
+  channel offset (up|down)
+  dtim <1-15>
+  end
+  exit
+  fragmentation <256-2346>
+  help
+  list
+  longretry <1-15>
+  mode (11a|11b|11g|11b/g|11b/g/n|11a/n)
+  preamble (short|long)
+  quit
+  radio (enable|disable)
+  radio apply qos ID
+  radio apply wlan ID
+  radio apply wlan ID base vlan ID
+  radio apply wlan ID clean vlan
+  radio delete qos ID
+  radio delete wlan ID
+  radio disable wlan ID
+  radio enable wlan ID
+  recover default config
+  rtsthreshold <256-2346>
+  set (bursting|fastFrame|compression) (enable|disable)
+  set 11n wlan ID cwmmode MODE
+  set bss BSSINDEX max throughput <1-30>
+  set bss BSSINDEX max_sta_num NUM
+  set inter-VAP-forwarding (enable|disable)
+  set intra-VAP-forwarding (enable|disable)
+  set max rate RATE
+  set radio (starttimer|stoptimer) (enable|disable)
+  set radio (start|stop) service at TIME (once|cycle) .WEEKDAYS
+  set radio auto channel (enable|disable)
+  set radio auto channel_cont (enable|disable)
+  set radio congestion_avoidance (disable|tail-drop|red|fwred|)
+  set radio diversity (enable|disable)
+  set radio keep_alive_idle_time VALUE
+  set radio keep_alive_period VALUE
+  set radio max throughout PARAMETER
+  set radio sector LIST (enable|disable)
+  set radio sectorid (0|1|2|3|all) power VALUE
+  set radio txantenna (auto|main|vice)
+  set support ratelist RATELIST
+  set wds bridge distance <0-31>
+  set wds brmac MAC aes key KEY
+  set wds encrption type (disable|wep|aes)
+  set wds wep key KEY
+  set wlan ID l2 isolation (enable|disable)
+  set wlan WLANID sta_static_arp (enable|disable) base IFNAME
+  shortretry <1-15>
+  show radio bss list
+  show radio channel change info
+  show radio max throughput
+  show wlan WLANID wds_bssid_list
+  txpower TXPOWER
+  txpoweroffset <0-27>
+  txpowerstep TXPOWER
+  wlan ID sta dhcp (enable|disable)
+  wlan ID sta ip_mac binding (enable|disable)
+  wlan ID traffic limit (enable|disable)
+  wlan ID traffic limit cancel station MAC send value
+  wlan ID traffic limit cancel station MAC value
+  wlan ID traffic limit send value VALUE
+  wlan ID traffic limit station MAC send value VALUE
+  wlan ID traffic limit station MAC value VALUE
+  wlan ID traffic limit station average send value VALUE
+  wlan ID traffic limit station average value VALUE
+  wlan ID traffic limit value VALUE
+  wlan ID wds (enable|disable)
+  wlan VALUE workmode (puren|mixed)
+  wlan WLANID (add|delete) wds_bssid MAC
+SYSTEM(config-radio 2-1)#

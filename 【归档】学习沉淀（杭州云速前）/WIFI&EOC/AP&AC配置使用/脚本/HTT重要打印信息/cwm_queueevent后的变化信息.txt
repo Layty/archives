@@ -1,0 +1,148 @@
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_timer
+cwm_timer
+cwm_timer
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+
+/usr/sbin # cwm_timer
+cwm_queueevent: EXTCHCLEAR
+cwm_statetransition: Event EXTCHCLEAR. State EXT BUSY => EXT CLEAR
+cwm_action_mac20to40
+/usr/sbin # iwconfig
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+/usr/sbin # cwm_timer
+cwm_timer
+cwm_timer
+cwm_queueevent: EXTCHBUSY
+cwm_statetransition: Event EXTCHBUSY. State EXT CLEAR => EXT BUSY
+cwm_action_mac40to20
+cwm_timer

@@ -1,0 +1,1531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0079)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12926/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;2 Basic Threads
+Programming (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 2 Basic Threads Programming (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 2 Basic Threads Programming (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 2 Basic Threads Programming (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 2 Basic Threads Programming (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 2 Basic Threads Programming (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 2 Basic Threads Programming (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;2 Basic Threads
+Programming</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-75924/index.html"><em>Previous</em>: Chapter&nbsp;1 Covering Multithreading
+Basics</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-74380/index.html"><em>Next</em>: Chapter&nbsp;3 Thread Attributes</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vpjo"></a><h1 class="sol">Chapter&nbsp;2 Basic Threads
+Programming</h1>
+<a name=""></a><p>This chapter introduces the basic threads programming routines for POSIX
+threads. This chapter describes <b>default threads</b>, or threads
+with default attribute values, which are the kind of threads that are most
+often used in multithreaded programming. This chapter explains how to create
+and use threads with nondefault attributes.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gezis/index.html">Lifecycle of a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-1/index.html">The Pthreads Library</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vpjq"></a><h1 class="sol">Lifecycle of a Thread</h1>
+<p>
+<a name="indexterm-26"></a>When a thread
+is created, a new thread of control is added to the current process. Every
+process has at least one thread of control, in the program's <kbd><b>main()</b></kbd> routine.
+Each thread in the process runs simultaneously, and has access to the calling
+process's global data. In addition each thread has its own private attributes
+and call stack.</p>
+<p>To create a new thread, a running thread calls the <kbd><b>pthread_create()</b></kbd> function, and passes a pointer to a function for the new thread
+to run. One argument for the new thread's function can also be passed, along
+with thread attributes. The execution of a thread begins with the successful
+return from the <kbd><b>pthread_create()</b></kbd> function. The thread ends
+when the function that was called with the thread completes normally.</p>
+<p>A thread can also be terminated if the thread calls a <kbd><b>pthread_exit()</b></kbd> routine, or if any other thread calls <kbd><b>pthread_cancel()</b></kbd> to
+explicitly terminate that thread. A thread can also be terminated by the exit
+of the process that called the thread.</p>
+<a name="6mba5vpjr"></a><h1 class="sol">The Pthreads Library</h1>
+<p>The Pthreads API library consists of more than 100 functions. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5175/pthreads-5/index.html">pthreads(5)</a> man page for
+a full list of the functions, grouped by their usage categories.</p>
+<p>This section contains brief descriptions of the functions used for basic
+threads programming, organized according to the task they perform, and includes
+links to the man pages of the associated API functions. The following list
+directs you to the discussion of a particular task.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-79569/index.html">Creating a Default Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-76426/index.html">Waiting for Thread Termination</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-4/index.html">Simple Threads Example</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-13141/index.html">Detaching a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-40012/index.html">Creating a Key for Thread-Specific Data</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-17146/index.html">Deleting the Thread-Specific Data Key</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-83927/index.html">Setting Thread-Specific Data</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-62946/index.html">Getting Thread-Specific Data</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-31/index.html">Global and Private Thread-Specific Data Example</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-99651/index.html">Getting the Thread Identifier</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-94237/index.html">Comparing Thread IDs</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-78308/index.html">Calling an Initialization Routine for a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-49612/index.html">Yielding Thread Execution</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-56110/index.html">Setting the Thread Policy and Scheduling Parameters</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-80766/index.html">Getting the Thread Policy and Scheduling Parameters</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggeco/index.html">Setting the Thread Priority</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-98797/index.html">Sending a Signal to a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-49639/index.html">Accessing the Signal Mask of the Calling Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-24991/index.html">Forking Safely</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-25729/index.html">Terminating a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12602/index.html">Finishing Up</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-62067/index.html">Cancel a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-82704/index.html">Cancelling a Thread</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-46391/index.html">Enabling or Disabling Cancellation</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-94009/index.html">Setting Cancellation Type</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-86110/index.html">Creating a Cancellation Point</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-98948/index.html">Pushing a Handler Onto the Stack</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-76860/index.html">Pulling a Handler Off the Stack</a>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vpjt"></a><h2 class="sol">Creating a Default Thread</h2>
+<p>
+<a name="indexterm-27"></a>When
+an attribute object is not specified, the object is <tt>NULL</tt>,
+and the default thread is created with the following attributes:</p>
+<a name=""></a><ul>
+<li>
+<p>Process scope</p>
+
+
+</li>
+<li>
+<p>Nondetached</p>
+
+
+</li>
+<li>
+<p>A default stack and stack size</p>
+
+
+</li>
+<li>
+<p>A priority of zero</p>
+
+
+</li>
+</ul>
+<p>You can also create a default attribute object with <kbd><b>pthread_attr_init()</b></kbd> , and then use this attribute object to create a default thread.
+See the section <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-39150/index.html">Initializing Attributes</a> for
+details.</p>
+<a name="6mba5vpjv"></a><h3 class="sol">
+<tt>pthread_create</tt> Syntax</h3>
+<a name="tlib-ix51"></a><p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-create-3c/index.html">pthread_create(3C)</a> to add a new thread of control to the current process.</p>
+<a name=""></a><pre>int pthread_create(pthread_t *restrict <var>tid</var>, const pthread_attr_t 
+    *restrict <var>tattr</var>, void*(*<var>start_routine</var>)(void *), void *restrict <var>arg</var>);</pre>
+<a name=""></a><pre><kbd>#include &lt;pthread.h&gt;</kbd>
+
+<kbd><b>pthread_attr_t()</b></kbd> <var>tattr</var>;
+pthread_t <var>tid</var>;
+extern void <var>*start_routine</var>(void *<var>arg</var>);
+void *<var>arg</var>;
+int <var>ret</var>; 
+
+/* default behavior*/
+<var>ret</var> = pthread_create(<var>&amp;tid</var>, <tt>NULL</tt>, <var>start_routine</var>, <var>arg</var>);
+
+/* initialized with default attributes */
+<var>ret</var> = pthread_attr_init(<var>&amp;tattr</var>);
+/* default behavior specified*/
+<var>ret</var> = pthread_create(<var>&amp;tid</var>, <var>&amp;tattr</var>, <var>start_routine</var>, <var>arg</var>);</pre>
+<p>
+<a name="tlib-ix52"></a>The <kbd><b>pthread_create()</b></kbd> function
+is called with <var>attr</var> that has the necessary state
+behavior.  <var>start_routine</var> is the function with which
+the new thread begins execution. When <var>start_routine</var> returns,
+the thread exits with the exit status set to the value returned by <var>start_routine</var>. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-95520/index.html"><tt>pthread_create</tt> Syntax</a>.</p>
+<p>When <kbd><b>pthread_create()</b></kbd> is successful, the ID of the
+created thread is stored in the location referred to as <var>tid</var>.</p>
+<p>When you call <kbd><b>pthread_create()</b></kbd> with either a <tt>NULL</tt>  attribute argument or a default attribute, <kbd><b>pthread_create()</b></kbd> creates
+a default thread. When <var>tattr</var> is initialized, the
+thread acquires the default behavior.</p>
+<a name="6mba5vpk1"></a><h3 class="sol">
+<tt>pthread_create</tt> Return Values</h3>
+<p>
+<a name="indexterm-28"></a><kbd><b>pthread_create()</b></kbd> returns
+zero when the call completes successfully. Any other return value indicates
+that an error occurred. When any of the following conditions are detected, <kbd><b>pthread_create()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EAGAIN</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>A system limit is exceeded, such as when
+too many threads have been created.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>tattr</var> is
+invalid.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EPERM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The caller does not have appropriate permission
+to set the required scheduling parameters or scheduling policy.</p>
+
+
+</dl><a name="6mba5vpk3"></a><h2 class="sol">Waiting for Thread Termination</h2>
+<p>The <kbd><b>pthread_join()</b></kbd> function blocks the calling thread
+until the specified thread terminates.</p>
+<a name="6mba5vpk5"></a><h3 class="sol">
+<tt>pthread_join</tt> Syntax</h3>
+<a name="tlib-ix55"></a><a name="tlib-ix57"></a><p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-join-3c/index.html">pthread_join(3C)</a> to wait for a thread to terminate.</p>
+<a name=""></a><pre>int pthread_join(pthread_t <var>tid</var>, void **<var>status</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+void *<var>status</var>;
+
+/* waiting to join thread "tid" with status */
+<var>ret</var> = pthread_join(<var>tid</var>, &amp;<var>status</var>);
+
+/* waiting to join thread "tid" without status */
+<var>ret</var> = pthread_join(<var>tid</var>, <tt>NULL</tt>); </pre>
+<p>The specified thread must be in the current process and must not be
+detached. For information on thread detachment, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-69011/index.html">Setting Detach State</a>.</p>
+<p>When <b>status</b> is not <tt>NULL</tt>,  <b>status</b> points to a location that is set to the exit status of the
+terminated thread when <kbd><b>pthread_join()</b></kbd> returns successfully.</p>
+<p>If multiple threads wait for the same thread to terminate, all the threads
+wait until the target thread terminates. Then one waiting thread returns successfully.
+The other waiting threads fail with an error of <samp>ESRCH</samp>.</p>
+<p>After <kbd><b>pthread_join()</b></kbd> returns, any data storage associated
+with the terminated thread can be reclaimed by the application.</p>
+<a name="6mba5vpk7"></a><h3 class="sol">
+<tt>pthread_join</tt> Return Values</h3>
+<p>
+<a name="indexterm-29"></a><kbd><b>pthread_join()</b></kbd> returns zero
+when the call completes successfully. Any other return value indicates that
+an error occurred. When any of the following conditions are detected, <kbd><b>pthread_join()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>No thread could be found corresponding
+to the given thread ID.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EDEADLK</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>A deadlock would exist, such as a thread
+waits for itself or thread A waits for thread B and thread B waits for thread
+A.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The thread corresponding to the given
+thread ID is a detached thread.</p>
+
+
+</dl><p>
+<kbd><b>pthread_join()</b></kbd> works only for target threads that
+are nondetached. When no reason exists to synchronize with the termination
+of a particular thread, then that thread should be detached.</p>
+<a name="6mba5vpk9"></a><h2 class="sol">Simple Threads Example</h2>
+<p>In <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vpk9/index.html#tlib-36577">Example 2–1</a>, one
+thread executes the procedure at the top, creating a helper thread that executes
+the procedure <kbd><b>fetch()</b></kbd>. The <kbd><b>fetch()</b></kbd> procedure
+executes a complicated database lookup and might take some time.</p>
+<p>The main thread awaits the results of the lookup but has other work
+to do in the meantime. So, the main thread perform those other activities
+and then waits for its helper to complete its job by executing <kbd><b>pthread_join()</b></kbd>.</p>
+<p>
+<a name="tlib-ix73"></a><a name="tlib-ix74"></a>An argument, <var>pbe</var>, to the new thread is passed as a stack parameter. The thread
+argument can be passed as a stack parameter because the main thread waits
+for the spun-off thread to terminate. However, the preferred method is to
+use <tt>malloc</tt> to allocate storage from the heap instead of
+passing an address to thread stack storage. If the argument is passed as an
+address to thread stack storage, this address might be invalid or be reassigned
+if the thread terminates.</p>
+<a name="tlib-36577"></a><hr><h5 class="sol">Example 2–1  Simple Threads Program</h5><br><a name=""></a><pre>void mainline (...)
+{
+        struct phonebookentry *pbe;
+        pthread_attr_t tattr;
+        pthread_t helper;
+        void *status;
+
+        pthread_create(&amp;helper, <tt>NULL</tt>, fetch, &amp;pbe);
+
+            /* do something else for a while */
+
+        pthread_join(helper, &amp;status);
+        /* it's now safe to use result */
+}
+
+void *fetch(struct phonebookentry *arg)
+{
+        struct phonebookentry *npbe;
+        /* fetch value from a database */
+
+        npbe = search (prog_name)
+            if (npbe != <tt>NULL</tt>)
+                *arg = *npbe;
+        pthread_exit(0);
+}   
+
+struct phonebookentry {
+        char name[64];
+        char phonenumber[32];
+        char flags[16];
+}</pre>
+<hr>
+<a name="6mba5vpka"></a><h2 class="sol">Detaching a Thread</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-detach-3c/index.html">pthread_detach(3C)</a> is an alternative to <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-join-3c/index.html">pthread_join(3C)</a> to reclaim storage for a
+thread that is created with a <var>detachstate</var> attribute
+set to <tt>PTHREAD_CREATE_JOINABLE</tt>.</p>
+<a name="6mba5vpkc"></a><h3 class="sol">
+<tt>pthread_detach</tt> Syntax</h3>
+<a name="tlib-ix75"></a><a name=""></a><pre>int pthread_detach(pthread_t <var>tid</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+
+/* detach thread tid */
+<var>ret</var> = pthread_detach(<var>tid</var>); </pre>
+<p>The <kbd><b>pthread_detach()</b></kbd> function is used to indicate
+to your application that storage for the thread <b>tid</b> can
+be reclaimed when the thread terminates. Threads should be detached when they
+are no longer needed. If <b>tid</b> has not terminated,  <kbd><b>pthread_detach()</b></kbd> does not cause the thread to terminate.</p>
+<a name="6mba5vpke"></a><h3 class="sol">
+<tt>pthread_detach</tt> Return Values</h3>
+<p>
+<a name="indexterm-30"></a><kbd><b>pthread_detach()</b></kbd> returns
+zero when the call completes successfully. Any other return value indicates
+that an error occurred. When any of the following conditions is detected, <kbd><b>pthread_detach()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>tid</var> is a detached
+thread.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>tid</var> is not
+a valid, undetached thread in the current process.</p>
+
+
+</dl><a name="6mba5vpkg"></a><h2 class="sol">Creating a Key for Thread-Specific Data</h2>
+<p>Single-threaded C programs have two basic classes of data: local data
+and global data. For multithreaded C programs a third class, <b>thread-specific
+data</b>, is added. Thread-specific data is very much like global data,
+except that the data is private to a thread.</p>
+<hr><b>Note – </b><p>
+<a name="indexterm-31"></a>The
+Solaris OS supports an alternative facility that allows a thread to have a
+private copy of a global variable. This mechanism is referred to as <b>thread
+local storage</b> (TLS). The keyword <tt>__thread</tt> is
+used to declare variables to be thread-local, and the compiler automatically
+arranges for these variables to be allocated on a per-thread basis. See <a href="http://docs.oracle.com/docs/cd/E19253-01/817-1984/chapter8-1/index.html">Chapter 8, <cite>Thread-Local Storage,</cite> in <cite>Linker and Libraries Guide</cite></a> for
+more information.</p>
+<hr>
+<p>
+<a name="tlib-ix82"></a><a name="tlib-ix83"></a>Thread-specific data (TSD) is maintained on a per-thread
+basis. TSD is the only way to define and refer to data that is private to
+a thread. Each thread-specific data item is associated with a <var>key</var> that
+is global to all threads in the process. By using the <var>key</var>,
+a thread can access a pointer ( <var>void</var> *) maintained
+per-thread.</p>
+<a name="6mba5vpki"></a><h3 class="sol">
+<tt>pthread_key_create</tt> Syntax</h3>
+<a name="tlib-ix84"></a><a name="tlib-ix85"></a><a name=""></a><pre>int pthread_key_create(pthread_key_t *<var>key</var>,
+    void (*destructor) (void *));</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_key_t <var>key</var>;
+int <var>ret</var>;
+
+/* key create without destructor */
+<var>ret</var> = pthread_key_create(&amp;<var>key</var>, <tt>NULL</tt>);
+
+/* key create with destructor */
+<var>ret</var> = pthread_key_create(&amp;<var>key</var>, destructor); </pre>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-key-create-3c/index.html">pthread_key_create(3C)</a> to allocate a <var>key</var> that
+is used to identify thread-specific data in a process. The key is global to
+all threads in the process. When the thread-specific data is created, all
+threads initially have the value <tt>NULL</tt> associated with the
+key.</p>
+<p>Call <kbd><b>pthread_key_create()</b></kbd> once for each key before
+using the key. No implicit synchronization exists for the keys shared by all
+threads in a process.</p>
+<p>Once a key has been created, each thread can bind a value to the key.
+The values are specific to the threads and are maintained for each thread
+independently. The per-thread binding is deallocated when a thread terminates
+if the key was created with a <tt>destructor</tt> function.</p>
+<p>When <kbd><b>pthread_key_create()</b></kbd> returns successfully, the
+allocated key is stored in the location pointed to by <var>key</var>.
+The caller must ensure that the storage and access to this key are properly
+synchronized.</p>
+<p>An optional destructor function, <tt>destructor</tt>, can
+be used to free stale storage. If a key has a non-<tt>NULL</tt> <tt>destructor</tt>  function and the thread has a non-<tt>NULL</tt> value
+associated with that key, the <tt>destructor</tt> function is called
+with the current associated value when the thread exits. The order in which
+the <tt>destructor</tt>  functions are called is unspecified.</p>
+<a name="6mba5vpkk"></a><h3 class="sol">
+<tt>pthread_key_create</tt> Return Values</h3>
+<p>
+<a name="indexterm-32"></a><kbd><b>pthread_key_create()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When any of the following conditions occur, <kbd><b>pthread_key_create()</b></kbd>  fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EAGAIN</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The <var>key</var> name
+space is exhausted.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient virtual memory is available
+in this process to create a new key.</p>
+
+
+</dl><a name="6mba5vpkm"></a><h2 class="sol">Deleting the Thread-Specific Data Key</h2>
+<p>
+<a name="indexterm-33"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-key-delete-3c/index.html">pthread_key_delete(3C)</a> to destroy an existing thread-specific data key. Any
+memory associated with the key can be freed because the key has been invalidated.
+Reference to an invalid key returns an error.</p>
+<a name="6mba5vpko"></a><h3 class="sol">
+<tt>pthread_key_delete</tt> Syntax</h3>
+<a name="tlib-ix90"></a><a name=""></a><pre>int pthread_key_delete(pthread_key_t <var>key</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_key_t <var>key</var>;
+int <var>ret</var>;
+
+/* key previously created */
+<var>ret</var> = pthread_key_delete(<var>key</var>); </pre>
+<p>If a <var>key</var> has been deleted, any reference
+to the key with the <kbd><b>pthread_setspecific()</b></kbd> or <kbd><b>pthread_getspecific()</b></kbd>  call yields undefined results.</p>
+<p>The programmer must free any thread-specific resources before calling
+the <kbd><b>pthread_key_delete()</b></kbd> function. This function does not
+invoke any of the destructors. Repeated calls to  <kbd><b>pthread_key_create()</b></kbd> and <kbd><b>pthread_key_delete()</b></kbd> can cause a problem. </p>
+<p>The problem occurs because, in the Solaris implementation, a <var>key</var> value is never reused after <kbd><b>pthread_key_delete()</b></kbd> marks
+it as invalid. Every <kbd><b>pthread_key_create()</b></kbd> allocates a new
+key value and allocates more internal memory to hold the key information.
+An infinite loop of <kbd><b>pthread_key_create()</b></kbd> ... <kbd><b>pthread_key_delete()</b></kbd> will eventually exhaust all memory. If possible, call <kbd><b>pthread_key_create()</b></kbd> only once for each desired key and never call <kbd><b>pthread_key_delete()</b></kbd>.</p>
+<a name="6mba5vpkq"></a><h3 class="sol">
+<tt>pthread_key_delete</tt> Return Values</h3>
+<p>
+<a name="indexterm-34"></a><kbd><b>pthread_key_delete()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When the following condition occurs, <kbd><b>pthread_key_delete()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The <var>key</var> value
+is invalid.</p>
+
+
+</dl><a name="6mba5vpks"></a><h2 class="sol">Setting Thread-Specific Data</h2>
+<p>
+<a name="tlib-ix94"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-setspecific-3c/index.html">pthread_setspecific(3C)</a> to set the thread-specific binding to the specified
+thread-specific data key.</p>
+<a name="6mba5vpku"></a><h3 class="sol">
+<tt>pthread_setspecific</tt> Syntax</h3>
+<a name="tlib-ix93"></a><a name=""></a><pre>int pthread_setspecific(pthread_key_t <var>key</var>, const void *<var>value</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_key_t <var>key</var>;
+void *<var>value</var>;
+int <var>ret</var>;
+
+/* key previously created */
+<var>ret</var> = pthread_setspecific(<var>key</var>, <var>value</var>); </pre>
+<a name="6mba5vpl0"></a><h3 class="sol">
+<tt>pthread_setspecific</tt> Return Values</h3>
+<p>
+<a name="indexterm-35"></a><kbd><b>pthread_setspecific()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When any of the following conditions occur, <kbd><b>pthread_setspecific()</b></kbd>  fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient virtual memory is available.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>key</var> is invalid.</p>
+
+
+</dl><hr><b>Note – </b><p>
+<kbd><b>pthread_setspecific()</b></kbd> does not free its storage
+when a new binding is set. The existing binding must be freed, otherwise a
+memory leak can occur.</p>
+<hr>
+<a name="6mba5vpl2"></a><h2 class="sol">Getting Thread-Specific Data</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-getspecific-3c/index.html">pthread_getspecific(3C)</a> to get the calling thread's binding for <b>key</b>,
+and store the binding in the location pointed to by <b>value</b>.</p>
+<a name="6mba5vpl4"></a><h3 class="sol">
+<tt>pthread_getspecific</tt> Syntax</h3>
+<a name="tlib-ix97"></a><a name="tlib-ix98"></a><a name=""></a><pre>void *pthread_getspecific(pthread_key_t <var>key</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_key_t <var>key</var>;
+void *<var>value</var>;
+
+/* key previously created */
+<var>value</var> = pthread_getspecific(<var>key</var>); </pre>
+<a name="6mba5vpl6"></a><h3 class="sol">
+<tt>pthread_getspecific</tt> Return Values</h3>
+<p>
+<tt>pthread_getspecific</tt> returns no errors.</p>
+<a name="6mba5vpl8"></a><h2 class="sol">Global and Private Thread-Specific Data Example</h2>
+<a name="indexterm-36"></a><p>
+<a name="tlib-ix104"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vpl8/index.html#tlib-65195">Example 2–2</a> shows
+an excerpt from a multithreaded program. This code is executed by any number
+of threads, but the code has references to two global variables, <var>errno</var> and  <var>mywindow</var>. These global values
+really should be references to items private to each thread.</p>
+<a name="tlib-65195"></a><hr><h5 class="sol">Example 2–2  Thread-Specific Data—Global but Private</h5><br><a name=""></a><pre>body() {
+    ...
+
+    while (write(fd, buffer, size) == -1) {
+        if (errno != EINTR) {
+            fprintf(mywindow, "%s\n", strerror(errno));
+            exit(1);
+        }
+    }
+
+    ...
+
+}</pre>
+<hr>
+<p>
+<a name="tlib-ix105"></a>References to <samp>errno</samp> should get the system
+error code from the routine called by this thread, not by some other thread.
+Including the header file <kbd>errno.h</kbd> causes a reference
+to <samp>errno</samp> to be a reference to a thread-private instance
+of <samp>errno</samp>, so that references to <samp>errno</samp> by
+one thread refer to a different storage location than references to <samp>errno</samp> by other threads.</p>
+<p>The <var>mywindow</var> variable refers to a <tt>stdio</tt>  stream that is connected to a window that is private to the referring
+thread. So, as with <samp>errno</samp>, references to <var>mywindow</var> by one thread should refer to a different storage location
+than references to  <var>mywindow</var> by other threads.
+Ultimately, the reference is to a different window. The only difference here
+is that the system takes care of <samp>errno</samp> , but the programmer
+must handle references for <var>mywindow</var> .</p>
+<p>The next example shows how the references to <var>mywindow</var> work.
+The preprocessor converts references to <var>mywindow</var> into
+invocations of the <kbd><b>_mywindow()</b></kbd> procedure.</p>
+<p>
+<a name="tlib-ix110"></a>This routine in turn
+invokes  <kbd><b>pthread_getspecific()</b></kbd>. <kbd><b>pthread_getspecific()</b></kbd> receives
+the <var>mywindow_key</var> global variable and <var>win</var> an
+output parameter that receives the identity of this thread's window.</p>
+<a name="tlib-ex-11"></a><hr><h5 class="sol">Example 2–3  Turning Global References Into Private References</h5><br><a name=""></a><pre>thread_key_t mywin_key; 
+
+FILE *_mywindow(void) {
+ FILE *win;
+ win = pthread_getspecific(mywin_key);
+ return(win);
+ }
+#define mywindow _mywindow()
+
+void routine_uses_win( FILE *win) {
+ ... 
+} 
+void thread_start(...) {
+ ... 
+ make_mywin();
+ ... 
+ routine_uses_win( mywindow )
+ ... 
+}</pre>
+<hr>
+<p>The <var>mywin_key</var> variable identifies a class
+of variables for which each thread has its own private copy. These variables
+are thread-specific data. Each thread calls <kbd><b>make_mywin()</b></kbd> to
+initialize its window and to arrange for its instance of <var>mywindow</var> to
+refer to the thread-specific data.</p>
+<p>Once this routine is called, the thread can safely refer to <var>mywindow</var>  and, after <kbd><b>_mywindow()</b></kbd>, the thread gets
+the reference to its private window. References to <var>mywindow</var> behave
+as if direct references were made to data private to the thread.</p>
+<p>
+<a name="tlib-ix112"></a><a name="tlib-ix113"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vpl8/index.html#tlib-25409">Example 2–4</a> shows how to set up
+the reference.</p>
+<a name="tlib-25409"></a><hr><h5 class="sol">Example 2–4  Initializing the Thread-Specific Data</h5><br><a name=""></a><pre>void make_mywindow(void) {
+    FILE **win;
+    static pthread_once_t mykeycreated = PTHREAD_ONCE_INIT;
+
+    pthread_once(&amp;mykeycreated, mykeycreate);
+
+    win = malloc(sizeof(*win));
+    create_window(win, ...);
+
+    pthread_setspecific(mywindow_key, win);
+}
+
+void mykeycreate(void) {
+    pthread_key_create(&amp;mywindow_key, free_key);
+}
+
+void free_key(void *win) {
+    free(win);
+}</pre>
+<hr>
+<p>First, get a unique value for the key, <var>mywin_key</var>.
+This key is used to identify the thread-specific class of data. The first
+thread to call <kbd><b>make_mywin()</b></kbd> eventually calls <kbd><b>pthread_key_create()</b></kbd> , which assigns to its first argument a unique <var>key</var>.
+The second argument is a <tt>destructor</tt> function that is used
+to deallocate a thread's instance of this thread-specific data item once the
+thread terminates.</p>
+<p>The next step is to allocate the storage for the caller's instance of
+this thread-specific data item. Having allocated the storage, calling <kbd><b>create_window()</b></kbd> sets up a window for the thread. <var>win</var> points
+to the storage allocated for the window. Finally, a call is made to <kbd><b>pthread_setspecific()</b></kbd>, which associates <var>win</var> with the key.</p>
+<p>Subsequently, whenever the thread calls <kbd><b>pthread_getspecific()</b></kbd> to
+pass the global <var>key</var>, the thread gets the value
+that is associated with this key by this thread in an earlier call to <kbd><b>pthread_setspecific()</b></kbd> .</p>
+<p>When a thread terminates, calls are made to the <tt>destructor</tt> functions
+that were set up in <kbd><b>pthread_key_create()</b></kbd>. Each <tt>destructor</tt>  function is called only if the terminating thread established
+a value for the <var>key</var> by calling <kbd><b>pthread_setspecific()</b></kbd>.</p>
+<a name="6mba5vpl9"></a><h2 class="sol">Getting the Thread Identifier</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-self-3c/index.html">pthread_self(3C)</a> to get the thread identifier of the calling thread.</p>
+<a name="6mba5vplb"></a><h3 class="sol">
+<tt>pthread_self</tt> Syntax</h3>
+<a name="tlib-ix122"></a><a name="tlib-ix123"></a><a name=""></a><pre>pthread_t  pthread_self(void);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid</var>;
+
+<var>tid</var> = pthread_self();</pre>
+<a name="6mba5vpld"></a><h3 class="sol">
+<tt>pthread_self</tt> Return Values</h3>
+<p>
+<a name="indexterm-37"></a><kbd><b>pthread_self()</b></kbd> returns the
+thread identifier of the calling thread.</p>
+<a name="6mba5vplf"></a><h2 class="sol">Comparing Thread IDs</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-equal-3c/index.html">pthread_equal(3C)</a> to compare the thread identification numbers of two
+threads.</p>
+<a name="6mba5vplh"></a><h3 class="sol">
+<tt>pthread_equal</tt> Syntax</h3>
+<a name="tlib-ix124"></a><a name="tlib-ix125"></a><a name=""></a><pre>int  pthread_equal(pthread_t <var>tid1</var>, pthread_t <var>tid2</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid1</var>, <var>tid2</var>;
+int <var>ret</var>;
+
+<var>ret</var> = pthread_equal(<var>tid1</var>, <var>tid2</var>);</pre>
+<a name="6mba5vplj"></a><h3 class="sol">
+<tt>pthread_equal</tt> Return Values</h3>
+<p>
+<a name="indexterm-38"></a><kbd><b>pthread_equal()</b></kbd> returns a
+nonzero value when <var>tid1</var> and <var>tid2</var> are
+equal, otherwise, <samp>0</samp> is returned. When either  <var>tid1</var> or <var>tid2</var> is an invalid thread
+identification number, the result is unpredictable.</p>
+<a name="6mba5vpll"></a><h2 class="sol">Calling an Initialization Routine for a Thread</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-once-3c/index.html">pthread_once(3C)</a> in a threaded process to call an initialization routine
+the first time <tt>pthread_once</tt> is called. Subsequent calls
+to <kbd><b>pthread_once()</b></kbd> from any thread in the process have no
+effect.</p>
+<a name="6mba5vpln"></a><h3 class="sol">
+<tt>pthread_once</tt> Syntax</h3>
+<a name="tlib-ix127"></a><a name=""></a><pre>int  pthread_once(pthread_once_t <var>*once_control</var>, void (<var>*init_routine</var>)(void));</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_once_t <var>once_control</var> = PTHREAD_ONCE_INIT;
+int <var>ret</var>;
+
+<var>ret</var> = pthread_once(&amp;<var>once_control</var>, 
+<var>init_routine</var>);</pre>
+<p>The <var>once_control</var> parameter determines whether
+the associated initialization routine has been called.</p>
+<a name="6mba5vplp"></a><h3 class="sol">
+<tt>pthread_once</tt> Return Values</h3>
+<p>
+<a name="indexterm-39"></a><kbd><b>pthread_once()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When the following condition occurs, <kbd><b>pthread_once()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>once_control</var> or
+ <var>init_routine</var> is <tt>NULL</tt>.</p>
+
+
+</dl><a name="6mba5vplr"></a><h2 class="sol">Yielding Thread Execution</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5171/sched-yield-3rt/index.html">sched_yield(3RT)</a> to cause the current thread to yield its execution
+in favor of another thread with the same or greater priority. If no such threads
+are ready to run, the calling thread continues to run. The <kbd><b>sched_yield()</b></kbd> function
+is not part of the Pthread API, but is a function in the Realtime Library
+Functions. You must include <kbd>&lt;sched.h&gt;</kbd> to use <kbd><b>sched_yield()</b></kbd>.</p>
+<a name="6mba5vplt"></a><h3 class="sol">
+<tt>sched_yield</tt> Syntax</h3>
+<a name="tlib-ix129"></a><a name=""></a><pre>int  sched_yield(void);</pre>
+<a name=""></a><pre>#include &lt;sched.h&gt;
+int <var>ret</var>;
+<var>ret</var> = sched_yield();</pre>
+<a name="6mba5vplv"></a><h3 class="sol">
+<tt>sched_yield</tt> Return Values</h3>
+<p>
+<a name="indexterm-40"></a><kbd><b>sched_yield()</b></kbd> returns zero
+after completing successfully. Otherwise, -1 is returned and <var>errno</var> is
+set to indicate the error condition.</p>
+<a name="6mba5vpm1"></a><h2 class="sol">Setting the Thread Policy and Scheduling Parameters</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-setschedparam-3c/index.html">pthread_setschedparam(3C)</a> to modify the  scheduling policy and scheduling parameters
+of an individual thread. </p>
+<a name="6mba5vpm3"></a><h3 class="sol">
+<tt>pthread_setschedparam</tt> Syntax</h3>
+<a name="indexterm-41"></a><a name=""></a><pre>int pthread_setschedparam(pthread_t <var>tid</var>, int  <var>policy</var>,
+    const struct sched_param *<var>param</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+struct sched_param <var>param</var>;
+int <var>priority</var>;
+
+/* sched_priority will be the priority of the thread */
+sched_param.sched_priority = <var>priority</var>;
+<var>policy</var> = SCHED_OTHER;
+
+/* scheduling parameters of target thread */
+<var>ret</var> = pthread_setschedparam(<var>tid</var>, 
+<var>policy</var>, <var>&amp;param</var>); </pre>
+<p>Supported policies are  <tt>SCHED_FIFO</tt>, <tt>SCHED_RR</tt>,
+and <tt>SCHED_OTHER</tt>.</p>
+<a name="6mba5vpm5"></a><h3 class="sol">
+<tt>pthread_setschedparam</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-42"></a><kbd><b>pthread_setschedparam()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When either of the following conditions occurs, the <kbd><b>pthread_setschedparam()</b></kbd>  function fails and returns the corresponding
+value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of the attribute being set is
+not valid.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EPERM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The caller does not have the appropriate
+permission to set either the scheduling parameters or the scheduling policy
+of the specified thread.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>tid</var> does
+not refer to an existing thread.</p>
+
+
+</dl><a name="6mba5vpm7"></a><h2 class="sol">Getting the Thread Policy and Scheduling Parameters</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-getschedparam-3c/index.html">pthread_getschedparam(3C)</a> gets the scheduling policy and scheduling parameters
+of an individual thread.</p>
+<a name="6mba5vpm9"></a><h3 class="sol">
+<tt>pthread_getschedparam</tt> Syntax</h3>
+<a name="tlib-ix133"></a><a name=""></a><pre>int  pthread_getschedparam(pthread_t <var>tid</var>, int *restrict <var>policy</var>,
+    struct sched_param *restrict <var>param</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid</var>;
+sched_param <var>param</var>;
+int <var>priority</var>;
+int <var>policy</var>;
+int <var>ret</var>;
+
+/* scheduling parameters of target thread */
+<var>ret</var> = pthread_getschedparam (<var>tid</var>, &amp;<var>policy</var>, &amp;<var>param</var>);
+
+/* sched_priority contains the priority of the thread */
+<var>priority</var> = param.sched_priority; </pre>
+<a name="6mba5vpmb"></a><h3 class="sol">
+<tt>pthread_getschedparam</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-43"></a><kbd><b>pthread_getschedparam()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When the following condition occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>tid</var> does
+not refer to an existing thread.</p>
+
+
+</dl><a name="6mba5vpmd"></a><h2 class="sol">Setting the Thread Priority</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-setschedprio-3c/index.html">pthread_setschedprio(3C)</a> sets the scheduling priority for  the specified thread.</p>
+<a name="6mba5vpmf"></a><h3 class="sol">
+<tt>pthread_setschedprio</tt> Syntax</h3>
+<a name="ggebp"></a><a name=""></a><pre>int pthread_setschedprio(pthread_t <var>tid</var>, int <var>prio</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>tid</var>;
+int <var>prio</var>;
+int <var>ret</var>;</pre>
+<a name="6mba5vpmh"></a><h3 class="sol">
+<tt>pthread_setschedprio</tt> Return Values</h3>
+<p>
+<a name="indexterm-44"></a><kbd><b>pthread_setschedprio()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When the following condition occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>prio</var> is
+invalid for  the scheduling policy of the specified thread.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt>ENOTSUP</tt>
+</p>
+
+<b>Description: </b>
+<p>An attempt was made to set the  priority
+ to an unsupported value. </p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt>EPERM</tt>
+</p>
+
+<b>Description: </b>
+<p>The caller does not have the appropriate
+permission to set the scheduling priority of  the specified thread.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>tid</var> does
+not refer to an existing thread.</p>
+
+
+</dl><a name="6mba5vpmj"></a><h2 class="sol">Sending a Signal to a Thread</h2>
+<p>
+<a name="tlib-ix135"></a><a name="tlib-ix136"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-kill-3c/index.html">pthread_kill(3C)</a> to send a signal to a thread.</p>
+<a name="6mba5vpml"></a><h3 class="sol">
+<tt>pthread_kill</tt> Syntax</h3>
+<a name="tlib-ix137"></a><a name=""></a><pre>int  pthread_kill(pthread_t <var>tid</var>, int <var>sig</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+#include &lt;signal.h&gt;
+
+int <var>sig</var>;
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+
+<var>ret</var> = pthread_kill(<var>tid</var>, 
+<var>sig</var>);</pre>
+<p>
+<kbd><b>pthread_kill()</b></kbd> sends the signal <b>sig</b> to
+the thread specified by <b>tid</b>. <b>tid</b> must
+be a thread within the same process as the calling thread. The<b>sig</b> argument
+must be from the list that is given in <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5173/signal.h-3head/index.html">signal.h(3HEAD)</a>.</p>
+<p>When <b>sig</b> is zero, error checking is performed but
+no signal is actually sent. This error checking can be used to check the validity
+of  <b>tid</b>.</p>
+<a name="6mba5vpmn"></a><h3 class="sol">
+<tt>pthread_kill</tt> Return Values</h3>
+<p>
+<a name="indexterm-45"></a><kbd><b>pthread_kill()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When either of the following conditions occurs, <kbd><b>pthread_kill()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sig</var> is not
+a valid signal number.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>tid</var> cannot
+be found in the current process.</p>
+
+
+</dl><a name="6mba5vpmp"></a><h2 class="sol">Accessing the Signal Mask of the Calling Thread</h2>
+<p>
+<a name="tlib-ix144"></a><a name="tlib-ix145"></a><a name="tlib-ix142"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-sigmask-3c/index.html">pthread_sigmask(3C)</a> to change or examine the signal mask of the calling
+thread.</p>
+<a name="6mba5vpmr"></a><h3 class="sol">
+<tt>pthread_sigmask</tt> Syntax</h3>
+<a name="tlib-ix143"></a><a name=""></a><pre>int pthread_sigmask(int <var>how</var>, const sigset_t *<var>new</var>, sigset_t *<var>old</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+#include &lt;signal.h&gt;
+
+int <var>ret</var>;
+sigset_t <var>old</var>, <var>new</var>;
+
+<var>ret</var> = pthread_sigmask(SIG_SETMASK, &amp;<var>new</var>, &amp;<var>old</var>); /* set new mask */
+<var>ret</var> = pthread_sigmask(SIG_BLOCK, &amp;<var>new</var>, &amp;<var>old</var>); /* blocking mask */
+<var>ret</var> = pthread_sigmask(SIG_UNBLOCK, &amp;<var>new</var>, &amp;<var>old</var>); /* unblocking */</pre>
+<p>
+<var>how</var> determines how the signal set is changed.
+ <var>how</var> can have one of the following values:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="tlib-ix147"></a><a name="tlib-ix148"></a><a name="indexterm-46"></a><samp>SIG_BLOCK</samp>.
+Add  <var>new</var> to the current signal mask, where <var>new</var> indicates the set of signals to block.</p>
+
+
+</li>
+<li>
+<p>
+<a name="tlib-ix150"></a><a name="tlib-ix151"></a><a name="indexterm-47"></a><samp>SIG_UNBLOCK</samp>. Delete <var>new</var> from the
+current signal mask, where  <var>new</var> indicates the set
+of signals to unblock.</p>
+
+
+</li>
+<li>
+<p>
+<a name="tlib-ix155"></a><a name="tlib-ix156"></a><a name="tlib-ix157"></a><a name="tlib-ix158"></a><samp>SIG_SETMASK</samp> . Replace the current signal
+mask with <var>new</var>, where <var>new</var> indicates
+the new signal mask.</p>
+
+
+</li>
+</ul>
+<p>When the value of <var>new</var> is <tt>NULL</tt>,
+the value of <var>how</var> is not significant. The signal
+mask of the thread is unchanged. To inquire about currently blocked signals,
+assign a  <tt>NULL</tt> value to the <var>new</var> argument.</p>
+<p>The <var>old</var> variable points to the space where
+the previous signal mask is stored, unless <var>old</var> is <tt>NULL</tt>.</p>
+<a name="6mba5vpmt"></a><h3 class="sol">
+<tt>pthread_sigmask</tt> Return Values</h3>
+<p>
+<a name="indexterm-48"></a><kbd><b>pthread_sigmask()</b></kbd> returns
+zero when the call completes successfully. Any other return value indicates
+that an error occurred. When the following condition occurs, <kbd><b>pthread_sigmask()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>how</var> is
+not defined and <var>old</var> is <tt>NULL</tt>.</p>
+
+
+</dl><a name="6mba5vpmv"></a><h2 class="sol">Forking Safely</h2>
+<p>See the discussion about <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-atfork-3c/index.html">pthread_atfork(3C)</a> in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-74543/index.html">Solution: pthread_atfork</a>.</p>
+<a name="6mba5vpn1"></a><h3 class="sol">
+<tt>pthread_atfork</tt> Syntax</h3>
+<a name="tlib-ix160"></a><a name=""></a><pre>int pthread_atfork(void (*<var>prepare</var>) (void), void (*<var>parent</var>) (void),
+    void (*<var>child</var>) (void) );</pre>
+<a name="6mba5vpn3"></a><h3 class="sol">
+<tt>pthread_atfork</tt> Return Values</h3>
+<p>
+<a name="indexterm-49"></a><kbd><b>pthread_atfork()</b></kbd> returns
+zero when the call completes successfully. Any other return value indicates
+that an error occurred. When the following condition occurs, <kbd><b>pthread_atfork()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient table space exists to record
+the fork handler addresses.</p>
+
+
+</dl><a name="6mba5vpn5"></a><h2 class="sol">Terminating a Thread</h2>
+<p>
+<a name="tlib-ix161"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-exit-3c/index.html">pthread_exit(3C)</a> to terminate a thread.</p>
+<a name="6mba5vpn7"></a><h3 class="sol">
+<tt>pthread_exit</tt> Syntax</h3>
+<a name="tlib-ix162"></a><a name=""></a><pre>void	 pthread_exit(void *<var>status</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+void <var>*status</var>;
+pthread_exit(<var>status</var>); /* exit with status */</pre>
+<p>The <kbd><b>pthread_exit()</b></kbd> function terminates the calling
+thread. All thread-specific data bindings are released. If the calling thread
+is not detached, then the thread's ID and the exit status specified by <b>status</b> are retained until your application calls <kbd><b>pthread_join()</b></kbd> to wait for the thread. Otherwise, <b>status</b> is
+ignored. The thread's ID can be reclaimed immediately. For information on
+thread detachment, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-69011/index.html">Setting Detach State</a>.</p>
+<a name="6mba5vpn9"></a><h3 class="sol">
+<tt>pthread_exit</tt> Return Values</h3>
+<p>
+<a name="indexterm-50"></a>The calling thread terminates with its exit
+status set to the contents of <var>status</var>.</p>
+<a name="6mba5vpnb"></a><h2 class="sol">Finishing Up</h2>
+<p>A thread can terminate its execution in the following ways:</p>
+<a name=""></a><ul>
+<li>
+<p>By returning from its first (outermost) procedure, the threads
+start routine. See <tt>pthread_create</tt>.</p>
+
+
+</li>
+<li>
+<p>By calling <kbd><b>pthread_exit()</b></kbd>, supplying an
+exit status.</p>
+
+
+</li>
+<li>
+<p>By termination with POSIX cancel functions. See <kbd><b>pthread_cancel()</b></kbd> .</p>
+
+
+</li>
+</ul>
+<p>
+<a name="tlib-ix167"></a>The
+default behavior of a thread is to linger until some other thread has acknowledged
+its demise by “joining” with the lingering thread. This behavior
+is the same as the default <kbd><b>pthread_create()</b></kbd> attribute that
+is nondetached, see <tt>pthread_detach</tt>. The result of the join
+is that the joining thread picks up the exit status of the terminated thread
+and the terminated thread vanishes.</p>
+<p>An important special case arises when the initial thread, calling  <kbd><b>main()</b></kbd>, returns from calling <kbd><b>main()</b></kbd> or calls  <kbd><b>exit()</b></kbd>. This action causes the entire process to be terminated, along
+with all its threads. So, take care to ensure that the initial thread does
+not return from  <kbd><b>main()</b></kbd> prematurely.</p>
+<p>Note that when the main thread merely calls <tt>pthread_exit</tt>,
+the main thread terminates itself only. The other threads in the process,
+as well as the process, continue to exist. The process terminates when all
+threads terminate.</p>
+<a name="6mba5vpnc"></a><h2 class="sol">Cancel a Thread</h2>
+<p>
+<a name="indexterm-51"></a><a name="indexterm-52"></a>Cancellation
+allows a thread to request the termination of any other thread in the process.
+Cancellation is an option when all further operations of a related set of
+threads are undesirable or unnecessary.</p>
+<p>One example of thread cancellation is an asynchronously generated cancel
+condition, such as, when a user requesting to close or exit a running application.
+Another example is the completion of a task undertaken by a number of threads.
+One of the threads might ultimately complete the task while the others continue
+to operate. Since the running threads serve no purpose at that point, these
+threads should be cancelled.</p>
+<a name="6mba5vpne"></a><h3 class="sol">Cancellation Points</h3>
+<a name="indexterm-53"></a><p>Be careful to cancel a thread only when cancellation is safe. The pthreads
+standard specifies several cancellation points, including:</p>
+<a name=""></a><ul>
+<li>
+<p>Programmatically, establish a thread cancellation point through
+a  <tt>pthread_testcancel</tt> call.</p>
+
+
+</li>
+<li>
+<p>Threads waiting for the occurrence of a particular condition
+in  <tt>pthread_cond_wait</tt> or <tt>pthread_cond_timedwait(3C)</tt>.</p>
+
+
+</li>
+<li>
+<p>Threads blocked on <tt>sigwait(2)</tt>.</p>
+
+
+</li>
+<li>
+<p>Some standard library calls. In general, these calls include
+functions in which threads can block. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5175/cancellation-5/index.html">cancellation(5)</a> man page  for a list.</p>
+
+
+</li>
+</ul>
+<p>Cancellation is enabled by default. At times, you might want an application
+to disable cancellation. Disabled cancellation has the result of deferring
+all cancellation requests until cancellation requests are enabled again.</p>
+<p>See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-52479/index.html"><tt>pthread_setcancelstate</tt> Syntax</a> for
+information about disabling cancellation.</p>
+<a name="6mba5vpnf"></a><h3 class="sol">Placing Cancellation Points</h3>
+<p>Dangers exist in performing cancellations. Most deal with properly restoring
+invariants and freeing shared resources. A thread that is cancelled without
+care might leave a mutex in a locked state, leading to a deadlock. Or a cancelled
+thread might leave a region of allocated memory with no way to identify the
+memory and therefore unable to free the memory.</p>
+<p>The standard C library specifies a cancellation interface that permits
+or forbids cancellation programmatically. The library defines <b>cancellation
+points</b> that are the set of points at which cancellation can occur.
+The library also allows the scope of <b>cancellation handlers</b> to
+be defined so that the handlers are sure to operate when and where intended.
+The cancellation handlers provide clean up services to restore resources and
+state to a condition that is consistent with the point of origin.</p>
+<p>Placement of cancellation points and the effects of cancellation handlers
+must be based on an understanding of the application. A mutex is explicitly
+not a cancellation point and should be held only for the minimal essential
+time.</p>
+<p>Limit regions of asynchronous cancellation to sequences with no external
+dependencies that could result in dangling resources or unresolved state conditions.
+Take care to restore cancellation state when returning from some alternate,
+nested cancellation state. The interface provides features to facilitate restoration: <tt>pthread_setcancelstate(3C)</tt>  preserves the current cancel state in
+a referenced variable,  <tt>pthread_setcanceltype(3C)</tt> preserves
+the current cancel type in the same way.</p>
+<p>Cancellations can occur under three different circumstances:</p>
+<a name=""></a><ul>
+<li>
+<p>Asynchronously</p>
+
+
+</li>
+<li>
+<p>At various points in the execution sequence as defined by
+the standard</p>
+
+
+</li>
+<li>
+<p>At a call to <kbd><b>pthread_testcancel()</b></kbd>
+</p>
+
+
+</li>
+</ul>
+<p>By default, cancellation can occur only at well-defined points as defined
+by the POSIX standard.</p>
+<p>In all cases, take care that resources and state are restored to a condition
+consistent with the point of origin.</p>
+<a name="6mba5vpng"></a><h2 class="sol">Cancelling a Thread</h2>
+<p>
+<a name="indexterm-54"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-cancel-3c/index.html">pthread_cancel(3C)</a> to cancel a thread.</p>
+<a name="6mba5vpni"></a><h3 class="sol">
+<tt>pthread_cancel</tt> Syntax</h3>
+<a name="tlib-ix172"></a><a name=""></a><pre>int pthread_cancel(pthread_t <var>thread</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_t <var>thread</var>;
+int <var>ret</var>;
+
+<var>ret</var> = pthread_cancel(<var>thread</var>);</pre>
+<p>How the cancellation request is treated depends on the state of the
+target thread. Two functions, <tt>pthread_setcancelstate(3C)</tt> and <tt>pthread_setcanceltype(3C)</tt> , determine that state.</p>
+<a name="6mba5vpnk"></a><h3 class="sol">
+<tt>pthread_cancel</tt> Return Values</h3>
+<p>
+<a name="indexterm-55"></a><kbd><b>pthread_cancel()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When the following condition occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>No thread could be found corresponding
+to that specified by the given thread ID.</p>
+
+
+</dl><a name="6mba5vpnm"></a><h2 class="sol">Enabling or Disabling Cancellation</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-setcancelstate-3c/index.html">pthread_setcancelstate(3C)</a> to enable or disable thread cancellation. When a thread
+is created, thread cancellation is enabled by default.</p>
+<a name="6mba5vpno"></a><h3 class="sol">
+<tt>pthread_setcancelstate</tt> Syntax</h3>
+<a name="tlib-ix174"></a><a name=""></a><pre>int pthread_setcancelstate(int <var>state</var>, int *<var>oldstate</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+int <var>oldstate</var>;
+int <var>ret</var>;
+
+/* enabled */
+<var>ret</var> = pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, &amp;<var>oldstate</var>);
+
+/* disabled */
+<var>ret</var> = pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, &amp;<var>oldstate</var>);</pre>
+<a name="6mba5vpnq"></a><h3 class="sol">
+<tt>pthread_setcancelstate</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-56"></a><kbd><b>pthread_setcancelstate()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When the following condition occurs, the <kbd><b>pthread_setcancelstate()</b></kbd>  function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The state is not <tt>PTHREAD_CANCEL_ENABLE</tt>  or <tt>PTHREAD_CANCEL_DISABLE</tt>.</p>
+
+
+</dl><a name="6mba5vpns"></a><h2 class="sol">Setting Cancellation Type</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-setcanceltype-3c/index.html">pthread_setcanceltype(3C)</a> to set the cancellation type to either deferred or
+asynchronous mode.</p>
+<a name="6mba5vpnu"></a><h3 class="sol">
+<tt>pthread_setcanceltype</tt> Syntax</h3>
+<a name="tlib-ix176"></a><a name=""></a><pre>int pthread_setcanceltype(int <var>type</var>, int *<var>oldtype</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+int <var>oldtype</var>;
+int <var>ret</var>;
+
+/* deferred mode */
+<var>ret</var> = pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, &amp;<var>oldtype</var>);
+
+/* async mode*/
+<var>ret</var> = pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, &amp;<var>oldtype</var>);</pre>
+<p>When a thread is created, the cancellation type is set to deferred mode
+by default. In deferred mode, the thread can be cancelled only at cancellation
+points. In asynchronous mode, a thread can be cancelled at any point during
+its execution. The use of asynchronous mode is discouraged.</p>
+<a name="6mba5vpo0"></a><h3 class="sol">
+<tt>pthread_setcanceltype</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-57"></a><kbd><b>pthread_setcanceltype()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When the following condition occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The type is not <tt>PTHREAD_CANCEL_DEFERRED</tt>  or <tt>PTHREAD_CANCEL_ASYNCHRONOUS</tt>.</p>
+
+
+</dl><a name="6mba5vpo2"></a><h2 class="sol">Creating a Cancellation Point</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-testcancel-3c/index.html">pthread_testcancel(3C)</a> to establish a cancellation point for a thread.</p>
+<a name="6mba5vpo4"></a><h3 class="sol">
+<tt>pthread_testcancel</tt> Syntax</h3>
+<a name="tlib-ix178"></a><a name=""></a><pre>void pthread_testcancel(void);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_testcancel(); </pre>
+<p>The <kbd><b>pthread_testcancel()</b></kbd> function is effective when
+thread cancellation is enabled and in deferred mode. <kbd><b>pthread_testcancel()</b></kbd> has no effect if called while cancellation is disabled.</p>
+<p>Be careful to insert <kbd><b>pthread_testcancel()</b></kbd> only in
+sequences where thread cancellation is safe. In addition to programmatically
+establishing cancellation points through the <kbd><b>pthread_testcancel()</b></kbd> call,
+the pthreads standard specifies several cancellation points. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-19637/index.html">Cancellation Points</a> for more details.</p>
+<a name="6mba5vpo6"></a><h3 class="sol">
+<tt>pthread_testcancel</tt> Return Values</h3>
+<p>
+<kbd><b>pthread_testcancel()</b></kbd> has no return value.</p>
+<a name="6mba5vpo8"></a><h2 class="sol">Pushing a Handler Onto the Stack</h2>
+<p>Use cleanup handlers to restore conditions to a state that is consistent
+with that state at the point of origin. This consistent state includes cleaning
+up allocated resources and restoring invariants. Use the <tt>pthread_cleanup_push(3C)</tt> and  <tt>pthread_cleanup_pop(3C)</tt> functions to manage
+the handlers.</p>
+<p>Cleanup handlers are pushed and popped in the same lexical scope of
+a program. The push and pop should always match. Otherwise, compiler errors
+are generated.</p>
+<a name="6mba5vpoa"></a><h3 class="sol">
+<tt>pthread_cleanup_push</tt> Syntax</h3>
+<a name="tlib-ix179"></a><p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-cleanup-push-3c/index.html">pthread_cleanup_push(3C)</a> to push a cleanup handler onto a cleanup stack (LIFO).</p>
+<a name=""></a><pre>void pthread_cleanup_push(void(*<var>routine</var>)(void *), void *<var>args</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+/* push the handler "routine" on cleanup stack */
+pthread_cleanup_push (<var>routine</var>, <var>arg</var>); </pre>
+<a name="6mba5vpoc"></a><h3 class="sol">
+<tt>pthread_cleanup_push</tt> Return
+Values</h3>
+<p>
+<kbd><b>pthread_cleanup_push()</b></kbd> has no return value.</p>
+<a name="6mba5vpoe"></a><h2 class="sol">Pulling a Handler Off the Stack</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-cleanup-pop-3c/index.html">pthread_cleanup_pop(3C)</a> to pull the cleanup handler off the cleanup stack.</p>
+<a name="6mba5vpog"></a><h3 class="sol">
+<tt>pthread_cleanup_pop</tt> Syntax</h3>
+<a name="tlib-ix180"></a><a name=""></a><pre>void pthread_cleanup_pop(int <var>execute</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+/* pop the "func" out of cleanup stack and execute "func" */
+pthread_cleanup_pop (1);
+
+/* pop the "func" and DONT execute "func" */
+pthread_cleanup_pop (0); </pre>
+<p>A nonzero argument in the pop function removes the handler from the
+stack and executes the handler. An argument of zero pops the handler without
+executing the handler.</p>
+<p>
+<kbd><b>pthread_cleanup_pop()</b></kbd> is effectively called with
+a nonzero argument when a thread either explicitly or implicitly calls <kbd><b>pthread_exit()</b></kbd> or when the thread accepts a cancel request.</p>
+<a name="6mba5vpoi"></a><h3 class="sol">
+<tt>pthread_cleanup_pop</tt> Return Values</h3>
+<p>
+<kbd><b>pthread_cleanup_pop()</b></kbd> has no return values.</p>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-75924/index.html"><em>Previous</em>: Chapter&nbsp;1 Covering Multithreading
+Basics</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-74380/index.html"><em>Next</em>: Chapter&nbsp;3 Thread Attributes</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

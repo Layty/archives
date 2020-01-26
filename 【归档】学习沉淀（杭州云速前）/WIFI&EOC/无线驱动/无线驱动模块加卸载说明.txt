@@ -1,0 +1,31 @@
+1.无线驱动卸载。在ap命令行下执行以下命令即可卸载无线驱动：
+rmmod wlan_xauth
+rmmod wlan_wep
+rmmod wlan_tkip
+rmmod wlan_scan_sta
+rmmod wlan_scan_ap
+rmmod wlan_ccmp
+rmmod wlan_acl
+rmmod ath_pktlog
+rmmod ath_pci
+rmmod ath_dev
+rmmod ath_rate_atheros
+rmmod ath_dfs
+rmmod wlan
+rmmod ath_hal
+
+2.无线驱动加载。在ap命令行下执行以下命令即可加载无线驱动：
+insmod ath_hal.ko;
+insmod wlan.ko;
+insmod ath_dfs.ko;
+insmod ath_rate_atheros.ko;
+insmod ath_dev.ko countrycode=156 new_dispatch_mac=1
+insmod ath_pci.ko
+insmod ath_pktlog.ko;
+insmod wlan_acl.ko;
+insmod wlan_ccmp.ko;
+insmod wlan_scan_ap.ko;
+insmod wlan_scan_sta.ko;
+insmod wlan_tkip.ko;
+insmod wlan_wep.ko;
+insmod wlan_xauth.ko;

@@ -1,0 +1,62 @@
+！！！！！！！！！！！！！！！！！！！！幹秀匯倖monitor庁塀議AP！！！！！！！！！！！！！！！！
+wlanconfig ath create wlandev wifi0 wlanmode monitor
+iwpriv ath0 mode 11a
+iwconfig ath0 rate 54M
+iwconfig ath0 channel 161
+iwconfig ath0 essid prfeng
+ifconfig ath0 up
+
+----------------------------------------個延庁塀才堀楕！！！！！！！！！！！！！！！！！！
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11b
+iwconfig ath0 rate 11M
+iwconfig ath0 channel 1
+ifconfig ath0 up
+
+！！！！！！！！！！！！！！！！！！譜崔爺�漾�！！！！！！！！！
+cd proc/sys/dev/wifi0/
+echo 0 > diversity 
+cat diversity 
+echo 1 > rxantenna 
+echo 1 > txantenna 
+cat rxantenna 
+cat txantenna
+
+
+------------------------------------窟淫----------------------------
+packet 9999999999999 1500 ath0
+
+
+
+！！！！！！！！！！！！！！！！！！械喘議俳算！！！！！！！！！！！！！！
+iwconfig ath0 channel 1
+packet 9999999999999 1500 ath0
+
+iwconfig ath0 channel 6
+packet 9999999999999 1500 ath0
+
+iwconfig ath0 channel 11
+packet 9999999999999 1500 ath0
+
+iwconfig ath0 channel 36
+packet 9999999999999 1500 ath0
+
+iwconfig ath0 channel 140
+packet 9999999999999 1500 ath0
+
+echo 1 > rxantenna 
+echo 1 > txantenna 
+cat rxantenna 
+cat txantenna
+
+echo 2 > rxantenna 
+echo 2 > txantenna 
+cat rxantenna 
+cat txantenna
+
+iwconfig ath0 rate 54M
+
+
+-27.02 14.75
+-33.43 7.91

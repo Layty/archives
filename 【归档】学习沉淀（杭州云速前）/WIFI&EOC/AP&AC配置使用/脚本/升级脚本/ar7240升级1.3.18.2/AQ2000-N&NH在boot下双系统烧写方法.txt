@@ -1,0 +1,27 @@
+双系统升级办法
+set serverip 192.168.6.202;
+set tftpserver 192.168.6.202;
+set ipaddr 192.168.6.201;
+
+
+烧写kernel
+erase 0x9f050000 +0x110000
+tftp 0x80060000 vmlinux.gz.uImage
+cp.b 0x80060000 0x9f050000 0x110000
+烧写文件系统
+erase 0x9f160000 +0x680000
+tftp 0x80060000 ap93fus-jffs2
+cp.b 0x80060000 0x9f160000 0x680000
+
+#擦除config分区内容
+#erase 0x9ff70000 +0x70000     /*擦除此分区，将导致已有配置和OEM信息丢失，慎用*/
+
+设置环境变量
+set bootargs 'console=ttyS0,115200 root=31:03 rootfstype=jffs2 init=/sbin/init'
+set bootcmd 'bootm 0x9f050000'
+saveenv
+bootm 0x9f050000 //烧写完成直接启动kernel，不要reset
+
+烧写完成后，os启动到shell命令行需执行下面命令
+pro_ctl_util -V 2 -S 40196  //将mark值修改为2
+set_boot default 1          //设置默认启动系统为kernel1

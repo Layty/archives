@@ -1,0 +1,12 @@
+
+20/40切换是wifi联盟认证要求。可以用如下方法禁用
+1 
+配置完模式以后，用
+iwpriv ath0 disablecoext 1            //禁用检测到legacy模式存在时切换ht20
+
+2 手动配置cwm模式
+iwpriv ath0 mode 11NAHT40PLUS
+iwpriv ath0 cwmenable 0       //禁用cwm管理
+iwpriv ath0 chwidth 2         //强制HT40
+iwpriv ath0 chextoffset 2           //向上扩展，需要与mode配置匹配。
+iwpriv ath0 disablecoext 1          //禁用检测到legacy模式存在时切换ht20

@@ -1,0 +1,114 @@
+############################################################################################
+AQ2000-N2产品：
+jffs方式：
+编译所有
+cd build
+make AQ_TYPE=AQ2000N OS_TYPE=DOUBLE_OS
+
+修改内核
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=AQ2000N OS_TYPE=DOUBLE_OS
+
+修改eth 驱动
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=AQ2000N OS_TYPE=DOUBLE_OS
+
+修改wifi驱动
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=AQ2000N OS_TYPE=DOUBLE_OS
+
+如果需要大的OS系统，可把OS_TYPE设置围为SINGLE_OS
+
+############################################################################################
+AQ2000-SNH产品：
+jffs方式：
+编译所有
+cd build
+make AQ_TYPE=AQ2000SNH 
+
+修改内核
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=AQ2000SNH 
+
+修改eth 驱动
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=AQ2000SNH 
+
+修改wifi驱动
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=AQ2000SNH
+
+###########################################################################################
+WNAP550产品
+jffs方式：
+全部编译
+cd build
+make AQ_TYPE=WNAP550
+
+修改内核后：
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=WNAP550
+
+修改eth 驱动后：
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=WNAP550
+
+修改wifi驱动后：
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=WNAP550
+
+###########################################################################################
+
+WNAP350产品
+jffs方式：
+全部编译
+cd build
+make AQ_TYPE=WNDAP350
+
+修改内核后：
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=WNDAP350
+
+修改eth 驱动后：
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=WNDAP350
+
+修改wifi驱动后：
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=WNDAP350
+
+###########################################################################################
+WNAP210产品
+jffs方式：
+全部编译
+cd build
+make AQ_TYPE=WNAP210
+
+修改内核后：
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=WNAP210
+
+修改eth 驱动后：
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=WNAP210
+
+修改wifi驱动后：
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=WNAP210
+
+###########################################################################################
+XJ-pb44产品
+jffs方式：
+全部编译
+cd build
+make AQ_TYPE=AP2400-IFM
+
+修改内核后：
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=AP2400-IFM
+
+修改eth 驱动后：
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=AP2400-IFM
+
+修改wifi驱动后：
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=AP2400-IFM
+
+###########################################################################################
+XJ-ap93产品
+jffs方式：
+全部编译
+cd build
+make AQ_TYPE=XJAP93
+
+修改内核后：
+make uimage jffs2_build upgrade_tar_build AQ_TYPE=XJAP93
+
+修改eth 驱动后：
+make enet_build jffs2_build upgrade_tar_build AQ_TYPE=XJAP93
+
+修改wifi驱动后：
+make fusion_build jffs2_build upgrade_tar_build AQ_TYPE=XJAP93

@@ -1,0 +1,494 @@
+static int ath_pci_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+{
+	void __iomem *mem;
+	struct ath_softc *sc;
+	struct ieee80211_hw *hw;
+	u8 csz;
+	u32 val;
+	int ret = 0;
+	char hw_name[64];
+
+	if (pci_enable_device(pdev))
+		return -EIO;
+
+	ret =  pci_set_dma_mask(pdev, DMA_BIT_MASK(32));
+	if (ret) {
+		printk(KERN_ERR "ath9k: 32-bit DMA not available\n");
+		goto err_dma;
+	}
+
+	ret = pci_set_consistent_dma_mask(pdev, DMA_BIT_MASK(32));
+	if (ret) {
+		printk(KERN_ERR "ath9k: 32-bit DMA consistent "
+			"DMA enable failed\n");
+		goto err_dma;
+	}
+
+	/*
+	 * Cache line size is used to size and align various
+	 * structures used to communicate with the hardware.
+	 */
+	pci_read_config_byte(pdev, PCI_CACHE_LINE_SIZE, &csz);
+	if (csz == 0) {
+		/*
+		 * Linux 2.4.18 (at least) writes the cache line size
+		 * register as a 16-bit wide register which is wrong.
+		 * We must have this setup properly for rx buffer
+		 * DMA to work so force a reasonable value here if it
+		 * comes up zero.
+		 */
+		csz = L1_CACHE_BYTES / sizeof(u32);
+		pci_write_config_byte(pdev, PCI_CACHE_LINE_SIZE, csz);
+	}
+	/*
+	 * The default setting of latency timer yields poor results,
+	 * set it to the value used by other systems. It may be worth
+	 * tweaking this setting more.
+	 */
+	pci_write_config_byte(pdev, PCI_LATENCY_TIMER, 0xa8);
+
+	pci_set_master(pdev);
+
+	/*
+	 * Disable the RETRY_TIMEOUT register (0x41) to keep
+	 * PCI Tx retries from interfering with C3 CPU state.
+	 */
+	pci_read_config_dword(pdev, 0x40, &val);
+	if ((val & 0x0000ff00) != 0)
+		pci_write_config_dword(pdev, 0x40, val & 0xffff00ff);
+
+	ret = pci_request_region(pdev, 0, "ath9k");
+	if (ret) {
+		dev_err(&pdev->dev, "PCI memory region reserve error\n");
+		ret = -ENODEV;
+		goto err_region;
+	}
+
+	mem = pci_iomap(pdev, 0, 0);
+	if (!mem) {
+		printk(KERN_ERR "PCI memory map error\n") ;
+		ret = -EIO;
+		goto err_iomap;
+	}
+
+	hw = ieee80211_alloc_hw(sizeof(struct ath_softc), &ath9k_ops);
+	if (!hw) {
+		dev_err(&pdev->dev, "No memory for ieee80211_hw\n");
+		ret = -ENOMEM;
+		goto err_alloc_hw;
+	}
+
+	SET_IEEE80211_DEV(hw, &pdev->dev);
+	pci_set_drvdata(pdev, hw);
+
+	sc = hw->priv;
+	sc->hw = hw;
+	sc->dev = &pdev->dev;
+	sc->mem = mem;
+
+	/* Will be cleared in ath9k_start() */
+	sc->sc_flags |= SC_OP_INVALID;
+
+	ret = request_irq(pdev->irq, ath_isr, IRQF_SHARED, "ath9k", sc);
+	if (ret) {
+		dev_err(&pdev->dev, "request_irq failed\n");
+		goto err_irq;
+	}
+
+	sc->irq = pdev->irq;
+
+	ret = ath9k_init_device(id->device, sc, &ath_pci_bus_ops);
+	if (ret) {
+		dev_err(&pdev->dev, "Failed to initialize device\n");
+		goto err_init;
+	}
+
+	ath9k_hw_name(sc->sc_ah, hw_name, sizeof(hw_name));
+	wiphy_info(hw->wiphy, "%s mem=0x%lx, irq=%d\n",
+		   hw_name, (unsigned long)mem, pdev->irq);
+
+	return 0;
+
+err_init:
+	free_irq(sc->irq, sc);
+err_irq:
+	ieee80211_free_hw(hw);
+err_alloc_hw:
+	pci_iounmap(pdev, mem);
+err_iomap:
+	pci_release_region(pdev, 0);
+err_region:
+	/* Nothing */
+err_dma:
+	pci_disable_device(pdev);
+	return ret;
+}
+
+int ath9k_init_device(u16 devid, struct ath_softc *sc,
+		    const struct ath_bus_ops *bus_ops)
+{
+	struct ieee80211_hw *hw = sc->hw;
+	struct ath_common *common;
+	struct ath_hw *ah;
+	int error = 0;
+	struct ath_regulatory *reg;
+
+	/* Bring up device */
+	error = ath9k_init_softc(devid, sc, bus_ops);
+	if (error != 0)
+		goto error_init;
+
+	ah = sc->sc_ah;
+	common = ath9k_hw_common(ah);
+	ath9k_set_hw_capab(sc, hw);
+
+	/* Initialize regulatory */
+	error = ath_regd_init(&common->regulatory, sc->hw->wiphy,
+			      ath9k_reg_notifier);
+	if (error)
+		goto error_regd;
+
+	reg = &common->regulatory;
+
+	/* Setup TX DMA */
+	error = ath_tx_init(sc, ATH_TXBUF);
+	if (error != 0)
+		goto error_tx;
+
+	/* Setup RX DMA */
+	error = ath_rx_init(sc, ATH_RXBUF);
+	if (error != 0)
+		goto error_rx;
+
+	ath9k_init_txpower_limits(sc);
+
+#ifdef CONFIG_MAC80211_LEDS
+	/* must be initialized before ieee80211_register_hw */
+	sc->led_default_trigger = ieee80211_create_tpt_led_trigger(sc->hw,
+		IEEE80211_TPT_LEDTRIG_FL_RADIO, ath9k_tpt_blink,
+		ARRAY_SIZE(ath9k_tpt_blink));
+#endif
+
+	INIT_WORK(&sc->hw_reset_work, ath_reset_work);
+	INIT_WORK(&sc->hw_check_work, ath_hw_check);
+	INIT_WORK(&sc->paprd_work, ath_paprd_calibrate);
+	INIT_DELAYED_WORK(&sc->hw_pll_work, ath_hw_pll_work);
+
+	/* Register with mac80211 */
+	error = ieee80211_register_hw(hw);
+	if (error)
+		goto error_register;
+
+	error = ath9k_init_debug(ah);
+	if (error) {
+		ath_err(common, "Unable to create debugfs files\n");
+		goto error_world;
+	}
+
+	/* Handle world regulatory */
+	if (!ath_is_world_regd(reg)) {
+		error = regulatory_hint(hw->wiphy, reg->alpha2);
+		if (error)
+			goto error_world;
+	}
+
+	sc->last_rssi = ATH_RSSI_DUMMY_MARKER;
+
+	ath_init_leds(sc);
+	ath_start_rfkill_poll(sc);
+
+	return 0;
+
+error_world:
+	ieee80211_unregister_hw(hw);
+error_register:
+	ath_rx_cleanup(sc);
+error_rx:
+	ath_tx_cleanup(sc);
+error_tx:
+	/* Nothing */
+error_regd:
+	ath9k_deinit_softc(sc);
+error_init:
+	return error;
+}
+
+static int ath9k_init_softc(u16 devid, struct ath_softc *sc,
+			    const struct ath_bus_ops *bus_ops)
+{
+	struct ath9k_platform_data *pdata = sc->dev->platform_data;
+	struct ath_hw *ah = NULL;
+	struct ath_common *common;
+	int ret = 0, i;
+	int csz = 0;
+
+	ah = kzalloc(sizeof(struct ath_hw), GFP_KERNEL);
+	if (!ah)
+		return -ENOMEM;
+
+	ah->hw = sc->hw;
+	ah->hw_version.devid = devid;
+	ah->reg_ops.read = ath9k_ioread32;
+	ah->reg_ops.write = ath9k_iowrite32;
+	ah->reg_ops.rmw = ath9k_reg_rmw;
+	atomic_set(&ah->intr_ref_cnt, -1);
+	sc->sc_ah = ah;
+
+	if (!pdata) {
+		ah->ah_flags |= AH_USE_EEPROM;
+		sc->sc_ah->led_pin = -1;
+	} else {
+		sc->sc_ah->gpio_mask = pdata->gpio_mask;
+		sc->sc_ah->gpio_val = pdata->gpio_val;
+		sc->sc_ah->led_pin = pdata->led_pin;
+		ah->is_clk_25mhz = pdata->is_clk_25mhz;
+		ah->get_mac_revision = pdata->get_mac_revision;
+		ah->external_reset = pdata->external_reset;
+	}
+
+	common = ath9k_hw_common(ah);
+	common->ops = &ah->reg_ops;
+	common->bus_ops = bus_ops;
+	common->ah = ah;
+	common->hw = sc->hw;
+	common->priv = sc;
+	common->debug_mask = ath9k_debug;
+	common->btcoex_enabled = ath9k_btcoex_enable == 1;
+	common->disable_ani = false;
+	spin_lock_init(&common->cc_lock);
+
+	spin_lock_init(&sc->sc_serial_rw);
+	spin_lock_init(&sc->sc_pm_lock);
+	mutex_init(&sc->mutex);
+#ifdef CONFIG_ATH9K_DEBUGFS
+	spin_lock_init(&sc->nodes_lock);
+	spin_lock_init(&sc->debug.samp_lock);
+	INIT_LIST_HEAD(&sc->nodes);
+#endif
+	tasklet_init(&sc->intr_tq, ath9k_tasklet, (unsigned long)sc);
+	tasklet_init(&sc->bcon_tasklet, ath_beacon_tasklet,
+		     (unsigned long)sc);
+
+	/*
+	 * Cache line size is used to size and align various
+	 * structures used to communicate with the hardware.
+	 */
+	ath_read_cachesize(common, &csz);
+	common->cachelsz = csz << 2; /* convert to bytes */
+
+	/* Initializes the hardware for all supported chipsets */
+	ret = ath9k_hw_init(ah);
+	if (ret)
+		goto err_hw;
+
+	if (pdata && pdata->macaddr)
+		memcpy(common->macaddr, pdata->macaddr, ETH_ALEN);
+
+	ret = ath9k_init_queues(sc);
+	if (ret)
+		goto err_queues;
+
+	ret =  ath9k_init_btcoex(sc);
+	if (ret)
+		goto err_btcoex;
+
+	ret = ath9k_init_channels_rates(sc);
+	if (ret)
+		goto err_btcoex;
+
+	ath9k_cmn_init_crypto(sc->sc_ah);
+	ath9k_init_misc(sc);
+
+	return 0;
+
+err_btcoex:
+	for (i = 0; i < ATH9K_NUM_TX_QUEUES; i++)
+		if (ATH_TXQ_SETUP(sc, i))
+			ath_tx_cleanupq(sc, &sc->tx.txq[i]);
+err_queues:
+	ath9k_hw_deinit(ah);
+err_hw:
+
+	kfree(ah);
+	sc->sc_ah = NULL;
+
+	return ret;
+}
+
+int ath9k_hw_init(struct ath_hw *ah)
+{
+	int ret;
+	struct ath_common *common = ath9k_hw_common(ah);
+
+	/* These are all the AR5008/AR9001/AR9002 hardware family of chipsets */
+	switch (ah->hw_version.devid) {
+	case AR5416_DEVID_PCI:
+	case AR5416_DEVID_PCIE:
+	case AR5416_AR9100_DEVID:
+	case AR9160_DEVID_PCI:
+	case AR9280_DEVID_PCI:
+	case AR9280_DEVID_PCIE:
+	case AR9285_DEVID_PCIE:
+	case AR9287_DEVID_PCI:
+	case AR9287_DEVID_PCIE:
+	case AR2427_DEVID_PCIE:
+	case AR9300_DEVID_PCIE:
+	case AR9300_DEVID_AR9485_PCIE:
+	case AR9300_DEVID_AR9330:
+	case AR9300_DEVID_AR9340:
+	case AR9300_DEVID_AR9580:
+	case AR9300_DEVID_AR9462:
+		break;
+	default:
+		if (common->bus_ops->ath_bus_type == ATH_USB)
+			break;
+		ath_err(common, "Hardware device ID 0x%04x not supported\n",
+			ah->hw_version.devid);
+		return -EOPNOTSUPP;
+	}
+
+	ret = __ath9k_hw_init(ah);
+	if (ret) {
+		ath_err(common,
+			"Unable to initialize hardware; initialization status: %d\n",
+			ret);
+		return ret;
+	}
+
+	return 0;
+}
+
+/* Called for all hardware families */
+static int __ath9k_hw_init(struct ath_hw *ah)
+{
+	struct ath_common *common = ath9k_hw_common(ah);
+	int r = 0;
+
+	ath9k_hw_read_revisions(ah);
+
+	/*
+	 * Read back AR_WA into a permanent copy and set bits 14 and 17.
+	 * We need to do this to avoid RMW of this register. We cannot
+	 * read the reg when chip is asleep.
+	 */
+	ah->WARegVal = REG_READ(ah, AR_WA);
+	ah->WARegVal |= (AR_WA_D3_L1_DISABLE |
+			 AR_WA_ASPM_TIMER_BASED_DISABLE);
+
+	if (!ath9k_hw_set_reset_reg(ah, ATH9K_RESET_POWER_ON)) {
+		ath_err(common, "Couldn't reset chip\n");
+		return -EIO;
+	}
+
+	if (AR_SREV_9462(ah))
+		ah->WARegVal &= ~AR_WA_D3_L1_DISABLE;
+
+	ath9k_hw_init_defaults(ah);
+	ath9k_hw_init_config(ah);
+
+	ath9k_hw_attach_ops(ah);
+
+	if (!ath9k_hw_setpower(ah, ATH9K_PM_AWAKE)) {
+		ath_err(common, "Couldn't wakeup chip\n");
+		return -EIO;
+	}
+
+	if (ah->config.serialize_regmode == SER_REG_MODE_AUTO) {
+		if (ah->hw_version.macVersion == AR_SREV_VERSION_5416_PCI ||
+		    ((AR_SREV_9160(ah) || AR_SREV_9280(ah)) &&
+		     !ah->is_pciexpress)) {
+			ah->config.serialize_regmode =
+				SER_REG_MODE_ON;
+		} else {
+			ah->config.serialize_regmode =
+				SER_REG_MODE_OFF;
+		}
+	}
+
+	ath_dbg(common, RESET, "serialize_regmode is %d\n",
+		ah->config.serialize_regmode);
+
+	if (AR_SREV_9285(ah) || AR_SREV_9271(ah))
+		ah->config.max_txtrig_level = MAX_TX_FIFO_THRESHOLD >> 1;
+	else
+		ah->config.max_txtrig_level = MAX_TX_FIFO_THRESHOLD;
+
+	switch (ah->hw_version.macVersion) {
+	case AR_SREV_VERSION_5416_PCI:
+	case AR_SREV_VERSION_5416_PCIE:
+	case AR_SREV_VERSION_9160:
+	case AR_SREV_VERSION_9100:
+	case AR_SREV_VERSION_9280:
+	case AR_SREV_VERSION_9285:
+	case AR_SREV_VERSION_9287:
+	case AR_SREV_VERSION_9271:
+	case AR_SREV_VERSION_9300:
+	case AR_SREV_VERSION_9330:
+	case AR_SREV_VERSION_9485:
+	case AR_SREV_VERSION_9340:
+	case AR_SREV_VERSION_9462:
+		break;
+	default:
+		ath_err(common,
+			"Mac Chip Rev 0x%02x.%x is not supported by this driver\n",
+			ah->hw_version.macVersion, ah->hw_version.macRev);
+		return -EOPNOTSUPP;
+	}
+
+	if (AR_SREV_9271(ah) || AR_SREV_9100(ah) || AR_SREV_9340(ah) ||
+	    AR_SREV_9330(ah))
+		ah->is_pciexpress = false;
+
+	ah->hw_version.phyRev = REG_READ(ah, AR_PHY_CHIP_ID);
+	ath9k_hw_init_cal_settings(ah);
+
+	ah->ani_function = ATH9K_ANI_ALL;
+	if (AR_SREV_9280_20_OR_LATER(ah) && !AR_SREV_9300_20_OR_LATER(ah))
+		ah->ani_function &= ~ATH9K_ANI_NOISE_IMMUNITY_LEVEL;
+	if (!AR_SREV_9300_20_OR_LATER(ah))
+		ah->ani_function &= ~ATH9K_ANI_MRC_CCK;
+
+	/* disable ANI for 9340 */
+	if (AR_SREV_9340(ah))
+		ah->config.enable_ani = false;
+
+	ath9k_hw_init_mode_regs(ah);
+
+	if (!ah->is_pciexpress)
+		ath9k_hw_disablepcie(ah);
+
+	if (!AR_SREV_9300_20_OR_LATER(ah))
+		ar9002_hw_cck_chan14_spread(ah);
+
+	r = ath9k_hw_post_init(ah);
+	if (r)
+		return r;
+
+	ath9k_hw_init_mode_gain_regs(ah);
+	r = ath9k_hw_fill_cap_info(ah);
+	if (r)
+		return r;
+
+	if (ah->is_pciexpress)
+		ath9k_hw_aspm_init(ah);
+
+	r = ath9k_hw_init_macaddr(ah);
+	if (r) {
+		ath_err(common, "Failed to initialize MAC address\n");
+		return r;
+	}
+
+	if (AR_SREV_9285(ah) || AR_SREV_9271(ah))
+		ah->tx_trig_level = (AR_FTRIG_256B >> AR_FTRIG_S);
+	else
+		ah->tx_trig_level = (AR_FTRIG_512B >> AR_FTRIG_S);
+
+	if (AR_SREV_9330(ah))
+		ah->bb_watchdog_timeout_ms = 85;
+	else
+		ah->bb_watchdog_timeout_ms = 25;
+
+	common->state = ATH_HW_INITIALIZED;
+
+	return 0;
+}

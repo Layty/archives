@@ -1,0 +1,106 @@
+static DEFINE_PCI_DEVICE_TABLE(ath_pci_id_table) = {
+	{ PCI_VDEVICE(ATHEROS, 0x0023) }, /* PCI   */
+	{ PCI_VDEVICE(ATHEROS, 0x0024) }, /* PCI-E */
+	{ PCI_VDEVICE(ATHEROS, 0x0027) }, /* PCI   */
+	{ PCI_VDEVICE(ATHEROS, 0x0029) }, /* PCI   */
+	{ PCI_VDEVICE(ATHEROS, 0x002A) }, /* PCI-E */
+	{ PCI_VDEVICE(ATHEROS, 0x002B) }, /* PCI-E */
+	{ PCI_VDEVICE(ATHEROS, 0x002C) }, /* PCI-E 802.11n bonded out */
+	{ PCI_VDEVICE(ATHEROS, 0x002D) }, /* PCI   */
+	{ PCI_VDEVICE(ATHEROS, 0x002E) }, /* PCI-E */
+	{ PCI_VDEVICE(ATHEROS, 0x0030) }, /* PCI-E  AR9300 */
+	{ PCI_VDEVICE(ATHEROS, 0x0032) }, /* PCI-E  AR9485 */
+	{ PCI_VDEVICE(ATHEROS, 0x0033) }, /* PCI-E  AR9580 */
+	{ PCI_VDEVICE(ATHEROS, 0x0034) }, /* PCI-E  AR9462 */
+	{ 0 }
+};
+/*[只有在.id_table这个表里记录的型号才会注册到pci总线上，ar9287对应的是0x002B、pci-e。要查网卡的id号可以通过 cat /sys/class/ieee80211/phy0/device下的device来查看。]*/
+
+static struct pci_driver ath_pci_driver = {
+	.name       = "ath9k",
+	.id_table   = ath_pci_id_table,
+	.probe      = ath_pci_probe,
+	.remove     = ath_pci_remove,
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29))
+	.driver.pm  = ATH9K_PM_OPS,
+#elif defined(CONFIG_PM)
+	.suspend    = ath_pci_suspend_compat,
+	.resume     = ath_pci_resume_compat,
+#endif
+};
+/*[ath驱动的pci_driver结构ath_pci_driver，定义:include\linux\pci.h，实现：drivers\net\wireless\ath\ath9k\pci.c（ath实现中的其中一种总线，还有ahb总线，这里我们了解到所谓的驱动，你是想用来驱动什么东西，这里指的是驱动pci总线操作，是整个无线驱动，ath层的中一小部分。进一步延伸到uio这种方式，我们可以看出内核中的驱动最根本的是要pci这类总线进行挂载与操控，其他部分如处理数据，理论上都可以放到应用层面上来做)。
+从这里我们可以看出pci_driver是由pci层定义的接口，然后如果驱动想要注册到pci层上的话，就要实现这个结构去然后向pci层注册]*/
+
+struct pci_driver {
+	struct list_head node;
+	const char *name;
+	const struct pci_device_id *id_table;	/* must be non-NULL for probe to be called */
+	int  (*probe)  (struct pci_dev *dev, const struct pci_device_id *id);	/* New device inserted */
+	void (*remove) (struct pci_dev *dev);	/* Device removed (NULL if not a hot-plug capable driver) */
+	int  (*suspend) (struct pci_dev *dev, pm_message_t state);	/* Device suspended */
+	int  (*suspend_late) (struct pci_dev *dev, pm_message_t state);
+	int  (*resume_early) (struct pci_dev *dev);
+	int  (*resume) (struct pci_dev *dev);	                /* Device woken up */
+	void (*shutdown) (struct pci_dev *dev);
+	struct pci_error_handlers *err_handler;
+	struct device_driver	driver;
+	struct pci_dynids dynids;
+};
+/*[pci_driver的定义，很多结构会在实现中初始化。但我要注意下其中device_driver这个结构。这个结构不会在驱动中初始化，而是在pci层初始化，并且会在这个结构中挂载操作pci总线pci_bus_type系统函数。
+这里我们可以思考下这里的设计思想：
+1.谁来定义接口,pci层向所有驱动放出其定义的机制接口struct pci_driver，所有的驱动实现pci_driver然后向其注册。pci层只要固定的调用接口上的结构，并可引导驱动完成注册动作。
+这样看来，驱动其实是个蛮悲催的角色，上面它需要满足mac80211定义的接口，下面又要满足pci定义的接口。如此来，我们在自己的设计中如何区分哪个模块应该定义接口呢。有一条比较好的判断准则是,认清哪些是“敌动我不动”的模块，比如配置层、底层硬件层，这些都是需要高度稳定的模块，可以用来做定义接口。
+2.通常操作是相互的，因为定义接口是不变的，而定义方本身的实现是各种各样的，同时实现方是各种各样的，比如我们知道pci层操作驱动层没有任何问题，调用接口上传下来的结构便可以了。那实现方要操作定义方呢？对了，在接口上使用一个结构，就是本例中的struct device_driver，在pci注册中把pci相关操作赋予其上。有时候甚至不用struct device_driver这样规范的命名，直接用void *priv这个就可以了。表示它对应着许多不同的东西，需要视情况赋值，内核中这样的结构看的很多。]*/
+
+int ath_pci_init(void)
+{
+	return pci_register_driver(&ath_pci_driver);
+}/*[驱动的pci模块初始化函数，该函数只做了一件事，调用pci层注册函数pci_register_driver。当然在注册中后期就会调用probe函数，完成device设备的初始化与其相关的注册操作]*/
+
+#define pci_register_driver(driver)		\
+	__pci_register_driver(driver, THIS_MODULE, KBUILD_MODNAME)/**
+ * __pci_register_driver - register a new pci driver
+ * @drv: the driver structure to register
+ * @owner: owner module of drv
+ * @mod_name: module name string
+ * 
+ * Adds the driver structure to the list of registered drivers.
+ * Returns a negative value on error, otherwise 0. 
+ * If no error occurred, the driver remains registered even if 
+ * no device was claimed during registration.
+ */
+int __pci_register_driver(struct pci_driver *drv, struct module *owner,
+			  const char *mod_name)
+{
+	int error;
+
+	/* initialize common driver fields */
+	drv->driver.name = drv->name;
+	drv->driver.bus = &pci_bus_type;
+	drv->driver.owner = owner;
+	drv->driver.mod_name = mod_name;
+
+	spin_lock_init(&drv->dynids.lock);
+	INIT_LIST_HEAD(&drv->dynids.list);
+
+	/* register with core */
+	error = driver_register(&drv->driver);
+	if (error)
+		goto out;
+
+	error = pci_create_newid_file(drv);
+	if (error)
+		goto out_newid;
+
+	error = pci_create_removeid_file(drv);
+	if (error)
+		goto out_removeid;
+out:
+	return error;
+
+out_removeid:
+	pci_remove_newid_file(drv);
+out_newid:
+	driver_unregister(&drv->driver);
+	goto out;
+}

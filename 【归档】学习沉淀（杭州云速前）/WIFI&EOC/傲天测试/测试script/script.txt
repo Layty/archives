@@ -1,0 +1,263 @@
+stop_monitor;killall wtpd
+echo 0 > proc/sys/dev/wifi0/thinap
+wlanconfig ath0 create wlandev wifi0 wlanmode ap
+brctl addif default ath0
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11nght40plus
+iwconfig ath0 channel 1
+iwpriv wifi0 txchainmask 3
+iwpriv wifi0 rxchainmask 3
+iwpriv ath0 cwmmode 2
+iwpriv ath0 extoffset 1
+ifconfig ath0 up
+iwconfig ath0 essid prfeng
+
+
+createif wifi0 ath0 11g 1 wireless 0 1
+
+echo 0 > /proc/sys/dev/wifi0/thinap;
+stop_monitor;
+killall wtpd;
+
+  
+wlanconfig ath0 destroy;
+
+
+wlanconfig ath0 create wlandev wifi0 wlanmode ap;
+iwpriv ath0 mode 11nght40plus;
+iwconfig ath0 essid prfeng;
+iwconfig ath0 channel 1;
+brctl addif default ath0
+iwpriv wifi0 txchainmask 1;
+ifconfig ath0 up
+
+
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11nght40minus
+iwconfig ath0 channel 11
+ifconfig ath0 up
+
+
+ifconfig ath0 down
+iwpriv wifi0 txchainmask 3
+iwpriv wifi0 rxchainmask 3
+ifconfig ath0 up
+
+
+
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11nght40plus
+iwconfig ath0 channel 1
+ifconfig ath0 up
+
+
+
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11nght20
+iwconfig ath0 channel 1
+iwpriv wifi0 txchainmask 1
+ifconfig ath0 up
+
+iwpriv ath0 tx_chainmask 3
+iwpriv ath0 rx_chainmask 3
+iwpriv ath0 get_tx_chainmask
+iwpriv ath0 get_rx_chainmask
+
+
+
+cd /proc/sys/dev/wifi0/diversity;
+
+echo 0 > /proc/sys/dev/wifi0/diversity;
+echo 1 > /proc/sys/dev/wifi0/txantenna;
+echo 1 > /proc/sys/dev/wifi0/rxantenna;
+ifconfig ath0 up;
+iwconfig ath0 txpower 12;
+packet 999999999 1500 ath0;
+
+iwconfig ath0 channel 6;
+packet 999999999 1500 ath0;
+
+iwconfig ath0 channel 13;
+packet 999999999 1500 ath0;
+
+echo 0 > /proc/sys/dev/wifi0/thinap;
+stop_monitor;
+killall wtpd;
+wlanconfig ath0 destroy;
+wlanconfig ath0 create wlandev wifi0 wlanmode monitor;
+iwpriv ath0 mode 11g;
+iwconfig ath0 channel 1;
+iwconfig ath0 rate 54M;
+ifconfig ath0 down
+echo 0 > /proc/sys/dev/wifi0/diversity;
+echo 1 > /proc/sys/dev/wifi0/txantenna;
+echo 1 > /proc/sys/dev/wifi0/rxantenna;
+ifconfig ath0 up;
+iwconfig ath0 txpower 12;
+packet 999999999 1500 ath0;
+
+主天线：
+echo 0 > /proc/sys/dev/wifi0/thinap;
+stop_monitor;
+killall wtpd;
+wlanconfig ath0 destroy;
+wlanconfig ath0 create wlandev wifi0 wlanmode ap;
+iwpriv ath0 mode 11g;
+iwconfig ath0 channel 1;
+iwconfig ath0 rate 11M;
+echo 0 > /proc/sys/dev/wifi0/diversity;
+echo 2 > /proc/sys/dev/wifi0/txantenna;
+echo 2 > /proc/sys/dev/wifi0/rxantenna;
+ifconfig ath0 up;
+iwconfig ath0 txpower 20;
+packet 999999999 1500 ath0;
+
+iwconfig ath0 channel 6;
+packet 999999999 1500 ath0; 
+
+iwconfig ath0 channel 13;
+packet 999999999 1500 ath0; 
+
+echo 0 > /proc/sys/dev/wifi0/thinap;
+stop_monitor;
+killall wtpd;
+wlanconfig ath0 destroy;
+wlanconfig ath0 create wlandev wifi0 wlanmode ap;
+iwpriv ath0 mode 11g;
+iwconfig ath0 channel 1;
+iwconfig ath0 rate 6M;
+echo 0 > /proc/sys/dev/wifi0/diversity;
+echo 1 > /proc/sys/dev/wifi0/txantenna;
+echo 1 > /proc/sys/dev/wifi0/rxantenna;
+ifconfig ath0 up;
+iwconfig ath0 txpower 12;
+packet 999999999 1500 ath0;
+
+ifconfig ath0 down;  
+iwpriv  wifi0 txchainmask 3;
+iwpriv  wifi0 rxchainmask 3;
+ifconfig ath0 up;
+
+
+send
+1
+2
+11000
+3
+2222222222
+4
+1500
+5
+
+
+ifconfig ath0 down;
+iwconfig ath0 channel 0;
+iwpriv ath0 mode 11nght20;
+iwconfig ath0 channel 1;
+ifconfig ath0 up;
+
+ifconfig ath0 down;
+iwconfig ath0 channel 0;
+iwpriv ath0 mode 11g:
+iwconfig ath0 channel 1;
+ifconfig ath0 up;
+
+ifconfig ath0 down;
+iwconfig ath0 channel 6;
+ifconfig ath0 up;
+
+tftpboot 0x2000000 cavium_art_11n.img;bootm 0x2000000 productplatform=apv14
+
+stop_monitor
+killall  wtpd
+echo 0 > /proc/sys/dev/wifi0/thinap
+wlanconfig ath0 create wlandev wifi0 wlanmode monitor
+brctl addif default ath0
+iwpriv  wifi0 txchainmask 2
+iwpriv  wifi0 rxchainmask 2
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11nght20
+iwconfig ath0 essid "wireless sssid"
+ifconfig ath0 txpower 20
+ifconfig ath0 up
+ifconfig ath0 down;
+iwpriv ath0 puren 1;
+iwconfig ath0 channel 1;
+ifconfig ath0 up;
+
+
+ifconfig ath0 down;
+iwpriv ath0 puren 0;
+ifconfig ath0 up;
+ifconfig ath0 down
+iwconfig ath0 channel 0	
+iwpriv ath0 mode 11g;
+iwconfig ath0 channel 1;
+ifconfig ath0 up
+
+
+
+ifconfig ath0 down;
+iwpriv ath0 puren 0;
+ifconfig ath0 up;
+
+
+cd jffs/;
+ffs# ls;
+rm config config.xml preconfig  postconfig;11
+
+
+set serverip 192.168.100.66
+set tftpserver 192.168.100.66
+set ipaddr 192.168.100.100
+tftpboot 0x2000000 AQWAREen1.3.3.1.bin;bootm 0x2000000 productplatform=apv14
+
+20模式
+iwconfig ath0 channel 0
+ifconfig ath0 down
+iwpriv ath0 get_cwmmode
+iwpriv ath0 cwmmode 2 （0 20模式 1 20和40混合、2 40 模式）
+iwpriv ath0 extoffset 0  0 不偏移 1向上
+
+
+ifconfig ath0 down
+iwconfig ath0 channel 0
+iwpriv ath0 mode 11nght20;
+iwconfig ath0 channel 1;
+iwpriv ath0 cwmmode 0;
+ifconfig ath0 up;
+
+createif wifi0 ath0 11nght20 1 wu 0 1
+
+
+
+
+
+set serverip 192.168.100.66
+set tftpserver 192.168.100.66
+set ipaddr 192.168.100.100
+tftpboot 0x2000000 AQWAREen1.3.3.1.bin;bootm 0x2000000 productplatform=apv14
+
+
+
+
+stop_monitor
+killall  wtpd
+echo 0 > /proc/sys/dev/wifi0/thinap
+wlanconfig ath0 create wlandev wifi0 wlanmode ap
+brctl addif default ath0
+iwconfig ath0 essid sdfsdf
+iwpriv ath0 mode 11g
+iwconfig ath0 channel 1
+ifconfig ath0 up     
+
+
+
+
+
+

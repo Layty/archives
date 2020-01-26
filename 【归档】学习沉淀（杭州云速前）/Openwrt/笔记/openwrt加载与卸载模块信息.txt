@@ -1,0 +1,55 @@
+insmod cfg80211.ko
+[57603.756123] cfg80211: Calling CRDA to update world regulatory domain
+[57603.888948] cfg80211: World regulatory domain updated:
+[57603.904408] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[57603.928954] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[57603.952196] cfg80211:   (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[57603.975438] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[57603.998681] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[57604.021930] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+
+insmod ath9k.ko
+[57971.406868] ath9k 0000:04:00.0: PCI INT A -> GSI 18 (level, low) -> IRQ 18
+[57971.480267] ieee80211 phy0: Atheros AR9285 Rev:2 mem=0xf9520000, irq=18
+
+insmod e100.ko
+[58383.256916] e100: Intel(R) PRO/100 Network Driver, 3.5.24-k2-NAPI
+[58383.275236] e100: Copyright(c) 1999-2006 Intel Corporation
+
+insmod e1000.ko
+[58410.153817] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[58410.174987] e1000: Copyright (c) 1999-2006 Intel Corporation.
+
+insmod e1000e.ko
+[58438.363206] e1000e: Intel(R) PRO/1000 Network Driver - 1.3.10-k2
+[58438.381245] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+[58438.399080] e1000e 0000:02:00.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[58438.420858] e1000e 0000:02:00.0: Disabling ASPM L0s
+[58438.592953] e1000e 0000:02:00.0: eth0: (PCI Express:2.5GB/s:Width x1) 66:00:00:00:00:01
+[58438.617005] e1000e 0000:02:00.0: eth0: Intel(R) PRO/1000 Network Connection
+[58438.637956] e1000e 0000:02:00.0: eth0: MAC: 3, PHY: 8, PBA No: FFFFFF-0FF
+[58438.658348] e1000e 0000:03:00.0: PCI INT A -> GSI 17 (level, low) -> IRQ 17
+[58438.680115] e1000e 0000:03:00.0: Disabling ASPM L0s
+[58438.818728] 8021q: adding VLAN 0 to HW filter on device eth0
+[58438.853039] e1000e 0000:03:00.0: eth1: (PCI Express:2.5GB/s:Width x1) 66:00:00:00:00:02
+[58438.877086] e1000e 0000:03:00.0: eth1: Intel(R) PRO/1000 Network Connection
+[58438.898060] e1000e 0000:03:00.0: eth1: MAC: 3, PHY: 8, PBA No: FFFFFF-0FF
+[58438.918453] e1000e 0000:05:00.0: PCI INT A -> GSI 19 (level, low) -> IRQ 19
+[58438.939919] e1000e 0000:05:00.0: Disabling ASPM L0s
+[58438.963632] device eth0 entered promiscuous mode
+[58439.121218] e1000e 0000:05:00.0: eth2: (PCI Express:2.5GB/s:Width x1) 66:00:00:00:00:03
+[58439.145274] e1000e 0000:05:00.0: eth2: Intel(R) PRO/1000 Network Connection
+[58439.166253] e1000e 0000:05:00.0: eth2: MAC: 3, PHY: 8, PBA No: FFFFFF-0FF
+
+
+rmmod ath9k
+[58208.769452] ath9k 0000:04:00.0: PCI INT A disabled
+[58208.783909] ath9k: Driver unloaded
+
+rmmod e1000e
+[58265.411560] e1000e 0000:05:00.0: PCI INT A disabled
+[58265.438912] e1000e 0000:03:00.0: PCI INT A disabled
+[58265.554777] br-lan: port 1(eth0) entering disabled state
+[58265.576678] device eth0 left promiscuous mode
+[58265.589793] br-lan: port 1(eth0) entering disabled state
+[58265.608911] e1000e 0000:02:00.0: PCI INT A disabled

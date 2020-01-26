@@ -1,0 +1,80 @@
+struct country_code_to_enum_rd {
+	u16 countryCode;
+	u16 regDmnEnum;
+	const char *isoName;
+}; allCountries
+static struct country_code_to_enum_rd allCountries[]
+	{CTRY_CHINA, APL1_WORLD, "CN"},
+	enum CountryCode 
+	CTRY_CHINA = 156,
+	enum EnumRd
+	APL1_WORLD = 0x52,struct ath_regulatory {
+	char alpha2[2];
+	u16 country_code;
+	u16 max_power_level;
+	u16 current_rd;
+	int16_t power_limit;
+	struct reg_dmn_pair_mapping *regpair;
+};
+
+static struct reg_dmn_pair_mapping regDomainPairs[]
+		{APL1_WORLD, CTL_FCC, CTL_ETSI},enum ctl_group {
+	CTL_FCC = 0x10,
+	CTL_MKK = 0x40,
+	CTL_ETSI = 0x30,
+};
+
+struct ieee80211_regdomain {
+	u32 n_reg_rules;
+	char alpha2[2];
+	u8 dfs_region;
+	struct ieee80211_reg_rule reg_rules[];
+};
+
+/* Can be used for:
+ * 0x60, 0x61, 0x62 */
+static const struct ieee80211_regdomain ath_world_regdom_60_61_62 = {
+	.alpha2 =  "99",
+	REGD_RULES(
+		ATH9K_2GHZ_ALL,
+		ATH9K_5GHZ_ALL,
+	)
+};
+
+/* Can be used by 0x63 and 0x65 */
+static const struct ieee80211_regdomain ath_world_regdom_63_65 = {
+	.alpha2 =  "99",
+	REGD_RULES(
+		ATH9K_2GHZ_CH01_11,
+		ATH9K_2GHZ_CH12_13,
+		ATH9K_5GHZ_NO_MIDBAND,
+	)
+};
+
+/* Can be used by 0x64 only */
+static const struct ieee80211_regdomain ath_world_regdom_64 = {
+	.alpha2 =  "99",
+	REGD_RULES(
+		ATH9K_2GHZ_CH01_11,
+		ATH9K_5GHZ_NO_MIDBAND,
+	)
+};
+
+/* Can be used by 0x66 and 0x69 */
+static const struct ieee80211_regdomain ath_world_regdom_66_69 = {
+	.alpha2 =  "99",
+	REGD_RULES(
+		ATH9K_2GHZ_CH01_11,
+		ATH9K_5GHZ_ALL,
+	)
+};
+
+/* Can be used by 0x67, 0x68, 0x6A and 0x6C */
+static const struct ieee80211_regdomain ath_world_regdom_67_68_6A_6C = {
+	.alpha2 =  "99",
+	REGD_RULES(
+		ATH9K_2GHZ_CH01_11,
+		ATH9K_2GHZ_CH12_13,
+		ATH9K_5GHZ_ALL,
+	)
+};

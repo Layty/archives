@@ -1,0 +1,4 @@
+		__be32 daddr = ip->daddr; 
+		__be32 saddr = ip->saddr;
+		printk("ip->saddr=%d:%d:%d:%d --->",(saddr&0xFF000000)>>24,(saddr&0x00FF0000)>>16,(saddr&0x0000FF00)>>8,saddr&0x000000FF);
+		printk("ip->daddr=%d:%d:%d:%d \n",(daddr&0xFF000000)>>24,(daddr&0x00FF0000)>>16,(daddr&0x0000FF00)>>8,daddr&0x000000FF);

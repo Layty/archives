@@ -1,0 +1,14 @@
+struct ether_header * eh = (struct ether_header *)(wbuf_header(wbuf));
+
+printk("-----1 vlanid=%d \n",ni->ni_vid);
+
+printk("-----2 soure addr = %02x:%02x:%02x:%02x:%02x:%02x-->"
+,eh->ether_shost[0],eh->ether_shost[1],eh->ether_shost[2]
+,eh->ether_shost[3],,eh->ether_shost[4],eh->ether_shost[5]);
+
+printk("destion addr = %02x:%02x:%02x:%02x:%02x:%02x\n"
+,eh->ether_dhost[0],eh->ether_dhost[1],eh->ether_dhost[2]
+,eh->ether_dhost[3],,eh->ether_dhost[4],eh->ether_dhost[5]);
+
+printk("-----3 protocol=%d\n",eh->ether_type);
+

@@ -1,0 +1,492 @@
+上次说道SAVE_ALL里有些玄机,这里把include/asm-mips/stackframe.h
+对着注解一下,希望能说清楚一些.
+(因为时间关系,我写的文档将主要以这种文件注解为主,加上我认为有用
+的背景知识或者分析.)
+ 
+/* 
+ 一些背景知识
+ 
+ 一.mips汇编有个约定(后来也有些变化,我们不管,o32,n32),32个通用寄存器不是一视同仁
+  的,而是分成下列部分:
+      寄存器号            符号名            用途
+        0                 始终为0     看起来象浪费,其实很有用
+        1                 at          保留给汇编器使用
+        2-3               v0,v1       函数返回值
+        4-7               a0-a3       前头几个函数参数
+        8-15              t0-t7       临时寄存器,子过程可以不保存就使用
+        24-25             t8,t9       同上
+        16-23             s0-s7       寄存器变量,子过程要使用它必须先保存
+                                      然后在退出前恢复以保留调用者需要的值
+        26,27             k0,k1       保留给异常处理函数使用
+        28                gp          global pointer;用于方便存取全局或者静态变量
+        29                sp          stack pointer
+        30                s8/fp       第9个寄存器变量;子过程可以用它做frame pointer
+        31                 ra         返回地址
+   硬件上这些寄存器并没有区别(除了0号),区分的目的是为了不同的编译器产生的代码
+   可以通用
+ 
+  二. r4k MIPS CPU中和异常相关的控制寄存器(这些寄存器由协处理器cp0控制,有独立的存取方法)有:
+      1.status 状态寄存器
+      31  28 27 26 25 24        16 15          8 7 6  5 4 3  2   1   0
+     ------------------------------------------------------------------
+     | cu0-3|RP|FR|RE| Diag Status|   IM7-IM0  |KX|SX|UX|KSU|ERL|EXL|IE|
+     ------------------------------------------------------------------
+     其中KSU,ERL,EXL,IE位在这里很重要:
+       KSU: 模式位 00 -kernel  01--Supervisor 10--User
+       ERL: error level,0->normal,1->error
+       EXL: exception level,0->normal,1->exception,异常发生是EXL自动置1
+       IE: interrupt Enable, 0 -> disable interrupt,1->enable interrupt
+       (IM位则可以用于enbale/disable具体某个中断,ERL||EXL=1 也使得中断不能响应)
+      系统所处的模式由KSU,ERL,EXL决定:
+        User mode: KSU = 10 && EXL=0 && ERL=0
+        Supervisor mode(never used): KSU=01 && EXL=0 && ERL=0
+        Kernel mode: KSU=00 || EXL=1 || ERL=1
+      2.cause寄存器
+       31 30 29 28 27          16 15           8 7 6          2  1  0
+      ----------------------------------------------------------------
+      |BD|0 | CE  |     0        | IP7 - IP0    |0|Exc code     | 0  |
+      ----------------------------------------------------------------
+      异常发生时cause被自动设置
+      其中:
+        BD指示最近发生的异常指令是否在delay slot中
+        CE发生coprocessor unusable异常时的coprocessor编号(mips有4个cp)
+        IP: interrupt pending, 1->pending,0->no interrupt,CPU有6个中断
+            引脚,加上两个软件中断(最高两个)
+        Exc code:异常类型,所有的外设中断为0,系统调用为8,... 
+      3.EPC
+         对一般的异常,EPC包含:
+           . 导致异常的指令地址(virtual)
+           or. if 异常在delay slot指令发生,该指令前面那个跳转指令的地址
+         当EXL=1时,处理器不写EPC
+      4.和存储相关的:
+        context,BadVaddr,Xcontext,ECC,CacheErr,ErrorEPC
+        以后再说
+ 
+      一般异常处理程序都是先保存一些寄存器,然后清除EXL以便嵌套异常,
+      清除KSU保持核心态,IE位看情况而定;处理完后恢复一些保存内容以及CPU状态
+ 
+   */
+ 
+/* SAVE_ALL 保存所有的寄存器,分成几个部分,方便不同的需求选用*/
+/*保存AT寄存器,sp是栈顶PT_R1是at寄存器在pt_regs结构的偏移量
+  .set xxx是汇编指示,告诉汇编器要干什么,不要干什么,或改变状态
+ */
+#define SAVE_AT                                          \
+               .set    push;                            \
+               .set    noat;                            \
+               sw      $1, PT_R1(sp);                   \
+               .set    pop
+ 
+/*保存临时寄存器,以及hi,lo寄存器(用于乘法部件保存64位结果)
+ 可以看到mfhi(取hi寄存器的值)后并没有立即保存,这是因为
+ 流水线中,mfhi的结果一般一拍不能出来,如果下一条指令就想
+ 用v1则会导致硬件停一拍,这种情况下让无关的指令先做可以提高
+ 效率.下面还有许多类似的例子
+ */
+#define SAVE_TEMP                                        \
+               mfhi    v1;                              \
+               sw      $8, PT_R8(sp);                   \
+               sw      $9, PT_R9(sp);                   \
+               sw      v1, PT_HI(sp);                   \
+               mflo    v1;                              \
+               sw      $10,PT_R10(sp);                  \
+               sw      $11, PT_R11(sp);                 \
+               sw      v1,  PT_LO(sp);                  \
+               sw      $12, PT_R12(sp);                 \
+               sw      $13, PT_R13(sp);                 \
+               sw      $14, PT_R14(sp);                 \
+               sw      $15, PT_R15(sp);                 \
+               sw      $24, PT_R24(sp)
+ 
+/* s0-s8 */
+#define SAVE_STATIC                                      \
+               sw      $16, PT_R16(sp);                 \
+               sw      $17, PT_R17(sp);                 \
+               sw      $18, PT_R18(sp);                 \
+               sw      $19, PT_R19(sp);                 \
+               sw      $20, PT_R20(sp);                 \
+               sw      $21, PT_R21(sp);                 \
+               sw      $22, PT_R22(sp);                 \
+               sw      $23, PT_R23(sp);                 \
+               sw      $30, PT_R30(sp)
+ 
+#define __str2(x) #x
+#define __str(x) __str2(x)
+ 
+ 
+ 
+/*ok,下面对这个宏有冗长的注解*/
+#define save_static_function(symbol)                                    \
+__asm__ (                                                               \
+        ".globl\t" #symbol "\n\t"                                       \
+        ".align\t2\n\t"                                                 \
+        ".type\t" #symbol ", @function\n\t"                             \
+        ".ent\t" #symbol ", 0\n"                                        \
+        #symbol":\n\t"                                                  \
+        ".frame\t$29, 0, $31\n\t"                                       \
+        "sw\t$16,"__str(PT_R16)"($29)\t\t\t# save_static_function\n\t"  \
+        "sw\t$17,"__str(PT_R17)"($29)\n\t"                              \
+        "sw\t$18,"__str(PT_R18)"($29)\n\t"                              \
+        "sw\t$19,"__str(PT_R19)"($29)\n\t"                              \
+        "sw\t$20,"__str(PT_R20)"($29)\n\t"                              \
+        "sw\t$21,"__str(PT_R21)"($29)\n\t"                              \
+        "sw\t$22,"__str(PT_R22)"($29)\n\t"                              \
+        "sw\t$23,"__str(PT_R23)"($29)\n\t"                              \
+        "sw\t$30,"__str(PT_R30)"($29)\n\t"                              \
+        ".end\t" #symbol "\n\t"                                         \
+        ".size\t" #symbol",. - " #symbol)
+ 
+/* Used in declaration of save_static functions.  */
+#define static_unused static __attribute__((unused))
+ 
+/*以下这一段涉及比较微妙的问题,没有兴趣可以跳过*/
+ 
+/* save_static_function宏是一个令人迷惑的东西,它定义了一个汇编函数,保存s0-s8
+   可是这个函数没有返回!实际上,它只是一个函数的一部分:
+   在arch/mips/kernel/signal.c中有:
+       save_static_function(sys_rt_sigsuspend);
+       static_unused int
+       _sys_rt_sigsuspend(struct pt_regs regs)
+       {
+               sigset_t *unewset, saveset, newset;
+                       size_t sigsetsize;
+   这里用save_static_function定义了sys_rt_sigsuspend,而实际上如果
+   你调用sys_rt_sigsuspend的话,它保存完s0-s8后,接着就调用_sys_rt_sigsuspend!
+   看它链接后的反汇编片段:
+      80108cc8 <sys_rt_sigsuspend>:
+      80108cc8:       afb00058        sw      $s0,88($sp)
+      80108ccc:       afb1005c        sw      $s1,92($sp)
+      80108cd0:       afb20060        sw      $s2,96($sp)
+      80108cd4:       afb30064        sw      $s3,100($sp)
+      80108cd8:       afb40068        sw      $s4,104($sp)
+      80108cdc:       afb5006c        sw      $s5,108($sp)
+      80108ce0:       afb60070        sw      $s6,112($sp)
+      80108ce4:       afb70074        sw      $s7,116($sp)
+      80108ce8:       afbe0090        sw      $s8,144($sp)
+ 
+      80108cec <_sys_rt_sigsuspend>:
+      80108cec:       27bdffc8        addiu   $sp,$sp,-56
+      80108cf0:       8fa80064        lw      $t0,100($sp)
+      80108cf4:       24030010        li      $v1,16
+      80108cf8:       afbf0034        sw      $ra,52($sp)
+      80108cfc:       afb00030        sw      $s0,48($sp) ---> notice
+      80108d00:       afa40038        sw      $a0,56($sp)
+      80108d04:       afa5003c        sw      $a1,60($sp)
+      80108d08:       afa60040        sw      $a2,64($sp)
+      ...
+ 
+   用到save_static_function的地方共有4处:
+         signal.c:save_static_function(sys_sigsuspend);
+         signal.c:save_static_function(sys_rt_sigsuspend);
+         syscall.c:save_static_function(sys_fork);
+         syscall.c:save_static_function(sys_clone);
+   我们知道s0-s8如果在子过程用到,编译器本来就会保存/恢复它的(如上面的s0),
+   那为何要搞这个花招呢?我分析之后得出如下结论:
+  (警告:以下某些内容是我的推测,可能不完全正确)
+ 
+   先看看syscall的处理,syscall也是mips的一种异常,异常号为8.上次我们说
+   了一般异常是如何工作的,但在handle_sys并非用BUILD_HANDLER生成,而是在
+   scall_o23.S中定义,因为它又有其特殊之处.
+         1.缺省情况它只用了SAVE_SOME,并没有保存at,t*,s*等寄存器,因为syscall
+         是由应用程序调用的,不象中断,任何时候都可以发生,所以一般编译器就可以
+         保证不会丢数据了(at,t*的值应该已经无效,s*的值会被函数保存恢复).
+           这样可以提高系统调用的效率
+         2.它还得和用户空间打交道(取参数,送数据)
+   还有个别系统调用需要在特定的时候手工保存s*寄存器,如上面的几个.为什么呢?
+   对sigsuspend来说,它将使进程在内核中睡眠等待信号到来,信号来了之后将直接
+   先回到进程的信号处理代码,而信号处理代码可能希望看到当前进程的寄存器
+   (sigcontext),这是通过内核栈中的pt_regs结构获得的,所以内核必需把s*寄存器
+   保存到pt_regs中.对于fork的情况,则似乎是为了满足vfork的要求.(vfork时,子进程
+   不拷贝页表(即和父进程完全共享内存),注意,连copy-on-write都没有!父进程挂起
+   一直到子进程不再使用它的资源(exec或者exit)).fork 系统调用使用ret_from_fork
+   返回,其中调用到了RESTORE_ALL_AND_RET(entry.S),需要恢复s*.
+ 
+   这里还有一个很容易混乱的地方: 在scall_o32.S和entry.S中有几个函数(汇编)是同名
+   的,如restore_all,sig_return等.总体来说scall_o32.S中是对满足o32(old 32bit)汇编
+   约定的系统调用处理,可以避免保存s*,而entry.S中是通用的,保存/恢复所由寄存器
+   scall_o32.S中也有一些情况需要保存静态寄存器s*,此时它就会到ret_from_syscall
+   而不是本文件中的o32_ret_from_syscall返回了,两者的差别就是恢复的寄存器数目
+   不同.scall_o32.S中一些错误处理直接用ret_from_syscall返回,我怀疑会导致s*寄存器
+   被破坏,有机会请各路高手指教.
+ 
+   好了,说了一通系统调用,无非是想让大家明白内核中寄存器的保存恢复过程,以及
+   为了少做些无用功所做的努力.下面看为什么要save_static_function:为了避免
+   s0寄存器的破坏.
+     如果我们使用
+        sys_rt_sigsuspend()
+        {   ..
+           save_static;
+           ...
+        }
+    会有什么问题呢,请看,
+ 
+    Nasty degree - 3 days of tracking.
+ 
+    The symptom was pthread cannot be created.  In the end the caller will 
+    get a BUS error.
+ 
+    What exactly happened has to do with how registers are saved.  Below
+    attached is the beginning part of sys_sigsuspend() function.  It is easy
+    to see that s0 is saved into stack frame AFTER its modified.  Next time
+    when process returns to userland, the s0 reg will be wrong!
+ 
+    So the bug is either
+ 
+    1) that we need to save s0 register in SAVE_SOME and not save it in
+    save_static; or that
+ 
+    2) we fix compiler so that it does not use s0 register in that case (it
+            does the same thing for sys_rt_sigsuspend)
+ 
+    I am sure Ralf will have something to say about it.  :-)  In any case, I
+    attached a patch for 1) fix.
+ 
+sys_sigsuspend(struct pt_regs regs)
+{
+        8008e280:   27bdffc0        addiu   $sp,$sp,-64
+        8008e284:   afb00030        sw      $s0,48($sp)
+                   sigset_t *uset, saveset, newset;
+ 
+                    save_static(&regs);
+        8008e288:   27b00040        addiu   $s0,$sp,64   /* save_static时
+                                                            s0已经破坏*/
+        8008e28c:   afbf003c        sw      $ra,60($sp)
+        8008e290:   afb20038        sw      $s2,56($sp)
+        8008e294:   afb10034        sw      $s1,52($sp)
+        8008e298:   afa40040        sw      $a0,64($sp)
+        8008e29c:   afa50044        sw      $a1,68($sp)
+        8008e2a0:   afa60048        sw      $a2,72($sp)
+        8008e2a4:   afa7004c        sw      $a3,76($sp)
+        8008e2a8:   ae100058        sw      $s0,88($s0)
+        8008e2ac:   ae11005c        sw      $s1,92($s0)
+ 
+#ifdef CONFIG_SMP
+#  define GET_SAVED_SP                                   \
+                mfc0    k0, CP0_CONTEXT;                 \
+                lui     k1, %hi(kernelsp);               \
+                srl     k0, k0, 23;                      \
+               sll     k0, k0, 2;                       \
+                addu    k1, k0;                          \
+                lw      k1, %lo(kernelsp)(k1);        
+ 
+#else
+#  define GET_SAVED_SP                                   \
+/*实际上就是k1 = kernelsp, kernelsp保存当前进程的内核栈指针 */
+               lui     k1, %hi(kernelsp);               \
+               lw      k1, %lo(kernelsp)(k1);           
+#endif
+ 
+/*判断当前运行态,设置栈顶sp
+  保存寄存器--参数a0-a3:4-7,返回值v0-v1:2-3,25,28,31以及一些控制寄存器,
+  */
+#define SAVE_SOME                                        \
+               .set    push;                            \
+               .set    reorder;                         \
+               mfc0    k0, CP0_STATUS;                  \
+               sll     k0, 3;     /* extract cu0 bit */ \
+               .set    noreorder;                       \
+               bltz    k0, 8f;                          \
+                move   k1, sp;                          \
+               .set    reorder;                         \
+               /* Called from user mode, new stack. */  \
+                GET_SAVED_SP                             \
+8:                                                       \
+               move    k0, sp;                          \
+               subu    sp, k1, PT_SIZE;                 \
+               sw      k0, PT_R29(sp);                  \
+                sw     $3, PT_R3(sp);                   \
+               sw      $0, PT_R0(sp);                  \
+               mfc0    v1, CP0_STATUS;                  \
+               sw      $2, PT_R2(sp);                   \
+               sw      v1, PT_STATUS(sp);               \
+               sw      $4, PT_R4(sp);                   \
+               mfc0    v1, CP0_CAUSE;                   \
+               sw      $5, PT_R5(sp);                   \
+               sw      v1, PT_CAUSE(sp);                \
+               sw      $6, PT_R6(sp);                   \
+               mfc0    v1, CP0_EPC;                     \
+               sw      $7, PT_R7(sp);                   \
+               sw      v1, PT_EPC(sp);                  \
+               sw      $25, PT_R25(sp);                 \
+               sw      $28, PT_R28(sp);                 \
+               sw      $31, PT_R31(sp);                 \
+               ori     $28, sp, 0x1fff;                 \
+               xori    $28, 0x1fff;                     \
+               .set    pop
+ 
+#define SAVE_ALL                                         \
+               SAVE_SOME;                               \
+               SAVE_AT;                                 \
+               SAVE_TEMP;                               \
+               SAVE_STATIC
+ 
+#define RESTORE_AT                                       \
+               .set    push;                            \
+               .set    noat;                            \
+               lw      $1,  PT_R1(sp);                  \
+               .set    pop;
+ 
+#define RESTORE_TEMP                                     \
+               lw      $24, PT_LO(sp);                  \
+               lw      $8, PT_R8(sp);                   \
+               lw      $9, PT_R9(sp);                   \
+               mtlo    $24;                             \
+               lw      $24, PT_HI(sp);                  \
+               lw      $10,PT_R10(sp);                  \
+               lw      $11, PT_R11(sp);                 \
+               mthi    $24;                             \
+               lw      $12, PT_R12(sp);                 \
+               lw      $13, PT_R13(sp);                 \
+               lw      $14, PT_R14(sp);                 \
+               lw      $15, PT_R15(sp);                 \
+               lw      $24, PT_R24(sp)
+ 
+#define RESTORE_STATIC                                   \
+               lw      $16, PT_R16(sp);                 \
+               lw      $17, PT_R17(sp);                 \
+               lw      $18, PT_R18(sp);                 \
+               lw      $19, PT_R19(sp);                 \
+               lw      $20, PT_R20(sp);                 \
+               lw      $21, PT_R21(sp);                 \
+               lw      $22, PT_R22(sp);                 \
+               lw      $23, PT_R23(sp);                 \
+               lw      $30, PT_R30(sp)
+ 
+#if defined(CONFIG_CPU_R3000) || defined(CONFIG_CPU_TX39XX)
+ 
+#define RESTORE_SOME                                     \
+               .set    push;                            \
+               .set    reorder;                         \
+               mfc0    t0, CP0_STATUS;                  \
+               .set    pop;                             \
+               ori     t0, 0x1f;                        \
+               xori    t0, 0x1f;                        \
+               mtc0    t0, CP0_STATUS;                  \
+               li      v1, 0xff00;                      \
+               and     t0, v1;                         \
+               lw      v0, PT_STATUS(sp);               \
+               nor     v1, $0, v1;                     \
+               and     v0, v1;                         \
+               or      v0, t0;                         \
+               mtc0    v0, CP0_STATUS;                  \
+               lw      $31, PT_R31(sp);                 \
+               lw      $28, PT_R28(sp);                 \
+               lw      $25, PT_R25(sp);                 \
+               lw      $7,  PT_R7(sp);                  \
+               lw      $6,  PT_R6(sp);                  \
+               lw      $5,  PT_R5(sp);                  \
+               lw      $4,  PT_R4(sp);                  \
+               lw      $3,  PT_R3(sp);                  \
+               lw      $2,  PT_R2(sp)
+ 
+#define RESTORE_SP_AND_RET                               \
+               .set    push;                           \
+               .set    noreorder;                      \
+               lw      k0, PT_EPC(sp);                  \
+               lw      sp,  PT_R29(sp);                 \
+               jr      k0;                              \
+                rfe;                                  \
+                ^^^^^
+/* 异常返回时,把控制转移到用户代码和把模式从内核态改为用户态要同时完成
+   如果前者先完成,用户态指令有机会以内核态运行导致安全漏洞;
+   反之则会由于用户态下不能修改状态而导致异常
+   r3000以前使用rfe(restore from exception)指令,这个指令把status寄存器
+   状态位修改回异常发生前的状态(利用硬件的一个小堆栈),但不做跳转.我们使用一个
+   技巧来完成要求:在一个跳转指令的delay slot中放rte.因为delay slot的指令
+   是一定会做的,跳转完成时,status也恢复了.
+   MIPS III(r4000)以上的指令集则增加了eret指令来完成整个工作: 它清除
+   status寄存器的EXL位并跳转到epc指定的位置.
+*/
+ 
+               .set    pop
+ 
+#else
+ 
+#define RESTORE_SOME                                     \
+               .set    push;                            \
+               .set    reorder;                         \
+               mfc0    t0, CP0_STATUS;                  \
+               .set    pop;                             \
+               ori     t0, 0x1f;                        \
+               xori    t0, 0x1f;                        \
+               mtc0    t0, CP0_STATUS;                  \
+               li      v1, 0xff00;                      \
+               and     t0, v1;                         \
+               lw      v0, PT_STATUS(sp);               \
+               nor     v1, $0, v1;                     \
+               and     v0, v1;                         \
+               or      v0, t0;                         \
+               mtc0    v0, CP0_STATUS;                  \
+               lw      v1, PT_EPC(sp);                  \
+               mtc0    v1, CP0_EPC;                     \
+               lw      $31, PT_R31(sp);                 \
+               lw      $28, PT_R28(sp);                 \
+               lw      $25, PT_R25(sp);                 \
+               lw      $7,  PT_R7(sp);                  \
+               lw      $6,  PT_R6(sp);                  \
+               lw      $5,  PT_R5(sp);                  \
+               lw      $4,  PT_R4(sp);                  \
+               lw      $3,  PT_R3(sp);                  \
+               lw      $2,  PT_R2(sp)
+ 
+#define RESTORE_SP_AND_RET                               \
+               lw      sp,  PT_R29(sp);                 \
+               .set    mips3;                          \
+               eret;                                  \
+               .set    mips0
+ 
+#endif
+ 
+#define RESTORE_SP                                       \
+               lw      sp,  PT_R29(sp);                 \
+ 
+#define RESTORE_ALL                                      \
+               RESTORE_SOME;                            \
+               RESTORE_AT;                              \
+               RESTORE_TEMP;                            \
+               RESTORE_STATIC;                          \
+               RESTORE_SP
+ 
+#define RESTORE_ALL_AND_RET                              \
+               RESTORE_SOME;                            \
+               RESTORE_AT;                              \
+               RESTORE_TEMP;                            \
+               RESTORE_STATIC;                          \
+               RESTORE_SP_AND_RET
+ 
+ 
+/*
+ * Move to kernel mode and disable interrupts.
+ * Set cp0 enable bit as sign that we're running on the kernel stack
+ */
+#define CLI                                             \
+               mfc0    t0,CP0_STATUS;                  \
+               li      t1,ST0_CU0|0x1f;                \
+               or      t0,t1;                          \
+               xori    t0,0x1f;                        \
+               mtc0    t0,CP0_STATUS
+ 
+/*
+ * Move to kernel mode and enable interrupts.
+ * Set cp0 enable bit as sign that we're running on the kernel stack
+ */
+#define STI                                             \
+               mfc0    t0,CP0_STATUS;                  \
+               li      t1,ST0_CU0|0x1f;                \
+               or      t0,t1;                          \
+               xori    t0,0x1e;                        \
+               mtc0    t0,CP0_STATUS
+ 
+/*
+ * Just move to kernel mode and leave interrupts as they are.
+ * Set cp0 enable bit as sign that we're running on the kernel stack
+ */
+#define KMODE                                           \
+               mfc0    t0,CP0_STATUS;                  \
+               li      t1,ST0_CU0|0x1e;                \
+               or      t0,t1;                          \
+               xori    t0,0x1e;                        \
+               mtc0    t0,CP0_STATUS
+ 
+#endif /* __ASM_STACKFRAME_H */
+ 

@@ -1,0 +1,2493 @@
+From: <Saved by WebKit>
+Subject: ????Linux?????9?Shell????_????_???????_ChinaUnix
+Date: Sun, 15 Mar 2014 17:25:30 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_F2F8_E1A91578.06F5E4A4"
+
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://news.chinaunix.net/opensource/2012/0625/2245484.shtml
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head><meta charset=3D"GBK">
+
+<title>=D2=BB=B5=C0=CA=B5=D3=C3Linux=D4=CB=CE=AC=CE=CA=CC=E2=B5=C49=D6=D6Sh=
+ell=BD=E2=B4=F0=B7=BD=B7=A8_=BF=AA=D4=B4=D2=B5=BD=E7_=D2=B5=BD=E7=D0=C2=CE=
+=C5=D3=EB=C6=C0=C2=DB_ChinaUnix</title>
+<meta name=3D"keywords" content=3D"=BD=E2=B4=F0,=D2=BB=B5=C0,=B7=BD=B7=A8">
+<meta name=3D"description" content=3D"&nbsp;
+
+   =20
+       =20
+            =CE=CA=CC=E2=CE=AA=A3=BA">
+<base href=3D"http://pub.chinaunix.net/">
+<link href=3D"http://pub.chinaunix.net/css/news.css" rel=3D"stylesheet" typ=
+e=3D"text/css">
+<style type=3D"text/css">
+<!--
+.STYLE1 {color: #FF0000}
+.STYLE2 {font-size: 14px}
+-->
+</style>
+
+
+
+
+</head>
+<body>
+<table width=3D"950" border=3D"0" align=3D"center" cellpadding=3D"0" cellsp=
+acing=3D"0">
+  <tbody><tr>
+    <td height=3D"27"><div class=3D"login" id=3D"LoginFalse" style=3D"">
+	=C7=EB   <a href=3D"http://sso.chinaunix.net/Login?return_url=3Dhttp%3A//n=
+ews.chinaunix.net/opensource/2012/0625/2245484.shtml">=B5=C7=C2=BC</a>  =BB=
+=F2   <a href=3D"http://sso.chinaunix.net/Register" target=3D"_blank">=D7=
+=A2=B2=E1</a>
+	<span><a href=3D"http://www.chinaunix.net/">ChinaUnix=CA=D7=D2=B3</a> |  <=
+a href=3D"http://bbs.chinaunix.net/" target=3D"_blank">=C2=DB=CC=B3</a> |  =
+<a href=3D"http://blog.chinaunix.net/" target=3D"_blank">=B2=A9=BF=CD</a> |=
+  <a href=3D"http://my.chinaunix.net/" target=3D"_blank">=CE=A2=B2=A9</a> |=
+  <a href=3D"http://job.chinaunix.net/" target=3D"_blank">=C7=F3=D6=B0</a> =
+|  <a href=3D"http://book.chinaunix.net/" target=3D"_blank">=B6=C1=CA=E9</a=
+> |  <a href=3D"http://peixun.chinaunix.net/" target=3D"_blank">=C5=E0=D1=
+=B5</a> |  <a href=3D"http://selftest.chinaunix.net/index.aspx?aut=3D-1" ta=
+rget=3D"_blank">=D7=D4=B2=E2</a> |  <a href=3D"http://download.chinaunix.ne=
+t/" target=3D"_blank">=CF=C2=D4=D8</a> |  <a href=3D"http://edm.it168.com/"=
+ target=3D"_blank">=B6=A9=D4=C4</a> |  <a href=3D"http://search.chinaunix.n=
+et/" target=3D"_blank">=CB=D1=CB=F7</a> </span>
+	<a href=3D"http://www.chinaunix.net/">ChinaUnix.net</a>  =09
+</div>
+<div id=3D"LoginTrue" style=3D"display: none;" class=3D"login">
+	&nbsp;&nbsp;&nbsp;
+	<span><a href=3D"http://www.chinaunix.net/">ChinaUnix=CA=D7=D2=B3</a> |  <=
+a href=3D"http://bbs.chinaunix.net/" target=3D"_blank">=C2=DB=CC=B3</a> |  =
+<a href=3D"http://blog.chinaunix.net/" target=3D"_blank">=B2=A9=BF=CD</a> |=
+  <a href=3D"http://my.chinaunix.net/" target=3D"_blank">=CE=A2=B2=A9</a> |=
+  <a href=3D"http://job.chinaunix.net/" target=3D"_blank">=C7=F3=D6=B0</a> =
+|  <a href=3D"http://book.chinaunix.net/" target=3D"_blank">=B6=C1=CA=E9</a=
+> |  <a href=3D"http://peixun.chinaunix.net/" target=3D"_blank">=C5=E0=D1=
+=B5</a> |  <a href=3D"http://selftest.chinaunix.net/index.aspx?aut=3D-1" ta=
+rget=3D"_blank">=D7=D4=B2=E2</a> |  <a href=3D"http://download.chinaunix.ne=
+t/" target=3D"_blank">=CF=C2=D4=D8</a> |  <a href=3D"http://edm.it168.com/"=
+ target=3D"_blank">=B6=A9=D4=C4</a> |  <a href=3D"http://search.chinaunix.n=
+et/" target=3D"_blank">=CB=D1=CB=F7</a> </span>
+	<a href=3D"http://www.chinaunix.net/">ChinaUnix.net</a>
+</div>
+</td>
+  </tr>
+  <tr>
+    <td height=3D"1" bgcolor=3D"#CCCCCC"></td>
+  </tr>
+  <tr>
+    <td><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">
+      <tbody><tr>
+        <td height=3D"84"><img src=3D"http://pub.chinaunix.net/images/news/=
+title.gif"></td>
+        <td align=3D"right"><div id=3D"ADV_16830"></div>
+</td>
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+<table width=3D"950" border=3D"0" align=3D"center" cellpadding=3D"0" cellsp=
+acing=3D"0">
+  <tbody><tr>
+    <td height=3D"30" valign=3D"bottom">&nbsp;&nbsp;<a href=3D"http://www.c=
+hinaunix.net/">ChinaUnix</a> &gt;&gt; <a href=3D"http://news.chinaunix.net/=
+">=D0=C2=CE=C5</a> &gt;&gt; <a href=3D"http://news.chinaunix.net/opensource=
+/">=BF=AA=D4=B4=D2=B5=BD=E7</a> &gt;&gt; =D5=FD=CE=C4</td>
+<td align=3D"right"><a href=3D"http://bbs.chinaunix.net/forumdisplay.php?fi=
+d=3D46" target=3D"_blank">IT=D0=C2=CE=C5=D3=EB=C6=C0=C2=DB=BD=BB=C1=F7=C7=
+=F8</a></td>
+  </tr>
+  <tr>
+    <td height=3D"1" bgcolor=3D"#CCCCCC" colspan=3D"2"></td>
+  </tr>
+  <tr>
+    <td height=3D"8" colspan=3D"2"></td>
+  </tr>
+</tbody></table><table width=3D"950" border=3D"0" align=3D"center" cellpadd=
+ing=3D"0" cellspacing=3D"0">
+  <tbody><tr>
+    <td valign=3D"top" class=3D"BLKtext"><table width=3D"660" border=3D"0" =
+align=3D"center" cellpadding=3D"0" cellspacing=3D"0">
+      <tbody><tr>
+        <td height=3D"8">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height=3D"30" class=3D"Ftext1">=D2=BB=B5=C0=CA=B5=D3=C3Linux=D4=
+=CB=CE=AC=CE=CA=CC=E2=B5=C49=D6=D6Shell=BD=E2=B4=F0=B7=BD=B7=A8</td>
+      </tr>
+      <tr>
+        <td><table width=3D"80%" border=3D"0" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0">
+          <tbody><tr>
+            <td height=3D"1" bgcolor=3D"#CCCCCC"></td>
+          </tr>
+        </tbody></table></td>
+      </tr>
+      <tr>
+        <td height=3D"40" align=3D"center">
+=B7=A2=B2=BC=D5=DF=A3=BALUPA=BF=AA=D4=B4=C9=E7=C7=F8=20
+ =A1=A1=C8=D5=C6=DA=A3=BA
+2012-06-25 07:29:37=A1=A1=E4=AF=C0=C0=B4=CE=CA=FD=A3=BA<span id=3D"hits">74=
+</span>=A1=A1(=B9=B2=D3=D0<span class=3D"STYLE1" id=3D"comments_top">0</spa=
+n>=CC=F5=C6=C0=C2=DB) =20
+<a href=3D"http://pub.chinaunix.net/comment/?keyid=3Dnews-content-title-224=
+5484&amp;verify=3D76af2d6d9821c5c5e0ed0e092956cd46" target=3D"_blank">=B2=
+=E9=BF=B4=C6=C0=C2=DB</a> | <a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2245484&amp;verify=3D76af2d6d9821c5c5e0ed0e092956c=
+d46" target=3D"_blank">=CE=D2=D2=AA=C6=C0=C2=DB</a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class=3D"F14">&nbsp;
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"vwtb" data-find=3D"_4" =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-lef=
+t: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-=
+left: 0px; word-wrap: break-word; empty-cells: show; border-collapse: colla=
+pse; color: rgb(0, 0, 0); font-family: Tahoma, Helvetica, SimSun, sans-seri=
+f, Hei; font-size: 14px; line-height: 25px; ">
+    <tbody data-find=3D"_3" style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+        <tr data-find=3D"_2" style=3D"margin-top: 0px; margin-right: 0px; m=
+argin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; =
+padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            <td data-find=3D"_1" style=3D"margin-top: 0px; margin-right: 0p=
+x; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0=
+px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; "><stron=
+g style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-l=
+eft: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddin=
+g-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); font-family: Ar=
+ial; line-height: 26px; text-align: left; "><span style=3D"margin-top: 0px;=
+ margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px;=
+ padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: bre=
+ak-word; color: rgb(255, 0, 0); ">=CE=CA=CC=E2=CE=AA=A3=BA<br style=3D"marg=
+in-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddi=
+ng-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wo=
+rd-wrap: break-word; ">
+            </span></strong><span style=3D"margin-top: 0px; margin-right: 0=
+px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: =
+0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; color: =
+rgb(51, 51, 51); font-family: Arial; line-height: 26px; text-align: left; "=
+>4=A3=A9=D2=D1=D6=AA=A3=BA/etc/hosts=B5=C4=C4=DA=C8=DD=CE=AA</span><br styl=
+e=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0=
+px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left=
+: 0px; word-wrap: break-word; color: rgb(51, 51, 51); font-family: Arial; l=
+ine-height: 26px; text-align: left; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51);=
+ font-family: Arial; line-height: 26px; text-align: left; ">192.168.1.11&nb=
+sp; oldboy11.etiantian.org</span><br style=3D"margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-righ=
+t: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; colo=
+r: rgb(51, 51, 51); font-family: Arial; line-height: 26px; text-align: left=
+; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51);=
+ font-family: Arial; line-height: 26px; text-align: left; ">192.168.1.21&nb=
+sp; oldboy21.etiantian.org</span><br style=3D"margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-righ=
+t: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; colo=
+r: rgb(51, 51, 51); font-family: Arial; line-height: 26px; text-align: left=
+; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51);=
+ font-family: Arial; line-height: 26px; text-align: left; ">192.168.1.31&nb=
+sp; oldboy31.etiantian.org</span>
+            <table border=3D"0" width=3D"97%" align=3D"center" style=3D"mar=
+gin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padd=
+ing-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; w=
+ord-wrap: break-word; empty-cells: show; border-collapse: collapse; color: =
+rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px; te=
+xt-align: left; ">
+                <tbody style=3D"margin-top: 0px; margin-right: 0px; margin-=
+bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddin=
+g-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+                    <tr style=3D"margin-top: 0px; margin-right: 0px; margin=
+-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddi=
+ng-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+                        <td colspan=3D"3" style=3D"margin-top: 0px; margin-=
+right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding=
+-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word;=
+ ">
+                        <div align=3D"center" style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">&nbsp;</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); f=
+ont-family: Arial; line-height: 26px; text-align: left; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51);=
+ font-family: Arial; line-height: 26px; text-align: left; ">#192.168.1.111&=
+nbsp; oldboy111.etiantian.org</span><br style=3D"margin-top: 0px; margin-ri=
+ght: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-r=
+ight: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; c=
+olor: rgb(51, 51, 51); font-family: Arial; line-height: 26px; text-align: l=
+eft; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51);=
+ font-family: Arial; line-height: 26px; text-align: left; ">=C7=EB=D3=C3she=
+ll=BD=C5=B1=BE=CA=B5=CF=D6=A3=AC=D4=F5=C3=B4=B2=C5=C4=DC=D4=DA=CA=E4=C8=EBI=
+P=BA=F3=D5=D2=B5=BD/etc/hosts=C0=EF=B6=D4=D3=A6=B5=C4=CE=A8=D2=BB=B5=C4host=
+name?</span><br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); f=
+ont-family: Arial; line-height: 26px; text-align: left; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51);=
+ font-family: Arial; line-height: 26px; text-align: left; ">=BD=E2=B4=F0=A3=
+=BA</span><br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0=
+px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom:=
+ 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fon=
+t-family: Arial; line-height: 26px; text-align: left; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; font-family: Arial; lin=
+e-height: 26px; text-align: left; color: rgb(255, 0, 0); "><strong style=3D=
+"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; =
+padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0p=
+x; word-wrap: break-word; ">=B7=A81)=BD=C5=B1=BE=B9=FD=C2=CB=B7=A8<br style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">
+            </strong></span>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;judgehos=
+t.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; marg=
+in-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; pad=
+ding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">#!/bin/bash &=
+nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-co=
+lor: rgb(242, 242, 242); ">echo&nbsp;<span class=3D"string" style=3D"margin=
+-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding=
+-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word=
+-wrap: break-word; ">"please&nbsp;input&nbsp;ip&nbsp;address:"</span>&nbsp;=
+</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; m=
+argin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;=
+ padding-left: 0px; word-wrap: break-word; "><span class=3D"keyword" style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">read</span>&nbsp;ip &nbsp;</li><li class=3D"=
+alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242)=
+; ">[&nbsp;-n&nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin-=
+right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding=
+-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word;=
+ ">"`grep&nbsp;"</span>$ip&nbsp;<span class=3D"string" style=3D"margin-top:=
+ 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; ">"&nbsp;/etc/hosts`"</span>&nbsp;]&nbsp;&amp;&amp;&nbsp;\&nb=
+sp;&nbsp;#=D7=A2=D2=E2=C7=B0=C3=E6=B5=C4=B9=FD=C2=CB=CC=F5=BC=FE=BD=E1=CE=
+=B2=B4=F8=D3=D0=BF=D5=B8=F1=A1=A3 &nbsp;</li><li style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; =
+padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: brea=
+k-word; ">echo&nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin=
+-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; paddin=
+g-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word=
+; ">"The&nbsp;hostname&nbsp;is:&nbsp;`grep&nbsp;"</span>$ip&nbsp;<span clas=
+s=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0p=
+x; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: =
+0px; padding-left: 0px; word-wrap: break-word; ">"&nbsp;/etc/hosts&nbsp;|aw=
+k&nbsp;'{print&nbsp;$2}'`"</span>&nbsp;||&nbsp;\ &nbsp;</li><li class=3D"al=
+t" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); =
+">echo&nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin-right: =
+0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right:=
+ 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">"The=
+&nbsp;ip&nbsp;is&nbsp;invalid"</span>&nbsp;</li></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">&nbsp;=CC=E1=CA=BE=
+=A3=BA<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">
+            1=A3=A9=D5=E2=CA=C7=D2=BB=B8=F6grep=B9=FD=C2=CB=BC=D3=CC=F5=BC=
+=FE=C5=D0=B6=CF=B5=C4=CA=B5=CF=D6=D3=EF=B7=A8=A3=BA<br style=3D"margin-top:=
+ 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; ">
+            2=A3=A9=CC=F5=BC=FE=C5=D0=B6=CF=D3=EF=B7=A8=CE=AA[ -n "ddd" ] &=
+amp;&amp; echo 1 || echo 0<br style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            3=A3=A9[ -n "`grep "$ip " /etc/hosts`" ] &amp;&amp; \&nbsp; #=
+=D7=A2=D2=E2=C7=B0=C3=E6=B5=C4=B9=FD=C2=CB=CC=F5=BC=FE=BD=E1=CE=B2=B4=F8=D3=
+=D0=BF=D5=B8=F1=A1=A3=D5=E2=C0=EF=B0=A1=A3=AC=CA=C7=CE=AA=C1=CB=C5=C5=B3=FD=
+=CF=C2=C3=E6=B5=C4=D6=D8=B8=B4=C7=E9=BF=F6<br style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">
+            &nbsp;192.168.1.11&nbsp; oldboy11.etiantian.org<br style=3D"mar=
+gin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padd=
+ing-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; w=
+ord-wrap: break-word; ">
+            &nbsp;192.168.1.111&nbsp; oldboy111.etiantian.org<br style=3D"m=
+argin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pa=
+dding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;=
+ word-wrap: break-word; ">
+            ----------------=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=
+=F4=B7=FB---------------<br style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A82=A3=A9=BD=C5=B1=BE=BE=
+=AB=C8=B7=C6=A5=C5=E4=B7=A8=A3=BA<br style=3D"margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-righ=
+t: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            </strong></span></p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">#!/bin/bash &nbsp;</li><li style=3D"margin-top: 0px=
+; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px=
+; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: br=
+eak-word; ">#author&nbsp;oldboy &nbsp;</li><li class=3D"alt" style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; background-color: rgb(242, 242, 242); ">#qq&nbsp;313337=
+41 &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; ">#judge&nbsp;input &nb=
+sp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; marg=
+in-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; pad=
+ding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-colo=
+r: rgb(242, 242, 242); ">if&nbsp;[&nbsp;$#&nbsp;-ne&nbsp;1&nbsp;] &nbsp;</l=
+i><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; marg=
+in-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pa=
+dding-left: 0px; word-wrap: break-word; ">&nbsp;&nbsp;<span class=3D"keywor=
+d" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; ">then</span>&nbsp;</li><li class=3D"a=
+lt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin=
+-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padd=
+ing-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242);=
+ ">&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class=3D"string" style=3D"margin=
+-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding=
+-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word=
+-wrap: break-word; ">"input&nbsp;error!"</span>&nbsp;</li><li style=3D"marg=
+in-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddi=
+ng-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wo=
+rd-wrap: break-word; ">&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;1 &nbsp;</li><li c=
+lass=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0p=
+x; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: =
+0px; padding-left: 0px; word-wrap: break-word; background-color: rgb(242, 2=
+42, 242); ">fi &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;</l=
+i><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bot=
+tom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-b=
+ottom: 0px; padding-left: 0px; word-wrap: break-word; background-color: rgb=
+(242, 242, 242); ">flag=3D0 &nbsp;</li><li style=3D"margin-top: 0px; margin=
+-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; paddin=
+g-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word=
+; "><span class=3D"keyword" style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">exec</span>=
+&nbsp;&lt;&nbsp;/etc/hosts &nbsp;</li><li class=3D"alt" style=3D"margin-top=
+: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top=
+: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wra=
+p: break-word; background-color: rgb(242, 242, 242); ">while&nbsp;<span cla=
+ss=3D"keyword" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; ">read</span>&nbsp;line &n=
+bsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0p=
+x; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: =
+0px; padding-left: 0px; word-wrap: break-word; ">do &nbsp;</li><li class=3D=
+"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; marg=
+in-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pa=
+dding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242=
+); ">&nbsp;if&nbsp;[&nbsp;<span class=3D"string" style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; =
+padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: brea=
+k-word; ">"$1"</span>&nbsp;=3D&nbsp;<span class=3D"string" style=3D"margin-=
+top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-=
+top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-=
+wrap: break-word; ">"`echo&nbsp;$line|awk&nbsp;'{print&nbsp;$1}'`"</span>&n=
+bsp;] &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bo=
+ttom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-=
+bottom: 0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;&nbsp;&nbsp;=
+<span class=3D"keyword" style=3D"margin-top: 0px; margin-right: 0px; margin=
+-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddi=
+ng-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">then</span>&nbs=
+p;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag=3D1 =
+&nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;echo&nbsp;<span class=3D"string" style=3D"margin-top: 0px=
+; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px=
+; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: br=
+eak-word; ">"the&nbsp;$1&nbsp;'s&nbsp;hostname&nbsp;is&nbsp;`echo&nbsp;$lin=
+e|awk&nbsp;'{print&nbsp;$2}'`"</span>&nbsp; &nbsp;</li><li class=3D"alt" st=
+yle=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left:=
+ 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-le=
+ft: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); ">&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; &nbsp;</li><li style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; ">&nbsp;fi &nbsp;</li><li class=3D"alt" style=3D"margin=
+-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding=
+-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word=
+-wrap: break-word; background-color: rgb(242, 242, 242); ">done&nbsp; &nbsp=
+;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">[&nbsp;$flag&nbsp;-eq&nbsp;0&=
+nbsp;]&nbsp;&amp;&amp;&nbsp;echo&nbsp;<span class=3D"string" style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; ">"&nbsp;sorrry,not&nbsp;find&nbsp;$1&nbsp;'s&nbsp;host=
+name!"</span>&nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-=
+right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding=
+-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word;=
+ background-color: rgb(242, 242, 242); ">&nbsp;</li></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">=CC=E1=CA=BE=A3=BA=
+=B4=CB=CC=E2=A3=AC=C7=EB=B4=F3=BC=D2=D1=A7=CF=B0while=B5=C4=D3=C3=B7=A8=BC=
+=B0=C9=E8=D6=C3flag=B5=C4=CB=BC=C2=B7=A1=A3</p>
+            <div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom=
+: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bott=
+om: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); =
+font-family: Arial; line-height: 26px; text-align: left; ">=D6=B4=D0=D0=BD=
+=E1=B9=FB=A3=BA<br style=3D"margin-top: 0px; margin-right: 0px; margin-bott=
+om: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bo=
+ttom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh oldboy.sh 192.168.1.11<br style=3D"m=
+argin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pa=
+dding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;=
+ word-wrap: break-word; ">
+            the 192.168.1.11 's hostname is oldboy11.etiantian.org<br style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh oldboy.sh 192.168.1.21<br style=3D"m=
+argin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pa=
+dding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;=
+ word-wrap: break-word; ">
+            the 192.168.1.21 's hostname is oldboy21.etiantian.org<br style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh oldboy.sh 192.168.1.311<br style=3D"=
+margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; p=
+adding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px=
+; word-wrap: break-word; ">
+            &nbsp;sorrry,not find 192.168.1.311 's hostname!<br style=3D"ma=
+rgin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pad=
+ding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; =
+word-wrap: break-word; ">
+            ----------------=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=
+=F4=B7=FB---------------<br style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            &nbsp;</div>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; "><strong style=3D"m=
+argin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pa=
+dding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;=
+ word-wrap: break-word; "><span style=3D"margin-top: 0px; margin-right: 0px=
+; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0p=
+x; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; color: rg=
+b(255, 0, 0); ">=CC=D8=B1=F0=CC=E1=CA=BE=A3=BA=CF=C2=C3=E6=B5=C4=B7=BD=B7=
+=A8=D6=D0=A3=AC=C0=CF=C4=D0=BA=A2=C0=CF=CA=A6=B4=F3=C1=BF=B5=C4=CA=B9=D3=C3=
+=C1=CBawk=B5=C4=B2=BB=CD=AC=B7=BD=B7=A8=C0=B4=CA=B5=CF=D6=CD=AC=D1=F9=B5=C4=
+=B9=A6=C4=DC=A3=AC=C0=B4=B8=E6=CB=DF=B4=F3=BC=D2=A3=ACawk=CA=C7=BA=DC=C7=BF=
+=B4=F3=B5=C4=A3=AC&nbsp;=CF=A3=CD=FB=CD=AC=D1=A7=C3=C7=C4=DC=B0=B4=D5=D5=C0=
+=CF=CA=A6=B5=C4=BD=CC=D1=A7=D2=AA=C7=F3=BE=AB=CD=A8=D6=AE=A1=A3</span></str=
+ong></p>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; "><span style=3D"mar=
+gin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padd=
+ing-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; w=
+ord-wrap: break-word; color: rgb(255, 0, 0); "><strong style=3D"margin-top:=
+ 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; ">=B7=A83=A3=A9awk=BE=AB=C8=B7=C6=A5=C5=E4=A3=BA<br style=3D"=
+margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; p=
+adding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px=
+; word-wrap: break-word; ">
+            </strong></span>=D7=BC=B1=B8=A3=BA<br style=3D"margin-top: 0px;=
+ margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px;=
+ padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: bre=
+ak-word; ">
+            [root@old_boy scripts]# tail -4 /etc/hosts<br style=3D"margin-t=
+op: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-t=
+op: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-w=
+rap: break-word; ">
+            192.168.1.11&nbsp; oldboy11.etiantian.org<br style=3D"margin-to=
+p: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-to=
+p: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wr=
+ap: break-word; ">
+            192.168.1.111&nbsp; oldboy111.etiantian.org<br style=3D"margin-=
+top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-=
+top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-=
+wrap: break-word; ">
+            192.168.1.21&nbsp; oldboy21.etiantian.org<br style=3D"margin-to=
+p: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-to=
+p: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wr=
+ap: break-word; ">
+            192.168.1.31&nbsp; oldboy31.etiantian.org<br style=3D"margin-to=
+p: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-to=
+p: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wr=
+ap: break-word; ">
+            =BD=C5=B1=BE=A3=BA</p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;awkhost1=
+.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">awk&nbsp;<span=
+ class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; ">'BEGIN&nbsp;{a=3D"'</=
+span>$1<span class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">'"}&nbsp;=
+{if($1=3D=3Da)&nbsp;print&nbsp;$2;&nbsp;}'</span>&nbsp;/etc/hosts &nbsp;</l=
+i></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">=D6=B4=D0=D0=BD=E1=
+=B9=FB=A3=BA<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh awkhost1.sh 192.168.1.21<br style=3D=
+"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; =
+padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0p=
+x; word-wrap: break-word; ">
+            oldboy21.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh awkhost1.sh 192.168.1.31<br style=3D=
+"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; =
+padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0p=
+x; word-wrap: break-word; ">
+            oldboy31.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh awkhost1.sh 192.168.1.11<br style=3D=
+"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; =
+padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0p=
+x; word-wrap: break-word; ">
+            oldboy11.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            =CC=E1=CA=BE=A3=BA=D7=A2=D2=E2a=3D"'$1'"=B5=C4=D3=C3=B7=A8=A3=
+=AC$1=CE=AA=C3=FC=C1=EE=D0=D0=B4=AB=B2=CE=A1=A3awk=B3=CC=D0=F2=D6=D0=B5=F7=
+=D3=C3=CF=B5=CD=B3=B1=E4=C1=BF=B5=C4=B7=BD=B7=A8a=3D"'$1'"=A1=A3<br style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">
+            ----------------=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=
+=F4=B7=FB---------------<br style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A84=A3=A9awk=BE=AB=C8=B7=
+=C6=A5=C5=E4=B7=A8</strong></span></p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; width: 687px; height: 64px; "><ol class=3D"dp-sql" s=
+tyle=3D"margin-top: 1em; margin-right: 2em; margin-bottom: 1em; margin-left=
+: 2em; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-l=
+eft: 0px; word-wrap: break-word; "><li class=3D"alt" style=3D"margin-top: 0=
+px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0=
+px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: =
+break-word; background-color: rgb(242, 242, 242); ">[root@old_boy&nbsp;scri=
+pts]#&nbsp;cat&nbsp;awkhost2.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0=
+px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0=
+px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: =
+break-word; ">awk&nbsp;<span class=3D"string" style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">'{if($1=3D=3D"'</span>$1<span class=3D"string" style=3D"margin-top: =
+0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: =
+0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap:=
+ break-word; ">'")&nbsp;print&nbsp;$2}'</span>&nbsp;/etc/hosts &nbsp;</li><=
+/ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">=D6=B4=D0=D0=BD=E1=
+=B9=FB=A3=BA<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# awkhost2.sh 192.168.1.11<br style=3D"ma=
+rgin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pad=
+ding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; =
+word-wrap: break-word; ">
+            oldboy11.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# awkhost2.sh 192.168.1.21<br style=3D"ma=
+rgin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pad=
+ding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; =
+word-wrap: break-word; ">
+            oldboy21.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# awkhost2.sh 192.168.1.311<br style=3D"m=
+argin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pa=
+dding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;=
+ word-wrap: break-word; ">
+            ----------------=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=
+=F4=B7=FB---------------<br style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A85=A3=A9awk=B9=FD=C2=CB=
+=B7=A8<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">
+            </strong></span></p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;awkhost4=
+.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">awk&nbsp;<span=
+ class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; ">'/'</span><span class=
+=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px=
+; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0=
+px; padding-left: 0px; word-wrap: break-word; ">"${1}&nbsp;"</span><span cl=
+ass=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; ">'/'</span><span class=3D=
+"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; m=
+argin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;=
+ padding-left: 0px; word-wrap: break-word; ">'{print&nbsp;$2}'</span>&nbsp;=
+/etc/hosts &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-ri=
+ght: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-r=
+ight: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; b=
+ackground-color: rgb(242, 242, 242); ">=D6=B4=D0=D0=BD=E1=B9=FB=A3=BA &nbsp=
+;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&=
+nbsp;awkhost4.sh&nbsp;192.168.1.21 &nbsp;</li><li class=3D"alt" style=3D"ma=
+rgin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pad=
+ding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; =
+word-wrap: break-word; background-color: rgb(242, 242, 242); ">oldboy21.eti=
+antian.org &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; marg=
+in-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; pad=
+ding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">[root@old_boy=
+&nbsp;scripts]#&nbsp;awkhost4.sh&nbsp;192.168.1.11 &nbsp;</li><li class=3D"=
+alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242)=
+; ">oldboy11.etiantian.org &nbsp;</li><li style=3D"margin-top: 0px; margin-=
+right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding=
+-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word;=
+ ">[root@old_boy&nbsp;scripts]#&nbsp;awkhost4.sh&nbsp;192.168.1.31 &nbsp;</=
+li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bo=
+ttom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-=
+bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color: rg=
+b(242, 242, 242); ">oldboy31.etiantian.org &nbsp;</li><li style=3D"margin-t=
+op: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-t=
+op: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-w=
+rap: break-word; ">=CC=E1=CA=BE=A3=BA=B3=FD=C1=CB=D3=EF=B7=A8=CD=E2=A3=AC=
+=D5=E2=B5=C0=CC=E2=D3=D0=B8=F6=D1=A7=CE=CA=A3=AC=BE=CD=CA=C7=B9=FD=C2=CB=CA=
+=B1=B4=AB=B2=CE=BD=E1=CE=B2=D2=AA=B4=F8=B8=F6=BF=D5=B8=F1=A3=AC=D5=E2=D1=F9=
+=B2=C5=C4=DC=B9=FD=C2=CB=D6=D8=B8=B4IP=B5=C4=C7=E9=BF=F6 &nbsp;</li><li cla=
+ss=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px;=
+ margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0p=
+x; padding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242=
+, 242); ">=C8=E7=A3=BA &nbsp;</li><li style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">&=
+nbsp;192.168.1.11&nbsp;&nbsp;oldboy11.etiantian.org &nbsp;</li><li class=3D=
+"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; marg=
+in-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pa=
+dding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242=
+); ">&nbsp;192.168.1.111&nbsp;&nbsp;oldboy111.etiantian.org&nbsp;</li></ol>=
+</pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">----------------=
+=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=F4=B7=FB---------------<br st=
+yle=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left:=
+ 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-le=
+ft: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A86=A3=A9awk=B9=FD=C2=CB=
+=B7=A8<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">
+            </strong></span></p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;awkhost5=
+.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">awk&nbsp;<span=
+ class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; ">'{if($1~/'</span>$1<s=
+pan class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bo=
+ttom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-=
+bottom: 0px; padding-left: 0px; word-wrap: break-word; ">'/)&nbsp;print&nbs=
+p;$2}'</span>&nbsp;&nbsp;/etc/hosts&nbsp;##=C8=E7=B9=FB=CE=C4=BC=FE=B5=DA=
+=D2=BB=C1=D0=B0=FC=BA=AC=C3=FC=C1=EE=D0=D0=B5=DA=D2=BB=B8=F6=B2=CE=CA=FD=D7=
+=D6=B7=FB=D4=F2=B4=F2=D3=A1=B5=DA=B6=FE=C1=D0 &nbsp;</li><li class=3D"alt" =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-lef=
+t: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-=
+left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); ">=
+=D6=B4=D0=D0=BD=E1=B9=FB=A3=BA &nbsp;</li><li style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">[root@old_boy&nbsp;scripts]#&nbsp;awkhost5.sh&nbsp;192.168.1.31 &nbs=
+p;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">oldboy31.etiantian.org &nbsp;</li><li style=3D"marg=
+in-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddi=
+ng-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wo=
+rd-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;awkhost5.sh&nbsp;1=
+92.168.1.11 &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-r=
+ight: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-=
+right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; =
+background-color: rgb(242, 242, 242); ">oldboy11.etiantian.org &nbsp;</li><=
+li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; ">oldboy111.etiantian.org&nbsp;<span c=
+lass=3D"comment" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom=
+: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bott=
+om: 0px; padding-left: 0px; word-wrap: break-word; ">------&gt;=D5=E2=C0=EF=
+=D3=D0bug=C1=CB=A1=A3 </span>&nbsp;</li><li class=3D"alt" style=3D"margin-t=
+op: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-t=
+op: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-w=
+rap: break-word; background-color: rgb(242, 242, 242); ">[root@old_boy&nbsp=
+;scripts]#&nbsp;awkhost5.sh&nbsp;192.168.1.21 &nbsp;</li><li style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; ">oldboy21.etiantian.org &nbsp;</li><li class=3D"alt" s=
+tyle=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left=
+: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-l=
+eft: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); ">=
+=B8=C4=BD=F8=CF=C2=C0=B4=C5=C5=B3=FDbug=A3=BA &nbsp;</li><li style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;awkhost5-1=
+.sh&nbsp; &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-rig=
+ht: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-ri=
+ght: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ba=
+ckground-color: rgb(242, 242, 242); ">awk&nbsp;<span class=3D"string" style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">'{if($1~/'</span>$1<span class=3D"string" st=
+yle=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left:=
+ 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-le=
+ft: 0px; word-wrap: break-word; ">'&nbsp;/)&nbsp;print&nbsp;$2}'</span>&nbs=
+p;&nbsp;/etc/hosts&nbsp;=3D=3D&gt;=D3=C3=C9=CF=C3=E6=BC=D3=BF=D5=B8=F1=B5=
+=C4=CB=BC=C2=B7=B2=BB=B6=D4=A1=A3 &nbsp;</li><li style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; =
+padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: brea=
+k-word; ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;awkhost5-1.sh&nbsp; &n=
+bsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; mar=
+gin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; pa=
+dding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-col=
+or: rgb(242, 242, 242); ">awk&nbsp;<span class=3D"string" style=3D"margin-t=
+op: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-t=
+op: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-w=
+rap: break-word; ">'{if($1~/'</span>$1<span class=3D"string" style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; ">'$/)&nbsp;print&nbsp;$2}'</span>&nbsp;&nbsp;/etc/host=
+s&nbsp;#=D4=F6=BC=D3=D2=BB=B8=F6=D5=FD=D4=F2=B1=ED=B4=EF=CA=BD$ &nbsp;</li>=
+<li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin=
+-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padd=
+ing-left: 0px; word-wrap: break-word; ">=D6=B4=D0=D0=BD=E1=B9=FB=A3=BA &nbs=
+p;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp;awkhost5-1.sh&nbs=
+p;192.168.1.21 &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">oldboy21.=
+etiantian.org &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin=
+-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; paddin=
+g-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word=
+; background-color: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp=
+;awkhost5-1.sh&nbsp;192.168.1.11 &nbsp;</li><li style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; ">oldboy11.etiantian.org &nbsp;</li><li class=3D"alt" style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; background-color: rgb(242, 242, 242); ">[root@old_boy&n=
+bsp;scripts]#&nbsp;awkhost5-1.sh&nbsp;192.168.1.31 &nbsp;</li><li style=3D"=
+margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; p=
+adding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px=
+; word-wrap: break-word; ">oldboy31.etiantian.org&nbsp;</li></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">----------------=
+=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=F4=B7=FB---------------<br st=
+yle=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left:=
+ 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-le=
+ft: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A87=A3=A9awk -v=BE=AB=C8=
+=B7=C6=A5=C5=E4=B7=A8<br style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            </strong></span>&nbsp;</p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">=C3=FC=C1=EE=D0=D0=B2=E2=CA=D4=A3=BA &nbsp;</li><li=
+ style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-le=
+ft: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding=
+-left: 0px; word-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;awk&=
+nbsp;-v&nbsp;p=3D192.168.1.21&nbsp;<span class=3D"string" style=3D"margin-t=
+op: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-t=
+op: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-w=
+rap: break-word; ">'$1&nbsp;=3D=3D&nbsp;p{print&nbsp;$2}'</span>&nbsp;/etc/=
+hosts &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: =
+0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right:=
+ 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; backgr=
+ound-color: rgb(242, 242, 242); ">oldboy21.etiantian.org &nbsp;</li><li sty=
+le=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: =
+0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-lef=
+t: 0px; word-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;awk&nbsp=
+;-v&nbsp;p=3D192.168.1.11&nbsp;<span class=3D"string" style=3D"margin-top: =
+0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: =
+0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap:=
+ break-word; ">'$1&nbsp;=3D=3D&nbsp;p{print&nbsp;$2}'</span>&nbsp;/etc/host=
+s &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px=
+; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background=
+-color: rgb(242, 242, 242); ">oldboy11.etiantian.org &nbsp;</li><li style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;awk&nbsp;-=
+v&nbsp;p=3D192.168.1.11&nbsp;<span class=3D"string" style=3D"margin-top: 0p=
+x; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0p=
+x; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: b=
+reak-word; ">'$1&nbsp;=3D=3D&nbsp;p&nbsp;{print&nbsp;$2}'</span>&nbsp;/etc/=
+hosts &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: =
+0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right:=
+ 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; backgr=
+ound-color: rgb(242, 242, 242); ">oldboy11.etiantian.org &nbsp;</li><li sty=
+le=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: =
+0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-lef=
+t: 0px; word-wrap: break-word; ">=CA=B5=BC=CA=BD=C5=B1=BE=A3=BA&nbsp;</li><=
+li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;ca=
+t&nbsp;awkhost6.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0px; margin-ri=
+ght: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-r=
+ight: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; "=
+>#!/bin/bash &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-=
+right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding=
+-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word;=
+ background-color: rgb(242, 242, 242); ">#p=3D$1 &nbsp;</li><li style=3D"ma=
+rgin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pad=
+ding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; =
+word-wrap: break-word; ">#awk&nbsp;-v&nbsp;p=3D<span class=3D"string" style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">"$p"</span>&nbsp;<span class=3D"string" styl=
+e=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0=
+px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left=
+: 0px; word-wrap: break-word; ">'$1&nbsp;=3D=3D&nbsp;p{print&nbsp;$2}'</spa=
+n>&nbsp;/etc/hosts &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; background-color: rgb(242, 242, 242); ">awk&nbsp;-v&nbsp;p=3D<span c=
+lass=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; ">"$1"</span>&nbsp;<span =
+class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom=
+: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bott=
+om: 0px; padding-left: 0px; word-wrap: break-word; ">'$1&nbsp;=3D=3D&nbsp;p=
+{print&nbsp;$2}'</span>&nbsp;/etc/hosts&nbsp;</li></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">=D6=B4=D0=D0=BD=E1=
+=B9=FB=A3=BA<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh&nbsp; awkhost6.sh&nbsp; 192.168.1.11=
+<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin=
+-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padd=
+ing-left: 0px; word-wrap: break-word; ">
+            oldboy11.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            [root@old_boy scripts]# sh&nbsp; awkhost6.sh&nbsp; 192.168.1.21=
+<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin=
+-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padd=
+ing-left: 0px; word-wrap: break-word; ">
+            oldboy21.etiantian.org<br style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            =CC=E1=CA=BE=A3=BA<br style=3D"margin-top: 0px; margin-right: 0=
+px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: =
+0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            1=A3=A9=B4=AB=B2=CE=B7=C7awk=B3=CC=D0=F2=A3=AC=D2=F2=B4=CB=D0=
+=B4=B7=A8p=3D"$1"<br style=3D"margin-top: 0px; margin-right: 0px; margin-bo=
+ttom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-=
+bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            2=A3=A9man awk<br style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -v var=3Dval<br style=3D"m=
+argin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; pa=
+dding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;=
+ word-wrap: break-word; ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --assign var=3Dval<br styl=
+e=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0=
+px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left=
+: 0px; word-wrap: break-word; ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; Assign the value val to the variable var, before execution =
+of the program begins.&nbsp;&nbsp; Such&nbsp; vari-<br style=3D"margin-top:=
+ 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; able values are available to the BEGIN block of an AWK prog=
+ram.<br style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; ma=
+rgin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; =
+padding-left: 0px; word-wrap: break-word; ">
+            ----------------=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=
+=F4=B7=FB---------------<br style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A88=A3=BA=BE=AB=C8=B7=C6=
+=A5=C5=E4=BC=F2=B5=A5=B5=C4=D0=B4=B7=A8<br style=3D"margin-top: 0px; margin=
+-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; paddin=
+g-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word=
+; ">
+            </strong></span></p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">[root@old_boy&nbsp;scripts]#&nbsp;cat&nbsp;awkhost9=
+.sh&nbsp; &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">awk&nbsp;&nbsp=
+;<span class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin=
+-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddi=
+ng-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">'$1&nbsp;=3D=3D=
+&nbsp;"'</span>$1<span class=3D"string" style=3D"margin-top: 0px; margin-ri=
+ght: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-r=
+ight: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; "=
+>'"&nbsp;{print&nbsp;$2}'</span>&nbsp;/etc/hosts &nbsp;</li><li class=3D"al=
+t" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); =
+">=D6=B4=D0=D0=BD=E1=B9=FB=A3=BA &nbsp;</li><li style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; ">[root@old_boy&nbsp;scripts]#&nbsp;sh&nbsp;awkhost9.sh&nbsp;&nbsp;1=
+92.168.1.11 &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-r=
+ight: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-=
+right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; =
+background-color: rgb(242, 242, 242); ">oldboy11.etiantian.org &nbsp;</li><=
+li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; ">[root@old_boy&nbsp;scripts]#&nbsp;sh=
+&nbsp;awkhost9.sh&nbsp;&nbsp;192.168.1.21 &nbsp;</li><li class=3D"alt" styl=
+e=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0=
+px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left=
+: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); ">oldbo=
+y21.etiantian.org &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0p=
+x; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0=
+px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">[root@=
+old_boy&nbsp;scripts]#&nbsp;sh&nbsp;awkhost9.sh&nbsp;&nbsp;192.168.1.31 &nb=
+sp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; marg=
+in-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; pad=
+ding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-colo=
+r: rgb(242, 242, 242); ">oldboy31.etiantian.org &nbsp;</li><li style=3D"mar=
+gin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padd=
+ing-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; w=
+ord-wrap: break-word; ">=CC=D8=B1=F0=CC=E1=CA=BE=A3=BA=D5=E2=C0=EF=C0=CF=C4=
+=D0=BA=A2=C0=CF=CA=A6=B4=F3=C1=BF=B5=C4=CA=B9=D3=C3=C1=CBawk=B5=C4=B2=BB=CD=
+=AC=B7=BD=B7=A8=C0=B4=CA=B5=CF=D6=CD=AC=D1=F9=B5=C4=B9=A6=C4=DC=A3=AC=BA=DC=
+=C7=BF=B4=F3=B0=C9=A3=AC &nbsp;</li><li class=3D"alt" style=3D"margin-top: =
+0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: =
+0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap:=
+ break-word; background-color: rgb(242, 242, 242); ">=CF=A3=CD=FB=CD=AC=D1=
+=A7=C3=C7=C4=DC=B0=B4=D5=D5=C0=CF=CA=A6=B5=C4=BD=CC=D1=A7=D2=AA=C7=F3=BE=AB=
+=CD=A8=D6=AE=A1=A3&nbsp;</li></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">----------------=
+=CE=D2=CA=C7=C3=BF=D6=D6=B7=BD=B7=A8=B7=D6=B8=F4=B7=FB---------------<br st=
+yle=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left:=
+ 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-le=
+ft: 0px; word-wrap: break-word; ">
+            <span style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(255, 0, 0); =
+"><strong style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">=B7=A89=A3=BA=D1=A7=C9=FA=B5=
+=C4=D2=BB=B8=F6=B2=BB=B3=C9=CA=EC=B5=C4=CA=B5=CF=D6=B7=A8</strong></span></=
+p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">#!/bin/bash &nbsp;</li><li style=3D"margin-top: 0px=
+; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px=
+; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: br=
+eak-word; ">b=3D/$PWD/wang.txt &nbsp;</li><li class=3D"alt" style=3D"margin=
+-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding=
+-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word=
+-wrap: break-word; background-color: rgb(242, 242, 242); ">echo&nbsp;-n&nbs=
+p;<span class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">"plase&nbsp;in=
+put&nbsp;ip&nbsp;:&nbsp;"</span>&nbsp;</li><li style=3D"margin-top: 0px; ma=
+rgin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pa=
+dding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-=
+word; "><span class=3D"keyword" style=3D"margin-top: 0px; margin-right: 0px=
+; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0p=
+x; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">read</s=
+pan>&nbsp;a &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-r=
+ight: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-=
+right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; =
+background-color: rgb(242, 242, 242); ">if&nbsp;[&nbsp;$a&nbsp;=3D=3D&nbsp;=
+<span class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-=
+bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddin=
+g-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">"192.168.1.11"</=
+span>&nbsp;] &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=3D"keyword" style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; ">then</span>&nbsp;</li><li class=3D"alt" style=3D"marg=
+in-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddi=
+ng-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wo=
+rd-wrap: break-word; background-color: rgb(242, 242, 242); ">cat&nbsp;$b&nb=
+sp;|&nbsp;grep&nbsp;$a&nbsp;|&nbsp;awk&nbsp;-F&nbsp;<span class=3D"string" =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-lef=
+t: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-=
+left: 0px; word-wrap: break-word; ">'&nbsp;'</span>&nbsp;<span class=3D"str=
+ing" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; ">'{print&nbsp;$2}'</span>&nbsp;</li=
+><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; ">&nbsp;</li><li class=3D"alt" style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; background-color: rgb(242, 242, 242); ">elif&n=
+bsp;[&nbsp;$a&nbsp;&nbsp;=3D=3D&nbsp;<span class=3D"string" style=3D"margin=
+-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding=
+-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word=
+-wrap: break-word; ">"192.168.1.21"</span>&nbsp;]&nbsp; &nbsp;</li><li styl=
+e=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0=
+px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left=
+: 0px; word-wrap: break-word; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;<span class=3D"keyword" style=3D"margin-top: 0px; margin-right: 0px; m=
+argin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; =
+padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">then</span=
+>&nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-=
+color: rgb(242, 242, 242); ">cat&nbsp;$b&nbsp;|&nbsp;grep&nbsp;$a&nbsp;|&nb=
+sp;awk&nbsp;-F&nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin=
+-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; paddin=
+g-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word=
+; ">'&nbsp;'</span>&nbsp;<span class=3D"string" style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; ">'{print&nbsp;$2}'</span>&nbsp;</li><li style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; ">&nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-righ=
+t: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-rig=
+ht: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; bac=
+kground-color: rgb(242, 242, 242); ">elif&nbsp;[&nbsp;$a&nbsp;&nbsp;=3D=3D&=
+nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; ma=
+rgin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; p=
+adding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">"192.168.1.=
+31"</span>&nbsp;] &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0p=
+x; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0=
+px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=3D"keyword" style=3D"=
+margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; p=
+adding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px=
+; word-wrap: break-word; ">then</span>&nbsp;</li><li class=3D"alt" style=3D=
+"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; =
+padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0p=
+x; word-wrap: break-word; background-color: rgb(242, 242, 242); ">cat&nbsp;=
+$b&nbsp;|&nbsp;grep&nbsp;$a&nbsp;|&nbsp;awk&nbsp;-F&nbsp;<span class=3D"str=
+ing" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; ">'&nbsp;'</span>&nbsp;<span class=
+=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px=
+; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0=
+px; padding-left: 0px; word-wrap: break-word; ">'{print&nbsp;$2}'</span>&nb=
+sp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px=
+; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0=
+px; padding-left: 0px; word-wrap: break-word; ">&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;<span class=3D"keyword" style=3D"margin-top: 0px; marg=
+in-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padd=
+ing-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-wo=
+rd; ">else</span>&nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; background-color: rgb(242, 242, 242); ">echo&nbsp;<span class=3D"strin=
+g" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-=
+left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; paddi=
+ng-left: 0px; word-wrap: break-word; ">"plase&nbsp;input&nbsp;the&nbsp;corr=
+ect&nbsp;IP&nbsp;address&nbsp;"</span>&nbsp;&amp;&amp;&nbsp;exit&nbsp;1 &nb=
+sp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px=
+; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0=
+px; padding-left: 0px; word-wrap: break-word; ">fi &nbsp;</li><li class=3D"=
+alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242)=
+; ">=CC=E1=CA=BE=A3=BA=B4=F3=BC=D2=BF=B4=BF=B4=CE=CA=CC=E2=D4=DA=C4=C4=A3=
+=BF=BD=C5=B1=BE=B2=BB=CD=A8=D3=C3=A1=A3 &nbsp;</li><li style=3D"margin-top:=
+ 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; ">&nbsp;</li></ol></pre>
+            <p style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; color: rgb(51, 51, 51); fo=
+nt-family: Arial; line-height: 26px; text-align: left; ">----------=C0=CF=
+=C4=D0=BA=A2=C0=CF=CA=A6=B8=C4=BD=F8=BA=F3&nbsp;</p>
+            <pre style=3D"margin-top: 0px; margin-bottom: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; white-space: pre-wrap; color: rgb(51, 51, 51); line-height: 2=
+6px; text-align: left; "><ol class=3D"dp-sql" style=3D"margin-top: 1em; mar=
+gin-right: 2em; margin-bottom: 1em; margin-left: 2em; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; "><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margi=
+n-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padd=
+ing-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color=
+: rgb(242, 242, 242); ">#!/bin/bash &nbsp;</li><li style=3D"margin-top: 0px=
+; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px=
+; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: br=
+eak-word; ">#author&nbsp;oldboy &nbsp;</li><li class=3D"alt" style=3D"margi=
+n-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddin=
+g-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wor=
+d-wrap: break-word; background-color: rgb(242, 242, 242); ">#qq&nbsp;313337=
+41 &nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; ">hosts_file=3D<span cl=
+ass=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: =
+0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom=
+: 0px; padding-left: 0px; word-wrap: break-word; ">"$PWD/oldboy.txt"</span>=
+&nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; m=
+argin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; =
+padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-c=
+olor: rgb(242, 242, 242); ">#judge&nbsp;file &nbsp;</li><li style=3D"margin=
+-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding=
+-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word=
+-wrap: break-word; ">[&nbsp;!&nbsp;-f&nbsp;$hosts_file&nbsp;]&nbsp;&amp;&am=
+p;&nbsp;echo&nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin-r=
+ight: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-=
+right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; =
+">"no&nbsp;test&nbsp;file!"</span>&nbsp;&amp;&amp;&nbsp;exit&nbsp;1 &nbsp;<=
+/li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-b=
+ottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding=
+-bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color: r=
+gb(242, 242, 242); ">echo&nbsp;-n&nbsp;<span class=3D"string" style=3D"marg=
+in-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddi=
+ng-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wo=
+rd-wrap: break-word; ">"plase&nbsp;input&nbsp;ip&nbsp;:&nbsp;"</span>&nbsp;=
+</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; m=
+argin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;=
+ padding-left: 0px; word-wrap: break-word; "><span class=3D"keyword" style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">read</span>&nbsp;ip &nbsp;</li><li class=3D"=
+alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px; word-wrap: break-word; background-color: rgb(242, 242, 242)=
+; ">#judge&nbsp;ip&nbsp;format &nbsp;</li><li style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">[&nbsp;<span class=3D"string" style=3D"margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-righ=
+t: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">"$=
+{#a}"</span>&nbsp;-lt&nbsp;8&nbsp;]&nbsp;&amp;&amp;&nbsp;[&nbsp;<span class=
+=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px=
+; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0=
+px; padding-left: 0px; word-wrap: break-word; ">"`echo&nbsp;$ip|sed&nbsp;'s=
+/[0-9]//g'`"</span>&nbsp;!=3D&nbsp;<span class=3D"string" style=3D"margin-t=
+op: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-t=
+op: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-w=
+rap: break-word; ">"..."</span>&nbsp;]&nbsp;&amp;&amp;&nbsp;\ &nbsp;</li><l=
+i class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom:=
+ 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 0px; padding-left: 0px; word-wrap: break-word; background-color: rgb(242=
+, 242, 242); ">echo&nbsp;<span class=3D"string" style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; ">"Plase&nbsp;input&nbsp;the&nbsp;correct&nbsp;IP&nbsp;address"</spa=
+n>&nbsp;&amp;&amp;&nbsp;exit&nbsp;1 &nbsp;</li><li style=3D"margin-top: 0px=
+; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px=
+; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: br=
+eak-word; ">&nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-r=
+ight: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-=
+right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; =
+background-color: rgb(242, 242, 242); ">#start &nbsp;</li><li style=3D"marg=
+in-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; paddi=
+ng-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; wo=
+rd-wrap: break-word; ">result1=3D$(grep&nbsp;<span class=3D"string" style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; word-wrap: break-word; ">"$ip"</span>&nbsp;$hosts_file|awk&nbsp;<span=
+ class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; ">'{print&nbsp;$1}'</sp=
+an>) &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0=
+px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: =
+0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; backgro=
+und-color: rgb(242, 242, 242); ">if&nbsp;[&nbsp;<span class=3D"string" styl=
+e=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0=
+px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left=
+: 0px; word-wrap: break-word; ">"$ip"</span>&nbsp;=3D=3D&nbsp;<span class=
+=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px=
+; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0=
+px; padding-left: 0px; word-wrap: break-word; ">"$result1"</span>&nbsp;] &n=
+bsp;</li><li style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0p=
+x; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: =
+0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;&nbsp;<span class=3D=
+"keyword" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px=
+; padding-left: 0px; word-wrap: break-word; ">then</span>&nbsp; &nbsp;</li>=
+<li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bot=
+tom: 0px; padding-left: 0px; word-wrap: break-word; background-color: rgb(2=
+42, 242, 242); ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;=
+<span class=3D"string" style=3D"margin-top: 0px; margin-right: 0px; margin-=
+bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddin=
+g-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">"$ip"</span>&nbs=
+p;$hosts_file|awk&nbsp;<span class=3D"string" style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">'{print&nbsp;$2}'</span>&nbsp;</li><li style=3D"margin-top: 0px; mar=
+gin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; pad=
+ding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-w=
+ord; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;0 &nbsp;</=
+li><li class=3D"alt" style=3D"margin-top: 0px; margin-right: 0px; margin-bo=
+ttom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-=
+bottom: 0px; padding-left: 0px; word-wrap: break-word; background-color: rg=
+b(242, 242, 242); "><span class=3D"keyword" style=3D"margin-top: 0px; margi=
+n-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; paddi=
+ng-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-wor=
+d; ">else</span>&nbsp;</li><li style=3D"margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px=
+; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; ">&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&nbsp;<span class=3D"stri=
+ng" style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin=
+-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padd=
+ing-left: 0px; word-wrap: break-word; ">"Not&nbsp;find&nbsp;the&nbsp;hostna=
+me&nbsp;of&nbsp;$ip"</span>&nbsp;</li><li class=3D"alt" style=3D"margin-top=
+: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top=
+: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wra=
+p: break-word; background-color: rgb(242, 242, 242); ">&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;1 &nbsp;</li><li style=3D"margin-top:=
+ 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top:=
+ 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap=
+: break-word; ">fi &nbsp;</li><li class=3D"alt" style=3D"margin-top: 0px; m=
+argin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; p=
+adding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break=
+-word; background-color: rgb(242, 242, 242); ">=CC=E1=CA=BE=A3=BA=B4=CB=B7=
+=A8=B2=BB=BF=C9=C8=A1=A3=AC=BB=AD=C9=DF=CC=ED=D7=E3=C1=CB=A1=A3 &nbsp;</li>=
+</ol></pre>
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+      </tr>
+      <tr>
+        <td height=3D"20" align=3D"right">
+        </td>
+      </tr>
+      <tr>
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=3D"red">&gt;&gt;=B8=FC=B6=E0=BD=BB=C1=
+=F7=A3=AC=C7=EB=B5=BD</font>&nbsp;<a href=3D"http://linux.chinaunix.net/bbs=
+/forum-24-1.html" target=3D"_blank" style=3D"color:red">ChinaUnix=A1=BE=C2=
+=DB=CC=B3=A1=BF=A3=BAhttp://linux.chinaunix.net/bbs/forum-24-1.html</a>
+<br><br>
+            <div id=3D"keyword"><strong>=B9=D8=BC=FC=B4=CA=A3=BA</strong><a=
+ href=3D"http://pub.chinaunix.net/newstag.php?tag=3D%BD%E2%B4%F0" class=3D"=
+keyword">=BD=E2=B4=F0</a><a href=3D"http://pub.chinaunix.net/newstag.php?ta=
+g=3D%D2%BB%B5%C0" class=3D"keyword">=D2=BB=B5=C0</a><a href=3D"http://pub.c=
+hinaunix.net/newstag.php?tag=3D%B7%BD%B7%A8" class=3D"keyword">=B7=BD=B7=A8=
+</a></div>
+                  <!--=B7=D6=D2=B3-->
+      <div id=3D"pages"></div>     =20
+      </td>
+      </tr>
+      <tr>
+        <td>        <div id=3D"digg_div"><div id=3D"digg"><span><strong id=
+=3D"diggDivCount_2245484">0</strong><br><samp id=3D"diggDivDo_down_2245484"=
+ onclick=3D"digg(1)">=B6=A5=D2=BB=CF=C2</samp></span><span class=3D"cai"><s=
+trong id=3D"diggDivCount_down_2245484">0</strong><br><samp id=3D"diggDivDo_=
+down_2245484" onclick=3D"digg(0)"><samp id=3D"diggDivDo_down_2245484" oncli=
+ck=3D"digg(0)">=B2=C8=D2=BB=CF=C2</samp></samp></span></div></div>
+ =20
+ =20
+     =20
+      </td>
+      </tr>
+      <tr>
+        <td>
+    <div class=3D"box" style=3D"margin-top:1%;">
+      <h3>=CF=E0=B9=D8=CE=C4=D5=C2</h3>
+      <ul class=3D"text_list">
+        <li><a href=3D"http://news.chinaunix.net/opensource/2012/0912/23776=
+19.shtml" target=3D"_blank">Ubuntu =CF=C2=C1=ED=D2=BB=D6=D6=D2=FE=B2=D8=CE=
+=C4=BC=FE=B5=C4=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2012/0822/2338384.shtml=
+" target=3D"_blank">=D4=DAWindows 8 PC=C9=CF=B0=B2=D7=B0Linux=B5=C4=CB=C4=
+=D6=D6=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2012/0625/2245484.shtml=
+" target=3D"_blank">=D2=BB=B5=C0=CA=B5=D3=C3Linux=D4=CB=CE=AC=CE=CA=CC=E2=
+=B5=C49=D6=D6Shell=BD=E2=B4=F0=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2012/0327/2076507.shtml=
+" target=3D"_blank">Ubuntu =BC=B8=D6=D6=B3=A3=BC=FB=C2=D2=C2=EB=BD=E2=BE=F6=
+=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2012/0327/2076506.shtml=
+" target=3D"_blank">Ubuntu =BC=B8=D6=D6=B3=A3=BC=FB=C2=D2=C2=EB=BD=E2=BE=F6=
+=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2010/0810/786250.shtml"=
+ target=3D"_blank">=CA=B7=C9=CF=D7=EE=C5=A3=D7=A8=C0=FB=A3=BA=B0=B2=D7=B0Li=
+nux=B2=D9=D7=F7=CF=B5=CD=B3=B5=C4=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2010/0722/735409.shtml"=
+ target=3D"_blank">=CD=AC=CA=B1=B0=B2=D7=B0FreeBSD,Linux=BA=CDWindowsXP=B5=
+=C4=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2010/0708/701376.shtml"=
+ target=3D"_blank">=BD=E9=C9=DCLinux=D6=D0cp=D6=B1=BD=D3=B8=B2=B8=C7=B2=BB=
+=CC=E1=CA=BE=B5=C4=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2010/0413/503971.shtml"=
+ target=3D"_blank">Android=D7=D4=CA=D8=C8=FD=B7=D6=B5=D8 =B5=D6=D3=F9iPhone=
+=CA=AE=B8=F6=B7=BD=B7=A8</a></li>
+<li><a href=3D"http://news.chinaunix.net/opensource/2009/1208/139487.shtml"=
+ target=3D"_blank">=D3=C3=BF=AA=D4=B4=B7=BD=B7=A8=C6=C6=BD=E2GSM=BC=D3=C3=
+=DC=BC=BC=CA=F5</a></li>
+=20
+      </ul>
+    </div></td>
+      </tr>
+      <tr>
+      <td>
+      <div class=3D"box" style=3D"margin-top:1%;">
+     =20
+      <!--=C6=C0=C2=DB-->
+                  <h3>=CD=F8=D3=D1=C6=C0=C2=DB<span id=3D"commnent_tag" sty=
+le=3D"float:right">
+        <a href=3D"http://pub.chinaunix.net/comment/?keyid=3Dnews-content-t=
+itle-2245484&amp;verify=3D76af2d6d9821c5c5e0ed0e092956cd46">
+        =D2=D1=D3=D0<strong class=3D"c_red"><span id=3D"comments">0</span><=
+/strong>=CE=BB=CD=F8=D3=D1=B7=A2=B1=ED=C1=CB=BF=B4=B7=A8</a>
+      </span></h3>
+      <div class=3D"commenttext" style=3D"text-align:center;margin-top:0">
+        <form action=3D"http://pub.chinaunix.net/comment/?action=3Daddpost"=
+ method=3D"post" onsubmit=3D"return checkForm();">
+<input type=3D"hidden" name=3D"keyid" value=3D"news-content-title-2245484">
+<input type=3D"hidden" name=3D"verify" value=3D"76af2d6d9821c5c5e0ed0e09295=
+6cd46">
+<ul>
+          <li>
+            <textarea cols=3D"100" rows=3D"8" name=3D"comment" id=3D"commen=
+t" onfocus=3D"reply_clearfield()" onblur=3D"reply_restoration()" disabled=
+=3D""></textarea>
+          </li>
+          <li style=3D"text-align:left;margin-left:1%;margin-top:1%;">
+            <span id=3D"checker"><div style=3D"float:left">=D1=E9=D6=A4=C2=
+=EB=A3=BA</div><input type=3D"text" style=3D"ime-mode: disabled;" size=3D"6=
+" id=3D"checkcode" name=3D"checkcode" class=3D"input_blur"><img src=3D"http=
+://pub.chinaunix.net/images/d.gif" id=3D"code_img" style=3D"display:none" o=
+nclick=3D"this.src=3D'checkcode.php?'+Math.random()" alt=3D"=B5=E3=BB=F7=BB=
+=BB=D2=BB=D5=C5">=A1=BE=CA=E4=C8=EB=C6=C0=C2=DB=BA=F3=CF=D4=CA=BE=D1=E9=D6=
+=A4=C2=EB=A3=AC=BE=F9=CE=AA=B4=F3=D0=B4=D7=D6=C4=B8=A3=AC=B5=E3=BB=F7=CD=BC=
+=C6=AC=B8=FC=D0=C2=A1=BF</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input id=3D"dosubmit" name=3D"dosubmit=
+" type=3D"submit" value=3D"=B7=A2=B1=ED=C6=C0=C2=DB" class=3D"button_style"=
+ disabled=3D"">
+          </li>
+        </ul>
+        </form>
+      </div>
+      </div>
+     =20
+     =20
+          =20
+      </td>
+      </tr>
+    </tbody></table>
+
+</td>
+    <td width=3D"8">&nbsp;</td>
+    <td width=3D"245" valign=3D"top" bgcolor=3D"#FFF9EB">
+
+
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbo=
+dy><tr><td height=3D"27" background=3D"http://pub.chinaunix.net/images/news=
+/bg245.jpg" class=3D"F13"><table width=3D"100%"><tbody><tr><td>&nbsp;=C2=DB=
+=CC=B3=C8=C8=C3=C5=CC=D6=C2=DB</td><td align=3D"right"><a href=3D"http://bb=
+s.chinaunix.net/forum-46-1.html" target=3D"_blank">=B8=FC=B6=E0&gt;&gt;</a>=
+&nbsp;</td></tr></tbody></table></td></tr><tr><td valign=3D"top" bgcolor=3D=
+"#FFFFFF" class=3D"BLKtext"><table width=3D"97%" border=3D"0" align=3D"cent=
+er" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td height=3D"5"></td> <=
+/tr><tr><td>=A1=A4 <a href=3D"http://bbs.chinaunix.net/thread-1269929-1-1.h=
+tml" target=3D"_blank" title=3D"2009=C4=EA4=D4=C2" chinaunix=A1=B6=BF=AA=D4=
+=B4=CA=B1=B4=FA=A1=B73=D4=C2=BF=AF=B7=A2=B2=BC=CF=C2=D4=D8=3D"">2009=C4=EA4=
+=D4=C2 ChinaUnix=A1=B6=BF=AA=D4=B4=CA=B1=B4=FA=A1=B73</a><br>=A1=A4 <a href=
+=3D"http://bbs.chinaunix.net/thread-1073900-1-1.html" target=3D"_blank" tit=
+le=3D"=D3=D0=BD=B1=C6=C0=C2=DB=A3=BA=C4=FA=C8=CF=CE=AA=CE=A2=C8=ED=C4=DC=BB=
+=F7=B0=DCLinux=C2=F0=A3=BF[=BD=B1=C6=B7300=B8=F62G" u=C5=CC]=3D"">=D3=D0=BD=
+=B1=C6=C0=C2=DB=A3=BA=C4=FA=C8=CF=CE=AA=CE=A2=C8=ED=C4=DC=BB=F7=B0=DCLinux=
+=C2=F0</a><br>=A1=A4 <a href=3D"http://bbs.chinaunix.net/thread-1684438-1-1=
+.html" target=3D"_blank" title=3D"-----------IT=D2=B5=BD=E7=D0=C2=CE=C5=D3=
+=EB=C6=C0=C2=DB=B0=E6=B9=E6=B6=A8=A3=AC=B7=A2=CC=FB=C7=B0=C7=EB=CF=EA=CF=B8=
+=D4=C4=B6=C1-----------">-----------IT=D2=B5=BD=E7=D0=C2=CE=C5=D3=EB=C6=C0=
+=C2=DB=B0=E6=B9=E6=B6=A8</a><br>=A1=A4 <a href=3D"http://bbs.chinaunix.net/=
+thread-2069167-1-1.html" target=3D"_blank" title=3D"=D3=D0=BD=B1=B5=F7=B2=
+=E9=A3=BA=C4=FA=D7=EE=BD=FC=CA=C7=B7=F1=D3=D0=B2=D9=D7=F7=CF=B5=CD=B3=B5=C4=
+=C7=A8=D2=C6=BC=C6=BB=AE=A3=BF[=BD=B1=C6=B7100=B8=F62G" u=C5=CC]=3D"">=D3=
+=D0=BD=B1=B5=F7=B2=E9=A3=BA=C4=FA=D7=EE=BD=FC=CA=C7=B7=F1=D3=D0=B2=D9=D7=F7=
+=CF=B5=CD=B3=B5=C4</a><br>=A1=A4 <a href=3D"http://bbs.chinaunix.net/thread=
+-1704755-1-1.html" target=3D"_blank" title=3D"IT=D2=B5=C6=E4=CA=B5=CA=C7=B1=
+=BBjava=BB=D9=C1=CB=A3=AC=B6=F8=B2=BB=CA=C7=BF=AA=D4=B4" (=D7=AA=D4=D8)=3D"=
+">IT=D2=B5=C6=E4=CA=B5=CA=C7=B1=BBjava=BB=D9=C1=CB=A3=AC=B6=F8=B2=BB=CA=C7=
+=BF=AA=D4=B4</a><br>=A1=A4 <a href=3D"http://bbs.chinaunix.net/thread-74375=
+9-1-1.html" target=3D"_blank" title=3D"=BC=C6=CB=E3=BB=FA=D3=A2=D0=DB=CA=B7=
+" =B5=DA=D2=BB=B0=F1=3D"">=BC=C6=CB=E3=BB=FA=D3=A2=D0=DB=CA=B7 =B5=DA=D2=BB=
+=B0=F1</a><br>=A1=A4 <a href=3D"http://bbs.chinaunix.net/thread-976978-1-1.=
+html" target=3D"_blank" title=3D"CU=C9=CF=B8=DF=CA=D6=BA=DC=B6=E0?" =D0=A6=
+=CB=C0=C8=CB!=3D"" =D5=E2=B8=F6=B5=D8=B7=BD=B6=E0=B5=C4=CA=C7=D7=D4=BC=BA=
+=C3=BB=B1=BE=CA=C2=D3=D6=BA=A6=BA=EC=D1=DB=B2=A1=B5=C4=C8=CB=A3=AC=B4=AB=CB=
+=B5=D6=D0=B5=C4cu=B8=DF=CA=D6=C7=EB=BD=F8=3D"">CU=C9=CF=B8=DF=CA=D6=BA=DC=
+=B6=E0? =D0=A6=CB=C0=C8=CB! =D5=E2=B8=F6=B5=D8=B7=BD=B6=E0</a><br>=A1=A4 <a=
+ href=3D"http://bbs.chinaunix.net/thread-1755451-1-1.html" target=3D"_blank=
+" title=3D"=D3=D0=D0=A9=D3=A6=BD=EC=C9=FA=B5=C4=CB=D8=D6=CA=BE=CD=D5=E6=B5=
+=C4=D5=E2=C3=B4=B2=EE=C2=F0=A3=BF=A3=A1">=D3=D0=D0=A9=D3=A6=BD=EC=C9=FA=B5=
+=C4=CB=D8=D6=CA=BE=CD=D5=E6=B5=C4=D5=E2=C3=B4=B2=EE=C2=F0=A3=BF</a><br></td=
+></tr><tr><td height=3D"5"></td></tr></tbody></table></td></tr><tr><td heig=
+ht=3D"10" bgcolor=3D"#FFFFFF"></td></tr><tr></tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+      <tbody><tr>
+        <td height=3D"27" background=3D"http://pub.chinaunix.net/images/new=
+s/bg245.jpg" class=3D"F13"><table width=3D"100%"><tbody><tr><td>&nbsp;=D7=
+=EE=D0=C2=CD=F8=D3=D1=C6=C0=C2=DB</td><td align=3D"right">&nbsp;</td></tr><=
+/tbody></table></td>
+      </tr>
+      <tr>
+        <td valign=3D"top" bgcolor=3D"#FFFFFF" class=3D"BLKtext"><table wid=
+th=3D"97%" border=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0=
+">
+          <tbody><tr>
+            <td height=3D"5"></td>
+          </tr>
+          <tr>
+            <td>                <!--=D0=C2=CE=C5=C6=B5=B5=C0=CA=D7=D2=B3_=
+=C6=C0=C2=DB=C1=D0=B1=ED-->
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2695943&amp;verify=3Dcc60aeeb7c7ada5382243a833d6ca=
+c33" target=3D"_blank" class=3D"comment_content_link">=CB=B5=CA=B5=BB=B0=A3=
+=AC=BA=A3=EB=E0=BB=B9=D5=E6=C3=BB=D3=C3=B9=FD&nbsp;&nbsp;<img width=3D"16" =
+src=3D"http://pub.chinaunix.net/images/comment_more.png" border=3D"0"></a><=
+/dt><dd>=C0=B4=D7=D4=BA=D3=C4=CF=CA=A1=D6=A3=D6=DD=CA=D0=B5=C4=CD=F8=D3=D1=
+=B6=D4=D0=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/digi/2013/0328/2=
+695943.shtml" target=3D"_blank">=C0=ED=C4=EE=D3=C5=D0=E3=B5=AB=B4=B4=D0=C2=
+=B2=BB=D7=E3 =C2=DE=D3=C0=BA=C6=B4=B8=D7=D3ROM=BD=E2=CE=F6</a></b>=B5=C4=C6=
+=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2695942&amp;verify=3Ddaec681d11b5d039edb25dc2ae5d3=
+8b9" target=3D"_blank" class=3D"comment_content_link">=D2=B2=CB=E3=CA=C7=B9=
+=FA=C4=DA=B5=C4=D2=BB=B8=F6=BD=C7=B6=F9&nbsp;&nbsp;<img width=3D"16" src=3D=
+"http://pub.chinaunix.net/images/comment_more.png" border=3D"0"></a></dt><d=
+d>=C0=B4=D7=D4=BA=D3=C4=CF=CA=A1=D6=A3=D6=DD=CA=D0=B5=C4=CD=F8=D3=D1=B6=D4=
+=D0=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/digi/2013/0328/2695942=
+.shtml" target=3D"_blank">10=B4=F3=B9=D8=BC=FC=B4=CA =BF=B4=C2=DE=D3=C0=BA=
+=C6=B4=B8=D7=D3ROM=B7=A2=B2=BC=C8=C8=B5=E3</a></b>=B5=C4=C6=C0=C2=DB</dd></=
+dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2695821&amp;verify=3D75983811add524bf4f9849759978b=
+8cc" target=3D"_blank" class=3D"comment_content_link">T=CF=B5=C1=D0=B5=E7=
+=C4=D4=BA=DC=B2=BB=B4=ED=A3=AC=BE=CD=CA=C7=CC=AB=B9=F3=C1=CB&nbsp;&nbsp;<im=
+g width=3D"16" src=3D"http://pub.chinaunix.net/images/comment_more.png" bor=
+der=3D"0"></a></dt><dd>=C0=B4=D7=D4=BA=D3=C4=CF=CA=A1=D6=A3=D6=DD=CA=D0=B5=
+=C4=CD=F8=D3=D1=B6=D4=D0=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/d=
+igi/2013/0328/2695821.shtml" target=3D"_blank">=C9=CC=CE=F1=BB=FA=BB=CA Thi=
+nkPad T430s=B1=A8=BC=DB12950=D4=AA</a></b>=B5=C4=C6=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2695821&amp;verify=3D75983811add524bf4f9849759978b=
+8cc" target=3D"_blank" class=3D"comment_content_link">T=CF=B5=C1=D0=B5=E7=
+=C4=D4=BA=DC=B2=BB=B4=ED=A3=AC=BE=CD=CA=C7=CC=AB=B9=F3=C1=CB&nbsp;&nbsp;<im=
+g width=3D"16" src=3D"http://pub.chinaunix.net/images/comment_more.png" bor=
+der=3D"0"></a></dt><dd>=C0=B4=D7=D4=BA=D3=C4=CF=CA=A1=D6=A3=D6=DD=CA=D0=B5=
+=C4=CD=F8=D3=D1=B6=D4=D0=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/d=
+igi/2013/0328/2695821.shtml" target=3D"_blank">=C9=CC=CE=F1=BB=FA=BB=CA Thi=
+nkPad T430s=B1=A8=BC=DB12950=D4=AA</a></b>=B5=C4=C6=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2692425&amp;verify=3Df56a2da630d128ea76974d9785662=
+27b" target=3D"_blank" class=3D"comment_content_link">=B2=BB=B4=ED=A3=AC=C9=
+=EE=CA=DC=C6=F4=B7=A2=A3=AC=CE=D2=B5=C3=BA=C3=BA=C3=CE=AA=D7=D4=BC=BA=BF=BC=
+=C2=C7=C1=CB=A3=AC=D0=BB=D0=BB=D7=F7=D5=DF=CB=D5=BD=A1&nbsp;&nbsp;<img widt=
+h=3D"16" src=3D"http://pub.chinaunix.net/images/comment_more.png" border=3D=
+"0"></a></dt><dd>=C0=B4=D7=D4=D6=D0=B9=FA=B5=C4=CD=F8=D3=D1=B6=D4=D0=C2=CE=
+=C5:<b><a href=3D"http://news.chinaunix.net/opensource/2013/0326/2692425.sh=
+tml" target=3D"_blank">=BB=BB=B8=F6=D0=C4=BE=B3=B8=E3IT=A8C=D4=DAIT=D6=B0=
+=B3=A1=C8=E7=BA=CE=B4=F2=C6=B4=A3=BF</a></b>=B5=C4=C6=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2560081&amp;verify=3D3b0febd642424c65567feb154ddc8=
+97c" target=3D"_blank" class=3D"comment_content_link">=C4=BF=C7=B0=B5=E7=D0=
+=C5=B8=DF=B6=CB=CA=D6=BB=FA=B6=BC=CA=C7=B9=FA=CD=E2=CA=D6=BB=FA=BE=D3=B6=E0=
+=A3=AC=C1=AA=CF=EB=C8=E7=B9=FB=CF=EB=BD=F8=BE=FC=CA=D6=BB=FA=D0=D0=D2=B5=B2=
+=BB=B9=E2=D2=AA=B4=F2=BC=DB...&nbsp;&nbsp;<img width=3D"16" src=3D"http://p=
+ub.chinaunix.net/images/comment_more.png" border=3D"0"></a></dt><dd>=C0=B4=
+=D7=D4=C3=C0=B9=FA=B5=C4=CD=F8=D3=D1=B6=D4=D0=C2=CE=C5:<b><a href=3D"http:/=
+/news.chinaunix.net/tele/2012/1225/2560081.shtml" target=3D"_blank">=C1=AA=
+=CF=EB=BD=AB=BC=D3=C7=BF=B2=BC=BE=D6=B8=DF=B6=CB=CA=D6=BB=FA</a></b>=B5=C4=
+=C6=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2671106&amp;verify=3D2e56a6dbe63e614ad14c86174fc8a=
+a28" target=3D"_blank" class=3D"comment_content_link">=D5=E2=C4=AA=BA=C3=B5=
+=C4=C6=BD=B0=E5  =B1=BB=D5=E2=BF=E9=C6=C1=D4=E3=CC=A3=C1=CB&nbsp;&nbsp;<img=
+ width=3D"16" src=3D"http://pub.chinaunix.net/images/comment_more.png" bord=
+er=3D"0"></a></dt><dd>=C0=B4=D7=D4=D6=D0=B9=FA=B5=C4=CD=F8=D3=D1=B6=D4=D0=
+=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/digi/2013/0312/2671106.sh=
+tml" target=3D"_blank">=CA=D7=BF=EE=CB=C4=BA=CB=C1=BF=B2=FA=C6=BD=B0=E5=BF=
+=E1=B1=C8=CB=C4=BA=CB=CD=E3=B6=B92=B6=AF=CA=D6=CD=E6</a></b>=B5=C4=C6=C0=C2=
+=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2390654&amp;verify=3D510153d6b6924546cc378ca8b98b0=
+892" target=3D"_blank" class=3D"comment_content_link">=D3=A6=B8=C3=B2=BB=D0=
+=D0=A3=AC=CA=D4=C1=CB=A3=AC=CA=C7=B2=BB=D0=D0=A1=A3&nbsp;&nbsp;<img width=
+=3D"16" src=3D"http://pub.chinaunix.net/images/comment_more.png" border=3D"=
+0"></a></dt><dd>=C0=B4=D7=D4=BA=FE=C4=CF=CA=A1=D4=C0=D1=F4=CA=D0=B5=C4=CD=
+=F8=D3=D1=B6=D4=D0=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/digi/20=
+12/0919/2390654.shtml" target=3D"_blank">=C7=AE=C1=FA=BB=C6=BD=F0=D1=DB=C8=
+=AB=BE=B0=B0=E6=C6=C6=BD=E2=A3=A1=B9=AB=B2=E2=D6=AE=BA=F3=BC=CC=D0=F8=D3=C3=
+</a></b>=B5=C4=C6=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2684496&amp;verify=3Da62398d15612032f051e29afa6e9d=
+951" target=3D"_blank" class=3D"comment_content_link">=C1=E9=BB=EE=BF=EC=BD=
+=DD=B7=BD=B1=E3=B0=B2=C8=AB=A3=AC=BA=DC=CF=B2=BB=B6=D5=E2=BF=EE=C8=ED=BC=FE=
+=A1=A3&nbsp;&nbsp;<img width=3D"16" src=3D"http://pub.chinaunix.net/images/=
+comment_more.png" border=3D"0"></a></dt><dd>=C0=B4=D7=D4IANA=B5=C4=CD=F8=D3=
+=D1=B6=D4=D0=C2=CE=C5:<b><a href=3D"http://news.chinaunix.net/digi/2013/032=
+0/2684496.shtml" target=3D"_blank">=C1=E9=BB=EE=BF=EC=BD=DD =C8=F0=D0=C7=D6=
+=D0=D0=A1=C6=F3=D2=B5=B0=E6=C9=B1=B6=BE=C8=ED=BC=FE=BD=F6369</a></b>=B5=C4=
+=C6=C0=C2=DB</dd></dl>
+<dl class=3D"w290 line"><dt><a href=3D"http://pub.chinaunix.net/comment/?ke=
+yid=3Dnews-content-title-2684496&amp;verify=3Da62398d15612032f051e29afa6e9d=
+951" target=3D"_blank" class=3D"comment_content_link">=B3=AC=C7=BF=B5=C4=B7=
+=C0=BB=A4=B9=A6=C4=DC=C8=C3=C6=F3=D2=B5=C3=BB=D3=D0=C1=CB=BA=F3=B9=CB=D6=AE=
+=D3=C7=C1=CB=A1=A3&nbsp;&nbsp;<img width=3D"16" src=3D"http://pub.chinaunix=
+.net/images/comment_more.png" border=3D"0"></a></dt><dd>=C0=B4=D7=D4=D0=C2=
+=BD=AE=B0=A2=BF=CB=CB=D5=CA=D0=B5=C4=CD=F8=D3=D1=B6=D4=D0=C2=CE=C5:<b><a hr=
+ef=3D"http://news.chinaunix.net/digi/2013/0320/2684496.shtml" target=3D"_bl=
+ank">=C1=E9=BB=EE=BF=EC=BD=DD =C8=F0=D0=C7=D6=D0=D0=A1=C6=F3=D2=B5=B0=E6=C9=
+=B1=B6=BE=C8=ED=BC=FE=BD=F6369</a></b>=B5=C4=C6=C0=C2=DB</dd></dl>
+                </td>
+          </tr>
+          <tr>
+            <td height=3D"5"></td>
+          </tr>
+        </tbody></table>
+</td>
+   </tr>
+   <tr>
+     <td height=3D"10" bgcolor=3D"#FFFFFF"></td>
+   </tr>
+ <tr>
+</tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+      <tbody><tr>
+        <td height=3D"27" background=3D"http://pub.chinaunix.net/images/new=
+s/bg245.jpg" class=3D"F13"><table width=3D"100%"><tbody><tr><td>&nbsp;=B1=
+=BE=D6=DC=CA=AE=B4=F3=C8=C8=B5=E3=D0=C2=CE=C5</td><td align=3D"right">&nbsp=
+;</td></tr></tbody></table></td>
+      </tr>
+      <tr>
+        <td valign=3D"top" bgcolor=3D"#FFFFFF" class=3D"BLKtext">=A1=A4 <a =
+href=3D"http://news.chinaunix.net/industry/2013/0622/2820185.shtml" title=
+=3D"=B3=A4=D0=C5=BF=C6=BC=BC=A3=BA=B4=A5=C6=C1=D2=B5=BE=BA=D5=F9=D5=DF=B6=
+=E0=BF=EC=D5=C7=CD=B8=D6=A7=B9=C0=D6=B5" target=3D"_blank">=B3=A4=D0=C5=BF=
+=C6=BC=BC=A3=BA=B4=A5=C6=C1=D2=B5=BE=BA=D5=F9=D5=DF=B6=E0=BF=EC=D5=C7=CD=B8=
+=D6=A7</a><br>=A1=A4 <a href=3D"http://news.chinaunix.net/industry/2013/062=
+2/2820184.shtml" title=3D"=D7=A8=B7=C3=BD=F0=B5=FB=B6=AD=CA=C2=BE=D6=D6=F7=
+=CF=AF=D0=EC=C9=D9=B4=BA=A3=BA=D7=AA=D0=CD=C6=DA=B5=C4=D4=C6=C9=CC=BB=FA" t=
+arget=3D"_blank">=D7=A8=B7=C3=BD=F0=B5=FB=B6=AD=CA=C2=BE=D6=D6=F7=CF=AF=D0=
+=EC=C9=D9=B4=BA=A3=BA=D7=AA=D0=CD=C6=DA</a><br>=A1=A4 <a href=3D"http://new=
+s.chinaunix.net/industry/2013/0621/2820183.shtml" title=3D"=B4=EF=C8=CB=D6=
+=A7=D5=D0=BD=B5=B5=CD=A1=B0=BA=A3=CC=D4=A1=B1=B7=E7=CF=D5" target=3D"_blank=
+">=B4=EF=C8=CB=D6=A7=D5=D0=BD=B5=B5=CD=A1=B0=BA=A3=CC=D4=A1=B1=B7=E7=CF=D5<=
+/a><br>=A1=A4 <a href=3D"http://news.chinaunix.net/industry/2013/0621/28201=
+82.shtml" title=3D"=BC=CE=D0=CB=B9=E2=B7=FC=B2=FA=D2=B5=D7=DF=B9=FA=BC=CA=
+=BB=AF" target=3D"_blank">=BC=CE=D0=CB=B9=E2=B7=FC=B2=FA=D2=B5=D7=DF=B9=FA=
+=BC=CA=BB=AF</a><br>=A1=A4 <a href=3D"http://news.chinaunix.net/industry/20=
+13/0621/2820181.shtml" title=3D"=C0=EE=D2=D7=A3=BA=C6=F3=D2=B5=BC=B6=D3=A6=
+=D3=C3=BD=AB=CA=C7=BB=A5=C1=AA=CD=F8=CF=C2=D2=BB=B8=F6=C8=C8=B5=E3" target=
+=3D"_blank">=C0=EE=D2=D7=A3=BA=C6=F3=D2=B5=BC=B6=D3=A6=D3=C3=BD=AB=CA=C7=BB=
+=A5=C1=AA=CD=F8=CF=C2=D2=BB=B8=F6</a><br>=A1=A4 <a href=3D"http://news.chin=
+aunix.net/industry/2013/0621/2820180.shtml" title=3D"=B0=D9=CA=D3=CD=A8IPTV=
+=D3=C3=BB=A7=D4=A4=BC=C6=C4=EA=B5=D7=CD=BB=C6=C62000=CD=F2" target=3D"_blan=
+k">=B0=D9=CA=D3=CD=A8IPTV=D3=C3=BB=A7=D4=A4=BC=C6=C4=EA=B5=D7=CD=BB=C6=C620=
+00=CD=F2</a><br>=A1=A4 <a href=3D"http://news.chinaunix.net/industry/2013/0=
+621/2820179.shtml" title=3D"=BB=AA=CE=AA=B7=A2=B2=BC=C8=AB=C7=F2=D7=EE=B1=
+=A1=D6=C7=C4=DC=CA=D6=BB=FA" target=3D"_blank">=BB=AA=CE=AA=B7=A2=B2=BC=C8=
+=AB=C7=F2=D7=EE=B1=A1=D6=C7=C4=DC=CA=D6=BB=FA</a><br>=A1=A4 <a href=3D"http=
+://news.chinaunix.net/industry/2013/0621/2820178.shtml" title=3D"=C8=ED=BC=
+=FE=CD=E2=B0=FC=C6=F3=D2=B5=C7=F3=BD=E2=B7=A2=D5=B9=C0=A7=BE=B3=A3=BA=D7=AA=
+=CF=F2=B9=FA=C4=DA" =D2=B5=CE=F1=D7=AA=D0=CD=3D"" target=3D"_blank">=C8=ED=
+=BC=FE=CD=E2=B0=FC=C6=F3=D2=B5=C7=F3=BD=E2=B7=A2=D5=B9=C0=A7=BE=B3=A3=BA=D7=
+=AA=CF=F2=B9=FA</a><br>=A1=A4 <a href=3D"http://news.chinaunix.net/industry=
+/2013/0620/2820177.shtml" title=3D"=C6=BB=B9=FBiOS" 7=A3=BA=C3=E6=B6=D4=CF=
+=D6=CA=B5=3D"" =B8=E6=B1=F0=C4=E2=D5=E6=3D"" target=3D"_blank">=C6=BB=B9=FB=
+iOS 7=A3=BA=C3=E6=B6=D4=CF=D6=CA=B5 =B8=E6=B1=F0=C4=E2=D5=E6</a><br>=A1=A4 =
+<a href=3D"http://news.chinaunix.net/industry/2013/0620/2820176.shtml" titl=
+e=3D"=B9=FA=C4=DA=B3=A7=C9=CC=B3=C6=D6=F7=BB=FA=CF=B5=CD=B3=B0=B2=C8=AB=D2=
+=FE=BB=BC=D4=B6=B3=AC=A1=B0=C0=E2=BE=B5=A1=B1" target=3D"_blank">=B9=FA=C4=
+=DA=B3=A7=C9=CC=B3=C6=D6=F7=BB=FA=CF=B5=CD=B3=B0=B2=C8=AB=D2=FE=BB=BC=D4=B6=
+=B3=AC=A1=B0</a><br><table width=3D"97%" border=3D"0" align=3D"center" cell=
+padding=3D"0" cellspacing=3D"0">
+          <tbody><tr>
+            <td height=3D"5"></td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td height=3D"5"></td>
+          </tr>
+        </tbody></table>
+</td>
+   </tr>
+   <tr>
+     <td height=3D"10" bgcolor=3D"#FFFFFF"></td>
+   </tr>
+ <tr>
+</tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+      <tbody><tr>
+        <td height=3D"27" background=3D"http://pub.chinaunix.net/images/new=
+s/bg245.jpg" class=3D"F13"><table width=3D"100%"><tbody><tr><td>&nbsp;=B1=
+=BE=D6=DC=CA=AE=B4=F3=D5=F9=D2=E9=D0=C2=CE=C5</td><td align=3D"right">&nbsp=
+;</td></tr></tbody></table></td>
+      </tr>
+      <tr>
+        <td valign=3D"top" bgcolor=3D"#FFFFFF" class=3D"BLKtext"><table wid=
+th=3D"97%" border=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0=
+">
+          <tbody><tr>
+            <td height=3D"5"></td>
+          </tr>
+          <tr>
+            <td></td></tr>
+          <tr>
+            <td height=3D"5"></td>
+          </tr>
+        </tbody></table>
+</td>
+   </tr>
+   <tr>
+     <td height=3D"10" bgcolor=3D"#FFFFFF"></td>
+   </tr>
+ <tr>
+</tr></tbody></table>
+</td>
+  </tr>
+</tbody></table>
+
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"950" align=
+=3D"center">
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"950" align=
+=3D"center">
+    <tbody>
+        <tr>
+            <td bgcolor=3D"#308cf6" height=3D"2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td bgcolor=3D"#308cf6" height=3D"2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td align=3D"center">
+            <p>Copyright &#169; 2001-2010 ChinaUnix.net All Rights Reserved=
+</p>
+            <p>=B8=D0=D0=BB=CB=F9=D3=D0=B9=D8=D0=C4=BA=CD=D6=A7=B3=D6=B9=FD=
+ChinaUnix=B5=C4=C5=F3=D3=D1=C3=C7<br>
+            &nbsp;</p>
+            <p><a href=3D"http://www.it168.com/images/icp.jpg" target=3D"_b=
+lank">=BE=A9ICP=D6=A4:060528=BA=C5</a><br>
+            &nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- =CD=B3=BC=C6 START --><!-- =CD=B3=BC=C6 END -->
+
+
+<div style=3D"display:none">
+
+
+
+
+
+</div>
+
+
+</body></html>
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://pub.chinaunix.net/images/bg_digg.png
+
+iVBORw0KGgoAAAANSUhEUgAAAHgAAABLCAMAAACMVLPjAAAAA3NCSVQICAjb4U/gAAAClFBMVEX/
+/////vn5/v///O/u/P//+e//+eTv+f//99ni+f//9M3/8t//8sLW9//f8v//7ND/77b/7M//7avK
+9P//6p/R7//N7v/P7P/Q7P++8v/L7f/J7f//6JTF7P//5orC6v+x7///43+96f++6f+66P//4XO2
+5/+l7f+z5f//3mj/2Z+w5P+v5P//3F2Z6/+r4///2VKN6P+n4f+j4P//10am4P+i3/+f3/+g3f//
+1Dqc3v+C5v+d3P+d3f//0i+Y2/+f2f925P+V2v//zySP2f//zRn/yySK1///yir/yS+B2f+G2P+H
+2P//yxf/yx5q4f//xjr/yCj/yDOE1///yxD/xzeA2P//yRiI1f972P//xTz/wz6H1P9+1v//wy//
+xxN51///v2D/v19e3/+C1P//wyN01///wT//v0B21f9z1f960/9+0v//vkB40f9S3P920P//uz9r
+1P9y0f9v0/9p0///uDv/uT1G2v9i0v9tzf9l0P9qz///tThh0P//szU62P9dzv9gzP9jyv//sDH/
+ryVhyf//rSz/ryNXyf//rC8t1f9Zx///qif/pyEh0/9fv///piBgv/9Pw///pBo6xv84x/81yP8t
+yf9IwP8pyv88xP8xyP8+xP8V0P8gy/9Awf8/wv84xP8lyv//oRMay///nxBAv/81wv//ngsKzv9A
+vv8OzP8Uy/8zwf8/vP8Hzf//mwUxv/8+uv8Rx/8AzP88uf//mQAcw/8tvP8Byf8Wwv87t/8su/8E
+x/8quv84tf8nuP8vtv81s/8ysf8itP8jtP8is/8ur/8gsv8vrP8qrP8dsP8gr/8fr/8brv8mqv8a
+rf8ZrP8Xq/8Wqv8hp/8gpv8bpf8Vov8Qn/8Amf////8EfSdaAAAA3HRSTlP/////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////8ArL5fNwAAAAlwSFlzAAALEgAACxIB
+0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOC8xMy8wOAw8p2sAAAAfdEVYdFNvZnR3YXJlAE1h
+Y3JvbWVkaWEgRmlyZXdvcmtzIDi1aNJ4AAADCklEQVRoge3Z+0tTYRzH8Xm/3yU1nFjDiWuKDkNF
+spmZ3a2wogJjOi0ZJamUpZFals5Kt+43K6tFVlamqZnaKq2Wy7y0mv4zrW3P9vxyqo+cgwTn/cM5
+P315cS6cA88jmAsp0vQhaYpC5pxFtJlmkUxtEbZBQYiuqWRvbk5WRmpyYkLckpjo8NBgf19vTzcX
+FzdPb1//4NDw6JglcQmJyakZWTm5BQUlTTqnHGE2Dg53tre21FWXF+dnZ6YkxcdGhQX4uLu6uvsE
+hEXFxielZGbnF5dX17W0tnf2Dg8azTZZoGjcuQmsUeGAtcbXvWBGrQ3WFG5GK9Q4YFP/c7R+kw3u
+27oGrs8Bz/Y8QeuZtcNr8Sj4KR6B1+FR8AM8Am/Do+DbeATejkfB9/AIvAWPgq/jEXg3HgVfxSPw
+HjwKvolH4H14FHwFj8D78Sj4Mh6BD+BR8CU8Ah/Co+AbeAQ+gkfBt/AIfBiPgu/iEfg4HgXfwSPw
+CTwKfohH4FN4FPwYj8Bn8Cj4GR6Bz+FR8Es8Ap/Ho+BXeAS+iEfBb/AIfB+Pgt/iEfgRHgW/xyPw
+i3nkhD/gEXg+OeFPeOzAX/DYgb/hsQN/x2MH/oHHDvwTj8ACPAqexzQP8zAP8zAP/z+wHzzpR8GB
+8HSgHdZI4FEJtYgqh6fl9kVUhdoDnPRQU8vGBi9w2stgXzYO0qklyN32k6h1QQ440myQI3c7UG4w
+R9rguSAFuDWgcLoWWQtuDWhtrgVeoHiYhzmFZyxN/LEZbuDp9PR0mUwqFYtFIqFwkSWhUCQSi6VS
+mSwtbWVeXt40N/DUKqVyw0bmlMopbuDJFSrVjvXMqVST3MATyyvLynYxVlZ5bIIjeFltVVUpY1W1
+J0vZf8hWeGlDTU0FYzUNZysqWJet8OLm+vqjjNU3X7Ac2ZatsGyoq4N5D6FraPT3iWXZCq/+B5iT
+Kz74d5ibZ3x6pLu7g7HukY8d3LzVk9f0AwNdjA3oP3P0AZl6N6bXDzGmHxvn6JM5/dXSKHPj4xz9
+JBbst7gg/QIxJtvObYuuQQAAAABJRU5ErkJggg==
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://pub.chinaunix.net/images/bg_logo.gif
+
+R0lGODlhhgA8APcAAP/////+/f/++v/9/P/9+v/9+P3+//z9//r9///89f/98//88ff8///7+P/6
+9f/67v/68P/68/b7///66/b6/fX6///48f/47vP6//H5///28f/43f/34v/35//36+/5///17P/1
+5//32e74//H4/P/12ev3///14v/07P/12P/13ez3/ez2/P/1z//03f/01P/z4v/z3f/z2ez1+//z
+1P/0yv/y5//yz//w4//x4uf1///w3f/w2f/w1P/v4v/zvP/ywP/yxef0/eL0/+fz+v/wyv/wxf/w
+z//u1P/wt//t1+Ly/P/t3f/t2t3y///vvP/s3eLx+v/wsv/s1f/tyv/s2v/r2N3x/v/r1P/tvP/t
+xf/twP/ut//svP/tsv/p1Nnw///ryt3w+//rxf/q0P/p093w/f/swN3u+f/oz//pzf/pyv/pxf/o
+2P/o2f/rsv/rt9jv/djw///owP/nzf/nz9nu/P/m1NTu///nwNjt+v/pstnt+v/myv/mxv/myNns
+9//lw//nt9Tt/dTt/9Ts/P/kv9nr9v/kxv/lvP/kwP/kxNTr+s/s///mt//msv/kvf/kt//ksv/i
+z//ixc/r/dTq+NTp9v/juv/ivv/hwM/q+v/ht9To8//hvP/itP/husrq///gsv/fvP/fus/o+P/e
+xf/et//ftMXo///fssXn/f/dt8rm9//bwP/cssXl+crk9MDm/8rk8+zexf/at//assDl/cDk+rzk
+///XvMXi9MXj9sXh8sXh8f/Wt8Di9//Xsv/VssDh9Lzi/Lfi/7zh97fh/bvh+f/Ssv/Rsrze9LLg
+/rLg/7fe97Lf/Lfd9LLe+7Ld+rLc97fb8LLc9rLb9LLa87LZ8bLY8LLX7LLX7bLW6wAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAHAP8ALAAAAACGADwA
+AAj/AAEIHEiwoMGDCBMqXMiwocOHECMeBGGlDiVKrzJmRITIig0HEkOKHEnyoQMmlFix8uRJkcuX
+ijjJnIkFRMmbOHMyBNGHlCI/QA0Z4vSpqKSjSCUVLeqJCQGdUKOOtKFJ05+rkGYifcR1j1evXB8l
+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
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://pub.chinaunix.net/images/line.gif
+
+R0lGODlhIgEBAJEAALCwsP///7W1tf///yH5BAUUAAMALAAAAAAiAQEAAAIrlBJwYajY0oqPrUrn
+1Y5LuHWgaJHZ+JXpqWJh67nmy9b0PecrvutyD1QUAAA7
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://pub.chinaunix.net/css/news.css
+
+body { font-family: Verdana, Arial, Helvetica, sans-serif; margin: 0px; fon=
+t-size: 12px; line-height: 168%; }
+
+table { word-wrap: break-word; }
+
+.whitetop { color: rgb(255, 255, 255); text-indent: 12px; word-spacing: 5px=
+; }
+
+.whitetop a:link { color: rgb(255, 255, 255); text-decoration: none; }
+
+.whitetop a:visited { color: rgb(255, 255, 255); text-decoration: none; }
+
+.whitetop a:hover { color: rgb(255, 51, 0); text-decoration: none; }
+
+.BLKtext { border: 1px solid rgb(204, 204, 204); }
+
+.BLKallgrey { border: 1px solid rgb(204, 204, 204); padding: 7px 0px 5px 7p=
+x; }
+
+.Ftext1 { font-size: 18px; color: rgb(51, 51, 51); text-align: center; font=
+-weight: bold; font-family: =CB=CE=CC=E5; line-height: normal; }
+
+.Ftext2 { color: rgb(102, 102, 102); }
+
+.Ftext2 a:link { color: rgb(255, 0, 0); }
+
+.Ftext2 a:visited { color: rgb(255, 0, 0); }
+
+.Ftext2 a:hover { color: rgb(255, 0, 0); }
+
+.Ftext2 a:active { color: rgb(255, 0, 0); }
+
+.BlkLightblue { background-color: rgb(245, 250, 255); border: 1px solid rgb=
+(123, 189, 255); color: rgb(102, 102, 102); padding: 10px 5px; }
+
+.F14 { font-size: 14px; color: rgb(0, 0, 0); width: 650px; word-wrap: break=
+-word; word-break: break-all; table-layout: fixed; }
+
+.F14BL { font-weight: bold; color: rgb(0, 68, 182); font-size: 14px; }
+
+.F13 { font-size: 13px; font-weight: bold; color: rgb(0, 68, 182); text-ind=
+ent: 10px; vertical-align: middle; line-height: normal; }
+
+.more { font-weight: normal; padding: 0px 0px 0px 122px; }
+
+.more702 { padding-left: 415px; }
+
+.F12 { padding: 5px 5px 5px 10px; }
+
+a:link { color: rgb(0, 68, 182); text-decoration: underline; }
+
+a:visited { color: rgb(0, 68, 182); text-decoration: underline; }
+
+a:hover { color: rgb(255, 0, 0); text-decoration: underline; }
+
+a:active { color: rgb(0, 68, 182); text-decoration: underline; }
+
+.BlkBlue { border: 1px solid rgb(123, 189, 255); background-color: rgb(231,=
+ 244, 255); height: 120px; }
+
+.Fred { font-size: 15px; font-weight: bold; color: rgb(255, 0, 0); }
+
+.gray { height: 72px; width: 83px; border: 1px solid rgb(204, 204, 204); pa=
+dding: 1px; }
+
+.gray2 { padding: 1px; height: 90px; width: 125px; border: 1px solid rgb(20=
+4, 204, 204); }
+
+.orange { font-weight: bold; color: rgb(255, 102, 0); }
+
+.orange a:link { font-weight: bold; color: rgb(255, 102, 0); text-decoratio=
+n: none; }
+
+.orange a:visited { font-weight: bold; color: rgb(255, 102, 0); text-decora=
+tion: none; }
+
+.orange a:hover { font-weight: bold; color: rgb(255, 102, 0); text-decorati=
+on: underline; }
+
+.orange a:active { font-weight: bold; color: rgb(255, 102, 0); text-decorat=
+ion: none; }
+
+.darkpred { color: rgb(153, 0, 0); }
+
+.darkpred a:link { color: rgb(153, 0, 0); text-decoration: none; }
+
+.darkpred a:visited { color: rgb(153, 0, 0); text-decoration: none; }
+
+.darkpred a:hover { color: rgb(153, 0, 0); text-decoration: none; }
+
+.darkpred a:active { color: rgb(153, 0, 0); text-decoration: none; }
+
+.f13 { font-size: 13px; color: rgb(0, 68, 182); font-weight: bold; }
+
+.cat, .cat_index { margin: 10px auto; clear: both; font-weight: normal; ove=
+rflow: hidden !important; }
+
+.cat { padding: 0px 5px; }
+
+.cat_title, .cat_title_1 { border: 1px solid rgb(153, 211, 251); background=
+-image: url(http://pub.chinaunix.net/images/bg_2.jpg); height: 27px; overfl=
+ow: hidden; line-height: 27px; padding: 0px 10px; margin-bottom: 10px; back=
+ground-position: 0px -64px; background-repeat: repeat no-repeat; }
+
+.cat_title_1 { border: 0px; background-position: 0px 24px; }
+
+.cat_title img, .cat_title_1 img { float: right; }
+
+.cat_title h3, .cat_title_1 h3 { font-size: 14px; color: rgb(0, 102, 153); =
+background-image: url(http://pub.chinaunix.net/images/bg_model.gif); paddin=
+g-left: 1em; background-position: -7px 3px; background-repeat: no-repeat no=
+-repeat; }
+
+.cat_left { width: 220px; float: left; border: 1px solid rgb(153, 211, 251)=
+; text-align: center; padding: 5px 0px; overflow: hidden; }
+
+.cat_left p { text-indent: 2em; width: 204px; text-align: left; line-height=
+: 200%; margin: 0px auto; }
+
+.cat_left p a { font-size: 12px; }
+
+.cat_left a img { border: 1px solid rgb(204, 204, 204); padding: 1px; }
+
+.cat_left ul { margin: 0px auto; }
+
+.cat_right { width: 460px; float: right; }
+
+.cat_right a { font-size: 14px; }
+
+.text_list { padding: 0px 0px 0px 10px; margin: 0px; list-style: none; }
+
+.text_list li { text-align: left; padding-left: 0px; line-height: 180%; }
+
+.pic_list { width: 100%; overflow: hidden; padding-left: 0px; }
+
+.pic_list li { margin: 2px 6px; display: inline; float: left; text-align: l=
+eft; background-image: none; padding: 0px; }
+
+.pic_list li img, .pic_txt_list li img { padding: 1px; border: 1px solid rg=
+b(204, 204, 204); }
+
+.pic_list li a { font-size: 12px; white-space: nowrap; }
+
+.text_list_f14 { padding: 5px; }
+
+.text_list_f14 li { border-bottom-width: 1px; border-bottom-style: dotted; =
+border-bottom-color: rgb(238, 238, 238); }
+
+.text_list_f14 li a { font-size: 14px; }
+
+.f_l, #slide { float: left; }
+
+.f_r, .date { float: right; }
+
+.date { font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin-=
+right: 8px; }
+
+#pages { margin: 15px auto; text-align: center; clear: both; }
+
+#pages a { padding: 3px 6px 2px; margin: 3px; border: 1px solid rgb(185, 22=
+3, 249); text-align: center; color: rgb(7, 122, 199); }
+
+#pages a.now { background-color: rgb(7, 122, 199); color: rgb(255, 255, 255=
+); border: 0px; background-position: initial initial; background-repeat: in=
+itial initial; }
+
+#pages a:hover, #pages a.now:hover { background-color: rgb(7, 122, 199); co=
+lor: rgb(255, 255, 255); background-position: initial initial; background-r=
+epeat: initial initial; }
+
+#keyword { font-size: 14px; margin: 10px 14px; padding: 0px; color: rgb(7, =
+122, 199); }
+
+#keyword a { margin-left: 8px; color: rgb(255, 0, 0); }
+
+#digg { width: 140px; margin: 0px auto 10px; overflow: hidden; }
+
+#digg span, #digg span.cai { background-image: url(http://pub.chinaunix.net=
+/images/bg_digg.png); width: 53px; display: block; text-align: center; line=
+-height: 24px; padding-top: 8px; text-decoration: none; color: rgb(255, 153=
+, 0); float: left; background-position: 0px 0px; background-repeat: no-repe=
+at no-repeat; }
+
+#digg span strong { color: rgb(255, 255, 255); font-family: Arial; font-siz=
+e: 14px; }
+
+#digg span.cai { width: 53px; color: rgb(7, 122, 199); float: right; backgr=
+ound-position: -62px 0px; }
+
+#digg samp { cursor: pointer; }
+
+.digg_text_list { padding: 5px 0px 0px; margin: 0px; list-style: none; }
+
+.digg_text_list li { background-image: none; padding-left: 2px; }
+
+.digg_text_list li span { background-image: url(http://pub.chinaunix.net/im=
+ages/bg_digg.png); font-size: 11px; margin-right: 2px; color: rgb(255, 255,=
+ 255); width: 42px; text-align: center; height: 18px; line-height: 18px; di=
+splay: block; float: left; padding: 0px; background-position: 0px -57px; ba=
+ckground-repeat: no-repeat no-repeat; }
+
+.margin_10 { margin: 10px; }
+
+.digg_list { border-bottom-width: 1px; border-bottom-style: dashed; border-=
+bottom-color: rgb(185, 223, 249); margin-bottom: 10px; padding: 6px; }
+
+.digg_list dt { font-size: 12px; font-weight: bold; color: rgb(7, 122, 199)=
+; float: right; width: 560px; line-height: 24px; }
+
+dd.digg_pic { background-image: url(http://pub.chinaunix.net/images/bg_digg=
+.png); width: 53px; display: block; text-align: center; line-height: 24px; =
+padding-top: 8px; text-decoration: none; color: rgb(255, 153, 0); float: le=
+ft; margin: 8px 10px 0px 0px; background-position: 0px 0px; background-repe=
+at: no-repeat no-repeat; }
+
+dd.digg_txt { color: rgb(102, 102, 102); line-height: 180%; margin-left: 20=
+px; height: 50px; min-height: 50px; width: 560px; }
+
+dd.digg_attribute { text-align: right; padding: 15px 0px 0px; }
+
+#digg { width: 140px; margin: 0px auto 10px; overflow: hidden; }
+
+dd.digg_pic, #digg span, #digg span.cai { background-image: url(http://pub.=
+chinaunix.net/images/bg_digg.png); width: 53px; display: block; text-align:=
+ center; line-height: 24px; padding-top: 8px; text-decoration: none; color:=
+ rgb(255, 153, 0); float: left; background-position: 0px 0px; background-re=
+peat: no-repeat no-repeat; }
+
+dd.digg_pic span strong, #digg span strong { color: rgb(255, 255, 255); fon=
+t-family: Arial; font-size: 14px; }
+
+dd.digg_pic samp { cursor: pointer; }
+
+#digg span.cai { width: 53px; color: rgb(0, 153, 255); float: right; backgr=
+ound-position: -62px 0px; }
+
+.commentbox { border: 1px solid rgb(189, 227, 253); margin-top: 10px; }
+
+.commenthead { background-color: rgb(237, 248, 254); color: rgb(0, 153, 204=
+); border: 1px solid rgb(255, 255, 255); line-height: 26px; height: 26px; p=
+adding: 0px 6px; background-position: initial initial; background-repeat: i=
+nitial initial; }
+
+.commenthead img { float: right; margin: 7px 10px 0px 0px; }
+
+.commenttext { padding: 10px; }
+
+.content { padding: 10px; }
+
+.content { white-space: pre-wrap; word-wrap: break-word; }
+
+.commenttext p { font-size: 14px; padding: 5px; text-indent: 2em; }
+
+.commentfunction { border-width: 1px; border-style: dotted solid solid; bor=
+der-color: rgb(189, 227, 253) rgb(255, 255, 255) rgb(255, 255, 255); text-a=
+lign: right; color: rgb(0, 153, 204); line-height: 24px; padding-right: 15p=
+x; }
+
+.reply { border-width: 1px 1px 1px 5px; border-style: solid; border-color: =
+rgb(189, 227, 253); padding: 5px 10px; font-size: 12px; margin: 10px auto; =
+text-indent: 0px; line-height: 180%; color: rgb(69, 69, 69); }
+
+.reply p { margin: 2px auto; text-indent: 2em; line-height: 150%; font-size=
+: 12px; }
+
+.commenttext li { margin-bottom: 6px; }
+
+.commenttext textarea { width: 500px; height: 110px; background-image: url(=
+http://pub.chinaunix.net/images/bg_logo.gif); padding: 4px; background-posi=
+tion: 99260px 9940px; background-repeat: no-repeat no-repeat; }
+
+.commenttext li input { float: left; margin: 0px 3px; }
+
+.commenttext li img { float: left; margin: 0px 5px 5px; }
+
+.commenttext ul, .commenttext ol { list-style: none; }
+
+input, select, textarea, .textarea_style { font-family: =CB=CE=CC=E5; borde=
+r: 1px solid rgb(220, 220, 220); }
+
+#content h3, .box h3, #text_1 { font-size: 12px; background-color: rgb(228,=
+ 243, 252); color: rgb(7, 122, 199); line-height: 24px; padding: 0px 8px; }
+
+#content h3 a, .box h3 a, #text_1 a { color: rgb(7, 122, 199); font-weight:=
+ bold; font-size: 12px; }
+
+#text_1 { text-align: right; padding-right: 10px; }
+
+.search_list { border-bottom-width: 1px; border-bottom-style: dashed; borde=
+r-bottom-color: rgb(185, 223, 249); margin-bottom: 10px; padding: 6px; }
+
+.search_list dt { line-height: 24px; }
+
+.search_list dt a:link, .search_list dt a:visited { font-size: 14px; color:=
+ rgb(0, 0, 204); text-decoration: underline; }
+
+.search_list dt a:hover, .search_list dt a:active { font-size: 14px; color:=
+ rgb(0, 0, 204); text-decoration: underline; }
+
+dd.search_txt { color: rgb(102, 102, 102); line-height: 180%; }
+
+dd.search_attribute, dd.search_attribute a:link, dd.search_attribute a:visi=
+ted, dd.search_attribute a:hover, dd.search_attribute a:active { text-align=
+: left; color: rgb(0, 128, 0); }
+
+.w290 { width: 230px; margin: 0px; padding: 5px 0px 10px; }
+
+.w290 dt { line-height: 18px; color: rgb(0, 0, 0); }
+
+.w290 dd { line-height: 18px; color: rgb(128, 128, 128); margin: 0px; paddi=
+ng: 10px 0px 5px; }
+
+.w290 dd b { color: rgb(7, 122, 199); }
+
+.line { background-image: url(http://pub.chinaunix.net/images/line.gif); ba=
+ckground-position: 50% 100%; background-repeat: no-repeat no-repeat; }
+
+.clear { height: 0px; clear: both; overflow: hidden; }
+
+#main_l { float: left; width: 640px; overflow: hidden; }
+
+#main_l h1 { font-size: 18px; text-align: center; margin: 10px auto; }
+
+#main_r { float: right; width: 295px; padding: 5px; overflow: hidden; }
+
+.bdr_1 { border: 1px solid rgb(185, 223, 249); }
+
+.bdr_2 { border-bottom-width: 1px; border-bottom-style: solid; border-botto=
+m-color: rgb(185, 223, 249); margin-top: 8px; }
+
+#main_r h4 { background-image: url(http://pub.chinaunix.net/images/bg_model=
+.gif); height: 28px; line-height: 28px; border-bottom-width: 1px; border-bo=
+ttom-style: solid; border-bottom-color: rgb(255, 255, 255); font-size: 14px=
+; font-weight: bold; padding-left: 20px; color: rgb(21, 137, 200); zoom: 1;=
+ margin-top: 8px; background-position: 0px 2px; background-repeat: no-repea=
+t no-repeat; }
+
+#main_r h4 a { float: right; }
+
+#main_r div { border-top-width: 1px; border-top-style: solid; border-top-co=
+lor: rgb(185, 223, 249); background-image: url(http://pub.chinaunix.net/ima=
+ges/bg_maindiv.gif); background-color: rgb(255, 255, 255); padding: 5px 0px=
+; background-position: 0px 100%; background-repeat: repeat no-repeat; }
+
+.mar_10 { margin-top: 10px; }
+
+.mar_5 { margin-left: 5px; }
+
+#pages span { padding: 3px 6px 2px; margin: 3px; border: 1px solid rgb(185,=
+ 223, 249); text-align: center; background-color: rgb(7, 122, 199); color: =
+rgb(255, 255, 255); background-position: initial initial; background-repeat=
+: initial initial; }
+
+a.comment_content_link { color: rgb(0, 0, 0); text-decoration: none; word-w=
+rap: break-word; word-break: break-all; }
+
+a.comment_content_link:hover { color: rgb(255, 0, 0); text-decoration: none=
+; word-wrap: break-word; word-break: break-all; }
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://pub.chinaunix.net/images/news/title.gif
+
+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
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://pub.chinaunix.net/images/d.gif
+
+R0lGODlhAQABAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAABAAEAAAICVAEAOw==
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://pub.chinaunix.net/images/comment_more.png
+
+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
+------=_NextPart_000_F2F8_E1A91578.06F5E4A4--

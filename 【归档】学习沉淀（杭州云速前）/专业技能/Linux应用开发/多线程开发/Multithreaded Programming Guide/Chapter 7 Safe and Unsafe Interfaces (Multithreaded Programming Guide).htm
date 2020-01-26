@@ -1,0 +1,739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0081)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-83941/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;7 Safe and Unsafe Interfaces (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 7 Safe and Unsafe Interfaces (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 7 Safe and Unsafe Interfaces (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 7 Safe and Unsafe Interfaces (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 7 Safe and Unsafe Interfaces (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 7 Safe and Unsafe Interfaces (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 7 Safe and Unsafe Interfaces (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;7 Safe and Unsafe Interfaces</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html"><em>Previous</em>: Chapter&nbsp;6 Programming With
+Solaris Threads</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-74765/index.html"><em>Next</em>: Chapter&nbsp;8 Compiling and Debugging</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vqke"></a><h1 class="sol">Chapter&nbsp;7 Safe and Unsafe Interfaces</h1>
+<a name="compat-ix626"></a><a name=""></a><p>This chapter defines MT-safety levels for functions and libraries. This
+chapter discusses the following topics:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-14994/index.html">Thread Safety</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-59005/index.html">MT Interface Safety Levels</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-79080/index.html">Async-Signal-Safe Functions in Solaris Threads</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-89113/index.html">MT Safety Levels for Libraries</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vqkg"></a><h1 class="sol">Thread Safety</h1>
+<p>
+<a name="compat-ix627"></a><a name="compat-ix628"></a>Thread safety is the avoidance of data races. Data races occur
+when data are set to either correct or incorrect values, depending upon the
+order in which multiple threads access and modify the data.</p>
+<p>When no sharing is intended, give each thread a private copy of the
+data. When sharing is important, provide explicit synchronization to make
+certain that the program behaves in a deterministic manner.</p>
+<p>A procedure is thread safe when the procedure is logically correct when
+executed simultaneously by several threads. At a practical level, safety falls
+into the following recognized levels.</p>
+<a name=""></a><ul>
+<li>
+<p>Unsafe</p>
+
+
+</li>
+<li>
+<p>Thread safe, Serializable</p>
+
+
+</li>
+<li>
+<p>Thread safe, MT-Safe</p>
+
+
+</li>
+</ul>
+<p>An unsafe procedure can be made thread safe and able to be serialized
+by surrounding the procedure with statements to lock and unlock a mutex. <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqkg/index.html#compat-13600">Example 7–1</a> shows three simplified
+implementations of <kbd><b>fputs()</b></kbd> , initially thread unsafe.</p>
+<p>Next is a serializable version of this routine with a single mutex protecting
+the procedure from concurrent execution problems. Actually, the single mutex
+is stronger synchronization than is usually necessary. When two threads are
+sending output to different files by using <kbd><b>fputs()</b></kbd>, one
+thread need not wait for the other thread. The threads need synchronization
+only when sharing an output file.</p>
+<p>The last version is MT-safe. This version uses one lock for each file,
+allowing two threads to print to different files at the same time. So, a routine
+is MT-safe when the routine is thread safe, and the routine's execution does
+not negatively affect performance.</p>
+<a name="compat-13600"></a><hr><h5 class="sol">Example 7–1  Degrees of Thread Safety</h5><br><a name=""></a><pre>/* not thread-safe */
+fputs(const char *s, FILE *stream) {
+    char *p;
+    for (p=s; *p; p++)
+        putc((int)*p, stream);
+}
+
+/* serializable */
+fputs(const char *s, FILE *stream) {
+    static mutex_t mut;
+    char *p;
+    mutex_lock(&amp;m);
+    for (p=s; *p; p++)
+        putc((int)*p, stream);
+
+    mutex_unlock(&amp;m);
+}
+
+/* MT-Safe */
+mutex_t m[NFILE];
+fputs(const char *s, FILE *stream) {
+    char *p;
+    mutex_lock(&amp;m[fileno(stream)]);
+    for (p=s; *p; p++)
+        putc((int)*p, stream);
+    mutex_unlock(&amp;m[fileno(stream)]0;
+}</pre>
+<hr>
+<a name="6mba5vqkh"></a><h1 class="sol">MT Interface Safety Levels</h1>
+<p>The man pages for functions
+and interfaces indicate how well the function or interface supports threads.
+The ATTRIBUTES section of each man page lists the MT-Level attribute, which
+is set to one of  the safety level categories listed in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqkh/index.html#compat-tbl-4">Table 7–1</a>. These categories are
+explained more fully in the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5175/attributes-5/index.html">attributes(5)</a> man page.</p>
+<p>If a man page does not state explicitly that a function is MT-Safe,
+you must assume that the function is unsafe.</p>
+<a name="compat-tbl-4"></a>Table 7–1  Interface Safety Levels<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Category&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Description&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>Safe&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>This code can be called from a multithreaded application&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Safe with exceptions&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>See the NOTES sections of the man page for a description of the exceptions.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Unsafe&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>This interface is not safe to use with multithreaded applications unless
+the application arranges for only one thread at a time to execute within the
+library.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>MT-Safe&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>This interface is fully prepared for multithreaded access. The interface
+is both <b>safe</b> and supports some concurrency.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>MT-Safe with exceptions&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>See the NOTES sections of the man page for a description  of the exceptions.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Async-Signal-Safe&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>This routine can safely be called from a signal handler. A thread that
+is executing an Async-Signal-Safe routine does not deadlock with itself when
+interrupted by a signal. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-79080/index.html">Async-Signal-Safe Functions in Solaris Threads</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Fork1–Safe&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>This interface releases locks it has held whenever Solaris <tt>fork1</tt>(2)
+or POSIX <tt>fork</tt>(2) is called.</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p>Some functions have purposely not been made safe for the following reasons.</p>
+<a name=""></a><ul>
+<li>
+<p>The interface made MT-Safe would have negatively affected
+the performance of single-threaded applications.</p>
+
+
+</li>
+<li>
+<p>
+<a name="compat-ix630"></a><a name="compat-ix631"></a><a name="compat-ix632"></a>The library has an unsafe interface. For example, a function might
+return a pointer to a buffer in the stack. You can use re-entrant counterparts
+for some of these functions. The re-entrant function name is the original
+function name with “<tt>_r</tt>” appended.</p>
+
+
+</li>
+</ul>
+<hr><b>Note – </b><p>The only way to be certain that a function with a name not ending
+in “<tt>_r</tt>” is MT-Safe is to check the function's
+manual page. Use of a function identified as not MT-Safe must be protected
+by a synchronizing device or by restriction to the initial thread.</p>
+<hr>
+<a name="6mba5vqkj"></a><h2 class="sol">Reentrant Functions for Unsafe Interfaces</h2>
+<a name="compat-ix633"></a><p>For most functions with unsafe interfaces, an MT-Safe version of the
+routine exists. The name of the MT-Safe routine is the name of the Unsafe
+routine with “<tt>_r</tt>” appended. For example, the
+MT-Safe version of <kbd><b>asctime()</b></kbd> is <kbd><b>asctime_r()</b></kbd>.
+The <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqkj/index.html#compat-41173">Table 7–2</a> “<tt>_r</tt>” routines are supplied in the Solaris environment.</p>
+<a name="compat-41173"></a>Table 7–2  Reentrant Functions<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>asctime_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>gethostbyname_r</tt>(3nsl)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getservbyname_r</tt>(3socket)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>ctermid_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>gethostent_r</tt>(3nsl)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getservbyport_r</tt>(3socket)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>ctime_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getlogin_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getservent_r</tt>(3socket)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>fgetgrent_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getnetbyaddr_r</tt>(3socket)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getspent_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>fgetpwent_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getnetbyname_r</tt>(3socket)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getspnam_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>fgetspent_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getnetent_r</tt>(3socket)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>gmtime_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>gamma_r(3m)</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getnetgrent_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>lgamma_r</tt>(3m)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getauclassent_r</tt>(3bsm)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getprotobyname_r</tt>(3socket)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>localtime_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getauclassnam_r</tt>(3bsm)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getprotobynumber_r</tt>(3socket)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>nis_sperror_r</tt>(3nsl)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getauevent_r</tt>(3bsm)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getprotoent_r</tt>(3socket)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>rand_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getauevnam_r</tt>(3bsm)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getpwent_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>readdir_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getauevnum_r</tt>(3bsm)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getpwnam_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>strtok_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getgrent_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getpwuid_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>tmpnam_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getgrgid_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getrpcbyname_r</tt>(3nsl)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>ttyname_r</tt>(3c)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>getgrnam_r</tt>(3c)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getrpcbynumber_r</tt>(3nsl)</p>
+
+</td><td align="left" valign="top">&nbsp;
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>gethostbyaddr_r</tt>(3nsl)</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>getrpcent_r</tt>(3nsl)</p>
+
+</td><td align="left" valign="top">&nbsp;
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqkk"></a><h1 class="sol">Async-Signal-Safe Functions in Solaris Threads</h1>
+<p>
+<a name="compat-ix634"></a>Functions
+that can safely be called from signal handlers are <b>Async-Signal-Safe</b>.
+The IEEE Std 1003.1–2004 (POSIX) standard defines Async-Signal-Safe
+functions, which are listed in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqbd/index.html#gen-95948">Table 5–2</a>.
+In addition to these standard Async-Signal-Safe functions, the following functions
+from the Solaris threads interface are also Async-Signal-Safe:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="compat-ix635"></a><tt>sema_post(3C)</tt>
+</p>
+
+
+</li>
+<li>
+<p>
+<a name="compat-ix636"></a><tt>thr_sigsetmask(3C)</tt>, similar to <tt>pthread_sigmask(3C)</tt>
+</p>
+
+
+</li>
+<li>
+<p>
+<a name="compat-ix637"></a><tt>thr_kill(3C)</tt>, similar to <tt>pthread_kill(3C)</tt>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqkl"></a><h1 class="sol">MT Safety Levels for Libraries</h1>
+<a name="compat-ix639"></a><p>All routines that can potentially be called by a thread from a multithreaded
+program should be MT-Safe. Therefore, two or more activations of a routine
+must be able to <b>correctly</b> execute concurrently. So, every
+library interface that a multithreaded program uses must be MT-Safe.</p>
+<p>Not all libraries are now MT-Safe. The commonly used libraries that
+are MT-Safe are listed in the following table. The libraries are accessed
+in the <kbd>/usr/lib</kbd> directory.</p>
+<a name="compat-17079"></a>Table 7–3  Some MT-Safe Libraries<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Library&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Comments&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix640"></a><kbd>libc</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-361"></a>Interfaces that are not safe
+have thread-safe interfaces of the form <tt>*_r</tt>, often with
+different semantics.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix643"></a><kbd>libm</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-362"></a>Math library that is compliant with System V Interface Definition,
+Edition 3, X/Open, and ANSI C</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix644"></a><kbd>libmalloc</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-363"></a>Space-efficient memory allocation
+library, see  <tt>malloc</tt>(3MALLOC)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix645"></a><kbd>libmapmalloc</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-364"></a>Alternative  <tt>mmap</tt>-based memory allocation library,
+see <tt>mapmalloc</tt>(3MALLOC)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix646"></a><kbd>libnsl</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-365"></a><a name="compat-ix647"></a><a name="compat-ix648"></a><a name="compat-ix649"></a><a name="compat-ix650"></a><a name="compat-ix651"></a>The TLI interface,
+XDR, RPC clients and servers,  <tt>netdir</tt>, <tt>netselect</tt> and <tt>getXXbyYY</tt> interfaces are not safe, but have thread-safe interfaces
+of the form <tt>getXXbyYY_r</tt>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix652"></a><kbd>libresolv</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-366"></a>Domain name server
+library routines</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix653"></a><kbd>libsocket</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-367"></a>Socket library for making
+network connections</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix656"></a><kbd>libX11</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-368"></a>X11 Windows library routines</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="indexterm-369"></a><kbd>libCrun</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-370"></a>C++
+runtime shared objects for Sun C++ 5.0 compilers</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="indexterm-371"></a><tt>libCstd</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-372"></a>C++
+standard library for Sun C++ 5.0 compilers</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="indexterm-373"></a><tt>libiostream</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-374"></a>Classic <tt>iostream</tt> library for Sun C++ 5.0 compilers</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="compat-ix657"></a><kbd>libC.so.5</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<a name="indexterm-375"></a>C++
+runtime and <tt>iostream</tt> library for Sun C++ 4.0 compilers</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqkn"></a><h2 class="sol">Unsafe Libraries</h2>
+<p>
+<a name="compat-ix658"></a><a name="compat-ix659"></a>Routines in libraries that are not guaranteed to be MT-Safe can
+safely be called by multithreaded programs only when such calls are single
+threaded.</p>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html"><em>Previous</em>: Chapter&nbsp;6 Programming With
+Solaris Threads</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-74765/index.html"><em>Next</em>: Chapter&nbsp;8 Compiling and Debugging</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

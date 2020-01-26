@@ -1,0 +1,955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0064)http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta content="360doc" name="classification">
+    
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://www.360doc.cn/article/7377734_411295332.html">
+    <meta content="tty,dev,进程" name="keywords">
+    <meta content="TTY的那些事儿" name="description">
+    <meta name="mobile-agent" content="format=html5;url=http://www.360doc.cn/article/7377734_411295332.html">
+
+    <meta content="www.360doc.com" name="author">
+
+    <title>
+        TTY的那些事儿
+    </title>
+    <link href="./TTY的那些事儿_files/bdsstyle.css" rel="stylesheet" type="text/css">
+    <script src="./TTY的那些事儿_files/hm.js"></script><script type="text/javascript" src="./TTY的那些事儿_files/jquery1.js"></script>
+    <script type="text/javascript" src="./TTY的那些事儿_files/jQuery.md5.js"></script>
+    
+    <script type="text/javascript" language="javascript">
+        window.onerror = ignoreError;
+        function ignoreError() {
+            return true;
+        }
+    </script>
+
+    <link href="./TTY的那些事儿_files/wzhead-cleaned.css" rel="stylesheet" type="text/css">
+    <link href="./TTY的那些事儿_files/wz20130912-cleaned.css" rel="stylesheet" type="text/css">
+   
+
+    
+
+    <script type="text/javascript" src="./TTY的那些事儿_files/indexhead.js"></script><script type="text/javascript" src="./TTY的那些事儿_files/chat.js"></script><script type="text/javascript" src="./TTY的那些事儿_files/chatuserlist.js"></script><link rel="stylesheet" type="text/css" href="./TTY的那些事儿_files/chat.css">
+    <script type="text/javascript" src="./TTY的那些事儿_files/showarticlefollow20130912.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?d86954201130d615136257dde062a503";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link href="./TTY的那些事儿_files/bdsstyle(1).css" rel="stylesheet" type="text/css"><script type="text/javascript" src="./TTY的那些事儿_files/EssayforIE120425.js"></script></head>
+<body style="font-family: Arial, Helvetica, sans-serif;" onmouseup="setDragEnd()" onmousemove="DragDiv();" onclick="delAllDiv(event)"><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="bds_more">更多...</a></li></ul><p><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" class="goWebsite">百度分享</a></p></div></div></div>
+
+
+    <span id="LayerLogin"></span>
+    <div style="position: fixed; width: 100%; z-index: 1000;">
+        <div class="mainnav" style="width: 2165px;">
+            <div class="mainnav1" style="margin-left: 111px;">
+                <div class="lf360" style="padding-left: 5px;">
+                    <a href="http://www.360doc.com/index.html">
+                        <img src="./TTY的那些事儿_files/logoo.gif"></a>
+                </div>
+                <div style="width: 625px; padding-top: 0px; padding-left: 4px; position: absolute;">
+                    <table height="34" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr id="daohangtr">
+                                <td style="width: 185px; _width: 0px; *width: 0px !important;"></td>
+                                <td class="navwz1" width="95">
+                                    <a href="http://www.360doc.com/index.html">首&nbsp;页</a>
+                                </td>
+                                <td width="100" class="  navwz1">
+                                    <a href="http://www.360doc.com/readroom.html">阅览室</a>
+                                </td>
+                                <td width="88" class="  navwz1">
+                                    <a href="http://www.360doc.com/weekstar.html">馆友</a>
+                                </td>
+                                <td width="132" class="  navwz1">
+                                    <a href="http://www.360doc.com/my360doc.aspx">我的图书馆</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="rt360" style="padding-top: 6px; width: 133px; padding-left: 38px;" id="outerdiv"><div class="denglbj lan2"><div style=" width:43px; float:left; text-align:center;" onmouseover="this.style.backgroundColor=&#39;#e5e5e5&#39;;this.parentNode.className=&#39;denglbj2 lan2&#39;" onmouseout="this.style.backgroundColor=&#39;#fcfcfc&#39;;this.parentNode.className=&#39;denglbj lan2&#39;"><a href="javascript:void(0)" onclick="loginnew()">登录</a></div><div style=" width:1px; float:left; "></div><div style="width:46px; float:left;text-align:center; margin-left:1px;*margin-left:0px;" onmouseover="this.style.backgroundColor=&#39;#e5e5e5&#39;;this.parentNode.className=&#39;denglbj3 lan2&#39;" onmouseout="this.style.backgroundColor=&#39;#fcfcfc&#39;;this.parentNode.className=&#39;denglbj lan2&#39;" id="regdiv"><a href="http://www.360doc.com/register.aspx?refer=800" target="_blank">注册</a></div><div class="boxwid xinngdui" id="bfdiv"><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#"><img id="imgbfabc" src="./TTY的那些事儿_files/5.gif"></a></div><div style=" position: absolute; margin-left:35px; *margin-left:-95px;_margin-left:-93px; width:96px;display:none;z-index:200;" id="func"><div class="tugduo3" id="divfunc" style="cursor:pointer;float:right; width:41px;"><div style=" height:26px; width:39px; border:1px solid #d4d4d4; border-bottom:none; background-color:#fff;"></div></div><div class="tipzhu3  right hui2" id="layerdiv"><ul><li><a href="http://www.360doc.com/advice.html" target="_blank">留言交流</a></li><li><a href="http://www.360doc.com/helpnew.html" target="_blank">网文摘手</a></li><li><a href="http://www.360doc.com/mobilapp.htm" target="_blank">手机客户端</a></li><li style=" border:none;"><a href="http://www.360doc.com/help.html" target="_blank">帮助</a></li></ul></div></div></div></div>
+                <div class=" rt360" style="padding-top: 6px; padding-right: 0px;">
+                    <div class="lf360 serch">
+                        <input name="input2" class="serchpt" id="txtSearchword" onkeydown="ongosearch()" onkeyup="showIntelliSense()" onfocus="if(this.value==&#39;搜文章 找馆友&#39;) this.value=&#39;&#39;;this.style.color=&#39;#272727&#39;" onblur="if(!this.value) {this.value=&#39;搜文章 找馆友&#39;;this.style.color=&#39;#b2b2b2&#39;;}" onpaste="showIntelliSense1()" type="text" value="搜文章 找馆友">
+                    </div>
+                    <div class="lf360 ssuo">
+                        <a id="searchlinkid" href="javascript:gosearch();"></a>
+                    </div>
+                    <div id="divsearch" style="margin-top: 25px; margin-left: 1px; display: none; position: absolute; z-index: 100;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navxt" style="width: 2165px;">
+        </div>
+    </div>
+    <div style="height: 44px; _height: 0px; width: 100%;"></div>
+
+    <div class="both">
+    </div>
+    <div id="docTotalInfo" class="mainzt" style="width: 1047px;">
+        <table class="index_main" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td align="left" valign="top" width="727px">
+                        <div id="ADAboveArtContent"><iframe marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="728" height="90" src="./TTY的那些事儿_files/aboveConentAD2.htm"></iframe></div>
+                        <div style="height: 7px;">
+                        </div>
+                        <table border="0" cellpadding="0" cellspacing="0" class="mainbj6" id="docArtClass">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; text-align: center;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table style="width: 100%; text-align: left;" border="0" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="biaoti">
+                                                                        <div class="biaoti2 lf360">
+                                                                            TTY的那些事儿
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="height: 32px;">
+
+
+                                                                        <div style="width: 670px; height: 28px; padding-left: 26px; color: #777b7a;">
+                                                                            <table>
+                                                                                <tbody><tr>
+                                                                                    <td>收藏人：<span class="name" onclick="wzhitnew(1);"><a href="http://www.360doc.com/userhome/7377734" target="_blank">astrotycoon</a></span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="btzctsg" id="spanfollowstatus"><div class="gzbt1"><a onclick="gzuser(7377734);wzhitnew(2);" href="javascript:void(0)"></a></div></div>
+                                                                                        <script>isfollow(7377734);</script>
+
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="ytdh1"><a onclick="doctalk();wzhitnew(106);" href="javascript:void(0)"></a></div>
+
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                            </tbody></table>
+                                                                        </div>
+
+
+
+
+                                                                        <div class="wztopxx">
+                                                                            <div style="float: left; height: 28px; padding-top: 7px;">
+                                                                                <table cellpadding="0" cellspacing="0" style="position: relative; z-index: 4">
+                                                                                    <tbody>
+                                                                                        <tr>
+
+                                                                                            <td>
+                                                                                                2014-09-21&nbsp;|&nbsp;阅：<span id="360doc_Readnum">272</span>&nbsp;&nbsp;<span style="position: relative;">转：<span onclick="wzhitnew(3)" id="360doc_saverNum"><span style="cursor:pointer;" onclick="javascript:ShowSaverUser();">1</span></span><span id="360doc_saverUser"><div id="sameArtOuter" style="display: none; position: absolute; height: 305px; width: 144px; left: 0px; margin-top: 15px; z-index: 100000;"><div id="sameArt" style=" overflow-y: auto;  height:300px;overflow-x: hidden; z-index: 100;right:0px;margin-top:-10px;" onclick="event.cancelBubble=true;"></div></div></span></span>&nbsp;&nbsp;
+
+
+
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                <div style="position: relative;">
+                                                                                                    &nbsp;|&nbsp;<span id="docsource">&nbsp;&nbsp;<a onclick="wzhitnew(14);" href="http://ytliu.info/blog/2013/09/28/ttyde-na-xie-shi-er/" target="_blank">来源</a></span>
+                                                                                                </div>
+                                                                                                <div class="sekuaibox" style="display: none; margin-left: 48px;" id="zihaoboxID">
+                                                                                                    <div style="padding-top: 10px; padding-left: 5px;">
+                                                                                                        <div class="lf360 danxunbt">
+                                                                                                            <input id="artdocfont3" onclick="ChangeArtSize(3, this); wzhitnew(15); " name="radio" type="radio" value="1">
+                                                                                                        </div>
+                                                                                                        <div class="lf360 danxunwz" onclick="ChangeArtSize(3,this);wzhitnew(15); " style="cursor: pointer;">
+                                                                                                            大
+                                                                                                        </div>
+                                                                                                        <div class="lf360 danxunbt">
+                                                                                                            <input id="artdocfont2" onclick="ChangeArtSize(2, this); wzhitnew(16); " name="radio" type="radio" value="2">
+                                                                                                        </div>
+                                                                                                        <div class="lf360 danxunwz" onclick="ChangeArtSize(2,this);wzhitnew(16); " style="cursor: pointer;">
+                                                                                                            中
+                                                                                                        </div>
+                                                                                                        <div class="lf360 danxunbt">
+                                                                                                            <input id="artdocfont1" onclick="ChangeArtSize(1, this); wzhitnew(17); " name="radio" type="radio" value="3">
+                                                                                                        </div>
+                                                                                                        <div class="lf360 danxunwz" onclick="ChangeArtSize(1,this);wzhitnew(17); " style="cursor: pointer;">
+                                                                                                            小
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="sekuaibox" style="margin-left: 76px; display: none;" id="sekuaiboxID">
+                                                                                                    <div style="padding-top: 10px; padding-left: 5px;">
+                                                                                                        <img src="./TTY的那些事儿_files/cr1.gif" id="docArtC1" onclick="ChangeArtClass(1,this);wzhitnew(18);" style="cursor: pointer;"><img src="./TTY的那些事儿_files/cr2.gif" id="docArtC2" onclick="ChangeArtClass(2,this);wzhitnew(19);" style="cursor: pointer;"><img src="./TTY的那些事儿_files/cr3.gif" id="docArtC3" onclick="ChangeArtClass(3,this);wzhitnew(20);" style="cursor: pointer;"><img src="./TTY的那些事儿_files/cr4.gif" id="docArtC4" onclick="ChangeArtClass(4,this);wzhitnew(21);" style="cursor: pointer;"><img src="./TTY的那些事儿_files/cr5.gif" id="docArtC5" onclick="ChangeArtClass(5,this);wzhitnew(22);" style="cursor: pointer;"><img src="./TTY的那些事儿_files/cr6-1.gif" id="docArtC6" onclick="ChangeArtClass(6,this);wzhitnew(23);" style="cursor: pointer;">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div style="padding-left: 10px;">
+                                                                                                    <a href="javascript:void(0)">
+                                                                                                        <img onmouseover="changedivdisplay(1);" src="./TTY的那些事儿_files/wz1.gif"></a>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div style="padding-left: 10px;" onmouseover="changedivdisplay(2);">
+                                                                                                    <a href="javascript:void(0)">
+                                                                                                        <img src="./TTY的那些事儿_files/wz2.gif"></a>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" onclick=" setTimeout(showShareLayer, 10);wzhitnew(4);">分享</a>&nbsp;</td>
+                                                                                            <td>
+                                                                                                <a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" onclick="  setTimeout(showShareLayer, 10);wzhitnew(5);">
+                                                                                                    <img style="cursor: pointer;" src="./TTY的那些事儿_files/tb10.gif"></a><div class="fenxiang" id="fenxiangLayer" style="display: none; border: none; width: 110px; margin-left: -28px; _margin-left: -40px;"><div style="border:1px solid #cbcbcb; height:240px; width:108px;"><div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn"><table cellpadding="0" cellspacing="0" width="108" style=" background-color:#fff; "><tbody><tr><td width="12"></td><td height="29" onclick="wzhitnew(6);"><a class="bds_qzone" href="javascript:void(0);" title="分享到QQ空间">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;腾讯空间</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(9);"><a class="bds_tsina" href="javascript:void(0);" title="分享到新浪微博">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新浪微博</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(10);"><a class="bds_tqq" href="javascript:void(0);" title="分享到腾讯微博">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;腾讯微博</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(7);"><a class="bds_renren" href="javascript:void(0);" title="分享到人人网">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人人网</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(8);"><a class="bds_kaixin001" href="javascript:void(0);" title="分享到开心网">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开心网</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(11);"><a class="bds_tsohu" href="javascript:void(0);" title="分享到搜狐微博">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜狐微博</a></td></tr><tr><td width="12"></td><td height="29"><a href="javascript:void(0);" onclick="showdivemail();wzhitnew(12);"><div class="bds_py">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;推荐给朋友</div></a></td></tr><tr><td width="12"></td><td height="29"><a href="javascript:void(0);"><div class="bds_jubao" onclick="showAlertLayer();wzhitnew(13);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;举报</div></a></td></tr></tbody></table></div></div></div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div id="resavelayer1" class="rt360"><div class="zswdbtn1"><a href="javascript:void(0);" onclick="SaveArt();wzhitnew(24);"></a></div><div style="position: absolute;display:none;z-index:100000;" id="fuzhitishidiv"></div></div>
+
+
+                                                                            <div id="shareweixinabove" class="rt360"> <div class="fxwx2bt"><a href="javascript:void(0);" onclick="shareWeixin();wzhitnew(65);"></a></div></div>
+
+
+                                                                            <table cellpadding="0" cellspacing="0" style="text-align: center; margin: 0px auto;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div id="AlertArt1" style="display: none; position: absolute;">
+                                                                                            </div>
+                                                                                            <div id="SendToFriends1" style="display: none; position: absolute; z-index: 100;">
+                                                                                            </div>
+                                                                                            <div class="lf360 zcbutton" style="margin-left: 100px;">
+                                                                                            </div>
+                                                                                            <div class="lf360">
+                                                                                                &nbsp;&nbsp;
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        
+                                                        <table class="wenzhangcss" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="xiantao">
+                                                                        </div>
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" valign="top" width="670px" style="height: 200px;">
+                                                                        <span id="articlecontent" onmousedown="newhighlight = true;" onmouseup="NewHighlight(event)" style="">
+                                                                            <table>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td width="670px" style="position: relative;">
+
+                                                                                            <p>前几天帮小妹配VMWare的串口，主要是为了之后如果要写内核debug起来比较方便。其实自己之前在Xen上做<a href="http://ipads.se.sjtu.edu.cn/lib/exe/fetch.php?media=publications:hc.pdf">HyperCoffer</a>的时候就配过串口了，不过当时是用两台主机通过串口互联搞定的。这次直接利用VMWare的串口写文件，其实原理是差不多的。但是关键问题是：原理到底是什么???</p>
+
+<p>其实在之前调试串口的时候我就很好奇那些<code>/dev</code>目录下面的tty0 - tty6, ttyS0, ttyS1都是些什么东西？还有配置串口的时候在grub里面加的参数是如何得出来的？包括这次在内的两次试验，我都只是通过上网查教材，不停地修改参数、尝试最后才得到适合我的机器的串口参数。</p>
+
+<p>比如在这次调试VMWare串口的时候，我通过<code>VM &gt;&gt; Settings &gt;&gt; add a serial port &gt;&gt; use output file</code>来使得kernel的信息打印到一个外部文件中，然后在VM的grub里面(<code>/etc/default/grub</code>)增加三行：</p>
+
+<figure> <div><table><tbody><tr><td><pre>1
+2
+3
+</pre></td><td><pre><code>GRUB_CMDLINE_LINUX='console=tty0 console=ttyS1,19200n8'
+GRUB_TERMINAL=serial
+GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=1 --word=8 --parity=no --stop=1"
+</code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>最后运行：</p>
+
+<pre><code>$ sudo update-grub
+</code></pre>
+
+<p>然后成功。</p>
+
+<p>但是问题在于这些配置都是什么意思呢？那个ttyS1和tty0是什么东西？19200据说是ttyS1的speed，但是它是怎么得到的？…所有的这些问题我都没有确切的答案，而我唯一做的，就是在网上找了各种资料、教程、配置参数来试着调试，直到找到这种配置发现“诶，居然可以了哦！”，然后，就没有然后了。。。</p>
+
+<p>我觉得我以前一直都处于这种状态，对表面现象的盲目追求，对底层原理的一知半解。这些导致的就是自以为的“健忘”，以及不能对所学到的知识和技能的融会贯通。这次把论文赶完了，终于可以休息一下，想起这件事，就在网上找到一篇文章<a href="http://www.linusakesson.net/programming/tty/index.php">《The TTY demystified》</a>。认真学习了下，发现真的受益匪浅。一来是作为对知识的梳理，另外一个也是希望拿出来和大家分享一下。以下主要就是对这篇博文的整理归纳翻译，以及一些从其他资料中学到的点点滴滴：</p>
+
+
+
+
+<hr>
+
+<h4>TTY的历史</h4>
+
+<p>TTY应该说是TeleTYpe的缩写，teletype中文叫做“电传打字机”，最初被用于传输一些商业电报。当计算机技术发展起来之后，teletype被用于了其输入输出设备。对于多种teletype模型的存在，操作系统内核对一些底层的细节进行了封装，比如word length（字长）, baud rate（波特率）, flow control（流控制）, parity（奇偶校验）, 以及一些基本行编辑（line editing）的控制码（control code）。而对于一些比如Fancy cursor movements（光标移动）, colour output（颜色输出）等高级特性，则在1970s末期由一些物理的video terminal（可视终端）实现了，比如VT-100。</p>
+
+<p>然而现在，除了在博物馆，我们基本上已经见不到这些物理teletype或者可视终端了，现在计算机上的终端基本上都是模拟出来的可视终端（emulated video terminals）。</p>
+
+<h4>TTY原理和流程</h4>
+
+<p>先来看一个普通的TTY的流程图：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_1.png" title="TTY 1" alt="TTY1"></p>
+
+<p>这个流程很直观，用户通过terminal输入，通过电线连到UART (Universal Asynchronous Receiver and Transmitter，通用异步收发器)，然后由它的driver来处理一些包括奇偶校验，流控制在内的数据传输。之后会有两个步骤：</p>
+
+<p><em>Line discipline</em>: 提供了一个editing buffer和一些基本的编辑命令（如backspace, erase word, clear line, reprint等）。当然这些在line discipline中设置的指令可以在应用程序中被disable。这里有两种mode：前面一种默认的叫cooked (or canonical) mode，它规定了一些默认的对backspace等指令的行为；而一些和用户交互的应用（如编辑器，shell这些依赖于光标和readline的应用）则会把其设置成raw mode，然后由自己来处理这些行编辑命令。Line discipline还有一些控制echo等的选项，这些会在之后更详细地描述。另外，对于每一种串行设备只有一种相应的line discipline（默认的叫N_TTY），其它还有一些用于处理网络包（ppp, IrDA, serial mice）的line discipline，这里就不介绍了。</p>
+
+<p><em>TTY driver</em>: 主要用于处理比如kill、suspend进程，以及限制输入只能被定向到foreground进程等，其被实现在<code>drivers/char/tty_io.c</code>中。另外和line discipline相似的，TTY driver是一种被动模式，只会通过其它进程或者中断处理函数来调用。</p>
+
+<p>于是我们平常所说的TTY设备其实主要就是由UART driver, line discipline和TTY driver这三部分组成的。用户可以通过login来成为某个tty的owner，然后通过对<code>/dev</code>下tty文件的读写来操作相应的TTY设备。</p>
+
+<p>接下来看看一个典型的桌面系统（Linux）的TTY是怎么样的：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_2.png" title="TTY 2" alt="TTY2"></p>
+
+<p>和前面一张图相比，TTY driver和line discipline还是一样的, 但是UART和物理终端没了，取而代之的则是一个由软件模拟的可视终端，由keyboard输入，从VGA输出。另外如果我们把模拟终端移到用户层（比如xterm），则会变成下面这张图：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_3.png" title="TTY 3" alt="TTY3"></p>
+
+<p>这里引进了一个虚拟终端（pseudo terminal or pty）的概念。为了解释清楚这些，我们先退一步，来看看这些都是如何在当前操作系统的进程模型下工作的。</p>
+
+<h4>TTY与进程模型</h4>
+
+<p><img src="./TTY的那些事儿_files/45478849_4.png" title="Processes" alt="Processes Model"></p>
+
+<p>我们知道，一个进程可能会有5种状态：</p>
+
+<pre><code>R   Running or runnable (on run queue)
+D   Uninterruptible sleep (waiting for some event)
+S   Interruptible sleep (waiting for some event or signal)
+T   Stopped, either by a job control signal or because it is being traced by a debugger.
+Z   Zombie process, terminated but not yet reaped by its parent.
+</code></pre>
+
+<p>我们通过运行<code>ps l</code>：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_5.png" title="ps l" alt="ps l"></p>
+
+<p>可以通过<code>STAT</code>来查看当前的状态。其中<code>s</code>表示这是一个<strong>session leader</strong>（一般是一个shell），<code>+</code>表示这是一个foreground进程。另外还可以看到每个进程都对应了一个tty（<code>TTY</code>那列），这里显示的都是pts（后面会提到）。</p>
+
+<p>一般driver中的TTY是通过signal来和process进行异步的通信的，我们可以通过运行<code>kill -l</code>来查看系统中有哪些signal：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_6.png" title="kill -l" alt="kill -l"></p>
+
+<p>而下面主要列出了这几个有关的signals：SIGHUP, SIGINT, SIGQUIT, SIGPIPE, SIGCHLD, SIGSTOP, SIGCONT, SIGTSTP, SIGTTIN, SIGTTOU and SIGWINCH.</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_7.png" title="signal 1" alt="signal 1"></p>
+
+<p><img src="./TTY的那些事儿_files/45478849_8.png" title="signal 2" alt="signal 2"></p>
+
+<p><img src="./TTY的那些事儿_files/45478849_9.png" title="signal 3" alt="signal 3"></p>
+
+<p><img src="./TTY的那些事儿_files/45478849_10.png" title="signal 4" alt="signal 4"></p>
+
+<p><img src="./TTY的那些事儿_files/45478849_11.png" title="signal 5" alt="signal 5"></p>
+
+<p><img src="./TTY的那些事儿_files/45478849_12.png" title="signal 6" alt="signal 6"></p>
+
+<p>我们来看一个例子：</p>
+
+<p>假设你在vim上编辑一个文件，光标停在屏幕的中间某个位置，而vim这时正在运行着一些操作（比如查找等）。这个时候你按下一个<code>Ctrl-z</code>，由于vim的line discipline有一条规则来拦截这个<code>Ctrl-z</code>，你不需要等待vim运行完它的查找操作再从TTY中读取<code>Ctrl-z</code>这个字符（ASCII 26），line discipline会直接发一个<code>SIGTSTP</code>到foreground进程组（包含了vim这个进程）。由于vim本身注册了<code>SIGTSTP</code>的处理函数，于是内核就会开始运行这个处理函数，它可能会把光标移到屏幕的最后，往TTY设备中写一些相关的控制信息，再向自己的进程组发送一个<code>SIGSTOP</code>，这个时候vim进程就被stop了。session leader（可能是/bin/bash)通过<code>SIGCHLD</code>收到vim进程被suspend的信息，向TTY设备读取当前的一些配置文件（之后恢复foreground进程用的），然后通过<code>ioctl</code>使自己成为该TTY的foreground进程，在屏幕上打印一些提示信息，比如</p>
+
+<pre><code>[1] + suspended vim xx
+</code></pre>
+
+<p>告诉用户这个vim进程被suspend了。</p>
+
+<p>这个时候，如果你运行<code>ps</code>，你会看到vim进程是stopped的状态（“T”）。如果我们通过<code>bg</code>或者<code>kill SIGCONT pid</code>来唤醒它，vim会开始执行它的<code>SIGCONT</code>处理函数，该处理函数可能会需要通过写TTY设备重新画GUI界面，但是由于vim这个时候是一个background的进程，TTY设备不允许一个background进程的输出，相反，它会发送一个<code>SIGTTOU</code>给vim，再次stop它，再通过<code>SIGCHLD</code>把执行权交给session leader，打印提示信息:</p>
+
+<pre><code>[1] + continued vim xx
+[1] + suspended (tty output) vim xx
+</code></pre>
+
+<p>而如果我们用<code>fg</code>命令，shell就会首先恢复之前保存的配置文件，告诉TTY driver从现在开始要把vim作为foreground进程来看待，最后通过发送<code>SIGCONT</code>来重新开始运行vim。</p>
+
+<h4>TTY设备的配置</h4>
+
+<p>可以通过命令<code>tty</code>来查看你当前的shell对应于那个tty：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_13.png" title="shell tty" alt="shell tty"></p>
+
+<p>另外，我们也可以通过命令行工具<code>stty</code>来操作TTY设备：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_14.png" title="stty -a" alt="stty -a"></p>
+
+<p><code>-a</code>告诉<code>stty</code>打印所有当前shell对应的TTY的所有设置，当然也可以通过<code>-F</code>来打印其它TTY的设置（参看<code>stty</code>文档）。在这些设置中有一些是和UART相关的参数（比如speed），一些是和line discipline相关的（比如第二行的输出），还有一些是用于job control。我们来一一解释：</p>
+
+<pre><code>speed 9600 baud; rows 58; columns 204; line = 0;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">Attribute     </th>
+<th align="left"> Related part    </th>
+<th align="left"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">speed         </td>
+<td align="left"> UART            </td>
+<td align="left"> The baud rate. Ignored for pseudo terminals.</td>
+</tr>
+<tr>
+<td align="left">rows,columns  </td>
+<td align="left"> TTY driver      </td>
+<td align="left"> Somebody’s idea of the size, in characters, of the terminal attached to this TTY device. </td>
+</tr>
+<tr>
+<td align="left">line          </td>
+<td align="left"> Line discipline </td>
+<td align="left"> The line discipline attached to the TTY device. 0 is N_TTY. Listed in /proc/tty/ldiscs. </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>比如我们可以尝试下：开一个xterm（通过<code>tty</code>得到其TTY设备为<code>/dev/pts/2</code>），运行<code>stty -a</code>得到它对应的row（59）和columns（207），打开一个vim，vim会根据TTY设备当前的rows和columns设置来填充窗口。然后我们在另外一个shell中输入：</p>
+
+<pre><code>stty -F /dev/pts/2 rows 30
+</code></pre>
+
+<p>它会更新内核内存中相应TTY（<code>/dev/pts/2</code>）的数据结构，然后发送一个<code>SIGWINCH</code>给vim，使得其重画界面。然后你再去看原来那个vim的窗口，发现它的row变成了原来的一半！</p>
+
+<p><code>stty -a</code>的第二行列出了一些特殊字符：</p>
+
+<pre><code>intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = M-^?; eol2 = M-^?; swtch = &lt;undef&gt;; start = ^Q; stop = &lt;undef&gt;; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; flush = ^O; min = 1; time = 0;
+</code></pre>
+
+<p>我们再来做一个实验：</p>
+
+<p>打开一个新的xterm，输入：</p>
+
+<pre><code>stty intr o
+</code></pre>
+
+<p>我们用<code>o</code>，代替了<code>Ctrl-c</code>，来向foreground发送<code>SIGINT</code>，于是之后你按<code>Ctrl-c</code>将不会中断foreground进程，而如果你开一个<code>cat</code>，输入”hello”，则会在按下’o’的时候发现<code>cat</code>被中断了！</p>
+
+<p>最后<code>stty -a</code>列出了一系列的”switch”，它们的排序是没有特定顺序的，一些是UART相关的，一些是会影响line discipline的，等等。<code>-</code>表示这个switch是被关闭的。这里简单介绍几个：</p>
+
+<p><code>icanon</code>表示使用canonical（line-based）模式，如果你把它关掉：</p>
+
+<pre><code>stty -icanon; cat
+</code></pre>
+
+<p>那么你现在输入一些字符（比如backspace）将会不再和之前那样work了。</p>
+
+<p><code>echo</code>表示开启echo模式，如果你把它给关了：</p>
+
+<pre><code>stty -echo; cat
+</code></pre>
+
+<p>你如果再输入，由于echo模式没了，屏幕上将不会同步打印出你输入的字符了。不过由于我们现在处于cooked（canonical）模式，和line editing相关的东西还是有用的，一旦你敲了<code>enter</code>键，line discipline会把编辑好的buffer传递给cat，再整行打印出来。</p>
+
+<p><code>tostop</code>可以控制background的job是否被允许向终端写：</p>
+
+<pre><code>stty tostop; (sleep 5; echo hello, world) &amp;
+</code></pre>
+
+<p>5秒之后, 该job会尝试着向TTY进行写，由于tostop被设置了，所以不允许background向TTY进行写，像前面提到的那样，shell输出：</p>
+
+<pre><code>[1] + continued (; sleep 5; echo hello, world; )
+[1] + suspended (tty output) (; sleep 5; echo hello, world)
+</code></pre>
+
+<p>而如果我们运行：</p>
+
+<pre><code>stty -tostop; (sleep 5; echo hello, world) &amp;
+</code></pre>
+
+<p>5秒后将会打印出”hello world“，并输出：</p>
+
+<pre><code>[1] + done (; sleep 5; echo hello, world; )
+</code></pre>
+
+<hr>
+
+<p>前面讲了一些关于TTY的历史，原理，配置等，接下来我们来说下tty，pty，pts，ttys，console等的区别，主要参考和摘录了<a href="http://blog.chinaunix.net/uid-20543672-id-3225777.html">Tekkaman Ninja</a>的博文：</p>
+
+<p>现在的个人计算机一般只有一个控制台，没有终端。当然愿意的话，可以在串口上连一两台物理终端。但是Linux按POSIX标准把个人计算机当成小型机来用,在控制台上通过<code>getty</code>软件虚拟了六个字符哑终端（或者叫虚拟控制台终端tty1-tty6，数量可以在<code>/etc/inittab</code>里自己调整）和一个图型终端，在虚拟图形终端中又可以通过软件(如screen，tmux)再虚拟无限多个伪终端（pts/0等）。但这全是虚拟的,虽然用起来一样,但实际上没有物理实体。所以在个人计算机上,只有一个实际的控制台,没有终端,所有终端都是在控制台上用软件模拟的。</p>
+
+<h4>系统控制台 —— /dev/console</h4>
+
+<p><code>/dev/console</code>是系统控制台，是与操作系统交互的设备。系统所产生的信息会发送到该设备上。平时我们看到的PC只有一个屏幕和键盘，它其实就是控制台。目前只有在单用户模式下，才允许用户登录控制台<code>/dev/console</code>。（可以在单用户模式下输入<code>tty</code>命令进行确认）。</p>
+
+<p>console有缓冲的概念，为内核提供打印输出。内核把要打印的内容装入缓冲区，然后由console来决定打印到哪里（比如是tty0还是ttySn等）。</p>
+
+<p>某些情况下console和tty0是一致的，就是当前所使用的是虚拟终端，所以有些资料中称<code>/dev/console</code>是到<code>/dev/tty0</code>的符号链接，但是这样说现在看来是不对的：根据内核文档，在2.1.71之前，<code>/dev/console</code>根据不同系统设定，符号链接到<code>/dev/tty0</code>或者其他tty上，在2.1.71版本之后则完全由内核代码内部控制它的映射。</p>
+
+<h4>当前控制台 —— /dev/tty</h4>
+
+<p>这是应用程序中的概念，如果当前进程有控制终端，那么<code>/dev/tty</code>就是当前进程控制台的设备文件。对于你登录的shell，<code>/dev/tty</code>就是你使用的控制台，设备号是（5,0）。不过它并不指任何物理意义上的控制台，<code>/dev/tty</code>会映射到当前设备（使用命令“tty”可以查看它具体对应哪个实际物理控制台设备）。输出到<code>/dev/tty</code>的内容只会显示在当前工作终端上（无论是登录在ttyn中还是pty中）。你如果在控制台界面下(即字符界面下）那么<code>dev/tty</code>就是映射到dev/tty1-6之间的一个（取决于你当前的控制台号），但是如果你现在是在图形界面（Xwindows），那么你会发现现在的<code>/dev/tty</code>映射到的是<code>/dev/pts</code>的伪终端上。</p>
+
+<p>你可以输入命令<code>tty</code>，将显示当前映射终端如：<code>/dev/tty1</code>或者/<code>dev/pts/0</code>等。也可以使用命令<code>ps l</code>来查看其他进程与哪个控制终端相连。</p>
+
+<h4>虚拟控制台 —— /dev/ttyn</h4>
+
+<p>/dev/ttyn是进程虚拟控制台，他们共享同一个真实的物理控制台。</p>
+
+<p>如果在进程里打开一个这样的文件且该文件不是其他进程的控制台时，那该文件就是这个进程的控制台。进程printf数据会输出到这里。在PC上，用户可以使用alt+Fn切换控制台，看起来感觉存在多个屏幕，这种虚拟控制台对应tty1~n。</p>
+
+<p>还有一个比较特殊的<code>/dev/tty0</code>，他代表当前虚拟控制台，是当前所使用虚拟控制台的一个别名。因此不管当前正在使用哪个虚拟控制台（注意：这里是虚拟控制台，不包括伪终端），系统信息都会发送到/dev/tty0上。只有系统或超级用户root可以向/dev/tty0进行写操作。tty0是系统自动打开的，但不用于用户登录。</p>
+
+<h4>伪终端 —— pty（pseudo-tty）</h4>
+
+<p>伪终端(Pseudo Terminal)是终端的发展，为满足现在需求（比如网络登陆、xwindow窗口的管理）。它是成对出现的逻辑终端设备（即master和slave设备，对master的操作会反映到slave上）。它多用于模拟终端程序，是远程登陆(telnet、ssh、xterm等)后创建的控制台设备。</p>
+
+<p>历史上，有两套伪终端软件接口：</p>
+
+<ul>
+<li>BSD接口：较简单，master为/dev/pty[p-za-e][0-9a-f]；slave为/dev/tty[p-za-e][0-9a-f]，它们都是配对的出现的。例如/dev/ptyp3和/dev/ttyp3。但由于在编程时要找到一个合适的终端需要逐个尝试，所以逐渐被放弃。</li>
+<li>Unix 98接口：使用一个/dev/ptmx作为master设备，在每次打开操作时会得到一个master设备fd，并在/dev/pts/目录下得到一个slave设备（如<code>/dev/pts/3</code>），这样就避免了逐个尝试的麻烦。由于可能有好几千个用户登陆，所以/dev/pts/*是动态生成的。第一个用户登陆，设备文件为<code>/dev/pts/0</code>，第二个为<code>/dev/pts/1</code>，以此类推。它们并不与实际物理设备直接相关。现在大多数系统是通过此接口实现pty。</li>
+</ul>
+
+
+<p>我们在X Window下打开的终端或使用<code>telnet</code>或<code>ssh</code>等方式登录Linux主机，此时均通过pty设备。例如，如果某人在网上使用telnet程序连接到你的计算机上，则telnet程序就可能会打开<code>/dev/ptmx</code>设备获取一个fd。此时一个<code>getty</code>程序就应该运行在对应的<code>/dev/pts/*</code>上。当telnet从远端获取了一个字符时，该字符就会通过<code>ptmx</code>、<code>pts/*</code>传递给 getty程序，而getty程序就会通过<code>pts/*</code>、<code>ptmx</code>和telnet程序往网络上返回“login:”字符串信息。这样，登录程序与telnet程序就通过伪终端进行通信。</p>
+
+<pre><code>telnet&lt;---&gt;/dev/ptmx(master)&lt;---&gt;pts/*(slave)&lt;---&gt;getty
+</code></pre>
+
+<p>如果一个程序把<code>pts/*</code>看作是一个串行端口设备，则它对该端口的读/写操作会反映在该逻辑终端设备对的另一个<code>/dev/ptmx</code>上，而<code>/dev/ptmx</code>则是另一个程序用于读写操作的逻辑设备。这样，两个程序就可以通过这种逻辑设备进行互相交流，这很象是逻辑设备对之间的管道操作。对于<code>pts/*</code>，任何设计成使用一个串行端口设备的程序都可以使用该逻辑设备。但对于使用/dev/ptmx的程序，则需要专门设计来使用<code>/dev/ptmx</code>逻辑设备。</p>
+
+<h4>串口终端 —— /dev/ttySn</h4>
+
+<p>串行端口终端是使用计算机串行端口连接的终端设备。计算机把每个串行端口都看作是一个字符设备。有段时间串行端口设备通常被称为终端设备，那时它的最大用途就是用来连接终端，所以这些串行端口所对应的设备名称是<code>/dev/tts/0</code>（或<code>/dev/ttyS0</code>）、<code>/dev/tts/1</code>（或<code>/dev/ttyS1</code>）等，设备号分别是（4,0）、（4,1）等（对应于win系统下的COM1、COM2等）。若要向一个端口发送数据，可以在命令行上把标准输出重定向到这些特殊文件名上即可。</p>
+
+<p>例如，在命令行提示符下键入<code>echo hello &gt; /dev/ttyS1</code>会把“hello”发送到连接在ttyS1（COM2）端口的设备上。</p>
+
+<h4>总结</h4>
+
+<p>最后<a href="http://blog.chinaunix.net/uid-20543672-id-3225777.html">Tekkaman Ninja</a>的博文中有一张图这里借用下，感觉很赞！非常清晰地解释了这几个终端之间的关系：</p>
+
+<p><img src="./TTY的那些事儿_files/45478849_15.jpg" title="tty overall" alt="tty overall"></p>
+
+<hr>
+
+<p>最后我们回到最早的那个配置文件<code>/etc/default/grub</code>：</p>
+
+<figure> <div><table><tbody><tr><td><pre>1
+2
+3
+</pre></td><td><pre><code>GRUB_CMDLINE_LINUX='console=tty0 console=ttyS1,19200n8'
+GRUB_TERMINAL=serial
+GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=1 --word=8 --parity=no --stop=1"
+</code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>可以看到这里就是将<code>/dev/console</code>定向到了tty0和ttyS1（至于如何知道是ttyS1还是ttyS0的，可以通过<code>dmesg | grep tty</code>来得到，或者用setserial来获取串口的信息）。另外串口的speed可以通过我们之前说的<code>stty -a -F /dev/ttyS1</code>来获得，其它的一些参数都是和UART driver相关的，这里就不详细解释了。</p>
+
+<p>以上这些就是我这两天学到的和TTY相关的知识，真的很感谢<a href="http://www.linusakesson.net/">Linus ?kesson</a>和<a href="http://blog.chinaunix.net/uid/20543672.html">Tekkaman Ninja</a>的整理、归纳和分享。</p>
+
+<hr>
+
+<p>P.S. 之前写了几篇英文博客，感觉不是很好。主要是因为在那些博文中很大一部分是直接引用别人的（自己写的话还不如直接用别人的能让人看得懂）；究其原因的话主要还是因为自己的英文太弱吧！</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <div id="viewerPlaceHolder" style="width: 717px; height: 700px; display: none;">
+                                                                            </div>
+                                                                        </span>
+                                                                        <table>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left">
+                                                                        <a name="anchordoc1" id="anchordoc1"></a>
+                                                                        <div style="height: 28px">
+                                                                            <div style="font-size: 14px; color: #797b7a; float: left;">
+                                                                                来自：<span class="name" onclick="wzhitnew(59)"><a href="http://www.360doc.com/userhome/7377734" target="_blank">astrotycoon</a></span>&nbsp;&gt;&nbsp;<span id="cname" onclick="wzhitnew(60)"><a href="http://www.360doc.com/userhome.aspx?userid=7377734&cid=15" target="_blank">《busybox》</a></span>
+                                                                            </div>
+                                                                            <div style="float: left;">
+                                                                                <div class="btzctsg" id="spanfollowstatus1"><div class="gzbt1"><a onclick="gzuser(7377734);wzhitnew(61);" href="javascript:void(0)"></a></div></div>
+                                                                                <script>isfollow(7377734);</script>
+
+                                                                            </div>
+                                                                            <div style="float: left;">
+                                                                                <div class="ytdh1"><a onclick="doctalk();wzhitnew(107);" href="javascript:void(0)"></a></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="modlist lf360 list" style="padding-top: 0px;">
+                                                                                <ul>
+                                                                                    <div id="lastart"><div class="shangyp">上一篇：<a href="http://www.360doc.com/content/14/0917/20/7377734_410264598.shtml" target="_blank" onclick="wzhitnew(57);">What is the difference between shell, c...</a></div></div>
+                                                                                    <div id="nextart">下一篇：<a href="http://www.360doc.com/content/14/0921/19/7377734_411298038.shtml" target="_blank" onclick="wzhitnew(58);">telinit 或 init 区别</a></div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left">
+                                                                        <div style="padding-top: 12px;">
+                                                                            <div id="docAdBelowContent"><iframe marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="650" height="120" src="./TTY的那些事儿_files/docAdBelowContent1.htm"></iframe></div>
+
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="text-align: left;">
+                                                                        <div style="padding-top: 15px; width: 670px;">
+                                                                            <table style="width: 670px;" cellpadding="0" cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+
+                                                                                        <td style="width: 530px;">
+                                                                                            <div class=" lf360" style="cursor: pointer" onmouseover="ChangeBtnStyle(1);" onmouseout="ChangeBtnStyle(2);">
+                                                                                                <div class="zscbt">
+                                                                                                    <a href="javascript:void(0);" onclick="SaveArt();wzhitnew(26);">
+                                                                                                        <div id="zscbtword" class="lf360 xianhua" style="padding-left: 38px;">
+                                                                                                            转藏到我的图书馆
+                                                                                                        </div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div style="margin-left: 10px; cursor: pointer;" class="lf360 xhmainbox" id="sendflowerdiv" onclick="Showflowerlayer(&quot;sendedLayer1&quot;);wzhitnew(27)" onmouseover="ChangeFlowerBtnStyle(1);" onmouseout="ChangeFlowerBtnStyle(2);">
+
+                                                                                                <div id="flowimg2" class="lf360 ">
+                                                                                                    <div style="padding-left: 10px; padding-top: 10px;">
+                                                                                                        <img id="flowimg3" src="./TTY的那些事儿_files/huahuanew.gif">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div id="flowimg5" class="lf360 xianhua">
+                                                                                                    献花(<span id="articleflowernum">0</span>)<div id="flowernumadd" class="addtionone">
+                                                                                                        +1
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                            </div>
+
+
+
+
+                                                                                            <div class="lf360" style="cursor: pointer; padding-left: 10px;" onmouseover="ChangeBtnStyle(3);" onmouseout="ChangeBtnStyle(4);">
+                                                                                                <div class="fxwxbt">
+
+                                                                                                    <a href="javascript:void(0);" onclick="shareWeixin();wzhitnew(64);">
+                                                                                                        <div id="fxwxword" class="lf360 xianhua" style="padding-left: 38px;">
+                                                                                                            分享到微信
+                                                                                                        </div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+
+
+                                                                                            <div class="lf360" style="cursor: pointer; padding-left: 10px;" onmouseover="ChangeBtnStyle(5);" onmouseout="ChangeBtnStyle(6);">
+                                                                                                <div class="ywzwbt">
+
+                                                                                                    <a id="ywzwa" href="http://www.baidu.com/s?wd=tty+dev+%e8%bf%9b%e7%a8%8b&tn=SE_hldp01010_6r0gix1f" onclick="wzhitnew(100);" target="_blank">
+                                                                                                        <div id="ywzwword" class="lf360 xianhua" style="padding-left: 44px;">
+                                                                                                            以文找文
+                                                                                                        </div>
+                                                                                                    </a>
+
+                                                                                                </div>
+                                                                                            </div>
+
+
+
+                                                                                        </td>
+                                                                                        <td style="vertical-align: bottom; font-size: 12px;" width="140">
+                                                                                            <div class="rt360" id="sharediv2"><table style=" vertical-align: text-bottom;" border="0" cellpadding="0" cellspacing="0"> <tbody><tr><td><div style="height:20px; width:105px;"><div style="float:left;"><span style="font-size:12px; line-height:16px; color:#959595;">分享：</span></div><div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn2" style="float:left;"><span onclick="wzhitnew(28);"><a class="bds_qzone" title="分享到QQ空间" href="javascript:void(0);"></a></span><span onclick="wzhitnew(31);"><a class="bds_tsina" title="分享到新浪微博" href="javascript:void(0);"></a></span><span onclick="wzhitnew(32);"><a class="bds_tqq" title="分享到腾讯微博" href="javascript:void(0);"></a></span></div></div></td><td width="24"><a><img style="cursor:pointer;" src="./TTY的那些事儿_files/tb10.gif" onclick="setTimeout(showShareLayer2, 10);wzhitnew(34);"></a><div id="fenxiangLayer1" class="fenxiang" style=" margin-left:-100px;*margin-left:-120px!important; margin-top:5px;*margin-top:16px!important;display:none;z-index:1000;"><div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn"><table cellpadding="0" cellspacing="0" width="108" style=" background-color:#fff; "><tbody><tr><td width="12"></td><td height="29" onclick="wzhitnew(29);"><a class="bds_renren" href="javascript:void(0);" title="分享到人人网">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人人网</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(30);"><a class="bds_kaixin001" href="javascript:void(0);" title="分享到开心网">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开心网</a></td></tr><tr><td width="12"></td><td height="29" onclick="wzhitnew(33);"><a class="bds_tsohu" href="javascript:void(0);" title="分享到搜狐微博">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜狐微博</a></td></tr><tr><td width="12"></td><td height="29"><a href="javascript:void(0);" onclick="showdivemail1();wzhitnew(35);"><div class="bds_py">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;推荐给朋友</div></a></td></tr><tr><td width="12"></td><td height="29"><a href="javascript:void(0);"><div class="bds_jubao" onclick="showAlertLayer1();wzhitnew(36);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;举报</div></a></td></tr></tbody></table></div></div></td></tr></tbody></table><div id="AlertArt2" style="display:none; position:absolute;"></div><div id="SendToFriends2" style="display:none;position:absolute;z-index:1000;"></div></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="10"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="lswzbox" style="padding-top: 10px;">
+                            <div>
+                                <table cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td width="330" valign="top">
+                                                <div class="lswz" style="height: 300px;">
+                                                    <div class="lstwtop">
+                                                        <div class="lswztit">
+                                                            <div class=" lf360">
+                                                                <div class="titwx1">
+                                                                    类似文章
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt360" style="padding-top: 5px; padding-right: 9px;">
+                                                                <a href="http://www.360doc.com/relevant/411295332_more.shtml" target="_blank" onclick="wzhitnew(38)">更多</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modlist2 list">
+                                                            <ul>
+                                                                
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/12/0802/16/5907545_227858835.shtml" target="_blank" onclick="wzhitnew(37)">Linux查看用户的7个命令</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/12/0903/22/9523427_234133025.shtml" target="_blank" onclick="wzhitnew(37)">Linux 查看系统当前用户命令</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/12/0312/09/6828497_193660348.shtml" target="_blank" onclick="wzhitnew(37)">tty</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/09/1219/16/461477_11508200.shtml" target="_blank" onclick="wzhitnew(37)">Linux终端tty</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/09/1207/18/461477_10582585.shtml" target="_blank" onclick="wzhitnew(37)">tty是什么？</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/12/1114/14/5013584_247801990.shtml" target="_blank" onclick="wzhitnew(37)">个人对linux终端的理解</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/09/0624/18/36491_4019078.shtml" target="_blank" onclick="wzhitnew(37)">《Linux程序设计》学习笔记05——终端 -...</a></span></li>
+                                                                    
+                                                                        <li style="height: 30px; line-height: 30px;"><span>
+                                                                            <a href="http://www.360doc.com/content/12/0712/09/6828497_223722465.shtml" target="_blank" onclick="wzhitnew(37)">linux 串行终端</a></span></li>
+                                                                    
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td width="330" valign="top">
+                                                <div class="lswz" style="margin-left: 9px; height: 300px;">
+                                                    <div class="lstwtop">
+                                                        <div class="lswztit">
+                                                            <div class=" lf360">
+                                                                <div class="titwx1">
+                                                                    热门推广
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt360" style="padding-top: 5px; padding-right: 9px;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modlist2 list" id="dochotartabovecontent"><iframe marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="298" height="242" src="./TTY的那些事儿_files/hotartbelowcontent.htm" allowtransparency="true"></iframe></div>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="background-color: #fafafa; width: 670px; height: 317px; margin-top: 10px;">
+                                    <div style=" padding-top:7px; padding-left:12px; "> <div style=" height:30px;"><div class="titwx3 lf360">猜你喜欢</div><div class=" rt360" style=" padding-right:18px;"><img onclick="changefiveart2(&quot;19999&quot;,&quot;19999&quot;);wzhitnew(62);" src="./TTY的那些事儿_files/hyz.gif" onmouseover="this.src=&quot;http://pubimage.360doc.com/wz/hyza.gif&quot;" onmouseout="this.src=&quot;http://pubimage.360doc.com/wz/hyz.gif&quot;" width="76" height="24" style="cursor:pointer;"></div></div><table cellpadding="0" cellspacing="0"><tbody><tr id="fivearttdid" style="height:138px"><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/0422/09/586795_280043732.shtml" target="_blank"><img src="./TTY的那些事儿_files/586795_201308281739190603.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/0422/09/586795_280043732.shtml" target="_blank">神一样的幽默，这才叫恶搞！</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/14/0314/10/696185_360469311.shtml" target="_blank"><img src="./TTY的那些事儿_files/360469311_201404031030270963.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/14/0314/10/696185_360469311.shtml" target="_blank">礼仪知识问答300题</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/0912/10/13306725_313895483.shtml" target="_blank"><img src="./TTY的那些事儿_files/13306725_201309270942140196.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/0912/10/13306725_313895483.shtml" target="_blank">看住你的身份证</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/0802/10/5511420_304199668.shtml" target="_blank"><img src="./TTY的那些事儿_files/304199668_201310021719090733.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/0802/10/5511420_304199668.shtml" target="_blank">十八罗汉瓷塑  【绝品收藏】</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/0216/22/4917028_266029116.shtml" target="_blank"><img src="./TTY的那些事儿_files/266029116_201310051748060655.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/0216/22/4917028_266029116.shtml" target="_blank">激励你不断积极向上的个性励志签名1...</a></div></td></tr><tr id="fivearttdidtwo"><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/12/0723/14/358201_225981029.shtml" target="_blank"><img src="./TTY的那些事儿_files/225981029_201310061948210842.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/12/0723/14/358201_225981029.shtml" target="_blank">让人很有启发：101个禅经佛理的经典...</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/0716/19/8801485_300440985.shtml" target="_blank"><img src="./TTY的那些事儿_files/300440985_201309271339480586.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/0716/19/8801485_300440985.shtml" target="_blank">北京68个好吃不贵的地方</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/0904/17/7932586_312201793.shtml" target="_blank"><img src="./TTY的那些事儿_files/312201793_201310071159460077.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/0904/17/7932586_312201793.shtml" target="_blank">用最美的心情，过好自己的日子！</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/1025/13/13304822_324091956.shtml" target="_blank"><img src="./TTY的那些事儿_files/13304822_201310310010090351.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/1025/13/13304822_324091956.shtml" target="_blank">王海洋:湖边的理想主义者</a></div></td><td valign="top" width="131"><div><a onclick="wzhitnew(39);" href="http://www.360doc.com/content/13/1105/22/1835337_327008694.shtml" target="_blank"><img src="./TTY的那些事儿_files/327008694_201311161724170505.jpg" width="114" height="86"></a></div><div class="lan twentit"><a onclick="wzhitnew(40);" href="http://www.360doc.com/content/13/1105/22/1835337_327008694.shtml" target="_blank">神奇呀 白发变黑只需20天</a></div></td></tr></tbody></table></div>
+
+                                    <div id="adabtest" style="display: none;">
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div id="Reflction" style="padding-top: 15px; padding-left: 15px;">
+                                    <div id="360docRefTN" style="display: none;"></div>
+                                    <div id="360docRefCT"></div>
+                                    <div id="360docRefPB" align="center" style="display: none;"></div>
+                                </div>
+                                <a name="sf"></a>
+                                
+                                <div id="ReflectionPart"><div style=" height:206px; margin:0px 0px;"><div class="plbox"><div class="plmain"><div class="titwx" style=" height:23px;">发表评论：</div><div class="deluwx">您好，请&nbsp;<span><a href="javascript:void(0);" onclick="ReflectionLoginform();wzhitnew(45);">登录</a></span>&nbsp;或者&nbsp;<span><a href="http://www.360doc.com/register.aspx?refer=53&reurl=showweb/0/0/411295332.aspx" onclick="InsertLogData(4);wzhitnew(46);">注册</a></span>&nbsp;后再进行评论 </div><div class=" rt360"><div style=" float:left; color:#959595; width:90px; "><div style="padding-top:4px;">其它帐号登录：</div></div><div style=" float:left ; width:70px;"><img onclick="toSNSLogin(&#39;smb&#39;);wzhitnew(47);_hmt.push([&#39;_trackEvent&#39;,&#39;loginsina&#39;,&#39;clicknum&#39;,&#39;wenzhangyeremark&#39;]);" style="cursor:pointer;" src="./TTY的那些事儿_files/tb25.gif">&nbsp;&nbsp;&nbsp;<img onclick="toSNSLogin(&#39;qq&#39;);wzhitnew(48);_hmt.push([&#39;_trackEvent&#39;,&#39;loginqq&#39;,&#39;clicknum&#39;,&#39;wenzhangyeremark&#39;]);" style="cursor:pointer;" src="./TTY的那些事儿_files/tb26.gif">&nbsp;&nbsp;&nbsp;<img onclick="toSNSLogin(&#39;rr&#39;);wzhitnew(49);_hmt.push([&#39;_trackEvent&#39;,&#39;loginrenren&#39;,&#39;clicknum&#39;,&#39;wenzhangyeremark&#39;]);" style="cursor:pointer;" src="./TTY的那些事儿_files/tb27.gif"></div> </div> </div></div></div></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center" valign="top" width="18px"></td>
+                    <td align="left" valign="top" width="252px">
+                        
+
+
+<div style="height: 98px" id="artrightad1"><iframe marginwidth="0" id="Iframeadabtest" marginheight="0" frameborder="0" scrolling="no" width="300" height="90" src="./TTY的那些事儿_files/ad1_300.htm" allowtransparency="true"></iframe></div>
+
+
+    <div id="artrightnewarticle" class="remenwz" style="height: 219px; width: 300px;"><div class="rementop"><div class="titwx" style=" padding-top:10px; padding-left:24px;">最新文章</div></div><div class="modlist3 list" style=" padding-left:15px;"><ul><li><span><a href="http://www.360doc.com/content/15/1103/09/7377734_510371442.shtml" target="_blank" onclick="wzhitnew(51)">别再让C++头文件中出现“using namesp...</a></span></li><li><span><a href="http://www.360doc.com/content/15/0925/11/27301717_501423948.shtml" target="_blank" onclick="wzhitnew(51)">留神！这样洗脸，脸越洗越脏！</a></span></li><li><span><a href="http://www.360doc.com/content/15/1023/15/27896708_507817168.shtml" target="_blank" onclick="wzhitnew(51)">超级怕冷的看过来！教你温暖8个最怕冷...</a></span></li><li><span><a href="http://www.360doc.com/content/13/0925/20/13832158_317070926.shtml" target="_blank" onclick="wzhitnew(51)">浅析C++静态成员函数</a></span></li><li><span><a href="http://www.360doc.com/content/15/1031/18/7377734_509700088.shtml" target="_blank" onclick="wzhitnew(51)">一般函数指针和类的成员函数指针</a></span></li><li><span><a href="http://www.360doc.com/content/15/1031/18/7377734_509700033.shtml" target="_blank" onclick="wzhitnew(51)">[翻译]C++教程：指向成员函数的指针</a></span></li></ul> <div class=" rt360" style=" padding-right:23px;"><a href="http://www.360doc.com/userhome/7377734" target="_blank" onclick="wzhitnew(52);">更多</a></div></div></div>
+
+
+<div class="both" style="padding-top: 10px; height: 260px;">
+   <iframe id="ifartad1" height="250px" width="300px" frameborder="0" scrolling="no" src="./TTY的那些事儿_files/ad2_300_google.htm"></iframe>
+    <div style="height: 10px;">
+    </div>
+</div>
+
+<div class="remenwz" id="artrighthotarticle" style="width: 300px;">
+    <div class="rementop">
+        <div class="titwx" style="padding-top: 10px; padding-left: 24px;">
+            热门文章</div>
+    </div>
+    <div class="modlist3 list" style="padding-left: 15px;">
+        <ul>
+            
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0503/10/9065871_467617032.shtml" target="_blank" onclick="wzhitnew(55)">和最爱的人做爱做的事</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/1027/17/27569214_508777766.shtml" target="_blank" onclick="wzhitnew(55)">最好感情，是彼此共同进步</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0929/05/2066648_502119056.shtml" target="_blank" onclick="wzhitnew(55)">特殊招聘，苛刻条件，母亲！</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/1030/10/4299739_509400814.shtml" target="_blank" onclick="wzhitnew(55)">楷书四大名碑笔法比较?《九成宫》《多...</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0627/14/10397440_481025139.shtml" target="_blank" onclick="wzhitnew(55)">【自制美味剁椒酱】为自己腌一罐红火...</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0502/08/22827484_467392940.shtml" target="_blank" onclick="wzhitnew(55)">我植青苔</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/1016/21/27699370_506149075.shtml" target="_blank" onclick="wzhitnew(55)">过去25年：25部最好看的电影！</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0531/16/10886293_474674797.shtml" target="_blank" onclick="wzhitnew(55)">隶书的结构技法口诀</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0609/18/19615772_476852464.shtml" target="_blank" onclick="wzhitnew(55)">越、朝、日为何没纳入中国疆域？</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0702/12/1542087_482123680.shtml" target="_blank" onclick="wzhitnew(55)">《国学经典导读》</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0902/19/23037939_496528265.shtml" target="_blank" onclick="wzhitnew(55)">1%的人控制99%的人：告诉你成为1%的人...</a></span></li>
+                
+                    <li><span>
+                        <a href="http://www.360doc.com/content/15/0727/16/2563128_487754399.shtml" target="_blank" onclick="wzhitnew(55)">解决蟑螂蚂蚁蚊子的妙招</a></span></li>
+                
+        </ul>
+        <div class=" rt360" style="padding-right: 23px;">
+            <a href="http://www.360doc.com/readroom.html" target="_blank" onclick="wzhitnew(56)">更多&gt;&gt;</a></div>
+    </div>
+</div>
+
+<div class="both" style="padding-top: 10px;">
+    <iframe id="ifartad2" height="250px" width="300px" frameborder="0" scrolling="no" src="./TTY的那些事儿_files/ad3_300_google.htm"></iframe>
+</div>
+<br>
+
+
+ <iframe id="ifartrightsogou" height="328px" width="300px" frameborder="0" scrolling="no" src="./TTY的那些事儿_files/artrightadsogou300.htm"></iframe>
+
+
+
+<script>
+    function change(pro_name, i) {
+        var pro = document.getElementById(pro_name); 
+        var pro_arr = pro.getElementsByTagName("span");
+
+        for (var m = 0; m < pro_arr.length; m++) {
+            pro_arr[m].className = "unclecked link_black";
+        }
+        pro_arr[i].className = "checked link_bai";
+
+        if (i == 1) {
+            document.getElementById("qh_ul_1").style.display = "";
+            document.getElementById("qh_ul_0").style.display = "none";
+        }
+        else if (i == 0) {
+            document.getElementById("qh_ul_1").style.display = "none";
+            document.getElementById("qh_ul_0").style.display = "";
+        }
+    }
+</script>
+
+                        <div class="both" id="divad5" style="padding-top: 11px; zoom: 1; top: 55px; left: 1862.5px; position: fixed;">
+                            <div id="divad4" style="">
+                                <div>
+                                    <iframe id="ifartad" height="250px" width="300px" frameborder="0" scrolling="no" src="./TTY的那些事儿_files/ad4_300.htm"></iframe>
+                                </div>
+                                <div class="ggwz">
+                                    <a href="javascript:void(0);" onclick="closead(2);">关闭</a>
+                                </div>
+                                <div style="height: 13px;">
+                                </div>
+                            </div>
+                            <div style="clear: both;" id="divad6">
+                                <div id="adfloatbaidu">
+                                    <iframe id="ifartadfloadbaidu" height="250px" width="300px" frameborder="0" scrolling="no" src="./TTY的那些事儿_files/ad5_300.htm"></iframe>
+                                </div>
+                                <div class="ggwz">
+                                    <a href="javascript:void(0);" onclick="closead(3);">关闭</a>
+                                </div>
+                                <div style="height: 13px;">
+                                </div>
+                            </div>
+
+                            <div style="clear: both;" id="divDwnloadDocApp"><div style="position: relative; width: 300px;"><div id="artweixinDiv" class="appma" style="display: none;"></div><div style="cursor: pointer;" class="appcha" onclick="closead(8);"><img src="./TTY的那些事儿_files/artpage_appcha.gif"></div><img onmouseover="HideShowArtWeixinDiv(1);" onmouseout="HideShowArtWeixinDiv(2);" src="./TTY的那些事儿_files/artpage_app.gif" width="300"></div></div>
+                             <div style="height: 75px;">
+                              </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <input type="hidden" id="docarttitle" value="TTY%e7%9a%84%e9%82%a3%e4%ba%9b%e4%ba%8b%e5%84%bf">
+    <input type="hidden" id="artreadroomid" value="0">
+    <script>var asw='TTY%e7%9a%84%e9%82%a3%e4%ba%9b%e4%ba%8b%e5%84%bf'</script>
+    <div id="docdiviframe"></div>
+
+
+    <script language="javascript" type="text/javascript">
+        var appName = navigator.appName.toLowerCase();
+        if (appName.indexOf("microsoft internet explorer") > -1) {
+            document.write("<scr" + "ipt type='text/javascript' src='http://www.360doc.com/js/StickySystemIE20130911.js?t=2015102901'></sc" + "ript>");
+        }
+        else {
+
+            document.write("<scr" + "ipt type='text/javascript' src='http://www.360doc.com/js/StickySystemOther20130911.js?t=2015102901'></sc" + "ript>");
+        }
+    </script><script type="text/javascript" src="./TTY的那些事儿_files/StickySystemOther20130911.js"></script>
+
+    <script>GerLookingUserInfo(1,7377734,1,0,'-1',-1,10,0);OutputSource('http%3a%2f%2fytliu.info%2fblog%2f2013%2f09%2f28%2fttyde-na-xie-shi-er%2f');OutputCategory(7377734,15,'%e3%80%8abusybox%e3%80%8b');OutputLastNextArt('What+is+the+difference+between+shell%2c+c...','http://www.360doc.com/content/14/0917/20/7377734_410264598.shtml',0);OutputLastNextArt('telinit+%e6%88%96+init+%e5%8c%ba%e5%88%ab','http://www.360doc.com/content/14/0921/19/7377734_411298038.shtml',1);</script>
+
+  
+
+    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6857724" src="./TTY的那些事儿_files/bds_s_v2.js"></script>
+
+    <script type="text/javascript">
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000);
+    </script>
+    <!-- Baidu Button END -->
+    <script src="./TTY的那些事儿_files/logger.js"></script>
+
+
+
+
+<div id="goTop2" style="left: 2204px; display: block;"><div id="goTop"><a href="http://www.360doc.com/content/14/0921/19/7377734_411295332.shtml#" id="go_top"></a></div><div id="goTop1"><a href="javascript:void(0);" id="go_top1"></a></div><div></div></div></body></html>

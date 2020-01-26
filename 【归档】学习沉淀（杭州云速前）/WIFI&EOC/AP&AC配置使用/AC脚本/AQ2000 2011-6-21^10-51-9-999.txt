@@ -1,0 +1,102 @@
+SYSTEM(config)# show wtp 2
+==============================================================================
+WTP NAME : autoap
+WTP ID : 2
+WTP SN : 01010276012345678900
+WTP MODEL : AG2000-E2AN2
+Radio Count : 2
+WTP RUN STATE : run
+WTP STATE: used
+WTP IP : 192.168.6.203:32768
+WTP MAC : 00:1F:64:12:34:56
+WTP MAX STA NUM : 64
+WTP NUMBER TRIGER  : 1
+WTP FLOW TRIGER  : 0
+First GLOBAL RadioID : 8
+Control Tunnel ID : 0
+DATA Tunnel ID: 0
+WTP HardWare Version: 2.0
+WTP SoftWare Version: 1.4.1
+WTP Update img: none
+WTP Update Version: none
+Apply interface: eth1-9
+WTP total receive flow byte: 0
+WTP total traffic flow byte: 0
+ap apstatistics interval: 10
+WTP apply wlan id: 4
+WTP 2 Radio summary
+==============================================================================
+RadioNum        RadioID         Channel         TX Power        Radio Type
+0               8               1               20              11bgn
+1               9               149             20              11an
+==============================================================================
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# conf radio 2-1
+SYSTEM(config-radio 2-1)# q
+SYSTEM(config)#
+SYSTEM(config)# conf radio 8
+SYSTEM(config-radio 2-0)# q
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# show wtp l
+wtp list summary:
+1 WTPs Online
+----------------------------------------------------------------------
+0 WTP Join state
+0 WTP Configure state
+0 WTP Datacheck state
+1 WTP Run state
+0 WTP Imagedata state
+0 WTP Bak_run state
+0 WTP Quit state
+==============================================================================
+WTPID WTPMAC            WTPIP                 RunState   State
+2     00:1F:64:12:34:56 192.168.6.203:32768   run        used
+==============================================================================
+0 WTP Join state
+0 WTP Configure state
+0 WTP Datacheck state
+1 WTP Run state
+0 WTP Imagedata state
+0 WTP Bak_run state
+0 WTP Quit state
+----------------------------------------------------------------------
+SYSTEM(config)#
+SYSTEM(config)#
+SYSTEM(config)# config radio 9
+SYSTEM(config-radio 2-1)# radio apply wlan 1
+radio 2-1 apply wlan 1 successfully
+SYSTEM(config-radio 2-1)# ÿ
+root@Autelan Technology Co:/#
+root@Autelan Technology Co:/#
+root@Autelan Technology Co:/#
+root@Autelan Technology Co:/#
+root@Autelan Technology Co:/# wic
+/bin/ash: wic: not found
+root@Autelan Technology Co:/# iwconfig
+lo        no wireless extensions.
+
+wifi0     no wireless extensions.
+
+wifi1     no wireless extensions.
+
+eth0      no wireless extensions.
+
+default   no wireless extensions.
+
+ath.0-4   IEEE 802.11ng  ESSID:"localwlan"
+          Mode:Master  Frequency:2.412 GHz  Access Point: 00:1F:64:12:34:57
+          Bit Rate:144.4 Mb/s   Tx-Power=20 dBm
+          RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-96 dBm  Noise level=-95 dBm
+          Rx invalid nwid:1134  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0

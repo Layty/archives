@@ -1,0 +1,188 @@
+第四章 MIPS 异常和中断处理
+MIPS 异常和中断处理(Exception and Interrupt handling) 
+
+任何一个CPU都要提供一个详细的异常和中断处理机制。一个软件系统，如操作系统，就是一个时序逻辑系统，通过时钟，外部事件来驱动整个预先定义好的逻辑行为。这也是为什么当写一个操作系统时如何定义时间的计算是非常重要的原因。 
+
+大家都非常清楚UNIX提供了一整套系统调用(System Call)。系统调用其实就是一段EXCEPTION处理程序。 
+
+我们可能要问：为什么CPU要提供Excpetion 和 Interrupt Handling呢？ 
+
+*处理illegal behavior, 例如，TLB Fault, or, we say, the Page fault; Cache Error; 
+
+* Provide an approach for accessing priviledged resources, for example, CP0 registers. As we know, for user level tasks/processes, they are running 
+with the User Mode priviledge and are prohibilited to directly control CPO. CPU need provide a mechanism for them to trap to kernel mode and then safely manipulate resources that are only available 
+when CPU runs in kernel mode. 
+
+* Provide handling for external/internal interrupts. For instance, the timer interrupts and watch dog exceptions. Those two interrupt/exceptions are very important for an embedded system applicances. 
+
+Now let's get back to how MIPS supports its exception and interrupt handling. 
+
+
+For simplicty, all information below will be based on R7K CPU, which is derived from the R4k family. 
+
+* The first thing for understanding MIPS exception handling is: MIPS adopts **Precise Exceptions** mechanisms. What that means? Here is the explaination from the book of "See MIPS Run": "In a precise-exception CPU, on any exception we get pointed at one instruction(the exception victim). All instructions preceding the exception victim in execution 
+sequence are complete; any work done on the victim and on any subsequent instructions 
+(BNN NOTE: pipeline effects) has no side effects that the software need worry about. The software that handles exceptions can ignore all the timing effects of the CPU's implementations" 
+
+上面的意思其实很简单：在发生EXCEPTION之前的一切计算行为会**FINISH**。在发生EXCEPTION之后的一切计算行为将不需考虑。 
+
+对绝大多数情况而言，如你要写一个系统调用(System Call),你只要记住： 
+MIPS已经把syscall这条指令的地址压在了EPC寄存器里。换句话说，在MIPS里，compard to the PowerPC CPU srr1 register, 你需要**explicitely** 
+refill the EPC register by EPC<-----EPC+4, before you use the eret中断返回。只有这样，你才能从系统调用中正确返回。 
+
+异常/中断向量(Exception/Interrupt Vector) 
+
+MIPS 的Exception/Interrupt Vector的organizaion is not as good as PowerPC CPUs. 
+
+For PPC, every detailed exception cause is directed to a unqiue vector address. MIPS is otherwise. Below is a recap of MIPS exception/interrupt vectors. 
+(We herein only talk about running MIPS CPU in the 32 bit mode ) 
+Reset, NMI 0x8000 0000 
+TLB refill 0x8000 0000 
+Cache Error 0xA000 00100 (BNN: Why goes to 0xAxxxxx? A question to readers. Please think about the difference between Kseg0 and kseg1) 
+All other exceptions 0x8000 0180 
+
+
+How MIPS acts when taking an exception? 
+
+1. It sets up the EPC to point to the restart location. 
+2. CPU changes into kernel mode and disables the interrupts (BNN: MIPS does this by setting EXL bit of SR register) 
+3. Set up the Cause register to indicate which is wrong. So that software can tell the reason for the exception. If it is for address exception, for example, TLB miss and so on, the BadVaddr register is also set. 
+4. CPU starts fetching instructions from the exception entry point and then goes to the exception handler. 
+
+Returning from exceptions 
+
+Up to MIPS III, we use the eret instruciton to return to the original location before falling into the exception. Note that eret behavior is: clear the SR[EXL] bit and returns control to the adress stored in EPC. 
+
+An important bit in SR for interrupt handling 
+
+SR[IE]: This bit is used to enable/disable interrupts,, including the timer interrupts. Of couse, 
+when the SR[EXL] bit is set, this bit has no effects. 
+
+K0 and K1 registers: 
+
+These two registers are mostly used by kernel as a temporary buffer to hold some values if necessary. So that you don't have to find some pre-defined 
+memories for that purpose. 
+
+One thing we should be careful is : When you are allowing the nested exception/interrupt handling, you need take care of these two registers' values as 
+they will be over-written, for example. 
+
+I don't encouarge people to use the AT register too often, even though you can use the .set noat directive. I have found a bug in mips-gcc, which will use the AT register anyway, even after we use the .set noat. In other wrods, using AT is dangeous somhow if you are not quite familire with the register convention/usage
+流水线(Pipeline) and Interrupt Taken 
+
+我们知道，MIPS是一个RISC技术处理器。在某一个时刻，在流水线上，同时有若干个指令被处理在不同的阶段(stage)上. 
+
+MIPS处理器一般采用5级流水结构。 
+
+IF RD ALU MEM WB 
+
+那么我们要问：当一个Interrupt发生时，CPU到底该 
+如何handle？答案是这样的： 
+
+“On an interrupt in a typical MIPS CPU, the last instruction to be completed before interrupt 
+processing starts will be the one that has just finished its MEM stage when the interrupt is detected. The exception victim will be the one that has just finished its ALU stage..." 
+
+对上述的理解是这样的：CPU 会**完成**那条已**finish** MEM stage的指令。然后将exception victim定位在下一条(following)指令上。要注意的是：我们是在谈Interrupt, not the exception. 在MIPS中，这是有区别的。 
+
+下面介绍几个重要的SR(Status Register)与Exception和中断有关的位。 
+
+* SR[EXL] 
+Exception Level; set by the processor when any exception other than Reset, Soft Reset, NMI, or Cache Error exception are taken. 0: normal 1: exception 
+
+When EXL is set: 
+- Interrupts are disabled. 换句话说，这时SR[IE]位是不管用了，相当于所有的中断都被MASK了。 
+- TLB refill exceptions will use the general exception vector instead of the TLB refill vector. 
+- EPC is not updated if another exception is taken. 这一点要注意。如果我们想支持nesting exceptions, 我们要在exception hander中clear EXL bit.当然要先保存EPC的值。另外要注意的：MIPS当陷入Exception/Interrupt时，并不改变SR[UX],SR[KX]或SR[SX]的值。SR[EXL]为1自动的将CPU mode运行在KERNEL模式下。这一点要注意。 
+
+* SR[ERL] 
+Error Level; set by the processor when Reset, Soft Reset, NMI, or Cache Error exception are taken. 0: normal 1: error 
+When ERL is set: 
+- Interrupts are disabled. 
+- The ERET instruction uses the return address held in ErrorEPC instead of EPC. 
+- Kuseg and xkuseg are treated as unmapped and uncached regions.This allows main memory to be accessed in the presence of cache errors. 这时刻，我们可以说，MIPS CPU只有在这个时刻才是一种**实模式(real mode)**. 
+
+* SR[IE] 
+Interrupt Enable 0: disable interrupts 1: enable interrupts。请记住：当SR[EXL]或SR[ERL]被SET时， 
+SR[IE]是无效的。 
+
+* Exception/Interrupt优先级。 
+
+Reset (highest priority) 
+Soft Reset 
+Nonmaskable Interrupt (NMI) 
+Address error --Instruction fetch 
+TLB refill--Instruction fetch 
+TLB invalid--Instruction fetch 
+Cache error --Instruction fetch 
+Bus error --Instruction fetch 
+Watch - Instruction Fetch 
+Integer overflow, Trap, System Call, Breakpoint, Reserved Instruction, Coprocessor Unus-able, or Floating-Point Exception Address error--Data access 
+TLB refill --Data access 
+TLB invalid --Data access 
+TLB modified--Data write 
+Cache error --Data access 
+Watch - Data access 
+Virtual Coherency - Data access 
+Bus error -- Data access 
+Interrupt (lowest priority) 
+
+大家请注意，所谓的优先级是指：当在某个时刻，同时多个Exception或Interrupt出现时，CPU将会按照上述的优先级来TAKE。如果CPU目前在，for example,TLB refill处理handler中，这时，出现了Bus Error的信号，CPU不会拒绝。当然，在这次的处理中，EPC的值不会被更新，如果EXL是SET的话。 
+
+
+Nesting Exceptions 
+
+在有的情况下，我们希望在Exception或中断中，系统可以继续接送exception或中断。 
+这需要我们小心如下事情： 
+
+*进入处理程序后，我们要设置CPU模式为KERNEL MODE然后重新clear SR[EXL],从而支持EPC会被更新，如果出现新的Exception/Interrupt的话。 
+
+* EPC 和SR的值 
+
+EPC和SR寄存器是两个全局的。任何一个Exception/Interrupt发生时，CPU硬件都会 
+将其value over-write.所以，对于支持Nesting Exceptoins的系统，要妥善保存EPC和SR寄 
+存器的VALUE。 
+
+* EPC 和SR的值 EPC和SR寄存器是两个全局的。任何一个Exception/Interrupt发生时，CPU硬件都会 将其value over-write.所以，对于支持Nesting Exceptoins的系统，要妥善保存EPC和SR寄 存器的VALUE。SR[IE]是一个很重要的BIT来处理 在处理Nesting Exception时，值得注意的，或容易犯错的一点是(我在这上面吃过苦头)： 
+一定要注意：在做 restore context时，要避免重入问题。比如，但要用eret返回时， 我们要set up the EPC value. 在此之前，一定要先disable interrupt. 否 
+则，EPC value 可能被冲掉。 
+
+
+下面是一段codes of mine for illustrating the exception return. 
+
+restore_context 
+/* Retrieve the SR value */ 
+mfc0 t0,C0_SR 
+/* Fill in a delay slot instruction */ 
+nop 
+/* Clear the SR[IE] to disable any interrupts */ 
+li t1,~SR_IE 
+and t0,t0,t1 
+mtc0 t0,C0_SR 
+nop 
+/* We can then safely restore the EPC value * from the stack */ 
+ld t1,R_EPC(sp) 
+mtc0 t1,C0_EPC 
+nop 
+lhu k1, /* restore old interrupt imask */ 
+or t0,t0,k1 
+/* We reset the EXL bit before returning from the exception/interrupt the eret instruction will automatically clear the EXL then. 一定要理解 
+我为什么要在前面clear EXL.如果不得话。就不能支持nesting exceptions. 为什么，希望读者能思考并回答。并且，在清EXL之前，我们一定要先把CPU模式变为KERNEL MODE。 
+*/ 
+ori t0,t0,SR_EXL 
+/* restore mask and exl bit */ 
+mtc0 t0,C0_SR 
+nop 
+ori t0,t0,SR_IE 
+/* re-set ie bit */ 
+ori t0,t0,SR_IMASK7 
+mtc0 t0,C0_SR 
+nop 
+/*恢复CPU模式 */ 
+ori t0, t0,SR_USERMODE 
+mtc0, t0, C0_SR 
+
+eret /*eret将ATOMIC的将EXL清零。所以要注意，如果你在处理程序中改变了CPU得模式，例如，一定要确保，在重新设置EXL位后，恢复CPU的original mode. Otherwise,for example, a task/process will run in kernel mode. That would be totally mess up your system software.*/ 
+
+In summary, exception/interrupt handling is very critical for any os kernel. For a kernel engineer, you should be very clear with the exception mechanisms of your target CPU provides. Otherwise, it would cost you bunches of time for bug fixes. 
+
+
+Again, the best way is to read the CPU specification slowly and clearly. There is no any better approach there. No genius, but hard worker, always.

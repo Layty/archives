@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0082)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-75924/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;1 Covering Multithreading
+Basics (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 1 Covering Multithreading Basics (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 1 Covering Multithreading Basics (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 1 Covering Multithreading Basics (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 1 Covering Multithreading Basics (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 1 Covering Multithreading Basics (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 1 Covering Multithreading Basics (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;1 Covering Multithreading
+Basics</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/preface-77/index.html"><em>Previous</em>: Preface</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12926/index.html"><em>Next</em>: Chapter&nbsp;2 Basic Threads
+Programming</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vpj2"></a><h1 class="sol">Chapter&nbsp;1 Covering Multithreading
+Basics</h1>
+<a name=""></a><p>The word <b>multithreading</b> can be translated as <b>multiple threads of control</b> or <b>multiple flows of control</b>.
+While a traditional UNIX process contains a single thread of control, multithreading
+(MT) separates a process into many execution threads. Each of these threads
+runs independently.</p>
+<p>This chapter explains some multithreading terms, benefits, and concepts.
+If you are ready to start using multithreading, skip to <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12926/index.html">Chapter&nbsp;2, Basic Threads Programming</a>.</p>
+<p>If you need in-depth information about multithreaded programming, see
+the <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtp-related-books/index.html">Related Books</a> section of
+the preface.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-58106/index.html">Multithreading Terms</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-94058/index.html">Solaris Multithreading Libraries and Standards</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-68348/index.html">Benefiting From Multithreading</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-25092/index.html">Multithreading Concepts</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vpj4"></a><h1 class="sol">Multithreading Terms</h1>
+<p>
+<a name="indexterm-1"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vpj4/index.html#mtintro-54099">Table 1–1</a> introduces some of
+the terms that are used in this book.</p>
+<a name="mtintro-54099"></a>Table 1–1  Multithreading Terms<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Term&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Definition&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>Process&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>The UNIX environment, such as file descriptors, user ID, and so on,
+created with the <tt>fork(2)</tt> system call, which is set up to
+run a program.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Thread&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>A sequence of instructions executed within the context of a process.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>POSIX <tt>pthreads</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>A threads interface that is POSIX threads compliant. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-94058/index.html">Solaris Multithreading Libraries and Standards</a> for more information.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Solaris <tt>threads</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>A Sun Microsystems threads interface that is not POSIX threads compliant.
+A predecessor of pthreads.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="mtintro-ix4"></a>Single-threaded</p>
+
+</td><td align="left" valign="top">
+<p>Restricts access to a single thread. Execution is through sequential
+processing, limited to one thread of control.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="mtintro-ix5"></a>Multithreading</p>
+
+</td><td align="left" valign="top">
+<p>Allows access to two or more threads. Execution occurs in more than
+one thread of control, using parallel or concurrent processing.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="mtintro-ix6"></a><a name="mtintro-ix7"></a><a name="mtintro-ix8"></a>User-level or Application-level threads   </p>
+
+</td><td align="left" valign="top">
+<p>Threads managed by threads routines in user space, as opposed to kernel
+space. The POSIX pthreads and Solaris threads APIs are used to create and
+handle user threads. In this manual, and in general, a thread is a user-level
+thread.&nbsp;</p>
+<hr>
+<b>Note – </b>
+<p>Because this manual is for application programmers, kernel thread
+programming is not discussed.</p>
+
+<hr>
+
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="mtintro-ix9"></a><a name="indexterm-2"></a>Lightweight processes </p>
+
+</td><td align="left" valign="top">
+<p>Kernel threads, also called LWPs,  that execute kernel code and system
+calls. LWPs are managed by the system thread scheduler, and cannot be directly
+controlled by the application programmer. Beginning with Solaris 9, every
+user-level thread has a dedicated LWP. This is known as a 1:1 thread model.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="mtintro-ix10"></a><a name="mtintro-ix11"></a>Bound thread (obsolete term)</p>
+
+</td><td align="left" valign="top">
+<p>Prior to Solaris 9, a user-level thread that is permanently bound to
+one LWP. Beginning with Solaris 9, every thread has a dedicated LWP, so all
+threads are bound threads. The concept of an unbound thread no longer exists.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="indexterm-3"></a>Unbound thread (obsolete term)</p>
+
+</td><td align="left" valign="top">
+<p>Prior to Solaris 9, a user-level thread that is not necessarily bound
+to one LWP. Beginning with Solaris 9, every thread has a dedicated LWP, so
+the concept of unbound threads no longer exists.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Attribute object&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>Contains opaque data types and related manipulation functions. These
+data types and functions standardize some of the configurable aspects of POSIX
+threads, mutual exclusion locks (mutexes), and condition variables.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="indexterm-4"></a>Mutual exclusion locks</p>
+
+</td><td align="left" valign="top">
+<p>Objects used to lock and unlock access to shared data. Such objects
+ are also known as mutexes.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Condition variables&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>Objects used to block threads until a change of state.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Read-write locks&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>Objects used to allow multiple read-only access to shared data, but
+exclusive access for modification of that data.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<a name="mtintro-ix13"></a><a name="mtintro-ix14"></a>Counting semaphore  </p>
+
+</td><td align="left" valign="top">
+<p>A memory-based synchronization mechanism in which a non-negative integer
+count is used to coordinate access by multiple threads to shared resources.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Parallelism&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>A condition that arises when at least two threads are <b>executing</b> simultaneously.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Concurrency&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>A condition that exists when at least two threads are <b>making</b> <b>progress</b>. A more generalized form of parallelism that can include
+time-slicing as a form of virtual parallelism.</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vpj5"></a><h1 class="sol">Solaris Multithreading Libraries and Standards</h1>
+<p>
+<a name="mtintro-ix15"></a>The concept of multithreaded programming
+goes back to at least the 1960s. Multithreaded programming development on
+UNIX systems began in the middle 1980s. While agreement existed about what
+multithreading is and the features necessary to support multithreading, the
+interfaces used to implement multithreading have varied greatly in the past.</p>
+<p>For several years, POSIX (Portable Operating System Interface) 1003.4a
+worked on standards for multithreaded programming. The standard was eventually
+ratified and is now part of The Single UNIX Specification (SUS). The latest
+specification is available at <a href="http://www.unix.org/version3/online.html">The Open Group
+website</a>. Beginning with the Solaris 10 release, the Solaris OS conforms
+to The Open Group's UNIX 03 Product Standard, or SUSv3.</p>
+<p>Before the POSIX standard was ratified, the Solaris multithreading API
+was implemented in the Solaris <tt>libthread</tt> library, which
+was developed by Sun and later became the basis for the UNIX International
+(UI) threads standard. The <tt>libthread</tt> library was introduced
+in the Solaris 2.2 release in 1993. Support for the POSIX standard was added
+with the <tt>libpthread</tt> API in the Solaris 2.5 release in 1995,
+and both APIs have been available since. The <tt>libthread</tt> and <tt>libpthread</tt> libraries were merged into the standard <tt>libc</tt> C
+library beginning in the Solaris 10 release.</p>
+<p>
+<a name="mtintro-ix22"></a><a name="geyym"></a>The <tt>libthread</tt> and <tt>libpthread</tt> libraries
+are maintained to provide backward compatibility for both runtime and compilation
+environments. The <tt>libthread.so.1</tt> and <tt>libpthread.so.1</tt> shared
+objects are implemented as filters on <tt>libc.so.1</tt>. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5173/libthread-3lib/index.html">libthread(3LIB)</a> and <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5173/libpthread-3lib/index.html">libpthread(3LIB)</a> man pages for more information.</p>
+<p>While both thread libraries are supported, the POSIX library should
+be used in most cases. The <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5175/threads-5/index.html">threads(5)</a> man
+page documents the differences and similarities between POSIX threads and
+Solaris threads.</p>
+<p>This <cite>Multithreaded Programming Guide</cite> is based on the  latest revision
+of the POSIX standard IEEE Std 1003.1:2001 (also known as ISO/IEC 9945:2003
+and as The Single UNIX Specification, Version 3).</p>
+<p>Subjects specific to Solaris threads are covered in the <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html">Chapter&nbsp;6, Programming With Solaris Threads</a>.</p>
+<a name="6mba5vpj6"></a><h1 class="sol">Benefiting From Multithreading</h1>
+<p>This section briefly describes the benefits of multithreading.</p>
+<a name=""></a><p>Multithreading your code can help in the following areas:</p>
+<ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-1/index.html">Improving Application Responsiveness</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-2/index.html">Using Multiprocessors Efficiently</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-3/index.html">Improving Program Structure</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-4/index.html">Using Fewer System Resources</a>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vpj8"></a><h2 class="sol">Improving Application Responsiveness</h2>
+<p>Any program in which many activities are not dependent upon each other
+can be redesigned so that each independent activity is defined as a thread.
+For example, the user of a multithreaded GUI does not have to wait for one
+activity to complete before starting another activity.</p>
+<a name="6mba5vpj9"></a><h2 class="sol">Using Multiprocessors Efficiently</h2>
+<p>Typically, applications that express concurrency requirements with threads
+need not take into account the number of available processors. The performance
+of the application improves transparently with additional processors because
+the operating system takes care of scheduling threads for the number of processors
+that are available. When multicore processors and multithreaded processors
+are available, a multithreaded application's performance scales appropriately
+because the cores and threads are viewed by the OS as processors.</p>
+<p>
+<a name="mtintro-ix18"></a>Numerical algorithms and
+numerical applications with a high degree of parallelism, such as matrix multiplications,
+can run much faster when implemented with threads on a multiprocessor.</p>
+<hr><b>Note – </b><p>In this manual, whenever multiprocessors are discussed, the context
+applies also to multicore and multithreaded processors unless noted otherwise.</p>
+<hr>
+<a name="6mba5vpja"></a><h2 class="sol">Improving Program Structure</h2>
+<p>Many programs are more efficiently structured as multiple independent
+or semi-independent units of execution instead of as a single, monolithic
+thread. For example, a non-threaded program that performs many different tasks
+might need to devote much of its code just to coordinating the tasks. When
+the tasks are programmed as threads, the code can be simplified. Multithreaded
+programs, especially programs that provide service to multiple concurrent
+users, can be more adaptive to variations in user demands than single-threaded
+programs.</p>
+<a name="6mba5vpjb"></a><h2 class="sol">Using Fewer System Resources</h2>
+<p>Programs that use two or more processes that access common data through
+shared memory are applying more than one thread of control.</p>
+<p>However, each process has a full address space and operating environment
+state. Cost of creating and maintaining this large amount of state information
+makes each process much more expensive than a thread in both time and space.</p>
+<p>In addition, the inherent separation between processes can require a
+major effort by the programmer. This effort includes handling communication
+between the threads in different processes, or synchronizing their actions.
+When the threads are in the same process, communication and synchronization
+becomes much easier.</p>
+<a name="6mba5vpjc"></a><h2 class="sol">Combining Threads and RPC</h2>
+<p>
+<a name="mtintro-ix19"></a><a name="mtintro-ix20"></a>By combining threads and a remote procedure
+call (RPC) package, you can exploit nonshared-memory multiprocessors, such
+as a collection of workstations. This combination distributes your application
+relatively easily and treats the collection of workstations as a multiprocessor.</p>
+<p>For example, one thread might create additional threads. Each of these
+children could then place a remote procedure call, invoking a procedure on
+another workstation. Although the original thread has merely created threads
+that are now running in parallel, this parallelism involves other computers.</p>
+<hr><b>Note – </b><p>The Message Processing Interface (MPI) might be a more effective
+approach to achieve multithreading in applications that run across distributed
+systems. See <a href="http://www-unix.mcs.anl.gov/mpi/"><tt>http://www-unix.mcs.anl.gov/mpi/</tt></a> for
+more information about MPI.</p>
+<p>The Sun HPC ClusterTools<sup>TM</sup> software
+includes Open MPI Message Passing Interface (OMPI), which is an open source
+implementation of MPI. See the <a href="http://www.sun.com/software/products/clustertools/index.xml">Sun
+HPC ClusterTools product page</a> for more information about ClusterTools.</p>
+<hr>
+<a name="6mba5vpjd"></a><h1 class="sol">Multithreading Concepts</h1>
+<p>This section introduces basic concepts of multithreading.</p>
+<a name="6mba5vpjf"></a><h2 class="sol">Concurrency and Parallelism</h2>
+<p>In a multithreaded process on a single processor, the processor can
+switch execution resources between threads, resulting in concurrent execution.
+Concurrency indicates that more than one thread is making progress, but the
+threads are not actually running simultaneously. The switching between threads
+happens quickly enough that the threads might appear to run simultaneously.</p>
+<p>In the same multithreaded process in a shared-memory multiprocessor
+environment, each thread in the process can run concurrently on a separate
+processor, resulting in parallel execution, which is true simultaneous execution.
+ When the number of threads in a process is less than or equal to the number
+of processors available, the operating system's thread support system ensures
+that each thread runs on a different processor. For example, in a matrix multiplication
+that is programmed with four threads, and runs on a system that has two dual-core
+processors, each software thread can run simultaneously on the four processor
+cores to compute a row of the result at the same time. </p>
+<a name="6mba5vpjg"></a><h2 class="sol">Multithreading Structure</h2>
+<p>Traditional UNIX already supports the concept of threads. Each process
+contains a single thread, so programming with multiple processes is programming
+with multiple threads. But, a process is also an address space, and creating
+a process involves creating a new address space.</p>
+<p>Creating a thread is less expensive than creating a new process because
+the newly created thread uses the current process address space. The time
+that is required to switch between threads is less than the time required
+to switch between processes. A switch between threads is faster because no
+switching between address spaces occurs.</p>
+<p>Communication between the threads of one process is simple because the
+threads share everything, most importantly address space. So, data produced
+by one thread is immediately available to all the other threads in the process.</p>
+<p>However, this sharing of data leads to a different set of challenges
+for the programmer. Care must be taken to synchronize threads to protect data
+from being  modified by more than one thread at once, or from being read by
+some threads while being modified by another thread at the same time. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-8/index.html">Thread Synchronization</a> for more information.</p>
+<a name="6mba5vpji"></a><h3 class="sol">User-Level Threads</h3>
+<p>
+<a name="mtintro-ix25"></a><a name="mtintro-ix26"></a>Threads are the primary programming interface in multithreaded
+programming. Threads are visible only from within the process, where the threads
+share all process resources like address space, open files, and so on.</p>
+<a name="6mba5vpjj"></a><h3 class="sol">User-Level Threads State</h3>
+<p>The following state is unique to each thread.</p>
+<a name=""></a><ul>
+<li>
+<p>Thread ID </p>
+
+
+</li>
+<li>
+<p>
+<a name="mtintro-ix29"></a><a name="mtintro-ix30"></a><a name="mtintro-ix31"></a>Register
+state, including program counter (PC) and stack pointer   </p>
+
+
+</li>
+<li>
+<p>Stack </p>
+
+
+</li>
+<li>
+<p>
+<a name="mtintro-ix32"></a>Signal mask </p>
+
+
+</li>
+<li>
+<p>
+<a name="mtintro-ix33"></a>Priority </p>
+
+
+</li>
+<li>
+<p>
+<a name="mtintro-ix34"></a>Thread-private storage </p>
+
+
+</li>
+</ul>
+<p>
+<a name="mtintro-ix35"></a><a name="mtintro-ix36"></a>Threads share the process instructions and most of the process
+data. For that reason, a change in shared data by one thread can be seen by
+the other threads in the process. When a thread needs to interact with other
+threads in the same process, the thread can do so without involving the operating
+environment.  </p>
+<hr><b>Note – </b><p>User-level threads are so named to distinguish them from kernel-level
+threads, which are the concern of systems programmers only. Because this book
+is for application programmers, kernel-level threads are not discussed.</p>
+<hr>
+<a name="6mba5vpjk"></a><h2 class="sol">Thread Scheduling</h2>
+<p>
+<a name="indexterm-5"></a>The POSIX standard specifies three scheduling policies: first-in-first-out
+(<tt>SCHED_FIFO</tt>), round-robin (<tt>SCHED_RR</tt>),
+and custom (<tt>SCHED_OTHER</tt>). <tt>SCHED_FIFO</tt> is
+a queue-based scheduler with different queues for each priority level. <tt>SCHED_RR</tt> is like FIFO except that each thread has an execution time quota. </p>
+<p>
+<a name="indexterm-6"></a>Both <tt>SCHED_FIFO</tt> and <tt>SCHED_RR</tt> are
+POSIX Realtime extensions. Threads executing with these policies are in the
+Solaris Real-Time (RT) scheduling class, normally requiring special privilege. <tt>SCHED_OTHER</tt> is the default scheduling policy. Threads executing
+with the <tt>SCHED_OTHER</tt> policy are in the traditional Solaris
+Time-Sharing (TS) scheduling class.</p>
+<p>Solaris provides other scheduling classes, namely the Interactive timesharing
+(IA) class, the Fair-Share (FSS) class, and the Fixed-Priority (FX) class.
+ Such specialized classes are not discussed here.  See the Solaris <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5167/priocntl-2/index.html">priocntl(2)</a> manual page
+for more information.</p>
+<p>See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-51573/index.html">LWPs and Scheduling Classes</a> for
+information about the <tt>SCHED_OTHER</tt> policy.</p>
+<p>
+<a name="indexterm-7"></a><a name="indexterm-8"></a><a name="indexterm-9"></a><a name="indexterm-10"></a>Two scheduling scopes are available: process scope (<tt>PTHREAD_SCOPE_PROCESS</tt>) and system scope (<tt>PTHREAD_SCOPE_SYSTEM</tt>). Threads
+with differing scope states can coexist on the same system and even in the
+same process. Process scope causes such threads to contend for resources only
+with other such threads in the same process. System scope causes such threads
+to contend with all other threads in the system. In practice, beginning with
+the Solaris 9 release, the system makes no distinction between these two scopes.</p>
+<a name="6mba5vpjl"></a><h2 class="sol">Thread Cancellation</h2>
+<p>
+<a name="indexterm-11"></a>A thread
+can request the termination of any other thread in the process. The target
+thread, the one being cancelled, can keep cancellation requests pending as
+well as  perform application-specific cleanup when the thread acts upon the
+cancellation request.</p>
+<p>The pthreads cancellation feature permits either asynchronous or deferred
+termination of a thread. Asynchronous cancellation can occur at any time.
+Deferred cancellation can occur only at defined points. Deferred cancellation
+is the default type.</p>
+<a name="6mba5vpjm"></a><h2 class="sol">Thread Synchronization</h2>
+<p>
+<a name="indexterm-12"></a>Synchronization enables you to control program flow and access
+to shared data for concurrently executing threads.</p>
+<p>The four synchronization models are mutex locks, read/write locks, condition
+variables, and semaphores.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="indexterm-13"></a><b>Mutex locks</b> allow only one
+thread at a time to execute a specific section of code, or to access specific
+data.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-14"></a><b>Read/write locks</b> permit
+concurrent reads and exclusive writes to a protected shared resource. To modify
+a resource, a thread must first acquire the exclusive write lock. An exclusive
+write lock is not permitted until all read locks have been released.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-15"></a><b>Condition variables</b> block
+threads until a particular condition is true. </p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-16"></a><b>Counting semaphores</b> typically
+coordinate access to resources. The count is the limit on how many threads
+can have concurrent access to the data protected by the semaphore.  When the
+count is reached, the semaphore causes the calling thread to block until the
+count changes. A binary semaphore (with a count of one) is similar in operation
+to a mutex lock.</p>
+
+
+</li>
+</ul>
+<a name="6mba5vpjn"></a><h1 class="sol">Using the 64-bit Architecture</h1>
+<p>
+<a name="indexterm-17"></a>For application developers, the major difference
+between the Solaris 64-bit and 32–bit environments is the C–language
+data type model used. The 64-bit data type uses the LP64 model where <tt>longs</tt> and pointers are 64 bits wide. All other fundamental data types
+remain the same as the data types of the 32–bit implementation. The
+32–bit data type uses the ILP32 model where <tt>ints</tt>, <tt>longs</tt>, and pointers are 32 bits.</p>
+<a name=""></a><p>The following summary briefly describes the major features and considerations
+for using the 64-bit environment:</p>
+<ul>
+<li>
+<p>Large Virtual Address Space</p>
+
+<p>
+<a name="indexterm-18"></a>In
+the 64-bit environment, a process can have up to 64 bits of virtual address
+space, or 18 exabytes. The larger virtual address space is 4 billion times
+the current 4 Gbyte maximum of a 32-bit process. Because of hardware restrictions,
+however, some platforms might not support the full 64 bits of address space.</p>
+
+<p>A large address space increases the number of threads that can be created
+with the default stack size. The default stack size is 1 megabyte
+on 32 bits, 2 megabytes on 64 bits.  The number of threads with the default
+stack size is approximately 2000 threads on a 32–bit system and 8000
+billion on a 64-bit system. </p>
+
+
+</li>
+<li>
+<p>Kernel Memory Readers</p>
+
+<p>
+<a name="indexterm-19"></a><a name="indexterm-20"></a><a name="indexterm-21"></a>The kernel is an LP64 object that uses 64-bit data
+structures internally. This means that existing 32-bit applications that use <tt>libkvm</tt>, <tt>/dev/mem</tt>, or <tt>/dev/kmem</tt> do
+not work properly and must be converted to 64-bit programs.</p>
+
+
+</li>
+<li>
+<p>
+<tt>/proc</tt> Restrictions</p>
+
+<p>
+<a name="indexterm-22"></a>A 32-bit program that uses <tt>/proc</tt> is
+able to look at 32-bit processes but is unable to understand a 64-bit process.
+The existing interfaces and data structures that describe the process are
+not large enough to contain the 64-bit quantities. Such programs must be recompiled
+as 64-bit programs to work for both 32-bit processes and 64-bit processes.</p>
+
+
+</li>
+<li>
+<p>64-bit Libraries</p>
+
+<p>
+<a name="indexterm-23"></a>32–bit applications
+are required to link with 32–bit libraries and 64-bit applications are
+required to link with 64-bit libraries. With the exception of those libraries
+that have become obsolete, all of the system libraries are provided in both
+32–bit versions and 64-bit versions. </p>
+
+
+</li>
+<li>
+<p>64-bit Arithmetic</p>
+
+<p>
+<a name="indexterm-24"></a>64-bit arithmetic has
+long been available in previous 32–bit Solaris releases. The 64-bit implementation
+now provides full 64-bit machine registers for integer operations and parameter
+passing.</p>
+
+
+</li>
+<li>
+<p>Large Files</p>
+
+<p>
+<a name="indexterm-25"></a>If an application requires
+only large file support, the application can remain 32-bit and use the Large
+Files interface.  To take full advantage of 64-bit capabilities, the application
+must be converted to 64-bit.</p>
+
+
+</li>
+</ul>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/preface-77/index.html"><em>Previous</em>: Preface</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12926/index.html"><em>Next</em>: Chapter&nbsp;2 Basic Threads
+Programming</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

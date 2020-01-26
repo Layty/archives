@@ -1,0 +1,397 @@
+Mips kernel Introduction
+ 
+1.硬件知识
+ * CPU 手册: http://www.mips.com等.
+ * 主板资料,找你的卖家.
+ * 背景知识:如PCI协议,中断概念等.
+ 
+2.软件资源
+ 
+ * http://oss.sgi.com/linux,ftp://oss.sgi.com
+ * http://www.mips.com
+ * mailing lists: 
+    linux-mips@oss.sgi.com
+    debian-mips@oss.sgi.com
+ * kernel cvs
+   sgi:
+     cvs -d :pserver:cvs@oss.sgi.com:/cvs login 
+    (Only needed the first time you use anonymous CVS, the password is "cvs") 
+     cvs -d :pserver:cvs@oss.sgi.com:/cvs co linux
+   另外sourceforge.net也有另一个内核树，似乎不如sgi的版本有影响.
+ * 经典书籍: 
+      * "Mips R4000 Microprocessor User's Manual",by Joe Heinrich
+      * "See Mips Run",by Dominic Sweetman
+ * Jun Sun's mips porting guide: http://linux.junsun.net/porting-howto/
+ * 交叉编译指南:http://www.ltc.com/~brad/mips/mips-cross-toolchain.html
+ * Debian Mips port: http://www.debian.org/ports/mips
+ * 系统杂志网站: http://www.xtrj.org
+ 
+3. mips kernel的一般介绍
+ 
+  (下面一些具体代码基于2.4.8的内核)
+   我们来跟随内核启动运行的过程看看mips内核有什么特别之处.
+ 
+   加电后,mips kernel从系统固件程序(类似bios,可能烧在eprom,flash中)得到控制
+   之后(head.S),初始化内核栈,调用init_arch初始化硬件平台相关的代码.
+ 
+   init_arch(setup.c)首先监测使用的CPU(通过MIPS CPU的CP0控制寄存器PRID)
+  确定使用的指令集和一些CPU参数,如TLB大小等.然后调用prom_init做一些底层
+  参数初始化. prom_init是和具体的硬件相关的.
+ 
+   使用MIPS CPU的平台多如牛毛, 所以大家在arch/mips下面可以看到很多的子目录,
+   每个子目录是一个或者一系列相似的平台.这里的平台差不多可以理解成一块主板
+   加上它的系统固件,其中很多还包括一些专用的显卡什么的硬件(比如一些工作站).
+   这些目录的主要任务是:
+     1. 提供底层板子上的一些重要信息,包括系统固件传递的参数,io的映射基地址
+       ,内存的大小的分布等.多数还包括提供早期的信息输入输出接口(通常是一个
+       简单的串口驱动)以方便调试,因为pmon往往不提供键盘和显示卡的支持.?
+     2. 底层中断代码,包括中断控制器编程和中断的分派,应答等
+     3. pci子系统底层代码. 实现pci配置空间的读写,以及pci设备的中断,IO/Mem
+        空间的分配
+     4. 其它,特定的硬件.常见的有实时时钟等
+     
+ 
+   这里关键是要理解这些硬件平台和熟悉的x86不同之处.我印象较深的有几个:
+      * item MIPS不象X86有很标准的硬件软件接口,而是五花八门,每个厂家
+        有一套,因为它们很多是嵌入式系统或者专门的工作站.不象PC中,有了
+        BIOS后用同一套的程序,就可以使用很多不同的主板和CPU.
+ 
+          MIPS中的'bios'常用的有pmon和yamon,都是开放源代码的软件。
+        很多开发板带的固件功能和PC BIOS很不一样,它们多数支持串口显示,
+        或者网络下载和启动,以及类DEBUG的调试界面,但可能根本不支持显卡和
+        硬盘,没有一般的基本'输入输出'功能.
+      * PCI系统和地址空间,总线等问题.
+          在x86中,IO空间用专门的指令访问,而PCI设备的内存空间和物理内存
+        空间是相同的,也就是说,在CPU看来物理内存从地址0开始的话,在PCI设备
+        看来也是一样的.反之,PCI设备的基地址寄存器设定的PCI存储地址,CPU用
+        相同的物理地址访问就行了.
+ 
+          而在MIPS中就很不一样了,IO一般是memory map的,map到哪里就倚赖具体
+        平台了.而PCI设备的地址空间和CPU所见的物理内存地址空间往往也不一样
+        (bus address & physical address).所以mips kernel的iob/outb,以及
+        bus_to_virt/virt_to_bus,phys_to_virt/virt_to_phys,ioremap等就
+        要小心考虑.这些问题有时间我会对这些问题做专门的说明.
+ 
+        PCI配置空间的读写和地址空间映射的处理通常都是每个平台不一样的.
+        因为缺乏统一接口的BIOS,内核经常要自己做PCI设备的枚举,空间分配,
+        中断分配.
+ 
+      * 中断系统.
+         PC中中断控制器先是有8259,后来是apic,而cpu的中断处理386之后好像
+         也变化不大,相对统一.
+         mips CPU的中断处理方式倒是比较一致,但是主板上的控制器就乱七八糟了
+         怎么鉴别中断源,怎么编程控制器等任务就得各自实现了.
+         总的说来,MIPS CPU的中断处理方式体现了RISC的特点:软件做事多,硬件尽量
+         精简. 编程控制器,提供中断控制接口,dispatch中系?这一部分原来很混乱,
+         大家各写各的,现在有人试图写一些比较统一的代码(实际上就是原来x86上
+         用的controller/handler 抽象).
+ 
+      * 存储管理.
+         MIPS 是典型的RISC结构,它的存储管理单元做的事情比象x86这种机器少得多.
+         例如,它的tlb是软件管理的,cache常常是需要系统程序干预的.而且,过多的
+         CPU和主板变种使得这一部分非常复杂,容易出错.存储管理的代码主要在include/
+         asm-mips和arch/mips/mm/目录下.
+      * 其它.
+          如时间处理,r4k以上的MIPS CPU提供count/compare寄存器,每隔几拍count增加,          到和compare相等时发生时钟中断,这可以用来提供系统的时钟中断.但很多板子
+          自己也提供其它的可编程时钟源.具体用什么就取决于开发者了.
+ 
+    init_arch后是loadmmu,初始化cache/tlb.代码在arch/mips/mm里.有人可能会问,
+    在cache和tlb之前CPU怎么工作的?
+      在x86里有实模式,而MIPS没有,但它的地址空间是特殊的,分成几个不同的区域,
+      每个区域中的地址在CPU里的待遇是不一样的,系统刚上电时CPU从地址bfc00000
+      开始,那里的地址既不用tlb也不用cache,所以CPU能工作而不管cache和tlb是什么
+      样子.当然,这样子效率是很低的,所以CPU很快就开始进行loadmmu. 因为MIPS CPU
+      变种繁多,所以代码又臭又长. 主要不外是检测cache大小,选择相应的cache/tlb 
+      flush过程,还有一些memcpy/memset等的高效实现.这里还很容易出微妙的错误,
+      软件管理tlb或者cache都不简单,要保证效率又要保证正确.在开发初期常常先
+      关掉CPU的cache以便排除cache问题.
+ 
+    MMU初始化后,系统就直接跳转到init/main.c中的start_kernel,很快吧?
+      不过别高兴,start_kernel虚晃一枪,又回到arch/mips/kernel/setup.c,调用
+      setup_arch,这回就是完成上面说的各平台相关的初始化了.
+ 
+    平台相关的初始化完成之后,mips内核和其它平台的内核区别就不大了,但也还有
+    不少问题需要关注.如许多驱动程序可能因为倚赖x86的特殊属性(如IO端口,自动
+    的cache一致性维护,显卡初始化等)而不能直接在MIPS下工作.
+     
+    例如,能直接(用现有的内核驱动)在MIPS下工作的网卡不是很多,我知道的有intel
+    eepro100,AMD pcnet32 ,Tulip. 3com的网卡好像大多不能用.显卡则由于vga bios
+    的问题,很少能直接使用.(常见的显卡都是为x86做的,它们常常带着一块rom,里面
+    含有vga bios,PC的BIOS的初始化过程中发现它们的化就会先去执行它们以初始化
+    显卡,然后才能很早地在屏幕上输出信息).而vga bios里面的代码一般是for x86,
+    不能直接在mips CPU上运行.而且这些代码里常常有一些厂家相关的特定初始化,
+    没有一个通用的代码可以替换.只有少数比较开放的厂家提供足够的资料使得内核
+    开发人员能够跳过vga bios的执行直接初始化他的显卡,如matrox.
+ 
+    除此之外,也可能有其它的内核代码由于种种原因(不对齐访问,unsigned/signed
+    等)不能使用,如一些文件系统(xfs?).
+ 
+    关于linux-mips内核的问题,在sgi的mailing list搜索或者提问比较有希望获得
+    解决.如果你足够有钱,可以购买montivista的服务.http://www.mvista.com.
+ 
+ 
+4.mips的异常处理
+  1.硬件
+     mips CPU的异常处理中,硬件做的事情很少,这也是RISC的特点. 和x86系统相比,
+     有两点大不一样:
+      * 硬件不负责具体鉴别异常,CPU响应异常之后需要根据状态寄存器等来确定
+       究竟发生哪个异常.有时候硬件会做一点简单分类,CPU能直接到某一类异常
+       的处理入口.
+      * 硬件通常不负责保存上下文.例如系统调用,所有的寄存器内容都要由软件
+      进行必要的保存.
+ 
+    各种主板的中断控制种类很多,需要根据中断控制器和连线情况来编程.
+ 
+  2.kernel实现
+ 
+   * 处理程序什么时候安装?
+   traps_init(arch/mips/kernel/traps.c,setup_arch之后start_kernel调用)
+      ...
+     /* Copy the generic exception handler code to it's final destination. */
+     memcpy((void *)(KSEG0 + 0x80), &except_vec1_generic, 0x80);
+     memcpy((void *)(KSEG0 + 0x100), &except_vec2_generic, 0x80);
+     memcpy((void *)(KSEG0 + 0x180), &except_vec3_generic, 0x80);
+     flush_icache_range(KSEG0 + 0x80, KSEG0 + 0x200);
+     /*
+      * Setup default vectors
+      */
+     for (i = 0; i <= 31; i++)
+     set_except_vector(i, handle_reserved);
+     ...
+ 
+   * 装的什么? 
+     except_vec3_generic(head.S) (除了TLB refill例外都用这个入口):
+       /* General exception vector R4000 version. */
+    NESTED(except_vec3_r4000, 0, sp) 
+    .set    noat  
+    mfc0    k1, CP_CAUSE 
+    andi    k1, k1, 0x7c  /* 从cause寄存器取出异常号 */ 
+    li      k0, 31<<2      beq     k1, k0, handle_vced /* 如果是vced,处理之*/      li     k0, 14><<2      beq     k1, k0, handle_vcei /* 如果是vcei,处理之*/      /* 这两个异常是和cache相关的,cache出了问题,不能再在这个cached的位置处理啦 */      la     k0, exception_handlers /* 取出异常处理程序表 */      addu    k0, k0, k1      lw      k0, (k0)  /*处理函数*/      nop      jr      k0        /*运行异常处理函数*/      nop       那个异常处理程序表是如何初始化的呢?      在traps_init中,大家会看到set_exception_vector(i,handler)这样的代码,     填的就是这张表啦.可是,如果你用souce insigh之类的东西去找那个handler,往往     就落空了,??怎么没有handle_ri,handle_tlbl..._?不着急,只不过是一个小trick,     还记得x86中断处理的handler代码吗? 它们是用宏生成的:      entry.S      ...     #define BUILD_HANDLER(exception,handler,clear,verbose)      .align  5;                                                  NESTED(handle_##exception, PT_SIZE, sp);                    .set    noat;                                               SAVE_ALL;  /* 保存现场,切换栈(如必要)*/                     __BUILD_clear_##clear(exception); /*关中断?*/               .set    at;                                                 __BUILD_##verbose(exception);                               jal     do_##handler;     /*干活*/                          move   a0, sp;                                              j       ret_from_exception;   /*回去*/                      nop;                                                        END(handle_##exception)        /*生成处理函数*/     BUILD_HANDLER(adel,ade,ade,silent)              /* #4  */     BUILD_HANDLER(ades,ade,ade,silent)              /* #5  */     BUILD_HANDLER(ibe,ibe,cli,verbose)              /* #6  */     BUILD_HANDLER(dbe,dbe,cli,silent)               /* #7  */         BUILD_HANDLER(bp,bp,sti,silent)                 /* #9  */       认真追究下去,这里的一些宏是很重要的,象SAVE_ALL(include/asm/stackframe.h),      异常处理要高效,正确,这里要非常小心.这是因为硬件做的事情实在太少了.       别的暂时先不说了,下面我们来看外设中断(它是一种特殊的异常).      entry.S并没有用BUILD_HANDLER生成中断处理函数,因为它是平台相关的       就以我的板子为例,在arch/mips/algor/p6032/kernel/中(标准内核没有)      增加了p6032IRQ.S这个汇编文件,里面定义了一个p6032IRQ的函数,它负责      鉴别中断源,调用相应的中断控制器处理代码,而在同目录的irq.c->init_IRQ
+     中调用set_except_vector(0,p6032IRQ)填表(所有的中断都引发异常0,并在
+     cause寄存器中设置具体中断原因).
+ 
+     下面列出这两个文件以便解说:
+      p6032IRQ.s 
+ 
+      algor p6032(我用的开发板)中断安排如下:
+      MIPS IRQ        Source
+    *      --------        ------
+    *             0        Software (ignored)
+    *             1        Software (ignored)
+    *             2        bonito interrupt (hw0)
+    *             3        i8259A interrupt (hw1)
+    *             4        Hardware (ignored)
+    *             5        Debug Switch
+    *             6        Hardware (ignored)
+    *             7        R4k timer (what we use)
+ 
+     .text
+     .set    noreorder
+     .set    noat
+     .align  5
+      NESTED(p6032IRQ, PT_SIZE, sp)
+ 
+    SAVE_ALL /* 保存现场,切换堆栈(if usermode -> kernel mode)*/
+    CLI      /* 关中断,mips有多种方法禁止响应中断,CLI用清status相应位
+            的方法,如下:
+             Move to kernel mode and disable interrupts.
+             Set cp0 enable bit as sign that we're running
+             on the kernel stack */
+#define CLI                                     
+    mfc0    t0,CP0_STATUS;                  
+    li      t1,ST0_CU0|0x1f;                
+    or      t0,t1;                          
+    xori    t0,0x1f;                        
+    mtc0    t0,CP0_STATUS
+ 
+    .set    at
+ 
+    mfc0    s0, CP0_CAUSE
+    /* get irq mask,中断响应时cause寄存器指示
+       哪类中断发生
+       注意,MIPS CPU只区分8个中断源,并没有象
+       PC中从总线读取中断向量号,所以每类中断
+       的代码要自己设法定位中断
+     */
+ 
+    /* 挨个检查可能的中断原因 */
+    /* First we check for r4k counter/timer IRQ. */
+    andi    a0, s0, CAUSEF_IP7
+    beq     a0, zero, 1f
+    andi   a0, s0, CAUSEF_IP3      # delay slot, check 8259 interrupt
+    /* Wheee, a timer interrupt. */
+    li      a0, 63
+    jal     do_IRQ
+    move    a1, sp
+    j       ret_from_irq
+    nop                            # delay slot
+ 
+    1:      beqz    a0,1f
+    andi   a0, s0, CAUSEF_IP2
+ 
+    /* Wheee, i8259A interrupt. */
+    /* p6032也使用8259来处理一些pc style的设备*/
+    jal     i8259A_irqdispatch      /* 调用8259控制器的中断分派代码*/
+    move   a0, sp                  # delay slot
+ 
+    j       ret_from_irq
+    nop                            # delay slot
+ 
+    1:      beq     a0, zero, 1f
+    andi   a0, s0, CAUSEF_IP5
+ 
+    /* Wheee, bonito interrupt. */
+    /* bonito是6032板的北桥,它提供了一个中断控制器*/
+    jal     bonito_irqdispatch
+    move   a0, sp                  # delay slot
+    j       ret_from_irq
+    nop                            # delay slot
+ 
+    1:      beqz    a0,1f
+    nop
+ 
+    /* Wheee, a debug interrupt. */
+    jal     p6032_debug_interrupt
+    move   a0, sp                  # delay slot
+ 
+    j       ret_from_irq
+    nop                            # delay slot
+ 
+ 
+    1:
+    /* Here by mistake?  This is possible, what can happen
+     * is that by the time we take the exception the IRQ
+     * pin goes low, so just leave if this is the case.
+     */
+    j       ret_from_irq
+    nop
+END(p6032IRQ)
+ 
+    irq.c部分代码如下:
+ 
+       p6032中断共有四类: 
+       begin{enumerate}
+          item timer中断,单独处理
+          item debug中断,单独处理
+      item 8259中断,由8259控制器代码处理
+          item bonito中断由bonito控制器代码处理
+        end{enumerate}
+ 
+/* now mips kernel is using the same abstraction as x86 kernel,
+   that is, all irq in the system are described in an struct
+   array: irq_desc[]. Each item of a specific item records
+   all the information about this irq,including status,action,
+   and the controller that handle it etc. Below is the controller
+   structure for bonito irqs,we can easily guess its functionality
+   from its names.*/
+ 
+hw_irq_controller bonito_irq_controller = {
+    "bonito_irq",
+    bonito_irq_startup,
+    bonito_irq_shutdown,
+    bonito_irq_enable,
+    bonito_irq_disable,
+    bonito_irq_ack,
+    bonito_irq_end,
+    NULL                    /* no affinity stuff for UP */
+};
+ 
+void
+bonito_irq_init(u32 irq_base)
+{
+    extern irq_desc_t irq_desc[];
+    u32 i;
+ 
+    for (i= irq_base; i< P6032INT_END; i++) {
+        irq_desc[i].status = IRQ_DISABLED;
+        irq_desc[i].action = NULL;
+        irq_desc[i].depth = 1;
+        irq_desc[i].handler = &bonito_irq_controller;
+    }
+ 
+    bonito_irq_base = irq_base;
+}
+ 
+/* 中断初始化,核心的数据结构就是irq_desc[]数组
+   它的每个元素对应一个中断,记录该中断的控制器类型,处理函数,状态等
+   关于这些可以参见对x86中断的分析*/
+ 
+void __init init_IRQ(void)
+{
+    Bonito;
+ 
+    /*
+     * Mask out all interrupt by writing "1" to all bit position in
+     * the interrupt reset reg.
+     */
+    BONITO_INTEDGE = BONITO_ICU_SYSTEMERR | BONITO_ICU_MASTERERR 
+        | BONITO_ICU_RETRYERR | BONITO_ICU_MBOXES;
+    BONITO_INTPOL = (1 << (P6032INT_UART1-16)) 
+        | (1 << (P6032INT_ISANMI-16)) 
+        | (1 << (P6032INT_ISAIRQ-16)) 
+        | (1 << (P6032INT_UART0-16));
+ 
+    BONITO_INTSTEER = 0;
+    BONITO_INTENCLR = ~0;
+ 
+    /* init all controllers */
+    init_generic_irq();
+    init_i8259_irqs();
+    bonito_irq_init(16);
+ 
+    BONITO_INTSTEER |= 1 << (P6032INT_ISAIRQ-16);
+    BONITO_INTENSET = 1 <<  (P6032INT_ISAIRQ-16);
+ 
+    /* hook up the first-level interrupt handler */
+    set_except_vector(0, p6032IRQ);
+ 
+    ...
+}
+ 
+/*p6032IRQ发现一个bonito中断后调用这个*/
+asmlinkage void
+bonito_irqdispatch(struct pt_regs *regs)
+{
+    Bonito;
+ 
+    int irq;
+    unsigned long int_status;
+    int i;
+ 
+    /* Get pending sources, masked by current enables */
+        /* 到底是哪个中断呢?从主板寄存器读*/
+        int_status = BONITO_INTISR & BONITO_INTEN & ~(1 << (P6032INT_ISAIRQ-16))
+               ;
+ 
+        /* Scan all pending interrupt bits and execute appropriate actions */
+        for (i=0; i<32 && int_status; i++) {
+               if (int_status & 1<<i) {
+                       irq = i + 16; /* 0-15 assigned to 8259int,16-48 bonito*/
+                               /* Clear bit to optimise loop exit */
+                               int_status &= ~(1<<i);
+                       do_IRQ(irq,regs);
+ 
+               }
+        }
+ 
+        return;
+}
+ 
+    8259控制器的代码类似,不再列出.
+ 
+    更高层一点的通用irq代码在arch/mips/kernel/irq.c arch/mips/kernel/i8259.c
+ 
+ 
+    总之,p6032上一个中断的过程是:
+      1.外设发出中断,通过北桥在cpu中断引脚上(mips CPU有多个中断引脚)引起异常
+      2. cpu自动跳转到0x80000180的通用异常入口,根据cause寄存器查表找到中断
+         处理函数入口p6032IRQ
+      3. p6032IRQ保存上下文,识别中断类别,把中断转交给相应的中断控制器
+      4. 中断控制器的代码进一步识别出具体的中断号,做出相应的应答并调用
+         中断处理do_irq
+ 
+ 
+    现在还有不少平台没有使用这种irq_desc[],controller,action的代码,阅读的时候
+    可能要注意.
+ 
+ 

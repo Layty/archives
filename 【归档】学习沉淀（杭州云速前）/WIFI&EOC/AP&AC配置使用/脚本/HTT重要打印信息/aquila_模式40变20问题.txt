@@ -1,0 +1,250 @@
+/etc/rc.d # makeVAP ap pengruofeng 0:RF:1:11NGHT40PLUS
+lo        no wireless extensions.
+
+eth0      no wireless extensions.
+
+eth1      no wireless extensions.
+
+br0       no wireless extensions.
+
+wifi0     no wireless extensions.
+
+Modules already loaded
+Creating ap for pengruofeng on
+VAP device ath0 created
+Added ath0 mode master
+Configuring RF . . .
+
+ DES SSID SET=pengruofeng
+ ieee80211_ioctl_siwmode: imr.ifm_active=1442432, new mode=3, valid=1
+Setting new VOWEXT parameters
+VOW enabled features:
+        fair_queuing: 0
+        retry_delay_red 0,
+        buffer reordering 0
+        enhanced_rate_control_and_aggr 0
+Invalid command : setVowExtStats
+Created ath0 mode ap for pengruofeng
+/etc/rc.d # activateVAP ath0 br0
+lo        no wireless extensions.
+
+eth0      no wireless extensions.
+
+eth1      no wireless extensions.
+
+br0       no wireless extensions.
+
+wifi0     no wireless extensions.
+
+vap-0: [00:1e:de:aa:aa:b3]ieee80211_node_saveq_cleanup 0 sta's in ps mode
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+cwm_init
+cwm_init: cw_mode 1
+cwm_init: cw_extoffset -1
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_scan_start
+cwm_stop
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2412, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2412, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+device ath0 entered promiscuous mode
+br0: port 3(ath0) entering learning state
+br0: topology change detected, propagating
+br0: port 3(ath0) entering forwarding state
+ARPING to 192.168.1.2 from 192.168.1.2 via br0
+Sent 1 probes (1 broadcast(s))
+Received 0 reply
+>>>>> WPS MODE,
+/etc/rc.d # cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2437, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2437, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2442, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2442, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2417, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2417, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2422, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2422, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2427, chflags 0x10080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2427, chflags 0x10080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2432, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2432, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2447, chflags 0x10080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2447, chflags 0x10080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2452, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2452, chflags 0x90080
+-----ath_cwm_ht40allowed return false
+cwm_init
+cwm_init: cw_mode 0
+cwm_init: cw_extoffset 0
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2457, chflags 0x10080
+-----ath_cwm_ht40allowed return false
+ath_cwm_ht40allowed: IC channel: chfreq 2457, chflags 0x10080
+-----ath_cwm_ht40allowed return false
+ath_cwm_scan_end
+cwm_init
+cwm_init: cw_mode 1
+cwm_init: cw_extoffset -1
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+cwm_stop
+cwm_init
+cwm_init: cw_mode 1
+cwm_init: cw_extoffset -1
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+cwm_stop
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+vap-0: [00:1e:de:aa:aa:b3]ieee80211_node_saveq_cleanup 0 sta's in ps mode
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+ath_cwm_ht40allowed: IC channel: chfreq 2462, chflags 0xC0080
+-----ath_cwm_ht40allowed return ok
+cwm_init
+cwm_init: cw_mode 1
+cwm_init: cw_extoffset -1
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+cwm_init
+cwm_init: cw_mode 1
+cwm_init: cw_extoffset 1
+cwm_init: cw_extprotmode 0
+cwm_init: cw_extprotspacing 0
+cwm_init: cw_enable 1
+ath_cwm_ht40allowed: IC channel: chfreq 2412, chflags 0xA0080
+-----ath_cwm_ht40allowed return ok
+ath_cwm_ht40allowed: IC channel: chfreq 2412, chflags 0xA0080
+-----ath_cwm_ht40allowed return ok
+cwm_start
+ath_cwm_ht40allowed: IC channel: chfreq 2412, chflags 0xA0080
+-----ath_cwm_ht40allowed return ok
+cwm_debuginfo: ac_running 1
+cwm_debuginfo: ac_state EXT CLEAR
+cwm_debuginfo: ac_hwstate.ht_macmode 1
+cwm_debuginfo: ac_hwstate.ht_extprotspacing 0
+cwm_debuginfo: ac_vextch 0
+cwm_debuginfo: ac_vextchbusy 0
+cwm_debuginfo: ac_timer_prevstate EXT CLEAR
+cwm_debuginfo: ac_timer_statetime 0
+cwm_switch_to20: Switching MAC from 20/40 to 20
+cwm_stop
+cwm_action_mac40to20
+
+/etc/rc.d # iwconfig
+lo        no wireless extensions.
+
+eth0      no wireless extensions.
+
+eth1      no wireless extensions.
+
+br0       no wireless extensions.
+
+wifi0     no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"pengruofeng"
+          Mode:Master  Frequency:2.412 GHz  Access Point: 00:1E:DE:AA:AA:B3
+          Bit Rate:130 Mb/s   Tx-Power:12 dBm
+          RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-96 dBm  Noise level=-95 dBm
+          Rx invalid nwid:25  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+/etc/rc.d #

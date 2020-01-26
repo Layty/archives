@@ -1,0 +1,124 @@
+int make_icmp_sock(void)
+{
+  int fd;
+  int zeroopt = 0;
+
+  if ((fd = socket (AF_INET, SOCK_RAW, IPPROTO_ICMP)) != -1)
+    {
+      if (!fix_fd(fd) ||
+	  setsockopt(fd, SOL_SOCKET, SO_DONTROUTE, &zeroopt, sizeof(zeroopt)) == -1)
+	{
+	  close(fd);
+	  fd = -1;
+	}
+    }
+
+  return fd;
+}
+
+int icmp_ping(struct in_addr addr)
+{
+  /* Try and get an ICMP echo from a machine. */
+
+  /* Note that whilst in the three second wait, we check for 
+     (and service) events on the DNS and TFTP  sockets, (so doing that
+     better not use any resources our caller has in use...)
+     but we remain deaf to signals or further DHCP packets. */
+
+  int fd;
+  struct sockaddr_in saddr;
+  struct { 
+    struct ip ip;
+    struct icmp icmp;
+  } packet;
+  unsigned short id = rand16();
+  unsigned int i, j;
+  int gotreply = 0;
+  time_t start, now;
+
+#ifdef HAVE_LINUX_NETWORK
+  if ((fd = make_icmp_sock()) == -1)
+    return 0;
+#else
+  int opt = 2000;
+  fd = daemon->dhcp_icmp_fd;
+  setsockopt(fd, SOL_SOCKET, SO_RCVBUF, &opt, sizeof(opt));
+#endif
+
+  saddr.sin_family = AF_INET;
+  saddr.sin_port = 0;
+  saddr.sin_addr = addr;
+#ifdef HAVE_SOCKADDR_SA_LEN
+  saddr.sin_len = sizeof(struct sockaddr_in);
+#endif
+  
+  memset(&packet.icmp, 0, sizeof(packet.icmp));
+  packet.icmp.icmp_type = ICMP_ECHO;
+  packet.icmp.icmp_id = id;
+  for (j = 0, i = 0; i < sizeof(struct icmp) / 2; i++)
+    j += ((u16 *)&packet.icmp)[i];
+  while (j>>16)
+    j = (j & 0xffff) + (j >> 16);  
+  packet.icmp.icmp_cksum = (j == 0xffff) ? j : ~j;
+  
+  while (sendto(fd, (char *)&packet.icmp, sizeof(struct icmp), 0, 
+		(struct sockaddr *)&saddr, sizeof(saddr)) == -1 &&
+	 retry_send());
+  
+  for (now = start = dnsmasq_time(); 
+       difftime(now, start) < (float)PING_WAIT;)
+    {
+      struct timeval tv;
+      fd_set rset, wset;
+      struct sockaddr_in faddr;
+      int maxfd = fd; 
+      socklen_t len = sizeof(faddr);
+      
+      tv.tv_usec = 250000;
+      tv.tv_sec = 0; 
+      
+      FD_ZERO(&rset);
+      FD_ZERO(&wset);
+      FD_SET(fd, &rset);
+      set_dns_listeners(now, &rset, &maxfd);
+      set_log_writer(&wset, &maxfd);
+
+      if (select(maxfd+1, &rset, &wset, NULL, &tv) < 0)
+	{
+	  FD_ZERO(&rset);
+	  FD_ZERO(&wset);
+	}
+
+      now = dnsmasq_time();
+
+      check_log_writer(&wset);
+      check_dns_listeners(&rset, now);
+
+#ifdef HAVE_TFTP
+      check_tftp_listeners(&rset, now);
+#endif
+
+      if (FD_ISSET(fd, &rset) &&
+	  recvfrom(fd, &packet, sizeof(packet), 0,
+		   (struct sockaddr *)&faddr, &len) == sizeof(packet) &&
+	  saddr.sin_addr.s_addr == faddr.sin_addr.s_addr &&
+	  packet.icmp.icmp_type == ICMP_ECHOREPLY &&
+	  packet.icmp.icmp_seq == 0 &&
+	  packet.icmp.icmp_id == id)
+	{
+	  gotreply = 1;
+	  break;
+	}
+    }
+  
+#ifdef HAVE_LINUX_NETWORK
+  close(fd);
+#else
+  opt = 1;
+  setsockopt(fd, SOL_SOCKET, SO_RCVBUF, &opt, sizeof(opt));
+#endif
+
+  return gotreply;
+}
+
+ 

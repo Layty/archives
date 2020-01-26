@@ -1,0 +1,227 @@
+killall wtpd
+stop_monitor
+cd
+ifconfig default 192.168.100.100
+
+tftp -gr adf.ko 192.168.100.111
+tftp -gr asf.ko 192.168.100.111
+tftp -gr ath_hal.ko 192.168.100.111
+tftp -gr ath_rate_atheros.ko 192.168.100.111
+tftp -gr ath_dev.ko 192.168.100.111
+tftp -gr umac.ko 192.168.100.111
+tftp -gr ath_pktlog.ko 192.168.100.111
+
+tftp -gr wlanconfig 192.168.100.111
+tftp -gr iwconfig 192.168.100.111
+tftp -gr iwlist 192.168.100.111
+tftp -gr iwpriv 192.168.100.111
+tftp -gr athstats 192.168.100.111
+tftp -gr 80211stats 192.168.100.111
+
+chmod 755 wlanconfig
+chmod 755 iwconfig
+chmod 755 iwlist
+chmod 755 iwpriv
+chmod 755 athstats
+chmod 755 80211stats
+
+insmod adf.ko
+insmod asf.ko
+insmod ath_hal.ko
+insmod ath_rate_atheros.ko
+insmod ath_dev.ko   
+insmod ath_pktlog.ko
+insmod umac.ko
+
+./wlanconfig ath create wlandev wifi0 wlanmode ap
+./iwconfig ath0 essid pengruofeng channel 1
+ifconfig ath0 up
+./iwconfig 
+ifconfig ath0 down
+ifconfig ath0 up
+
+insmod ath_dev.ko "countrycode=156 new_dispatch_mac=1"
+insmod ath_dev.ko "new_dispatch_mac=1"
+
+rmmod umac.ko
+rmmod ath_pktlog.ko 
+rmmod ath_dev.ko  
+rmmod ath_rate_atheros.ko
+rmmod ath_hal.ko
+rmmod asf.ko
+rmmod adf.ko
+
+-------------------------------------ar11n----------------------------
+
+echo 0 > /proc/sys/dev/wifi0/thinap
+killall wtpd
+stop_monitor
+cd
+ifconfig default 192.168.100.100
+
+
+tftp -gr ath_hal.ko 192.168.100.111
+tftp -gr ath_dfs.ko 192.168.100.111
+tftp -gr wlan.ko 192.168.100.111
+tftp -gr ath_rate_atheros.ko 192.168.100.111
+tftp -gr ath_dev.ko 192.168.100.111
+tftp -gr ath_pci.ko 192.168.100.111
+tftp -gr wlan_xauth.ko 192.168.100.111
+tftp -gr wlan_ccmp.ko 192.168.100.111
+tftp -gr wlan_tkip.ko 192.168.100.111
+tftp -gr wlan_wep.ko 192.168.100.111
+tftp -gr wlan_acl.ko 192.168.100.111
+tftp -gr wlan_me.ko 192.168.100.111
+tftp -gr wlan_sms4.ko 192.168.100.111
+tftp -gr wlan_scan_ap.ko 192.168.100.111
+tftp -gr wlan_scan_sta.ko 192.168.100.111
+tftp -gr ath_pktlog.ko 192.168.100.111
+
+
+insmod ath_hal.ko
+insmod ath_dfs.ko
+insmod wlan.ko
+insmod ath_rate_atheros.ko
+insmod ath_dev.ko 
+insmod ath_pci.ko
+insmod wlan_xauth.ko
+insmod wlan_ccmp.ko
+insmod wlan_tkip.ko
+insmod wlan_wep.ko
+insmod wlan_acl.ko
+insmod wlan_me.ko
+insmod wlan_sms4.ko
+insmod wlan_scan_ap.ko
+insmod wlan_scan_sta.ko
+insmod ath_pktlog.ko
+
+echo 0 > /proc/sys/dev/wifi0/thinap
+killall wtpd
+stop_monitor
+
+wlanconfig ath create wlandev wifi0 wlanmode ap
+iwconfig ath0 essid pengruofeng channel 1
+ifconfig ath0 up
+iwconfig 
+ifconfig ath0 down
+ifconfig ath0 up
+
+rmmod ath_pktlog.ko
+rmmod wlan_scan_sta.ko 
+rmmod wlan_scan_ap.ko
+rmmod wlan_sms4.ko
+rmmod wlan_me.ko
+rmmod wlan_acl.ko
+rmmod wlan_wep.ko
+rmmod wlan_tkip.ko 
+rmmod wlan_ccmp.ko
+rmmod wlan_xauth.ko
+
+rmmod ath_pci.ko
+rmmod ath_dev.ko 
+rmmod ath_rate_atheros.ko
+rmmod wlan.ko
+rmmod ath_dfs.ko
+rmmod ath_hal.ko
+
+
+
+--------------------------------aquila-------------------------
+
+killall wtpd
+stop_monitor
+cd
+ifconfig default 192.168.100.100
+
+
+tftp -gr adf.ko 192.168.100.111
+tftp -gr asf.ko 192.168.100.111
+tftp -gr ath_hal.ko 192.168.100.111
+tftp -gr ath_rate_atheros.ko 192.168.100.111
+tftp -gr ath_dfs.ko 192.168.100.111
+tftp -gr ath_dev.ko 192.168.100.111
+tftp -gr umac.ko 192.168.100.111
+tftp -gr ath_pktlog.ko 192.168.100.111
+
+
+tftp -gr wlanconfig 192.168.100.111
+tftp -gr iwconfig 192.168.100.111
+tftp -gr iwlist 192.168.100.111
+tftp -gr iwpriv 192.168.100.111
+tftp -gr athstats 192.168.100.111
+tftp -gr 80211stats 192.168.100.111
+tftp -gr apstart 192.168.100.111
+tftp -gr makeVAP 192.168.100.111
+
+chmod 755 wlanconfig
+chmod 755 iwconfig
+chmod 755 iwlist
+chmod 755 iwpriv
+chmod 755 athstats
+chmod 755 80211stats
+chmod 755 apstart
+chmod 755 makeVAP
+
+insmod adf.ko
+insmod asf.ko
+insmod ath_hal.ko
+insmod ath_rate_atheros.ko
+insmod ath_dfs.ko
+insmod ath_dev.ko
+insmod umac.ko
+insmod ath_pktlog.ko
+
+
+./wlanconfig ath create wlandev wifi0 wlanmode ap
+./iwconfig ath0 essid pengruofeng channel 1
+ifconfig ath0 up
+
+---------------------------------------db12x---------------------------
+
+killall wtpd
+stop_monitor
+cd
+ifconfig br0 192.168.100.100
+
+
+tftp -gr adf.ko 192.168.100.111
+tftp -gr asf.ko 192.168.100.111
+tftp -gr ath_hal.ko 192.168.100.111
+tftp -gr ath_rate_atheros.ko 192.168.100.111
+tftp -gr ath_spectral.ko 192.168.100.111
+tftp -gr ath_dev.ko 192.168.100.111
+tftp -gr umac.ko 192.168.100.111
+tftp -gr wlan_me.ko 192.168.100.111
+tftp -gr ath_pktlog.ko 192.168.100.111
+
+
+tftp -gr wlanconfig 192.168.100.111
+tftp -gr iwconfig 192.168.100.111
+tftp -gr iwlist 192.168.100.111
+tftp -gr iwpriv 192.168.100.111
+tftp -gr athstats 192.168.100.111
+tftp -gr 80211stats 192.168.100.111
+
+
+chmod 755 wlanconfig
+chmod 755 iwconfig
+chmod 755 iwlist
+chmod 755 iwpriv
+chmod 755 athstats
+chmod 755 80211stats
+
+
+insmod adf.ko
+insmod asf.ko
+insmod ath_hal.ko
+insmod ath_rate_atheros.ko
+insmod ath_spectral.ko
+insmod ath_dev.ko
+insmod umac.ko
+insmod wlan_me.ko
+insmod ath_pktlog.ko
+
+
+./wlanconfig ath create wlandev wifi0 wlanmode ap
+./iwconfig ath0 essid pengruofeng channel 1
+ifconfig ath0 up

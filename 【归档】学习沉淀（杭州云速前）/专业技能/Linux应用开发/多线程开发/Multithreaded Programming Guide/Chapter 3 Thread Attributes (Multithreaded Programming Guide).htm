@@ -1,0 +1,1322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0081)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-74380/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;3 Thread Attributes (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 3 Thread Attributes (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 3 Thread Attributes (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 3 Thread Attributes (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 3 Thread Attributes (Multithreaded Programming Guide)_files/sniff.js"></script>
+                  <iframe src="javascript:false" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><script type="text/javascript">
+                    var AKSB=AKSB||{};AKSB.q=[];AKSB.mark=function(c,a){AKSB.q.push(["mark",c,a||(new Date).getTime()])};AKSB.measure=function(c,a,b){AKSB.q.push(["measure",c,a,b||(new Date).getTime()])};AKSB.done=function(c){AKSB.q.push(["done",c])};AKSB.mark("firstbyte",(new Date).getTime());
+                    AKSB.prof={custid:"322179",ustr:"",originlat:0,clientrtt:94,ghostip:"23.3.104.7",ipv6:false,pct:10,xhrtest:false,clientip:"115.193.41.253",requestid:"85ff689c",protocol:"",akM:"x",akN:"ae"};
+                    (function(c){var a=document.createElement("iframe");a.src="javascript:false";(a.frameElement||a).style.cssText="width: 0; height: 0; border: 0; display: none";var b=document.getElementsByTagName("script"),b=b[b.length-1];b.parentNode.insertBefore(a,b);a=a.contentWindow.document;b=String.fromCharCode;c=b(60)+"body onload=\"var js = document.createElement('script');js.id = 'aksb-ifr';js.src = '"+c+"';document.body.appendChild(js);\""+b(62);a.open().write(c);a.close()})(("https:"===document.location.protocol?
+                    "https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js");
+                  </script>
+                  </head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 3 Thread Attributes (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 3 Thread Attributes (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;3 Thread Attributes</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12926/index.html"><em>Previous</em>: Chapter&nbsp;2 Basic Threads
+Programming</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html"><em>Next</em>: Chapter&nbsp;4 Programming
+with Synchronization Objects</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vpok"></a><h1 class="sol">Chapter&nbsp;3 Thread Attributes</h1>
+<a name=""></a><p>The previous chapter covered the basics of threads creation using default
+attributes. This chapter discusses setting attributes at thread creation time.</p>
+
+<a name="6mba5vpom"></a><h1 class="sol">Attribute Object</h1>
+<p>Attributes provide a way to specify behavior that is different from
+the default thread creation behavior. When a thread is created with <tt>pthread_create(3C)</tt> or when a synchronization variable is initialized, an attribute
+object can be specified. The defaults are usually sufficient.</p>
+<p>An attribute object is opaque, and cannot be directly modified by assignments.
+A set of functions is provided to initialize, configure, and destroy each
+object type.</p>
+<p>Once an attribute is initialized and configured, the attribute has process-wide
+scope. The suggested method for using attributes is to configure all required
+state specifications at one time in the early stages of program execution.
+The appropriate attribute object can then be referred to as needed.</p>
+<p>The use of attribute objects provides two primary advantages.</p>
+<a name=""></a><ul>
+<li>
+<p>Using attribute objects adds to code portability.</p>
+
+<p>Even
+though supported attributes might vary between implementations, you need not
+modify function calls that create thread entities. These function calls do
+not require modification because the attribute object is hidden from the interface.</p>
+
+<p>If the target port supports attributes that are not found in the current
+port, provision must be made to manage the new attributes. Management of these
+attributes is an easy porting task because attribute objects need only be
+initialized once in a well-defined location.</p>
+
+
+</li>
+<li>
+<p>State specification in an application is simplified.</p>
+
+<p>As an example, consider that several sets of threads might exist within
+a process. Each set of threads provides a separate service. Each set has its
+own state requirements.</p>
+
+<p>At some point in the early stages of the application, a thread attribute
+object can be initialized for each set. All future thread creations will then
+refer to the attribute object that is initialized for that type of thread.
+The initialization phase is simple and localized. Any future modifications
+can be made quickly and reliably.</p>
+
+
+</li>
+</ul>
+<p>Attribute objects require attention at process exit time. When the object
+is initialized, memory is allocated for the object. This memory must be returned
+to the system. The <tt>pthreads</tt> standard provides function
+calls to destroy attribute objects.</p>
+<p>Pthreads functions can be used to manipulate thread attribute objects.
+The functions are described in the following sections.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-39150/index.html">Initializing Attributes</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-99215/index.html">Destroying Attributes</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-69011/index.html">Setting Detach State</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-57134/index.html">Getting the Detach State</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-22/index.html">Setting the Stack Guard Size</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-25/index.html">Getting the Stack Guard Size</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-76485/index.html">Setting the Scope</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-81346/index.html">Getting the Scope</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-28/index.html">Setting the Thread Concurrency Level</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-31/index.html">Getting the Thread Concurrency Level</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-46251/index.html">Setting the Scheduling Policy</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-15158/index.html">Getting the Scheduling Policy</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-30369/index.html">Setting the Inherited Scheduling Policy</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-95303/index.html">Getting the Inherited Scheduling Policy</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-48968/index.html">Setting the Scheduling Parameters</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-11564/index.html">Getting the Scheduling Parameters</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-33670/index.html">About Stacks</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-45427/index.html">Setting the Stack Size</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-35732/index.html">Getting the Stack Size</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-95722/index.html">Setting the Stack Address and Size</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-78961/index.html">Getting the Stack Address and Size</a>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vpoo"></a><h2 class="sol">Initializing Attributes</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-init-3c/index.html">pthread_attr_init(3C)</a> to initialize object attributes to their default values.
+The storage is allocated by the thread system during execution.</p>
+<a name="6mba5vpoq"></a><h3 class="sol">
+<tt>pthread_attr_init</tt> Syntax</h3>
+<a name="attrib-ix181"></a><a name=""></a><pre>int pthread_attr_init(pthread_attr_t *<var>tattr</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+int <var>ret</var>;
+
+/* initialize an attribute to the default value */
+<var>ret</var> = pthread_attr_init(&amp;<var>tattr</var>);</pre>
+<p>
+<a name="indexterm-58"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vpoq/index.html#attrib-tbl-1">Table 3–1</a> shows the default values
+for attributes (<var>tattr</var>).</p>
+<a name="attrib-tbl-1"></a>Table 3–1  Default Attribute Values for <var>tattr</var><table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Attribute&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Value&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Result&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<var>scope</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>PTHREAD_SCOPE_PROCESS</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>New thread contends with other threads in the process.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>detachstate</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>PTHREAD_CREATE_JOINABLE</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>Completion status and thread <var>ID</var> are preserved
+after the thread exits.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>stackaddr</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>NULL</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>New thread has system-allocated stack address.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>stacksize</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>0&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>New thread has system-defined stack size.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>priority</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>0&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>New thread has priority 0.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>inheritsched</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>PTHREAD_EXPLICIT_SCHED</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>New thread does not inherit parent thread scheduling priority.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>schedpolicy</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>SCHED_OTHER</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>New thread uses the traditional Solaris time-sharing (TS) scheduling
+class.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<var>guardsize</var>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>PAGESIZE</tt>
+</p>
+
+</td><td align="left" valign="top">
+<p>Stack overflow protection.&nbsp;</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><hr><b>Note – </b><p>The default value for the <var>inheritsched</var> attribute
+might change from <tt>PTHREAD_EXPLICIT_SCHED</tt> to <tt>PTHREAD_INHERIT_SCHED</tt> in a future Solaris release. You should call <kbd><b>pthread_attr_setinheritsched()</b></kbd> to set the <var>inheritsched</var> attribute to
+the value you want rather than accepting the default, in order to avoid any
+potential problems caused by this change.</p>
+<hr>
+<a name="6mba5vpos"></a><h3 class="sol">
+<tt>pthread_attr_init</tt> Return Values</h3>
+<p>
+<a name="indexterm-59"></a><kbd><b>pthread_attr_init()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. If the following condition occurs, the function fails and
+returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Returned when not enough memory is allocated
+to initialize the thread attributes object.</p>
+
+
+</dl><a name="6mba5vpou"></a><h2 class="sol">Destroying Attributes</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-destroy-3c/index.html">pthread_attr_destroy(3C)</a> to remove the storage that was allocated during initialization.
+The attribute object becomes invalid.</p>
+<a name="6mba5vpp0"></a><h3 class="sol">
+<tt>pthread_attr_destroy</tt> Syntax</h3>
+<a name="attrib-ix184"></a><a name=""></a><pre>int pthread_attr_destroy(pthread_attr_t *<var>tattr</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+int <var>ret</var>;
+
+/* destroy an attribute */
+<var>ret</var> = pthread_attr_destroy(&amp;<var>tattr</var>); </pre>
+<a name="6mba5vpp2"></a><h3 class="sol">
+<tt>pthread_attr_destroy</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-60"></a><kbd><b>pthread_attr_destroy()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. If the following condition occurs, the function fails and
+returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Indicates that the value of <var>tattr</var>  was not valid.</p>
+
+
+</dl><a name="6mba5vpp4"></a><h2 class="sol">Setting Detach State</h2>
+<p>When a thread is created detached (<tt>PTHREAD_CREATE_DETACHED</tt>),
+its thread <var>ID</var> and other resources can be reused
+as soon as the thread exits. Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setdetachstate-3c/index.html">pthread_attr_setdetachstate(3C)</a> when the
+calling thread does not want to wait for the thread to exit.</p>
+<a name="6mba5vpp6"></a><h3 class="sol">
+<tt>pthread_attr_setdetachstate(3C)</tt> Syntax</h3>
+<a name="attrib-ix186"></a><a name=""></a><pre>int pthread_attr_setdetachstate(pthread_attr_t *<var>tattr</var>,int <var>detachstate</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>ret</var>; 
+/* set the thread detach state */
+<var>ret</var> = pthread_attr_setdetachstate(&amp;<var>tattr</var>,PTHREAD_CREATE_DETACHED);</pre>
+<p>When a thread is created nondetached with <tt>PTHREAD_CREATE_JOINABLE</tt>,
+the assumption is that your application will wait for the thread to complete.
+That is, the program will execute a <kbd><b>pthread_join()</b></kbd> on the
+thread.</p>
+<p>Whether a thread is created detached or nondetached, the process does
+not exit until all threads have exited. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12602/index.html">Finishing Up</a> for a discussion of process termination caused by premature exit
+from <kbd><b>main()</b></kbd>.</p>
+<hr><b>Note – </b><p>When no explicit synchronization prevents a newly created, detached
+thread from exiting, its thread ID can be reassigned to another new thread
+before its creator returns from <kbd><b>pthread_create()</b></kbd>.</p>
+<hr>
+<p>
+<a name="attrib-ix187"></a><a name="attrib-ix188"></a><a name="attrib-ix189"></a>Nondetached threads must have a thread join with the
+nondetached thread after the nondetached thread terminates. Otherwise, the
+resources of that thread are not released for use by new threads that commonly
+results in a memory leak. So, when you do not want a thread to be joined,
+create the thread as a detached thread.</p>
+<a name="attrib-ex-4"></a><hr><h5 class="sol">Example 3–1  Creating a Detached Thread</h5><br><a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+pthread_t <var>tid</var>;
+void *<var>start_routine</var>;
+void <var>arg</var>
+int <var>ret</var>;
+
+/* initialized with default attributes */
+<var>ret</var> = pthread_attr_init (&amp;<var>tattr</var>);
+<var>ret</var> = pthread_attr_setdetachstate (&amp;<var>tattr</var>,PTHREAD_CREATE_DETACHED);
+<var>ret</var> = pthread_create (&amp;<var>tid, &amp;tattr, start_routine, arg);</var>
+</pre>
+<hr>
+<a name="6mba5vpp8"></a><h3 class="sol">
+<tt>pthread_attr_setdetachstate</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-61"></a><kbd><b>pthread_attr_setdetachstate()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. If the following condition occurs,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Indicates that the value of <var>detachstate</var>  or <var>tattr</var> was not valid.</p>
+
+
+</dl><a name="6mba5vppa"></a><h2 class="sol">Getting the Detach State</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getdetachstate-3c/index.html">pthread_attr_getdetachstate(3C)</a> to retrieve the thread create state, which can be
+either detached or joined.</p>
+<a name="6mba5vppc"></a><h3 class="sol">
+<tt>pthread_attr_getdetachstate</tt> Syntax</h3>
+<a name="attrib-ix191"></a><a name=""></a><pre>int pthread_attr_getdetachstate(const pthread_attr_t <var>*tattr</var>, int <var>*detachstate</var>;</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>detachstate</var>; 
+int <var>ret</var>; 
+/* get detachstate of thread */ 
+<var>ret</var> = pthread_attr_getdetachstate (&amp;<var>tattr</var>, &amp;<var>detachstate</var>);</pre>
+<a name="6mba5vppe"></a><h3 class="sol">
+<tt>pthread_attr_getdetachstate</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-62"></a><kbd><b>pthread_attr_getdetachstate()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. If the following condition occurs,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Indicates that the value of <var>detachstate</var>  is <tt>NULL</tt> or <var>tattr</var> is
+invalid.</p>
+
+
+</dl><a name="6mba5vppg"></a><h2 class="sol">Setting the Stack Guard Size</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setguardsize-3c/index.html">pthread_attr_setguardsize(3C)</a> sets the  <var>guardsize</var> of
+the <var>attr</var> object.</p>
+<a name="6mba5vppi"></a><h3 class="sol">
+<tt>pthread_attr_setguardsize(3C)</tt> Syntax</h3>
+<a name="indexterm-63"></a><a name=""></a><pre>#include &lt;pthread.h&gt; 
+int pthread_attr_setguardsize(pthread_attr_t <var>*attr</var>, size_t <var>guardsize</var>);</pre>
+<p>The <var>guardsize</var> attribute is provided to the
+application for two reasons:</p>
+<a name=""></a><ul>
+<li>
+<p>Overflow protection can potentially result in wasted system
+resources. When your application creates a large number of threads, and you
+know that the threads will never overflow their stack, you can turn off guard
+areas. By turning off guard areas, you can conserve system resources.</p>
+
+
+</li>
+<li>
+<p>When threads allocate large data structures on stack, a large
+guard area might be needed to detect stack overflow.</p>
+
+
+</li>
+</ul>
+<p>The <var>guardsize</var> argument provides protection
+against overflow of the stack pointer. If a thread's stack is created with
+guard protection, the implementation allocates extra memory at the overflow
+end of the stack. This extra memory acts as a buffer against stack overflow
+of the stack pointer. If an application overflows into this buffer an error
+results, possibly in a <tt>SIGSEGV</tt> signal being delivered to
+the thread.</p>
+<p>If <var>guardsize</var> is zero, a guard area is not
+provided for threads that are created with <var>attr</var>.
+If <var>guardsize</var> is greater than zero, a guard area
+of at least size <var>guardsize</var> bytes is provided for
+each thread created with <var>attr</var>. By default, a thread
+has an implementation-defined, nonzero guard area.</p>
+<p>A conforming implementation is permitted to round up the value contained
+in  <var>guardsize</var> to a multiple of the configurable
+system variable <tt>PAGESIZE</tt> . See <tt>PAGESIZE</tt> in <kbd>sys/mman.h</kbd>. If an implementation rounds up the value of <var>guardsize</var> to a multiple of <tt>PAGESIZE</tt>, a call to <kbd><b>pthread_attr_getguardsize()</b></kbd> that specifies <var>attr</var> stores,
+in <var>guardsize</var>, the guard size specified in the previous
+call to <kbd><b>pthread_attr_setguardsize()</b></kbd>.</p>
+<a name="6mba5vppk"></a><h3 class="sol">
+<tt>pthread_attr_setguardsize</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-64"></a><kbd><b>pthread_attr_setguardsize()</b></kbd> fails if:</p>
+<dl>
+<br>
+<p>
+<tt>EINVAL</tt>
+</p>
+
+<b>Description: </b>
+<p>The argument <var>attr</var> is
+invalid, the argument <var>guardsize</var> is invalid, or
+the argument  <var>guardsize</var> contains an invalid value.</p>
+
+
+</dl><a name="6mba5vppm"></a><h2 class="sol">Getting the Stack Guard Size</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getguardsize-3c/index.html">pthread_attr_getguardsize(3C)</a> gets the  <var>guardsize</var> of
+the <var>attr</var> object.</p>
+<a name="6mba5vppo"></a><h3 class="sol">
+<tt>pthread_attr_getguardsize</tt> Syntax</h3>
+<a name="indexterm-65"></a><a name=""></a><pre>#include &lt;pthread.h&gt;
+
+int pthread_attr_getguardsize(const pthread_attr_t *restrict <var>attr</var>, 
+size_t  *restrict <var>guardsize</var>);</pre>
+<p>A conforming implementation is permitted to round up the value contained
+in  <var>guardsize</var> to a multiple of the configurable
+system variable <tt>PAGESIZE</tt> . See <tt>PAGESIZE</tt> in <kbd>sys/mman.h</kbd>. If an implementation rounds up the value of <var>guardsize</var> to a multiple of <tt>PAGESIZE</tt>, a call to <kbd><b>pthread_attr_getguardsize()</b></kbd> that specifies <var>attr</var> stores,
+in <var>guardsize</var>, the guard size specified in the previous
+call to <kbd><b>pthread_attr_setguardsize()</b></kbd>.</p>
+<a name="6mba5vppq"></a><h3 class="sol">
+<tt>pthread_attr_getguardsize</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-66"></a><kbd><b>pthread_attr_getguardsize()</b></kbd> fails if:</p>
+<dl>
+<br>
+<p>
+<tt>EINVAL</tt>
+</p>
+
+<b>Description: </b>
+<p>The argument <var>attr</var> is
+invalid, the argument <var>guardsize</var> is invalid, or
+the argument  <var>guardsize</var> contains an invalid value.</p>
+
+
+</dl><a name="6mba5vpps"></a><h2 class="sol">Setting the Scope</h2>
+<p>
+<a name="attrib-ix194"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setscope-3c/index.html">pthread_attr_setscope(3C)</a> to establish the contention scope of a thread, either <tt>PTHREAD_SCOPE_SYSTEM</tt> or  <tt>PTHREAD_SCOPE_PROCESS</tt>.
+With <tt>PTHREAD_SCOPE_SYSTEM</tt>, this thread contends with all
+threads in the system. With <tt>PTHREAD_SCOPE_PROCESS</tt> , this
+thread contends with other threads in the process.</p>
+<hr><b>Note – </b><p>Both thread types are accessible only within a given process.</p>
+<hr>
+<a name="6mba5vppu"></a><h3 class="sol">
+<tt>pthread_attr_setscope</tt> Syntax</h3>
+<a name="attrib-ix193"></a><a name=""></a><pre>int pthread_attr_setscope(pthread_attr_t *<var>tattr</var>,int <var>scope</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+int <var>ret</var>;
+
+/* bound thread */
+<var>ret</var> = pthread_attr_setscope(&amp;<var>tattr</var>, PTHREAD_SCOPE_SYSTEM);
+
+/* unbound thread */
+<var>ret</var> = pthread_attr_setscope(&amp;<var>tattr</var>, PTHREAD_SCOPE_PROCESS);</pre>
+<p>This example uses three function calls: a call to initialize the attributes,
+a call to set any variations from the default attributes, and a call to create
+the pthreads.</p>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>attr</var>;
+pthread_t <var>tid</var>;
+void *<var>start_routine</var>(void *);
+void *<var>arg</var>;
+int <samp>ret</samp>;
+
+/* initialized with default attributes */
+<samp>ret</samp> = pthread_attr_init (<var>&amp;tattr</var>);
+
+<samp>ret</samp> =  pthread_attr_setscope(<var>&amp;tattr</var>, PTHREAD_SCOPE_SYSTEM);
+<samp>ret</samp> = pthread_create (<var>&amp;tid</var>, <var>&amp;tattr</var>, <var>start_routine</var>, <var>arg</var>);</pre>
+<a name="6mba5vpq0"></a><h3 class="sol">
+<tt>pthread_attr_setscope</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-67"></a><kbd><b>pthread_attr_setscope()</b></kbd> returns
+zero after completing <var>successfully</var>. Any other return
+value indicates that an error occurred. If the following conditions occur,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>An attempt was made to set <var>tattr</var>  to a value that is not valid.</p>
+
+
+</dl><a name="6mba5vpq2"></a><h2 class="sol">Getting the Scope</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getscope-3c/index.html">pthread_attr_getscope(3C)</a> to retrieve the thread scope.</p>
+<a name="6mba5vpq4"></a><h3 class="sol">
+<tt>pthread_attr_getscope</tt> Syntax</h3>
+<a name="attrib-ix197"></a><a name=""></a><pre>int pthread_attr_getscope(pthread_attr_t *restrict <var>tattr</var>, int *restrict <var>scope</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+int <var>scope</var>;
+int <var>ret</var>;
+
+/* get scope of thread */
+<var>ret</var> = pthread_attr_getscope(&amp;<var>tattr</var>, &amp;<var>scope</var>);</pre>
+<a name="6mba5vpq6"></a><h3 class="sol">
+<tt>pthread_attr_getscope</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-68"></a><kbd><b>pthread_attr_getscope()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. If the following condition occurs, the function fails and
+returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>scope</var> is
+ <tt>NULL</tt> or <var>tattr</var> is invalid.</p>
+
+
+</dl><a name="6mba5vpq8"></a><h2 class="sol">Setting the Thread Concurrency Level</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-setconcurrency-3c/index.html">pthread_setconcurrency(3C)</a> is provided for standards compliance. <kbd><b>pthread_setconcurrency()</b></kbd> is used by an application to inform the system of the application's
+desired concurrency level. For the threads implementation introduced in the
+Solaris 9 release, this interface has no effect, all runnable threads are
+attached to LWPs.</p>
+<a name="6mba5vpqa"></a><h3 class="sol">
+<tt>pthread_setconcurrency</tt> Syntax</h3>
+<a name="indexterm-69"></a><a name=""></a><pre>#include &lt;pthread.h&gt;
+
+int pthread_setconcurrency(int new_level);</pre>
+<a name="6mba5vpqc"></a><h3 class="sol">
+<tt>pthread_setconcurrency</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-70"></a><kbd><b>pthread_setconcurrency()</b></kbd> fails
+if the following conditions occur:</p>
+<dl>
+<br>
+<p>
+<tt>EINVAL</tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>new_level</var> is negative.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt>EAGAIN</tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>new_level</var> would cause a system resource to be exceeded.</p>
+
+
+</dl><a name="6mba5vpqe"></a><h2 class="sol">Getting the Thread Concurrency Level</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-getconcurrency-3c/index.html">pthread_getconcurrency(3C)</a> returns the value set by a previous call to <kbd><b>pthread_setconcurrency()</b></kbd>.</p>
+<a name="6mba5vpqg"></a><h3 class="sol">
+<tt>pthread_getconcurrency</tt> Syntax</h3>
+<a name="indexterm-71"></a><a name=""></a><pre>#include &lt;pthread.h&gt;
+
+int pthread_getconcurrency(void);</pre>
+<p>If the <kbd><b>pthread_setconcurrency()</b></kbd> function was not
+previously called, <kbd><b>pthread_getconcurrency()</b></kbd> returns zero.</p>
+<a name="6mba5vpqi"></a><h3 class="sol">
+<tt>pthread_getconcurrency</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-72"></a><kbd><b>pthread_getconcurrency()</b></kbd> always
+returns the concurrency level set by a previous call to <kbd><b>pthread_setconcurrency()</b></kbd> . If <kbd><b>pthread_setconcurrency()</b></kbd> has never been
+called,  <kbd><b>pthread_getconcurrency()</b></kbd> returns zero.</p>
+<a name="6mba5vpqk"></a><h2 class="sol">Setting the Scheduling Policy</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setschedpolicy-3c/index.html">pthread_attr_setschedpolicy(3C)</a> to set the scheduling policy. The POSIX standard specifies
+the scheduling policy values of  <tt>SCHED_FIFO</tt> (first-in-first-out), <tt>SCHED_RR</tt> (round-robin), or <tt>SCHED_OTHER</tt> (an implementation-defined
+method). In the Solaris OS, <tt>SCHED_OTHER</tt> threads run in
+the traditional time-sharing (TS) scheduling class.</p>
+<a name="6mba5vpqm"></a><h3 class="sol">
+<tt>pthread_attr_setschedpolicy(3C)</tt> Syntax</h3>
+<a name="attrib-ix199"></a><a name=""></a><pre>int pthread_attr_setschedpolicy(pthread_attr_t *<var>tattr</var>, int <var>policy</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>policy</var>; 
+int <var>ret</var>; 
+
+/* set the scheduling policy to SCHED_OTHER */ 
+<var>ret</var> = pthread_attr_setschedpolicy(&amp;<var>tattr</var>, SCHED_OTHER);</pre>
+<a name=""></a><ul>
+<li>
+<p>
+<tt>SCHED_FIFO</tt>
+</p>
+
+<p>A First-In-First-Out
+thread runs in the real-time (RT) scheduling class and require the calling
+process to be privileged. Such a thread, if not preempted by a higher priority
+thread, executes until it yields or blocks.</p>
+
+
+</li>
+<li>
+<p>
+<tt>SCHED_RR</tt>
+</p>
+
+<p>Round-Robin threads
+whose contention scope is system (<tt>PTHREAD_SCOPE_SYSTEM)</tt> are
+in real-time (<tt>RT)</tt> scheduling class if the calling process
+has an effective user id of <tt>0</tt>. These threads, if not preempted
+by a higher priority thread, and if the threads do not yield or block, will
+execute for the system-determined time period. Use <tt>SCHED_RR</tt> for
+threads that have a contention scope of process (<tt>PTHREAD_SCOPE_PROCESS</tt>)
+is based on the <tt>TS</tt> scheduling class. Additionally, the
+calling process for these threads does not have an effective userid of <tt>0</tt>.</p>
+
+<p>A Round-Robin thread runs in the real-time (RT) scheduling class and
+requires the calling process to be privileged.  If a round robin thread is
+not preempted by a higher priority thread, and does not yield or block, it
+will execute for a system-determined time period. The thread is then forced
+to yield to another real time thread of equal priority.</p>
+
+
+</li>
+</ul>
+<p>
+<tt>SCHED_FIFO</tt> and <tt>SCHED_RR</tt> are optional
+in the POSIX standard, and are supported for real-time threads only.</p>
+<p>For a discussion of scheduling, see the section <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/mtintro-69291/index.html">Thread Scheduling</a>.</p>
+<a name="6mba5vpqo"></a><h3 class="sol">
+<tt>pthread_attr_setschedpolicy</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-73"></a><kbd><b>pthread_attr_setschedpolicy()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. When either of the following conditions
+occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>An attempt was made to set <var>tattr</var>  to a value that is not valid.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ENOTSUP</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>An attempt was made to set the attribute
+to an unsupported value.</p>
+
+
+</dl><a name="6mba5vpqq"></a><h2 class="sol">Getting the Scheduling Policy</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getschedpolicy-3c/index.html">pthread_attr_getschedpolicy(3C)</a> to retrieve the scheduling policy.</p>
+<a name="6mba5vpqs"></a><h3 class="sol">
+<tt>pthread_attr_getschedpolicy</tt> Syntax</h3>
+<a name="attrib-ix202"></a><a name=""></a><pre>int pthread_attr_getschedpolicy(pthread_attr_t *restrict <var>tattr,</var>
+            int *restrict <var>policy</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>policy</var>; 
+int <var>ret</var>; 
+
+/* get scheduling policy of thread */ 
+<var>ret</var> = pthread_attr_getschedpolicy (&amp;<var>tattr</var>, &amp;<var>policy</var>); </pre>
+<a name="6mba5vpqu"></a><h3 class="sol">
+<tt>pthread_attr_getschedpolicy</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-74"></a><kbd><b>pthread_attr_getschedpolicy()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. If the following condition occurs,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The parameter <var>policy</var> is
+ <tt>NULL</tt> or <var>tattr</var> is invalid.</p>
+
+
+</dl><a name="6mba5vpr0"></a><h2 class="sol">Setting the Inherited Scheduling Policy</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setinheritsched-3c/index.html">pthread_attr_setinheritsched(3C)</a> to set the inherited scheduling policy.</p>
+<a name="6mba5vpr2"></a><h3 class="sol">
+<tt>pthread_attr_setinheritsched</tt> Syntax</h3>
+<a name="attrib-ix204"></a><a name=""></a><pre>int pthread_attr_setinheritsched(pthread_attr_t *<var>tattr</var>, int <var>inheritsched</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>inheritsched</var>; 
+int <var>ret</var>; 
+
+/* use  creating thread's scheduling policy and priority*/ 
+<var>ret</var> = pthread_attr_setinheritsched(&amp;<var>tattr</var>, PTHREAD_INHERIT_SCHED);</pre>
+<p>An <var>inheritsched</var> value of <tt>PTHREAD_INHERIT_SCHED</tt> means that the scheduling policy and priority of the creating thread
+are to be used for the created thread.  The scheduling policy and priority
+in the attribute structure are to be ignored.  An <var>inheritsched</var> value
+of <tt>PTHREAD_EXPLICIT_SCHED</tt> means that the scheduling policy
+and priority from the attribute structure are to be used for the created thread.
+The caller must have sufficient privilege for <kbd><b>pthread_create()</b></kbd> to
+succeed in this case.</p>
+<a name="6mba5vpr4"></a><h3 class="sol">
+<tt>pthread_attr_setinheritsched</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-75"></a><kbd><b>pthread_attr_setinheritsched()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. When either of the following conditions
+occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>An attempt was made to set <var>tattr</var>  to a value that is not valid.</p>
+
+
+</dl><a name="6mba5vpr6"></a><h2 class="sol">Getting the Inherited Scheduling Policy</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getinheritsched-3c/index.html">pthread_attr_getinheritsched(3C)</a> returns the <var>inheritsched</var> attribute
+contained in the attribute structure.</p>
+<a name="6mba5vpr8"></a><h3 class="sol">
+<tt>pthread_attr_getinheritsched</tt> Syntax</h3>
+<a name="attrib-ix207"></a><a name=""></a><pre>int pthread_attr_getinheritsched(pthread_attr_t *restrict <var>tattr</var>
+       int *restrict <var>inheritsched</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>inheritsched</var>; 
+int <var>ret</var>; 
+ 
+<var>ret</var> = pthread_attr_getinheritsched (&amp;<var>tattr</var>, &amp;<var>inheritsched</var>); </pre>
+<a name="6mba5vpra"></a><h3 class="sol">
+<tt>pthread_attr_getinheritsched</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-76"></a><kbd><b>pthread_attr_getinheritsched()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. If the following condition occurs,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The parameter <var>inherit</var> is
+ <tt>NULL</tt> or <var>tattr</var> is invalid.</p>
+
+
+</dl><a name="6mba5vprc"></a><h2 class="sol">Setting the Scheduling Parameters</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setschedparam-3c/index.html">pthread_attr_setschedparam(3C)</a> sets the scheduling parameters.</p>
+<a name="6mba5vpre"></a><h3 class="sol">
+<tt>pthread_attr_setschedparam</tt> Syntax</h3>
+<a name="attrib-ix209"></a><a name=""></a><pre>int pthread_attr_setschedparam(pthread_attr_t *restrict <var>tattr</var>,
+         const struct sched_param *restrict <var>param</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+int <var>ret</var>; 
+int <var>newprio</var>; 
+sched_param <var>param</var>; 
+<var>newprio</var> = 30; 
+/* set the priority; others are unchanged */ 
+param.sched_priority = <var>newprio</var>; 
+/* set the new scheduling param */ 
+<var>ret</var> = pthread_attr_setschedparam (&amp;<var>tattr</var>, &amp;<var>param</var>); </pre>
+<p>Scheduling parameters are defined in the <var>param</var> structure.
+Only the priority parameter is supported.</p>
+<a name="6mba5vprg"></a><h3 class="sol">
+<tt>pthread_attr_setschedparam</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-77"></a><kbd><b>pthread_attr_setschedparam()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. If the following conditions occur,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>param</var> is
+ <tt>NULL</tt> or <var>tattr</var> is invalid.</p>
+
+
+</dl><p>You can manage pthreads priority in either of two ways:</p>
+<a name=""></a><ul>
+<li>
+<p>You can set the priority attribute before creating a child
+thread</p>
+
+
+</li>
+<li>
+<p>You can change the priority of the parent thread and then
+change the priority back</p>
+
+
+</li>
+</ul>
+<a name="6mba5vpri"></a><h2 class="sol">Getting the Scheduling Parameters</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getschedparam-3c/index.html">pthread_attr_getschedparam(3C)</a> returns the scheduling parameters defined by <kbd><b>pthread_attr_setschedparam()</b></kbd>.</p>
+<a name="6mba5vprk"></a><h3 class="sol">
+<tt>pthread_attr_getschedparam</tt> Syntax</h3>
+<a name="attrib-ix211"></a><a name=""></a><pre>int pthread_attr_getschedparam(pthread_attr_t *restrict <var>tattr</var>, 
+       const struct sched_param *restrict <var>param</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>attr</var>; 
+struct sched_param <var>param</var>; 
+int <var>ret</var>; 
+/* get the existing scheduling param */ 
+<var>ret</var> = pthread_attr_getschedparam (&amp;<var>tattr</var>, &amp;<var>param</var>);</pre>
+<a name="6mba5vprn"></a><h4 class="sol">Creating a Thread With a Specified Priority</h4><p>You can set the priority attribute before creating the thread. The child
+thread is created with the new priority that is specified in the <kbd>sched_param</kbd>  structure. This structure also contains other scheduling information.</p>
+
+<a name="6mba5vpro"></a><h4 class="sol">Example of Creating a Prioritized Thread</h4><p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vpro/index.html#attrib-37680">Example 3–2</a> shows
+an example of creating a child thread with a priority that is different from
+its parent's priority.</p>
+<a name="attrib-37680"></a><hr><h5 class="sol">Example 3–2  Creating a Prioritized Thread</h5><br><a name=""></a><pre>#include &lt;pthread.h&gt;
+#include &lt;sched.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+int <var>newprio</var> = 20;
+sched_param <var>param</var>;
+
+/* initialized with default attributes */
+<var>ret</var> = pthread_attr_init (&amp;<var>tattr</var>);
+
+/* safe to get existing scheduling param */
+<var>ret</var> = pthread_attr_getschedparam (&amp;<var>tattr</var>, &amp;<var>param</var>);
+
+/* set the priority; others are unchanged */
+param.sched_priority = <var>newprio</var>;
+
+/* setting the new scheduling param */
+<var>ret</var> = pthread_attr_setschedparam (&amp;<var>tattr</var>, &amp;<var>param</var>);
+
+/* specify explicit scheduling */
+<var>ret</var> = pthread_attr_setinheritsched (&amp;<var>tattr</var>, PTHREAD_EXPLICIT_SCHED);
+
+/* with new priority specified */
+<var>ret</var> = pthread_create (&amp;<var>tid</var>, &amp;<var>tattr</var>, <var>func</var>, <var>arg</var>); </pre>
+<hr>
+
+<a name="6mba5vprp"></a><h3 class="sol">
+<tt>pthread_attr_getschedparam</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-78"></a><kbd><b>pthread_attr_getschedparam()</b></kbd>  returns zero after completing successfully. Any other return
+value indicates that an error occurred. If the following condition occurs,
+the function fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>param</var> is
+ <tt>NULL</tt> or <var>tattr</var> is invalid.</p>
+
+
+</dl><a name="6mba5vprr"></a><h2 class="sol">About Stacks</h2>
+<p>
+<a name="attrib-ix219"></a><a name="attrib-ix220"></a><a name="attrib-ix221"></a>Typically, thread stacks begin on page
+boundaries. Any specified size is rounded up to the next page boundary. A
+page with no access permission is appended to the overflow end of the stack.
+Most stack overflows result in sending a <tt>SIGSEGV</tt> signal
+to the offending thread. Thread stacks allocated by the caller are used without
+modification.</p>
+<p>
+<a name="attrib-ix222"></a>When a stack is specified, the thread should also be created with
+ <tt>PTHREAD_CREATE_JOINABLE</tt>. That stack cannot be freed until
+the  <tt>pthread_join(3C)</tt> call for that thread has returned.
+The thread's stack cannot be freed until the thread has terminated. The only
+reliable way to know if such a thread has terminated is through <tt>pthread_join(3C)</tt>.</p>
+<a name="6mba5vprt"></a><h3 class="sol">Allocating Stack Space for Threads</h3>
+<p>
+<a name="attrib-ix223"></a><a name="attrib-ix224"></a><a name="attrib-ix225"></a>Generally, you do not need to allocate stack space for threads.
+The system allocates 1 megabyte (for 32 bit systems) or 2 megabytes (for 64
+bit systems) of virtual memory for each thread's stack with no swap space
+reserved. The system uses the <tt>MAP_NORESERVE</tt>  option of <kbd><b>mmap()</b></kbd> to make the allocations.</p>
+<p>
+<a name="attrib-ix226"></a><a name="attrib-ix227"></a><a name="attrib-ix228"></a><a name="attrib-ix229"></a>Each thread stack created
+by the system has a red zone. The system creates the red zone by appending
+a page to the overflow end of a stack to catch stack overflows. This page
+is invalid and causes a memory fault if accessed. Red zones are appended to
+all automatically allocated stacks whether the size is specified by the application
+or the default size is used.</p>
+<hr><b>Note – </b><p>Runtime stack requirements vary for library calls and dynamic
+linking. You should be absolutely certain that the specified stack satisfies
+the runtime requirements for library calls and dynamic linking.</p>
+<hr>
+<p>Very few occasions exist when specifying a stack, its size, or both,
+is appropriate. Even an expert has a difficult time knowing whether the right
+size was specified. Even a program that is compliant with ABI standards cannot
+determine its stack size statically. The stack size is dependent on the needs
+of the particular runtime environment in execution.</p>
+<a name="6mba5vpru"></a><h3 class="sol">Building Your Own Stack</h3>
+<a name="attrib-ix230"></a><a name="attrib-ix231"></a><a name="attrib-ix232"></a><a name="attrib-ix233"></a><p>When you specify the thread stack size, you must account for the allocations
+needed by the invoked function and by each subsequent function called. The
+accounting should include calling sequence needs, local variables, and information
+structures.</p>
+<p>Occasionally, you want a stack that differs a bit from the default stack.
+An obvious situation is when the thread needs more than the default stack
+size. A less obvious situation is when the default stack is too large. You
+might be creating thousands of threads with insufficient virtual memory to
+handle the gigabytes of stack space required by thousands of default stacks.</p>
+<p>
+<a name="attrib-ix234"></a><a name="attrib-ix235"></a><a name="attrib-ix236"></a>The limits on the maximum size of a stack are
+often obvious, but what about the limits on its minimum size? Sufficient stack
+space must exist to handle all stack frames that are pushed onto the stack,
+along with their local variables, and so on.</p>
+<p>
+<a name="attrib-ix237"></a><a name="attrib-ix238"></a><a name="attrib-ix239"></a>To get the absolute minimum limit
+on stack size, call the macro <tt>PTHREAD_STACK_MIN</tt>. The <tt>PTHREAD_STACK_MIN</tt> macro returns the amount of required stack space
+for a thread that executes a  <tt>NULL</tt> procedure. Useful threads
+need more than the minimum stack size, so be very careful when reducing the
+stack size.</p>
+<a name="6mba5vprv"></a><h2 class="sol">Setting the Stack Size</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setstacksize-3c/index.html">pthread_attr_setstacksize(3C)</a> sets the thread stack size.</p>
+<a name="6mba5vps1"></a><h3 class="sol">
+<tt>pthread_attr_setstacksize</tt> Syntax</h3>
+<a name="attrib-ix213"></a><a name=""></a><pre>int pthread_attr_setstacksize(pthread_attr_t *<var>tattr</var>, size_t <var>size</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+#include &lt;limits.h&gt;
+pthread_attr_t <var>tattr</var>; 
+size_t <var>size</var>; 
+int <var>ret</var>; 
+<var>size</var> = (PTHREAD_STACK_MIN + 0x4000); 
+/* setting a new size */ 
+<var>ret</var> = pthread_attr_setstacksize(&amp;<var>tattr</var>, <var>size</var>);</pre>
+<p>The <b>size</b> attribute defines the size of the stack
+(in bytes) that the system allocates. The <var>size</var> should
+not be less than the system-defined minimum stack size. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-33670/index.html">About Stacks</a> for more information.</p>
+<p>
+<a name="attrib-ix214"></a><a name="attrib-ix215"></a><a name="attrib-ix216"></a><var>size</var> contains the number of bytes for
+the stack that the new thread uses. If <var>size</var> is
+zero, a default size is used. In most cases, a zero value works best.</p>
+<p>
+<tt>PTHREAD_STACK_MIN</tt> is the amount of stack space that
+is required to start a thread. This stack space does not take into consideration
+the threads routine requirements that are needed to execute application code.</p>
+<a name="ggenn"></a><hr><h5 class="sol">Example 3–3  Example of Setting Stack Size</h5><br><a name=""></a><pre>#include &lt;pthread.h&gt;
+#include &lt;limits.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+
+size_t <var>size</var> = PTHREAD_STACK_MIN + 0x4000;
+
+/* initialized with default attributes */
+<var>ret</var> = pthread_attr_init(&amp;<var>tattr</var>);
+
+/* setting the size of the stack also */
+<var>ret</var> = pthread_attr_setstacksize(&amp;<var>tattr</var>, <var>size</var>);
+
+/* only size specified in tattr*/
+<var>ret</var> = pthread_create(&amp;<var>tid</var>, &amp;<var>tattr</var>, <var>start_routine</var>, <var>arg</var>); </pre>
+<hr>
+<a name="6mba5vps3"></a><h3 class="sol">
+<tt>pthread_attr_setstacksize</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-79"></a><kbd><b>pthread_attr_setstacksize()</b></kbd> returns zero after completing successfully. Any other return value
+indicates that an error occurred. If the following condition occurs, the function
+fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <b>size</b> is
+less than <tt>PTHREAD_STACK_MIN</tt>, or exceeds a system-imposed
+limit, or  <var>tattr</var> is not valid.</p>
+
+
+</dl><a name="6mba5vps5"></a><h2 class="sol">Getting the Stack Size</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getstacksize-3c/index.html">pthread_attr_getstacksize(3C)</a> returns the stack size set by <kbd><b>pthread_attr_setstacksize()</b></kbd>.</p>
+<a name="6mba5vps7"></a><h3 class="sol">
+<tt>pthread_attr_getstacksize</tt> Syntax</h3>
+<a name="attrib-ix218"></a><a name=""></a><pre>int pthread_attr_getstacksize(pthread_attr_t *restrict <var>tattr</var>, size_t *restrict <var>size</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+pthread_attr_t <var>tattr</var>; 
+size_t <var>size</var>; 
+int <var>ret</var>; 
+/* getting the stack size */ 
+<var>ret</var> = pthread_attr_getstacksize(&amp;<var>tattr</var>, &amp;<var>size</var>);</pre>
+<a name="6mba5vps9"></a><h3 class="sol">
+<tt>pthread_attr_getstacksize</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-80"></a><kbd><b>pthread_attr_getstacksize()</b></kbd> returns zero after completing successfully. Any other return value
+indicates that an error occurred. If the following condition occurs, the function
+fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>tattr</var> or <var>size</var> is not valid.</p>
+
+
+</dl><a name="6mba5vpsb"></a><h2 class="sol">Setting the Stack Address and Size</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-setstack-3c/index.html">pthread_attr_setstack(3C)</a> sets the thread stack address and size.</p>
+<a name="6mba5vpsd"></a><h3 class="sol">
+<tt>pthread_attr_setstack(3C)</tt> Syntax</h3>
+<a name="attrib-ix246"></a><a name=""></a><pre>int pthread_attr_setstack(pthread_attr_t *<var>tattr</var>,void *<var>stackaddr</var>, size_t <var>stacksize</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt; 
+#include &lt;limits.h&gt;
+pthread_attr_t <var>tattr</var>; 
+void *<var>base</var>; 
+size_t <var>size</var>; 
+int <var>ret</var>; 
+<var>base</var> = (void *) malloc(PTHREAD_STACK_MIN + 0x4000); 
+/* setting a new address and size */ 
+<var>ret</var> = pthread_attr_setstack(&amp;<var>tattr</var>, <var>base</var>,PTHREAD_STACK_MIN + 0x4000);</pre>
+<p>The <var>stackaddr</var> attribute defines the base
+(low address) of the thread's stack. The <var>stacksize</var> attribute
+specifies the size of the stack. If <var>stackaddr</var> is
+set to non-null, rather than the <tt>NULL</tt> default, the system
+initializes the stack at that address, assuming the size to be <var>stacksize</var>.</p>
+<p>
+<a name="attrib-ix247"></a><a name="attrib-ix248"></a><a name="attrib-ix249"></a><a name="attrib-ix250"></a><var>base</var> contains
+the address for the stack that the new thread uses. If  <var>base</var> is <tt>NULL</tt>, then <tt>pthread_create(3C)</tt> allocates a stack
+for the new thread with at least <var>stacksize</var> bytes.</p>
+<a name="6mba5vpsf"></a><h3 class="sol">
+<tt>pthread_attr_setstack(3C)</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-81"></a><kbd><b>pthread_attr_setstack()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. If the following condition occurs, the function fails and
+returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>base</var> or
+ <var>tattr</var> is incorrect. The value of <var>stacksize</var> is less than <tt>PTHREAD_STACK_MIN</tt>.</p>
+
+
+</dl><p>The following example shows how to create a thread with a custom stack
+address and size.</p>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+void *<var>stackbase</var>;
+size_t <var>size</var>;
+
+/* initialized with default attributes */
+<var>ret</var> = pthread_attr_init(&amp;<var>tattr</var>);
+
+/* setting the base address and size of the stack */
+<var>ret</var> = pthread_attr_setstack(&amp;<var>tattr</var>, <var>stackbase</var>,<var>size</var>);
+
+/* address and size specified */
+<var>ret</var> = pthread_create(&amp;<var>tid</var>, &amp;<var>tattr</var>, <var>func</var>, <var>arg</var>);</pre>
+<a name="6mba5vpsh"></a><h2 class="sol">Getting the Stack Address and Size</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/pthread-attr-getstack-3c/index.html">pthread_attr_getstack(3C)</a> returns the thread stack address and size set by <kbd><b>pthread_attr_setstack()</b></kbd>.</p>
+<a name="6mba5vpsj"></a><h3 class="sol">
+<tt>pthread_attr_getstack</tt> Syntax</h3>
+<a name="attrib-ix252"></a><a name=""></a><pre>int pthread_attr_getstack(pthread_attr_t *restrict <var>tattr</var>,
+         void **restrict <var>stackaddr</var>, size_t *restrict <var>stacksize</var>);</pre>
+<a name=""></a><pre>#include &lt;pthread.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+void *<var>base</var>;
+size_t <var>size</var>;
+int <var>ret</var>;
+
+/* getting a stack address and size */
+<var>ret</var> = pthread_attr_getstack (&amp;<var>tattr</var>
+, &amp;<var>base</var>, &amp;<var>size</var>); </pre>
+<a name="6mba5vpsl"></a><h3 class="sol">
+<tt>pthread_attr_getstack</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-82"></a><kbd><b>pthread_attr_getstack()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. If the following condition occurs, the function fails and
+returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>tattr</var> is
+incorrect.</p>
+
+
+</dl>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12926/index.html"><em>Previous</em>: Chapter&nbsp;2 Basic Threads
+Programming</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html"><em>Next</em>: Chapter&nbsp;4 Programming
+with Synchronization Objects</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

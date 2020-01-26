@@ -1,0 +1,177 @@
+第二章 寄存器约定
+寄存器约定 
+
+对于在一个CPU上进行开发，掌握其工作的CPU的寄存器约定是非常重要的。 
+
+MIPS体系结构提供了32个GPR(GENERAL PURPOSE REGISTER)。这32个寄存器的用法大致如下： 
+
+REGISTER NAME USAGE 
+$0 $zero 常量0(constant value 0) 
+$2-$3 $v0-$v1 函数调用返回值(values for results and expression evaluation) 
+$4-$7 $a0-$a3 函数调用参数(arguments) 
+
+$8-$15 $t0-$t7 暂时的(或随便用的) 
+$16-$23 $s0-$s7 保存的(或如果用，需要SAVE/RESTORE的)(saved) 
+$24-$25 $t8-$t9 暂时的(或随便用的) 
+$28 $gp 全局指针(Global Pointer) 
+$29 $sp 堆栈指针(Stack Pointer) 
+$30 $fp 帧指针(Frame Pointer) 
+(BNN：fp is stale acutally, and can be simply used as $t8) 
+$31 $ra 返回地址(return address) 
+
+对一个CPU的寄存器约定的正确用法是非常重要的。当然对C语言开发者不需要关心，因为COMPILER会TAKE CARE。但对于KERNEL的开发或DRIVER开发的人就**必须**清楚。 
+
+一般来讲，你通过objdump -d可以清醒的看到寄存器的用法。 
+
+下面通过我刚才写的一个简单例子来讲解： 
+
+~/ vi Hello.c 
+"Hello.c" [New file] 
+/* Example to illustrate mips register convention 
+* -Author: BNN 
+* 11/29/2001 
+*/ 
+
+int addFunc(int,int); 
+int subFunc(int); 
+
+void main() 
+{ 
+
+int x,y,z; 
+x= 1; 
+y=2; 
+z = addFunc(x,y); 
+} 
+
+
+int addFunc(int x,int y) 
+{ 
+int value1 = 5; 
+int value2; 
+
+value2 = subFunc(value1); 
+return (x+y+value2); 
+
+} 
+
+int subFunc(int value) 
+{ 
+return value--; 
+} 
+
+上面是一个C程序，main()函数调用一个加法的子函数。让我们来看看编译器是如何产生代码的。 
+
+~/bnn:74> /bin/mips-elf-gcc -c Hello.o Hello.c -mips3 -mcpu=r4000 -mgp32 -mfp32 -O1 
+
+~/bnn:75> /bin/mips64-elf-objdump -d Hello.o 
+Hello.o: file format elf32-bigmips 
+Disassembly of section .text: 
+
+/* main Function */ 
+0000000000000000 : 
+/*create a stack frame by moving the stack pointer 8 
+*bytes down and meantime update the sp value 
+*/ 
+0: 27bdfff8 addiu $sp,$sp,-8 
+/* Save the return address to the current sp position.*/ 
+4: afbf0000 sw $ra,0($sp) 
+8: 0c000000 jal 0 
+/* nop is for the delay slot */ 
+c: 00000000 nop 
+/* Fill the argument a0 with the value 1 */ 
+10: 24040001 li $a0,1 
+/* Jump the addFunc */ 
+14: 0c00000a jal 28 
+/* NOTE HERE: Why we fill the second argument 
+*behind the addFunc function call? 
+* This is all about the "-O1" compilation optimizaiton. 
+* With mips architecture, the instruciton after jump 
+* will also be fetched into the pipline and get 
+* exectuted. Therefore, we can promise that the 
+* second argument will be filled with the value of 
+* integer 2. 
+*/ 
+18: 24050002 li $a1,2 
+/*Load the return address from the stack pointer 
+* Note here that the result v0 contains the result of 
+* addFunc function call 
+*/ 
+1c: 8fbf0000 lw $ra,0($sp) 
+/* Return */ 
+20: 03e00008 jr $ra 
+/* Restore the stack frame */ 
+24: 27bd0008 addiu $sp,$sp,8 
+
+/* addFunc Function */ 
+0000000000000028 : 
+/* Create a stack frame by allocating 16 bytes or 4 
+* words size 
+*/ 
+28: 27bdfff0 addiu $sp,$sp,-16 
+/* Save the return address into the stack with 8 bytes 
+* offset. Please note that compiler does not save the 
+* ra to 0($sp). 
+*Think of why, in contrast of the previous PowerPC 
+* EABI convention 
+*/ 
+2c: afbf0008 sw $ra,8($sp) 
+/* We save the s1 reg. value into the stack 
+* because we will use s1 in this function 
+* Note that the 4,5,6,7($sp) positions will then 
+* be occupied by this 32 bits size register 
+*/ 
+30: afb10004 sw $s1,4($sp) 
+/* Withe same reason, save s0 reg. */ 
+34: afb00000 sw $s0,0($sp) 
+/* Retrieve the argument 0 into s0 reg. */ 
+38: 0080802d move $s0,$a0 
+/* Retrieve the argument 1 into s1 reg. */ 
+3c: 00a0882d move $s1,$a1 
+/* Call the subFunc with a0 with 5 */ 
+40: 0c000019 jal 64 
+/* In the delay slot, we load the 5 into argument a0 reg 
+*for subFunc call. 
+*/ 
+44: 24040005 li $a0,5 
+/* s0 = s0+s1; note that s0 and s1 holds the values of 
+* x,y, respectively 
+*/ 
+48: 02118021 addu $s0,$s0,$s1 
+/* v0 = s0+v0; v0 holds the return results of subFunc 
+*call; And we let v0 hold the final results 
+*/ 
+4c: 02021021 addu $v0,$s0,$v0 
+/*Retrieve the ra value from stack */ 
+50: 8fbf0008 lw $ra,8($sp) 
+/*!!!!restore the s1 reg. value */ 
+54: 8fb10004 lw $s1,4($sp) 
+/*!!!! restore the s0 reg. value */ 
+58: 8fb00000 lw $s0,0($sp) 
+/* Return back to main func */ 
+5c: 03e00008 jr $ra 
+/* Update/restore the stack pointer/frame */ 
+60: 27bd0010 addiu $sp,$sp,16 
+
+/* subFunc Function */ 
+0000000000000064 : 
+/* return back to addFunc function */ 
+64: 03e00008 jr $ra 
+/* Taking advantage of the mips delay slot, filling the 
+* result reg v0 by simply assigning the v0 as the value 
+*of a0. This is a bug from my c source 
+* codes--"value--". I should write my codes 
+* like "--value", instead. 
+68: 0080102d move $v0,$a0 
+
+
+希望大家静下心来把上面的代码看懂。一定要注意编译器为什么在使用s0和s1之前要先把她们SAVE起来，然后再RESTORE，虽然在这个例子中虽然main 函数没用s0和s1。 
+
+
+另外的一点是：由于我们加了“-O1”优化，编译器利用了“delay slot"来执行那些必须执行的指令，而不是简单的塞一个”nop"指令在那里。非常的漂亮。 
+
+最后，考大家一个问题，为了使得大家更加理解寄存器的用法： 
+
+*在写一个核心调度context switch()例程时，我们需要SAVE/RESTORE$t0-$t7吗？如果不，为什么？ 
+
+*在写一个时钟中断处理例程时，我们需要SAVE/RESTORE$t0-$t7吗？如果是，为什么？

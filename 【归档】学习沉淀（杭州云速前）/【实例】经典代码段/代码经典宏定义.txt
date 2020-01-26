@@ -1,0 +1,31 @@
+--------------------------roundup用于数据对齐，将x的大小对齐于y，不足向前进1------------------
+#ifndef roundup
+#define roundup(x, y)   ((((x)+((y)-1))/(y))*(y))  /* to any y */
+#endif
+
+-------------------------howmany用于计算在y个为一组的情况下，x能分成多少组，不足向前进1-----------
+#ifndef howmany
+#define howmany(x, y)   (((x)+((y)-1))/(y))
+#endif
+
+suggest parentheses around comparison in operand of &
+
+------------------------------------a是一个bit映射表（bitmap），如果想操作a的某一位，可以用下面宏，NBBY代表a的位数--------
+#define isclr(a,i) (((a)[(i)/NBBY] & (1<<((i)%NBBY))) == 0)
+#define setbit(a,i) ((a)[(i)/NBBY] |= 1<<((i)%NBBY))
+#define isset(a,i) ((a)[(i)/NBBY] & (1<<((i)%NBBY)))
+
+其实NBBY可以也不代表a的位数，其实比a少个整数倍，多于a应该都是可以的。
+其中最巧妙的是将a看成一个数组。这样以a为整数倍的映射表也能巧妙的设置了
+
+补充：若想要达到如果a位于x的bit位与想要的不一致就设置它，设置了就不理会，可使用下面。
+if (set != (isset(vap->iv_tim_bitmap, aid) != 0)) {
+	if (set) {
+		setbit(vap->iv_tim_bitmap, aid);
+		vap->iv_ps_pending++;
+	} else {
+		clrbit(vap->iv_tim_bitmap, aid);
+		vap->iv_ps_pending--;
+	}
+	IEEE80211_VAP_TIMUPDATE_ENABLE(vap);
+}

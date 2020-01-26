@@ -1,0 +1,95 @@
+需要安装的软件：openssl、openssh，这两个软件在core库中都有，直接用pacman安装即可。
+安装完成之后开始配置SSH。编辑/etc/ssh/sshd_config文件，去掉一些注释修改一些值就行了，示例如附件中我的配置文件。
+挑sshd_config文件中几个常用的选项稍微介绍一下，详细的说明可以man sshd_config来查看。
+ 
+sshd_config配置文件内容详解
+Port 一看就是开放的端口，可以更改端口，这样可以防止一些扫描软件的扫描，能略微增加一些安全性，但是连接的时候请指出连接端口，否则不能连上。
+ListenAddress 用来指定监听IP，如果你的电脑上有多块网卡，可以用这个来指定一个网卡对应的IP。
+Protocol 是指定SSH用的协议。SSH有两个协议，其中1被认为不安全，通常使用2。如果两个协议都要用，请在1和2之间用逗号分隔。
+HostKey 系列用于指定主机私钥放置地址，可以看到有分别指定协议1和2。
+KeyRegenerationInterval 是协议1中设置每隔一段时间重新建立一次公钥，以防止公钥被偷造成损失，实用协议2可以忽略这个参数。
+ServerKeyBits 用于设置密钥长度，保持默认值。
+SyslogFacility 是用于指定SSH的日志记录在什么daemon name下，默认的AUTH是指/var/log/secure。
+LoginGaceTime 设置用户在连接上SSH时出现输入密码登录的画面的停留时间，时间单位为秒。
+PermitRootLogin 指定是否允许root登录，SSH出于安全考虑默认是不允许root登录的，如果你非要允许就写yes吧，不过请设下更多安全策略来保护你的系统。
+StrictModes 设置当用户的host key改变之后服务端就拒绝联机，可以抵挡部分木马。
+MaxAuthTries 设置登录时密码尝试的最大次数，可以抵御居心不良者不停尝试密码。
+MaxSessions 设置允许的最多同时连接数。
+RSAAuthentication 选择是否使用纯RSA认证，这个设置只针对协议1。
+PubkeyAuthentication 是否允许公钥，只针对协议2，这里要允许。
+AuthorizedKeysFile 此处设置不需要密码登录的帐号，即这个帐号存放文件所在的文件名，很重要，文件名请牢记。
+RhostsRSAAuthentication 专为协议1设置，实用rhosts文件在/etc/hosts.equiv配合RSA算法来认证，建议不使用。
+HostbasedAuthentication 与上一个类似，不过专为协议2设置。
+IgnoreUserKnownHosts 设置是否忽略默认目录内的~/.ssh/known_hosts文件中记录的主机内容，这里请不要忽略，设置为no。
+IgnoreRhosts 忽略~/.ssh/.rhosts来认证，要取消。
+PasswordAuthentication 密码验证，这当然是需要的，设置为yes。
+PermitEmptyPasswords 是否允许以空密码登录，请设置为no来拒绝危险的空密码登录。
+ChallengeResponseAuthentication 是否允许任何的密码认证，即任何login.conf规定的认证方式均可适用，不过还是通过PAM模块来管理认证比较合适一点，可以设置为no。
+UsePAM 设置使用PAM来管理认证，建议设置为yes。
+PrintMotd 设置登录后是否显示一些信息，即打印出/etc/motd文件的内容，考虑到安全可以设置为no。
+PrintLastLog 设置登录时打印最后一次登录记录。
+TCPKeepAlive 设置了yes的话服务端会传送KeepAlive信息给客户端以确保两者联机正常，有一端死掉的话SSH可以立刻知道并做出反应，避免僵尸程序。
+UseLogin SSH下不接受login这个程序的登录。
+UsePrivilegeSeparation 设置用户的权限，可以设为yes。
+Compression 设置是否可以是用压缩命令，可以设置为yes。
+PidFile 设置SSHD的pid文件放置位置。
+MaxStartups 设置同时允许几个尚未登录的联机画面，就是指连接上之后还没输入密码登录时的状态，已经登录的不在这个限制中。
+
+下面是Kerberos相关的设置，如果有Kerberos主机才需要设置，没有就不用了
+KerberosAuthentication
+KerberosOrLocalPasswd
+KerberosTicketCleanup
+KerberosGetAFSToken
+
+下面两条是有关GSS的设置，不需要做什么
+GSSAPIAuthentication
+GSSAPICleanupCredentials
+
+下面是关于X-window的设置，视个人情况来定
+X11Forwarding
+X11DisplayOffset
+X11UseLocalhost
+
+Subsystem sftp /usr/lib/ssh/sftp-server 这个是关于SFTP服务的设置，建议不要做更改。
+
+
+设置完成之后就可以从远程登录了。
+出于安全考虑，可以通过修改hosts.allow和hosts.deny文件来设置允许登录的IP及不允许登录的IP。
+简单介绍一下通过hosts设置安全策略：
+/etc/hosts.allow
+加入下面格式的内容：
+sshd:192.168.1.101, 192.168.1.102: allow
+/etc/hosts.deny加入下面内容：
+sshd : ALL : spawn （/bin/echo Security notice from host `/bin.hostname`;\
+/bin/echo; /usr/sbin/safe_finger @%h ） | \
+/bin/mail -s "%d -%h security" root@localhost & \
+: twist (/bin/echo -e " WARNING connection not allowed.". )
+当然，要执行这个操作还需要安装twisted包，这是一个异步网络框架的什么东西。
+这样就允许了allow中的IP地址登录SSH，其他IP地址登录时将被拒绝。
+如果你需要更安全的SSH，可以设置iptables搭建一个防火墙来保护你的主机。
+
+ 
+
+一切配置好之后用命令启动SSH
+ 
+1. 首先在服务器上安装ssh的服务器端。 
+ 
+$ sudo aptitude install openssh-server
+ 
+2. 启动ssh-server。
+ 
+$ /etc/init.d/ssh restart
+ 
+3. 确认ssh-server已经正常工作。
+ 
+$ netstat -tlp
+ 
+tcp6 0 0 *:ssh *:* LISTEN -
+ 
+看到上面这一行输出说明ssh-server已经在运行了。
+ 
+4. 在客户端通过ssh登录服务器。假设服务器的IP地址是192.168.0.103，登录的用户名是hyx。
+ 
+$ ssh -l hyx 192.168.0.103
+ 
+接下来会提示输入密码，然后就能成功登录到服务器上了

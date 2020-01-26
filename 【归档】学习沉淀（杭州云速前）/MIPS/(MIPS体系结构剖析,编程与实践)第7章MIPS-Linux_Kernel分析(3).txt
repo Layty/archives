@@ -1,0 +1,224 @@
+下面是我在为godson CPU的页面可执行保护功能增加内核支持时分析linux-mips
+mmu实现的一些笔记,没有时间整理,有兴趣就看看吧.也许第5节对整个工作过程的
+分析会有些用,其它语焉不详的东西多数只是对我本人有点用.
+   首先的,关键的,要明白MIPS CPU的tlb是软件管理的,cache也不是透明的,具体的
+   参见它们的用户手册.
+(for sgi-cvs kernel 2.4.17)
+1. mmu context 
+   cpu用8位asid来区分tlb表项所属的进程,但是进程超过256个怎么办?
+   linux实现的思想是软件扩展,每256个一组,TLB任何时候只存放同一组的asid
+   因此不会冲突. 从一组的某个进程切换到另一组时,把tlb刷新
+   ASID switch
+   include/asm/mmu_context.h:
+     asid_cache: 
+       8bit physical asid + software extension, the software extension bits
+       are used as a version; this records the newest asid allocated,while
+       process->mm->context records its own version.
+     get_new_mmu_context: 
+       asid_cache++, if increasement lead to change of software extension part
+       then flush icache & tlb to avoid conflicting with old versions.
+       asid_cache = 0 reserved to represent no valid mmu context case,so the 
+       first asid_cache version start from 0x100.
+     switch_mm:
+       if asid version of new process differs from current process',get a new
+       context for it.( it's safe even if it gets same 8bit asid as previous 
+       because this process' tlb entries must have been flushed at the time 
+       of version increasement)
+       set entryhi,install pgd
+     activate_mm:
+       get new asid,set to entryhi,install pgd.
+ 
+2. pte bits
+   页表的内容和TLB表项关系
+   entrylo[01]: 
+       3130 29                      6  5  3 2 1 0
+       -------------------------------------------
+       |   |     PFN                  | C  |D|V|G|
+       -------------------------------------------
+   r4k pte:
+       31                12 111098 7 6 5  3 2 1 0
+       -------------------------------------------
+       |    PFN            | C  |D|V|G|B|M|A|W|R|P| 
+       -------------------------------------------
+    C: cache attr.
+    D: Dirty
+    V: valid
+    G: global
+    B: R4K_BUG
+    M: Modified
+    A: Accessed
+    W: Write
+    R: Read
+    P: Present
+    (last six bits implemented in software)
+ 
+   godson entrylo:
+       bit 30 is used as execution protect bit E,only bit25-6 are used
+       as PFN.
+       instruction fetch from a page has E cleared lead to address error
+       exception.
+   godson pte:
+       31                12 111098 7 6 5  3 2 1 0
+       -------------------------------------------
+       |    PFN            | C  |D|V|G|E|M|A|W|R|P| 
+       -------------------------------------------
+   E: software implementation of execute protection.Page is executable when
+      E is set,non-executable otherwise.(Notice,it is different from hardware
+      bit 30 in entrylo)
+ 
+3. actions dealing with pte
+  pte_page: get page struct from its pte value
+  pte_{none,present,read,write,dirty,young}: get pte status,use software bits
+  pte_wrprotect: &= ~(_PAGE_WRITE | _PAGE_SILENT_WRITE)
+  pte_rdprotect: &= ~(_PAGE_READ | _PAGE_SILENT_READ)
+  pte_mkclean: &= ~(_PAGE_MODIFIED | _PAGE_SILENT_WRITE)
+  pte_mkold: &= ~(_PAGE_ACCESSED | _PAGE_SILENT_READ)
+  pte_mkwrite: |= _PAGE_WRITE && if (_PAGE_MODIFIED) |= _PAGE_SILENT_WRITE
+  pte_mkread: |= _PAGE_READ && if (_PAGE_ACCESSED) |= _PAGE_SILENT_READ
+  pte_mkdirty: |= _PAGE_MODIFIED && if (_PAGE_WRITE) |= _PAGE_SILENT_WRITE
+  pte_mkyoung: |= _PAGE_ACCESSED && if (_PAGE_READ) |= _PAGE_SILENT_READ
+  pgprot_noncached: (&~CACHE_MASK) | (_CACHE_UNCACHED) 
+  mk_pte(page,prot): (unsigned long) ( page - memmap ) << PAGE_SHIFT | prot
+  mk_pte_phys(physpage,prot): physpage | prot
+  pte_modify(pte,prot): ( pte & _PAGE_CHG_MASK ) | newprot
+  page_pte_{prot}: unused?
+  set_pte: *ptep = pteval 
+  pte_clear: set_pte(ptep,__pte(0));
+ 
+  ptep_get_and_clear
+ 
+  pte_alloc/free
+ 
+ 
+4. exceptions
+  tlb refill exception(0x80000000):
+     (1) get badvaddr,pgd 
+     (2) pte table ptr = badvaddr>>22 < 2 + pgd ,
+     (3) get context,offset = context >> 1 & 0xff8 (bit 21-13 + three zero), 
+     (4) load offset(pte table ptr) and offset+4(pte table ptr),
+     *(5) right shift 6 bits,write to entrylo[01],
+     (6) tlbwr
+  tlb modified exception(handle_mod):
+     (1) load pte,
+     *(2) if _PAGE_WRITE set,set ACCESSED | MODIFIED | VALID | DIRTY,
+          reload tlb,tlbwi
+         else DO_FAULT(1)
+  tlb load exception(handle_tlbl):
+     (1) load pte
+     (2) if _PAGE_PRESENT && _PAGE_READ, set ACCESSED | VALID
+         else DO_FAULT(0)
+  tlb store exception(handle_tlbs):
+     (1) load pte
+     *(2) if _PAGE_PRESENT && _PAGE_WRITE,set ACCESSED | MODIFIED | VALID | DIRTY
+         else DO_FAULT(1)
+ 
+   items marked with * need modification.
+ 
+5. protection_map
+   all _PXXX map to page_copy? Although vm_flags will at last make pte writeable
+   as needed,but will this be inefficient? it seems that alpha is not doing so.
+ 
+   mm setup/tear down:
+     on fork,copy_mm:
+       allocate_mm,
+       memcpy(new,old)
+                        slow path
+       mm_init-->pgd_alloc-->pgd_init-->all point to invalid_pte
+                          -->copy kseg pgds from init_mm
+                       fast path: what's the content of pgd?
+                         --> point to invalid_pte too,see clear_page_tables
+       dup_mmap->copy_page_range-->alloc page table entries and do cow if needed.
+       copy_segmens--null
+       init_new_context--set mm->context=0(allocate an array for SMP first) 
+     on exec(elf file),load_elf_binary:
+       flush_old_exec:
+         exec_mmap
+            exit_mmap(old_mm)
+               free vm_area_struct
+               zap_page_range: free pages
+               clear_page_tables
+                 pgd_clear: do nothing
+                pmd_clear: set to invalid_pte
+                pte_clear: set to zero
+            mm_alloc
+            initialize new mm( init_new_contex,add to list,activate it)
+            mmput(oldmm)
+      setup_arg_pages:
+        initialize stack segment. mm_area_struct for stack segment is setup
+        here.
+      load elf image into the correct location in memory
+         elf_prot generated from eppnt->p_flags 
+         elf_map(..,elf_prot,..) 
+           do_mmap
+ 
+   a typical session for a user page to be read then written:
+     (1) user allocates the space
+     (2) kernel call do_mmap/do_brk, vm_area_struct created
+     (3) user tries to read
+     (4) tlb refill exception occurs,invalid_pte_table's entry is loaded into 
+         tlb
+     (5) tlbl exception occurs, 
+          do_page_fault(0)->handle_mm_fault(allocate pte_table)->handle_pte_fault
+          -->do_no_page-->map to ZERO page,readonly,set_pte,update_mmu_cache
+          (update_mmu_cache put new pte to tlb,NEED change for godson)
+     (6) read done,user tries to write
+     (7) tlbs exception occurs(suppose the tlb entry is not yet kicked out)
+         because pte is write protected,do_page_fault(1) called.
+         handle_mm_fault(find out the pte)-->handle_pte_fault->do_wp_page
+         -->allocate page,copy page,break_cow-->make a writeable pte,
+         -->establish_pte-->write pte and update_mmu_cache
+     (8) write done.
+ 
+   above has shown that handle_mm_fault doesn't care much about what the 
+   page_prot is. (Of course,it has to be reasonable)
+   What really matters is vm_flags,it will decide whether an access is valid
+ 
+6. do_page_fault
+   seems ok
+7. swapping
+   seems ok
+ 
+8. adding execution protection
+ 2002.3.16:
+      TLB execute protection bit support.
+        1. generic support
+        idea: 
+          use bit 5 in pte to maintain a software version of _PAGE_EXEC
+          modify TLB refill code to reflect it into hardware bit(bit 30)
+        affected files:
+          include/asm/pgtable.h: 
+            define _PAGE_EXEC
+            change related PAGE_XXX macros and protection_map
+            add pte_mkexec/pte_exprotect
+            add godson_mkexec/godson_mkprotect
+          arch/mips/mm/tlbex-r4k.S:
+           tlb_refill exception & PTE_RELOAD macro:
+            test bit 5 and translated it into bit30 in entrylo 
+            using godson's cp0 register 23/24 as temporary store place
+            Note: bit5 and bit30 have adverse meaning,bit5 set==bit30 
+                  cleared==page executable,
+          arch/mips/mm/tlb-r4k.c:
+            update_mmu_cache:
+                test bit 5 and translated it into bit30 in entrylo 
+            implement godson_mkexec/godson_exprotect
+          arch/mips/config.in:
+            add option CONFIG_CPU_HAS_EXECUTE_PROTECTION
+        2. non-executable stack support
+          interface:
+           by default no protection is taken,To take advantage of 
+           this support,one should call sysmips syscall to set the
+           flag bit and then execute the target program.
+          affected files:
+           include/asm/processor.h:
+                define MF_STACK_PROTECTION flag
+           fs/exec.c:
+                judge which protection to use
+           arch/mips/kernel/signal.c:
+                enable/disable execute for signal trampoline
+           arch/mips/math-emu/cp1emu.c:
+                enable/disable execute for delay slot emulation trampoline
+           arch/mips/kernel/sysmips.c:
+                handle MF_STACK_PROTECTION
+ 
+ 
+ 

@@ -1,0 +1,3 @@
+http://blog.chinaunix.net/uid/29852382/cid--1-list-3.html
+《UBOOT-2012-10在OK6410平台的移植》系列文章，分出1~13部分，对移植过程进行了记录。
+可以参考他的写作风格和学习uboot移植过程中的思路问题

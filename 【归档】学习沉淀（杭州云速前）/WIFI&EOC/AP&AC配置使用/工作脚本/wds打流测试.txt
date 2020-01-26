@@ -1,0 +1,77 @@
+----------------------root_client---------------------
+Root端配置:
+---------------11naplus
+wlanconfig ath0 create wlandev wifi0 wlanmode ap
+iwpriv ath0 mode 11naht40plus
+iwconfig ath0 channel 36 essid wdsprfeng
+iwpriv ath0 wds 1
+brctl addif default ath0
+iwpriv ath0 ap_bridge 0
+ifconfig ath0 up
+
+--------------11ngplus
+wlanconfig ath0 create wlandev wifi0 wlanmode ap
+iwpriv ath0 mode 11nght40plus
+iwconfig ath0 channel 1 essid wdsprfeng
+iwpriv ath0 wds 1
+brctl addif default ath0
+iwpriv ath0 ap_bridge 0
+ifconfig ath0 up
+
+client端配置：
+---------------11naplus
+wlanconfig ath0 create wlandev wifi0 wlanmode sta nosbeacon
+iwpriv ath0 mode 11naht40plus 
+iwconfig ath0 essid wdsprfeng channel 36
+iwpriv ath0 wds 1
+brctl addif default ath0
+iwpriv ath0 ap_bridge 0
+ifconfig ath0 up
+
+---------------11ngplus
+wlanconfig ath0 create wlandev wifi0 wlanmode sta nosbeacon
+iwpriv ath0 mode 11nght40plus 
+iwconfig ath0 essid wdsprfeng channel 1
+iwpriv ath0 wds 1
+brctl addif default ath0
+iwpriv ath0 ap_bridge 0
+ifconfig ath0 up
+
+
+--------------
+wlanconfig  ath1 create wlandev wifi0 wlanmode ap
+iwconfig ath1 channel 11 essid pengruofeng
+ifconfig ath1 up
+brctl addif default ath1
+iwpriv ath1  ap_bridge 0
+
+--------------------------------安全认证 station---------------------------
+if [ "$xml_wlwan_forward2" == "yes" ]; then
+	$WPA_SUPPLICANT -B -c /etc/wpa_supplicant.conf -i $xml_wlwan_if -b ${BRLAN} -D madwifi > /dev/null 2>&1
+else
+	$WPA_SUPPLICANT -B -c /etc/wpa_supplicant.conf -i $xml_wlwan_if -D madwifi > /dev/null 2>&1
+fi
+
+/usr/sbin/wpa_supplicant -B -c /etc/wpa_supplicant.conf -i ath0 -D madwifi
+
+/usr/sbin/wpa_supplicant -B -c /etc/wpa_supplicant.conf -i ath0 -b default -D madwifi
+
+/usr/sbin/wpa_supplicant -d -c /etc/wpa_supplicant.conf -i ath0 -b default -D madwifi
+
+ctrl_interface=/var/run/wpa_supplicant
+network={
+        ssid="wdsprfeng"
+        key_mgmt=WPA-PSK
+        psk="1234567890"
+}
+
+network={
+    ssid="myssid "
+    key_mgmt=WPA-PSK
+    proto=WPA RSN
+    pairwise=TKIP CCMP
+    psk="myasciipsk"
+}
+
+wpa_supplicant –i ath0 –b br0 –c /tmp/supplicant.conf -B
+

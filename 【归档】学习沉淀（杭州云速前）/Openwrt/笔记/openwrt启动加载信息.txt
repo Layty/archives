@@ -1,0 +1,355 @@
+reboot
+root@OpenWrt:/lib/modules/2.6.39.4# [58956.302570] device eth0 left promiscuous mode
+[58956.315684] br-lan: port 1(eth0) entering disabled state
+[58956.387374] EXT4-fs (sda2): re-mounted. Opts: (null)
+[58958.425351] e1000e 0000:05:00.0: PCI INT A disabled
+[58958.440477] e1000e 0000:03:00.0: PCI INT A disabled
+[58958.455421] e1000e 0000:02:00.0: PCI INT A disabled
+[58958.470137] Restarting system.
+[58958.479321] machine restart
+Press any key to continue.
+Press any key to continue.
+[    0.000000] Linux version 2.6.39.4 (zhangchao@localhost.localdomain) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #4 Thu Feb 16 02:32:24 CST 2012
+[    0.000000] Atom PSE erratum detected, BIOS microcode update recommended
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009f800 (usable)
+[    0.000000]  BIOS-e820: 000000000009f800 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000e0000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 000000003f680000 (usable)
+[    0.000000]  BIOS-e820: 000000003f680000 - 000000003f700000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 000000003f700000 - 0000000040000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000e0000000 - 00000000f0000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fec00000 - 00000000fec10000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fed00000 - 00000000fed00400 (reserved)
+[    0.000000]  BIOS-e820: 00000000fed14000 - 00000000fed1a000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fed1c000 - 00000000fed90000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fee00000 - 00000000fee01000 (reserved)
+[    0.000000]  BIOS-e820: 00000000ff000000 - 0000000100000000 (reserved)
+[    0.000000] Notice: NX (Execute Disable) protection cannot be enabled: non-PAE kernel!
+[    0.000000] DMI present.
+[    0.000000] last_pfn = 0x3f680 max_arch_pfn = 0x100000
+[    0.000000] x86 PAT enabled: cpu 0, old 0x7040600070406, new 0x7010600070106
+[    0.000000] Warning only 895MB will be used.
+[    0.000000] Use a HIGHMEM enabled kernel.
+[    0.000000] found SMP MP-table at [c00f71d0] f71d0
+[    0.000000] init_memory_mapping: 0000000000000000-0000000037fa0000
+[    0.000000] ACPI: RSDP 000f71a0 00024 (v02 PTLTD )
+[    0.000000] ACPI: XSDT 3f68a3fd 00074 (v01 PTLTD  ? XSDT   06040000  LTP 00000000)
+[    0.000000] ACPI: FACP 3f690e14 000F4 (v03 INTEL  CALISTGA 06040000 ALAN 00000001)
+[    0.000000] ACPI: DSDT 3f68c21d 04B83 (v02 INTEL  CALISTGA 06040000 INTL 20050624)
+[    0.000000] ACPI: FACS 3f691fc0 00040
+[    0.000000] ACPI: APIC 3f690f08 0005C (v01 INTEL  CALISTGA 06040000 LOHR 0000005A)
+[    0.000000] ACPI: HPET 3f690f64 00038 (v01 INTEL  CALISTGA 06040000 LOHR 0000005A)
+[    0.000000] ACPI: MCFG 3f690f9c 0003C (v01 INTEL  CALISTGA 06040000 LOHR 0000005A)
+[    0.000000] ACPI: BOOT 3f690fd8 00028 (v01 PTLTD  $SBFTBL$ 06040000  LTP 00000001)
+[    0.000000] ACPI: SSDT 3f68bbce 0064F (v01 SataRe  SataPri 00001000 INTL 20050624)
+[    0.000000] ACPI: SSDT 3f68b53c 00692 (v01 SataRe  SataSec 00001000 INTL 20050624)
+[    0.000000] ACPI: SSDT 3f68a9b3 0021F (v02  PmRef  Cpu0Tst 00003000 INTL 20050624)
+[    0.000000] ACPI: SSDT 3f68a94d 00066 (v02  PmRef  Cpu1Tst 00003000 INTL 20050624)
+[    0.000000] ACPI: SSDT 3f68a471 004DC (v02  PmRef    CpuPm 00003000 INTL 20050624)
+[    0.000000] 895MB LOWMEM available.
+[    0.000000]   mapped low ram: 0 - 37fa0000
+[    0.000000]   low ram: 0 - 37fa0000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000010 -> 0x00001000
+[    0.000000]   Normal   0x00001000 -> 0x00037fa0
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0: 0x00000010 -> 0x0000009f
+[    0.000000]     0: 0x00000100 -> 0x00037fa0
+[    0.000000] Using APIC driver default
+[    0.000000] ACPI: PM-Timer IO Port: 0x1008
+[    0.000000] ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x01] lapic_id[0x01] enabled)
+[    0.000000] ACPI: NR_CPUS/possible_cpus limit of 1 reached.  Processor 1/0x1 ignored.
+[    0.000000] ACPI: IOAPIC (id[0x01] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 1, version 32, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.000000] Allocating PCI resources starting at 40000000 (gap: 40000000:a0000000)
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 227375
+[    0.000000] Kernel command line: root=/dev/sda2 rootfstype=ext4 rootwait console=tty0 console=ttyS0,38400n8 noinitrd reboot=bios
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Initializing CPU#0
+[    0.000000] Memory: 904156k/917120k available (2456k kernel code, 12512k reserved, 715k data, 312k init, 0k highmem)
+[    0.000000] virtual kernel memory layout:
+[    0.000000]     fixmap  : 0xfffa2000 - 0xfffff000   ( 372 kB)
+[    0.000000]     vmalloc : 0xf87a0000 - 0xfffa0000   ( 120 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf7fa0000   ( 895 MB)
+[    0.000000]       .init : 0xc1319000 - 0xc1367000   ( 312 kB)
+[    0.000000]       .data : 0xc126603c - 0xc1318e00   ( 715 kB)
+[    0.000000]       .text : 0xc1000000 - 0xc126603c   (2456 kB)
+[    0.000000] Checking if this processor honours the WP bit even in supervisor mode...Ok.
+[    0.000000] SLUB: Genslabs=15, HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:288
+[    0.000000] Extended CMOS year: 2000
+[    0.000000] Console: colour VGA+ 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] console [ttyS0] enabled
+[    0.000000] Fast TSC calibration using PIT
+[    0.000000] Detected 1596.013 MHz processor.
+[    0.020005] Calibrating delay loop (skipped), value calculated using timer frequency.. 3192.02 BogoMIPS (lpj=15960130)
+[    0.040005] pid_max: default: 32768 minimum: 301
+[    0.050094] Mount-cache hash table entries: 512
+[    0.060179] Atom PSE erratum detected, BIOS microcode update recommended
+[    0.070010] mce: CPU supports 5 MCE banks
+[    0.080016] CPU0: Thermal monitoring enabled (TM1)
+[    0.090005] using mwait in idle threads.
+[    0.100011] CPU: Intel(R) Atom(TM) CPU N270   @ 1.60GHz stepping 02
+[    0.123983] ACPI: Core revision 20110316
+[    0.137905] Performance Events: PEBS fmt0+, Atom events, Intel PMU driver.
+[    0.158483] ... version:                3
+[    0.160004] ... bit width:              40
+[    0.170004] ... generic registers:      2
+[    0.180004] ... value mask:             000000ffffffffff
+[    0.190004] ... max period:             000000007fffffff
+[    0.200004] ... fixed-purpose events:   3
+[    0.210004] ... event mask:             0000000700000003
+[    0.220123] Enabling APIC mode:  Flat.  Using 1 I/O APICs
+[    0.230401] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    0.350000] NET: Registered protocol family 16
+[    0.350411] ACPI: bus type pci registered
+[    0.360028] PCI: MMCONFIG for domain 0000 [bus 00-ff] at [mem 0xe0000000-0xefffffff] (base 0xe0000000)
+[    0.370006] PCI: MMCONFIG at [mem 0xe0000000-0xefffffff] reserved in E820
+[    0.380002] PCI: Using MMCONFIG for extended config space
+[    0.390002] PCI: Using configuration type 1 for base access
+[    0.412230] bio: create slab <bio-0> at 0
+[    0.425216] [Firmware Bug]: ACPI: BIOS _OSI(Linux) query ignored
+[    0.431045] ACPI: SSDT 3f68b23c 00238 (v01  PmRef  Cpu0Ist 00003000 INTL 20050624)
+[    0.450978] ACPI: Dynamic OEM Table Load:
+[    0.460608] ACPI: SSDT   (null) 00238 (v01  PmRef  Cpu0Ist 00003000 INTL 20050624)
+[    0.470926] ACPI: SSDT 3f68abd2 005E5 (v02  PmRef  Cpu0Cst 00003001 INTL 20050624)
+[    0.500326] ACPI: Dynamic OEM Table Load:
+[    0.510609] ACPI: SSDT   (null) 005E5 (v02  PmRef  Cpu0Cst 00003001 INTL 20050624)
+[    0.521134] ACPI: SSDT 3f68b474 000C8 (v02  PmRef  Cpu1Ist 00003000 INTL 20050624)
+[    0.540953] ACPI: Dynamic OEM Table Load:
+[    0.560610] ACPI: SSDT   (null) 000C8 (v02  PmRef  Cpu1Ist 00003000 INTL 20050624)
+[    0.570811] ACPI: SSDT 3f68b1b7 00085 (v02  PmRef  Cpu1Cst 00003000 INTL 20050624)
+[    0.590935] ACPI: Dynamic OEM Table Load:
+[    0.610002] ACPI: SSDT   (null) 00085 (v02  PmRef  Cpu1Cst 00003000 INTL 20050624)
+[    0.621069] ACPI: Interpreter enabled
+[    0.630003] ACPI: (supports S0 S5)
+[    0.641731] ACPI: Using IOAPIC for interrupt routing
+[    0.672877] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[    0.680816] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    0.701209] pci_root PNP0A08:00: host bridge window [io  0x0000-0x0cf7]
+[    0.710006] pci_root PNP0A08:00: host bridge window [io  0x0d00-0xffff]
+[    0.720004] pci_root PNP0A08:00: host bridge window [mem 0x000a0000-0x000bffff]
+[    0.730005] pci_root PNP0A08:00: host bridge window [mem 0x000d0000-0x000d3fff]
+[    0.740004] pci_root PNP0A08:00: host bridge window [mem 0x000d4000-0x000d7fff]
+[    0.750005] pci_root PNP0A08:00: host bridge window [mem 0x000d8000-0x000dbfff]
+[    0.760004] pci_root PNP0A08:00: host bridge window [mem 0x000dc000-0x000dffff]
+[    0.770005] pci_root PNP0A08:00: host bridge window [mem 0x40000000-0xfebfffff]
+[    0.781684] pci 0000:00:1f.0: quirk: [io  0x1000-0x107f] claimed by ICH6 ACPI/GPIO/TCO
+[    0.790009] pci 0000:00:1f.0: quirk: [io  0x1180-0x11bf] claimed by ICH6 GPIO
+[    0.800006] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 1 PIO at 0680 (mask 007f)
+[    0.810006] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 2 PIO at 02e8 (mask 001f)
+[    0.820005] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 3 PIO at 03e0 (mask 003f)
+[    0.830006] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 4 PIO at 0294 (mask 0003)
+[    0.840754] pci 0000:00:1c.0: PCI bridge to [bus 02-02]
+[    0.850432] pci 0000:00:1c.1: PCI bridge to [bus 03-03]
+[    0.860338] pci 0000:00:1c.2: PCI bridge to [bus 04-04]
+[    0.870432] pci 0000:00:1c.3: PCI bridge to [bus 05-05]
+[    0.880128] pci 0000:00:1e.0: PCI bridge to [bus 06-06] (subtractive decode)
+[    0.909415] ACPI: PCI Interrupt Link [LNKA] (IRQs 1 3 4 5 6 7 *10 12 14 15)
+[    0.921137] ACPI: PCI Interrupt Link [LNKB] (IRQs 1 3 4 5 6 7 11 *12 14 15)
+[    0.942787] ACPI: PCI Interrupt Link [LNKC] (IRQs 1 3 4 5 6 7 10 12 14 15) *11
+[    0.967300] ACPI: PCI Interrupt Link [LNKD] (IRQs 1 3 4 5 6 7 11 12 14 15) *10
+[    0.980110] ACPI: PCI Interrupt Link [LNKE] (IRQs 1 3 *4 5 6 7 10 12 14 15)
+[    1.001916] ACPI: PCI Interrupt Link [LNKF] (IRQs 1 3 4 5 6 7 *11 12 14 15)
+[    1.023631] ACPI: PCI Interrupt Link [LNKG] (IRQs 1 *3 4 5 6 7 10 12 14 15)
+[    1.045684] ACPI: PCI Interrupt Link [LNKH] (IRQs 1 3 4 *5 6 7 11 12 14 15)
+[    1.068182] SCSI subsystem initialized
+[    1.080083] PCI: Using ACPI for IRQ routing
+[    1.090427] HPET: 3 timers in total, 0 timers will be used for per-cpu timer
+[    1.100011] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    1.112919] hpet0: 3 comparators, 64-bit 14.318180 MHz counter
+[    1.130057] Switching to clocksource hpet
+[    1.140118] pnp: PnP ACPI init
+[    1.149318] ACPI: bus type pnp registered
+[    1.162678] system 00:01: [mem 0xe0000000-0xefffffff] has been reserved
+[    1.182551] system 00:01: [mem 0xfed14000-0xfed17fff] has been reserved
+[    1.202434] system 00:01: [mem 0xfed18000-0xfed18fff] has been reserved
+[    1.222296] system 00:01: [mem 0xfed19000-0xfed19fff] has been reserved
+[    1.242159] system 00:01: [mem 0xfed1c000-0xfed1ffff] has been reserved
+[    1.262025] system 00:01: [mem 0xfed20000-0xfed3ffff] has been reserved
+[    1.281890] system 00:01: [mem 0xfed40000-0xfed44fff] has been reserved
+[    1.301753] system 00:01: [mem 0xfed45000-0xfed8ffff] has been reserved
+[    1.322664] system 00:04: [mem 0xfed00000-0xfed003ff] has been reserved
+[    1.342991] system 00:06: [io  0x0680-0x069f] has been reserved
+[    1.360805] system 00:06: [io  0x0800-0x080f] has been reserved
+[    1.378609] system 00:06: [io  0x1000-0x107f] has been reserved
+[    1.396392] system 00:06: [io  0x1180-0x11bf] has been reserved
+[    1.414175] system 00:06: [io  0x1640-0x164f] has been reserved
+[    1.432202] system 00:07: [io  0x06a0-0x06af] has been reserved
+[    1.450010] system 00:07: [io  0x06b0-0x06ff] has been reserved
+[    1.470066] pnp: PnP ACPI: found 13 devices
+[    1.482660] ACPI: ACPI bus type pnp unregistered
+[    1.537100] pci 0000:00:1c.3: BAR 9: assigned [mem 0x40000000-0x401fffff 64bit pref]
+[    1.560406] pci 0000:00:1c.2: BAR 9: assigned [mem 0x40200000-0x403fffff 64bit pref]
+[    1.583851] pci 0000:00:1c.2: BAR 7: assigned [io  0x5000-0x5fff]
+[    1.602160] pci 0000:00:1c.1: BAR 9: assigned [mem 0x40400000-0x405fffff 64bit pref]
+[    1.625451] pci 0000:00:1c.0: BAR 9: assigned [mem 0x40600000-0x407fffff 64bit pref]
+[    1.648716] pci 0000:00:1c.0: PCI bridge to [bus 02-02]
+[    1.664426] pci 0000:00:1c.0:   bridge window [io  0x2000-0x2fff]
+[    1.682732] pci 0000:00:1c.0:   bridge window [mem 0xd0000000-0xd00fffff]
+[    1.703117] pci 0000:00:1c.0:   bridge window [mem 0x40600000-0x407fffff 64bit pref]
+[    1.726409] pci 0000:00:1c.1: PCI bridge to [bus 03-03]
+[    1.742111] pci 0000:00:1c.1:   bridge window [io  0x3000-0x3fff]
+[    1.760420] pci 0000:00:1c.1:   bridge window [mem 0xd0100000-0xd01fffff]
+[    1.780807] pci 0000:00:1c.1:   bridge window [mem 0x40400000-0x405fffff 64bit pref]
+[    1.804097] pci 0000:00:1c.2: PCI bridge to [bus 04-04]
+[    1.819798] pci 0000:00:1c.2:   bridge window [io  0x5000-0x5fff]
+[    1.838161] pci 0000:00:1c.2:   bridge window [mem 0xd0300000-0xd03fffff]
+[    1.858545] pci 0000:00:1c.2:   bridge window [mem 0x40200000-0x403fffff 64bit pref]
+[    1.881836] pci 0000:00:1c.3: PCI bridge to [bus 05-05]
+[    1.897541] pci 0000:00:1c.3:   bridge window [io  0x4000-0x4fff]
+[    1.915849] pci 0000:00:1c.3:   bridge window [mem 0xd0200000-0xd02fffff]
+[    1.936259] pci 0000:00:1c.3:   bridge window [mem 0x40000000-0x401fffff 64bit pref]
+[    1.959550] pci 0000:00:1e.0: PCI bridge to [bus 06-06]
+[    1.975252] pci 0000:00:1e.0:   bridge window [io  disabled]
+[    1.992260] pci 0000:00:1e.0:   bridge window [mem disabled]
+[    2.009265] pci 0000:00:1e.0:   bridge window [mem pref disabled]
+[    2.027597] pci 0000:00:1c.0: PCI INT A -> GSI 17 (level, low) -> IRQ 17
+[    2.047741] pci 0000:00:1c.1: PCI INT B -> GSI 16 (level, low) -> IRQ 16
+[    2.067892] pci 0000:00:1c.2: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[    2.088039] pci 0000:00:1c.3: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+[    2.108438] NET: Registered protocol family 2
+[    2.121612] IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    2.143283] TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+[    2.166490] TCP bind hash table entries: 65536 (order: 6, 262144 bytes)
+[    2.186637] TCP: Hash tables configured (established 131072 bind 65536)
+[    2.206532] TCP reno registered
+[    2.216015] UDP hash table entries: 512 (order: 1, 8192 bytes)
+[    2.233548] UDP-Lite hash table entries: 512 (order: 1, 8192 bytes)
+[    2.252603] NET: Registered protocol family 1
+[    2.278046] Simple Boot Flag at 0x36 set to 0x1
+[    2.292308] scx200: NatSemi SCx200 Driver
+[    2.312818] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.330378] JFFS2 version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    2.360040] msgmni has been set to 1765
+[    2.371616] io scheduler noop registered
+[    2.383423] io scheduler deadline registered (default)
+[    2.403970] Marking TSC unstable due to TSC halts in idle
+[    2.420643] isapnp: Scanning for PnP cards...
+[    2.790142] isapnp: No Plug & Play device found
+[    2.803926] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    2.843814] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.882657] serial8250: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    2.921819] 00:09: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.959453] 00:0a: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    2.976621] Real Time Clock Driver v1.12b
+[    2.989117] Non-volatile memory driver v1.3
+[    3.002068] ata_piix 0000:00:1f.2: PCI INT B -> GSI 19 (level, low) -> IRQ 19
+[    3.023526] ata_piix 0000:00:1f.2: MAP [ P0 P2 IDE IDE ]
+[    3.191005] scsi0 : ata_piix
+[    3.199890] scsi1 : ata_piix
+[    3.208764] ata1: SATA max UDMA/133 cmd 0x1f0 ctl 0x3f6 bmdma 0x18b0 irq 14
+[    3.229673] ata2: PATA max UDMA/100 cmd 0x170 ctl 0x376 bmdma 0x18b8 irq 15
+[    3.252029] i8042: PNP: PS/2 Controller [PNP0303:PS2K,PNP0f13:PS2M] at 0x60,0x64 irq 1,12
+[    3.277171] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    3.292123] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    3.307706] mousedev: PS/2 mouse device common for all mice
+[    3.324966] cpuidle: using governor ladder
+[    3.337502] TCP westwood registered
+[    3.348025] NET: Registered protocol family 17
+[    3.361463] 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+[    3.381845] All bugs added by David S. Miller <davem@redhat.com>
+[    3.399920] Using IPI Shortcut mode
+[    3.500635] ata2.00: CFA: CF CARD 2GB, 20110320, max UDMA/66
+[    3.517649] ata2.00: 3931200 sectors, multi 0: LBA 
+[    3.570501] ata2.00: configured for UDMA/66
+[    3.583237] scsi 1:0:0:0: Direct-Access     ATA      CF CARD 2GB      2011 PQ: 0 ANSI: 5
+[    3.607952] sd 1:0:0:0: [sda] 3931200 512-byte logical blocks: (2.01 GB/1.87 GiB)
+[    3.630614] sd 1:0:0:0: [sda] Write Protect is off
+[    3.645076] sd 1:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    3.673684]  sda: sda1 sda2
+[    3.682650] sd 1:0:0:0: [sda] Attached SCSI disk
+[    3.700480] EXT4-fs (sda2): mounted filesystem without journal. Opts: (null)
+[    3.721685] VFS: Mounted root (ext4 filesystem) readonly on device 8:2.
+[    3.741586] Freeing unused kernel memory: 312k freed
+- preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+- regular preinit -
+[    7.183865] EXT4-fs (sda2): warning: mounting unchecked fs, running e2fsck is recommended
+[    7.212812] EXT4-fs (sda2): re-mounted. Opts: (null)
+- init -
+
+Please press Enter to activate this console. [    7.351544] lib80211: common routines for IEEE802.11 drivers
+[    7.390433] Compat-wireless backport release: compat-wireless-2012-01-16-14-g02166d5
+[    7.413718] Backport based on wireless-testing.git master-2012-02-06
+[    7.469039] cfg80211: Calling CRDA to update world regulatory domain
+[    7.511705] natsemi dp8381x driver, version 2.1, Sept 11, 2006
+[    7.511710]   originally by Donald Becker <becker@scyld.com>
+[    7.511712]   2.4.x kernel port by Jeff Garzik, Tjeerd Mulder
+[    7.585973] cfg80211: World regulatory domain updated:
+[    7.601474] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[    7.626060] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    7.649325] cfg80211:   (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[    7.672594] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[    7.695863] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    7.719135] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    7.899769] ath9k 0000:04:00.0: PCI INT A -> GSI 18 (level, low) -> IRQ 18
+[    7.973145] ieee80211 phy0: Atheros AR9285 Rev:2 mem=0xf8ac0000, irq=18
+[    8.011068] PPP generic driver version 2.4.2
+[    8.047476] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    8.068683] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    8.110840] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    8.184992] NET: Registered protocol family 24
+[    8.230777] nf_conntrack version 0.5.0 (14132 buckets, 56528 max)
+[    8.348513] 8139too: 8139too Fast Ethernet driver 0.9.28
+[    8.375531] e100: Intel(R) PRO/100 Network Driver, 3.5.24-k2-NAPI
+[    8.393879] e100: Copyright(c) 1999-2006 Intel Corporation
+[    8.430406] e1000e: Intel(R) PRO/1000 Network Driver - 1.3.10-k2
+[    8.448476] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+[    8.466338] e1000e 0000:02:00.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    8.488104] e1000e 0000:02:00.0: Disabling ASPM L0s 
+[    8.665394] e1000e 0000:02:00.0: eth0: (PCI Express:2.5GB/s:Width x1) 66:00:00:00:00:01
+[    8.689464] e1000e 0000:02:00.0: eth0: Intel(R) PRO/1000 Network Connection
+[    8.710441] e1000e 0000:02:00.0: eth0: MAC: 3, PHY: 8, PBA No: FFFFFF-0FF
+[    8.730857] e1000e 0000:03:00.0: PCI INT A -> GSI 17 (level, low) -> IRQ 17
+[    8.752608] e1000e 0000:03:00.0: Disabling ASPM L0s 
+[    8.925371] e1000e 0000:03:00.0: eth1: (PCI Express:2.5GB/s:Width x1) 66:00:00:00:00:02
+[    8.949434] e1000e 0000:03:00.0: eth1: Intel(R) PRO/1000 Network Connection
+[    8.971442] e1000e 0000:03:00.0: eth1: MAC: 3, PHY: 8, PBA No: FFFFFF-0FF
+[    8.991871] e1000e 0000:05:00.0: PCI INT A -> GSI 19 (level, low) -> IRQ 19
+[    9.013299] e1000e 0000:05:00.0: Disabling ASPM L0s 
+[    9.183613] e1000e 0000:05:00.0: eth2: (PCI Express:2.5GB/s:Width x1) 66:00:00:00:00:03
+[    9.207668] e1000e 0000:05:00.0: eth2: Intel(R) PRO/1000 Network Connection
+[    9.228648] e1000e 0000:05:00.0: eth2: MAC: 3, PHY: 8, PBA No: FFFFFF-0FF
+[    9.262205] ne2k-pci.c:v1.03 9/22/2003 D. Becker/P. Gortmaker
+[    9.290075] pcnet32: pcnet32.c:v1.35 21.Apr.2008 tsbogend@alpha.franken.de
+[    9.331779] sis900.c: v1.08.10 Apr. 2 2006
+[    9.374026] via-rhine.c:v1.10-LK1.5.0 2010-10-09 Written by Donald Becker
+[    9.761544] 8021q: adding VLAN 0 to HW filter on device eth0
+[    9.800911] device eth0 entered promiscuous mode
+[   18.289040] device eth0 left promiscuous mode
+[   18.302317] br-lan: port 1(eth0) entering disabled state
+[   18.342045] device eth0 entered promiscuous mode
+
+
+
+BusyBox v1.19.3 (2012-02-16 02:25:24 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ ATTITUDE ADJUSTMENT (bleeding edge, r30508) ----------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+

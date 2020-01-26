@@ -1,0 +1,3630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0083)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;6 Programming With
+Solaris Threads (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 6 Programming With Solaris Threads (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 6 Programming With Solaris Threads (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 6 Programming With Solaris Threads (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 6 Programming With Solaris Threads (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 6 Programming With Solaris Threads (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 6 Programming With Solaris Threads (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;6 Programming With
+Solaris Threads</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-12013/index.html"><em>Previous</em>: Chapter&nbsp;5 Programming With the Solaris
+Software</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-83941/index.html"><em>Next</em>: Chapter&nbsp;7 Safe and Unsafe Interfaces</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vqbr"></a><h1 class="sol">Chapter&nbsp;6 Programming With
+Solaris Threads</h1>
+<a name=""></a><p>This chapter compares the application programming interface (API) for
+Solaris and POSIX threads, and explains the Solaris features that are not
+found in POSIX threads. The chapter discusses the following topics:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-96692/index.html">Comparing APIs for Solaris Threads and POSIX Threads</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-49113/index.html">Unique Solaris Threads Functions</a> 
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-50442/index.html">Similar Synchronization Functions—Read-Write Locks</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-17757/index.html">Similar Solaris Threads Functions</a> 
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-72605/index.html">Similar Synchronization Functions—Mutual Exclusion Locks</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-23314/index.html">Similar Synchronization Functions: Condition Variables</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-28880/index.html">Similar Synchronization Functions: Semaphores</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-99123/index.html">Special Issues for <kbd><b>fork()</b></kbd> and Solaris Threads</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vqbt"></a><h1 class="sol">Comparing APIs for Solaris Threads and POSIX
+Threads</h1>
+<p>The Solaris threads API and the pthreads API are two solutions to the
+same problem: build parallelism into application software. Although each API
+is complete, you can safely mix Solaris threads functions and pthread functions
+in the same program.</p>
+<p>The two APIs do not match exactly, however. Solaris threads support
+functions that are not found in pthreads, and pthreads include functions that
+are not supported in the Solaris interface. For those functions that <b>do</b> match, the associated arguments might not, although the information
+content is effectively the same.</p>
+<p>By combining the two APIs, you can use features not found in one API
+to enhance the other API. Similarly, you can run applications that use Solaris
+threads exclusively with applications that use pthreads exclusively on the
+same system.</p>
+<a name="6mba5vqbv"></a><h2 class="sol">Major API Differences</h2>
+<p>Solaris threads and pthreads are very similar in both API action and
+syntax. The major differences are listed in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqbv/index.html#sthreads-60367">Table 6–1</a> .</p>
+<a name="sthreads-60367"></a>Table 6–1  Unique Solaris Threads and
+pthreads Features<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Solaris Threads&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>POSIX Threads&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>thr_</tt> prefix for threads function names, <tt>sema_</tt> prefix
+for semaphore function names</p>
+
+</td><td align="left" valign="top">
+<p>
+<tt>pthread_</tt> prefix for pthreads function names, <tt>sem_</tt>  prefix for semaphore function names</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Ability to create “daemon” threads&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>Cancellation semantics&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Suspending and continuing a thread&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>Scheduling policies&nbsp;</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqc0"></a><h2 class="sol">Function Comparison Table</h2>
+<p>The following table compares Solaris threads functions with pthreads
+functions. Note that even when Solaris threads and pthreads functions appear
+to be essentially the same, the arguments to the functions can differ.</p>
+<p>When a comparable interface is not available either in pthreads or Solaris
+threads, a hyphen `-' appears in the column. Entries in the pthreads column
+that are followed by   (3RT) are functions in <tt>librt</tt>, the
+POSIX.1b Realtime Extensions library, which is not part of pthreads. Functions
+in this library provide most of the interfaces specified by the POSIX.1b 
+Realtime Extension.</p>
+<a name="sthreads-tbl-3"></a>Table 6–2  Solaris Threads and POSIX
+pthreads Comparison<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Solaris Threads&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>pthreads&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_create()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_create()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_exit()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_exit()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_join()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_join()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_yield()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sched_yield()</b></kbd>(3RT)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_self()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_self()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_kill()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_kill()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_sigsetmask()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_sigmask()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_setprio()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_setschedparam()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_getprio()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_getschedparam()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_setconcurrency()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_setconcurrency()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_getconcurrency()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_getconcurrency()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_suspend()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_continue()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_keycreate()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_key_create()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_key_delete()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_setspecific()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_setspecific()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>thr_getspecific()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_getspecific()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_once()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_equal()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cancel()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_testcancel()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cleanup_push()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cleanup_pop()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_setcanceltype()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_setcancelstate()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>mutex_lock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_lock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>mutex_unlock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_unlock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>mutex_trylock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_trylock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>mutex_init()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>mutex_destroy()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_wait()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_wait()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_timedwait()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_timedwait()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_reltimedwait()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_reltimedwait_np()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_signal()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_signal()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_broadcast()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_broadcast()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_init()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>cond_destroy()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_cond_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rwlock_init()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rwlock_destroy()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rw_rdlock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_rdlock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rw_wrlock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_wrlock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rw_unlock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_unlock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rw_tryrdlock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_tryrdlock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>rw_trywrlock()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlock_trywrlock()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlockattr_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlockattr_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlockattr_getpshared()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_rwlockattr_setpshared()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>sema_init()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sem_init()</b></kbd>(3RT)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>sema_destroy()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sem_destroy()</b></kbd>(3RT)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>sema_wait()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sem_wait()</b></kbd>(3RT)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>sema_post()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sem_post()</b></kbd>(3RT)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>sema_trywait()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>sem_trywait()</b></kbd>(3RT)</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>fork1()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>fork()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_atfork()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd><b>forkall()</b></kbd>, multiple thread copy</p>
+
+</td><td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutexattr_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutexattr_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>type</tt> argument in <kbd><b>mutex_init()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutexattr_setpshared()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutexattr_getpshared()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_attr_settype()</b></kbd> 
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_mutex_attr_gettype()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_condattr_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_condattr_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>type</tt> argument in <kbd><b>cond_init()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_condattr_setpshared()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_condattr_getpshared()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_init()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_destroy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>THR_BOUND</tt> flag in <kbd><b>thr_create()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setscope()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getscope()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setguardsize()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getguardsize()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>stack_size</tt> argument in <kbd><b>thr_create()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setstacksize()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getstacksize()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>stack_addr</tt> argument in <kbd><b>thr_create()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setstack()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getstack()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<tt>THR_DETACH</tt> flag in <kbd><b>thr_create()</b></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setdetachstate()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getdetachstate()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setschedparam()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getschedparam()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setinheritsched()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getinheritsched()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_setsschedpolicy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>-&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<kbd><b>pthread_attr_getschedpolicy()</b></kbd>
+</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p>To use the Solaris threads functions described in this chapter for Solaris
+9 and previous releases, you must link with the Solaris threads library <kbd><b>-lthread</b></kbd> .</p>
+<p>Operation is virtually the same for both Solaris threads and for pthreads,
+even though the function names or arguments might differ. Only a brief example
+consisting of the correct include file and the function prototype is presented.
+Where return values are not given for the Solaris threads functions, see the
+appropriate pages in <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/index.html"><cite>man pages section 3: Basic Library Functions</cite></a> for the function
+return values.</p>
+<p>For more information on Solaris related functions, see the related pthreads
+documentation for the similarly named function.</p>
+<p>Where Solaris threads functions offer capabilities that are not available
+in pthreads, a full description of the functions is provided.</p>
+<a name="6mba5vqc1"></a><h1 class="sol">Unique Solaris Threads Functions</h1>
+<p>This section describes unique Solaris threads functions: suspending
+thread execution and continuing a suspended thread.</p>
+<a name="6mba5vqc3"></a><h2 class="sol">Suspending Thread Execution</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-suspend-3c/index.html">thr_suspend(3C)</a> immediately suspends the execution of the thread specified
+by <var>target_thread</var>. On successful return from <kbd><b>thr_suspend()</b></kbd>, the suspended thread is no longer executing.</p>
+<p>Because <kbd><b>thr_suspend()</b></kbd>suspends the target thread with
+no regard to the locks that the thread might be holding, you must use <kbd><b>thr_suspend()</b></kbd>  with extreme care. If the suspending thread calls a function
+that requires a lock held by the suspended target thread, deadlock will result.</p>
+<a name="6mba5vqc5"></a><h3 class="sol">
+<tt>thr_suspend</tt> Syntax</h3>
+<a name="indexterm-298"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_suspend(thread_t <var>tid</var>);</pre>
+<p>After a thread is suspended, subsequent calls to <kbd><b>thr_suspend()</b></kbd> have
+no effect. Signals cannot awaken the suspended thread. The signals remain
+pending until the thread resumes execution.</p>
+<p>In the following synopsis, <code>pthread_t</code> <var>tid</var> as
+defined in pthreads is the same as <code>thread_t</code> <var>tid</var> in
+Solaris threads. <var>tid</var> values can be used interchangeably
+either by assignment or through the use of casts.</p>
+<a name=""></a><pre>thread_t <var>tid</var>; /* tid from thr_create() */
+
+/* pthreads equivalent of Solaris tid from thread created */
+/* with pthread_create() */
+pthread_t ptid; 
+
+int <var>ret</var>;
+
+<var>ret</var> = thr_suspend<var>(tid</var>);
+
+/* using pthreads ID variable with a cast */
+<var>ret</var> = thr_suspend((thread_t) <var>ptid</var>); </pre>
+<a name="6mba5vqc7"></a><h3 class="sol">
+<tt>thr_suspend</tt> Return Values</h3>
+<p>
+<a name="indexterm-299"></a><kbd><b>thr_suspend()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When the following condition occurs, <kbd><b>thr_suspend()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>tid</var> cannot
+be found in the current process.</p>
+
+
+</dl><a name="6mba5vqc9"></a><h2 class="sol">Continuing a Suspended Thread</h2>
+<p>
+<a name="sthreads-ix735"></a><a name="sthreads-ix736"></a><a name="sthreads-ix737"></a><a name="sthreads-ix738"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-continue-3c/index.html">thr_continue(3C)</a> resumes the execution of a suspended thread. Once
+a suspended thread is continued, subsequent calls to <kbd><b>thr_continue()</b></kbd> have
+no effect.</p>
+<a name="6mba5vqcb"></a><h3 class="sol">
+<tt>thr_continue</tt> Syntax</h3>
+<a name="indexterm-300"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_continue(thread_t <var>tid</var>);</pre>
+<p>
+<a name="sthreads-ix739"></a>A suspended thread is not awakened by a signal. The
+signal remains pending until the execution of the thread is resumed by <kbd><b>thr_continue()</b></kbd> .</p>
+<p>
+<code>pthread_t</code> <var>tid</var> as defined in
+pthreads is the same as <code>thread_t</code> <var>tid</var> in
+Solaris threads.  <var>tid</var> values can be used interchangeably
+either by assignment or through the use of casts.</p>
+<a name=""></a><pre>thread_t <var>tid</var>; /* tid from thr_create()*/
+
+/* pthreads equivalent of Solaris tid from thread created */
+/* with pthread_create()*/
+pthread_t <var>ptid</var>;
+
+int <var>ret</var>;
+
+<var>ret</var> = thr_continue(<var>tid</var>);
+
+/* using pthreads ID variable with a cast */
+<var>ret</var> = thr_continue((thread_t) <var>ptid</var>) </pre>
+<a name="6mba5vqcd"></a><h3 class="sol">
+<tt>thr_continue</tt> Return Values</h3>
+<p>
+<a name="indexterm-301"></a><kbd><b>thr_continue()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When the following condition occurs, <kbd><b>thr_continue()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>tid</var> cannot
+be found in the current process.</p>
+
+
+</dl><a name="6mba5vqcf"></a><h1 class="sol">Similar Synchronization Functions—Read-Write
+Locks</h1>
+<p>Read-write locks allow simultaneous read access by many threads while
+restricting write access to only one thread at a time. This section discusses
+the following topics:</p>
+<a name=""></a><ul>
+<li>
+<p>Initializing a readers/writer lock</p>
+
+
+</li>
+<li>
+<p>Acquiring a read lock</p>
+
+
+</li>
+<li>
+<p>Trying to acquire a read lock</p>
+
+
+</li>
+<li>
+<p>Acquiring a write lock</p>
+
+
+</li>
+<li>
+<p>Trying to acquire a write</p>
+
+
+</li>
+<li>
+<p>Unlocking a readers/writer lock</p>
+
+
+</li>
+<li>
+<p>Destroying readers/writer lock state</p>
+
+
+</li>
+</ul>
+<p>When any thread holds the lock for reading, other threads can also acquire
+the lock for reading but must wait to acquire the lock for writing. If one
+thread holds the lock for writing, or is waiting to acquire the lock for writing,
+other threads must wait to acquire the lock for either reading or writing.</p>
+<p>Read-write locks are slower than mutexes. But read-write locks can improve
+performance when the locks protect data not frequently written but are read
+by many concurrent threads.</p>
+<p>Use read-write locks to synchronize threads in this process and other
+processes. Allocate read-write locks in memory that is writable and shared
+among the cooperating processes. See the<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5167/mmap-2/index.html">mmap(2)</a> man page for information about mapping read-write
+locks for this behavior.</p>
+<p>By default, the acquisition order is not defined when multiple threads
+are waiting for a read-write lock. However, to avoid writer starvation, the
+Solaris threads package tends to favor writers over readers of equal priority.</p>
+<p>Read-write locks must be initialized before use.</p>
+<a name="6mba5vqch"></a><h2 class="sol">Initialize a Read-Write Lock</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rwlock-init-3c/index.html">rwlock_init(3C)</a> to initialize the read-write lock pointed to by <var>rwlp</var> and to set the lock state to unlocked.</p>
+<a name="6mba5vqcj"></a><h3 class="sol">
+<tt>rwlock_init</tt> Syntax</h3>
+<a name="sthreads-ix756"></a><a name=""></a><pre>#include &lt;synch.h&gt;  <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rwlock_init(rwlock_t *<var>rwlp</var>, int <var>type</var>, void * 
+<var>arg</var>);</pre>
+<p>
+<var>type</var> can be one of the following values:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="sthreads-ix757"></a><tt>USYNC_PROCESS</tt> The
+read-write lock can be used to synchronize threads in this process and other
+processes. <var>arg</var> is ignored.</p>
+
+
+</li>
+<li>
+<p>
+<a name="sthreads-ix758"></a><tt>USYNC_THREAD</tt> The
+read-write lock can be used to synchronize threads in this process only.  <var>arg</var> is ignored.</p>
+
+
+</li>
+</ul>
+<p>Multiple threads must not initialize the same read-write lock simultaneously.
+Read-write locks can also be initialized by allocation in zeroed memory, in
+which case a type of <tt>USYNC_THREAD</tt> is assumed. A read-write
+lock must not be reinitialized while other threads might be using the lock.</p>
+<p>For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-51/index.html"><tt>pthread_rwlock_init</tt> Syntax</a> .</p>
+<a name="6mba5vqcm"></a><h4 class="sol">Initializing Read-Write Locks With Intraprocess
+Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt; 
+rwlock_t <var>rwlp</var>; 
+int <var>ret</var>; 
+/* to be used within this process only */ 
+<var>ret</var> = rwlock_init(&amp;<var>rwlp</var>, USYNC_THREAD, 0); </pre>
+
+<a name="6mba5vqcn"></a><h4 class="sol">Initializing Read-Write Locks With Interprocess
+Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt; 
+rwlock_t <var>rwlp</var>; 
+int <var>ret</var>; 
+/* to be used among all processes */ 
+<var>ret</var> = rwlock_init(&amp;<var>rwlp</var>, USYNC_PROCESS, 0); </pre>
+
+<a name="6mba5vqco"></a><h3 class="sol">
+<tt>rwlock_init</tt> Return Values</h3>
+<p>
+<a name="indexterm-302"></a><kbd><b>rwlock_init()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When any of the following conditions occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> or  <var>arg</var> points to an illegal address.</p>
+
+
+</dl><a name="6mba5vqcq"></a><h2 class="sol">Acquiring a Read Lock</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rw-rdlock-3c/index.html">rw_rdlock(3C)</a> to
+acquire a read lock on the read-write lock pointed to by <var>rwlp</var>.</p>
+<a name="6mba5vqcs"></a><h3 class="sol">
+<tt>rw_rdlock</tt> Syntax</h3>
+<a name="sthreads-ix762"></a><a name=""></a><pre>#include &lt;synch.h&gt; <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rw_rdlock(rwlock_t *<var>rwlp</var>);</pre>
+<p>When the read-write lock is already locked for writing, the calling
+thread blocks until the write lock is released. Otherwise, the read lock is
+acquired. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-65/index.html"><tt>pthread_rwlock_rdlock</tt> Syntax</a>.</p>
+<a name="6mba5vqcu"></a><h3 class="sol">
+<tt>rw_rdlock</tt> Return Values</h3>
+<p>
+<a name="indexterm-303"></a><kbd><b>rw_rdlock()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When any of the following conditions occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> points
+to an illegal address.</p>
+
+
+</dl><a name="6mba5vqd0"></a><h2 class="sol">Trying to Acquire a Read Lock</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rw-tryrdlock-3c/index.html">rw_tryrdlock(3C)</a> to attempt to acquire a read lock on the read-write
+lock pointed to by <var>rwlp</var>.</p>
+<a name="6mba5vqd2"></a><h3 class="sol">
+<tt>rw_tryrdlock</tt> Syntax</h3>
+<a name="sthreads-ix765"></a><a name=""></a><pre>#include &lt;synch.h&gt;  <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rw_tryrdlock(rwlock_t *<var>rwlp</var>);</pre>
+<p>When the read-write lock is already locked for writing, <kbd><b>rw_tryrdlock()</b></kbd>  returns an error. Otherwise, the read lock is acquired. For POSIX
+threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-67/index.html"><tt>pthread_rwlock_tryrdlock</tt> Syntax</a>.</p>
+<a name="6mba5vqd4"></a><h3 class="sol">
+<tt>rw_tryrdlock</tt> Return Values</h3>
+<p>
+<a name="indexterm-304"></a><kbd><b>rw_tryrdlock()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When any of the following conditions occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> points
+to an illegal address.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EBUSY</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The read-write lock pointed to by  <var>rwlp</var> was already locked.</p>
+
+
+</dl><a name="6mba5vqd6"></a><h2 class="sol">Acquiring a Write Lock</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rw-wrlock-3c/index.html">rw_wrlock(3C)</a> to
+acquire a write lock on the read-write lock pointed to by <var>rwlp</var>.</p>
+<a name="6mba5vqd8"></a><h3 class="sol">
+<tt>rw_wrlock</tt> Syntax</h3>
+<a name="sthreads-ix769"></a><a name=""></a><pre>#include &lt;synch.h&gt;  <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rw_wrlock(rwlock_t *<var>rwlp</var>);</pre>
+<p>When the read-write lock is already locked for reading or writing, the
+calling thread blocks until all read locks and write locks are released. Only
+one thread at a time can hold a write lock on a read-write lock. For POSIX
+threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-71/index.html"><tt>pthread_rwlock_wrlock</tt> Syntax</a>.</p>
+<a name="6mba5vqda"></a><h3 class="sol">
+<tt>rw_wrlock</tt> Return Values</h3>
+<p>
+<a name="indexterm-305"></a><kbd><b>rw_wrlock()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When any of the following conditions occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> points
+to an illegal address.</p>
+
+
+</dl><a name="6mba5vqdc"></a><h2 class="sol">Trying to Acquire a Write Lock</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rw-trywrlock-3c/index.html">rw_trywrlock(3C)</a> to attempt to acquire a write lock on the read-write
+lock pointed to by <var>rwlp</var>.</p>
+<a name="6mba5vqde"></a><h3 class="sol">
+<tt>rw_trywrlock</tt> Syntax</h3>
+<a name="sthreads-ix772"></a><a name=""></a><pre>#include &lt;synch.h&gt;  <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rw_trywrlock(rwlock_t *<var>rwlp</var>);</pre>
+<p>When the read-write lock is already locked for reading or writing,  <kbd><b>rw_trywrlock()</b></kbd> returns an error. For POSIX threads, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-72/index.html"><tt>pthread_rwlock_trywrlock</tt> Syntax</a>.</p>
+<a name="6mba5vqdg"></a><h3 class="sol">
+<tt>rw_trywrlock</tt> Return Values</h3>
+<p>
+<a name="indexterm-306"></a><kbd><b>rw_trywrlock()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When any of the following conditions occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> points
+to an illegal address.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EBUSY</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The read-write lock pointed to by  <var>rwlp</var> was already locked.</p>
+
+
+</dl><a name="6mba5vqdi"></a><h2 class="sol">Unlock a Read-Write Lock</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rw-unlock-3c/index.html">rw_unlock(3C)</a> to
+unlock a read-write lock pointed to by <var>rwlp</var>.</p>
+<a name="6mba5vqdk"></a><h3 class="sol">
+<tt>rw_unlock</tt> Syntax</h3>
+<a name="sthreads-ix776"></a><a name=""></a><pre>#include &lt;synch.h&gt;  <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rw_unlock(rwlock_t *<var>rwlp</var>);</pre>
+<p>The read-write lock must be locked, and the calling thread must hold
+the lock either for reading or writing. When any other threads are waiting
+for the read-write lock to become available, one of the threads is unblocked.
+For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-74/index.html"><tt>pthread_rwlock_unlock</tt> Syntax</a>.</p>
+<a name="6mba5vqdm"></a><h3 class="sol">
+<tt>rw_unlock</tt> Return Values</h3>
+<p>
+<a name="indexterm-307"></a><kbd><b>rw_unlock()</b></kbd> returns zero
+after completing successfully. Any other return value indicates that an error
+occurred. When any of the following conditions occurs, the function fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> points
+to an illegal address.</p>
+
+
+</dl><a name="6mba5vqdo"></a><h2 class="sol">Destroying the Read-Write Lock State</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/rwlock-destroy-3c/index.html">rwlock_destroy(3C)</a> to destroy any state that is associated with the read-write
+lock pointed to by  <var>rlwp</var>.</p>
+<a name="6mba5vqdq"></a><h3 class="sol">
+<tt>rwlock_destroy</tt> Syntax</h3>
+<a name="sthreads-ix777"></a><a name=""></a><pre>#include &lt;synch.h&gt;  <var>(or</var> #include &lt;thread.h&gt;<var>)</var>
+
+int rwlock_destroy(rwlock_t *<var>rwlp</var>);</pre>
+<p>The space for storing the read-write lock is not freed. For POSIX threads,
+see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-63/index.html"><tt>pthread_rwlock_destroy</tt> Syntax</a>.</p>
+<p>
+<a name="sthreads-ix780"></a><a name="sthreads-ix781"></a><a name="sthreads-ix782"></a><a name="sthreads-ix783"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqdq/index.html#sthreads-ex-18">Example 6–1</a> uses
+a bank account to demonstrate read-write locks. While the program could allow
+multiple threads to have concurrent read-only access to the account balance,
+only a single writer is allowed. Note that the <kbd><b>get_balance()</b></kbd> function
+needs the lock to ensure that the addition of the checking and saving balances
+occurs atomically.</p>
+<a name="sthreads-ex-18"></a><hr><a name="sthreads-28441"></a><h5 class="sol">Example 6–1  Read-Write Bank Account</h5><br><a name=""></a><pre>rwlock_t account_lock;
+float checking_balance = 100.0;
+float saving_balance = 100.0;
+...
+rwlock_init(&amp;account_lock, 0, NULL);
+...
+
+float
+get_balance() {
+    float bal;
+
+    rw_rdlock(&amp;account_lock);
+    bal = checking_balance + saving_balance;
+    rw_unlock(&amp;account_lock);
+    return(bal);
+}
+
+void
+transfer_checking_to_savings(float amount) {
+    rw_wrlock(&amp;account_lock);
+    checking_balance = checking_balance - amount;
+    saving_balance = saving_balance + amount;
+    rw_unlock(&amp;account_lock);
+}</pre>
+<hr>
+<a name="6mba5vqds"></a><h3 class="sol">
+<tt>rwlock_destroy</tt> Return Values</h3>
+<p>
+<a name="indexterm-308"></a><kbd><b>rwlock_destroy()</b></kbd> returns
+zero after completing successfully. Any other return value indicates that
+an error occurred. When any of the following conditions occurs, the function
+fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Invalid argument.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>rwlp</var> points
+to an illegal address.</p>
+
+
+</dl><a name="6mba5vqdu"></a><h1 class="sol">Similar Solaris Threads Functions</h1>
+<a name="sthreads-tbl-35"></a>Table 6–3  Similar Solaris Threads
+Functions<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Operation&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Related Function Description&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>Create a thread&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-69878/index.html"><tt>thr_create</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Get the minimal stack size&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-81368/index.html"><tt>thr_min_stack</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Get the thread identifier&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-64159/index.html"><tt>thr_self</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Yield thread execution&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-17506/index.html"><tt>thr_yield</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Send a signal to a thread&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-26201/index.html"><tt>thr_kill</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Access the signal mask of the calling thread&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-31515/index.html"><tt>thr_sigsetmask</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Terminate a thread&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-85402/index.html"><tt>thr_exit</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Wait for thread termination&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-53721/index.html"><tt>thr_join</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Create a thread-specific data key&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-11038/index.html"><tt>thr_keycreate</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Set thread-specific data&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-33444/index.html"><tt>thr_setspecific</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Get thread-specific data&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-32584/index.html"><tt>thr_getspecific</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Set the thread priority&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-11547/index.html"><tt>thr_setprio</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Get the thread priority&nbsp;</p>
+
+</td><td align="left" valign="top">
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-16796/index.html"><tt>thr_getprio</tt> Syntax</a>
+</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqe0"></a><h2 class="sol">Creating a Thread</h2>
+<p>
+<a name="sthreads-ix784"></a>The <tt>thr_create(3C)</tt> routine is one
+of the most elaborate of all routines in the Solaris threads interface.</p>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-create-3c/index.html">thr_create(3C)</a> to add a new thread of control to the current process.
+For POSIX threads, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-95520/index.html"><tt>pthread_create</tt> Syntax</a>.</p>
+<a name="6mba5vqe2"></a><h3 class="sol">
+<tt>thr_create</tt> Syntax</h3>
+<a name="sthreads-ix785"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_create(void *<var>stack_base</var>, size_t <var>stack_size</var>,
+          void *(*<var>start_routine</var>) (void *), void *<var>arg</var>, 
+          long <var>flags</var>,
+          thread_t *<var>new_thread</var>);
+
+size_t thr_min_stack(void);</pre>
+<p>
+<a name="sthreads-ix786"></a><a name="sthreads-ix787"></a><a name="sthreads-ix788"></a><a name="sthreads-ix789"></a><a name="sthreads-ix790"></a>Note that the new thread does not inherit pending signals, but
+the thread does inherit priority and signal masks.</p>
+<p>
+<a name="sthreads-ix791"></a><a name="sthreads-ix792"></a><a name="sthreads-ix793"></a><a name="sthreads-ix794"></a><var>stack_base</var>. Contains the address for the stack that the new thread uses.
+If <var>stack_base</var> is <tt>NULL</tt>, then
+ <kbd><b>thr_create()</b></kbd> allocates a stack for the new thread with
+at least  <b>stack_size</b> bytes.</p>
+<p>
+<a name="sthreads-ix795"></a><a name="sthreads-ix796"></a><a name="sthreads-ix797"></a><a name="sthreads-ix798"></a><var>stack_size</var> . Contains the size, in
+number of bytes, for the stack that the new thread uses. If <var>stack_size</var> is zero, a default size is used. In most cases, a zero value
+works best. If <var>stack_size</var> is not zero, <var>stack_size</var> must be greater than the value returned by <kbd><b>thr_min_stack()</b></kbd>.</p>
+<p>In general, you do not need to allocate stack space for threads. The
+system allocates 1 megabyte of virtual memory for each thread's stack with
+no reserved swap space. The system uses the <kbd><b>-MAP_NORESERVE</b></kbd> option
+of <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5167/mmap-2/index.html">mmap(2)</a> to make the
+allocations.</p>
+<p>
+<a name="sthreads-ix799"></a><var>start_routine</var>. Contains the function
+with which the new thread begins execution. When <kbd><b>start_routine()</b></kbd> returns,
+the thread exits with the exit status set to the value returned by <b>start_routine</b> . See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-85402/index.html"><tt>thr_exit</tt> Syntax</a>.</p>
+<p>
+<var>arg</var>. Can be any variable described by <tt>void</tt> , which is typically any 4-byte value. Any larger value must be
+passed indirectly by having the argument point to the variable.</p>
+<p>Note that you can supply only one argument. To get your procedure to
+take multiple arguments, encode the multiple arguments as a single argument,
+such as by putting the arguments in a structure.</p>
+<p>
+<a name="sthreads-ix800"></a><var>flags</var>. Specifies attributes for the
+created thread. In most cases a zero value works best.</p>
+<p>The value in <var>flags</var> is constructed from the
+bitwise inclusive OR of the following arguments:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="sthreads-ix802"></a><a name="sthreads-ix803"></a><a name="sthreads-ix804"></a><tt>THR_SUSPENDED</tt>. Suspends
+the new thread, and does not execute <b>start_routine</b> until
+the thread is started by <kbd><b>thr_continue()</b></kbd>. Use <tt>THR_SUSPENDED</tt> to operate on the thread, such as changing its priority, before
+you run the thread.</p>
+
+
+</li>
+<li>
+<p>
+<a name="sthreads-ix807"></a><a name="sthreads-ix808"></a><a name="sthreads-ix809"></a><tt>THR_DETACHED</tt>. Detaches the new
+thread so that its thread ID and other resources can be reused as soon as
+the thread terminates. Set <tt>THR_DETACHED</tt> when you do not
+want to wait for the thread to terminate.</p>
+
+
+</li>
+</ul>
+<hr><b>Note – </b><p>
+<a name="sthreads-ix810"></a>When no explicit synchronization is allocated, an
+unsuspended, detached thread can fail. On failure, the thread ID is reassigned
+to another new thread before its creator returns from <kbd><b>thr_create()</b></kbd>.</p>
+<hr>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="sthreads-ix811"></a><a name="sthreads-ix812"></a><tt>THR_BOUND</tt>.
+Permanently binds the new thread to an LWP. The new thread is a <b>bound
+thread</b>. Starting with the Solaris 9 release, no distinction is
+made by the system between bound and unbound threads. All threads are treated
+as bound threads.</p>
+
+
+</li>
+<li>
+<p>
+<a name="sthreads-ix819"></a><a name="sthreads-ix820"></a><a name="sthreads-ix821"></a><tt>THR_DAEMON</tt>. Marks the new thread
+as a daemon. A daemon thread is always detached. <tt>THR_DAEMON</tt> implies <tt>THR_DETACHED</tt>. The process exits when all nondaemon threads exit.
+Daemon threads do not affect the process exit status and are ignored when
+counting the number of thread exits.</p>
+
+<p>
+<a name="sthreads-ix822"></a><a name="sthreads-ix823"></a>A
+process can exit either by calling <kbd><b>exit()</b></kbd> or by having
+every thread in the process that was not created with the <tt>THR_DAEMON</tt> flag
+call  <tt>thr_exit(3C)</tt>. An application or a library that the
+process calls can create one or more threads that should be ignored (not counted)
+in the decision of whether to exit. The <tt>THR_DAEMON</tt> flag
+identifies threads that are not counted in the process exit criterion.</p>
+
+
+</li>
+</ul>
+<p>
+<a name="sthreads-ix824"></a><var>new_thread</var>. When  <var>new_thread</var> is not <tt>NULL</tt>, it points to where
+the ID of the new thread is stored when <kbd><b>thr_create()</b></kbd> is
+successful. The caller is responsible for supplying the storage pointed to
+by this argument. The ID is valid only within the calling process.</p>
+<p>If you are not interested in this identifier, supply a NULL value to
+ <b>new_thread</b>.</p>
+<a name="6mba5vqe4"></a><h3 class="sol">
+<tt>thr_create</tt> Return Values</h3>
+<p>
+<a name="indexterm-309"></a><kbd><b>thr_create()</b></kbd> returns zero
+when the function completes successfully. Any other return value indicates
+that an error occurred. When any of the following conditions is detected, <kbd><b>thr_create()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EAGAIN</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>A system limit is exceeded, such as when
+too many LWPs have been created.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient memory was available to create
+the new thread.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<a name="sthreads-ix828"></a><var>stack_base</var> is
+not <tt>NULL</tt> and <var>stack_size</var> is less
+than the value returned by <kbd><b>thr_min_stack.()</b></kbd>
+</p>
+
+
+</dl><a name="6mba5vqe6"></a><h2 class="sol">Getting the Minimal Stack Size</h2>
+<p>
+<a name="sthreads-ix842"></a><a name="sthreads-ix843"></a><a name="sthreads-ix845"></a><a name="indexterm-310"></a><a name="indexterm-311"></a><a name="indexterm-312"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-min-stack-3c/index.html">thr_min_stack(3C)</a> to get the
+minimum stack size for a thread.</p>
+<p>Stack behavior in Solaris threads is generally the same as stack behavior
+in pthreads. For more information about stack setup and operation, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/attrib-33670/index.html">About Stacks</a>.</p>
+<a name="6mba5vqe8"></a><h3 class="sol">
+<tt>thr_min_stack</tt> Syntax</h3>
+<a name=""></a><pre>#include &lt;thread.h&gt;
+
+size_t thr_min_stack(void);</pre>
+<p>
+<a name="sthreads-ix846"></a><a name="sthreads-ix829"></a><a name="sthreads-ix830"></a><a name="sthreads-ix831"></a><a name="sthreads-ix847"></a> <kbd><b>thr_min_stack()</b></kbd> returns the amount of space that is needed to execute a null thread.
+A null thread is a thread that is created to execute a null procedure. Useful
+threads need more than the absolute minimum stack size, so be very careful
+when reducing the stack size.</p>
+<p>A thread that executes more than a null procedure should allocate a
+stack size that is larger than the size of <kbd><b>thr_min_stack()</b></kbd>.</p>
+<p>
+<a name="sthreads-ix848"></a><a name="sthreads-ix849"></a><a name="sthreads-ix850"></a><a name="sthreads-ix851"></a>When a thread is created with a
+user-supplied stack, the user must reserve enough space to run the thread.
+A dynamically linked execution environment increases the difficulty of determining
+the thread minimal stack requirements.</p>
+<p>
+<a name="sthreads-ix832"></a><a name="sthreads-ix833"></a><a name="sthreads-ix834"></a>You can specify a custom stack in two ways. The first is to supply
+a <tt>NULL</tt> for the stack location, thereby asking the runtime
+library to allocate the space for the stack, but to supply the desired size
+in the stacksize parameter to <kbd><b>thr_create()</b></kbd> .</p>
+<p>
+<a name="sthreads-ix835"></a>The other approach is to take overall aspects of stack
+management and supply a pointer to the stack to <kbd><b>thr_create()</b></kbd>.
+This means that you are responsible not only for stack allocation but also
+for stack deallocation. When the thread terminates, you must arrange for the
+disposal of the thread's stack.</p>
+<p>
+<a name="sthreads-ix836"></a><a name="sthreads-ix837"></a><a name="sthreads-ix838"></a><a name="sthreads-ix839"></a><a name="sthreads-ix840"></a><a name="sthreads-ix841"></a>When
+you allocate your own stack, be sure to append a red zone to its end by calling <tt>mprotect(2)</tt>.</p>
+<p>Most users should not create threads with user-supplied stacks. User-supplied
+stacks exist only to support applications that require complete control over
+their execution environments.</p>
+<p>Instead, users should let the system manage stack allocation. The system
+provides default stacks that should meet the requirements of any created thread.</p>
+<a name="6mba5vqea"></a><h3 class="sol">
+<tt>thr_min_stack</tt> Return Values</h3>
+<p>No errors are defined.</p>
+<a name="6mba5vqec"></a><h2 class="sol">Acquiring the Thread Identifier</h2>
+<p>
+<a name="sthreads-ix855"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-self-3c/index.html">thr_self(3C)</a> to get the ID of the calling
+thread. For POSIX threads, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-89129/index.html"><tt>pthread_self</tt> Syntax</a>.</p>
+<a name="6mba5vqee"></a><h3 class="sol">
+<tt>thr_self</tt> Syntax</h3>
+<a name="sthreads-ix854"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+thread_t thr_self(void);</pre>
+<a name="6mba5vqeg"></a><h3 class="sol">
+<tt>thr_self</tt> Return Values</h3>
+<p>No errors are defined.</p>
+<a name="6mba5vqei"></a><h2 class="sol">Yield Thread Execution</h2>
+<p>
+<a name="indexterm-313"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-yield-3c/index.html">thr_yield(3C)</a> causes
+the current thread to yield its execution in favor of another thread with
+the same or greater priority. Otherwise, <kbd><b>thr_yield()</b></kbd> has
+no effect. However, calling <kbd><b>thr_yield()</b></kbd> does not guarantee
+that the thread yields its execution.</p>
+<a name="6mba5vqek"></a><h3 class="sol">
+<tt>thr_yield</tt> Syntax</h3>
+<a name="sthreads-ix857"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+void thr_yield(void);</pre>
+<a name="6mba5vqem"></a><h3 class="sol">
+<tt>thr_yield</tt> Return Values</h3>
+<p>
+<kbd><b>thr_yield()</b></kbd> returns nothing and does not set <tt>errno</tt> .</p>
+<a name="6mba5vqeo"></a><h2 class="sol">Send a Signal to a Thread</h2>
+<p>
+<a name="sthreads-ix858"></a><a name="sthreads-ix859"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-kill-3c/index.html">thr_kill(3C)</a> sends a signal to a thread.
+For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-81571/index.html"><tt>pthread_kill</tt> Syntax</a>.</p>
+<a name="6mba5vqeq"></a><h3 class="sol">
+<tt>thr_kill</tt> Syntax</h3>
+<a name="sthreads-ix860"></a><a name="indexterm-314"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+#include &lt;signal.h&gt;
+int thr_kill(thread_t <var>target_thread</var>, int <var>sig</var>);</pre>
+<a name="6mba5vqes"></a><h3 class="sol">
+<tt>thr_kill</tt> Return Values</h3>
+<p>
+<a name="indexterm-315"></a>Upon successful completion, <kbd><b>thr_kill()</b></kbd> returns
+0. When any of the following conditions is detected, <kbd><b>thr_kill()</b></kbd> fails
+and returns the corresponding value. When a failure occurs, no signal is sent.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>No thread was found associated with the
+thread designated by <var>thread</var> ID.</p>
+
+
+</dl><dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The <var>sig</var> argument
+value is not zero. <var>sig</var> is an invalid or unsupported
+signal number.</p>
+
+
+</dl><a name="6mba5vqeu"></a><h2 class="sol">Access the Signal Mask of the Calling Thread</h2>
+<p>
+<a name="sthreads-ix862"></a><a name="sthreads-ix863"></a><a name="sthreads-ix861"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-sigsetmask-3c/index.html">thr_sigsetmask(3C)</a> to change or examine the
+signal mask of the calling thread.</p>
+<a name="6mba5vqf0"></a><h3 class="sol">
+<tt>thr_sigsetmask</tt> Syntax</h3>
+<a name="sthreads-ix864"></a><a name="indexterm-316"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+#include &lt;signal.h&gt;
+int thr_sigsetmask(int <var>how</var>, const sigset_t *<var>set</var>, 
+          sigset_t *<var>oset</var>);</pre>
+<p>
+<kbd><b>thr_sigsetmask()</b></kbd> changes or examines a calling thread's
+signal mask. Each thread has its own signal mask. A new thread inherits the
+calling thread's signal mask and priority. However, pending signals are not
+inherited. Pending signals for a new thread will be empty.</p>
+<p>If the value of the argument <var>set</var> is not NULL,
+ <var>set</var> points to a set of signals that can modify
+the currently blocked set. If the value of <var>set</var> is
+NULL, the value of  <var>how</var> is insignificant and the
+thread's signal mask is unmodified. Use this behavior to inquire about the
+currently blocked signals.</p>
+<p>The value of <var>how</var> specifies the method in
+which the set is changed. <var>how</var> takes one of the
+following values.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<tt>SIG_BLOCK</tt>. <var>set</var> corresponds
+to a set of signals to block. The signals are added to the current signal
+mask.</p>
+
+
+</li>
+<li>
+<p>
+<tt>SIG_UNBLOCK</tt>. <var>set</var> corresponds
+to a set of signals to unblock. These signals are deleted from the current
+signal mask.</p>
+
+
+</li>
+<li>
+<p>
+<tt>SIG_SETMASK</tt>. <var>set</var> corresponds
+to the new signal mask. The current signal mask is replaced by <var>set</var>.</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqf2"></a><h3 class="sol">
+<tt>thr_sigsetmask</tt> Return Values</h3>
+<p>
+<a name="indexterm-317"></a>Upon successful completion, <kbd><b>thr_sigsetmask()</b></kbd>  returns 0. When any of the following conditions is detected,
+ <kbd><b>thr_sigsetmask()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>set</var> is not
+NULL and the value of <var>how</var> is not defined.</p>
+
+
+</dl><a name="6mba5vqf4"></a><h2 class="sol">Terminate a Thread</h2>
+<p>
+<a name="sthreads-ix865"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-exit-3c/index.html">thr_exit(3C)</a> to
+terminate a thread. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-36372/index.html"><tt>pthread_exit</tt> Syntax</a>.</p>
+<a name="6mba5vqf6"></a><h3 class="sol">
+<tt>thr_exit</tt> Syntax</h3>
+<a name="sthreads-ix866"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+void thr_exit(void *<var>status</var>);</pre>
+<a name="6mba5vqf8"></a><h3 class="sol">
+<tt>thr_exit</tt> Return Values</h3>
+<p>
+<a name="indexterm-318"></a><kbd><b>thr_exit()</b></kbd> does not return
+to its caller.</p>
+<a name="6mba5vqfa"></a><h2 class="sol">Wait for Thread Termination</h2>
+<p>
+<a name="sthreads-ix867"></a><a name="sthreads-ix868"></a><a name="sthreads-ix869"></a>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-join-3c/index.html">thr_join(3C)</a> to wait for
+a target thread to terminate. For POSIX threads, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-89762/index.html"><tt>pthread_join</tt> Syntax</a>.</p>
+<a name="6mba5vqfc"></a><h3 class="sol">
+<tt>thr_join</tt> Syntax</h3>
+<a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_join(thread_t <var>tid</var>, thread_t *<var>departedid</var>, void **<var>status</var>);</pre>
+<p>The target thread must be a member of the current process. The target
+thread cannot be a detached thread or a daemon thread.</p>
+<p>Several threads cannot wait for the same thread to complete. One thread
+will complete successfully. The others will terminate with an <samp>ESRCH</samp> error.</p>
+<p>
+<kbd><b>thr_join()</b></kbd> will not block processing of the calling
+thread if the target thread has already terminated.</p>
+<a name="6mba5vqff"></a><h4 class="sol">
+<tt>thr_join</tt>, Join Specific</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+thread_t <var>tid</var>;
+thread_t <var>departedid</var>;
+int <var>ret</var>;
+void *<var>status</var>;
+
+/* waiting to join thread "tid" with status */
+<var>ret</var> = thr_join(<var>tid</var>, &amp;<var>departedid</var>, &amp;<var>status</var>);
+
+/* waiting to join thread "tid" without status */
+<var>ret</var> = thr_join(<var>tid</var>, &amp;<var>departedid</var>, NULL);
+
+/* waiting to join thread "tid" without return id and status */
+<var>ret</var> = thr_join(<var>tid</var>, NULL, NULL); </pre>
+<p>When the <b>tid</b> is <code>(thread_t)0</code>, then
+ <kbd><b>thread_join()</b></kbd> waits for any undetached thread in the process
+to terminate. In other words, when no thread identifier is specified, any
+undetached thread that exits causes <kbd><b>thread_join()</b></kbd> to return.</p>
+
+<a name="6mba5vqfh"></a><h4 class="sol">
+<tt>thr_join</tt>, Join Any</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+thread_t <var>tid</var>;
+thread_t <var>departedid</var>;
+int <var>ret</var>;
+void *<var>status</var>;
+
+/* waiting to join any non-detached thread with status */
+<var>ret</var> = thr_join(0, &amp;<var>departedid</var>, &amp;<var>status</var>); </pre>
+<p>By indicating 0 as the thread ID in the Solaris <kbd><b>thr_join()</b></kbd>,
+a join takes place when any non detached thread in the process exits. The
+ <b>departedid</b> indicates the thread ID of the exiting thread.</p>
+
+<a name="6mba5vqfj"></a><h3 class="sol">
+<tt>thr_join</tt> Return Values</h3>
+<p>
+<a name="indexterm-319"></a><kbd><b>thr_join()</b></kbd> returns 0 if successful.
+When any of the following conditions is detected, <kbd><b>thr_join()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>No undetached thread is found which corresponds
+to the target thread ID.</p>
+
+
+<br>
+<p>
+<tt><samp>EDEADLK</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>A deadlock was detected or the value of
+the target thread specifies the calling thread.</p>
+
+
+</dl><a name="6mba5vqfl"></a><h2 class="sol">Creating a Thread-Specific Data Key</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-keycreate-3c/index.html">thr_keycreate(3C)</a> allocates a key that is used to identify thread-specific
+data in a process. The key is global to all threads in the process. Each thread
+binds a value to the key when the key gets created.</p>
+<p>
+<a name="sthreads-ix870"></a><a name="sthreads-ix871"></a>Except for the function names and arguments, thread-specific data
+is the same for Solaris threads as thread-specific data is for POSIX threads.
+The synopses for the Solaris functions are described in this section. For
+POSIX threads, see  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-22206/index.html"><tt>pthread_key_create</tt> Syntax</a>.</p>
+<a name="6mba5vqfn"></a><h3 class="sol">
+<tt>thr_keycreate</tt> Syntax</h3>
+<a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_keycreate(thread_key_t *<var>keyp</var>,
+    void (*<var>destructor</var>) (void *<var>value</var>));</pre>
+<p>
+<var>keyp</var> independently maintains specific values
+for each binding thread. Each thread is initially bound to a private element
+of  <var>keyp</var> that allows access to its thread-specific
+data. Upon key creation, a new key is assigned the value NULL for all active
+threads. Additionally, upon thread creation, all previously created keys in
+the new thread are assigned the value NULL.</p>
+<p>An optional <var>destructor</var> function can be associated
+with each <var>keyp</var>. Upon thread exit, if a <var>keyp</var>  has a non-NULL <var>destructor</var> and the
+thread has a non-NULL <var>value</var> associated with <var>keyp</var> , the <var>destructor</var> is called with
+the currently associated <var>value</var>. If more than one <var>destructor</var>  exists for a thread when it exits, the order of
+destructor calls is unspecified.</p>
+<a name="6mba5vqfp"></a><h3 class="sol">
+<tt>thr_keycreate</tt> Return Values</h3>
+<p>
+<a name="indexterm-320"></a><kbd><b>thr_keycreate()</b></kbd> returns 0
+if successful. When any of the following conditions is detected, <kbd><b>thr_keycreate()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EAGAIN</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The system does not have the resources
+to create another thread-specific data key, or the number of keys exceeds
+the per-process limit for PTHREAD_KEYS_MAX.</p>
+
+
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient memory is available to associate
+ <var>value</var> with <var>keyp</var>.</p>
+
+
+</dl><a name="6mba5vqfr"></a><h2 class="sol">Setting the Thread-Specific Data Value</h2>
+<p>
+<a name="indexterm-321"></a><a name="sthreads-ix872"></a><a name="sthreads-ix873"></a><a name="sthreads-ix874"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-setspecific-3c/index.html">thr_setspecific(3C)</a> binds <b>value</b> to the thread-specific
+data key, <b>key</b>, for the calling thread. For POSIX threads,
+see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-44687/index.html"><tt>pthread_setspecific</tt> Syntax</a>.</p>
+<a name="6mba5vqft"></a><h3 class="sol">
+<tt>thr_setspecific</tt> Syntax</h3>
+<a name="sthreads-ix875"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_setspecific(thread_key_t <var>key</var>, void *<var>value</var>);</pre>
+<a name="6mba5vqfv"></a><h3 class="sol">
+<tt>thr_setspecific</tt> Return Values</h3>
+<p>
+<a name="indexterm-322"></a><kbd><b>thr_setspecific()</b></kbd> returns
+0 if successful. When any of the following conditions is detected, <kbd><b>thr_setspecific()</b></kbd>  fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient memory is available to associate
+ <var>value</var> with <var>keyp</var>.</p>
+
+
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>keyp</var> is invalid.</p>
+
+
+</dl><a name="6mba5vqg1"></a><h2 class="sol">Getting the Thread-Specific Data Value</h2>
+<p>
+<a name="indexterm-323"></a><a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-getspecific-3c/index.html">thr_getspecific(3C)</a> stores the current value bound to <b>key</b> for
+the calling thread into the location pointed to by <b>valuep</b>.
+For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-81719/index.html"><tt>pthread_getspecific</tt> Syntax</a>.</p>
+<a name="6mba5vqg3"></a><h3 class="sol">
+<tt>thr_getspecific</tt> Syntax</h3>
+<a name="sthreads-ix876"></a><a name="sthreads-ix880"></a><a name="sthreads-ix879"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_getspecific(thread_key_t <var>key</var>, void **<var>valuep</var>);</pre>
+<a name="6mba5vqg5"></a><h3 class="sol">
+<tt>thr_getspecific</tt> Return Values</h3>
+<p>
+<a name="indexterm-324"></a><kbd><b>thr_getspecific()</b></kbd> returns
+0 if successful. When any of the following conditions is detected, <kbd><b>thr_getspecific()</b></kbd>  fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Insufficient memory is available to associate
+ <var>value</var> with <var>keyp</var>.</p>
+
+
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>keyp</var> is invalid.</p>
+
+
+</dl><a name="6mba5vqg7"></a><h2 class="sol">Set the Thread Priority</h2>
+<p>In Solaris threads, a thread created with a priority other than the
+priority of its parents is created in SUSPEND mode. While suspended, the thread's
+priority is modified using the <tt>thr_setprio(3C)</tt> function
+call. After  <kbd><b>thr_setprio()</b></kbd> completes, the thread resumes
+execution.</p>
+<p>A higher priority thread receives precedence over lower priority threads
+with respect to synchronization object contention.</p>
+<a name="6mba5vqg9"></a><h3 class="sol">
+<tt>thr_setprio</tt> Syntax</h3>
+<a name="sthreads-ix885"></a><a name="sthreads-ix886"></a><p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-setprio-3c/index.html">thr_setprio(3C)</a> changes the priority of the thread, specified by <var>tid</var>, within the current process to the priority specified by <var>newprio</var>. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-19798/index.html"><tt>pthread_setschedparam</tt> Syntax</a>.</p>
+<a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_setprio(thread_t <var>tid</var>, int <var>newprio</var>)</pre>
+<p>
+<a name="sthreads-ix887"></a><a name="sthreads-ix888"></a>The range of valid priorities for a thread depends on its scheduling
+policy.</p>
+<a name=""></a><pre>thread_t <var>tid</var>;
+int <var>ret</var>;
+int <var>newprio</var> = 20;
+
+/* suspended thread creation */
+<var>ret</var> = thr_create(NULL, NULL, <var>func</var>, <var>arg</var>, THR_SUSPENDED, &amp;<var>tid</var>);
+
+/* set the new priority of suspended child thread */
+<var>ret</var> = thr_setprio(<var>tid</var>, <var>newprio</var>);
+
+/* suspended child thread starts executing with new priority */
+<var>ret</var> = thr_continue(<var>tid</var>);</pre>
+<a name="6mba5vqgb"></a><h3 class="sol">
+<tt>thr_setprio</tt> Return Values</h3>
+<p>
+<a name="indexterm-325"></a><kbd><b>thr_setprio()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>thr_setprio()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>tid</var> does
+not refer to an existing thread.</p>
+
+
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value of <var>priority</var> is
+invalid for the scheduling policy of the specified thread.</p>
+
+
+<br>
+<p>
+<tt><samp>EPERM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The caller does not have the appropriate
+permission to set the priority to the value specified.</p>
+
+
+</dl><a name="6mba5vqgd"></a><h2 class="sol">Get the Thread Priority</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/thr-getprio-3c/index.html">thr_getprio(3C)</a> to get the current priority for the thread. Each thread
+inherits a priority from its creator.  <kbd><b>thr_getprio()</b></kbd> stores
+the current priority, <var>tid</var>, in the location pointed
+to by <var>newprio</var>. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-12846/index.html"><tt>pthread_getschedparam</tt> Syntax</a>.</p>
+<a name="6mba5vqgf"></a><h3 class="sol">
+<tt>thr_getprio</tt> Syntax</h3>
+<a name="sthreads-ix891"></a><a name="sthreads-ix892"></a><a name="sthreads-ix889"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int thr_getprio(thread_t <var>tid</var>, int *<var>newprio</var>)</pre>
+<a name="6mba5vqgh"></a><h3 class="sol">
+<tt>thr_getprio</tt> Return Values</h3>
+<p>
+<a name="indexterm-326"></a><kbd><b>thr_getprio()</b></kbd> returns 0 if
+successful. When the following condition is detected, <kbd><b>thr_getprio()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>ESRCH</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>tid</var> does
+not refer to an existing thread.</p>
+
+
+</dl><a name="6mba5vqgj"></a><h1 class="sol">Similar Synchronization Functions—Mutual
+Exclusion Locks</h1>
+<a name=""></a><ul>
+<li>
+<p>Initializing a mutex</p>
+
+
+</li>
+<li>
+<p>Destroying a mutex</p>
+
+
+</li>
+<li>
+<p>Acquiring a mutex</p>
+
+
+</li>
+<li>
+<p>Releasing a mutex</p>
+
+
+</li>
+<li>
+<p>Trying to acquire a mutex</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqgl"></a><h2 class="sol">Initialize a Mutex</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/mutex-init-3c/index.html">mutex_init(3C)</a> to initialize the mutex pointed to by <var>mp</var>.
+For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-112/index.html">Initializing a Mutex</a>.</p>
+<a name="6mba5vqgn"></a><h3 class="sol">
+<tt>mutex_init(3C)</tt> Syntax</h3>
+<a name="indexterm-327"></a><a name=""></a><pre>#include &lt;synch.h&gt; 
+#include &lt;thread.h&gt;
+
+int mutex_init(mutex_t *<var>mp</var>, int <var>type</var>, void *<var>arg</var>)); </pre>
+<p>The <var>type</var> can be one of the following values.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="sthreads-ix893"></a><tt>USYNC_PROCESS</tt>.
+The mutex can be used to synchronize threads in this process and other processes.
+ <var>arg</var> is ignored.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-328"></a><tt>USYNC_PROCESS_ROBUST</tt>.
+The mutex can be used to <b>robustly</b> synchronize threads
+in this process and other processes. <var>arg</var> is ignored.</p>
+
+
+</li>
+<li>
+<p>
+<a name="sthreads-ix894"></a><tt>USYNC_THREAD</tt>. The
+mutex can be used to synchronize threads in this process only. <var>arg</var> is
+ignored.</p>
+
+
+</li>
+</ul>
+<p>When a process fails while holding a <tt>USYNC_PROCESS</tt> lock,
+subsequent requestors of that lock hang. This behavior is a problem for systems
+that share locks with client processes because the client processes can be
+abnormally killed. To avoid the problem of hanging on a lock held by a dead
+process, use <tt>USYNC_PROCESS_ROBUST</tt>  to lock the mutex. <tt>USYNC_PROCESS_ROBUST</tt> adds two capabilities:</p>
+<a name=""></a><ul>
+<li>
+<p>In the case of process death, all owned locks held by that
+process are unlocked.</p>
+
+
+</li>
+<li>
+<p>The next requestor for any of the locks owned by the failed
+process receives the lock. But, the lock is held with an error return indicating
+that the previous owner failed while holding the lock.</p>
+
+
+</li>
+</ul>
+<p>Mutexes can also be initialized by allocation in zeroed memory, in which
+case a <var>type</var> of <tt>USYNC_THREAD</tt> is
+assumed.</p>
+<p>Multiple threads must not initialize the same mutex simultaneously.
+A mutex lock must not be reinitialized while other threads might be using
+the mutex.</p>
+<a name="6mba5vqgq"></a><h4 class="sol">Mutexes With Intraprocess Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+mutex_t <var>mp</var>;
+int <var>ret</var>;
+
+/* to be used within this process only */
+<var>ret</var> = mutex_init(&amp;<var>mp</var>, USYNC_THREAD, 0); </pre>
+
+<a name="6mba5vqgr"></a><h4 class="sol">Mutexes With Interprocess Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+mutex_t <var>mp</var>;
+int <var>ret</var>;
+
+/* to be used among all processes */
+<var>ret</var> = mutex_init(&amp;<var>mp</var>, USYNC_PROCESS, 0); </pre>
+
+<a name="6mba5vqgs"></a><h4 class="sol">Mutexes With Interprocess Scope-Robust</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+mutex_t <var>mp</var>;
+int <var>ret</var>;
+
+/* to be used among all processes */
+<var>ret</var> = mutex_init(&amp;<var>mp</var>, USYNC_PROCESS_ROBUST, 0); </pre>
+
+<a name="6mba5vqgt"></a><h3 class="sol">
+<tt>mutex_init</tt> Return Values</h3>
+<p>
+<a name="indexterm-329"></a><kbd><b>mutex_init()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>mutex_init()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>mp</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The value specified by <var>mp</var> is
+invalid.</p>
+
+
+<br>
+<p>
+<tt><samp>ENOMEM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>System has insufficient memory to initialize
+the mutex.</p>
+
+
+<br>
+<p>
+<tt><samp>EAGAIN</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>System has insufficient resources to initialize
+the mutex.</p>
+
+
+<br>
+<p>
+<tt><samp>EBUSY</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>System detected an attempt to reinitialize
+an active mutex.</p>
+
+
+</dl><a name="6mba5vqgv"></a><h2 class="sol">Destroy a Mutex</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/mutex-destroy-3c/index.html">mutex_destroy(3C)</a> to destroy any state that is associated with the mutex
+pointed to by <var>mp</var> . The space for storing the mutex
+is not freed. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-20140/index.html"><tt>pthread_mutex_destroy</tt> Syntax</a>.</p>
+<a name="6mba5vqh1"></a><h3 class="sol">
+<tt>mutex_destroy</tt> Syntax</h3>
+<a name="indexterm-330"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int mutex_destroy (mutex_t *<var>mp</var>);</pre>
+<a name="6mba5vqh3"></a><h3 class="sol">
+<tt>mutex_destroy</tt> Return Values</h3>
+<p>
+<a name="indexterm-331"></a><kbd><b>mutex_destroy()</b></kbd> returns 0
+if successful. When the following condition is detected, <kbd><b>mutex_destroy()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>mp</var> points to
+an illegal address.</p>
+
+
+</dl><a name="6mba5vqh5"></a><h2 class="sol">Acquiring a Mutex</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/mutex-lock-3c/index.html">mutex_lock(3C)</a> to lock the mutex pointed to by <var>mp</var>.
+When the mutex is already locked, the calling thread blocks until the mutex
+becomes available. Blocked threads wait on a prioritized queue. For POSIX
+threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-117/index.html"><tt>pthread_mutex_lock</tt> Syntax</a>.</p>
+<a name="6mba5vqh7"></a><h3 class="sol">
+<tt>mutex_lock</tt> Syntax</h3>
+<a name="indexterm-332"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int mutex_lock(mutex_t *<var>mp</var>);</pre>
+<a name="6mba5vqh9"></a><h3 class="sol">
+<tt>mutex_lock</tt> Return Values</h3>
+<p>
+<a name="indexterm-333"></a><kbd><b>mutex_lock()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>mutex_lock()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>mp</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EDEADLK</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The mutex is already locked and is owned
+by the calling thread.</p>
+
+
+</dl><a name="6mba5vqhb"></a><h2 class="sol">Releasing a Mutex</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/mutex-unlock-3c/index.html">mutex_unlock(3C)</a> to unlock the mutex pointed to by <var>mp</var>.
+The mutex must be locked. The calling thread must be the thread that last
+locked the mutex, the owner. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-61163/index.html"><tt>pthread_mutex_unlock</tt> Syntax</a>.</p>
+<a name="6mba5vqhd"></a><h3 class="sol">
+<tt>mutex_unlock</tt> Syntax</h3>
+<a name="indexterm-334"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int mutex_unlock(mutex_t *<var>mp</var>);</pre>
+<a name="6mba5vqhf"></a><h3 class="sol">
+<tt>mutex_unlock</tt> Return Values</h3>
+<p>
+<a name="indexterm-335"></a><kbd><b>mutex_unlock()</b></kbd> returns 0
+if successful. When any of the following conditions is detected, <kbd><b>mutex_unlock()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>mp</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EPERM</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The calling thread does not own the mutex.</p>
+
+
+</dl><a name="6mba5vqhh"></a><h2 class="sol">Trying to Acquire a Mutex</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/mutex-trylock-3c/index.html">mutex_trylock(3C)</a> to attempt to lock the mutex pointed to by <var>mp</var>. This function is a nonblocking version of <kbd><b>mutex_lock()</b></kbd>.
+For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-24727/index.html"><tt>pthread_mutex_trylock</tt> Syntax</a>.</p>
+<a name="6mba5vqhj"></a><h3 class="sol">
+<tt>mutex_trylock</tt> Syntax</h3>
+<a name="indexterm-336"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int mutex_trylock(mutex_t *<var>mp</var>);</pre>
+<a name="6mba5vqhl"></a><h3 class="sol">
+<tt>mutex_trylock</tt> Return Values</h3>
+<p>
+<a name="indexterm-337"></a><kbd><b>mutex_trylock()</b></kbd> returns 0
+if successful. When any of the following conditions is detected, <kbd><b>mutex_trylock()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>mp</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EBUSY</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The system detected an attempt to reinitialize
+an active mutex.</p>
+
+
+</dl><a name="6mba5vqhn"></a><h1 class="sol">Similar Synchronization Functions: Condition
+Variables</h1>
+<a name=""></a><ul>
+<li>
+<p>Initializing a condition variable</p>
+
+
+</li>
+<li>
+<p>Destroying a condition variable</p>
+
+
+</li>
+<li>
+<p>Waiting for a condition</p>
+
+
+</li>
+<li>
+<p>Waiting for an absolute time</p>
+
+
+</li>
+<li>
+<p>Waiting for a time interval</p>
+
+
+</li>
+<li>
+<p>Unblocking one thread</p>
+
+
+</li>
+<li>
+<p>Unblocking all threads</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqhp"></a><h2 class="sol">Initialize a Condition Variable</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-init-3c/index.html">cond_init(3C)</a> to
+initialize the condition variable pointed to by <b>cv</b>.</p>
+<a name="6mba5vqhr"></a><h3 class="sol">
+<tt>cond_init</tt> Syntax</h3>
+<a name="indexterm-338"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_init(cond_t *<var>cv</var>, int <var>type</var>, int <var>arg</var>);</pre>
+<p>The <var>type</var> can be one of the following values:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="sthreads-ix895"></a><tt>USYNC_PROCESS</tt>.
+The condition variable can be used to synchronize threads in this process
+and other processes. <var>arg</var> is ignored.</p>
+
+
+</li>
+<li>
+<p>
+<a name="sthreads-ix896"></a><tt>USYNC_THREAD</tt> The
+condition variable can be used to synchronize threads in this process only.
+ <var>arg</var> is ignored.</p>
+
+
+</li>
+</ul>
+<p>Condition variables can also be initialized by allocation in zeroed
+memory, in which case a type of <tt>USYNC_THREAD</tt> is assumed.</p>
+<p>Multiple threads must not initialize the same condition variable simultaneously.
+A condition variable must not be reinitialized while other threads might be
+using the condition variable.</p>
+<p>For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-72041/index.html"><tt>pthread_condattr_init</tt> Syntax</a> .</p>
+<a name="6mba5vqhu"></a><h4 class="sol">Condition Variables With Intraprocess Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+cond_t <var>cv</var>;
+int <var>ret</var>;
+
+/* to be used within this process only */
+<var>ret</var> = cond_init(<var>cv</var>, USYNC_THREAD, 0); </pre>
+
+<a name="6mba5vqhv"></a><h4 class="sol">Condition Variables With Interprocess Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+cond_t <var>cv</var>;
+int <var>ret</var>;
+
+/* to be used among all processes */
+<var>ret</var> = cond_init(&amp;<var>cv</var>, USYNC_PROCESS, 0); </pre>
+
+<a name="6mba5vqi0"></a><h3 class="sol">
+<tt>cond_init</tt> Return Values</h3>
+<p>
+<a name="indexterm-339"></a><kbd><b>cond_init()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>cond_init()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>type</var> is not
+a recognized type.</p>
+
+
+</dl><a name="6mba5vqi2"></a><h2 class="sol">Destroying a Condition Variable</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-destroy-3c/index.html">cond_destroy(3C)</a> to destroy state that is associated with the condition
+variable pointed to by <var>cv</var> . The space for storing
+the condition variable is not freed. For POSIX threads, see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-64435/index.html"><tt>pthread_condattr_destroy</tt> Syntax</a>.</p>
+<a name="6mba5vqi4"></a><h3 class="sol">
+<tt>cond_destroy</tt> Syntax</h3>
+<a name="indexterm-340"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_destroy(cond_t *<var>cv</var>);</pre>
+<a name="6mba5vqi6"></a><h3 class="sol">
+<tt>cond_destroy</tt> Return Values</h3>
+<p>
+<a name="indexterm-341"></a><kbd><b>cond_destroy()</b></kbd> returns 0
+if successful. When any of the following conditions is detected, <kbd><b>cond_destroy()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EBUSY</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The system detected an attempt to destroy
+an active condition variable.</p>
+
+
+</dl><a name="6mba5vqi8"></a><h2 class="sol">Waiting for a Condition</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-wait-3c/index.html">cond_wait(3C)</a> to
+atomically release the mutex pointed to by <var>mp</var> and
+cause the calling thread to block on the condition variable pointed to by <b>cv</b>. The blocked thread can be awakened by <kbd><b>cond_signal()</b></kbd>, <kbd><b>cond_broadcast()</b></kbd> , or when interrupted by delivery of a signal or
+a <kbd><b>fork()</b></kbd>.</p>
+<p>
+<kbd><b>cond_wait()</b></kbd> always returns with the mutex locked
+and owned by the calling thread, even when returning an error.</p>
+<a name="6mba5vqia"></a><h3 class="sol">
+<tt>cond_wait</tt> Syntax</h3>
+<a name="indexterm-342"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_wait(cond_t *<var>cv</var>, mutex_t *<var>mp</var>);</pre>
+<a name="6mba5vqic"></a><h3 class="sol">
+<tt>cond_wait</tt> Return Values</h3>
+<p>
+<a name="indexterm-343"></a><kbd><b>cond_wait()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>cond_wait()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EINTR</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The wait was interrupted by a signal.</p>
+
+
+</dl><a name="6mba5vqie"></a><h2 class="sol">Wait for an Absolute Time</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-timedwait-3c/index.html">cond_timedwait(3C)</a> is very similar to <kbd><b>cond_wait()</b></kbd>,
+except that <kbd><b>cond_timedwait()</b></kbd>  does not block past the time
+of day specified by <var>abstime</var> . For POSIX threads,
+see <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-46756/index.html"><tt>pthread_cond_timedwait</tt> Syntax</a>.</p>
+<a name="6mba5vqig"></a><h3 class="sol">
+<tt>cond_timedwait</tt> Syntax</h3>
+<a name="indexterm-344"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_timedwait(cond_t *<var>cv</var>, mutex_t *<var>mp</var>, timestruct_t <var>abstime</var>);</pre>
+<p>
+<kbd><b>cond_timedwait()</b></kbd> always returns with the mutex locked
+and owned by the calling thread, even when returning an error.</p>
+<p>The <kbd><b>cond_timedwait()</b></kbd> function blocks until the condition
+is signaled or until the time of day specified by the last argument has passed.
+The timeout is specified as the time of day so the condition can be retested
+efficiently without recomputing the time-out value.</p>
+<a name="6mba5vqii"></a><h3 class="sol">
+<tt>cond_timedwait</tt> Return Values</h3>
+<p>
+<a name="indexterm-345"></a><kbd><b>cond_timedwait()</b></kbd> returns
+0 if successful. When any of the following conditions is detected, <kbd><b>cond_timedwait()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>ETIME</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The time specified by <var>abstime</var> has
+expired.</p>
+
+
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>abstime</var> is
+invalid.</p>
+
+
+</dl><a name="6mba5vqik"></a><h2 class="sol">Waiting for a Time Interval</h2>
+<p>
+<a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-reltimedwait-3c/index.html">cond_reltimedwait(3C)</a> is very similar to <kbd><b>cond_timedwait()</b></kbd>,
+except for the value for the third argument. <kbd><b>cond_reltimedwait()</b></kbd> takes
+a relative time interval value in its third argument rather than an absolute
+time of day value. For POSIX threads, see the <tt>pthread_cond_reltimedwait_np(3C)</tt> man page.</p>
+<p>
+<kbd><b>cond_reltimedwait()</b></kbd> always returns with the mutex
+locked and owned by the calling thread even when returning an error. The <kbd><b>cond_reltimedwait()</b></kbd>  function blocks until the condition is signaled
+or until the time interval specified by the last argument has elapsed.</p>
+<a name="6mba5vqim"></a><h3 class="sol">
+<tt>cond_reltimedwait</tt> Syntax</h3>
+<a name="indexterm-346"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_reltimedwait(cond_t *<var>cv</var>, mutex_t *<var>mp</var>,
+    timestruct_t <var>reltime</var>);</pre>
+<a name="6mba5vqio"></a><h3 class="sol">
+<tt>cond_reltimedwait</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-347"></a><kbd><b>cond_reltimedwait()</b></kbd> returns
+0 if successful. When any of the following conditions is detected, <kbd><b>cond_reltimedwait()</b></kbd>  fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>ETIME</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The time specified by <var>reltime</var> has
+expired.</p>
+
+
+</dl><a name="6mba5vqiq"></a><h2 class="sol">Unblock One Thread</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-signal-3c/index.html">cond_signal(3C)</a> to unblock one thread that is blocked on the condition
+variable pointed to by <var>cv</var> . If no threads are blocked
+on the condition variable,  <kbd><b>cond_signal()</b></kbd> has no effect.</p>
+<a name="6mba5vqis"></a><h3 class="sol">
+<tt>cond_signal</tt> Syntax</h3>
+<a name="indexterm-348"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_signal(cond_t *<var>cv</var>);</pre>
+<a name="6mba5vqiu"></a><h3 class="sol">
+<tt>cond_signal</tt> Return Values</h3>
+<p>
+<a name="indexterm-349"></a><kbd><b>cond_signal()</b></kbd> returns 0 if
+successful. When the following condition is detected, <kbd><b>cond_signal()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+</dl><a name="6mba5vqj0"></a><h2 class="sol">Unblock All Threads</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/cond-broadcast-3c/index.html">cond_broadcast(3C)</a> to unblock all threads that are blocked on the condition
+variable pointed to by  <var>cv</var>. When no threads are
+blocked on the condition variable, then  <kbd><b>cond_broadcast()</b></kbd> has
+no effect.</p>
+<a name="6mba5vqj2"></a><h3 class="sol">
+<tt>cond_broadcast</tt> Syntax</h3>
+<a name="sthreads-ix901"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int cond_broadcast(cond_t *<var>cv</var>);</pre>
+<a name="6mba5vqj4"></a><h3 class="sol">
+<tt>cond_broadcast</tt> Return Values</h3>
+<p>
+<a name="indexterm-350"></a><kbd><b>cond_broadcast()</b></kbd> returns
+0 if successful. When the following condition is detected, <kbd><b>cond_broadcast()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>cv</var> points to
+an illegal address.</p>
+
+
+</dl><a name="6mba5vqj6"></a><h1 class="sol">Similar Synchronization Functions: Semaphores</h1>
+<p>
+<a name="sthreads-ix902"></a>Semaphore operations are the
+same in both the Solaris Operating Environment and the POSIX environment.
+The function name changed from  <tt>sema_</tt> in the Solaris Operating
+Environment to <tt>sem_</tt> in pthreads. This section discusses
+the following topics:</p>
+<a name=""></a><ul>
+<li>
+<p>Initializing a semaphore</p>
+
+
+</li>
+<li>
+<p>Incrementing a semaphore</p>
+
+
+</li>
+<li>
+<p>Blocking on a semaphore count</p>
+
+
+</li>
+<li>
+<p>Decrementing a semaphore count</p>
+
+
+</li>
+<li>
+<p>Destroying the semaphore state</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqj8"></a><h2 class="sol">Initialize a Semaphore</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/sema-init-3c/index.html">sema_init(3C)</a> to
+initialize the semaphore variable pointed to by <var>sp</var> by
+ <var>count</var> amount.</p>
+<a name="6mba5vqja"></a><h3 class="sol">
+<tt>sema_init</tt> Syntax</h3>
+<a name="indexterm-351"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int sema_init(sema_t *<var>sp</var>, unsigned int <var>count</var>, int <var>type</var>,
+    void *<var>arg</var>);</pre>
+<p>
+<var>type</var> can be one of the following values:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="sthreads-ix903"></a><tt>USYNC_PROCESS</tt>.
+The semaphore can be used to synchronize threads in this process and other
+processes. Only one process should initialize the semaphore. <var>arg</var> is
+ignored.</p>
+
+
+</li>
+<li>
+<p>
+<a name="sthreads-ix904"></a><tt>USYNC_THREAD</tt>.
+The semaphore can be used to synchronize threads in this process, only. <var>arg</var> is ignored.</p>
+
+
+</li>
+</ul>
+<p>Multiple threads must not initialize the same semaphore simultaneously.
+A semaphore must not be reinitialized while other threads might be using the
+semaphore.</p>
+<a name="6mba5vqjd"></a><h4 class="sol">Semaphores With Intraprocess Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+sema_t <var>sp</var>;
+int <var>ret</var>;
+int <var>count</var>;
+<var>count</var> = 4;
+
+/* to be used within this process only */
+<var>ret</var> = sema_init(&amp;<var>sp</var>, <var>count</var>, USYNC_THREAD, 0); </pre>
+
+<a name="6mba5vqje"></a><h4 class="sol">Semaphores With Interprocess Scope</h4><a name=""></a><pre>#include &lt;thread.h&gt;
+
+sema_t <var>sp</var>;
+int <var>ret</var>;
+int <var>count</var>;
+<var>count</var> = 4;
+
+/* to be used among all the processes */
+<var>ret</var> = sema_init (&amp;<var>sp</var>, <var>count</var>, USYNC_PROCESS, 0); </pre>
+
+<a name="6mba5vqjf"></a><h3 class="sol">
+<tt>sema_init</tt> Return Values</h3>
+<p>
+<a name="indexterm-352"></a><kbd><b>sema_init()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>sema_init()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sp</var> refers to
+an invalid semaphore.</p>
+
+
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>Either <var>sp</var> or
+ <var>arg</var> point to an illegal address.</p>
+
+
+</dl><a name="6mba5vqjh"></a><h2 class="sol">Increment a Semaphore</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/sema-post-3c/index.html">sema_post(3C)</a> to
+atomically increment the semaphore pointed to by <var>sp</var>.
+When any threads are blocked on the semaphore, one thread is unblocked.</p>
+<a name="6mba5vqjj"></a><h3 class="sol">
+<tt>sema_post</tt> Syntax</h3>
+<a name="indexterm-353"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int sema_post(sema_t *<var>sp</var>);</pre>
+<a name="6mba5vqjl"></a><h3 class="sol">
+<tt>sema_post</tt> Return Values</h3>
+<p>
+<a name="indexterm-354"></a><kbd><b>sema_post()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>sema_post()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sp</var> refers to
+an invalid semaphore.</p>
+
+
+<br>
+<p>
+<tt><samp>EFAULT</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sp</var> points to
+an illegal address.</p>
+
+
+<br>
+<p>
+<tt><samp>EOVERFLOW</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The semaphore value pointed to by  <var>sp</var> exceeds <tt>SEM_VALUE_MAX</tt>.</p>
+
+
+</dl><a name="6mba5vqjn"></a><h2 class="sol">Block on a Semaphore Count</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/sema-wait-3c/index.html">sema_wait(3C)</a> to
+block the calling thread until the count in the semaphore pointed to by <var>sp</var>  becomes greater than zero. When the count becomes greater
+than zero, atomically decrement the count.</p>
+<a name="6mba5vqjp"></a><h3 class="sol">
+<tt>sema_wait</tt> Syntax</h3>
+<a name="indexterm-355"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int sema_wait(sema_t *<var>sp</var>);</pre>
+<a name="6mba5vqjr"></a><h3 class="sol">
+<tt>sema_wait</tt> Return Values</h3>
+<p>
+<a name="indexterm-356"></a><kbd><b>sema_wait()</b></kbd> returns 0 if
+successful. When any of the following conditions is detected, <kbd><b>sema_wait()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sp</var> refers to
+an invalid semaphore.</p>
+
+
+<br>
+<p>
+<tt><samp>EINTR</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The wait was interrupted by a signal.</p>
+
+
+</dl><a name="6mba5vqjt"></a><h2 class="sol">Decrement a Semaphore Count</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/sema-trywait-3c/index.html">sema_trywait(3C)</a> to atomically decrement the count in the semaphore
+pointed to by <var>sp</var> when the count is greater than
+zero. This function is a nonblocking version of  <kbd><b>sema_wait()</b></kbd>.</p>
+<a name="6mba5vqjv"></a><h3 class="sol">
+<tt>sema_trywait</tt> Syntax</h3>
+<a name="indexterm-357"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int sema_trywait(sema_t *<var>sp</var>);</pre>
+<a name="6mba5vqk1"></a><h3 class="sol">
+<tt>sema_trywait</tt> Return Values</h3>
+<p>
+<a name="indexterm-358"></a><kbd><b>sema_trywait()</b></kbd> returns 0
+if successful. When any of the following conditions is detected, <kbd><b>sema_trywait()</b></kbd> fails and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sp</var> refers to
+an invalid semaphore.</p>
+
+
+<br>
+<p>
+<tt><samp>EBUSY</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>The semaphore pointed to by <var>sp</var> has
+a zero count.</p>
+
+
+</dl><a name="6mba5vqk3"></a><h2 class="sol">Destroy the Semaphore State</h2>
+<p>Use <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5168/sema-destroy-3c/index.html">sema_destroy(3C)</a> to destroy any state that is associated with the semaphore
+pointed to by <var>sp</var>. The space for storing the semaphore
+is not freed.</p>
+<a name="6mba5vqk5"></a><h3 class="sol">
+<tt>sema_destroy(3C)</tt> Syntax</h3>
+<a name="indexterm-359"></a><a name=""></a><pre>#include &lt;thread.h&gt;
+
+int sema_destroy(sema_t *<var>sp</var>);</pre>
+<a name="6mba5vqk7"></a><h3 class="sol">
+<tt>sema_destroy(3C)</tt> Return
+Values</h3>
+<p>
+<a name="indexterm-360"></a><kbd><b>sema_destroy()</b></kbd> returns 0
+if successful. When the following condition is detected, <kbd><b>sema_destroy()</b></kbd> fails
+and returns the corresponding value.</p>
+<dl>
+<br>
+<p>
+<tt><samp>EINVAL</samp></tt>
+</p>
+
+<b>Description: </b>
+<p>
+<var>sp</var> refers to
+an invalid semaphore.</p>
+
+
+</dl><a name="6mba5vqk9"></a><h1 class="sol">Synchronizing Across Process Boundaries</h1>
+<p>Each of the synchronization primitives can be set up to be used across
+process boundaries. This cross-boundary setup is done by ensuring that the
+synchronization variable is located in a shared memory segment and by calling
+the appropriate  <tt>init</tt> routine with type set to <tt>USYNC_PROCESS</tt>.</p>
+<p>
+<a name="sthreads-ix907"></a><a name="sthreads-ix908"></a><a name="sthreads-ix909"></a><a name="sthreads-ix910"></a>If type
+is set to  <tt>USYNC_PROCESS</tt>, then the operations on the synchronization
+variables work just as the variables do when <var>type</var> is <tt>USYNC_THREAD</tt>.</p>
+<a name=""></a><pre>mutex_init(&amp;m, USYNC_PROCESS, 0);
+rwlock_init(&amp;rw, USYNC_PROCESS, 0);
+cond_init(&amp;cv, USYNC_PROCESS, 0);
+sema_init(&amp;s, count, USYNC_PROCESS, 0);</pre>
+<a name="6mba5vqkb"></a><h2 class="sol">Example of Producer and Consumer Problem</h2>
+<p>
+<a name="sthreads-ix911"></a><a name="sthreads-ix912"></a><a name="sthreads-ix913"></a><a name="sthreads-ix914"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqkb/index.html#sthreads-ex-31">Example 6–2</a> shows
+the producer and consumer problem with the producer and consumer in separate
+processes. The main routine maps zero-filled memory that main shares with
+its child process, into its address space. Note that <kbd><b>mutex_init()</b></kbd> and
+ <kbd><b>cond_init()</b></kbd> must be called because the type of the synchronization
+variables is <tt>USYNC_PROCESS</tt>.</p>
+<p>A child process is created to run the consumer. The parent runs the
+producer.</p>
+<p>This example also shows the drivers for the producer and consumer. The
+ <tt>producer_driver</tt> reads characters from <kbd>stdin</kbd> and
+calls the <tt>producer</tt>. The <tt>consumer_driver</tt> gets
+characters by calling the <tt>consumer</tt> and writes them to <kbd>stdout</kbd>.</p>
+<p>
+<a name="sthreads-ix915"></a>The data structure for  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqkb/index.html#sthreads-ex-31">Example 6–2</a> is
+the same as that used for the solution with condition variables. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83550/index.html">Examples of Using Nested Locking With a Singly-Linked List</a> .</p>
+<a name="sthreads-ex-31"></a><hr><a name="sthreads-94770"></a><h5 class="sol">Example 6–2  Producer and Consumer
+Problem Using USYNC_PROCESS</h5><br><a name=""></a><pre>main() {
+    int zfd;
+    buffer_t *buffer;
+
+    zfd = open(“/dev/zero”, O_RDWR);
+    buffer = (buffer_t *)mmap(NULL, sizeof(buffer_t),
+        PROT_READ|PROT_WRITE, MAP_SHARED, zfd, 0);
+    buffer-&gt;occupied = buffer-&gt;nextin = buffer-&gt;nextout = 0;
+
+    mutex_init(&amp;buffer-&gt;lock, USYNC_PROCESS, 0);
+    cond_init(&amp;buffer-&gt;less, USYNC_PROCESS, 0);
+    cond_init(&amp;buffer-&gt;more, USYNC_PROCESS, 0);
+    if (fork() == 0)
+        consumer_driver(buffer);
+    else
+        producer_driver(buffer);
+}
+
+void producer_driver(buffer_t *b) {
+    int item;
+
+    while (1) {
+        item = getchar();
+        if (item == EOF) {
+            producer(b, `\0');
+            break;
+        } else
+            producer(b, (char)item);
+    }
+}
+
+void consumer_driver(buffer_t *b) {
+    char item;
+
+    while (1) {
+        if ((item = consumer(b)) == '\0')
+            break;
+        putchar(item);
+    }
+}</pre>
+<hr>
+<p>A child process is created to run the consumer. The parent runs the
+producer.</p>
+<a name="6mba5vqkc"></a><h1 class="sol">Special Issues for <kbd><b>fork()</b></kbd> and
+Solaris Threads</h1>
+<p>Prior to the Solaris 10 release, Solaris threads and POSIX threads defined
+the behavior of <kbd><b>fork()</b></kbd> differently. See  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-48932/index.html">Process Creation: <tt>exec</tt> and  <tt>exit</tt> Issues</a> for
+a thorough discussion of <kbd><b>fork()</b></kbd> issues.</p>
+<p>Solaris <kbd>libthread</kbd> supported both <kbd><b>fork()</b></kbd> and
+ <kbd><b>fork1()</b></kbd>. The <kbd><b>fork()</b></kbd> call has “fork-all”
+semantics.  <kbd><b>fork()</b></kbd> duplicated everything in the process,
+including threads and LWPs, creating a true clone of the parent. The <kbd><b>fork1()</b></kbd> call created a clone that had only one thread. The process state
+and address space are duplicated, but only the calling thread was cloned.</p>
+<p>POSIX <kbd>libpthread</kbd> supported only <kbd><b>fork()</b></kbd>,
+which has the same semantics as <kbd><b>fork1()</b></kbd> in Solaris threads.</p>
+<p>Whether <kbd><b>fork()</b></kbd> has “fork-all” semantics
+or “fork-one” semantics was dependent on which library is used.
+Link with <kbd><b>-lthread</b></kbd> to assign “fork-all” semantics
+to <kbd><b>fork()</b></kbd>. Link with  <kbd><b>-lpthread</b></kbd> to assign “fork-one”
+semantics to <kbd><b>fork()</b></kbd>.</p>
+<p>Effective with the Solaris 10 release, <kbd><b>fork()</b></kbd> has
+the same semantics in both Solaris threads and POSIX threads. More specifically,
+ <kbd><b>fork1()</b></kbd> semantics replicate only the caller. A new function, <kbd><b>forkall()</b></kbd> , is provided for those applications that require replicate-all
+semantics.</p>
+<p>See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-94179/index.html">Compiling and Linking a Multithreaded Program</a> for
+more details.</p>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gen-12013/index.html"><em>Previous</em>: Chapter&nbsp;5 Programming With the Solaris
+Software</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-83941/index.html"><em>Next</em>: Chapter&nbsp;7 Safe and Unsafe Interfaces</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

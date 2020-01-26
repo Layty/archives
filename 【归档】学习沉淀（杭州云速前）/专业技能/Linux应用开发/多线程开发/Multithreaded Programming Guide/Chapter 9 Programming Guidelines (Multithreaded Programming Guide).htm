@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0080)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-29299/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;9 Programming Guidelines (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 9 Programming Guidelines (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 9 Programming Guidelines (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 9 Programming Guidelines (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 9 Programming Guidelines (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 9 Programming Guidelines (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 9 Programming Guidelines (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;9 Programming Guidelines</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-74765/index.html"><em>Previous</em>: Chapter&nbsp;8 Compiling and Debugging</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedn/index.html"><em>Next</em>: Appendix&nbsp;A Extended Example: A Thread Pool
+Implementation</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vqln"></a><h1 class="sol">Chapter&nbsp;9 Programming Guidelines</h1>
+<a name=""></a><p>This chapter provides some pointers on programming with threads. Most
+pointers apply to both Solaris and POSIX threads, but where utility differs,
+the behavior is noted. A change from single-threaded thinking to multithreaded
+thinking is emphasized in this chapter. The chapter discusses the following
+topics:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-11223/index.html">Rethinking Global Variables</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-74707/index.html">Providing for Static Local Variables</a> 
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-47967/index.html">Synchronizing Threads</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-35930/index.html">Avoiding Deadlock</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-71792/index.html">Some Basic Guidelines for Threaded Code</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-78983/index.html">Creating and Using Threads</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-33031/index.html">Working With Multiprocessors</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-37056/index.html">Examples of Threads Programs</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vqlp"></a><h1 class="sol">Rethinking Global Variables</h1>
+<a name="guide-ix916"></a><a name="guide-ix917"></a><p>
+<a name="guide-ix918"></a><a name="guide-ix919"></a>Historically,
+most code has been designed for single-threaded programs. This code design
+is especially true for most of the library routines that are called from C
+programs. The following implicit assumptions were made for single-threaded
+code:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="guide-ix920"></a>When you write into a global variable and then, a
+moment later, read from the variable, what you read is exactly what you just
+wrote.</p>
+
+
+</li>
+<li>
+<p>
+<a name="guide-ix921"></a>A write into nonglobal, static storage, and moment later, a read
+from the variable results in a read of exactly what you just wrote.</p>
+
+
+</li>
+<li>
+<p>You do not need synchronization because concurrent access
+to the variable is not invoked.</p>
+
+
+</li>
+</ul>
+<p>The following examples discuss some of the problems that arise in multithreaded
+programs because of these assumptions, and how you can deal with the problems.</p>
+<p>
+<a name="guide-ix923"></a><a name="guide-ix926"></a>Traditional,
+single-threaded C and UNIX have a convention for handling errors detected
+in system calls. System calls can return anything as a functional value. For
+example,  <kbd><b>write()</b></kbd> returns the number of bytes that were
+transferred. However, the value  <samp>-1</samp> is reserved
+to indicate that something went wrong. So, when a system call returns <samp>-1</samp>, you know that the call failed.</p>
+<a name="guide-ex-1"></a><hr><h5 class="sol">Example 9–1  Global Variables and <var>errno</var>
+</h5><br><a name=""></a><pre>extern int errno;
+...
+if (write(file_desc, buffer, size) == -1) {
+    /* the system call failed */
+    fprintf(stderr, “something went wrong, “
+        “error code = %d\n”, errno);
+    exit(1);
+}
+...</pre>
+<hr>
+<p>
+<a name="guide-ix927"></a>Rather than returning the actual error code, which could be confused
+with normal return values, the error code is placed into the global variable
+ <samp>errno</samp>. When the system call fails, you can look in <samp>errno</samp> to find out what went wrong.</p>
+<p>Now, consider what happens in a multithreaded environment when two threads
+fail at about the same time but with different errors. Both threads expect
+to find their error codes in <samp>errno</samp>, but one copy of <samp>errno</samp> cannot hold both values. This global variable approach does
+not work for multithreaded programs.</p>
+<p>
+<a name="guide-ix928"></a><a name="guide-ix929"></a>Threads
+solve this problem through a conceptually new storage class: thread-specific
+data. This storage is similar to global storage. Thread-specific data can
+be accessed from any procedure in which a thread might be running. However,
+thread-specific data is private to the thread. When two threads refer to the
+thread-specific data location of the same name, the threads are referring
+to two different areas of storage.</p>
+<p>So, when using threads, each reference to <samp>errno</samp> is
+thread specific because each thread has a private copy of <samp>errno</samp>.
+A reference to <samp>errno</samp> as thread-specific is achieved
+in this implementation by making <samp>errno</samp> a macro that
+expands to a function call.</p>
+<a name="6mba5vqlq"></a><h1 class="sol">Providing for Static Local Variables</h1>
+<p>
+<a name="guide-ix930"></a><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqlq/index.html#guide-27608">Example 9–2</a> shows
+a problem that is similar to the <samp>errno</samp> problem, but
+involving static storage instead of global storage. The function <tt>gethostbyname</tt>(3NSL)  is called with the computer name as its argument. The return
+value is a pointer to a structure that contains the required information for
+contacting the computer through network communications.</p>
+<a name="guide-27608"></a><hr><h5 class="sol">Example 9–2  The <kbd><b>gethostbyname()</b></kbd> Problem</h5><br><a name=""></a><pre>struct hostent *gethostbyname(char *name) {
+    static struct hostent result;
+        /* Lookup name in hosts database */
+        /* Put answer in result */
+    return(&amp;result);
+}</pre>
+<hr>
+<p>
+<a name="guide-ix931"></a>A
+pointer that is returned to a local variable is generally not a good idea.
+Using a pointer works in this example because the variable is static. However,
+when two threads call this variable at once with different computer names,
+the use of static storage conflicts.</p>
+<p>Thread-specific data could be used as a replacement for static storage,
+as in the <samp>errno</samp> problem. But, this replacement involves
+dynamic allocation of storage and adds to the expense of the call.</p>
+<p>A better way to handle this kind of problem is to make the caller of
+ <kbd><b>gethostbyname()</b></kbd> supply the storage for the result of the
+call. An additional output argument to the routine enables the caller to supply
+the storage. The additional output argument requires a new interface to the <kbd><b>gethostbyname()</b></kbd> function.</p>
+<p>
+<a name="guide-ix932"></a><a name="guide-ix933"></a>This technique is used in threads to fix many of these problems.
+In most cases, the name of the new interface is the old name with “<tt>_r</tt>” appended, as in <tt>gethostbyname_r</tt>(3NSL).</p>
+<a name="6mba5vqlr"></a><h1 class="sol">Synchronizing Threads</h1>
+<p>The threads in an application must cooperate and synchronize when sharing
+the data and the resources of the process.</p>
+<p>
+<a name="guide-ix934"></a>A problem arises when multiple
+threads call functions that manipulate an object. In a single-threaded world,
+synchronizing access to such objects is not a problem. However, as <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqlr/index.html#guide-59213">Example 9–3</a>  illustrates, synchronization
+is a concern with multithreaded code. Note that the <tt>printf(3S)</tt> function
+is safe to call for a multithreaded program. This example illustrates what
+could happen if <kbd><b>printf()</b></kbd> were not safe.</p>
+<a name="guide-59213"></a><hr><h5 class="sol">Example 9–3  <kbd><b>printf()</b></kbd> Problem</h5><br><a name=""></a><pre>/* thread 1: */
+    printf("go to statement reached");
+
+
+/* thread 2: */
+    printf("hello world");
+
+
+
+printed on display:
+    go to hello</pre>
+<hr>
+<a name="6mba5vqlt"></a><h2 class="sol">Single-Threaded Strategy</h2>
+<p>One strategy is to have a single, application-wide mutex lock acquired
+whenever any thread in the application is running and released before it must
+block. Because only one thread can be accessing shared data at any one time,
+each thread has a consistent view of memory.</p>
+<p>Because this strategy is effectively single-threaded, very little is
+gained by this strategy.</p>
+<a name="6mba5vqlu"></a><h2 class="sol">Reentrant Function</h2>
+<a name="guide-ix935"></a><p>A better approach is to take advantage of the principles of modularity
+and data encapsulation. A reentrant function behaves correctly if called simultaneously
+by several threads. To write a reentrant function is a matter of understanding
+just what <b>behaves correctly</b> means for this particular
+function.</p>
+<p>Functions that are callable by several threads must be made reentrant.
+To make a function reentrant might require changes to the function interface
+or to the implementation.</p>
+<p>
+<a name="guide-ix936"></a>Functions that access global state, like memory or files, have
+reentrance problems. These functions need to protect their use of global state
+with the appropriate synchronization mechanisms provided by threads.</p>
+<p>
+<a name="guide-ix937"></a><a name="guide-ix938"></a><a name="guide-ix939"></a><a name="guide-ix940"></a>The
+two basic strategies for making functions in modules reentrant are code locking
+and data locking.</p>
+<a name="6mba5vqm0"></a><h3 class="sol">Code Locking</h3>
+<a name="guide-ix941"></a><a name="guide-ix942"></a><p>Code locking is done at the function call level and guarantees that
+a function executes entirely under the protection of a lock. The assumption
+is for all access to data to be done through functions. Functions that share
+data should execute under the same lock.</p>
+<p>
+<a name="guide-ix943"></a><a name="guide-ix944"></a>Some parallel
+programming languages provide a construct called a <b>monitor</b>.
+The monitor implicitly does code locking for functions that are defined within
+the scope of the monitor. A monitor can also be implemented by a mutex lock.</p>
+<p>Functions under the protection of the same mutex lock or within the
+same monitor are guaranteed to execute atomically with respect to other functions
+in the monitor.</p>
+<a name="6mba5vqm1"></a><h3 class="sol">Data Locking</h3>
+<a name="guide-ix945"></a><p>
+<a name="guide-ix946"></a><a name="guide-ix947"></a>Data locking guarantees that access to a <b>collection</b> of
+data is maintained consistently. For data locking, the concept of locking
+code is still there, but code locking is around references to shared (global)
+data, only. For mutual exclusion locking, only one thread can be in the critical
+section for each collection of data.</p>
+<p>Alternatively, in a multiple reader, single writer protocol, several
+readers can be allowed for each collection of data or one writer. Multiple
+threads can execute in a single module when the threads operate on different
+data collections. In particular, the threads do not conflict on a single collection
+for the multiple readers, single writer protocol. So, data locking typically
+allows more concurrency than does code locking.</p>
+<p>
+<a name="guide-ix949"></a><a name="guide-ix950"></a><a name="guide-ix951"></a><a name="guide-ix952"></a>What strategy should you
+use when using locks, whether implemented with mutexes, condition variables,
+or semaphores, in a program? Should you try to achieve maximum parallelism
+by locking only when necessary and unlocking as soon as possible, called <b>fine-grained locking</b>? Or should you hold locks for long periods
+to minimize the overhead of taking and releasing locks, called <b>coarse-grained
+locking</b>?</p>
+<p>The granularity of the lock depends on the amount of data protected
+by the lock. A very coarse-grained lock might be a single lock to protect
+all data. Dividing how the data is protected by the appropriate number of
+locks is very important. Locking that is too fine-grained can degrade performance.
+The overhead associated with acquiring and releasing locks can become significant
+when your application contains too many locks.</p>
+<p>The common wisdom is to start with a coarse-grained approach, identify
+bottlenecks, and add finer-grained locking where necessary to alleviate the
+bottlenecks. This approach is reasonably sound advice, but use your own judgment
+about finding the balance between maximizing parallelism and minimizing lock
+overhead.</p>
+<a name="6mba5vqm2"></a><h3 class="sol">Invariants and Locks</h3>
+<p>
+<a name="guide-ix953"></a><a name="guide-ix954"></a><a name="guide-ix955"></a><a name="guide-ix956"></a>For both code locking and data locking, <b>invariants</b> are
+important to control lock complexity. An invariant is a condition or relation
+that is always true.</p>
+<p>The definition is modified somewhat for concurrent execution: an invariant
+is a condition or relation that is true when the associated lock is being
+set. Once the lock is set, the invariant can be false. However, the code that
+holds the lock must reestablish the invariant before releasing the lock.</p>
+<p>An invariant can also be a condition or relation that is true when a
+lock is being set. Condition variables can be thought of as having an invariant
+that is the condition.</p>
+<a name="guide-ex-7"></a><hr><h5 class="sol">Example 9–4  Testing the Invariant With assert(3C)</h5><br><a name=""></a><pre>    mutex_lock(&amp;lock);
+    while((condition)==FALSE)
+        cond_wait(&amp;cv,&amp;lock);
+    assert((condition)==TRUE);
+      .
+      .
+      .
+    mutex_unlock(&amp;lock);</pre>
+<hr>
+<p>
+<a name="guide-ix957"></a>The  <kbd><b>assert()</b></kbd> statement is testing the invariant.
+The <kbd><b>cond_wait()</b></kbd> function does not preserve the invariant,
+which is why the invariant must be reevaluated when the thread returns.</p>
+<p>Another example is a module that manages a doubly linked list of elements.
+For each item on the list, a good invariant is the forward pointer of the
+previous item on the list. The forward pointer should also point to the same
+element as the backward pointer of the forward item.</p>
+<p>
+<a name="guide-ix958"></a>Assume that this module uses code-based locking and therefore
+is protected by a single global mutex lock. When an item is deleted or added,
+the mutex lock is acquired, the correct manipulation of the pointers is made,
+and the mutex lock is released. Obviously, at some point in the manipulation
+of the pointers the invariant is false, but the invariant is reestablished
+before the mutex lock is released.</p>
+<a name="6mba5vqm3"></a><h1 class="sol">Avoiding Deadlock</h1>
+<p>
+<a name="guide-ix959"></a>Deadlock is a permanent blocking of a set of threads that are
+competing for a set of resources. Just because some thread can make progress
+does not mean that a deadlock has not occurred somewhere else.</p>
+<p>
+<a name="indexterm-405"></a>The most common error that causes deadlock is <b>self deadlock</b> or  <b>recursive deadlock</b>. In a self deadlock
+or recursive deadlock, a thread tries to acquire a lock already held by the
+thread. Recursive deadlock is very easy to program by mistake.</p>
+<p>
+<a name="guide-ix960"></a><a name="guide-ix961"></a>For example, assume
+that a code monitor has every module function grab the mutex lock for the
+duration of the call. Then, any call between the functions within the module
+protected by the mutex lock immediately deadlocks. If a function calls code
+outside the module that circuitously calls back into any method protected
+by the same mutex lock, the function deadlocks too.</p>
+<p>The solution for this kind of deadlock is to avoid calling functions
+outside the module that might depend on this module through some path. In
+particular, avoid calling functions that call back into the module without
+reestablishing invariants and do not drop all module locks before making the
+call. Of course, after the call completes and the locks are reacquired, the
+state must be verified to be sure the intended operation is still valid.</p>
+<p>An example of another kind of deadlock is when two threads, thread 1
+and thread 2, acquire a mutex lock, A and B, respectively. Suppose that thread
+1 tries to acquire mutex lock B and thread 2 tries to acquire mutex lock A.
+Thread 1 cannot proceed while blocked waiting for mutex lock B. Thread 2 cannot
+proceed while blocked waiting for mutex lock A. Nothing can change. So, this
+condition is a permanent blocking of the threads, and a deadlock.</p>
+<p>
+<a name="guide-ix962"></a>This
+kind of deadlock is avoided by establishing an order in which locks are acquired,
+a <b>lock hierarchy</b>. When all threads always acquire locks
+in the specified order, this deadlock is avoided.</p>
+<p>Adherence to a strict order of lock acquisition is not always optimal.
+For instance, thread 2 has many assumptions about the state of the module
+while holding mutex lock B. Giving up mutex lock B to acquire mutex lock A
+and then reacquiring mutex lock B in that order causes the thread to discard
+its assumptions. The state of the module must be reevaluated.</p>
+<p>
+<a name="guide-ix963"></a><a name="guide-ix964"></a>The blocking synchronization primitives usually have variants
+that attempt to get a lock and fail if the variants cannot get the lock. An
+example is <kbd><b>pthread_mutex_trylock()</b></kbd> . This behavior of primitive
+variants allows threads to violate the lock hierarchy when no contention occurs.
+When contention occurs, the held locks must usually be discarded and the locks
+reacquired in order.</p>
+<a name="6mba5vqm5"></a><h2 class="sol">Deadlocks Related to Scheduling</h2>
+<a name="guide-ix965"></a><p>Because the order in which locks are acquired is not guaranteed, a problem
+can occur where a particular thread never acquires a lock.</p>
+<p>This problem usually happens when the thread holding the lock releases
+the lock, lets a small amount of time pass, and then reacquires the lock.
+Because the lock was released, the appearance is that the other thread should
+acquire the lock. But, nothing blocks the thread holding the lock. Consequently,
+that thread continues to run from the time the thread releases the lock until
+the time the lock is reacquired. Thus, no other thread is run.</p>
+<p>
+<a name="guide-ix966"></a>You can usually solve this type of problem by calling <kbd><b>sched_yield()</b></kbd>(3C)  just before the call to reacquire the lock. The <kbd><b>sched_yield()</b></kbd> function  allows other threads to run and to acquire the lock.</p>
+<p>Because the time-slice requirements of applications are so variable,
+the system does not impose any requirements. Use calls to <kbd><b>sched_yield()</b></kbd> to
+make threads share time as you require.</p>
+<a name="6mba5vqm6"></a><h2 class="sol">Locking Guidelines</h2>
+<a name="guide-ix967"></a><p>
+<a name="guide-ix968"></a>Follow these simple guidelines for locking.</p>
+<a name=""></a><ul>
+<li>
+<p>Try not to hold locks across long operations like I/O where
+performance can be adversely affected.</p>
+
+
+</li>
+<li>
+<p>Do not hold locks when calling a function that is outside
+the module and might reenter the module.</p>
+
+
+</li>
+<li>
+<p>
+<a name="guide-ix969"></a><a name="guide-ix970"></a><a name="guide-ix971"></a><a name="guide-ix972"></a>In general, start
+with a coarse-grained approach, identify bottlenecks, and add finer-grained
+locking where necessary to alleviate the bottlenecks. Most locks are held
+for short amounts of time and contention is rare. So, fix only those locks
+that have measured contention.</p>
+
+
+</li>
+<li>
+<p>When using multiple locks, avoid deadlocks by making sure
+that all threads acquire the locks in the same order.</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqm7"></a><h2 class="sol">Finding Deadlocks</h2>
+<p>The Sun Studio Thread Analyzer is a tool that you can use to find deadlocks
+in your program. The Thread Analyzer can detect potential deadlocks as well
+as actual deadlocks. A potential deadlock does not necessarily occur in a
+given run, but can occur in any execution of the program depending on the
+scheduling of threads and the timing of lock requests by the threads. An actual
+deadlock is one that occurs during the execution of a program, causing the
+threads involved to hang, but may or may not cause the whole process to hang.</p>
+<p>See the <a href="http://docs.oracle.com/docs/cd/E19205-01/820-0619/index.html"><cite>Sun Studio 12: Thread Analyzer User’s Guide</cite></a>.</p>
+<a name="6mba5vqm8"></a><h1 class="sol">Some Basic Guidelines for Threaded Code</h1>
+<a name=""></a><ul>
+<li>
+<p>Know what you are importing and know whether it is safe.</p>
+
+<p>A threaded program cannot arbitrarily enter nonthreaded code.</p>
+
+
+</li>
+<li>
+<p>Threaded code can safely refer to unsafe code only from the
+initial thread.</p>
+
+<p>References to unsafe code in this way ensures
+that the static storage associated with the initial thread is used only by
+that thread.</p>
+
+
+</li>
+<li>
+<p>When making a library safe for multithreaded use, do not thread
+global process operations.</p>
+
+<p>
+<a name="indexterm-406"></a>Do not change global operations,
+or actions with global side effects, to behave in a threaded manner. For example,
+if file I/O is changed to per-thread operation, threads cannot cooperate in
+accessing files.</p>
+
+<p>For thread-specific behavior, or <b>thread cognizant</b> behavior,
+use thread facilities. For example, when the termination of <kbd><b>main()</b></kbd> should
+terminate only the thread that is exiting <kbd><b>main()</b></kbd>.</p>
+
+<a name=""></a>
+<pre>      pthread_exit();
+       /*NOTREACHED*/</pre>
+
+
+</li>
+<li>
+<p>Sun-supplied libraries are assumed to be <b>unsafe</b> unless
+explicitly documented as <b>safe</b>.</p>
+
+<p>If a reference
+manual entry does not explicitly state that an interface is <b>MT-Safe</b>,
+you should assume that the interface is <b>unsafe</b>.</p>
+
+
+</li>
+<li>
+<p>Use compilation flags to manage binary incompatible source
+changes. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-74765/index.html">Chapter&nbsp;8, Compiling and Debugging</a> for complete instructions.</p>
+
+<a name=""></a>
+<ul>
+<li>
+<p>
+<kbd><b>-mt</b></kbd> enables multithreading.</p>
+
+
+</li>
+<li>
+<p>
+<kbd><b>-lpthreads</b></kbd> used with the <kbd><b>-mt</b></kbd> option
+links in the POSIX threads functions. This flag is needed only if your program
+uses pthreads functions.</p>
+
+
+</li>
+<li>
+<p>When using <kbd><b>-mt</b></kbd>, the Solaris threads APIs will
+be linked automatically. Always use the <kbd><b>-mt</b></kbd> option instead
+of listing <kbd><b>-lthread</b></kbd> explicitly. The <kbd>libpthread</kbd> library
+provides an interface to <kbd>libthread</kbd>, so you still need <kbd>libthread</kbd> when using pthreads.</p>
+
+
+</li>
+</ul>
+
+
+</li>
+</ul>
+<a name="6mba5vqm9"></a><h1 class="sol">Creating and Using Threads</h1>
+<a name="guide-ix975"></a><a name="guide-ix976"></a><p>
+<a name="guide-ix977"></a><a name="guide-ix978"></a><a name="guide-ix979"></a><a name="guide-ix981"></a>The threads packages cache the threads
+data structure and stacks so that the repetitive creation of threads can be
+reasonably inexpensive. However, creating and destroying threads as the threads
+are required is usually more expensive than managing a pool of threads that
+wait for independent work. A good example is an RPC server that creates a
+thread for each request and destroys the thread when the reply is delivered.</p>
+<p>Thread creation has less overhead than the overhead of process creation.
+However, thread creation is not efficient when compared to the cost of creating
+a few instructions. Create threads for processing that lasts at least a couple
+of thousand machine instructions.</p>
+<a name="6mba5vqma"></a><h1 class="sol">Working With Multiprocessors</h1>
+<a name="guide-ix1023"></a><p>Multithreading enables you to take advantage of multiprocessors, including
+multicore and multithreaded processors, primarily through parallelism and
+scalability. Programmers should be aware of the differences between the memory
+models of a multiprocessor and a uniprocessor.</p>
+<hr><b>Note – </b><p>In this manual, whenever multiprocessors are discussed, the context
+applies also to multicore and multithreaded processors unless noted otherwise.</p>
+<hr>
+<p>
+<a name="indexterm-407"></a>Memory consistency is directly interrelated to the processor that
+interrogates memory. For uniprocessors, memory is obviously consistent because
+only one processor is viewing memory.</p>
+<p>To improve multiprocessor performance, memory consistency is relaxed.
+You cannot always assume that changes made to memory by one processor are
+immediately reflected in the other processors' views of that memory.</p>
+<p>You can avoid this complexity by using synchronization variables when
+you use shared or global variables.</p>
+<p>Memory barrier synchronization is sometimes an efficient way to  control
+parallelism on multiprocessors.</p>
+<p>Another multiprocessor issue is efficient synchronization
+when threads must wait until all threads have reached a common point in their
+execution.</p>
+<hr><b>Note – </b><p>The issues discussed here are not important
+when the threads synchronization primitives are always used to access shared
+memory locations. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html">Chapter&nbsp;4, Programming with Synchronization Objects</a>.</p>
+<hr>
+<a name="6mba5vqmc"></a><h2 class="sol">Underlying Architecture</h2>
+<a name="guide-ix1024"></a><p>Threads synchronize access to shared storage locations by using the
+threads synchronization routines. With threads synchronization, running a
+program on a shared-memory multiprocessor has the identical effect of running
+the program on a uniprocessor.</p>
+<p>However, in many situations a programmer might be tempted to take advantage
+of the multiprocessor and use “tricks” to avoid the synchronization
+routines. As <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqme/index.html#guide-69756">Example 9–5</a> and
+ <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqmf/index.html#guide-79685">Example 9–6</a> show, such
+tricks can be dangerous.</p>
+<p>An understanding of the memory models supported by common multiprocessor
+architectures helps to understand the dangers.</p>
+<p>The major multiprocessor components are:</p>
+<a name=""></a><ul>
+<li>
+<p>The processors, including cores and their threads, which run
+the programs</p>
+
+
+</li>
+<li>
+<p>Store buffers, which connect the processors to their caches</p>
+
+
+</li>
+<li>
+<p>
+<a name="guide-ix1025"></a><b>Caches</b>, which hold the contents of recently
+accessed or modified storage locations</p>
+
+
+</li>
+<li>
+<p>Memory, which is the primary storage and is shared by all
+processors</p>
+
+
+</li>
+</ul>
+<p>In the simple traditional model, the multiprocessor behaves as if the
+processors are connected directly to memory: when one processor stores into
+a location and another processor immediately loads from the same location,
+the second processor loads what was stored by the first.</p>
+<p>Caches can be used to speed the average memory access. The desired semantics
+can be achieved when the caches are kept consistent with the other caches.</p>
+<p>A problem with this simple approach is that the processor must often
+be delayed to make certain that the desired semantics are achieved. Many modern
+multiprocessors use various techniques to prevent such delays, which unfortunately
+change the semantics of the memory model.</p>
+<p>Two of these techniques and their effects are explained in the next
+two examples.</p>
+<a name="6mba5vqme"></a><h3 class="sol">Shared-Memory Multiprocessors</h3>
+<p>
+<a name="guide-ix1026"></a>Consider the purported solution to the producer and consumer problem
+that is shown in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqme/index.html#guide-69756">Example 9–5</a>.</p>
+<p>
+<a name="guide-ix1027"></a>Although this program works on current SPARC-based
+multiprocessors, the program assumes that all multiprocessors have strongly
+ordered memory. This program is therefore not portable.</p>
+<a name="guide-69756"></a><hr><h5 class="sol">Example 9–5  Producer and Consumer Problem: Shared Memory
+Multiprocessors</h5><br><a name=""></a><a name=""></a><table width="100%" cellpadding="10" cellspacing="0" border="1">
+<tbody>
+<tr>
+<td align="left" valign="top"><a name=""></a>
+<pre>char buffer[BSIZE];
+unsigned int in = 0;
+unsigned int out = 0; </pre>
+
+
+</td><td align="left" valign="top">&nbsp;
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top"><a name=""></a>
+<pre>/* Thread 1 (producer) */</pre>
+
+
+</td><td align="left" valign="top"><a name=""></a>
+<pre>/* Thread 2 (consumer) */</pre>
+
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top"><a name=""></a>
+<pre>void
+producer(char item) {
+     do
+     {
+        ;/* nothing */
+     }
+     while
+         ((in - out) == BSIZE);
+
+     buffer[in%BSIZE] = item;
+     in++;
+}</pre>
+
+
+</td><td align="left" valign="top"><a name=""></a>
+<pre>char
+consumer(void) {
+     char item;
+     do
+     {
+        ;/* nothing */
+     }
+     while
+         ((in - out) == 0);
+     item = buffer[out%BSIZE];
+     out++;
+}</pre>
+
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p> 
+</p><hr>
+<p>
+<a name="guide-ix1028"></a>When this program has exactly one producer and exactly one consumer
+and is run on a shared-memory multiprocessor, the program appears to be correct.
+The difference between <tt>in</tt> and <tt>out</tt> is
+the number of items in the buffer.</p>
+<p>The producer waits, by repeatedly computing this difference, until room
+is available in the buffer for a new item. The consumer waits until an item
+is present in the buffer.</p>
+<p>
+<a name="guide-ix1029"></a><a name="guide-ix1030"></a><b>Strongly-ordered</b> memory
+makes a modification to memory on one processor immediately available to the
+other processors. For strongly ordered memory, the solution is correct even
+taking into account that <tt>in</tt> and  <tt>out</tt> will
+eventually overflow. The overflow occurs as long as  <tt>BSIZE</tt> is
+less than the largest integer that can be represented in a word.</p>
+<p>Shared-memory multiprocessors do not necessarily have strongly ordered
+memory. A change to memory by one processor is not necessarily available immediately
+to the other processors. See what happens when two changes to different memory
+locations are made by one processor. The other processors do not necessarily
+detect the changes in the order in which the changes were made because memory
+modifications do not happen immediately.</p>
+<p>First the changes are stored in <b>store buffers</b> that
+are not visible to the cache.</p>
+<p>The processor checks these store buffers to ensure that a program has
+a consistent view. But, because store buffers are not visible to other processors,
+a write by one processor does not become visible until the processor writes
+to cache.</p>
+<p>
+<a name="guide-ix1031"></a>The synchronization primitives use special instructions that flush
+the store buffers to cache. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html">Chapter&nbsp;4, Programming with Synchronization Objects</a>. So, using locks around your
+shared data ensures memory consistency.</p>
+<p>
+<a name="guide-ix1032"></a><a name="guide-ix1033"></a>When memory ordering is very relaxed,  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqme/index.html#guide-69756">Example 9–5</a> has a problem. The
+consumer might see that  <tt>in</tt> has been incremented by the
+producer before the consumer sees the change to the corresponding buffer slot.</p>
+<p>This memory ordering is called <b>weak ordering</b> because
+stores made by one processor can appear to happen out of order by another
+processor. Memory, however, is always consistent from the same processor.
+To fix this inconsistency, the code should use mutexes to flush the cache.</p>
+<p>Because the trend is toward relaxing memory order, programmers must
+be careful to use locks around all global or shared data.</p>
+<p>As demonstrated by <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqme/index.html#guide-69756">Example 9–5</a> and <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqmf/index.html#guide-79685">Example 9–6</a>, locking is essential.</p>
+<a name="6mba5vqmf"></a><h3 class="sol">Peterson's Algorithm</h3>
+<p>
+<a name="guide-ix1034"></a><a name="guide-ix1035"></a>The code in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqmf/index.html#guide-79685">Example 9–6</a> is
+an implementation of Peterson's Algorithm, which handles mutual exclusion
+between two threads. This code tries to guarantee that only one thread is
+in the critical section. When a thread calls  <kbd><b>mut_excl()</b></kbd>,
+the thread enters the critical section sometime “soon.”</p>
+<p>An assumption here is that a thread exits fairly quickly after entering
+the critical section.</p>
+<a name="guide-79685"></a><hr><h5 class="sol">Example 9–6  Mutual Exclusion for Two Threads</h5><br><a name=""></a><pre>void mut_excl(int me /* 0 or 1 */) {
+    static int loser;
+    static int interested[2] = {0, 0};
+    int other; /* local variable */
+   
+    other = 1 - me;
+    interested[me] = 1;
+    loser = me;
+    while (loser == me &amp;&amp; interested[other])
+        ;
+
+    /* critical section */
+    interested[me] = 0;
+}</pre>
+<hr>
+<p>This algorithm works some of the time when the multiprocessor has strongly
+ordered memory.</p>
+<p>
+<a name="guide-ix1036"></a><a name="guide-ix1037"></a>Some multiprocessors, including some SPARC-based multiprocessors,
+have store buffers. When a thread issues a store instruction, the data is
+put into a store buffer. The buffer contents are eventually sent to the cache,
+but not necessarily right away. The caches on each of the processors maintain
+a consistent view of memory, but modified data does not reach the cache right
+away.</p>
+<p>
+<a name="guide-ix1038"></a>When multiple memory locations are stored into, the changes reach
+the cache and memory in the correct order, but possibly after a delay. SPARC-based
+multiprocessors with this property are said to have total store order (TSO).</p>
+<p>Suppose you have a situation where one processor stores into location
+A and loads from location B. Another processor stores into location B and
+loads from location A. Either the first processor fetches the newly-modified
+value from location B, or the second processor fetches the newly-modified
+value from location A, or both. However, the case in which both processors
+load the old values cannot happen.</p>
+<p>Moreover, with the delays caused by load and store buffers, the “impossible
+case” can happen.</p>
+<p>What could happen with Peterson's algorithm is that two threads running
+on separate processors both enter the critical section. Each thread stores
+into its own slot of the particular array and then loads from the other slot.
+Both threads read the old values (0), each thread assumes that the other party
+is not present, and both enter the critical section. This kind of problem
+might not be detected when you test a program, but only occurs much later.</p>
+<p>To avoid this problem use the threads synchronization primitives, whose
+implementations issue special instructions, to force the writing of the store
+buffers to the cache. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-83092/index.html">Chapter&nbsp;4, Programming with Synchronization Objects</a>.</p>
+<a name="6mba5vqmg"></a><h3 class="sol">Parallelizing a Loop on a Shared-Memory Parallel
+Computer</h3>
+<p>
+<a name="guide-ix1040"></a><a name="indexterm-408"></a>In
+many applications, and especially numerical applications, while part of the
+algorithm can be parallelized, other parts are inherently sequential, as shown
+in the following table. The algorithm can use barrier synchronization to coordinate
+the parallel and sequential portions.</p>
+<a name="guide-tbl-18"></a>Table 9–1  Multithreaded Cooperation Through
+Barrier Synchronization<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Sequential Execution&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Parallel Execution&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><a name=""></a>
+<pre>Thread 1</pre>
+
+
+</td><td align="left" valign="top"><a name=""></a>
+<pre>Thread 2 through Thread n</pre>
+
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top"><a name=""></a>
+<pre>while(many_iterations) {
+
+    sequential_computation
+    --- Barrier ---
+    parallel_computation
+}</pre>
+
+
+</td><td align="left" valign="top"><a name=""></a>
+<pre>while(many_iterations) {
+
+
+    --- Barrier ---
+    parallel_computation
+}</pre>
+
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p>For example, you might produce a set of matrixes with a strictly linear
+computation, and perform operations on the matrixes that use a parallel algorithm.
+You then use the results of these operations to produce another set of matrixes,
+operate on these matrixes in parallel, and so on.</p>
+<p>
+<a name="guide-ix1041"></a><a name="guide-ix1042"></a><a name="guide-ix1043"></a>The
+nature of the parallel algorithms for such a computation is that little synchronization
+is required during the computation. But, synchronization of all the threads
+is required to ensure that the sequential computation is finished before the
+parallel computation begins.</p>
+<p>The barrier forces all the threads that are doing the parallel computation
+to wait until all involved threads have reached the barrier. When the threads
+have reached the barrier, the threads are released and begin computing together.</p>
+<a name="6mba5vqmh"></a><h1 class="sol">Examples of Threads Programs</h1>
+<p>This guide has covered a wide variety of important threads programming
+issues.  <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedn/index.html">Appendix&nbsp;A, Extended Example: A Thread Pool Implementation</a> provides a pthreads program example that uses
+many of the features and styles that have been discussed. </p>
+<a name="6mba5vqmj"></a><h2 class="sol">Further Reading</h2>
+<p>For more in-depth information about multithreading, see <var>Programming
+with Threads</var> by Steve Kleiman, Devang Shah, and Bart Smaalders
+(Prentice-Hall, published in 1995). Note that although the book is not current
+with changes to the Solaris OS, much of the conceptual information is still
+valid.</p>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-74765/index.html"><em>Previous</em>: Chapter&nbsp;8 Compiling and Debugging</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedn/index.html"><em>Next</em>: Appendix&nbsp;A Extended Example: A Thread Pool
+Implementation</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

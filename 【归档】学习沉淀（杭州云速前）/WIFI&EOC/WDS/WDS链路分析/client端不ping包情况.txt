@@ -1,0 +1,5 @@
+/proc/sys/net # Adding WDS entry for 00:18:8b:c2:e6:2b, through ni=00:1e:de:aa:aa:b7
+ath0: received packet with  own address as source address
+Adding WDS entry for 00:18:8b:c2:e6:2b, through ni=00:1e:de:aa:aa:b7
+ath0: received packet with  own address as source address
+Adding WDS entry for 00:18:8b:c2:e6:2b, through ni=00:1e:de:aa:aa:b7

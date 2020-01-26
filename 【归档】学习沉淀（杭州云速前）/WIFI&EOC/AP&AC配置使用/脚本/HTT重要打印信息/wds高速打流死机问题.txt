@@ -1,0 +1,350 @@
+root@Autelan Technology Ltd:/# Unhandled kernel unaligned access[#1]:
+Cpu 0
+$ 0   : 0000000000000000 ffffffff804258f0 0000000000000000 0000000000000000
+$ 4   : ffffffff80122dfc ffffffffde440108 c000000000125250 080045000034cd80
+$ 8   : 0000000010108ce3 ffffffff804d3bc0 0000000000000000 0000000000000000
+$12   : 0000000010108ce1 000000001000001e 0000000000000000 0000000000000000
+$16   : ffffffff804d3bc0 800000000cb5a880 0000000000000000 800000000098dc80
+$20   : 8001070000000000 0000000000000001 0001600000000000 0000000000000000
+$24   : 0000000000000011 a8000000005d0000
+$28   : ffffffff804d0000 ffffffff804d3b90 0000000000000000 ffffffff8011ac80
+Hi    : 0000000000000000
+Lo    : 0000000000000090
+epc   : ffffffff80122e14 do_ade+0x224/0x510     Tainted: P
+ra    : ffffffff8011ac80 ret_from_exception+0x0/0x8
+Status: 10108ce3    KX SX UX KERNEL EXL IE
+Cause : 00800010
+BadVA : 080045000034cd80
+PrId  : 000d0601
+Modules linked in: avrmod ipv6 capwap_split_fast cavium_ethernet ath_pktlog(P) wlan_scan_sta wlan_scan_ap wlan_sms4(P) wlan_me(P) wlan_acl wlan_wep wlan_tkip wlan_ccmp wlan_xauth ath_pci ath_dev(P) ath_rate_atheros(P) wlan ath_dfs(P)
+ ath_hal(P) bm
+Process swapper (pid: 0, threadinfo=ffffffff804d0000, task=ffffffff804d4300)
+Stack : 0000000000000000 800000000cb5a880 080045000034cc78 800000000098dc80
+        ffffffff8011ac80 ffffffff804fc168 0000000000000000 000000000012f008
+        08073a000cb5a946 0000000000000001 000000000000000d 0000000000000020
+        a8000000015f2748 000000000000002a a80000000c81c000 a80000000102a9d0
+        0000000000000000 0000000000000000 0000000000230000 0000000000000000
+        0000000000000000 0000000000000000 0000000000000000 800000000cb5a880
+        080045000034cc78 800000000098dc80 8001070000000000 0000000000000001
+        0001600000000000 0000000000000000 0000000000000011 a8000000005d0000
+        a80000000c263e00 0000000000000000 ffffffff804d0000 ffffffff804d3d20
+        0000000000000000 c000000000125610 0000000010108ce3 0000000000000000
+        ...
+Call Trace:
+[<ffffffff80122e14>] do_ade+0x224/0x510
+[<ffffffff8011ac80>] ret_from_exception+0x0/0x8
+[<c000000000125250>] cvm_oct_tasklet_rx+0x1e0/0x1220 [cavium_ethernet]
+[<ffffffff80140af0>] tasklet_action+0x88/0x148
+[<ffffffff8014013c>] __do_softirq+0x114/0x158
+[<ffffffff801401e8>] do_softirq+0x68/0x70
+[<ffffffff801060f8>] plat_irq_dispatch+0x148/0x1f0
+[<ffffffff8011ac88>] ret_from_irq+0x0/0x4
+[<ffffffff8011a724>] r4k_wait+0xc/0x18
+[<ffffffff8011d358>] cpu_idle+0x40/0x60
+[<ffffffff805081cc>] start_kernel+0x4a4/0x5b8
+
+
+Code: 00431024  1440ffef  00000000 <68e40000> 6ce40007  24020000  14400030  7ca22403  0080982d
+
+--DISABLE OCTEON_IRQ_WDOG0--
+
+--IN DIE--
+BUG: at kernel/irq/manage.c:408 free_irq()
+Call Trace:
+[<ffffffff801215e0>] dump_stack+0x8/0x48
+[<ffffffff80163e04>] free_irq+0x1a4/0x1b0
+[<ffffffff8010bc70>] disable_watchdog_irq+0x28/0x38
+[<ffffffff801214ec>] die+0x16c/0x200
+[<ffffffff801230d0>] do_ade+0x4e0/0x510
+[<ffffffff8011ac80>] ret_from_exception+0x0/0x8
+[<ffffffff80122e14>] do_ade+0x224/0x510
+[<ffffffff8011ac80>] ret_from_exception+0x0/0x8
+[<c000000000125250>] cvm_oct_tasklet_rx+0x1e0/0x1220 [cavium_ethernet]
+[<ffffffff80140af0>] tasklet_action+0x88/0x148
+[<ffffffff8014013c>] __do_softirq+0x114/0x158
+[<ffffffff801401e8>] do_softirq+0x68/0x70
+[<ffffffff801060f8>] plat_irq_dispatch+0x148/0x1f0
+[<ffffffff8011ac88>] ret_from_irq+0x0/0x4
+[<ffffffff8011a724>] r4k_wait+0xc/0x18
+[<ffffffff8011d358>] cpu_idle+0x40/0x60
+[<ffffffff805081cc>] start_kernel+0x4a4/0x5b8
+
+Kernel panic - not syncing: Fatal exception in interrupt
+
+--DISABLE OCTEON_IRQ_WDOG0--
+
+--IN PANIC--
+BUG: at kernel/irq/manage.c:408 free_irq()
+Call Trace:
+[<ffffffff801215e0>] dump_stack+0x8/0x48
+[<ffffffff80163e04>] free_irq+0x1a4/0x1b0
+[<ffffffff8010bc70>] disable_watchdog_irq+0x28/0x38
+[<ffffffff80138e98>] panic+0xe0/0x368
+[<ffffffff80121578>] die+0x1f8/0x200
+[<ffffffff801230d0>] do_ade+0x4e0/0x510
+[<ffffffff8011ac80>] ret_from_exception+0x0/0x8
+[<ffffffff80122e14>] do_ade+0x224/0x510
+[<ffffffff8011ac80>] ret_from_exception+0x0/0x8
+[<c000000000125250>] cvm_oct_tasklet_rx+0x1e0/0x1220 [cavium_ethernet]
+[<ffffffff80140af0>] tasklet_action+0x88/0x148
+[<ffffffff8014013c>] __do_softirq+0x114/0x158
+[<ffffffff801401e8>] do_softirq+0x68/0x70
+[<ffffffff801060f8>] plat_irq_dispatch+0x148/0x1f0
+[<ffffffff8011ac88>] ret_from_irq+0x0/0x4
+[<ffffffff8011a724>] r4k_wait+0xc/0x18
+[<ffffffff8011d358>] cpu_idle+0x40/0x60
+[<ffffffff805081cc>] start_kernel+0x4a4/0x5b8
+
+Trying to free already-free IRQ 72
+
+*** NMI Watchdog interrupt on Core 0x0 ***
+        $0      0x0000000000000000      at      0xffffffff81140000
+        v0      0x000000000000470a      v1      0x0000006fa612bddc
+        a0      0x0000000000000000      a1      0x00000000d964b800
+        a2      0xffffffff81149d98      a3      0xa800000001585180
+        a4      0x0000000000000008      a5      0xa80000000158547a
+        a6      0x0000000000000002      a7      0xffffffff8114a1e5
+        t0      0x000000000000000a      t1      0x0000000000000002
+        t2      0xfffffffffffffffc      t3      0xffffffff80430228
+        s0      0x0000000000004709      s1      0x431bde82d7b634db
+        s2      0x00000000000003e8      s3      0x800000000098dc80
+        s4      0x8001070000000000      s5      0x0000000000000001
+        s6      0x0001600000000000      s7      0x0000000000000000
+        t8      0x0000000000000000      t9      0xffffffff80248f70
+        k0      0x0000000000000000      k1      0x0000000000000000
+        gp      0xffffffff804d0000      sp      0xffffffff804d3970
+        s8      0x0000000000000000      ra      0xffffffff801390b8
+        epc     0xffffffff80139110
+        status  0x0000000010588ce5      cause   0x0000000000800000
+        sum0    0x0000000000008000      en0     0x01004f1400028000
+*** Chip soft reset soon ***
+
+BootROM version 1.0.11 Build 212 (Release build) (Build time: Apr  8 2009 - 11:14:34)
+
+Serial Buad Rate :115200
+
+Product Serial Number: 01010051A12009201996
+
+OCTEON CN5010-SCP pass 1.1, Core clock: 300 MHz, DDR clock: 200 MHz (400 Mhz data rate)
+DRAM:  256 MB
+
+Memory selftest
+
+        Testing the data lines....................OK
+
+        Testing the address lines.........................Ok
+Flash: 32.5 MB
+Clearing DRAM...... done
+BIST check passed.
+Starting PCI
+PCI Status: PCI 32-bit
+GPIO State:0x0000000000000F07
+MAC Address :  00:26:7A:12:6F:8A
+***SMI***
+Check for Switch Chip.
+Net:   octeth0, octeth1, octeth2
+USB:   Init: Power Port (0)
+no usb device detected !
+Press ENTER to enter BOOT MENU; Press SPACE to enter command line; Don't press any key to autoboot:  0
+
+** Unable to use  **
+## Booting image at 10040000 ...
+Image header version: 0x1
+   Image Name:   AP-OS
+   Created:      2011-03-11   8:40:53 UTC
+   Image Type:   MIPS Linux Kernel Image (gzip compressed)
+   Data Size:    14196252 Bytes = 13.5 MB
+   Load Address: 06000000
+   Entry Point:  06000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ...OK
+
+Starting kernel ...
+
+argv[2]: productplatform=apv14
+argv[3]: ethspd=1000
+ELF file is 64 bit
+Attempting to allocate memory for ELF segment: addr: 0xffffffff80100000 (adjusted to: 0x0000000000100000), size 0x109f222
+Allocated memory for ELF segment: addr: 0xffffffff80100000, size 0x109f222
+Loading .text @ 0xffffffff80100000 (0x320fc8 bytes)
+Loading __ex_table @ 0xffffffff80420fd0 (0x2f90 bytes)
+Loading .rodata @ 0xffffffff80424000 (0x8ee84 bytes)
+Loading .pci_fixup @ 0xffffffff804b2e88 (0xb20 bytes)
+Loading __ksymtab @ 0xffffffff804b39a8 (0x9140 bytes)
+Loading __ksymtab_gpl @ 0xffffffff804bcae8 (0x22c0 bytes)
+Loading __ksymtab_gpl_future @ 0xffffffff804beda8 (0x30 bytes)
+Loading __ksymtab_strings @ 0xffffffff804bedd8 (0xe8f8 bytes)
+Loading __param @ 0xffffffff804cd6d0 (0x1400 bytes)
+Loading .data @ 0xffffffff804d0000 (0x2ed40 bytes)
+Loading .data.cacheline_aligned @ 0xffffffff804ff000 (0x7280 bytes)
+Loading .init.text @ 0xffffffff80507000 (0x2e5a8 bytes)
+Loading .init.data @ 0xffffffff805355a8 (0x5298 bytes)
+Loading .init.setup @ 0xffffffff8053a840 (0x618 bytes)
+Loading .initcall.init @ 0xffffffff8053ae58 (0x548 bytes)
+Loading .con_initcall.init @ 0xffffffff8053b3a0 (0x18 bytes)
+Loading .exit.text @ 0xffffffff8053b3b8 (0x1f10 bytes)
+Loading .init.ramfs @ 0xffffffff8053e000 (0xbfc7ee bytes)
+Clearing .bss @ 0xffffffff8113c000 (0x30b80 bytes)
+Clearing .cvmx_shared_bss @ 0xffffffff8116cb80 (0x310 bytes)
+## Loading Linux kernel with entry point: 0x80507000 ...
+Bootloader: Done loading app on coremask: 0x1
+Linux version 2.6.21.7-Cavium-Octeon (qbuilder@aqserver) (gcc version 4.1.2 (Cavium Networks Version: 1_7_3, build 58)) #391 Fri Mar 11 16:40:48 CST 2011
+CVMSEG size: 2 cache lines (256 bytes)
+CPU revision is: 000d0601
+Init gateway product power off feature
+Determined physical RAM map:
+ memory: 000000000ec00000 @ 0000000001200000 (usable)
+Wasting 258048 bytes for tracking 4608 unused pages
+Initrd not found or empty - disabling initrd
+Built 1 zonelists.  Total pages: 64135
+Kernel command line:  bootm 0x10040000 productplatform=apv14 ethspd=1000 console=ttyS0,115200
+Primary instruction cache 32kB, virtually tagged, 4 way, 64 sets, linesize 128 bytes.
+Primary data cache 16kB, 64-way, 2 sets, linesize 128 bytes.
+Synthesized TLB refill handler (49 instructions).
+Synthesized TLB load handler fastpath (64 instructions).
+Synthesized TLB store handler fastpath (67 instructions).
+Synthesized TLB modify handler fastpath (64 instructions).
+PID hash table entries: 1024 (order: 10, 8192 bytes)
+Using 300.000 MHz high precision timer.
+Console: colour dummy device 80x25
+Dentry cache hash table entries: 32768 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 16384 (order: 5, 131072 bytes)
+Memory: 237568k/241664k available (3203k kernel code, 3992k reserved, 916k data, 12496k init, 0k highmem)
+Calibrating delay using timer specific routine.. 600.33 BogoMIPS (lpj=1200677)
+Mount-cache hash table entries: 256
+Checking for the multiply/shift bug... no.
+Checking for the daddi bug... no.
+Checking for the daddiu bug... no.
+NET: Registered protocol family 16
+Enabling Octeon big bar support
+PCI Status: PCI 32-bit
+PCI Clock: 33 MHz
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+slot:2,pin:1,interruptsACABAAAAAAAAAAAAAAAAAAAAAAAAAAAA,dev_num:2
+NET: Registered protocol family 2
+Time: MIPS clocksource has been installed.
+IP route cache hash table entries: 2048 (order: 2, 16384 bytes)
+TCP established hash table entries: 8192 (order: 5, 131072 bytes)
+TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+TCP: Hash tables configured (established 8192 bind 8192)
+TCP reno registered
+/proc/octeon_perf: Octeon performace counter interface loaded
+Octeon watchdog driver loaded with a timeout of 14316 ms.
+Total HugeTLB memory allocated, 0
+JFFS2 version 2.2. (NAND) (C) 2001-2006 Red Hat, Inc.
+io scheduler noop registered
+io scheduler cfq registered (default)
+[drm] Initialized drm 1.1.0 20060810
+Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing enabled
+loop: loaded (max 8 devices)
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+Fusion MPT base driver 3.04.04
+Copyright (c) 1999-2007 LSI Logic Corporation
+Fusion MPT SAS Host driver 3.04.04
+slram: not enough parameters.
+usbmon: debugfs is not available
+dwc_otg: version 2.40a 10-APR-2006
+DWC_otg: Using DMA mode
+dwc_otg dwc_otg.0: DWC OTG Controller
+dwc_otg dwc_otg.0: new USB bus registered, assigned bus number 1
+dwc_otg dwc_otg.0: irq 64, io mem 0x00000000
+DWC_otg: Init: Port Power? op_state=1
+DWC_otg: Init: Power Port (0)
+usb usb1: configuration #1 chosen from 1 choice
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver usbserial
+drivers/usb/serial/usb-serial.c: USB Serial support registered for generic
+usbcore: registered new interface driver usbserial_generic
+drivers/usb/serial/usb-serial.c: USB Serial Driver core
+drivers/usb/serial/usb-serial.c: USB Serial support registered for airprime
+usbcore: registered new interface driver airprime
+drivers/usb/serial/usb-serial.c: USB Serial support registered for GSM modem (1-port)
+usbcore: registered new interface driver option
+drivers/usb/serial/option.c: USB Driver for GSM modems: v0.7.1
+mice: PS/2 mouse device common for all mice
+i2c /dev entries driver
+TCP cubic registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+serial8250: ttyS0 at MMIO 0x1180000000800 (irq = 42) is a 16550A
+Bootbus flash: Setting flash for 16MB flash at 0x1d000000
+productplatform:apv14, gateway:0 ,ap:1
+cfi->mfr:0x1,cfi->id0x7e
+phys_mapped_flash: Found 1 x16 devices at 0x0 in 8-bit bank
+NOR chip too large to fit in mapping. Attempting to cope...
+ Amd/Fujitsu Extended Query Table at 0x0040
+phys_mapped_flash: CFI does not contain boot bank location. Assuming top.
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+Reducing visibility of 32768KiB chip to 16384KiB
+Creating 7 MTD partitions on "phys_mapped_flash":
+0x00000000-0x00020000 : "partiontable"
+0x00020000-0x00040000 : "message"
+0x00040000-0x00e40000 : "kernel1"
+0x00040000-0x00e40000 : "kernel2"
+0x00040000-0x00e40000 : "bigkernel"
+0x00e40000-0x00f00000 : "reserved"
+0x00f00000-0x01000000 : "config"
+Freeing unused kernel memory: 12496k freed
+init started:  BusyBox v1.4.2 (2011-03-09 17:09:50 CST) multi-call binary
+Mounting file systems
+mount: mounting none on /mnth failed
+Device version is the newest.
+AP
+bm:register major dev [236] with debug_ioctl[0]
+bm:loaded successfully.
+AQ2110-N
+ath_hal: module license 'Proprietary' taints kernel.
+ath_hal: 0.9.17.1 (AR5212, AR5416, RF5111, RF5112, RF2413, RF5413, RF2316, RF2317, DEBUG, REGOPS_FUNC, WRITE_EEPROM, 11D)
+ath_dfs: Version 2.0.0
+Copyright (c) 2005-2006 Atheros Communications, Inc. All Rights Reserved
+wlan: 0.8.4.2 (Atheros/multi-bss)
+ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+ath_pci: 0.9.4.5 (Atheros/multi-bss)
+PCI: Enabling device 0000:00:02.0 (0000 -> 0002)
+dfs_init_radar_filters: Unknown dfs domain 0
+wifi0: Atheros 9280: mem=0x11b00f0000000, irq=44 hw_base=0x90011b00f0000000
+wlan: mac acl policy registered
+wlan_me: Version 0.1
+Copyright (c) 2008 Atheros Communications, Inc. All Rights Reserved
+wlan_sms4: Version 1.0.1
+Copyright (c) 2001-2007 IWNCOMM Communications, Inc, All Rights Reserved
+cavium-ethernet: Cavium Networks Octeon SDK version 1.7.3, build 264
+Interface 0 has 1 ports (RGMII)
+phy_id:1
+priv-val:300
+NET: Registered protocol family 10
+device eth0 entered promiscuous mode
+interface eth1 does not exist!
+default: port 1(eth0) entering learning state
+bind: Address already in use
+/sbin/mini_httpd: started as root without requesting chroot(), warning only
+
++Avrmod_init
+Cavium_V1
+gpio init is ok
+default: topology change detected, propagating
+default: port 1(eth0) entering forwarding state
+hostapd config dir ok
+cp passwd to /tmp/
+killall: udhcpc: no process killed
+dev.wifi0.thinap = 0
+crond[1628]: crond 2.3.2 dillon, started, log level 8
+
+crond[1632]: crond 2.3.2 dillon, started, log level 8
+
+pool.ntp.org: Host name lookup failure
+device ath0 entered promiscuous mode

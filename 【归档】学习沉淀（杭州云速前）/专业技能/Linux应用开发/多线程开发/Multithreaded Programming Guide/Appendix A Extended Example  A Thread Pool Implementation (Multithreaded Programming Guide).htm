@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0074)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedn/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Appendix&nbsp;A Extended Example: A Thread Pool
+Implementation (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Appendix A Extended Example  A Thread Pool Implementation (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Appendix A Extended Example  A Thread Pool Implementation (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Appendix A Extended Example  A Thread Pool Implementation (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Appendix A Extended Example  A Thread Pool Implementation (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Appendix A Extended Example  A Thread Pool Implementation (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Appendix A Extended Example  A Thread Pool Implementation (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Appendix&nbsp;A Extended Example: A Thread Pool
+Implementation</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-29299/index.html"><em>Previous</em>: Chapter&nbsp;9 Programming Guidelines</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vqmk"></a><h1 class="sol">Appendix&nbsp;A Extended Example: A Thread Pool
+Implementation</h1>
+<a name=""></a><p>
+<a name="indexterm-409"></a>This appendix provides a sample implementation of a useful package
+of interfaces for multithreaded programming: a thread pool.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedh/index.html">What is a Thread Pool?</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggfbr/index.html">About the Thread Pool Example</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggech/index.html">What the Thread Pool Example Shows</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vqmm"></a><h1 class="sol">What is a Thread Pool?</h1>
+<p>Threads provide a useful paradigm for an application to do many things
+at once: if you have something to do, create a thread to do it.  Using threads
+can simplify the logic of the application and also take advantage of multiple
+processors, but creating too many threads can cause overall application performance
+problems due to contention for resources.  The application may end up spending
+much of its time contending for resources, dealing with mutex locks for example,
+and less of its time actually doing useful work.  Also, creating a thread,
+though cheaper than creating a process, is still an expense.  Creating a thread
+to do a small amount of work is wasteful.</p>
+<p>
+<a name="indexterm-410"></a>A thread pool manages a set of anonymous threads that perform
+work on request.  The threads do not terminate right away. When one of the
+threads completes a task, the thread becomes idle, ready to be dispatched
+to another task.  The overhead of creating and destroying threads is limited
+to creating and destroying just the number of active worker threads in the
+pool.  The application can have more tasks than there are worker threads,
+and this is usually the case.  Processor utilization and throughput are improved
+by reducing contention for resources. The submitted tasks are processed in
+order, usually faster than could be done by creating a thread per task.</p>
+<a name="6mba5vqmn"></a><h1 class="sol">About the Thread Pool Example</h1>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggfeo/index.html">Thread Pool Functions</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedd/index.html">Thread Pool Code Examples</a>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqmp"></a><h2 class="sol">Thread Pool Functions</h2>
+<p>The <kbd>thr_pool.h</kbd> header file declares the following
+functional interfaces. </p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggecw/index.html"><kbd><b>thr_pool_create()</b></kbd></a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedc/index.html"><kbd><b>thr_pool_queue()</b></kbd></a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedp/index.html"><kbd><b>thr_pool_wait()</b></kbd></a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggebz/index.html"><kbd><b>thr_pool_destroy()</b></kbd></a>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqmr"></a><h3 class="sol">
+<kbd><b>thr_pool_create()</b></kbd>
+</h3>
+<p>Creates a thread pool.  More than one pool can be created.</p>
+<pre>typedef struct thr_pool thr_pool_t;	/* opaque to clients */
+
+thr_pool_t *thr_pool_create(uint_t <var>min_threads</var>, uint_t <var>max_threads</var>,
+                uint_t <var>linger</var>, pthread_attr_t *<var>attr</var>);</pre><a name=""></a><dl>
+<dt>
+<var>min_threads</var>
+</dt>
+<dd>
+<p>Minimum number of threads in the pool.</p>
+
+</dd>
+<dt>
+<var>max_threads</var>
+</dt>
+<dd>
+<p>Maximum number of threads in the pool.</p>
+
+</dd>
+<dt>
+<var>linger</var>
+</dt>
+<dd>
+<p>Number of seconds that idle threads can linger before exiting,
+when no tasks come in. The idle threads can only exit if they are extra threads,
+above the number of minimum threads.</p>
+
+</dd>
+<dt>
+<var>attr</var>
+</dt>
+<dd>
+<p>Attributes of all worker threads. This can be <tt>NULL</tt>.</p>
+
+</dd>
+</dl>
+<p>On error, <kbd><b>thr_pool_create()</b></kbd> returns <tt>NULL</tt> with <tt>errno</tt> set to the error code.</p>
+<a name="6mba5vqmt"></a><h3 class="sol">
+<kbd><b>thr_pool_queue()</b></kbd>
+</h3>
+<p>Enqueue a work request or task to the thread pool job queue.</p>
+<pre>int  thr_pool_queue(thr_pool_t *<var>pool</var>, void *(*<var>func</var>)(void *), void *<var>arg</var>);</pre><a name=""></a><dl>
+<dt>
+<var>pool</var>
+</dt>
+<dd>
+<p>A thread pool identifier returned from <kbd><b>thr_pool_create()</b></kbd>.</p>
+
+</dd>
+<dt>
+<var>func</var>
+</dt>
+<dd>
+<p>The task function to be called.</p>
+
+</dd>
+<dt>
+<var>arg</var>
+</dt>
+<dd>
+<p>The only argument passed to the task function.</p>
+
+</dd>
+</dl>
+<p>On error, <kbd><b>thr_pool_queue()</b></kbd> returns -1 with <tt>errno</tt> set to the error code.</p>
+<p>Notice the similarity of the <var>func</var> and <var>arg</var> arguments to the <var>start_routine</var> and <var>arg</var> arguments of <kbd><b>pthread_create()</b></kbd> shown in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-95520/index.html"><tt>pthread_create</tt> Syntax</a>.  The <kbd><b>thr_pool_queue()</b></kbd> function can be used as a replacement for <kbd><b>pthread_create()</b></kbd> in
+existing applications. Note that if you use <kbd><b>thr_pool_queue()</b></kbd> instead
+of <kbd><b>pthread_create()</b></kbd>, you cannot use <kbd><b>pthread_join()</b></kbd> to
+wait for the task to complete.</p>
+<a name="6mba5vqmv"></a><h3 class="sol">
+<kbd><b>thr_pool_wait()</b></kbd>
+</h3>
+<p>Wait for all queued jobs to complete in the thread pool.</p>
+<pre>void  thr_pool_wait(thr_pool_t *<var>pool</var>);</pre><p>
+<var>pool</var> is a thread pool identifier that is
+returned from <kbd><b>thr_pool_create()</b></kbd>.</p>
+<a name="6mba5vqn1"></a><h3 class="sol">
+<kbd><b>thr_pool_destroy()</b></kbd>
+</h3>
+<p>Cancel all queued jobs and destroy the pool. Worker threads that are
+actively processing tasks are cancelled.</p>
+<pre>extern	void	thr_pool_destroy(thr_pool_t *<var>pool</var>);</pre><p>
+<var>pool</var> is a thread pool identifier that is
+returned from <kbd><b>thr_pool_create()</b></kbd>.</p>
+<a name="6mba5vqn3"></a><h2 class="sol">Thread Pool Code Examples</h2>
+<p>This section shows the code for the thread pool example:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gggwt/index.html"><kbd>thr_pool.h</kbd> File</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gggvw/index.html"><kbd>thr_pool.c</kbd> File</a>
+</p>
+
+
+</li>
+</ul>
+<a name="6mba5vqn5"></a><h3 class="sol">
+<kbd>thr_pool.h</kbd> File</h3>
+<p>This file declares the functions used in the example.</p>
+<a name="gggnu"></a><hr><h5 class="sol">Example A–1  <kbd>thr_pool.h</kbd>
+</h5><br><a name=""></a><pre>/*
+ * Declarations for the clients of a thread pool.
+ */
+
+#include &lt;pthread.h&gt;
+
+/*
+ * The thr_pool_t type is opaque to the client.
+ * It is created by thr_pool_create() and must be passed
+ * unmodified to the remainder of the interfaces.
+ */
+typedef	struct thr_pool	thr_pool_t;
+
+/*
+ * Create a thread pool.
+ *	min_threads:	the minimum number of threads kept in the pool,
+ *			always available to perform work requests.
+ *	max_threads:	the maximum number of threads that can be
+ *			in the pool, performing work requests.
+ *	linger:		the number of seconds excess idle worker threads
+ *			(greater than min_threads) linger before exiting.
+ *	attr:		attributes of all worker threads (can be NULL);
+ *			can be destroyed after calling thr_pool_create().
+ * On error, thr_pool_create() returns NULL with errno set to the error code.
+ */
+extern	thr_pool_t	*thr_pool_create(uint_t min_threads, uint_t max_threads,
+				uint_t linger, pthread_attr_t *attr);
+
+/*
+ * Enqueue a work request to the thread pool job queue.
+ * If there are idle worker threads, awaken one to perform the job.
+ * Else if the maximum number of workers has not been reached,
+ * create a new worker thread to perform the job.
+ * Else just return after adding the job to the queue;
+ * an existing worker thread will perform the job when
+ * it finishes the job it is currently performing.
+ *
+ * The job is performed as if a new detached thread were created for it:
+ *	pthread_create(NULL, attr, void *(*func)(void *), void *arg);
+ *
+ * On error, thr_pool_queue() returns -1 with errno set to the error code.
+ */
+extern	int	thr_pool_queue(thr_pool_t *pool,
+			void *(*func)(void *), void *arg);
+
+/*
+ * Wait for all queued jobs to complete.
+ */
+extern	void	thr_pool_wait(thr_pool_t *pool);
+
+/*
+ * Cancel all queued jobs and destroy the pool.
+ */
+extern	void	thr_pool_destroy(thr_pool_t *pool);</pre>
+<hr>
+<a name="6mba5vqn7"></a><h3 class="sol">
+<kbd>thr_pool.c</kbd> File</h3>
+<p>This file implements the thread pool.</p>
+<a name="ggedf"></a><hr><h5 class="sol">Example A–2  <kbd>thr_pool.c</kbd>
+</h5><br><a name=""></a><pre>/*
+ * Thread pool implementation.
+ * See &lt;thr_pool.h&gt; for interface declarations.
+ */
+
+#if !defined(_REENTRANT)
+#define	_REENTRANT
+#endif
+
+#include "thr_pool.h"
+#include &lt;stdlib.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;errno.h&gt;
+
+/*
+ * FIFO queued job
+ */
+typedef struct job job_t;
+struct job {
+	job_t	*job_next;		/* linked list of jobs */
+	void	*(*job_func)(void *);	/* function to call */
+	void	*job_arg;		/* its argument */
+};
+
+/*
+ * List of active worker threads, linked through their stacks.
+ */
+typedef struct active active_t;
+struct active {
+	active_t	*active_next;	/* linked list of threads */
+	pthread_t	active_tid;	/* active thread id */
+};
+
+/*
+ * The thread pool, opaque to the clients.
+ */
+struct thr_pool {
+	thr_pool_t	*pool_forw;	/* circular linked list */
+	thr_pool_t	*pool_back;	/* of all thread pools */
+	pthread_mutex_t	pool_mutex;	/* protects the pool data */
+	pthread_cond_t	pool_busycv;	/* synchronization in pool_queue */
+	pthread_cond_t	pool_workcv;	/* synchronization with workers */
+	pthread_cond_t	pool_waitcv;	/* synchronization in pool_wait() */
+	active_t	*pool_active;	/* list of threads performing work */
+	job_t		*pool_head;	/* head of FIFO job queue */
+	job_t		*pool_tail;	/* tail of FIFO job queue */
+	pthread_attr_t	pool_attr;	/* attributes of the workers */
+	int		pool_flags;	/* see below */
+	uint_t		pool_linger;	/* seconds before idle workers exit */
+	int		pool_minimum;	/* minimum number of worker threads */
+	int		pool_maximum;	/* maximum number of worker threads */
+	int		pool_nthreads;	/* current number of worker threads */
+	int		pool_idle;	/* number of idle workers */
+};
+
+/* pool_flags */
+#define	POOL_WAIT	0x01		/* waiting in thr_pool_wait() */
+#define	POOL_DESTROY	0x02		/* pool is being destroyed */
+
+/* the list of all created and not yet destroyed thread pools */
+static thr_pool_t *thr_pools = NULL;
+
+/* protects thr_pools */
+static pthread_mutex_t thr_pool_lock = PTHREAD_MUTEX_INITIALIZER;
+
+/* set of all signals */
+static sigset_t fillset;
+
+static void *worker_thread(void *);
+
+static int
+create_worker(thr_pool_t *pool)
+{
+	sigset_t oset;
+	int error;
+
+	(void) pthread_sigmask(SIG_SETMASK, &amp;fillset, &amp;oset);
+	error = pthread_create(NULL, &amp;pool-&gt;pool_attr, worker_thread, pool);
+	(void) pthread_sigmask(SIG_SETMASK, &amp;oset, NULL);
+	return (error);
+}
+
+/*
+ * Worker thread is terminating.  Possible reasons:
+ * - excess idle thread is terminating because there is no work.
+ * - thread was cancelled (pool is being destroyed).
+ * - the job function called pthread_exit().
+ * In the last case, create another worker thread
+ * if necessary to keep the pool populated.
+ */
+static void
+worker_cleanup(thr_pool_t *pool)
+{
+	--pool-&gt;pool_nthreads;
+	if (pool-&gt;pool_flags &amp; POOL_DESTROY) {
+		if (pool-&gt;pool_nthreads == 0)
+			(void) pthread_cond_broadcast(&amp;pool-&gt;pool_busycv);
+	} else if (pool-&gt;pool_head != NULL &amp;&amp;
+	    pool-&gt;pool_nthreads &lt; pool-&gt;pool_maximum &amp;&amp;
+	    create_worker(pool) == 0) {
+		pool-&gt;pool_nthreads++;
+	}
+	(void) pthread_mutex_unlock(&amp;pool-&gt;pool_mutex);
+}
+
+static void
+notify_waiters(thr_pool_t *pool)
+{
+	if (pool-&gt;pool_head == NULL &amp;&amp; pool-&gt;pool_active == NULL) {
+		pool-&gt;pool_flags &amp;= ~POOL_WAIT;
+		(void) pthread_cond_broadcast(&amp;pool-&gt;pool_waitcv);
+	}
+}
+
+/*
+ * Called by a worker thread on return from a job.
+ */
+static void
+job_cleanup(thr_pool_t *pool)
+{
+	pthread_t my_tid = pthread_self();
+	active_t *activep;
+	active_t **activepp;
+
+	(void) pthread_mutex_lock(&amp;pool-&gt;pool_mutex);
+	for (activepp = &amp;pool-&gt;pool_active;
+	    (activep = *activepp) != NULL;
+	    activepp = &amp;activep-&gt;active_next) {
+		if (activep-&gt;active_tid == my_tid) {
+			*activepp = activep-&gt;active_next;
+			break;
+		}
+	}
+	if (pool-&gt;pool_flags &amp; POOL_WAIT)
+		notify_waiters(pool);
+}
+
+static void *
+worker_thread(void *arg)
+{
+	thr_pool_t *pool = (thr_pool_t *)arg;
+	int timedout;
+	job_t *job;
+	void *(*func)(void *);
+	active_t active;
+	timestruc_t ts;
+
+	/*
+	 * This is the worker's main loop.  It will only be left
+	 * if a timeout occurs or if the pool is being destroyed.
+	 */
+	(void) pthread_mutex_lock(&amp;pool-&gt;pool_mutex);
+	pthread_cleanup_push(worker_cleanup, pool);
+	active.active_tid = pthread_self();
+	for (;;) {
+		/*
+		 * We don't know what this thread was doing during
+		 * its last job, so we reset its signal mask and
+		 * cancellation state back to the initial values.
+		 */
+		(void) pthread_sigmask(SIG_SETMASK, &amp;fillset, NULL);
+		(void) pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);
+		(void) pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+
+		timedout = 0;
+		pool-&gt;pool_idle++;
+		if (pool-&gt;pool_flags &amp; POOL_WAIT)
+			notify_waiters(pool);
+		while (pool-&gt;pool_head == NULL &amp;&amp;
+		    !(pool-&gt;pool_flags &amp; POOL_DESTROY)) {
+			if (pool-&gt;pool_nthreads &lt;= pool-&gt;pool_minimum) {
+				(void) pthread_cond_wait(&amp;pool-&gt;pool_workcv,
+				    &amp;pool-&gt;pool_mutex);
+			} else {
+				(void) clock_gettime(CLOCK_REALTIME, &amp;ts);
+				ts.tv_sec += pool-&gt;pool_linger;
+				if (pool-&gt;pool_linger == 0 ||
+				    pthread_cond_timedwait(&amp;pool-&gt;pool_workcv,
+				    &amp;pool-&gt;pool_mutex, &amp;ts) == ETIMEDOUT) {
+					timedout = 1;
+					break;
+				}
+			}
+		}
+		pool-&gt;pool_idle--;
+		if (pool-&gt;pool_flags &amp; POOL_DESTROY)
+			break;
+		if ((job = pool-&gt;pool_head) != NULL) {
+			timedout = 0;
+			func = job-&gt;job_func;
+			arg = job-&gt;job_arg;
+			pool-&gt;pool_head = job-&gt;job_next;
+			if (job == pool-&gt;pool_tail)
+				pool-&gt;pool_tail = NULL;
+			active.active_next = pool-&gt;pool_active;
+			pool-&gt;pool_active = &amp;active;
+			(void) pthread_mutex_unlock(&amp;pool-&gt;pool_mutex);
+			pthread_cleanup_push(job_cleanup, pool);
+			free(job);
+			/*
+			 * Call the specified job function.
+			 */
+			(void) func(arg);
+			/*
+			 * If the job function calls pthread_exit(), the thread
+			 * calls job_cleanup(pool) and worker_cleanup(pool);
+			 * the integrity of the pool is thereby maintained.
+			 */
+			pthread_cleanup_pop(1);	/* job_cleanup(pool) */
+		}
+		if (timedout &amp;&amp; pool-&gt;pool_nthreads &gt; pool-&gt;pool_minimum) {
+			/*
+			 * We timed out and there is no work to be done
+			 * and the number of workers exceeds the minimum.
+			 * Exit now to reduce the size of the pool.
+			 */
+			break;
+		}
+	}
+	pthread_cleanup_pop(1);	/* worker_cleanup(pool) */
+	return (NULL);
+}
+
+static void
+clone_attributes(pthread_attr_t *new_attr, pthread_attr_t *old_attr)
+{
+	struct sched_param param;
+	void *addr;
+	size_t size;
+	int value;
+
+	(void) pthread_attr_init(new_attr);
+
+	if (old_attr != NULL) {
+		(void) pthread_attr_getstack(old_attr, &amp;addr, &amp;size);
+		/* don't allow a non-NULL thread stack address */
+		(void) pthread_attr_setstack(new_attr, NULL, size);
+
+		(void) pthread_attr_getscope(old_attr, &amp;value);
+		(void) pthread_attr_setscope(new_attr, value);
+
+		(void) pthread_attr_getinheritsched(old_attr, &amp;value);
+		(void) pthread_attr_setinheritsched(new_attr, value);
+
+		(void) pthread_attr_getschedpolicy(old_attr, &amp;value);
+		(void) pthread_attr_setschedpolicy(new_attr, value);
+
+		(void) pthread_attr_getschedparam(old_attr, &amp;param);
+		(void) pthread_attr_setschedparam(new_attr, &amp;param);
+
+		(void) pthread_attr_getguardsize(old_attr, &amp;size);
+		(void) pthread_attr_setguardsize(new_attr, size);
+	}
+
+	/* make all pool threads be detached threads */
+	(void) pthread_attr_setdetachstate(new_attr, PTHREAD_CREATE_DETACHED);
+}
+
+thr_pool_t *
+thr_pool_create(uint_t min_threads, uint_t max_threads, uint_t linger,
+	pthread_attr_t *attr)
+{
+	thr_pool_t	*pool;
+
+	(void) sigfillset(&amp;fillset);
+
+	if (min_threads &gt; max_threads || max_threads &lt; 1) {
+		errno = EINVAL;
+		return (NULL);
+	}
+
+	if ((pool = malloc(sizeof (*pool))) == NULL) {
+		errno = ENOMEM;
+		return (NULL);
+	}
+	(void) pthread_mutex_init(&amp;pool-&gt;pool_mutex, NULL);
+	(void) pthread_cond_init(&amp;pool-&gt;pool_busycv, NULL);
+	(void) pthread_cond_init(&amp;pool-&gt;pool_workcv, NULL);
+	(void) pthread_cond_init(&amp;pool-&gt;pool_waitcv, NULL);
+	pool-&gt;pool_active = NULL;
+	pool-&gt;pool_head = NULL;
+	pool-&gt;pool_tail = NULL;
+	pool-&gt;pool_flags = 0;
+	pool-&gt;pool_linger = linger;
+	pool-&gt;pool_minimum = min_threads;
+	pool-&gt;pool_maximum = max_threads;
+	pool-&gt;pool_nthreads = 0;
+	pool-&gt;pool_idle = 0;
+
+	/*
+	 * We cannot just copy the attribute pointer.
+	 * We need to initialize a new pthread_attr_t structure using
+	 * the values from the caller-supplied attribute structure.
+	 * If the attribute pointer is NULL, we need to initialize
+	 * the new pthread_attr_t structure with default values.
+	 */
+	clone_attributes(&amp;pool-&gt;pool_attr, attr);
+
+	/* insert into the global list of all thread pools */
+	(void) pthread_mutex_lock(&amp;thr_pool_lock);
+	if (thr_pools == NULL) {
+		pool-&gt;pool_forw = pool;
+		pool-&gt;pool_back = pool;
+		thr_pools = pool;
+	} else {
+		thr_pools-&gt;pool_back-&gt;pool_forw = pool;
+		pool-&gt;pool_forw = thr_pools;
+		pool-&gt;pool_back = thr_pools-&gt;pool_back;
+		thr_pools-&gt;pool_back = pool;
+	}
+	(void) pthread_mutex_unlock(&amp;thr_pool_lock);
+
+	return (pool);
+}
+
+int
+thr_pool_queue(thr_pool_t *pool, void *(*func)(void *), void *arg)
+{
+	job_t *job;
+
+	if ((job = malloc(sizeof (*job))) == NULL) {
+		errno = ENOMEM;
+		return (-1);
+	}
+	job-&gt;job_next = NULL;
+	job-&gt;job_func = func;
+	job-&gt;job_arg = arg;
+
+	(void) pthread_mutex_lock(&amp;pool-&gt;pool_mutex);
+
+	if (pool-&gt;pool_head == NULL)
+		pool-&gt;pool_head = job;
+	else
+		pool-&gt;pool_tail-&gt;job_next = job;
+	pool-&gt;pool_tail = job;
+
+	if (pool-&gt;pool_idle &gt; 0)
+		(void) pthread_cond_signal(&amp;pool-&gt;pool_workcv);
+	else if (pool-&gt;pool_nthreads &lt; pool-&gt;pool_maximum &amp;&amp;
+	    create_worker(pool) == 0)
+		pool-&gt;pool_nthreads++;
+
+	(void) pthread_mutex_unlock(&amp;pool-&gt;pool_mutex);
+	return (0);
+}
+
+void
+thr_pool_wait(thr_pool_t *pool)
+{
+	(void) pthread_mutex_lock(&amp;pool-&gt;pool_mutex);
+	pthread_cleanup_push(pthread_mutex_unlock, &amp;pool-&gt;pool_mutex);
+	while (pool-&gt;pool_head != NULL || pool-&gt;pool_active != NULL) {
+		pool-&gt;pool_flags |= POOL_WAIT;
+		(void) pthread_cond_wait(&amp;pool-&gt;pool_waitcv, &amp;pool-&gt;pool_mutex);
+	}
+	pthread_cleanup_pop(1);	/* pthread_mutex_unlock(&amp;pool-&gt;pool_mutex); */
+}
+
+void
+thr_pool_destroy(thr_pool_t *pool)
+{
+	active_t *activep;
+	job_t *job;
+
+	(void) pthread_mutex_lock(&amp;pool-&gt;pool_mutex);
+	pthread_cleanup_push(pthread_mutex_unlock, &amp;pool-&gt;pool_mutex);
+
+	/* mark the pool as being destroyed; wakeup idle workers */
+	pool-&gt;pool_flags |= POOL_DESTROY;
+	(void) pthread_cond_broadcast(&amp;pool-&gt;pool_workcv);
+
+	/* cancel all active workers */
+	for (activep = pool-&gt;pool_active;
+	    activep != NULL;
+	    activep = activep-&gt;active_next)
+		(void) pthread_cancel(activep-&gt;active_tid);
+
+	/* wait for all active workers to finish */
+	while (pool-&gt;pool_active != NULL) {
+		pool-&gt;pool_flags |= POOL_WAIT;
+		(void) pthread_cond_wait(&amp;pool-&gt;pool_waitcv, &amp;pool-&gt;pool_mutex);
+	}
+
+	/* the last worker to terminate will wake us up */
+	while (pool-&gt;pool_nthreads != 0)
+		(void) pthread_cond_wait(&amp;pool-&gt;pool_busycv, &amp;pool-&gt;pool_mutex);
+
+	pthread_cleanup_pop(1);	/* pthread_mutex_unlock(&amp;pool-&gt;pool_mutex); */
+
+	/*
+	 * Unlink the pool from the global list of all pools.
+	 */
+	(void) pthread_mutex_lock(&amp;thr_pool_lock);
+	if (thr_pools == pool)
+		thr_pools = pool-&gt;pool_forw;
+	if (thr_pools == pool)
+		thr_pools = NULL;
+	else {
+		pool-&gt;pool_back-&gt;pool_forw = pool-&gt;pool_forw;
+		pool-&gt;pool_forw-&gt;pool_back = pool-&gt;pool_back;
+	}
+	(void) pthread_mutex_unlock(&amp;thr_pool_lock);
+
+	/*
+	 * There should be no pending jobs, but just in case...
+	 */
+	for (job = pool-&gt;pool_head; job != NULL; job = pool-&gt;pool_head) {
+		pool-&gt;pool_head = job-&gt;job_next;
+		free(job);
+	}
+	(void) pthread_attr_destroy(&amp;pool-&gt;pool_attr);
+	free(pool);
+}</pre>
+<hr>
+<a name="6mba5vqn9"></a><h1 class="sol">What the Thread Pool Example Shows</h1>
+<p>The example illustrates cancellation and unexpected thread termination,
+which is one of the trickier aspects of programming with threads. A worker
+thread might exit by calling <kbd><b>pthread_exit()</b></kbd> from within
+the task function passed to <kbd><b>thr_pool_queue()</b></kbd>, rather than
+just returning from the task function as expected.  The thread pool recovers
+from this by catching the termination in a <kbd><b>pthread_cleanup_push()</b></kbd> function.
+ The only harm done is that another worker thread must then be created.  Worker
+threads that are actively processing tasks are cancelled in <kbd><b>thr_pool_destroy()</b></kbd>. A caller of <kbd><b>thr_pool_wait()</b></kbd> or <kbd><b>thr_pool_destroy()</b></kbd> may be cancelled by the application while it is waiting.  This
+is also dealt with by using <kbd><b>pthread_cleanup_push()</b></kbd>.</p>
+<p>Although the example package is useful as it is, an application might
+require some features that are missing here, such as:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<kbd><b>fork()</b></kbd> safety (with <kbd><b>pthread_atfork()</b></kbd>).</p>
+
+
+</li>
+<li>
+<p>Ability to wait for completion of individual tasks.</p>
+
+
+</li>
+<li>
+<p>Faster memory allocation (the sample code uses <kbd><b>malloc()</b></kbd>).</p>
+
+
+</li>
+</ul>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-29299/index.html"><em>Previous</em>: Chapter&nbsp;9 Programming Guidelines</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>

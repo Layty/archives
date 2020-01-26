@@ -1,0 +1,133 @@
+-- usb 自动mount功能
+google search "openwrt USB"  AND "openwrt comile support USB"
+
+-- 编译openwrt支持USB自动mount功能
+make menuconfig
+1). 添加USB相关支持
+Kernel modules —> USB Support —> <*> kmod-usb-core.  ##默认已经选了
+Kernel modules —> USB Support —> <*> kmod-usb-ohci.  ##默认已选 old usb1.0
+Kernel modules —> USB Support —> <*> kmod-usb-uhci.  ## usb1.1
+Kernel modules —> USB Support —> <*> kmod-usb-storage.
+Kernel modules —> USB Support —> <*> kmod-usb-storage-extras.
+Kernel modules —> USB Support —> <*> kmod-usb2.  ##默认已经选了 usb2.0
+
+2). 添加SCSI支持
+Kernel modules —> Block Devices —> <*>kmod-scsi-core  ##默认已经选了 usb3.0 ??
+
+3). 添加USB挂载
+Base system —> <*>block-mount
+
+4). 添加自动挂载工具
+Utilities —> Filesystem —> <*> badblocks
+
+5). 添加文件系统支持
+Kernel modules —> Filesystems —> <*> kmod-fs-ext4 (移动硬盘EXT4格式选择)
+Kernel modules —> Filesystems —> <*> kmod-fs-vfat(FAT16 / FAT32 格式 选择)
+Kernel modules —> Filesystems —> <*> kmod-fs-ntfs (NTFS 格式 选择)
+
+
+6). 添加UTF8编码,CP437编码，ISO8859-1编码
+Kernel modules —> Native Language Support —> <*> kmod-nls-cp437
+Kernel modules —> Native Language Support —> <*> kmod-nls-iso8859-1
+Kernel modules —> Native Language Support —> <*> kmod-nls-utf8
+
+Utilities  ---> disc ---> <*> fdisk.................................... manipulate disk partition table 
+Utilities  ---> <*> usbutils................................... USB devices listing utilities
+
+退出保存
+
+7). 支持nls-cp936
+make kernel_menuconfig
+File systems  ---> <M> Native language support  ---> 
+  <M>   Codepage 437 (United States, Canada) 
+  <M>   Simplified Chinese charset (CP936, GB2312)
+  
+保存退出
+// build_dir/target-mips_r2_uClibc-0.9.33.2/linux-ar71xx_generic/linux-3.7.9/.config > target/linux/ar71xx/config-3.7  
+
+---------------------------------- end ----------------------------------------------------
+
+make V=99
+
+ls -lh linux-3.7.9/fs/nls/nls_cp936.ko  ##上面选择编译的 cp936内核模块
+
+web界面上升级 bin/ar71xx/openwrt-ar71xx-generic-tl-wdr4310-v1-squashfs-sysupgrade.bin
+然后登录web界面到 系统-->挂载点 上配置并启用, 注意"高级设置"里的"挂载选项"填 rw,sync,codepage=936,iocharset=cp936 挂载点填 /www/mnt, 
+文件系统选 vfat .
+实际是配置文件:
+cat /etc/config/fstab
+config global 'automount'
+	option from_fstab '1'
+	option anon_mount '1'
+
+config global 'autoswap'
+	option from_fstab '1'
+	option anon_swap '0'
+
+config swap
+	option device '/dev/sda2'
+	option enabled '0'
+
+config mount
+	option device '/dev/sda1'
+	option target '/www/mnt'
+	option enabled_fsck '1'
+	option enabled '1'
+	option fstype 'vfat'
+--------------------------------------------  end  ---------------------------------------------------------
+cat /etc/fstab     ## 查看是否自动生效了
+mount              ## 查看是否mount上
+注意 插入U盘 自动挂载时会创建 /www/mnt目录的 (如果该挂载点不存在的话)
+
+
+-- 挂载USB盘支持中文
+scp nls_cp936.ko root@192.168.123.1:/lib/modules/3.7.9/   ## 
+insmod nls_cp936.ko
+reboot 重启路由
+mount -t vfat -o codepage=936,iocharset=cp936 /dev/sda1 /www/mnt
+
+vi /etc/modules.d/25-nls-cp437   
+ls /etc/modules-boot.d/          ##在系统启动后按序号的顺序来 insmod 这些模块
+
+因为上面是没有支持内核模块 nls-cp936, see "-- 将nls_cp936添加到 Kernel modules中", 将它支持进去.
+
+
+-- 将nls_cp936添加到 Kernel modules中
+在上文支持文件系统的本地语言中,我们在 make menuconfig 的Kernel modules —> Native Language Support —> 并没有找到 nls_cp936, 只有nls_cp437,
+而在 make kernel_menuconfig 中的File systems  ---> <M> Native language support  ---> 是有936这个内核模块的, 所以我们怎样把它添加到
+Kernel modules 中呢, 参考 nls.mk 中的 nls-437, 
+在nls.mk中增加：
+define KernelPackage/nls-cp936
+  SUBMENU:=Native Language Support
+  TITLE:=Simplified Chinese charset (CP936, GB2312)
+  KCONFIG:=CONFIG_NLS_CODEPAGE_936
+  FILES:=$(LINUX_DIR)/fs/nls/nls_cp936.ko
+  AUTOLOAD:=$(call AutoLoad,25,nls_cp936)
+  $(call AddDepends/nls)
+endef
+
+define KernelPackage/nls-cp936/description
+ Kernel module for NLS Codepage 936 (CP936, GB2312)
+endef
+
+$(eval $(call KernelPackage,nls-cp936))
+-----------------------------------------------  end  -------------------------------------------------
+退出保存.
+
+cd ~/work/openwrt/trunk
+make kernel_menuconfig
+File systems  --->  < > Native language support   ##不选这个 (因为我上面选了它)
+
+make menuconfig
+Kernel modules  ---> Native Language Support  ---> <*> kmod-nls-cp936................ Simplified Chinese charset (CP936, GB2312)  
+保存退出.
+
+make V=99
+
+ls bin/ar71xx/packages/*nls* 
+kmod-nls-cp936_3.7.9-1_ar71xx.ipk
+
+然后web界面上升级 bin/ar71xx/openwrt-ar71xx-generic-tl-wdr4310-v1-squashfs-sysupgrade.bin .
+
+
+

@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0082)http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-74765/index.html -->
+<html class=" regenabled browserSafari radius jsenabled regloaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter&nbsp;8 Compiling and Debugging (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Chapter 8 Compiling and Debugging (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Chapter 8 Compiling and Debugging (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Chapter 8 Compiling and Debugging (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Chapter 8 Compiling and Debugging (Multithreaded Programming Guide)_files/sniff.js"></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Chapter 8 Compiling and Debugging (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Chapter 8 Compiling and Debugging (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/index.html">Multithreaded Programming Guide </a>   &nbsp;&gt; Chapter&nbsp;8 Compiling and Debugging</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-83941/index.html"><em>Previous</em>: Chapter&nbsp;7 Safe and Unsafe Interfaces</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-29299/index.html"><em>Next</em>: Chapter&nbsp;9 Programming Guidelines</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6mba5vqko"></a><h1 class="sol">Chapter&nbsp;8 Compiling and Debugging</h1>
+<a name=""></a><p>This chapter describes how to compile and debug multithreaded programs.
+This chapter discusses the following topics:</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gfrln/index.html">Setting Up the Solaris Environment for Developing Multithreaded Applications</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-94611/index.html">Compiling a Multithreaded Application</a>
+</p>
+
+
+</li>
+<li>
+<p>
+<a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compile-19263/index.html">Debugging a Multithreaded Program</a>
+</p>
+
+
+</li>
+</ul>
+
+<a name="6mba5vqkq"></a><h1 class="sol">Setting Up the Solaris Environment for Developing
+Multithreaded Applications</h1>
+<p>To build software on the Solaris OS, you must install the tools you
+need on your development machine. Whether you want to use the standard tools
+that are bundled in Solaris OS, or use the Sun Studio tools, you must first
+install the appropriate Solaris software for a developer environment. If you
+are using a Solaris Express Developer Edition release, the developer environment
+is installed by default.</p>
+<p>For Solaris 10 releases, the Solaris OS includes a number of developer
+software packages, which are available when you install the appropriate Solaris
+software group for developers. For installation purposes, the Solaris OS is
+logically divided into software groups, which are collections of Solaris packages. </p>
+<a name=""></a><p>When you install the Solaris OS, you must select one of the following
+software groups, which contain the developer packages:</p>
+<ul>
+<li>
+<p>Developer</p>
+
+
+</li>
+<li>
+<p>Entire</p>
+
+
+</li>
+<li>
+<p>Entire Plus OEM</p>
+
+
+</li>
+</ul>
+<p>With these software groups, you get compilers such as the GNU C compiler
+(<kbd>gcc</kbd>) and the Java compiler (<kbd>javac</kbd>).
+Also installed are the GNU source-level debugger (<kbd>gdb</kbd>)
+and the Modular Debugger (<kbd>mdb</kbd>), a linker (<kbd>ld</kbd>),
+source control utilities (<kbd>sccs</kbd>), and build utilities such
+as <kbd>make</kbd>. The files are installed in <kbd>/usr/css</kbd> and <kbd>/usr/sfw</kbd>. </p>
+<hr><b>Note – </b><p>This manual describes building a multithreaded application using
+the Sun Studio C compiler. The Sun Studio software is included in the Solaris
+Express Developer Edition release. If you are using a Solaris 10 release,
+you can download the Sun Studio software from the <a href="http://developers.sun.com/sunstudio/"><tt>http://developers.sun.com/sunstudio/</tt></a> web site.</p>
+<hr>
+<a name="6mba5vqkr"></a><h1 class="sol">Compiling a Multithreaded Application</h1>
+<p>
+<a name="indexterm-376"></a>This section explains how to compile a multithreaded program using
+the Sun Studio C compiler. The Sun Studio C compiler is optimized for parallel
+programming and includes many features that are not available in other C compilers.
+See the <a href="http://docs.oracle.com/docs/cd/E19205-01/819-5265/index.html"><cite>Sun Studio 12: C User’s Guide</cite></a> for more information about the C compiler.</p>
+<a name="6mba5vqkt"></a><h2 class="sol">Preparing for Compilation</h2>
+<p>Your application must include <a name="gfrnx"></a><a name="gfrmj"></a><kbd>&lt;thread.h&gt;</kbd> for Solaris
+threads and  <kbd>&lt;pthread.h&gt;</kbd> for POSIX threads. You should
+include the appropriate file for the API you are using, or both files if your
+application uses both thread APIs. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5173/pthread.h-3head/index.html">pthread.h(3HEAD)</a> man page for more information.
+The application must also include <a name="gfrrg"></a><a name="gfrpn"></a><a name="gfroq"></a><a name="gfrpx"></a> <kbd>&lt;errno.h&gt;</kbd>, <kbd>&lt;limits.h&gt;</kbd>, <kbd>&lt;signal.h&gt;</kbd> , <kbd>&lt;unistd.h&gt;</kbd> files.</p>
+<a name="6mba5vqku"></a><h2 class="sol">Choosing Solaris or POSIX Threads</h2>
+<p>The Solaris implementation of Pthreads is completely compatible with
+Solaris threads. You can use both Solaris threads and Pthreads in the same
+application. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5175/pthreads-5/index.html">pthreads(5)</a> man
+page for a discussion of the differences between the thread implementations.
+See also <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sthreads-10606/index.html">Chapter&nbsp;6, Programming With Solaris Threads</a> in this manual for information about differences.</p>
+<p>One difference between the thread types is the behavior of the fork
+functions.</p>
+<p>In the
+Solaris 9 release, the behavior  of the <kbd><b>fork()</b></kbd> function
+depended on whether or not the application was linked with the POSIX threads
+library. When linked with <kbd><b>-lthread</b></kbd> (Solaris Threads) but not
+linked with <kbd><b>-lpthread</b></kbd> (POSIX Threads), <kbd><b>fork()</b></kbd> would
+duplicate in the child thread all the threads from the parent process. When
+the application was linked with <kbd><b>-lpthread</b></kbd>, whether or not
+also linked with <kbd><b>-lthread</b></kbd>, <kbd><b>fork()</b></kbd> was the
+same as <kbd><b>fork1()</b></kbd> and only the calling thread is duplicated.</p>
+<p>Starting in the Solaris 10 release, a call to the <kbd><b>forkall()</b></kbd> function
+replicates in the child process all of the threads in the parent process.
+A call to <kbd><b>fork1()</b></kbd> replicates only the calling thread in
+the child process. In the Solaris 10 release, a call to <kbd><b>fork()</b></kbd> is
+identical to a call to <kbd><b>fork1()</b></kbd>; only the calling thread
+is replicated in the child process. This is the POSIX-specified behavior for <kbd><b>fork()</b></kbd>. Applications that require replicate-all fork semantics must
+call <kbd><b>forkall()</b></kbd>.</p>
+<a name="6mba5vqkv"></a><h2 class="sol">Including <kbd>&lt;thread.h&gt;</kbd> or
+ <kbd>&lt;pthread.h&gt;</kbd>
+</h2>
+<p>The include file <kbd>&lt;thread.h&gt;</kbd> contains declarations
+for the Solaris threads functions. To call any Solaris thread functions, 
+your program needs to include <kbd>&lt;thread.h&gt;</kbd>. This file
+enables you to produce compiled code that is compatible with earlier releases
+of the Solaris software.</p>
+<p>The include file <kbd>&lt;pthread.h&gt;</kbd> contains declarations
+for the Pthreads functions and is required if your program uses Pthreads.</p>
+<p>You can mix Solaris threads and POSIX threads in the same application
+by including both <kbd>&lt;thread.h&gt;</kbd> and <kbd>&lt;pthread.h&gt;</kbd> in the application. Then when linking and compiling you need to
+specify the <kbd><b>-lpthread</b></kbd> flag to link in the pthread APIs.</p>
+<p>When using <kbd><b>-mt</b></kbd>, the Solaris threads APIs will be linked
+automatically. Always use the <kbd><b>-mt</b></kbd> option instead of listing <kbd><b>-lthread</b></kbd> explicitly.  To use Pthreads, specify the <kbd><b>-mt</b></kbd> option
+and <kbd><b>-lpthread</b></kbd> option on the link command line. The <kbd>libpthread</kbd> library provides an interface to <kbd>libthread</kbd>,
+so you still need <kbd>libthread</kbd> when using Pthreads.</p>
+<a name="6mba5vql2"></a><h2 class="sol">Compiling and Linking a Multithreaded Program</h2>
+<p>The Sun Studio C compiler (<kbd>cc</kbd>) provides the <kbd><b>-mt</b></kbd> option
+to compile and link multithreaded code. The <kbd><b>-mt</b></kbd> option assures
+that libraries are linked in appropriate order.</p>
+<p>The <kbd><b>-mt</b></kbd> option
+must be used consistently. If you compile with <kbd><b>-mt</b></kbd> and
+link in a separate step, you must
+use the <kbd><b>-mt</b></kbd> option in the link step as well as the compile
+step.  If you compile and link one translation
+unit with <kbd><b>-mt</b></kbd>, you must compile and link all units of the
+program with <kbd><b>-mt</b></kbd>.</p>
+<p>Although the same commands can be used to compile and link in Solaris
+10 and Solaris 9 releases, some differences should be considered:</p>
+<a name=""></a><ul>
+<li>
+<p>In the Solaris 10 release, you do not need to explicitly link
+with the <tt>libthread</tt> or <tt>libpthread</tt> libraries
+because all the threading functions are in the <tt>libc</tt> library.</p>
+
+
+</li>
+<li>
+<p>In the Solaris 9 release, the Solaris threads API and Pthreads
+API are contained in separate libraries, <tt>libthread</tt> and <tt>libpthread</tt>. An application compiled with the separate libraries
+on Solaris 9 should run on Solaris 10 because the <tt>libthread.so</tt> and <tt>libpthread.so</tt> shared objects are implemented as filters on <tt>libc.so.1</tt>. An application compiled on Solaris 10 can run on Solaris 9 if
+the application was explicitly linked with the <tt>libthread</tt> or <tt>libpthread</tt> libraries. Linking with <kbd><b>-mt</b></kbd> preserves
+the Solaris distinction between <kbd><b>fork()</b></kbd> and  <kbd><b>fork1()</b></kbd> when
+the application runs on Solaris 9. Linking with the <tt>-lpthread</tt> option
+makes <kbd><b>fork()</b></kbd> behave the same way as the Solaris <kbd><b>fork1()</b></kbd> call in Solaris 9 and prior releases.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-377"></a><a name="indexterm-378"></a><a name="indexterm-379"></a><a name="indexterm-380"></a><a name="indexterm-381"></a>In the Solaris 9 release, all calls
+to <tt>libthread</tt> and  <tt>libpthread</tt> are no-ops
+if the application does not link <kbd><b>-lthread</b></kbd> or  <kbd><b>-lpthread</b></kbd>.
+The runtime library <tt>libc</tt> has many predefined  <tt>libthread</tt> and <tt>libpthread</tt> stubs that are null procedures.
+True procedures are interposed by <tt>libthread</tt> or <tt>libpthread</tt>  when the application links both <tt>libc</tt> and the
+thread library.</p>
+
+
+</li>
+<li>
+<p>In Solaris 9 and subsequent releases, linking a non-threaded
+program with  <kbd><b>-mt</b></kbd>, <kbd><b>-lthread</b></kbd>, or <kbd><b>-lpthread</b></kbd> makes
+no semantic difference to the program. No extra threads or extra LWPs are
+created. The main, and only, thread executes as a traditional single-threaded
+process. The only effect on the program is to make system library locks become
+real locks, as opposed to dummy function calls. You must pay the price of
+acquiring uncontended locks.</p>
+
+
+</li>
+</ul>
+<a name="6mba5vql4"></a><h3 class="sol">Compiling and Linking in the POSIX Threads Environment</h3>
+<p>If your application uses only Pthreads or uses both Solaris threads
+and Pthreads, use the following command to compile and link:</p>
+<table cellpadding="1" border="1" width="100%">
+<tbody><tr>
+<td nowrap="1">
+<br>
+<pre>cc -mt <var>[ flag ... ] file...</var> <var>[ library... ]</var> -lpthread </pre>
+</td>
+</tr>
+</tbody></table><p>The <kbd><b>-mt</b></kbd> option links in the <tt>libthread</tt> library,
+while the <kbd><b>-lpthread</b></kbd> option links in the <tt>libpthread</tt> library.
+Both flags are needed when using Pthreads because <tt>libpthread</tt> provides
+an interface to <tt>libthread</tt>.</p>
+<p>The <kbd><b>-mt</b></kbd> option
+can appear anywhere in the command line. The <kbd><b>-lpthread</b></kbd> option
+should come after any user libraries. The relative positions of <kbd><b>-mt</b></kbd> and <kbd><b>-lpthread</b></kbd> do not matter.</p>
+<p>For example, the following lines
+are equivalent:</p>
+<a name=""></a><pre>cc -mt -o myprog f1.o f2.o   -lmylib -lpthread
+cc     -o myprog f1.o f2.o -mt -lmylib -lpthread
+cc     -o myprog f1.o f2.o -lmylib -mt -lpthread
+cc     -o myprog f1.o f2.o -lmylib -lpthread -mt</pre>
+<p>See the Sun Studio <tt>cc</tt>(1) man page and <a href="http://docs.oracle.com/docs/cd/E19205-01/819-5265/index.html"><cite>Sun Studio 12: C User’s Guide</cite></a> for
+more information about the <kbd>cc</kbd> command options.</p>
+<a name="6mba5vql5"></a><h3 class="sol">Compiling and Linking in the Solaris Threads Environment</h3>
+<p>In a Solaris threads environment, use the following options to compile
+and link your application:</p>
+<p>If you application uses <b>only</b> Solaris threads, use
+the following command to compile and link:</p>
+<table cellpadding="1" border="1" width="100%">
+<tbody><tr>
+<td nowrap="1">
+<br>
+<pre>cc -mt <var>[ flag ... ] file...</var> <var>[ library... ]</var>
+</pre>
+</td>
+</tr>
+</tbody></table><p>The <kbd><b>-mt</b></kbd> option links in the <tt>libthread</tt> library.</p>
+<p>See the Sun Studio <tt>cc</tt>(1) man page and <a href="http://docs.oracle.com/docs/cd/E19205-01/819-5265/index.html"><cite>Sun Studio 12: C User’s Guide</cite></a> for
+more information about the <kbd>cc</kbd> command options.</p>
+<a name="6mba5vql6"></a><h3 class="sol">Compiling and Linking in a Mixed Threads Environment</h3>
+<p>If your application uses both Pthreads and Solaris threads functions,
+you can compile and link with the same command used for compiling for Pthreads
+only:</p>
+<table cellpadding="1" border="1" width="100%">
+<tbody><tr>
+<td nowrap="1">
+<br>
+<pre>cc -mt <var>[ flag ... ] file...</var> <var>[ library... ]</var> -lpthread </pre>
+</td>
+</tr>
+</tbody></table><p>In mixed usage, you need to include both <kbd>thread.h</kbd> and
+ <kbd>pthread.h</kbd>.</p>
+<a name="6mba5vql7"></a><h2 class="sol">Linking With <tt>-lrt</tt> for POSIX
+Semaphores</h2>
+<p>
+<a name="indexterm-382"></a>The Solaris semaphore
+routines,  <tt>sema_*(3C)</tt>, are contained in the standard C
+library. By contrast, you link with the <tt>-lrt</tt> library to
+get the standard <tt>sem_*(3RT)</tt> POSIX semaphore routines described
+in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/sync-11157/index.html">Synchronization With Semaphores</a>.</p>
+<a name="6mba5vql9"></a><h1 class="sol">Alternate Threads Library</h1>
+<p>
+<a name="indexterm-383"></a><a name="indexterm-384"></a><a name="indexterm-385"></a>The
+Solaris 8 release introduced an alternate threads library implementation that
+is located in the directories <kbd>/usr/lib/lwp</kbd> (32-bit) and <kbd>/usr/lib/lwp/64</kbd> (64-bit). In the Solaris 9 release, this implementation
+became the standard threads implementation found in <kbd>/usr/lib</kbd> 
+and <kbd>/usr/lib/64</kbd>. Effective with the Solaris 10 release,
+all threads functionality has been moved into <kbd>libc</kbd> and
+no separate threads library is required. The <kbd>/usr/lib/lwp</kbd> directories
+are maintained for compatibility of Solaris 8 applications.</p>
+<a name="6mba5vqla"></a><h1 class="sol">Debugging a Multithreaded Program</h1>
+<p>
+<a name="compile-ix707"></a>The
+following discussion describes characteristics that can cause bugs in multithreaded
+programs. Utilities that you can use to help debug your program are also described.</p>
+<a name="6mba5vqlc"></a><h2 class="sol">Common Oversights in Multithreaded Programs</h2>
+<p>The following list points out some of the more frequent oversights that
+can cause bugs in multithreaded programs.</p>
+<a name=""></a><ul>
+<li>
+<p>
+<a name="indexterm-386"></a>A pointer passed to the caller's
+stack as an argument to a new thread.</p>
+
+
+</li>
+<li>
+<p>
+<a name="compile-ix708"></a><a name="indexterm-387"></a>The shared changeable state of global
+memory accessed without the protection of a synchronization mechanism leading
+to a <b>data race</b>. A data race occurs when two or more threads
+in a single process access the same memory location concurrently, and at least
+one of the threads tries to write to the location. When the threads do not
+use exclusive locks to control their accesses to that memory, the order of
+accesses is non-deterministic, and the computation may give different results
+from run to run depending on that order. Some data races may be benign (for
+example, when the memory access is used for a busy-wait), but many data races
+are bugs in the program. The Thread Analyzer tool is useful for detecting
+data races. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gfiye/index.html">Detecting Data Races and Deadlocks Using Thread Analyzer</a>.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-388"></a>Deadlocks caused by two threads trying to acquire rights to the
+same pair of global resources in alternate order. One thread controls the
+first resource and the other controls the second resource. Neither thread
+can proceed until the other gives up. The Thread Analyzer tool is also useful
+for detecting deadlocks. See <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/gfiye/index.html">Detecting Data Races and Deadlocks Using Thread Analyzer</a>.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-389"></a>Trying to reacquire a lock already held (recursive
+deadlock).</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-390"></a>Creating a hidden gap in synchronization
+protection. This gap in protection occurs when a protected code segment contains
+a function that frees and reacquires the synchronization mechanism before
+returning to the caller. The result is misleading. To the caller, the appearance
+is that the global data has been protected when the data actually has not
+been protected. </p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-391"></a>When mixing UNIX signals with threads, and
+not using the  <tt>sigwait</tt>(2) model for handling asynchronous
+signals.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-392"></a>Calling <tt>setjmp(3C)</tt> and
+ <tt>longjmp(3C)</tt>, and then long-jumping away without releasing
+the mutex locks.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-393"></a>Failing
+to re-evaluate the conditions after returning from a call to <tt>*_cond_wait()</tt> or  <tt>*_cond_timedwait()</tt>.</p>
+
+
+</li>
+<li>
+<p>Forgetting that default threads are created <tt>PTHREAD_CREATE_JOINABLE</tt>  and must be reclaimed with <tt>pthread_join(3C)</tt>.
+Note that  <tt>pthread_exit(3C)</tt> does not free up its storage
+space.</p>
+
+
+</li>
+<li>
+<p>
+<a name="compile-ix711"></a>Making deeply nested,
+recursive calls and using large automatic arrays can cause problems because
+multithreaded programs have a more limited stack size than single-threaded
+programs.</p>
+
+
+</li>
+<li>
+<p>
+<a name="indexterm-394"></a>Specifying an inadequate stack size, or
+using nondefault stacks.</p>
+
+
+</li>
+</ul>
+<p>Multithreaded programs, especially those containing bugs, often behave
+differently in two successive runs, even with identical inputs. This behavior
+is caused by differences in the order that threads are scheduled.</p>
+<p>In general, multithreading bugs are statistical instead of deterministic.
+Tracing is usually a more effective method of finding the order of execution
+problems than is breakpoint-based debugging.</p>
+<a name="6mba5vqld"></a><h2 class="sol">Tracing and Debugging with DTrace</h2>
+<p>
+<a name="indexterm-395"></a><a name="indexterm-396"></a><a name="indexterm-397"></a>DTrace is a comprehensive
+dynamic tracing facility that is built into the Solaris OS. The DTrace facility
+can be used to examine the behavior of your multithreaded program. DTrace
+inserts probes into running programs to collect data at points in the execution
+path that you specify. The collected data can be examined to determine problem
+areas. See the <a href="http://docs.oracle.com/docs/cd/E19253-01/817-6223/index.html"><cite>Solaris Dynamic Tracing Guide</cite></a> and the <a href="http://docs.oracle.com/docs/cd/E19253-01/819-5488/index.html"><cite>DTrace User Guide</cite></a> for more information about
+using DTrace.</p>
+<p>The <a href="http://developers.sun.com/">Sun Developers
+Network web site</a> contains several articles about DTrace, including
+the <a href="http://developers.sun.com/solaris/articles/dtrace_quickref/dtrace_quickref.html">DTrace Quick Reference Guide</a>.</p>
+<a name="6mba5vqle"></a><h2 class="sol">Profiling with Performance Analyzer</h2>
+<p>
+<a name="indexterm-398"></a><a name="indexterm-399"></a><a name="indexterm-400"></a>The Performance Analyzer tool, included in the Sun Studio software,
+can be used for extensive profiling of multithreaded and single threaded programs.
+The tool enables you to see in detail what a thread is doing at any given
+point. See the <a href="http://developers.sun.com/sunstudio/">Sun
+Studio web page</a> and <a href="http://docs.oracle.com/docs/cd/E19205-01/820-3845/index.html"><cite>Sun Studio Information Center</cite></a> for more
+information.</p>
+<a name="6mba5vqlf"></a><h2 class="sol">Detecting Data Races and Deadlocks Using Thread Analyzer</h2>
+<a name="indexterm-401"></a><a name="indexterm-402"></a><a name="indexterm-403"></a><a name="indexterm-404"></a><p>The Sun Studio software includes a tool called the Thread Analyzer.
+This tool enables you to analyze the execution of a multithreaded program.
+It can detect multithreaded programming errors such as data races or deadlocks
+in code that is written using the Pthread API, the Solaris thread API, OpenMP
+directives, Sun parallel directives, Cray® parallel
+directives, or a mix of these technologies.</p>
+<p>See the <a href="http://docs.oracle.com/docs/cd/E19205-01/820-0619/index.html"><cite>Sun Studio 12: Thread Analyzer User’s Guide</cite></a>.</p>
+<a name="6mba5vqlg"></a><h2 class="sol">Using <kbd>dbx</kbd>
+</h2>
+<a name="compile-ix717"></a><a name="compile-ix718"></a><a name="compile-ix719"></a><p>The <tt>dbx</tt> utility is a debugger included in the Sun
+Studio developer tools, available from <a href="http://developers.sun.com/sunstudio/"><tt>http://developers.sun.com/sunstudio/</tt></a>. With the Sun
+Studio <tt>dbx</tt> command-line debugger, you can debug and execute
+source programs that are written in C, C++, and Fortran. You can use <tt>dbx</tt> by starting it in a terminal window and interactively debugging
+your program with <tt>dbx</tt> commands. If you prefer a graphical
+interface, you can use the same <tt>dbx</tt> functionality in the
+Debugging windows of the Sun Studio IDE (Integrated Development Environment).
+For a description of how to start <tt>dbx</tt>, see the <tt>dbx</tt>(1)
+man page. See the manual <a href="http://docs.oracle.com/docs/cd/E19205-01/819-5257/index.html"><cite>Sun Studio 12: Debugging a Program With dbx</cite></a> for an overview
+of <tt>dbx</tt>. The Debugging features in the Sun Studio IDE are
+described in the IDE online help.</p>
+<p>See <a href="http://docs.oracle.com/docs/cd/E19205-01/819-5257/blajx/index.html">Chapter 11, <cite>Debugging Multithreaded Applications,</cite> in <cite>Sun Studio 12: Debugging a Program With dbx</cite></a> for
+detailed information about debugging multithreaded programs. The <tt>dbx</tt> debugger
+provides commands to manipulate event handlers for thread events, which are
+described in <a href="http://docs.oracle.com/docs/cd/E19205-01/819-5257/blaqc/index.html">Appendix B, <cite>Event Management,</cite> in <cite>Sun Studio 12: Debugging a Program With dbx</cite></a>.</p>
+<p>All the <kbd>dbx</kbd> options that are listed in <a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/6mba5vqlg/index.html#compile-20518">Table 8–1</a> can support multithreaded
+applications.</p>
+<a name="compile-20518"></a>Table 8–1  <kbd>dbx</kbd> Options
+for MT Programs<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Option&nbsp;</p>
+
+</th><th scope="col" align="left" valign="top">
+<p>Action&nbsp;</p>
+
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>cont at <var>line</var> [-sig <var>signo</var> <var>id</var>]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Continues execution at <var>line</var> with signal  <var>signo</var>. The <var>id</var>, if present, specifies
+which thread or LWP to continue. The default value is <var>all</var>. </p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>lwp [<var>lwpid</var>]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Displays current LWP. Switches to given LWP [<var>lwpid</var>].</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>lwps</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Lists all LWPs in the current process.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>next ... <var>tid</var></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Steps the given thread. When a function call is skipped, all LWPs are
+implicitly resumed for the duration of that function call. Nonactive threads
+cannot be stepped.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>next ... <var>lwpid</var></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Steps the given LWP. Does not implicitly resume all LWPs when skipping
+a function. The LWP on which the given thread is active. Does not implicitly
+resume all LWP when skipping a function.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>step... <var>tid</var></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Steps the given thread. When a function call is skipped, all LWPs are
+implicitly resumed for the duration of that function call. Nonactive threads
+cannot be stepped.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>step... <var>lwpid</var></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Steps the given LWP. Does not implicitly resume all LWPs when skipping
+a function.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>stepi... <var>lwpid</var></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Steps machine instructions (stepping into calls) in the given LWP.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>stepi... <var>tid</var></kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Steps machine instructions in the LWP on which the given thread is active.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Displays current thread, or switches to thread <var>tid</var>.
+In all the following variations, omitting the l <var>tid</var> implies
+the current thread.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -info [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Prints everything known about the given thread.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -blocks [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Prints all locks held by the given thread blocking other threads.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -suspend [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Puts the given thread into suspended state, which prevents it from running.
+A suspended thread displays with an “S” in the <tt>threads</tt> listing.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -resume [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Unsuspends the given thread so it resumes running.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -hide [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<b>Hides</b> the given or current thread. The thread does
+not appear in the generic <kbd>threads</kbd> listing.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -unhide [ <var>tid</var> ]</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<b>Unhides</b> the given or current thread.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>thread -unhide all</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>
+<b>Unhides</b> all threads.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>threads</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Prints the list of all known threads.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>threads -all</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Prints threads that are not usually printed (zombies).&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>threads -mode all|filter</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Controls whether <kbd>threads</kbd> prints all threads or filters
+threads by default. When filtering is on, threads that have been hidden by
+the <kbd>thread -hide</kbd> command are not listed.</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>threads -mode auto|manual</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Enables automatic updating of the thread listing.&nbsp;</p>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>
+<kbd>threads -mode</kbd>
+</p>
+
+</td><td align="left" valign="top">
+<p>Echoes the current modes. Any of the previous forms can be followed
+by a thread or LWP ID to get the traceback for the specified entity.&nbsp;</p>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><a name="6mba5vqli"></a><h2 class="sol">Tracing and Debugging With the TNF Utilities</h2>
+<p>Although Dtrace, Performance Analyzer, Thread
+Analyzer, and <tt>dbx</tt> are more modern tools, you can also still
+use the older TNF utilities to trace, debug, and gather performance analysis
+information from your applications and libraries. The TNF utilities integrate
+trace information from the kernel as well as from multiple user processes
+and threads. The TNF utilities have long been included as part of the Solaris
+software. See the  <tt>tracing</tt>(3TNF) man page for information
+about these utilities.</p>
+<a name="6mba5vqlj"></a><h2 class="sol">Using <tt>truss</tt>
+</h2>
+<p>See the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5165/truss-1/index.html">truss(1)</a>man
+page for information on tracing system calls, signals and user-level function
+calls.</p>
+<a name="6mba5vqll"></a><h2 class="sol">Using <tt>mdb</tt>
+</h2>
+<p>For information about <kbd>mdb</kbd>, see the <a href="http://docs.oracle.com/docs/cd/E19253-01/816-5041/index.html"><cite>Solaris Modular Debugger Guide</cite></a>.</p>
+<p>
+<a name="compile-ix712"></a><a name="compile-ix713"></a><a name="compile-ix714"></a><a name="compile-ix715"></a><a name="compile-ix716"></a>The following  <kbd>mdb</kbd> commands can be used to
+access the LWPs of a multithreaded program.</p>
+<a name=""></a><dl>
+<dt>
+<tt>$l</tt>
+</dt>
+<dd>
+<p>Prints the LWP ID of the representative thread if the target
+is a user process.</p>
+
+</dd>
+<dt>
+<tt>$L</tt>
+</dt>
+<dd>
+<p>Prints the LWP IDs of each LWP in the target if the target
+is a user process.</p>
+
+</dd>
+<dt>
+<var>pid</var><tt>::attach</tt>
+</dt>
+<dd>
+<p>Attaches to process # <var>pid</var>. </p>
+
+</dd>
+<dt>
+<tt>::release</tt>
+</dt>
+<dd>
+<p>Releases the previously attached process or core file. The
+process can subsequently be continued by <tt>prun(1)</tt> or it
+can be resumed by applying MDB or another debugger.</p>
+
+</dd>
+</dl>
+<p>These commands to set conditional breakpoints are often useful.</p>
+<a name=""></a><dl>
+<dt>[ <var>addr</var> ] <kbd>::bp</kbd> [+/-dDestT]
+[<kbd><b>-c</b></kbd> <var>cmd</var>] [<kbd><b>-n</b></kbd>  <var>count</var>] <var>sym</var> <tt>...</tt>
+</dt>
+<dd>
+<p>Set a breakpoint at the specified locations. </p>
+
+</dd>
+<dt>
+<var>addr</var> <kbd>::delete</kbd> [ <var>id</var> | <tt>all</tt>]</dt>
+<dd>
+<p>Delete the event specifiers with the given ID number.</p>
+
+</dd>
+</dl>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/compat-83941/index.html"><em>Previous</em>: Chapter&nbsp;7 Safe and Unsafe Interfaces</a></li><li class="d8right"><a href="http://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/guide-29299/index.html"><em>Next</em>: Chapter&nbsp;9 Programming Guidelines</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div></body></html>
