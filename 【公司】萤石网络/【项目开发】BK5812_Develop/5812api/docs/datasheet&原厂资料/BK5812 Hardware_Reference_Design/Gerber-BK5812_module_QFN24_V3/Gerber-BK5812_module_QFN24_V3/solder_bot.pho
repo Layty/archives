@@ -1,0 +1,110 @@
+*
+*
+G04 PADS Layout (Build Number 2005.266.2) generated Gerber (RS-274-X) file*
+G04 PC Version=2.1*
+*
+%IN "PCB-BK5812_module_QFN24"*%
+*
+%MOIN*%
+*
+%FSLAX35Y35*%
+*
+*
+*
+*
+G04 PC Standard Apertures*
+*
+*
+G04 Thermal Relief Aperture macro.*
+%AMTER*
+1,1,$1,0,0*
+1,0,$1-$2,0,0*
+21,0,$3,$4,0,0,45*
+21,0,$3,$4,0,0,135*
+%
+*
+*
+G04 Annular Aperture macro.*
+%AMANN*
+1,1,$1,0,0*
+1,0,$2,0,0*
+%
+*
+*
+G04 Odd Aperture macro.*
+%AMODD*
+1,1,$1,0,0*
+1,0,$1-0.005,0,0*
+%
+*
+*
+G04 PC Custom Aperture Macros*
+*
+*
+*
+*
+*
+*
+G04 PC Aperture Table*
+*
+%ADD026C,0.01*%
+%ADD041C,0.01181*%
+%ADD065R,0.065X0.065*%
+*
+*
+*
+*
+G04 PC Copper Outlines (0)*
+G04 Layer Name PCB-BK5812_module_QFN24 - dark (0)*
+%LPD*%
+*
+*
+G04 PC Area=Custom_Thermal*
+*
+G04 PC Custom Flashes*
+G04 Layer Name PCB-BK5812_module_QFN24 - flashes*
+%LPD*%
+*
+*
+G04 PC Circuitry*
+G04 Layer Name PCB-BK5812_module_QFN24 - circuitry*
+%LPD*%
+*
+G54D26*
+G01X393849Y464889D02*
+Y585589D01*
+X460812*
+Y464889*
+X393849*
+G54D41*
+Y587557D02*
+X736368D01*
+X393849Y955000D02*
+Y464889D01*
+X736368*
+X393849Y955000D02*
+X736368D01*
+Y464889*
+X462781Y955000D02*
+Y464889D01*
+X531678Y955000D02*
+Y464889D01*
+X669474Y955000D02*
+Y464889D01*
+X600576Y955000D02*
+Y464889D01*
+X393849Y710392D02*
+X736368D01*
+X393849Y833226D02*
+X736368D01*
+G54D65*
+X413159Y476455D03*
+Y486455D03*
+X423159Y476455D03*
+Y486455D03*
+X433159Y476455D03*
+Y486455D03*
+X443159Y476455D03*
+Y486455D03*
+X0Y0D02*
+M02*

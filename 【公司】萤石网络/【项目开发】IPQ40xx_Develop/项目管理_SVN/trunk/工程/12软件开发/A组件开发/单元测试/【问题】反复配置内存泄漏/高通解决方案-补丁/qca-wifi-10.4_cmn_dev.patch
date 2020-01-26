@@ -1,0 +1,70 @@
+diff --git a/htc/htc_send.c b/htc/htc_send.c
+index e0c9d14..655b3cd 100644
+--- a/htc/htc_send.c
++++ b/htc/htc_send.c
+@@ -1297,6 +1297,7 @@ A_STATUS htc_send_pkts_multiple(HTC_HANDLE HTCHandle, HTC_PACKET_QUEUE *pPktQueu
+ 	HTC_PACKET *pPacket;
+ 	qdf_nbuf_t netbuf;
+ 	HTC_FRAME_HDR *pHtcHdr;
++	A_STATUS retval = A_OK;
+ 
+ 	AR_DEBUG_PRINTF(ATH_DEBUG_SEND,
+ 			("+htc_send_pkts_multiple: Queue: %p, Pkts %d \n",
+@@ -1307,7 +1308,8 @@ A_STATUS htc_send_pkts_multiple(HTC_HANDLE HTCHandle, HTC_PACKET_QUEUE *pPktQueu
+ 	if (NULL == pPacket) {
+ 		OL_ATH_HTC_PKT_ERROR_COUNT_INCR(target, GET_HTC_PKT_Q_FAIL);
+ 		AR_DEBUG_PRINTF(ATH_DEBUG_SEND, ("-htc_send_pkts_multiple \n"));
+-		return A_EINVAL;
++		retval = A_EINVAL;
++		goto end;
+ 	}
+ 
+ 	AR_DEBUG_ASSERT(pPacket->Endpoint < ENDPOINT_MAX);
+@@ -1316,7 +1318,8 @@ A_STATUS htc_send_pkts_multiple(HTC_HANDLE HTCHandle, HTC_PACKET_QUEUE *pPktQueu
+ 	if (!pEndpoint->service_id) {
+ 		AR_DEBUG_PRINTF(ATH_DEBUG_SEND, ("%s service_id is invalid\n",
+ 								__func__));
+-		return A_EINVAL;
++		retval = A_EINVAL;
++		goto end;
+ 	}
+ 
+ #ifdef HTC_EP_STAT_PROFILING
+@@ -1364,12 +1367,12 @@ A_STATUS htc_send_pkts_multiple(HTC_HANDLE HTCHandle, HTC_PACKET_QUEUE *pPktQueu
+ 
+ #ifdef USB_HIF_SINGLE_PIPE_DATA_SCHED
+ 	if (!htc_send_pkts_sched_check(HTCHandle, pEndpoint->Id)) {
+-		htc_send_pkts_sched_queue(HTCHandle, pPktQueue, pEndpoint->Id);
++		retval = htc_send_pkts_sched_queue(HTCHandle, pPktQueue, pEndpoint->Id);
+ 	} else {
+-		htc_try_send(target, pEndpoint, pPktQueue);
++		retval = htc_try_send(target, pEndpoint, pPktQueue);
+ 	}
+ #else
+-	htc_try_send(target, pEndpoint, pPktQueue);
++	retval = htc_try_send(target, pEndpoint, pPktQueue);
+ #endif
+ 
+ 	/* do completion on any packets that couldn't get in */
+@@ -1381,8 +1384,10 @@ A_STATUS htc_send_pkts_multiple(HTC_HANDLE HTCHandle, HTC_PACKET_QUEUE *pPktQueu
+ 
+ 			if (HTC_STOPPING(target)) {
+ 				pPacket->Status = A_ECANCELED;
++				retval = A_ECANCELED;
+ 			} else {
+ 				pPacket->Status = A_NO_RESOURCE;
++				retval = A_NO_RESOURCE;
+ 			}
+ 		}
+ 		HTC_PACKET_QUEUE_ITERATE_END;
+@@ -1391,8 +1396,8 @@ A_STATUS htc_send_pkts_multiple(HTC_HANDLE HTCHandle, HTC_PACKET_QUEUE *pPktQueu
+ 	}
+ 
+ 	AR_DEBUG_PRINTF(ATH_DEBUG_SEND, ("-htc_send_pkts_multiple \n"));
+-
+-	return A_OK;
++end:
++	return retval;
+ }
+ 
+ /* HTC API - htc_send_pkt */

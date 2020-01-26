@@ -1,0 +1,82 @@
+make package/system/procd/compile;make package/install;make target/install;cd ..;./make_img.sh;cd qsdk/
+rm procd;tftp -gr procd 192.168.1.10;chmod +x procd;./procd -h /etc/hotplug.json
+
+
+
+config wifi-device 'wifi0'
+        option type 'qcawifi'
+        option channel 'auto'
+        option macaddr '00:03:7f:13:20:51'
+        option disabled '0'
+        option hwmode '11ng'
+        option txpower '22'
+
+config wifi-iface
+        option device 'wifi0'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'prfeng_4018_ipc_2g'
+        option encryption 'psk-mixed+tkip+ccmp'
+        option key 'admin123'
+
+config wifi-device 'wifi1'
+        option type 'qcawifi'
+        option channel 'auto'
+        option macaddr '00:03:7f:13:10:51'
+        option disabled '0'
+        option hwmode '11ac'
+        option txpower '22'
+
+config wifi-iface
+        option device 'wifi1'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'prfeng_4018_ipc_5g'
+        option encryption 'psk-mixed+tkip+ccmp'
+        option key 'admin123'
+		
+==============================================
+
+config wifi-device  wifi0
+        option type     qcawifi
+        option channel  auto
+        option macaddr  00:03:7f:13:20:51
+        option hwmode   11ng
+        # REMOVE THIS LINE TO ENABLE WIFI:
+        option disabled 0
+
+config wifi-iface
+        option device   wifi0
+        option network  lan
+        option mode     ap
+        option ssid     OpenWrt
+        option encryption none
+
+config wifi-device  wifi1
+        option type     qcawifi
+        option channel  auto
+        option macaddr  00:03:7f:13:10:51
+        option hwmode   11ac
+        # REMOVE THIS LINE TO ENABLE WIFI:
+        option disabled 0
+
+config wifi-iface
+        option device   wifi1
+        option network  lan
+        option mode     ap
+        option ssid     OpenWrt
+        option encryption none
+		
+
+uci set wireless.@wifi-iface[0].ssid=prfeng_4018_ipc_2g
+uci set wireless.@wifi-iface[0].encryption=psk-mixed+tkip+ccmp
+uci set wireless.@wifi-iface[0].key=admin123
+
+uci set wireless.@wifi-iface[1].ssid=prfeng_4018_ipc_5g
+uci set wireless.@wifi-iface[1].encryption=psk-mixed+tkip+ccmp
+uci set wireless.@wifi-iface[1].key=admin123
+
+uci set wireless.disabled=0
+00:03:7F:13:20:67 
+
+移植无线相关代码，编译通过，待验证

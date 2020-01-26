@@ -1,0 +1,32 @@
+root@W3:/tmp# 
+root@W3:/tmp# [77787.098945] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth frame with algorithm 0 seq 1 
+[77787.107896] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth when valid node is present ignore auth and disconnect sta
+[77787.121677] [AUTH] vap-0(ath0):ieee80211_mlme_frame_complete_handler: frame send to f4:8e:92:e3:e7:ad 
+[77787.130114] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]ieee80211_sta_leave: 0xc277e000 
+[77787.139388] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc277e000, ni_bss_node=0xc277a000 bss_ref=9 
+[77787.153692] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc277e000, ni_bss_node=0xc277a000 bss_ref=9 
+[77787.168021] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]station free 
+[77787.175497] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]_ieee80211_free_node: vap=0xc1668000, nodecount=7, ni=0xc277e000, ni_bss_node=0xc277a000 bss_ref=9 
+[77787.190557] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc277e000, ni_bss_node=0xc277a000 bss_ref=9 
+[77788.910377] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth frame with algorithm 0 seq 1 
+[77788.919213] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]ieee80211_alloc_node: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc3fe0000 bss_ref=2 
+[77791.100919] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth frame with algorithm 0 seq 1 
+[77791.109924] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth when valid node is present ignore auth and disconnect sta
+[77791.122530] [AUTH] vap-0(ath0):ieee80211_mlme_frame_complete_handler: frame send to f4:8e:92:e3:e7:ad 
+[77791.131308] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]ieee80211_sta_leave: 0xc3fe0000 
+[77791.140476] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=9 
+[77791.154853] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=9 
+[77791.169184] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]station free 
+[77791.176782] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]_ieee80211_free_node: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=9 
+[77791.191800] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=9 
+[77793.712650] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth frame with algorithm 0 seq 1 
+[77793.721736] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]ieee80211_alloc_node: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc3fe0000 bss_ref=2 
+[77807.056299] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth frame with algorithm 0 seq 1 
+[77807.065421] [AUTH] vap-0(ath0): [f4:8e:92:e3:e7:ad]recv auth when valid node is present ignore auth and disconnect sta
+[77807.078465] [AUTH] vap-0(ath0):ieee80211_mlme_frame_complete_handler: frame send to f4:8e:92:e3:e7:ad 
+[77807.086957] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]ieee80211_sta_leave: 0xc3fe0000 
+[77807.096183] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=10 
+[77807.110568] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=10 
+[77807.125021] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]station free 
+[77807.132572] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]_ieee80211_free_node: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=10 
+[77807.147721] [ASSOC] vap-0(ath0): [f4:8e:92:e3:e7:ad]node_cleanup: vap=0xc1668000, nodecount=7, ni=0xc3fe0000, ni_bss_node=0xc277a000 bss_ref=10 

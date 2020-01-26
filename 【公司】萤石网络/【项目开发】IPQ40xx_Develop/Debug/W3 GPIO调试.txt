@@ -1,0 +1,38 @@
+
+qcom-ipq40xx-ap.dk01.1.dtsi
+
+
+gpio_keys {
+	pinctrl-0 = <&wps_pins>;
+	pinctrl-names = "default";
+	compatible = "gpio-keys";
+
+	button@1 {
+		label = "wps";
+		linux,code = <KEY_WPS_BUTTON>;
+		gpios = <&tlmm 63 GPIO_ACTIVE_LOW>;
+		linux,input-type = <1>;
+	};
+};
+
+leds {
+	compatible = "gpio-leds";
+
+	led@0 {
+		label = "led_green";
+		gpios = <&tlmm 0 GPIO_ACTIVE_HIGH>;
+		default-state = "off";
+	};
+
+	led@3 {
+		label = "led_red";
+		gpios = <&tlmm 3 GPIO_ACTIVE_HIGH>;
+		default-state = "off";
+	};
+	
+	led@58 {
+		label = "led_blue";
+		gpios = <&tlmm 58 GPIO_ACTIVE_HIGH>;
+		default-state = "off";
+	};
+};

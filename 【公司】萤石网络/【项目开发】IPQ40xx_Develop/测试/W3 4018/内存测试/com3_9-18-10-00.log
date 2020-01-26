@@ -1,0 +1,3 @@
+(IPQ40xx) # mtest 80000000 87000000 0 1
+Pattern 00000000  Writing...  Reading...Tested 1 iteration(s) with 0 errors.
+(IPQ40xx) # mtest 80000000 87000000    

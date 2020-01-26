@@ -1,0 +1,527 @@
+#define CE_WM_FLAG_SEND_HIGH   1
+#define CE_WM_FLAG_SEND_LOW    2
+#define CE_WM_FLAG_RECV_HIGH   4
+#define CE_WM_FLAG_RECV_LOW    8
+#define CE_HTT_TX_CE           4
+
+
+status = hif_send_single(hpdev->osc, msg, hpdev->htc_endpoint, qdf_nbuf_len(msg));
+ce_send_single((struct CE_handle *)ce_tx_hdl, msdu, transfer_id,
+			len);
+			
+			
+offload\os\linux\ath_ahb.c
+
+hif_reg_write(hif_hdl, CORE_SW_OUTPUT, on_or_off);
+
+    if(ol_cfg->bus_type == BUS_TYPE_AHB)
+        INIT_WORK(&scn->pci_reconnect_work, ahb_defer_reconnect);
+    else
+        INIT_WORK(&scn->pci_reconnect_work, pci_defer_reconnect);
+		
+ol_ath_ahb_probe
+	->__ol_ath_attach
+		->ol_ath_attach
+			->osif_ol_ll_vap_hardstart【qca_ol\osif_ol.c】
+			
+			
+osif_deliver_data_ol 负责将数据送上内核协议栈
+
+ol_ath_connect_htc
+	->wmi_unified_connect_htc_service
+	
+htc_wait_target
+htt_htc_attach
+HIF_USB_connect_service
+wmi_unified_connect_htc_service	
+	->htc_connect_service
+		->hif_map_service_to_pipe
+1、pipe通道泛指host与target数据管道，被用于传输报文、控制、消息等。hif_map_service_to_pipe是将我们定义的service映射到pipe中。
+2、定义HTC_SERVICE_CONNECT_REQ connect，connect.service_id可将service映射到pipe。
+3、
+
+
+最底层发包函数
+htc_send_pkt
+	->htc_send_pkts_multiple
+		->htc_try_send
+			->htc_issue_packets
+1、发包相关重要结构HTC_HANDLE HTCHandle、HTC_TARGET *target、HTC_ENDPOINT *pEndpoint、HTC_PACKET_QUEUE *pPktQueue、HTC_PACKET *pPacket
+2、HTCHandle相当于HTC层的核心管理结构；target相当于目录设备，发包时需要使用到；pEndpoint表示pipe管道；pPktQueue表示发包队列，将要发送的包存入此队列；pPacket表示发包报文。
+3、将报文传输到target的方法如下
+HTC_WRITE32(pHtcHdr,
+		SM(payloadLen,
+		   HTC_FRAME_HDR_PAYLOADLEN) | SM(pPacket->
+						  PktInfo.
+						  AsTx.
+						  SendFlags,
+						  HTC_FRAME_HDR_FLAGS)
+		| SM(pPacket->Endpoint,
+		 HTC_FRAME_HDR_ENDPOINTID));
+HTC_WRITE32(((uint32_t *) pHtcHdr) + 1,
+		SM(pPacket->PktInfo.AsTx.SeqNo,
+		   HTC_FRAME_HDR_CONTROLBYTES1));
+使用HTC_WRITE32传输数据，数据在之前函数要做DMA映射。
+
+
+========================
+ol_ath_vap_create
+	->osif_vap_setup_ol
+		->ol_txrx_vdev_register
+
+void
+ol_txrx_vdev_register(
+    ol_txrx_vdev_handle vdev,
+    void *osif_vdev,
+    struct ol_txrx_ops *txrx_ops)
+{
+    vdev->osif_vdev = osif_vdev;
+    vdev->osif_rx = txrx_ops->rx.rx;
+#if ATH_SUPPORT_WAPI
+    vdev->osif_check_wai = txrx_ops->rx.wai_check;
+#endif
+    vdev->osif_rx_mon = txrx_ops->rx.mon;
+#if UMAC_SUPPORT_PROXY_ARP
+    vdev->osif_proxy_arp = txrx_ops->proxy_arp;
+#endif
+    if (ol_cfg_is_high_latency(vdev->pdev->ctrl_pdev)) {
+        txrx_ops->tx.tx = vdev->tx = ol_tx_hl;
+    } else {
+        txrx_ops->tx.tx = vdev->tx = ol_tx_ll;
+    }
+}
+
+txrx_ops->tx.tx = vdev->tx = ol_tx_ll;
+
+ol_tx_ll
+	->ol_tx_sg_process_skb[ol_tx.c]
+		->#define OL_TX_LL_FORWARD_PACKET(_vdev, _msdu, _num_msdus) ol_tx_ll_pflow_ctrl(_vdev, _msdu)
+			->ol_tx_enqueue_pflow_ctrl
+				->qdf_nbuf_queue_add
+				->ol_tx_pflow_ctrl_queue_map_update
+					->ol_tx_pflow_ctrl_flush_queue_map
+						->hrtimer_start(&pdev->qmap_ctxt.htimer, modified_ktime, HRTIMER_MODE_REL);
+						  hrtimer_init(&pdev->qmap_ctxt.htimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+						  pdev->qmap_ctxt.htimer.function = &htt_qmap_flush_hightimer_cb;
+				
+==================
+ol_ath_mgmt_attach
+#ifdef OL_MGMT_TX_WMI
+    ic->ic_mgtstart = ol_ath_tx_mgmt_wmi_send;
+#else
+    ic->ic_mgtstart = ol_ath_tx_mgmt_send;
+#endif
+
+ol_ath_tx_mgmt_wmi_send
+	->ol_txrx_mgmt_send[ol_tx.c]
+		->htt_h2t_mgmt_tx[htt_h2t.c]
+			->htt_tx_mgmt_desc_alloc
+			->hif_send_single[hif_main.c]
+				->ce_send_single[ce_service.c]
+					->war_ce_src_ring_write_idx_set
+						->hif_write32_mb
+			
+==========================================================
+CE = Copy Engine
+/*
+ * Copy Engine Watermark callback type.
+ *
+ * Allows upper layers to be notified when watermarks are reached:
+ *   space is available and/or running short in a source ring
+ *   buffers are exhausted and/or abundant in a destination ring
+ *
+ * The flags parameter indicates which condition triggered this
+ * callback.  See CE_WM_FLAG_*.
+ *
+ * Watermark APIs are provided to allow upper layers "batch"
+ * descriptor processing and to allow upper layers to
+ * throttle/unthrottle.
+ */
+typedef void (*CE_watermark_cb)(struct CE_handle *copyeng,
+				void *per_CE_wm_context, unsigned int flags);
+
+#define CE_WM_FLAG_SEND_HIGH   1
+#define CE_WM_FLAG_SEND_LOW    2
+#define CE_WM_FLAG_RECV_HIGH   4
+#define CE_WM_FLAG_RECV_LOW    8
+#define CE_HTT_TX_CE           4
+
+/* A list of buffers to be gathered and sent */
+struct ce_sendlist;
+
+/* Copy Engine settable attributes */
+struct CE_attr;
+
+
+static struct CE_attr host_ce_config_wlan[] = {
+	/* host->target HTC control and raw streams */
+	{ /* CE0 */ CE_ATTR_FLAGS, 0, 16, 2048, 0, NULL,},
+	/* target->host HTT + HTC control */
+	{ /* CE1 */ CE_ATTR_FLAGS, 0, 0,  2048, 512, NULL,},
+	/* target->host WMI */
+	{ /* CE2 */ CE_ATTR_FLAGS, 0, 0,  2048, 32, NULL,},
+	/* host->target WMI */
+	{ /* CE3 */ CE_ATTR_FLAGS, 0, 32, 2048, 0, NULL,},
+	/* host->target HTT */
+	{ /* CE4 */ (CE_ATTR_FLAGS | CE_ATTR_DISABLE_INTR), 0,
+		CE_HTT_H2T_MSG_SRC_NENTRIES, 256, 0, NULL,},
+	/* ipa_uc->target HTC control */
+	{ /* CE5 */ (CE_ATTR_FLAGS | CE_ATTR_DISABLE_INTR), 0,
+		1024, 512, 0, NULL,},
+	/* Target autonomous HIF_memcpy */
+	{ /* CE6 */ CE_ATTR_FLAGS, 0, 0, 0, 0, NULL,},
+	/* ce_diag, the Diagnostic Window */
+	{ /* CE7 */ (CE_ATTR_FLAGS | CE_ATTR_DISABLE_INTR), 0,
+		2, DIAG_TRANSFER_LIMIT, 2, NULL,},
+	/* Target to uMC */
+	{ /* CE8 */ CE_ATTR_FLAGS, 0, 0, 0, 0, NULL,},
+	/* target->host HTT */
+	{ /* CE9 */ CE_ATTR_FLAGS, 0, 0,  2048, 512, NULL,},
+	/* target->host HTT */
+	{ /* CE10 */ CE_ATTR_FLAGS, 0, 0,  2048, 512, NULL,},
+	/* target -> host PKTLOG */
+	{ /* CE11 */ CE_ATTR_FLAGS, 0, 0, 2048, 512, NULL,},
+};
+
+static struct CE_pipe_config target_ce_config_wlan[] = {
+	/* host->target HTC control and raw streams */
+	{ /* CE0 */ 0, PIPEDIR_OUT, 32, 2048, CE_ATTR_FLAGS, 0,},
+	/* target->host HTT */
+	{ /* CE1 */ 1, PIPEDIR_IN,  32, 2048, CE_ATTR_FLAGS, 0,},
+	/* target->host WMI  + HTC control */
+	{ /* CE2 */ 2, PIPEDIR_IN,  32, 2048, CE_ATTR_FLAGS, 0,},
+	/* host->target WMI */
+	{ /* CE3 */ 3, PIPEDIR_OUT, 32, 2048, CE_ATTR_FLAGS, 0,},
+	/* host->target HTT */
+	{ /* CE4 */ 4, PIPEDIR_OUT, 256, 256,
+		(CE_ATTR_FLAGS | CE_ATTR_DISABLE_INTR), 0,},
+	/* NB: 50% of src nentries, since tx has 2 frags */
+	/* ipa_uc->target */
+	{ /* CE5 */ 5, PIPEDIR_OUT, 1024,   64,
+		(CE_ATTR_FLAGS | CE_ATTR_DISABLE_INTR), 0,},
+	/* Reserved for target autonomous HIF_memcpy */
+	{ /* CE6 */ 6, PIPEDIR_INOUT, 32, 16384, CE_ATTR_FLAGS, 0,},
+	/* CE7 used only by Host */
+	{ /* CE7 */ 7, PIPEDIR_INOUT_H2H, 0, 0,
+		(CE_ATTR_FLAGS | CE_ATTR_DISABLE_INTR), 0,},
+	/* CE8 used only by IPA */
+	{ /* CE8 */ 8, PIPEDIR_IN, 32, 2048, CE_ATTR_FLAGS, 0,},
+	/* CE9 target->host HTT */
+	{ /* CE9 */ 9, PIPEDIR_IN,  32, 2048, CE_ATTR_FLAGS, 0,},
+	/* CE10 target->host HTT */
+	{ /* CE10 */ 10, PIPEDIR_IN,  32, 2048, CE_ATTR_FLAGS, 0,},
+	/* Target -> host PKTLOG */
+	{ /* CE11 */ 11, PIPEDIR_IN,  32, 2048, CE_ATTR_FLAGS, 0,},
+};
+
+static struct CE_attr *host_ce_config = host_ce_config_wlan;
+static struct CE_pipe_config *target_ce_config = target_ce_config_wlan;
+
+hif_completion_thread_startup
+	for (pipe_num = 0; pipe_num < scn->ce_count; pipe_num++) {
+		struct CE_attr attr;
+		struct HIF_CE_pipe_info *pipe_info;
+
+		pipe_info = &hif_state->pipe_info[pipe_num];
+		if (pipe_info->ce_hdl == ce_diag) {
+			continue;       /* Handle Diagnostic CE specially */
+		}
+		attr = host_ce_config[pipe_num];
+		if (attr.src_nentries) {
+			/* pipe used to send to target */
+			HIF_INFO_MED("%s: pipe_num:%d pipe_info:0x%p",
+					 __func__, pipe_num, pipe_info);
+			ce_send_cb_register(pipe_info->ce_hdl,
+					    hif_pci_ce_send_done, pipe_info,
+					    attr.flags & CE_ATTR_DISABLE_INTR);
+			pipe_info->num_sends_allowed = attr.src_nentries - 1;
+		}
+		if (attr.dest_nentries) {
+			/* pipe used to receive from target */
+			ce_recv_cb_register(pipe_info->ce_hdl,
+					    hif_pci_ce_recv_data, pipe_info,
+					    attr.flags & CE_ATTR_DISABLE_INTR);
+		}
+
+		if (attr.src_nentries)
+			qdf_spinlock_create(&pipe_info->completion_freeq_lock);
+
+		qdf_mem_copy(&pipe_info->pipe_callbacks, hif_msg_callbacks,
+					sizeof(pipe_info->pipe_callbacks));
+	}
+	
+pipe_info->ce_hdl = ce_init(scn, pipe_num, attr);
+
+/*
+ * Guts of interrupt handler for per-engine interrupts on a particular CE.
+ *
+ * Invokes registered callbacks for recv_complete,
+ * send_complete, and watermarks.
+ *
+ * Returns: number of messages processed
+ */
+int ce_per_engine_service(struct hif_softc *scn, unsigned int CE_id)
+		/* Pop completed recv buffers and call
+		 * the registered recv callback for each
+		 */
+		while (ce_completed_recv_next_nolock
+				(CE_state, &CE_context, &transfer_context,
+				&buf, &nbytes, &id, &flags) ==
+				QDF_STATUS_SUCCESS) {
+			qdf_spin_unlock(&CE_state->ce_index_lock);
+			CE_state->recv_cb((struct CE_handle *)CE_state,
+					  CE_context, transfer_context, buf,
+					  nbytes, id, flags);
+					  
+		while (ce_completed_send_next_nolock
+			 (CE_state, &CE_context,
+			  &transfer_context, &buf, &nbytes,
+			  &id, &sw_idx, &hw_idx,
+			  &toeplitz_hash_result) == QDF_STATUS_SUCCESS) {
+			qdf_spin_unlock(&CE_state->ce_index_lock);
+			CE_state->send_cb((struct CE_handle *)CE_state,
+				  CE_context, transfer_context, buf,
+				  nbytes, id, sw_idx, hw_idx,
+				  toeplitz_hash_result);
+
+=====================================================
+ieee80211_state_info ieee80211_assoc_sm_info[] = {
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_INIT, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "INIT",
+        ieee80211_assoc_state_init_entry,
+        ieee80211_assoc_state_init_exit,
+        ieee80211_assoc_state_init_event
+    },
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_TXCHANSWITCH,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "TXCHANSWITCH",
+        ieee80211_assoc_state_txchanswitch_entry,
+        ieee80211_assoc_state_txchanswitch_exit,
+        ieee80211_assoc_state_txchanswitch_event
+    },
+#if ATH_SUPPORT_DFS
+    {
+        (u_int8_t) IEEE80211_ASSOC_STATE_REPEATER_CAC,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "REPEATER_CAC",
+        ieee80211_assoc_state_repeater_cac_entry,
+        ieee80211_assoc_state_repeater_cac_exit,
+        ieee80211_assoc_state_repeater_cac_event
+    },
+#endif
+    {
+        (u_int8_t) IEEE80211_ASSOC_STATE_JOIN, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "JOIN",
+        ieee80211_assoc_state_join_entry,
+        ieee80211_assoc_state_join_exit,
+        ieee80211_assoc_state_join_event
+    },
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_AUTH, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "AUTH",
+        ieee80211_assoc_state_auth_entry,
+        ieee80211_assoc_state_auth_exit,
+        ieee80211_assoc_state_auth_event
+    },
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_ASSOC, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "ASSOC",
+        ieee80211_assoc_state_assoc_entry,
+        ieee80211_assoc_state_assoc_exit,
+        ieee80211_assoc_state_assoc_event
+    },
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_RUN, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "RUN",
+        ieee80211_assoc_state_run_entry,
+        ieee80211_assoc_state_run_exit,
+        ieee80211_assoc_state_run_event
+    },
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_DISASSOC, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "DISASSOC",
+        ieee80211_assoc_state_disassoc_entry,
+        ieee80211_assoc_state_disassoc_exit,
+        ieee80211_assoc_state_disassoc_event
+    },
+    { 
+        (u_int8_t) IEEE80211_ASSOC_STATE_MLME_WAIT, 
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        (u_int8_t) IEEE80211_HSM_STATE_NONE,
+        false,
+        "MLME_WAIT",
+        ieee80211_assoc_state_mlme_wait_entry,
+        NULL,
+        ieee80211_assoc_state_mlme_wait_event,
+    },
+};
+
+static const char *assoc_event_names[] = {      "CONNECT_REQUEST",
+                                                "DISCONNECT_REQUEST",
+                                                "DISASSOC_REQUEST",
+                                                "REASSOC_REQUEST",
+                                                "JOIN_SUCCESS",
+                                                "JOIN_FAIL",
+                                                "AUTH_SUCCESS",
+                                                "AUTH_FAIL",
+                                                "ASSOC_FAIL",
+                                                "ASSOC_SUCCESS",
+                                                "BEACON_WAIT_TIMEOUT",
+                                                "BEACON_MISS",
+                                                "DISASSOC",
+                                                "DEAUTH",
+                                                "DISASSOC_SENT",
+                                                "TIMEOUT",
+                                                "RECONNECT_REQUEST",
+                                                "TXCHANSWITCH_SUCCESS",
+                                                "TXCHANSWITCH_FAIL",
+                                                "REPEATER_CAC_SUCCESS",
+                                                "REPEATER_CAC_FAIL",
+                                              };
+
+wlan_assoc_sm_t wlan_assoc_sm_create(osdev_t oshandle, wlan_if_t vaphandle)
+{
+    wlan_assoc_sm_t sm;
+    sm = (wlan_assoc_sm_t) OS_MALLOC(oshandle,sizeof(struct _wlan_assoc_sm),0);
+    if (!sm) {
+        return NULL;
+    }
+    OS_MEMZERO(sm, sizeof(struct _wlan_assoc_sm));
+    sm->os_handle = oshandle;
+    sm->vap_handle = vaphandle;
+    sm->hsm_handle = ieee80211_sm_create(oshandle, 
+                                         "assoc",
+                                         (void *) sm, 
+                                         IEEE80211_ASSOC_STATE_INIT,
+                                         ieee80211_assoc_sm_info, 
+                                         sizeof(ieee80211_assoc_sm_info)/sizeof(ieee80211_state_info),
+                                         MAX_QUEUED_EVENTS, 
+                                         0 /* no event data */, 
+                                         MESGQ_PRIORITY_HIGH,
+                                         IEEE80211_HSM_ASYNCHRONOUS, /* run the SM asynchronously */
+                                         ieee80211_assoc_sm_debug_print,
+                                         assoc_event_names,
+                                         IEEE80211_N(assoc_event_names)
+                                         );
+    if (!sm->hsm_handle) {
+        OS_FREE(sm);
+        IEEE80211_DPRINTF(vaphandle, IEEE80211_MSG_STATE,
+            "%s : ieee80211_sm_create failed\n", __func__);
+        return NULL;
+    }
+
+    sm->max_assoc_attempts = MAX_ASSOC_ATTEMPTS;
+    sm->max_auth_attempts =  MAX_AUTH_ATTEMPTS;
+    sm->max_tsfsync_time =  MAX_TSFSYNC_TIME;
+    sm->max_mgmt_time =  MAX_MGMT_TIME;
+    OS_INIT_TIMER(oshandle, &(sm->sm_timer), assoc_sm_timer_handler, (void *)sm, QDF_TIMER_TYPE_WAKE_APPS);
+       
+    wlan_vap_register_mlme_event_handlers(vaphandle,(os_if_t) sm, &sta_mlme_evt_handler);
+    wlan_vap_register_misc_event_handlers(vaphandle,(os_if_t)sm,&sta_misc_evt_handler);
+
+    return sm;                                   
+}
+
+wlan_mlme_event_handler_table sta_mlme_evt_handler = {
+    sm_join_complete,
+    NULL,
+    sm_auth_complete,
+    NULL,
+    sm_assoc_complete,
+    sm_reassoc_complete,
+    NULL,
+    NULL,
+    sm_chanswitch_complete,     /* mlme_txchanswitch_complete */
+    sm_repeater_cac_complete,   /* mlme_repeater_cac_complete */
+    NULL,
+    sm_deauth_indication,
+    NULL,
+    NULL,
+    sm_disassoc_indication,     /* mlme_disassoc_indication */
+};
+
+#define IEEE80211_MAX_VAP_MLME_EVENT_HANDLERS   4
+wlan_mlme_event_handler_table     *iv_mlme_evtable[IEEE80211_MAX_VAP_MLME_EVENT_HANDLERS];  /* mlme event handlers */
+
+int
+ieee80211_vap_register_mlme_events(struct ieee80211vap *vap, os_handle_t oshandle, wlan_mlme_event_handler_table *evtab)
+{
+    int i;
+    /* unregister if there exists one already */
+    ieee80211_vap_unregister_mlme_events(vap,oshandle,evtab);
+    IEEE80211_VAP_LOCK(vap);
+    for (i=0;i<IEEE80211_MAX_VAP_MLME_EVENT_HANDLERS; ++i) {
+        if ( vap->iv_mlme_evtable[i] == NULL) {
+            vap->iv_mlme_evtable[i] = evtab;
+            vap->iv_mlme_arg[i] = oshandle;
+            IEEE80211_VAP_UNLOCK(vap);
+            return 0;
+        }
+    }
+    IEEE80211_VAP_UNLOCK(vap);
+    IEEE80211_DPRINTF(vap, IEEE80211_MSG_MLME, "%s mlme evtable is full.\n", __func__);
+    return ENOMEM;
+}
+
+#define IEEE80211_DELIVER_EVENT_MLME_AUTH_INDICATION( _vap,_macaddr,_indication_status)  do {        \
+        int i;                                                                                       \
+        for(i=0;i<IEEE80211_MAX_VAP_MLME_EVENT_HANDLERS; ++i) {                                      \
+            if ((_vap)->iv_mlme_evtable[i] &&                                                        \
+            (_vap)->iv_mlme_evtable[i]->mlme_auth_indication) {                                      \
+                (* (_vap)->iv_mlme_evtable[i]->mlme_auth_indication)                                 \
+                                           ((_vap)->iv_mlme_arg[i], _macaddr, _indication_status);   \
+             }                                                                                       \
+        }                                                                                            \
+    } while(0)
+		
+	
+typedef struct _wlan_mlme_event_handler_table {
+    /* MLME confirmation handler */
+    void (*mlme_join_complete_infra)(os_handle_t, IEEE80211_STATUS);
+    void (*mlme_join_complete_adhoc)(os_handle_t, IEEE80211_STATUS);
+    void (*mlme_auth_complete)(os_handle_t, IEEE80211_STATUS);
+    void (*mlme_assoc_req)(os_handle_t, wbuf_t wbuf);
+    void (*mlme_assoc_complete)(os_handle_t, IEEE80211_STATUS, u_int16_t aid, wbuf_t wbuf);
+    void (*mlme_reassoc_complete)(os_handle_t, IEEE80211_STATUS, u_int16_t aid, wbuf_t wbuf);
+    void (*mlme_deauth_complete)(os_handle_t,u_int8_t *, IEEE80211_STATUS);
+    void (*mlme_disassoc_complete)(os_handle_t, u_int8_t *, u_int32_t, IEEE80211_STATUS);
+    void (*mlme_txchanswitch_complete)(os_handle_t,IEEE80211_STATUS);
+    void (*mlme_repeater_cac_complete)(os_handle_t,IEEE80211_STATUS);
+
+    /* MLME indication handler */
+    void (*mlme_auth_indication)(os_handle_t, u_int8_t *macaddr, u_int16_t result);
+    void (*mlme_deauth_indication)(os_handle_t, u_int8_t *macaddr, u_int16_t associd, u_int16_t reason_code);
+    void (*mlme_assoc_indication)(os_handle_t, u_int8_t *macaddr, u_int16_t result, wbuf_t wbuf, wbuf_t resp_wbuf, bool reassoc);
+    void (*mlme_reassoc_indication)(os_handle_t, u_int8_t *macaddr, u_int16_t result, wbuf_t wbuf, wbuf_t resp_wbuf, bool reassoc);
+    void (*mlme_disassoc_indication)(os_handle_t, u_int8_t *macaddr, u_int16_t associd, u_int32_t reason_code);
+    void (*mlme_ibss_merge_start_indication)(os_handle_t, u_int8_t *bssid);
+    void (*mlme_ibss_merge_completion_indication)(os_handle_t, u_int8_t *bssid);
+    void (*wlan_radar_detected) (os_handle_t, u_int32_t csa_delay);
+    void (*wlan_node_authorized_indication) (os_handle_t, u_int8_t *macaddr);
+    void (*mlme_unprotected_deauth_indication)(os_handle_t, u_int8_t *macaddr, u_int16_t associd, u_int16_t reason_code);
+} wlan_mlme_event_handler_table;
+

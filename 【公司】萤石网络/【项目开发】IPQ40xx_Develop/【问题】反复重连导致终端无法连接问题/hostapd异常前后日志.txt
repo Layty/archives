@@ -1,0 +1,558 @@
+atheros_del_key: addr=00:27:10:da:fc:04 key_idx=0
+atheros_set_sta_authorized: addr=00:27:10:da:fc:04 authorized=0
+ath0: STA 00:27:10:da:fc:04 IEEE 802.1X: unauthorizing port
+ap_free_sta: cancel ap_handle_timer for 00:27:10:da:fc:04
+Custom wireless event: 'Manage.prob_req 131'
+atheros_raw_receive: subtype 0x4 len 131
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+[ 3128.622822] [wifi0] FWLOG: [3211374] RATE: ChainMask 3, peer_mac fc:4, phymode 5, ni_flags 0x00201006, vht_mcs_set 0x0000, ht_mcs_set 0xffff, legacy_rate_set 0x0fff
+[ 3128.650421] [wifi0] FWLOG: [3211498] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xfc04, 0x0 )
+[ 3128.657245] [wifi0] FWLOG: [3211498] WAL_DBGID_SECURITY_ENCR_EN ( Custom wireless event: 'Manage.prob_req 129'
+atheros_raw_receiv )
+[ 3128.669165] [wifi0] e: subtype 0xFWLOG: [3211498] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e1d0 )
+[ 3128.677554] [wifi0] FWLOG: [3211745] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 4 len 0xfc04, 0x0 )
+[ 3128.685904] [wifi0] FWLOG: [3211745] WAL_DBGID_SECURITY_ENCR_EN ( 129
+ath1: Event RX_PROBE_REQ (22) received
+ )
+Custom wireless event: 'Manage.prob_req 129'
+atheros_raw_receiv[ 3128.696347] [wifi0] e: subtype 0x4 len 129
+ath1: Event RX_PROBE_REQ (22) received
+FWLOG: [3211745] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e1d0 )
+ath0: STA f8:28:19:76:3a:f5 WPA: EAPOL-Key timeout
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKSTART
+ath0: STA f8:28:19:76:3a:f5 WPA: sending 1/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=0 mic=0 ack=1 install=0 pairwise=1 kde_len=0 keyidx=0 encr=0)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 03
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 3)
+Custom wireless event: 'Manage.prob_req 163'
+atheros_raw_receive: subtype 0x4 len 163
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 77'
+atheros_raw_receive: subtype 0x4 len 77
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 57'
+atheros_raw_receive: subtype 0x4 len 57
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 110'
+atheros_raw_receive: subtype 0x4 len 110
+ath1: Event RX_PROBE_REQ (22) received
+ath0: Event DISASSOC (1) received
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.11: disassociated
+ath0: STA f8:28:19:76:3a:f5 WPA: event 2 notification
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state DISCONNECTED
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+atheros_set_sta_authorized: addr=f8:28:19:76:3a:f5 authorized=0
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.1X: unauthorizing port
+ap_free_sta: cancel ap_handle_timer for f8:28:19:76:3a:f5
+Custom wireless event: 'Manage.prob_req 127'
+atheros_raw_receive: subtype 0x4 len 127
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 82'
+atheros_raw_receive: subtype 0x4 len 82
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 82'
+atheros_raw_receive: subtype 0x4 len 82
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 118'
+atheros_raw_receive: subtype 0x4 len 118
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 78'
+atheros_raw_receive: subtype 0x4 len 78
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.auth 30'
+atheros_raw_receive: subtype 0xb len 30
+ath0: Event AUTH (11) received
+  New STA
+ap_sta_add: register ap_handle_timer timeout for 34:68:95:14:93:d9 (300 seconds - ap_max_inactivity)
+atheros_sta_auth: addr=34:68:95:14:93:d9 status_code=0
+Custom wireless event: 'Manage.assoc_req 123'
+atheros_raw_receive: subtype 0x0 len 123
+ath0: Event ASSOC (0) received
+ath0: STA 34:68:95:14:93:d9 IEEE 802.11: associated
+STA included RSN IE in (Re)AssocReq
+atheros_sta_assoc: addr=34:68:95:14:93:d9 status_code=0 reassoc 0
+ath0: STA 34:68:95:14:93:d9 WPA: event 1 notification
+atheros_del_key: addr=34:68:95:14:93:d9 key_idx=0
+IEEE 802.1X: Ignore STA - 802.1X not enabled or forced for WPS
+ath0: STA 34:68:95:14:93:d9 WPA: start authentication
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=34:68:95:14:93:d9 key_idx=0
+atheros_set_sta_authorize[ 3130.622027] [wifi0] FWLOG: [3214140] RATE: ChainMask 3, peer_mac 93:d9, phymode 5, ni_flags 0x00201006, vht_mcs_set 0x0000, ht_mcs_set 0xffff, legacy_rate_set 0x0fff
+d: addr=34:68:95:14:93:d9 authorized=0
+ath0: STA 34:68:95:14:93:d9 IEEE 802.1X: unauthorizing port
+WPA: 34:68:95:14:93:d9 WPA_[ 3130.643778] [wifi0] PTK_GROUP entering state IDLE
+WPA: 34:68:95:14:93:d9 WPA_PTK enFWLOG: [3214209] WAL_DBGID_SECURITY_UCAST_KEY_SET ( tering state AUTHENTICATION
+WPA: 34:68:95:14:93:d9 WPA_PTK ente0x93d9ring state AUTHENTICATION2
+WPA: Assign ANonce - hexdump(len=32), : b4 67 b0 b5 8f 77 b4 da 42 51 5f e1 39 00 71 bc a9 3b 47 19 980x0 4f d5 07 f0 0f 67 d6 c2 f2 fb f4
+WPA: 34:68:95:14:93:d9 WPA_PT )
+K entering state INITPSK
+Searching a PSK for 34:68:95:14:93:d9 [ 3130.685232] [wifi0] prev_psk=(nil)
+Searching a PSK for 34:68:95:14:93:d9 prev_psk=(FWLOG: [3214209] WAL_DBGID_SECURITY_ENCR_EN ( nil)
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state PTKSTART
+at )
+h0: STA 34:68:95:14:93:d9 WPA: sending 1/4 msg of 4-Way Handshak[ 3130.708026] [wifi0] e
+WPA: Send EAPOL(version=2 secure=0 mic=0 ack=1 install=0 pairFWLOG: [3214209] WAL_DBGID_SECURITY_ALLOW_DATA ( wise=1 kde_len=0 keyidx=0 encr=0)
+WPA: Replay Counter - hexdump0x43e6d0(len=8): 00 00 00 00 00 00 00 01
+WPA: Use EAPOL-Key timeout of  )
+1000 ms (retry counter 1)
+ath0: hostapd_new_assoc_sta: reschedule ap_handle_timer timeout for 34:68:95:14:93:d9 (300 seconds - ap_max_inactivity)
+Custom wireless event: 'Manage.prob_req 88'
+atheros_raw_receive: subtype 0x4 len 88
+ath0: Event RX_PROBE_REQ (22) received
+l2_packet_receive: src=34:68:95:14:93:d9 len=135
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 121 bytes from 34:68:95:14:93:d9
+   IEEE 802.1X: version=2 type=3 length=117
+WPA: Received EAPOL-Key from 34:68:95:14:93:d9 key_info=0x10a type=2 mic_len=16 key_data_length=22
+WPA: Received Key Nonce - hexdump(len=32): cc 6b b4 77 f0 22 1b 08 ce 6a 8b f7 dd 83 07 c8 7b 2a df e9 af 93 9c 4e 9d 84 19 ac cb 42 1b af
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+ath0: STA 34:68:95:14:93:d9 WPA: received EAPOL-Key frame (2/4 Pairwise)
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state PTKCALCNEGOTIATING
+Searching a PSK for 34:68:95:14:93:d9 prev_psk=(nil)
+WPA: PTK derivation - A1=00:14:14:12:92:9b A2=34:68:95:14:93:d9
+WPA: Nonce1 - hexdump(len=32): b4 67 b0 b5 8f 77 b4 da 42 51 5f e1 39 00 71 bc a9 3b 47 19 98 4f d5 07 f0 0f 67 d6 c2 f2 fb f4
+WPA: Nonce2 - hexdump(len=32): cc 6b b4 77 f0 22 1b 08 ce 6a 8b f7 dd 83 07 c8 7b 2a df e9 af 93 9c 4e 9d 84 19 ac cb 42 1b af
+WPA: PMK - hexdump(len=32): [REMOVED]
+WPA: PTK - hexdump(len=48): [REMOVED]
+WPA: KCK - hexdump(len=16): [REMOVED]
+WPA: KEK - hexdump(len=16): [REMOVED]
+WPA: TK - hexdump(len=16): [REMOVED]
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state PTKCALCNEGOTIATING2
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state PTKINITNEGOTIATING
+atheros_get_seqnum: addr=00:00:00:00:00:00 idx=1
+ath0: STA 34:68:95:14:93:d9 WPA: sending 3/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=1 mic=1 ack=1 install=1 pairwise=1 kde_len=94 keyidx=1 encr=1)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+Plaintext EAPOL-Key Key Data - hexdump(len=104): [REMOVED]
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+l2_packet_receive: src=34:68:95:14:93:d9 len=135
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: 121 bytes from 34:68:95:14:93:d9
+IEEE 802.1X data frame from not associated/Pre-authenticating STA
+l2_packet_receive: src=34:68:95:14:93:d9 len=113
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 99 bytes from 34:68:95:14:93:d9
+   IEEE 802.1X: version=2 type=3 length=95
+WPA: Received EAPOL-Key from 34:68:95:14:93:d9 key_info=0x30a type=2 mic_len=16 key_data_length=0
+WPA: Received Key Nonce - hexdump(len=32): cc 6b b4 77 f0 22 1b 08 ce 6a 8b f7 dd 83 07 c8 7b 2a df e9 af 93 9c 4e 9d 84 19 ac cb 42 1b af
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+ath0: STA 34:68:95:14:93:d9 WPA: received EAPOL-Key frame (4/4 Pairwise)
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state PTKINITDONE
+atheros_set_key: alg=3 addr=34:68:95:14:93:d9 key_idx=0
+ath0: AP-STA-CONNECTED 34:68:95:14:93:d9
+CTRL_IFACE monitor send /tmp/wpa_ctrl_1207-1\x00
+atheros_set_sta_authorized: addr=34:68:95:14:93:d9 authorized=1
+ath0: STA 34:68:95:14:93:d9 IEEE 802.1X: authorizing port
+ath0: STA 34:68:95:14:93:d9 RADIUS: starting accounting session C82C4632F8E985C9
+atheros_sta_clear_stats: addr=34:68:95:14:93:d9
+ath0: STA 34:68:95:14:93:d9 WPA: pairwise key handshake completed (RSN)
+l2_packet_receive: src=34:68:95:14:93:d9 len=113
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: 99 bytes from 34:68:95:14:93:d9
+IEEE 802.1X data frame from not associated/Pre-authenticating STA
+Custom wireless event: 'Manage.prob_req 110'
+atheros_raw_receive: subtype 0x4 len 110
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 98'
+atheros_raw_receive: subtype 0x4 len 98
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 98'
+atheros_raw_receive: subtype 0x4 len 98
+ath1: Event RX_PROBE_REQ (22) received
+ath0: Event DISASSOC (1) received
+ath0: STA 34:68:95:14:93:d9 IEEE 802.11: disassociated
+ath0: AP-STA-DISCONNECTED 34:68:95:14:93:d9
+CTRL_IFACE monitor send /tmp/wpa_ctrl_1207-1\x00
+ath0: STA 34:68:95:14:93:d9 WPA: event 2 notification
+atheros_del_key: addr=34:68:95:14:93:d9 key_idx=0
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state DISCONNECTED
+WPA: 34:68:95:14:93:d9 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=34:68:95:14:93:d9 key_idx=0
+atheros_set_sta_authorized: addr=34:68:95:14:93:d9 authorized=0
+ath0: STA 34:68:95:14:93:d9 IEEE 802.1X: unauthorizing port
+ap_free_sta: cancel ap_handle_timer for 34:68:95:14:93:d9
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 145'
+atheros_raw_receive: subtype 0x4 len 145
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 131'
+atheros_raw_receive: subtype 0x4 len 131
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 131'
+atheros_raw_receive: subtype 0x4 len 131
+ath1: Event RX_PROBE_REQ (22) received
+[ 3131.621849] [wifi0] FWLOG: [3214241] WAL_DBGID_TX_BA_SETUP ( 0x43e6d0, 0x93d90006, 0x2, 0x40, 0x1 )
+[ 3131.629886] [wifi0] FWLOG: [3214242] RATE: ChainMask 3, peer_mac 93:d9, phymode 5, ni_flags 0x00201006, vht_mcs_set 0x0000, ht_mcs_set 0xffff, legacy_rate_set 0x0fff
+[ 3131.647632] [wifi0] FWLOG: [3214611] WAL_DBGID_TX_BA_SETUP ( 0x43e6d0, 0x93d90006, 0x0, 0x2, 0x0 )
+[ 3131.655594] [wifi0] FWLOG: [3214616] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0x93d9, 0x0 )
+[ 3131.663410] [wifi0] FWLOG: [3214616] WAL_DBGID_SECURITY_ENCR_EN (  )
+[ 3131.669743] [wifi0] FWLOG: [3214616] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e6d0 )
+Custom wireless event: 'Manage.prob_req 144'
+atheros_raw_receive: subtype 0x4 len 144
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 42'
+atheros_raw_receive: subtype 0x4 len 42
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 42'
+atheros_raw_receive: subtype 0x4 len 42
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 110'
+atheros_raw_receive: subtype 0x4 len 110
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 99'
+atheros_raw_receive: subtype 0x4 len 99
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 72'
+atheros_raw_receive: subtype 0x4 len 72
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.auth 30'
+atheros_raw_receive: subtype 0xb len 30
+ath0: Event AUTH (11) received
+  New STA
+ap_sta_add: register ap_handle_timer timeout for 00:27:10:da:fc:04 (300 seconds - ap_max_inactivity)
+atheros_sta_auth: addr=00:27:10:da:fc:04 status_code=0
+Custom wireless event: 'Manage.prob_req 88'
+atheros_raw_receive: subtype 0x4 len 88
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.auth 30'
+atheros_raw_receive: subtype 0xb len 30
+ath0: Event AUTH (11) received
+  New STA
+ap_sta_add: register ap_handle_timer timeout for f8:28:19:76:3a:f5 (300 seconds - ap_max_inactivity)
+atheros_sta_auth: addr=f8:28:19:76:3a:f5 status_code=0
+Custom wireless event: 'Manage.assoc_req 124'
+atheros_raw_receive: subtype 0x0 len 124
+ath0: Event ASSOC (0) received
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.11: associated
+STA included RSN IE in (Re)AssocReq
+atheros_sta_assoc: addr=f8:28:19:76:3a:f5 status_code=0 reassoc 0
+ath0: STA f8:28:19:76:3a:f5 WPA: event 1 notification
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+IEEE 802.1X: Ignore STA - 802.1X not enabled or forced for WPS
+ath0: STA f8:28:19:76:3a:f5 WPA: start authentication
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+atheros_set_sta_authorized: addr=f8:28:19:76:3a:f5 authorized=0
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.1X: unauthorizing port
+WPA: f8:28:19:76:3a:f5 WPA_PTK_GROUP entering state IDLE
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state AUTHENTICATION
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state AUTHENTICATION2
+WPA: Assign ANonce - hexdump(len=32): 83 7b c5 b6 58 29 93 b8 9e 6e 72 99 5b a4 ac 88 41 ff 44 ad 6e 66 75 3f 0a d6 6c 7d 58 68 af f0
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state INITPSK
+Searching a PSK for f8:28:19:76:3a:f5 prev_psk=(nil)
+Searching a PSK for f8:28:19:76:3a:f5 prev_psk=(nil)
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKSTART
+ath0: STA f8:28:19:76:3a:f5 WPA: sending 1/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=0 mic=0 ack=1 install=0 pairwise=1 kde_len=0 keyidx=0 encr=0)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+ath0: hostapd_new_assoc_sta: reschedule ap_handle_timer timeout for f8:28:19:76:3a:f5 (300 seconds - ap_max_inactivity)
+Custom wireless event: 'Manage.prob_req 87'
+atheros_raw_receive: subtype 0x4 len 87
+ath1: Event RX_PROBE_REQ (22) received
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=135
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 121 bytes from f8:28:19:76:3a:f5
+   IEEE 802.1X: version=2 type=3 length=117
+WPA: Received EAPOL-Key from f8:28:19:76:3a:f5 key_info=0x10a type=2 mic_len=16 key_data_length=22
+WPA: Received Key Nonce - hexdump(len=32): 15 73 f1 c6 b5 5d 9e b1 2d e0 3b e0 5a 9a 30 c7 9e ec e8 33 fe 33 03 cf 54 30 9d 21 f0 23 4d 18
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+ath0: STA f8:28:19:76:3a:f5 WPA: received EAPOL-Key frame (2/4 Pairwise)
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKCALCNEGOTIATING
+Searching a PSK for f8:28:19:76:3a:f5 prev_psk=(nil)
+WPA: PTK derivation - A1=00:14:14:12:92:9b A2=f8:28:19:76:3a:f5
+WPA: Nonce1 - hexdump(len=32): 83 7b c5 b6 58 29 93 b8 9e 6e 72 99 5b a4 ac 88 41 ff 44 ad 6e 66 75 3f 0a d6 6c 7d 58 68 af f0
+WPA: Nonce2 - hexdump(len=32): 15 73 f1 c6 b5 5d 9e b1 2d e0 3b e0 5a 9a 30 c7 9e ec e8 33 fe 33 03 cf 54 30 9d 21 f0 23 4d 18
+WPA: PMK - hexdump(len=32): [REMOVED]
+WPA: PTK - hexdump(len=48): [REMOVED]
+WPA: KCK - hexdump(len=16): [REMOVED]
+WPA: KEK - hexdump(len=16): [REMOVED]
+WPA: TK - hexdump(len=16): [REMOVED]
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKCALCNEGOTIATING2
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKINITNEGOTIATING
+atheros_get_seqnum: addr=00:00:00:00:00:00 idx=1
+ath0: STA f8:28:19:76:3a:f5 WPA: sending 3/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=1 mic=1 ack=1 install=1 pairwise=1 kde_len=94 keyidx=1 encr=1)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+Plaintext EAPOL-Key Key Data - hexdump(len=104): [REMOVED]
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=135
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: 121 bytes from f8:28:19:76:3a:f5
+IEEE 802.1X data frame from not associated/Pre-authenticating STA
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=113
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 99 bytes from f8:28:19:76:3a:f5
+   IEEE 802.1X: version=2 type=3 length=95
+WPA: Received EAPOL-Key from f8:28:19:76:3a:f5 key_info=0x30a type=2 mic_len=16 key_data_length=0
+WPA: Received Key Nonce - hexdump(len=32): 15 73 f1 c6 b5 5d 9e b1 2d e0 3b e0 5a 9a 30 c7 9e ec e8 33 fe 33 03 cf 54 30 9d 21 f0 23 4d 18
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+ath0: STA f8:28:19:76:3a:f5 WPA: received EAPOL-Key frame (4/4 Pairwise)
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKINITDONE
+atheros_set_key: alg=3 addr=f8:28:19:76:3a:f5 key_idx=0
+ath0: AP-STA-CONNECTED f8:28:19:76:3a:f5
+CTRL_IFACE monitor send /tmp/wpa_ctrl_1207-1\x00
+atheros_set_sta_authorized: addr=f8:28:19:76:3a:f5 authorized=1
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.1X: authorizing port
+ath0: STA f8:28:19:76:3a:f5 RADIUS: starting accounting session E45476C11D90E513
+atheros_sta_clear_stats: addr=f8:28:19:76:3a:f5
+ath0: STA f8:28:19:76:3a:f5 WPA: pairwise ke[ 3132.620919] [wifi0] FWLOG: [3215813] RATE: ChainMask 1, peer_mac 3a:f5, phymode 5, ni_flags 0x00201006, vht_mcs_set 0x0000, ht_mcs_set 0x00ff, legacy_rate_set 0x0fff
+y handshake completed (RSN)
+l2_packet_receive: src=f8:28:19:76:[ 3132.637453] [wifi0] FWLOG: [3215865] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0x3af5, 0x0 )
+3a:f5 len=113
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: [ 3132.650673] [wifi0] FWLOG: [3215865] WAL_DBGID_SECURITY_ENCR_EN (  )
+[ 3132.662344] [wifi0] FWLOG: [3215865] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e1d0 )
+[ 3132.669624] [wifi0] 99 bytes from f8:28:19:76:3a:f5
+IEEE 802.1X data frame from notFWLOG: [3216092] RATE: ChainMask 3, peer_mac fc:4, phymode 5, ni_flags 0x00201006, vht_mcs_set 0x0000, ht_mcs_set 0xffff, legacy_rate_set 0x0fff
+ associated/Pre-authenticating STA
+Custom wireless event: 'Manage.assoc_req 115'
+atheros_raw_receive: subtype 0x0 len 115
+ath0: Event ASSOC (0) received
+ath0: STA 00:27:10:da:fc:04 IEEE 802.11: associated
+STA included RSN IE in (Re)AssocReq
+atheros_sta_assoc: addr=00:27:10:da:fc:04 status_code=0 reassoc 0
+ath0: STA 00:27:10:da:fc:04 WPA: event 1 notification
+atheros_del_key: addr=00:27:10:da:fc:04 key_idx=0
+IEEE 802.1X: Ignore STA - 802.1X not enabled or forced for WPS
+ath0: STA 00:27:10:da:fc:04 WPA: start authentication
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=00:27:10:da:fc:04 key_idx=0
+atheros_set_sta_authorized: addr=00:27:10:da:fc:04 authorized=0
+ath0: STA 00:27:10:da:fc:04 IEEE 802.1X: unauthorizing port
+WPA: 00:27:10:da:fc:04 WPA_PTK_GROUP entering state IDLE
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state AUTHENTICATION
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state AUTHENTICATION2
+WPA: Assign ANonce - hexdump(len=32): e8 38 17 d7 39 9c 78 f6 e1 41 0f b4 63 07 3d 98 66 33 79 24 9d e7 ce ea 28 b2 1c b1 0b be ff dc
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state INITPSK
+Searching a PSK for 00:27:10:da:fc:04 prev_psk=(nil)
+Searching a PSK for 00:27:10:da:fc:04 prev_psk=(nil)
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state PTKSTART
+ath0: STA 00:27:10:da:fc:04 WPA: sending 1/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=0 mic=0 ack=1 install=0 pairwise=1 kde_len=0 keyidx=0 encr=0)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+ath0: hostapd_new_assoc_sta: reschedule ap_handle_timer timeout for 00:27:10:da:fc:04 (300 seconds - ap_max_inactivity)
+l2_packet_receive: src=00:27:10:da:fc:04 len=137
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 123 bytes from 00:27:10:da:fc:04
+   IEEE 802.1X: version=2 type=3 length=119
+WPA: Received EAPOL-Key from 00:27:10:da:fc:04 key_info=0x10a type=2 mic_len=16 key_data_length=24
+WPA: Received Key Nonce - hexdump(len=32): f4 a8 93 d2 40 c8 32 41 86 4c 0d 12 a9 d7 e2 19 b1 1d 29 fd 4b 57 ac cb 24 a7 88 13 ba 8e 84 bd
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+ath0: STA 00:27:10:da:fc:04 WPA: received EAPOL-Key frame (2/4 Pairwise)
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state PTKCALCNEGOTIATING
+Searching a PSK for 00:27:10:da:fc:04 prev_psk=(nil)
+WPA: PTK derivation - A1=00:14:14:12:92:9b A2=00:27:10:da:fc:04
+WPA: Nonce1 - hexdump(len=32): e8 38 17 d7 39 9c 78 f6 e1 41 0f b4 63 07 3d 98 66 33 79 24 9d e7 ce ea 28 b2 1c b1 0b be ff dc
+WPA: Nonce2 - hexdump(len=32): f4 a8 93 d2 40 c8 32 41 86 4c 0d 12 a9 d7 e2 19 b1 1d 29 fd 4b 57 ac cb 24 a7 88 13 ba 8e 84 bd
+WPA: PMK - hexdump(len=32): [REMOVED]
+WPA: PTK - hexdump(len=48): [REMOVED]
+WPA: KCK - hexdump(len=16): [REMOVED]
+WPA: KEK - hexdump(len=16): [REMOVED]
+WPA: TK - hexdump(len=16): [REMOVED]
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state PTKCALCNEGOTIATING2
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state PTKINITNEGOTIATING
+atheros_get_seqnum: addr=00:00:00:00:00:00 idx=1
+ath0: STA 00:27:10:da:fc:04 WPA: sending 3/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=1 mic=1 ack=1 install=1 pairwise=1 kde_len=94 keyidx=1 encr=1)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+Plaintext EAPOL-Key Key Data - hexdump(len=104): [REMOVED]
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+l2_packet_receive: src=00:27:10:da:fc:04 len=137
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: 123 bytes from 00:27:10:da:fc:04
+IEEE 802.1X data frame from not associated/Pre-authenticating STA
+Custom wireless event: 'Manage.prob_req 144'
+atheros_raw_receive: subtype 0x4 len 144
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 129'
+atheros_raw_receive: subtype 0x4 len 129
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 129'
+atheros_raw_receive: subtype 0x4 len 129
+ath1: Event RX_PROBE_REQ (22) received
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=18
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 4 bytes from f8:28:19:76:3a:f5
+   IEEE 802.1X: version=1 type=2 length=0
+IEEE 802.1X: Ignore EAPOL message - 802.1X not enabled and WPS not used
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=18
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: 4 bytes from f8:28:19:76:3a:f5
+IEEE 802.1X data frame from not associated/Pre-authenticating STA
+Custom wireless event: 'Manage.prob_req 163'
+atheros_raw_receive: subtype 0x4 len 163
+ath1: Event RX_PROBE_REQ (22) received
+ath0: Event DISASSOC (1) received
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.11: disassociated
+ath0: AP-STA-DISCONNECTED f8:28:19:76:3a:f5
+CTRL_IFACE monitor send /tmp/wpa_ctrl_1207-1\x00
+ath0: STA f8:28:19:76:3a:f5 WPA: event 2 notification
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state DISCONNECTED
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+atheros_set_sta_authorized: addr=f8:28:19:76:3a:f5 authorized=0
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.1X: unauthorizing port
+ap_free_sta: cancel ap_handle_timer for f8:28:19:76:3a:f5
+Custom wireless event: 'Manage.prob_req 97'
+atheros_raw_receive: subtype 0x4 len 97
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 127'
+atheros_raw_receive: subtype 0x4 len 127
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 118'
+atheros_raw_receive: subtype 0x4 len 118
+ath1: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 42'
+atheros_raw_receive: subtype 0x4 len 42
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 42'
+atheros_raw_receive: subtype 0x4 len 42
+ath0: Event RX_PROBE_REQ (22) received
+[ 3133.620768] [wifi0] FWLOG: [3216711] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0x3af5, 0x0 )
+[ 3133.627589] [wifi0] FWLOG: [3216711] WAL_DBGID_SECURITY_ENCR_EN (  )
+[ 3133.637137] [wifi0] ath0: STA 00:27:10:da:fc:04 WPA: EAPOL-Key timeout
+WPA: 00:27:10:da:fc:04 WPA_PTK entering state PTKINITNEGOTIATIFWLOG: [3216711] WAL_DBGID_SECURITY_ALLOW_DATA ( NG
+atheros_get_seqnum: addr=00:00:00:00:00:00 idx=1
+ath0: STA 0x43e1d000:27:10:da:fc:04 WPA: sending 3/4 msg of 4-Way Handshake
+WPA:  )
+Send EAPOL(version=2 secure=1 mic=1 ack=1 install=1 pairwise=1 kde_len=94 keyidx=1 encr=1)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 03
+Plaintext EAPOL-Key Key Data - hexdump(len=104): [REMOVED]
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 2)
+Custom wireless event: 'Manage.prob_req 42'
+atheros_raw_receive: subtype 0x4 len 42
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 89'
+atheros_raw_receive: subtype 0x4 len 89
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.prob_req 89'
+atheros_raw_receive: subtype 0x4 len 89
+ath0: Event RX_PROBE_REQ (22) received
+Custom wireless event: 'Manage.auth 30'
+atheros_raw_receive: subtype 0xb len 30
+ath0: Event AUTH (11) received
+  New STA
+ap_sta_add: register ap_handle_timer timeout for f8:28:19:76:3a:f5 (300 seconds - ap_max_inactivity)
+atheros_sta_auth: addr=f8:28:19:76:3a:f5 status_code=0
+Custom wireless event: 'Manage.assoc_req 124'
+atheros_raw_receive: subtype 0x0 len 124
+ath0: Event ASSOC (0) received
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.11: associated
+STA included RSN IE in (Re)AssocReq
+atheros_sta_assoc: addr=f8:28:19:76:3a:f5 status_code=0 reassoc 0
+ath0: STA f8:28:19:76:3a:f5 WPA: event 1 notification
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+IEEE 802.1X: Ignore STA - 802.1X not enabled or forced for WPS
+ath0: STA f8:28:19:76:3a:f5 WPA: start authentication
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state INITIALIZE
+atheros_del_key: addr=f8:28:19:76:3a:f5 key_idx=0
+atheros_set_sta_authorized: addr=f8:28:19:76:3a:f5 authorized=0
+ath0: STA f8:28:19:76:3a:f5 IEEE 802.1X: unauthorizing port
+WPA: f8:28:19:76:3a:f5 WPA_PTK_GROUP entering state IDLE
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state AUTHENTICATION
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state AUTHENTICATION2
+WPA: Assign ANonce - hexdump(len=32): 45 b1 38 95 11 ac 3c e9 c0 09 5e 88 b8 e1 1e dd cc b6 d8 8d 4b b5 45 2a 9c 0c 46 5c 28 aa ad 65
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state INITPSK
+Searching a PSK for f8:28:19:76:3a:f5 prev_psk=(nil)
+Searching a PSK for f8:28:19:76:3a:f5 prev_psk=(nil)
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKSTART
+ath0: STA f8:28:19:76:3a:f5 WPA: sending 1/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=0 mic=0 ack=1 install=0 pairwise=1 kde_len=0 keyidx=0 encr=0)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+ath0: hostapd_new_assoc_sta: reschedule ap_handle_timer timeout for f8:28:19:76:3a:f5 (300 seconds - ap_max_inactivity)
+Custom wireless event: 'Manage.prob_req 70'
+atheros_raw_receive: subtype 0x4 len 70
+ath0: Event RX_PROBE_REQ (22) received
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=135
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 121 bytes from f8:28:19:76:3a:f5
+   IEEE 802.1X: version=2 type=3 length=117
+WPA: Received EAPOL-Key from f8:28:19:76:3a:f5 key_info=0x10a type=2 mic_len=16 key_data_length=22
+WPA: Received Key Nonce - hexdump(len=32): 2d a4 b9 a7 2d c3 88 7c 1b c2 9a c5 3d 35 a1 c4 b2 dc dc b6 9e 64 9b 77 35 23 ed 8a 08 84 53 e9
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 01
+ath0: STA f8:28:19:76:3a:f5 WPA: received EAPOL-Key frame (2/4 Pairwise)
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKCALCNEGOTIATING
+Searching a PSK for f8:28:19:76:3a:f5 prev_psk=(nil)
+WPA: PTK derivation - A1=00:14:14:12:92:9b A2=f8:28:19:76:3a:f5
+WPA: Nonce1 - hexdump(len=32): 45 b1 38 95 11 ac 3c e9 c0 09 5e 88 b8 e1 1e dd cc b6 d8 8d 4b b5 45 2a 9c 0c 46 5c 28 aa ad 65
+WPA: Nonce2 - hexdump(len=32): 2d a4 b9 a7 2d c3 88 7c 1b c2 9a c5 3d 35 a1 c4 b2 dc dc b6 9e 64 9b 77 35 23 ed 8a 08 84 53 e9
+WPA: PMK - hexdump(len=32): [REMOVED]
+WPA: PTK - hexdump(len=48): [REMOVED]
+WPA: KCK - hexdump(len=16): [REMOVED]
+WPA: KEK - hexdump(len=16): [REMOVED]
+WPA: TK - hexdump(len=16): [REMOVED]
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKCALCNEGOTIATING2
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKINITNEGOTIATING
+atheros_get_seqnum: addr=00:00:00:00:00:00 idx=1
+ath0: STA f8:28:19:76:3a:f5 WPA: sending 3/4 msg of 4-Way Handshake
+WPA: Send EAPOL(version=2 secure=1 mic=1 ack=1 install=1 pairwise=1 kde_len=94 keyidx=1 encr=1)
+WPA: Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+Plaintext EAPOL-Key Key Data - hexdump(len=104): [REMOVED]
+WPA: Use EAPOL-Key timeout of 1000 ms (retry counter 1)
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=135
+ath1: Event EAPOL_RX (24) received
+IEEE 802.1X: 121 bytes from f8:28:19:76:3a:f5
+IEEE 802.1X data frame from not associated/Pre-authenticating STA
+l2_packet_receive: src=f8:28:19:76:3a:f5 len=113
+ath0: Event EAPOL_RX (24) received
+IEEE 802.1X: 99 bytes from f8:28:19:76:3a:f5
+   IEEE 802.1X: version=2 type=3 length=95
+WPA: Received EAPOL-Key from f8:28:19:76:3a:f5 key_info=0x30a type=2 mic_len=16 key_data_length=0
+WPA: Received Key Nonce - hexdump(len=32): 2d a4 b9 a7 2d c3 88 7c 1b c2 9a c5 3d 35 a1 c4 b2 dc dc b6 9e 64 9b 77 35 23 ed 8a 08 84 53 e9
+WPA: Received Replay Counter - hexdump(len=8): 00 00 00 00 00 00 00 02
+ath0: STA f8:28:19:76:3a:f5 WPA: received EAPOL-Key frame (4/4 Pairwise)
+WPA: f8:28:19:76:3a:f5 WPA_PTK entering state PTKINITDONE
+atheros_set_key: alg=3 addr=f8:28:19:76:3a:f5 key_idx=0
+ath0: AP-STA-CONNECTED f8:28:19:76:3a:f5
+CTRL_IFACE monitor send /tmp/wpa_ctrl_1207-1\x00
+[ 3134.620229] [wifi0] FWLOG: [3217512] RATE: ChainMask 1, peer_mac 3a:f5, phymode 5, ni_flags 0x00201006, vht_mcs_set 0x0000, ht_mcs_set 0x00ff, legacy_rate_set 0x0fff
+[ 3134.634444] [wifi0] FWLOG: [3217613] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0x3af5, 0x0 )
+[ 3134.641808] [wifi0] FWLOG: [3217613] WAL_DBGID_SECURITY_ENCR_EN (  )
+[ 3134.648142] [wifi0] FWLOG: [3217613] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e1d0 )
+[ 3134.655436] [wifi0] FWLOG: [3217788] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0x3af5, 0x0 )
+[ 3134.663247] [wifi0] FWLOG: [3217788] WAL_DBGID_SECURITY_ENCR_EN (  )
+[ 3134.669583] [wifi0] FWLOG: [3217788] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e1d0 )

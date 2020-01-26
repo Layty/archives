@@ -1,0 +1,20 @@
+root@OpenWrt:/# iwpriv ath0 |grep LVL
+          dbgLVLmac        (01A3) : set   8 byte  & get   0      
+          getdbgLVLmac     (01A3) : set   0       & get   1 int  
+          vbLVL            (01CF) : set   1 int   & get   0      
+          dbgLVL           (0059) : set   1 int   & get   0      
+          getdbgLVL        (0059) : set   0       & get  16 char 
+          dbgLVL_high      (0106) : set   1 int   & get   0      
+          getdbgLVL_high   (0106) : set   0       & get   1 int 
+		  
+		  
+		  
+iwpriv ath0 dbgLVL 0x800C0000;iwpriv ath0 dbgLVL_high 0
+iwpriv ath0 getdbgLVL;iwpriv ath0 getdbgLVL_high
+
+
+			/* pengruofeng debug rx stats*/
+			printk("=========== [pengruofeng] increase rx_ccmpmic =======================.\n");
+			
+		/* pengruofeng debug rx stats*/
+		printk("[pengruofeng] increase rx_unencrypted and rx_decryptcrc.\n");

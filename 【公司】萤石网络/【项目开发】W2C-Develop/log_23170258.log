@@ -1,0 +1,142 @@
+[BEGIN] 2017/3/23 17:02:58
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# wlroot@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    1    8  32M     32M   40      41      41    0      8     544  EPSs         0          f              0               P 00:02:24     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# [ 3461.380000] eth1: link up (1000Mbps/Full duplex)
+[ 3461.380000] br-lan: port 3(eth1) entered forwarding state
+[ 3461.390000] br-lan: port 3(eth1) entered forwarding state
+wrapd: wrapd_ctr[ 3462.440000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+l_iface_receive:[ 3462.440000] VAP device ath02 created osifp: (85bc6b80) os_if: (859c0000)
+ 2288: [pengruof[ 3462.450000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+eng][wrapd-wifi0] recv buf (ETH_PSTA_ADD 00-11-0a-3a-83-73) 
+
+wrapd: wrapd_psta_add: 913: addr(00:11:0a:3a:83:73)
+wrapd: wrapd_vap_create: 733: cp.icp_name(ath02), cp.icp_opmode(1), cp.icp_flags(0x0900), ifr.ifr_name(wifi0)
+wrapd: wrapd_vap_create: 736: cp.icp_bssid(00:11:0a:3a:83:73) icp_mataddr(00:00:00:00:00:00)
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[ 3462.800000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[ 3462.810000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+wrapd: wrapd_ctrl_iface_receive: 2291: [pengruofeng][wrapd-wifi0] send buf (OK
+òwﬂÅò) 
+
+[ 3463.390000] br-lan: port 3(eth1) entered forwarding state
+wrapd: wrapd_ctr[ 3464.830000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+l_iface_receive:[ 3464.840000] VAP device ath04 created osifp: (85c6b380) os_if: (84898000)
+ 2288: [pengruofeng][wrapd-wifi0[ 3464.850000] osif_wrap_dev_add:109 Adding ath04 to the list mat
+] recv buf (ETH_PSTA_ADD 00-0c-29-af-ec-8e) 
+
+wrapd: wrapd_psta_add: 913: addr(00:0c:29:af:ec:8e)
+wrapd: wrapd_vap_create: 733: cp.icp_name(ath04), cp.icp_opmode(1), cp.icp_flags(0x0900), ifr.ifr_name(wifi0)
+wrapd: wrapd_vap_create: 736: cp.icp_bssid(00:0c:29:af:ec:8e) icp_mataddr(00:00:00:00:00:00)
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath04 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 2 is added from wifi0
+[ 3465.200000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[ 3465.200000] 8021q: adding VLAN 0 to HW filter on device ath04
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+[ 3465.220000] vap-2(ath02):set SIOC80211NWID, 12 characters
+[ 3465.230000]  
+[ 3465.230000]  DES SSID SET=ezviz_70da00 
+[ 3465.240000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+[ 3465.250000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 3465.260000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 3465.260000] 
+wrapd: wrapd_psta_conn: 666: proxySTA 2 is conn
+wrapd: wrapd_ctrl_iface_receive: 2291: [pengruofeng][wrapd-wifi0] send buf (OK
+òwﬂÅò) 
+
+[ 3467.660000] vap-4(ath04):set SIOC80211NWID, 12 characters
+[ 3467.660000]  
+[ 3467.660000]  DES SSID SET=ezviz_70da00 
+[ 3467.670000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 3467.680000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 3467.680000] 
+[ 3467.690000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+[ 3467.700000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 3467.710000] vap-4(ath04):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 3467.710000] 
+[ 3470.130000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 3470.130000] __ath_key_set:Ignore set group key for psta
+[ 3470.140000] vap-4(ath04):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 3470.140000] 
+[ 3470.220000] vap-4(ath04):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 3470.220000] 
+[ 3470.830000] __ath_key_set:Ignore set group key for psta
+[ 5164.420000] eth1: link up (1000Mbps/Full duplex)
+[ 5164.420000] br-lan: port 3(eth1) entered forwarding state
+[ 5164.430000] br-lan: port 3(eth1) entered forwarding state
+wrapd: wrapd_ctr[ 5165.530000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+l_iface_receive:[ 5165.530000] VAP device ath02 created osifp: (858e4380) os_if: (84860000)
+ 2288: [pengruof[ 5165.540000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+eng][wrapd-wifi0] recv buf (ETH_PSTA_ADD 00-11-0a-3a-83-73) 
+
+wrapd: wrapd_psta_add: 913: addr(00:11:0a:3a:83:73)
+wrapd: wrapd_vap_create: 733: cp.icp_name(ath02), cp.icp_opmode(1), cp.icp_flags(0x0900), ifr.ifr_name(wifi0)
+wrapd: wrapd_vap_create: 736: cp.icp_bssid(00:11:0a:3a:83:73) icp_mataddr(00:00:00:00:00:00)
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[ 5165.880000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[ 5165.880000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+wrapd: wrapd_ctrl_iface_receive: 2291: [pengruofeng][wrapd-wifi0] send buf (OK
+òwﬂÅò) 
+
+[ 5166.430000] br-lan: port 3(eth1) entered forwarding state
+wrapd: wrapd_ctr[ 5166.910000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+l_iface_receive:[ 5166.910000] VAP device ath04 created osifp: (85ab4b80) os_if: (85bf0000)
+ 2288: [pengruof[ 5166.920000] osif_wrap_dev_add:109 Adding ath04 to the list mat
+eng][wrapd-wifi0] recv buf (ETH_PSTA_ADD 00-0c-29-af-ec-8e) 
+
+wrapd: wrapd_psta_add: 913: addr(00:0c:29:af:ec:8e)
+wrapd: wrapd_vap_create: 733: cp.icp_name(ath04), cp.icp_opmode(1), cp.icp_flags(0x0900), ifr.ifr_name(wifi0)
+wrapd: wrapd_vap_create: 736: cp.icp_bssid(00:0c:29:af:ec:8e) icp_mataddr(00:00:00:00:00:00)
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath04 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 2 is added from wifi0
+[ 5167.250000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[ 5167.260000] 8021q: adding VLAN 0 to HW filter on device ath04
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+[ 5167.270000] vap-2(ath02):set SIOC80211NWID, 12 characters
+[ 5167.280000]  
+[ 5167.280000]  DES SSID SET=ezviz_70da00 
+wrapd: wrapd_pst[ 5167.300000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+a_conn: 666: proxySTA 2 is conn[ 5167.310000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+
+wrapd: wrapd_ctrl_iface_receive[ 5167.320000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 5167.320000] 
+: 2291: [pengruofeng][wrapd-wifi0] send buf (OK
+òwﬂÅò) 
+
+[ 5167.340000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 5167.350000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 5167.350000] 
+[ 5167.450000] __ath_key_set:Ignore set group key for psta
+[ 5169.370000] vap-4(ath04):set SIOC80211NWID, 12 characters
+[ 5169.380000]  
+[ 5169.380000]  DES SSID SET=ezviz_70da00 
+[ 5169.380000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+[ 5169.390000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 5169.400000] vap-4(ath04):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 5169.400000] 
+[ 5171.840000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[ 5171.850000] vap-4(ath04):ieee80211_setup_node forcing sta to associate in 8 mode
+[ 5171.850000] 
+[ 5171.910000] __ath_key_set:Ignore set group key for psta
+
+root@OpenWrt:/# 
+[END] 2017/3/23 18:22:48

@@ -1,0 +1,485 @@
+Flashing sbl1
+0x00000000 +0x00040000
+
+Flashing mibib
+0x00040000 +0x00020000 
+
+Flashing tz
+0x00060000 +0x00060000
+
+Flashing ddr-AP-DK04.1-C1
+0x000c0000 +0x00010000
+
+Flashing u-boot
+0x000f0000 +0x00080000
+
+Flashing hlos
+0x00180000 +0x00400000
+
+Flashing rootfs
+0x00580000 +0x00a80000
+
+
+一、update_common.log
+记录了打包过程
+
+$(nor):
+/home/ysgw/jl/standard/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/common/build/update_common.log
+
+python /home/ysgw/jl/standard/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/../NHSS.QSDK.5.0/apss_proc/out/pack.py -t nor -B -F boardconfig_standard -o ./bin/nor-ipq40xx-standard-single.img ./ipq
+
+$(nornand)：
+/home/pengruofeng/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/common/build/update_common.log
+
+python /home/pengruofeng/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/../NHSS.QSDK.5.0////////////////////////////////////////////////////////apss_proc/out/pack.py -t norplusnand -B -F boardconfig_premium -o ./bin/nornand-ipq40xx-single.img ./ipq
+
+二、pack.py
+使用python进行打image包脚本
+$(nor):
+/home/ysgw/jl/standard/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/../NHSS.QSDK.5.0/apss_proc/out/pack.py
+
+
+三、分区配置
+$(nor):
+/home/ysgw/jl/standard/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/common/build/ipq/boardconfig_standard
+打包依赖的配置文件，配置如下
+[AP.DK04.1-S1]
+dirname=AP.DK04.1-S1
+nand_available=false
+nor_available=true
+emmc_available=false
+spi_nand_available=false
+norplusnand_available=false
+norplusemmc_available=false
+nand_pagesize=2048
+nand_pages_per_block=64
+nand_total_blocks=4096
+nor_pagesize=256
+nor_pages_per_block=256
+nor_total_blocks=256
+nor_partition=nor-partition-standard.xml
+bootconfig=bootconfig.xml
+nand_bootconfig=nand_bootconfig.bin
+nor_bootconfig=nor_bootconfig.bin
+bootconfig1=bootconfig1.xml
+nand_bootconfig1=nand_bootconfig1.bin
+nor_bootconfig1=nor_bootconfig1.bin
+smem_info=["smem-AP.DK04.1-S1.xml"]
+cdt_info=["pcddr_AP.DK04.1-S1_128M16.xml"]
+cdt_info_default=pcddr_AP.DK04.1-S1.xml
+nor_partition_mbn=nor-system-partition-ipq40xx-s.bin
+nor_flash_conf=nor-flash.conf
+machid=0x8010001
+
+$(nornand)：
+/home/pengruofeng/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/common/build/ipq/boardconfig_premium
+打包依赖的配置文件，配置如下
+[AP.DK04.1-C2]
+dirname=AP.DK04.1-C2
+nand_available=true
+nor_available=true
+emmc_available=true
+spi_nand_available=false
+norplusnand_available=false
+norplusemmc_available=false
+nand_pagesize=2048
+nand_pages_per_block=64
+nand_total_blocks=4096
+nand_partition=nand-partition.xml
+nor_pagesize=256
+nor_pages_per_block=256
+nor_total_blocks=512
+nor_partition=nor-partition.xml
+bootconfig=bootconfig.xml
+nand_bootconfig=nand_bootconfig.bin
+nor_bootconfig=nor_bootconfig.bin
+bootconfig1=bootconfig1.xml
+nand_bootconfig1=nand_bootconfig1.bin
+nor_bootconfig1=nor_bootconfig1.bin
+emmc_pagesize=512
+emmc_blocksize=512
+emmc_total_blocks=7634944
+emmc_partition=emmc-partition.xml
+smem_info=["smem-AP.DK04.1-C2.xml"]
+cdt_info=["pcddr_AP.DK04.1-C2_64M16.xml", "pcddr_AP.DK04.1-C2_128M16.xml", "pcddr_AP.DK04.1-C2_256M16.xml"]
+cdt_info_default=pcddr_AP.DK04.1-C2.xml
+nand_partition_mbn=nand-system-partition-ipq40xx.bin
+nor_partition_mbn=nor-system-partition-ipq40xx.bin
+emmc_partition_mbn=gpt_main0.bin
+nand_flash_conf=nand-flash.conf
+nor_flash_conf=nor-flash.conf
+emmc_flash_conf=emmc-flash.conf
+machid=0x8010101
+norplusnand_partition=nor-plus-nand-parition.xml
+norplusnand_flash_conf=norplusnand-flash.conf
+norplusnand_partition_mbn=norplusnand-system-partition-ipq40xx.bin
+
+四、定义分区
+$(nor):
+/home/ysgw/jl/standard/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/common/build/ipq/tools/config/nor-partition-standard.xml
+定义了分区
+<?xml version="1.0" encoding="utf-8"?>
+<nandboot>
+        <magic_numbers>
+                <usr_part_magic1>0xAA7D1B9A</usr_part_magic1>
+                <usr_part_magic2>0x1F7D48BC</usr_part_magic2>
+        </magic_numbers>
+        <partition_version length="4">0x4</partition_version>
+        <partitions>
+                <partition>
+                        <name length="16" type="string">0:SBL1</name>
+                        <size_kb length="4">256</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">sbl1_nor.mbn</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:MIBIB</name>
+                        <size_kb length="4">128</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <!-- Specify flash block size in KB -->
+                        <attr>64</attr>
+                        <!-- Specify flash density in MB -->
+                        <attr>16</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">nor-user-partition-AP.DK01.1-S1.bin</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:QSEE</name>
+                        <size_kb length="4">384</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">tz.mbn</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:CDT</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">cdt.bin</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:DDRPARAMS</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:APPSBLENV</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:APPSBL</name>
+                        <size_kb length="4">512</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">openwrt-ipq40xx-u-boot-stripped.elf</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:ART</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+               </partition>
+               <partition>
+                        <name length="16" type="string">0:HLOS</name>
+                        <size_kb length="4">4096</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                </partition>
+                <partition>
+                        <name length="16" type="string">rootfs</name>
+                        <size_kb length="4">10752</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                </partition>
+        </partitions>
+</nandboot>
+
+$(nornand)：
+/home/pengruofeng/qca-networking-2017-spf-5-0_qca_oem.git/IPQ4019.ILQ.5.0/common/build/ipq/tools/config/nor-plus-nand-parition.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<nandboot>
+        <magic_numbers>
+                <usr_part_magic1>0xAA7D1B9A</usr_part_magic1>
+                <usr_part_magic2>0x1F7D48BC</usr_part_magic2>
+        </magic_numbers>
+        <partition_version length="4">0x4</partition_version>
+        <partitions>
+                <partition>
+                        <name length="16" type="string">0:SBL1</name>
+                        <size_kb length="4">256</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">sbl1_nor.mbn</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:MIBIB</name>
+                        <size_kb length="4">128</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <!-- Specify flash block size in KB -->
+                        <attr>64</attr>
+                        <!-- Specify flash density in MB -->
+                        <attr>16</attr>
+                        <attr>0xFF</attr>
+			<img_name type="string">norplusnand-user-partition-ipq40xx.bin</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:QSEE</name>
+                        <size_kb length="4">384</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">tz.mbn</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:CDT</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">cdt.bin</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:DDRPARAMS</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:APPSBLENV</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:APPSBL</name>
+                        <size_kb length="4">512</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+                        <img_name type="string">openwrt-ipq40xx-u-boot-stripped.elf</img_name>
+                </partition>
+                <partition>
+                        <name length="16" type="string">0:ART</name>
+                        <size_kb length="4">64</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">0</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+               </partition>
+               <partition>
+                        <name length="16" type="string">rootfs</name>
+                        <size_kb length="4">65536</size_kb>
+                        <pad_kb length="2">0</pad_kb>
+                        <which_flash length="2">1</which_flash>
+                        <attr>0xFF</attr>
+                        <attr>0xFF</attr>
+                        <attr>0x00</attr>
+                        <attr>0xFF</attr>
+               </partition>
+
+        </partitions>
+</nandboot>
+
+tftpboot 0x84000000 nornand-ipq40xx-single.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000 nor-ipq40xx-standard-single.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000  nor-ipq40xx-single.img 
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000  nor-ipq40xx-single(jl).img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage.itb
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage.itb.padded 
+bootm  0x84000000#config@ap.dk01.1-c1
+bootipq 0x84000000#config@ap.dk01.1-c1
+
+tftpboot 0x84000000 ipq40xx-nand-apps.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+
+升级方法：
+update cdt
+tftpboot 0x84000000 cdt-AP.DK01.1-C1.bin
+sf probe
+sf erase 0x000c0000 +0x00010000
+sf write $fileaddr 0x000c0000 0x00000184
+
+
+tftpboot 0x84000000 cdt-AP.DK01.1-C1(ori).bin
+sf probe
+sf erase 0x000c0000 +0x00010000
+sf write $fileaddr 0x000c0000 0x00000184
+
+tftpboot 0x84000000 cdt-AP.DK01.1-S1.bin
+sf probe
+sf erase 0x000c0000 +0x00010000
+sf write $fileaddr 0x000c0000 0x00000184 
+                                      
+=================================== 
+update sbl1(20e68不变)
+tftpboot 0x84000000 sbl1_nor.mbn
+sf probe
+sf erase 0x00000000 +0x00040000
+sf write $fileaddr 0x00000000 0x00020e68
+
+update mib（10000不变）
+tftpboot 0x84000000 nor-system-partition-ipq40xx-s.bin
+sf probe
+sf erase 0x00040000 +0x00020000
+sf write $fileaddr 0x00040000 0x00010000 
+
+
+update cdt（184不变）
+tftpboot 0x84000000 cdt-AP.DK01.1-S1.bin
+sf probe
+sf erase 0x000c0000 +0x00010000
+sf write $fileaddr 0x000c0000 0x00000184 
+
+update uboot(！！7e15b是变动的)
+tftpboot 0x84000000 openwrt-ipq40xx-u-boot-stripped.elf
+sf probe
+sf erase 0x000f0000 +0x00080000 
+sf write $fileaddr 0x000f0000 0x00078A3B
+
+update hlos(！！39e448是变动的)
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage-32m.itb
+sf probe
+sf erase 0x00180000 +0x00400000
+sf write $fileaddr 0x00180000 0x003ab22c
+
+update rootfs(！！a00800是变动的)
+tftpboot 0x84000000 openwrt-ipq806x-squashfs-root-32m.img
+sf probe
+sf erase 0x00580000 +0x01600000
+sf erase 0x00580000 +0x00a80000
+sf write $fileaddr 0x00580000 0x01180800
+
+==========================
+原始文件
+ysgw@ysgw-System-Product-Name:~/jl/standard/qca-networking-2017-spf-5-0_qca_oem.git/BOOT.BF.3.1.1/boot_images/build/ms/bin/40xx/misc/tools/config$ mv boardconfig_standard
+
+
+======================= 16M =========================
+update hlos(！！39e448是变动的)
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage.itb
+sf probe
+sf erase 0x00180000 +0x00400000
+sf write $fileaddr 0x00180000 0x003A7DFC
+
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage-16m.itb;sf erase 0x00180000 +0x00400000;sf write $fileaddr 0x00180000 0x003A7DFC;reset
+
+update rootfs(！！a00800是变动的)
+tftpboot 0x84000000 openwrt-ipq806x-squashfs-root.img
+sf probe
+sf erase 0x00580000 +0x00a80000
+sf write $fileaddr 0x00580000 0x009C0800
+
+tftpboot 0x84000000 openwrt-ipq806x-squashfs-root-16m.img;sf erase 0x00580000 +0x00a80000;sf write $fileaddr 0x00580000 0x009C0800;reset
+
+======================= 32M =========================
+update hlos(！！39e448是变动的)
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage.itb
+sf probe
+sf erase 0x00180000 +0x00400000
+sf write $fileaddr 0x00180000 0x003AB22C
+
+tftpboot 0x84000000 openwrt-ipq806x-qcom-ipq40xx-ap.dkxx-fit-uImage-32m.itb;sf erase 0x00180000 +0x00400000;sf write $fileaddr 0x00180000 0x003AB22C;reset
+
+update rootfs(！！a00800是变动的)
+tftpboot 0x84000000 openwrt-ipq806x-squashfs-root.img
+sf probe
+sf erase 0x00580000 +0x01600000
+sf write $fileaddr 0x00580000 0x01180800
+
+====================================================
+tftpboot 0x84000000 ipq40xx-nor-apps.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000 nand-ipq40xx-single.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000 ipq40xx-nornand-apps.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000 ipq40xx-nand-apps.img
+imgaddr=0x84000000 && source $imgaddr:script
+
+tftpboot 0x84000000 w3-nor-apps-16M-V1.4.3.dav
+imgaddr=0x84000000 && source $imgaddr:script
+
+set serverip 192.168.1.10;tftpboot 0x84000000 w3-nor-apps-16M-V2.0.1.dav;imgaddr=0x84000000 && source $imgaddr:script
+set serverip 192.168.1.10;tftpboot 0x84000000 w3-nand-apps-32M-V1.0.1.dav;imgaddr=0x84000000 && source $imgaddr:script
+set serverip 192.168.1.10;tftpboot 0x84000000 ipq40xx-nand-apps.img;imgaddr=0x84000000 && source $imgaddr:script
+set serverip 192.168.1.10;tftpboot 0x84000000 ipq40xx-nor-apps.img;imgaddr=0x84000000 && source $imgaddr:script

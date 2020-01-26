@@ -1,0 +1,491 @@
+[BEGIN] 2017/12/7 9:49:42
+[67844.429886] p_cycle: 3397071568, n_cycle: 3522003403, p_rx_clear: 2930155029, n_rx_clear: 2964619953 p_tx: 4150844950, n_tx: 4151955953, p_mybss_rx: 2257735408, n_mybss_rx: 2258149408, obss: 27, self: 0
+[67844.781294] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67844.786042] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67844.844881] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+
+root@W3:/# 
+root@W3:/# [67845.429344] p_cycle: 3522003403, n_cycle: 3646935392, p_rx_clear: 2964619953, n_rx_clear: 3004379273 p_tx: 4151955953, n_tx: 4153016050, p_mybss_rx: 2258149408, n_mybss_rx: 2258352408, obss: 31, self: 0
+[67845.805309] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67846.428536] p_cycle: 3646935392, n_cycle: 3771836528, p_rx_clear: 3004379273, n_rx_clear: 3041326273 p_tx: 4153016050, n_tx: 4153869704, p_mybss_rx: 2258352408, n_mybss_rx: 2258450408, obss: 29, self: 0
+[67846.800914] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67846.943940] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67847.400002] [MLME] vap-0(ath1):Received Disassoc with reason 8
+[67847.404854] [MLME] vap-0(ath1):ieee80211_mlme_recv_disassoc
+[67847.410401] [MLME] vap-0(ath1): [c4:f0:81:df:ea:a1]station with aid 1 leaves (refcnt 3) 
+[67847.410401] 
+wrapd: wrapd_psta_remove: 1062:  psta remove: addr(c4:f0:81:d67847.422657] [IOCTL] vap-0(ath1):DELETE CRYPTO KEY index 255, addr c4:f0:81:df:ea:a1
+a:a1)
+[67847.434623] [IOCTL] vap-0(ath1):DELETE CRYPTO KEY index 255, addr c4:f0:81:df:ea:a1
+[67847.434813] p_cycle: 3771836528, n_cycle: 3896768541, p_rx_clear: 3041326273, n_rx_clear: 3085991199 p_tx: 4153869704, n_tx: 4156043233, p_mybss_rx: 2258450408, n_mybss_rx: 2258826908, obss: 34, self: 1
+wrapd: wrapd_psta_remove: 1081: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 682: proxySTA 0 is disconn
+[67847.473458] [wifi1] FWLOG: [68722969] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xeaa1, 0x0 )
+[67847.480345] [wifi1] FWLOG: [68722969] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67847.486771] [wifi1] FWLOG: [68722969] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43db90 )
+[67847.496894] STOPPED EVENT for vap 2 (c33e0000)
+[67847.506194] [IOCTL] vap-0(ath1):ieee80211_vap_iter_new_opmode: vap c4c00000 tmpvap c28b0000 opmode 6
+[67847.514349] send_vdev_down_cmd_non_tlv for vap 2
+[67847.576213] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[67847.666535] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[67847.698844] [UNSPECIFIED] ol_scan_unregister_event_handler: Failed to unregister evhandler=bf66a2e0 arg=c1627840
+[67847.698844] 
+[67847.709695] osif_wrap_dev_remove:158 Removing ath12 from the list
+[67847.715549] osif_wrap_dev_remove_vma:187 Removing ath12 from VMA list
+[67847.722046] [UNSPECIFIED] ol_scan_unregister_event_handler: Failed to unregister evhandler=bf66a2e0 arg=c1627840
+[67847.722046] 
+[67847.733702] [UNSPECIFIED] ol_scan_unregister_event_handler: Failed to unregister evhandler=bf66a8b0 arg=c1627840
+[67847.733702] 
+[67847.745567] send_vdev_delete_cmd_non_tlv for vap 2
+[67847.750187] ol_ath_vap_delete: wmi_unified_vdev_delete_send done ID = 2 vap (c4c00000) VAP Addr = 7a:e2:eb:df:ea:a1:
+[67847.760580] [UNSPECIFIED] vap-2(ath12):mlme_sta_swbmiss_timer_detach:disable bitmap is 0x2 
+[67847.768925] [UNSPECIFIED] vap-2(ath12):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[67847.778743] [UNSPECIFIED] vap-2(ath12):mlme_sta_swbmiss_timer_detach:id 1 name (tmp) is still allocated 
+wrapd: wrapd_psta_remove: 1112: proxySTA 0 is removed from wifi1
+[67848.427689] p_cycle: 3896768541, n_cycle: 4021730648, p_rx_clear: 3085991199, n_rx_clear: 3119270941 p_tx: 4156043233, n_tx: 4156760213, p_mybss_rx: 2258826908, n_mybss_rx: 2258921908, obss: 26, self: 0
+[67848.472961] [wifi1] FWLOG: [68723027] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xfa00, 0x0 )
+[67848.479845] [wifi1] FWLOG: [68723027] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67848.486305] [wifi1] FWLOG: [68723027] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43de10 )
+[67848.493645] [wifi1] FWLOG: [68723047] VDEV_MGR_HP_START_TIME ( 0x1, 0x143c, 0x9dc6b9f4 )
+[67848.501716] [wifi1] FWLOG: [68723047] VDEV_MGR_HP_START_TIME ( 0x0, 0x143c, 0x9dc74001 )
+[67848.509793] [wifi1] FWLOG: [68723048] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67848.516563] [wifi1] FWLOG: [68723048] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67848.523331] [wifi1] FWLOG: [68723048] VDEV_MGR_AP_TBTT_CONFIG ( 0x0, 0x143c, 0x1, 0x10a26 )
+[67848.531667] [wifi1] FWLOG: [68723071] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67848.538436] [wifi1] FWLOG: [68723071] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67848.545206] [wifi1] FWLOG: [68723071] VDEV_MGR_HP_START_TIME ( 0x1, 0x143c, 0x9dc6b9f4 )
+[67848.553282] [wifi1] FWLOG: [68723071] VDEV_MGR_HP_START_TIME ( 0x0, 0x143c, 0x9dc74000 )
+[67848.561354] [wifi1] FWLOG: [68723071] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67848.568124] [wifi1] FWLOG: [68723071] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67848.574894] [wifi1] FWLOG: [68723071] VDEV_MGR_AP_TBTT_CONFIG ( 0x0, 0x143c, 0x1, 0x10a26 )
+[67849.426887] p_cycle: 4021730648, n_cycle: 4146629789, p_rx_clear: 3119270941, n_rx_clear: 3155432890 p_tx: 4156760213, n_tx: 4158166829, p_mybss_rx: 2258921908, n_mybss_rx: 2258987908, obss: 27, self: 1
+[67850.028376] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67850.335045] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# [67852.425517] p_cycle: 2249011936, n_cycle: 2373974232, p_rx_clear: 3219183035, n_rx_clear: 3260378967 p_tx: 4161278536, n_tx: 4163238156, p_mybss_rx: 2259178908, n_mybss_rx: 2259369908, obss: 31, self: 1
+
+root@W3:/# [67853.424720] p_cycle: 2373974232, n_cycle: 2498875557, p_rx_clear: 3260378967, n_rx_clear: 3312105162 p_tx: 4163238156, n_tx: 4164849281, p_mybss_rx: 2259369908, n_mybss_rx: 2259393908, obss: 40, self: 1
+[67854.424299] p_cycle: 2498875557, n_cycle: 2623807368, p_rx_clear: 3312105162, n_rx_clear: 3347769076 p_tx: 4164849281, n_tx: 4166248680, p_mybss_rx: 2259393908, n_mybss_rx: 2259570908, obss: 27, self: 1
+[67855.423627] p_cycle: 2623807368, n_cycle: 2748739198, p_rx_clear: 3347769076, n_rx_clear: 3388576355 p_tx: 4166248680, n_tx: 4167208765, p_mybss_rx: 2259570908, n_mybss_rx: 2259660908, obss: 32, self: 0
+[67856.423094] p_cycle: 2748739198, n_cycle: 2873670989, p_rx_clear: 3388576355, n_rx_clear: 3421447274 p_tx: 4167208765, n_tx: 4168313518, p_mybss_rx: 2259660908, n_mybss_rx: 2259714908, obss: 26, self: 0
+[67857.419197] [MLME] vap-0(ath0):wlan_mlme_auth status 0 
+[67857.422563] p_cycle: 2873670989, n_cycle: 2998602991, p_rx_clear: 3421447274, n_rx_clear: 3451696210 p_tx: 4168313518, n_tx: 4169202793, p_mybss_rx: 2259714908, n_mybss_rx: 2259852908, obss: 24, self: 0
+[67857.447670] [MLME] vap-0(ath0): [c4:f0:81:df:ea:a1]WPA or RSN ie: mc 2/16 uc 8/13 key 2 caps 0x80
+[67857.447670] 
+[67857.457072] [POWER] vap-0(ath0): [c4:f0:81:df:ea:a1]UAPSD bit settings from STA: 00
+[67857.464651] [POWER] vap-0(ath0):ieee80211_parse_htcap:switching to static SM power save
+[67857.472636] [POWER] vap-0(ath0):ieee80211_parse_htcap:calculated updaterates 0x2
+[67857.480012] [POWER] vap-0(ath0):ieee80211_parse_htcap: ni_htcap 0x21
+[67857.486396] [MLME] vap-0(ath0):ieee80211_mlme_recv_assoc_request
+[67857.492471] [MLME] vap-0(ath0): [c4:f0:81:df:ea:a1]station associated at aid 1: short preamble, short slot time, QoS, HT20 cap 0x431
+[67857.492471] 
+[67857.505891] [POWER] vap-0(ath0):ieee80211_update_noderates: updating rates: smen 0 dyn 0 ratechg 0 
+[67857.517757] [MLME] vap-0(ath0):wlan_mlme_assoc_resp reason 0 reassoc 0 
+[67857.563373] [POWER] vap-0(ath0): [54:c4:15:78:e2:eb]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67857.563373] 
+[67857.826614] [wifi0] FWLOG: [68737651] RATE: ChainMask 1, peer_mac ea:a1, phymode 5, ni_flags 0x00041006, vht_mcs_set 0x0000, ht_mcs_set 0x00ff, legacy_rate_set 0x0fff
+[67857.840574] [wifi0] FWLOG: [68737724] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xeaa1, 0x0 )
+[67857.848343] [wifi0] FWLOG: [68737725] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67857.854762] [wifi0] FWLOG: [68737725] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e590 )
+[67858.421999] p_cycle: 2998602991, n_cycle: 3123534657, p_rx_clear: 3451696210, n_rx_clear: 3490748193 p_tx: 4169202793, n_tx: 4171330406, p_mybss_rx: 2259852908, n_mybss_rx: 2259906908, obss: 30, self: 1
+[67859.421446] p_cycle: 3123534657, n_cycle: 3248466473, p_rx_clear: 3490748193, n_rx_clear: 3534369684 p_tx: 4171330406, n_tx: 4174734075, p_mybss_rx: 2259906908, n_mybss_rx: 2260076408, obss: 32, self: 2
+[67859.798281] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67859.866059] Inst RSSI value of node-5c:93:a2:fc:33:38: 9
+[67860.104947] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+[67860.152908] Inst RSSI value of node-5c:93:a2:fc:33:38: 17
+[67860.635093] [MLME] vap-0(ath1):FILS STA found mac[60:21:01:ed:f8:11] 
+[67860.640534] [MLME] vap-0(ath1):FILS Max channel time : 52TU
+[67860.646078] [MLME] vap-0(ath1): QCN_IE only one attribute present 
+[67861.420394] p_cycle: 3373398250, n_cycle: 3498330082, p_rx_clear: 3567770731, n_rx_clear: 3599343251 p_tx: 4175766495, n_tx: 4177696523, p_mybss_rx: 2260213908, n_mybss_rx: 2260351408, obss: 24, self: 1
+[67862.419855] p_cycle: 3498330082, n_cycle: 3623265971, p_rx_clear: 3599343251, n_rx_clear: 3627595254 p_tx: 4177696523, n_tx: 4178877380, p_mybss_rx: 2260351408, n_mybss_rx: 2260458408, obss: 22, self: 0
+[67862.556166] wlan_bsteering_inst_rssi_timeout_handler: Inst RSSI measurement request for STA 5c:93:a2:fc:33:38 timeout.
+[67863.419645] p_cycle: 3623265971, n_cycle: 3748224225, p_rx_clear: 3627595254, n_rx_clear: 3661512050 p_tx: 4178877380, n_tx: 4179955146, p_mybss_rx: 2260458408, n_mybss_rx: 2260521408, obss: 27, self: 0
+[67863.945138] Inst RSSI measurement for [5c] [93] [a2] [fc] [33] [38] is 0 
+[67863.950938] Inst RSSI value of node-5c:93:a2:fc:33:38: 0
+[67864.014544] [POWER] vap-0(ath0): [54:c4:15:78:e2:eb]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67864.014544] 
+[67864.418815] p_cycle: 3748224225, n_cycle: 3873125539, p_rx_clear: 3661512050, n_rx_clear: 3696206835 p_tx: 4179955146, n_tx: 4180827943, p_mybss_rx: 2260521408, n_mybss_rx: 2260716908, obss: 27, self: 0
+
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# [67865.418178] p_cycle: 3873125539, n_cycle: 3998057327, p_rx_clear: 3696206835, n_rx_clear: 3728758005 p_tx: 4180827943, n_tx: 4182980124, p_mybss_rx: 2260716908, n_mybss_rx: 2260866908, obss: 25, self: 1
+
+root@W3:/# [67865.464491] [wifi1] FWLOG: [68741003] WAL_DBGID_SECURITY_MCAST_KEY_SET ( 0x1 )
+[67865.470677] [wifi1] FWLOG: [68741003] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67865.477105] [wifi1] FWLOG: [68741003] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e450 )
+
+root@W3:/# 
+root@W3:/# [67866.417643] p_cycle: 3998057327, n_cycle: 4122990543, p_rx_clear: 3728758005, n_rx_clear: 3770521166 p_tx: 4182980124, n_tx: 4184302217, p_mybss_rx: 2260866908, n_mybss_rx: 2261072908, obss: 32, self: 1
+[67866.718512] [MLME] vap-0(ath1): QCN_IE only one attribute present 
+[67866.877092] [MLME] vap-0(ath1):FILS STA found mac[f0:79:e8:45:1c:dd] 
+[67866.882524] [MLME] vap-0(ath1):FILS Max channel time : 53TU
+[67866.907266] [MLME] vap-0(ath1):FILS STA found mac[f0:79:e8:45:1c:dd] 
+[67866.912682] [MLME] vap-0(ath1):FILS Max channel time : 24TU
+[67867.417351] p_cycle: 4122990543, n_cycle: 4247951423, p_rx_clear: 3770521166, n_rx_clear: 3802558471 p_tx: 4184302217, n_tx: 4186447553, p_mybss_rx: 2261072908, n_mybss_rx: 2261102908, obss: 24, self: 1
+[67868.416695] p_cycle: 4247951423, n_cycle: 2225369097, p_rx_clear: 3802558471, n_rx_clear: 3833685071 p_tx: 4186447553, n_tx: 4187851470, p_mybss_rx: 2261102908, n_mybss_rx: 2261248908, obss: 23, self: 1
+[67869.416121] p_cycle: 2225369097, n_cycle: 2350300945, p_rx_clear: 3833685071, n_rx_clear: 3862123721 p_tx: 4187851470, n_tx: 4189105241, p_mybss_rx: 2261248908, n_mybss_rx: 2261421908, obss: 21, self: 1
+[67869.646571] [POWER] vap-0(ath0): [54:c4:15:78:e2:eb]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67869.646571] 
+[67870.068101] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67870.132523] [MLME] vap-0(ath1):FILS STA found mac[1c:dd:ea:7d:f4:ff] 
+[67870.137953] [MLME] vap-0(ath1):FILS Max channel time : 52TU
+[67870.162674] [MLME] vap-0(ath1):FILS STA found mac[1c:dd:ea:7d:f4:ff] 
+[67870.168130] [MLME] vap-0(ath1):FILS Max channel time : 23TU
+[67870.374842] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# 
+root@W3:/# [67872.414367] p_cycle: 2600165930, n_cycle: 2725098196, p_rx_clear: 3938627898, n_rx_clear: 3964468465 p_tx: 4192255476, n_tx: 4193360227, p_mybss_rx: 2261863408, n_mybss_rx: 2261887408, obss: 20, self: 0
+[67872.655244] Inst RSSI value of node-5c:93:a2:fc:33:38: 15
+[67873.413811] p_cycle: 2725098196, n_cycle: 2850028181, p_rx_clear: 3964468465, n_rx_clear: 3999780741 p_tx: 4193360227, n_tx: 4195764007, p_mybss_rx: 2261887408, n_mybss_rx: 2262092908, obss: 27, self: 1
+[67873.765399] Inst RSSI value of node-5c:93:a2:fc:33:38: 17
+[67874.413261] p_cycle: 2850028181, n_cycle: 2974960019, p_rx_clear: 3999780741, n_rx_clear: 4027576409 p_tx: 4195764007, n_tx: 4197749328, p_mybss_rx: 2262092908, n_mybss_rx: 2262146908, obss: 21, self: 1
+[67874.556163] wlan_bsteering_inst_rssi_timeout_handler: Inst RSSI measurement request for STA 5c:93:a2:fc:33:38 timeout.
+[67875.032041] Inst RSSI measurement for [5c] [93] [a2] [fc] [33] [38] is 15 
+[67875.037919] Inst RSSI value of node-5c:93:a2:fc:33:38: 15
+[67875.073756] [POWER] vap-0(ath0): [54:c4:15:78:e2:eb]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67875.073756] 
+[67875.412873] p_cycle: 2974960019, n_cycle: 3099891793, p_rx_clear: 4027576409, n_rx_clear: 4058801130 p_tx: 4197749328, n_tx: 4199213862, p_mybss_rx: 2262146908, n_mybss_rx: 2262279408, obss: 23, self: 1
+[67875.870408] [MLME] vap-0(ath0): QCN_IE only one attribute present 
+[67876.412177] p_cycle: 3099891793, n_cycle: 3224823606, p_rx_clear: 4058801130, n_rx_clear: 4091055607 p_tx: 4199213862, n_tx: 4201145287, p_mybss_rx: 2262279408, n_mybss_rx: 2262333408, obss: 24, self: 1
+[67876.742293] [MLME] vap-0(ath1): QCN_IE only one attribute present 
+[67877.411738] p_cycle: 3224823606, n_cycle: 3349755584, p_rx_clear: 4091055607, n_rx_clear: 4116282311 p_tx: 4201145287, n_tx: 4203190460, p_mybss_rx: 2262333408, n_mybss_rx: 2262369408, obss: 19, self: 1
+[67878.411129] p_cycle: 3349755584, n_cycle: 3474692994, p_rx_clear: 4116282311, n_rx_clear: 4149347585 p_tx: 4203190460, n_tx: 4204298013, p_mybss_rx: 2262369408, n_mybss_rx: 2262526908, obss: 26, self: 0
+[67879.410619] p_cycle: 3474692994, n_cycle: 3599616810, p_rx_clear: 4149347585, n_rx_clear: 4190506551 p_tx: 4204298013, n_tx: 4206309152, p_mybss_rx: 2262526908, n_mybss_rx: 2263066908, obss: 31, self: 1
+[67880.087762] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67880.394453] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+[67882.409026] p_cycle: 3849482706, n_cycle: 3974414658, p_rx_clear: 4254811326, n_rx_clear: 4290808101 p_tx: 4209223058, n_tx: 4211506477, p_mybss_rx: 2263659408, n_mybss_rx: 2263774408, obss: 27, self: 1
+[67883.408358] p_cycle: 3974414658, n_cycle: 4099346299, p_rx_clear: 4290808101, n_rx_clear: 2176507760 p_tx: 4211506477, n_tx: 4213274784, p_mybss_rx: 2263774408, n_mybss_rx: 2263826408, obss: 25, self: 1
+[67884.407809] p_cycle: 4099346299, n_cycle: 4224278087, p_rx_clear: 2176507760, n_rx_clear: 2213259195 p_tx: 4213274784, n_tx: 4214813575, p_mybss_rx: 2263826408, n_mybss_rx: 2263871908, obss: 28, self: 1
+[67885.407362] p_cycle: 4224278087, n_cycle: 2201726288, p_rx_clear: 2213259195, n_rx_clear: 2256466629 p_tx: 4214813575, n_tx: 4216060066, p_mybss_rx: 2263871908, n_mybss_rx: 2264036908, obss: 34, self: 0
+[67886.406719] p_cycle: 2201726288, n_cycle: 2326658079, p_rx_clear: 2256466629, n_rx_clear: 2282777221 p_tx: 4216060066, n_tx: 4217526513, p_mybss_rx: 2264036908, n_mybss_rx: 2264078908, obss: 20, self: 1
+[67887.406184] p_cycle: 2326658079, n_cycle: 2451590106, p_rx_clear: 2282777221, n_rx_clear: 2317653849 p_tx: 4217526513, n_tx: 4219090842, p_mybss_rx: 2264078908, n_mybss_rx: 2264263408, obss: 26, self: 1
+[67888.405777] p_cycle: 2451590106, n_cycle: 2576521711, p_rx_clear: 2317653849, n_rx_clear: 2358608196 p_tx: 4219090842, n_tx: 4221570030, p_mybss_rx: 2264263408, n_mybss_rx: 2264326408, obss: 31, self: 1
+[67889.405082] p_cycle: 2576521711, n_cycle: 2701453526, p_rx_clear: 2358608196, n_rx_clear: 2401167823 p_tx: 4221570030, n_tx: 4225816819, p_mybss_rx: 2264326408, n_mybss_rx: 2264532908, obss: 31, self: 3
+[67889.796575] [MLME] vap-0(ath1):FILS STA found mac[f0:79:e8:96:33:41] 
+[67889.802004] [MLME] vap-0(ath1):FILS Max channel time : 23TU
+[67889.858100] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67890.164801] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+[67891.404060] p_cycle: 2826385360, n_cycle: 2951317166, p_rx_clear: 2491094941, n_rx_clear: 2543277259 p_tx: 4226559887, n_tx: 4227806247, p_mybss_rx: 2265273908, n_mybss_rx: 2265997408, obss: 41, self: 0
+[67892.403451] p_cycle: 2951317166, n_cycle: 3076249161, p_rx_clear: 2543277259, n_rx_clear: 2583401156 p_tx: 4227806247, n_tx: 4229145438, p_mybss_rx: 2265997408, n_mybss_rx: 2266261908, obss: 31, self: 1
+[67892.885992] [MLME] vap-0(ath0):Received Disassoc with reason 8
+[67892.890844] [MLME] vap-0(ath0):ieee80211_mlme_recv_disassoc
+[67892.896383] [MLME] vap-0(ath0): [c4:f0:81:df:ea:a1]station with aid 1 leaves (refcnt 3) 
+[67892.896383] 
+[67893.403005] p_cycle: 3076249161, n_cycle: 3201180757, p_rx_clear: 2583401156, n_rx_clear: 2618926975 p_tx: 4229145438, n_tx: 4231118264, p_mybss_rx: 2266261908, n_mybss_rx: 2266351908, obss: 27, self: 1
+[67893.808976] [wifi0] FWLOG: [68773921] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xeaa1, 0x0 )
+[67893.815865] [wifi0] FWLOG: [68773921] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67893.822287] [wifi0] FWLOG: [68773921] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43e590 )
+[67894.402609] p_cycle: 3201180757, n_cycle: 3326143106, p_rx_clear: 2618926975, n_rx_clear: 2661469922 p_tx: 4231118264, n_tx: 4233391563, p_mybss_rx: 2266351908, n_mybss_rx: 2266529908, obss: 33, self: 1
+[67895.401816] p_cycle: 3326143106, n_cycle: 3451044417, p_rx_clear: 2661469922, n_rx_clear: 2696002013 p_tx: 4233391563, n_tx: 4234798170, p_mybss_rx: 2266529908, n_mybss_rx: 2266732908, obss: 26, self: 1
+[67896.401289] p_cycle: 3451044417, n_cycle: 3575976192, p_rx_clear: 2696002013, n_rx_clear: 2729024766 p_tx: 4234798170, n_tx: 4236772506, p_mybss_rx: 2266732908, n_mybss_rx: 2267060908, obss: 25, self: 1
+[67897.400958] p_cycle: 3575976192, n_cycle: 3700938554, p_rx_clear: 2729024766, n_rx_clear: 2758402767 p_tx: 4236772506, n_tx: 4238672989, p_mybss_rx: 2267060908, n_mybss_rx: 2267084908, obss: 22, self: 1
+[67898.400176] p_cycle: 3700938554, n_cycle: 3825839871, p_rx_clear: 2758402767, n_rx_clear: 2785834367 p_tx: 4238672989, n_tx: 4240428801, p_mybss_rx: 2267084908, n_mybss_rx: 2267144908, obss: 20, self: 1
+[67899.399958] p_cycle: 3825839871, n_cycle: 3950802154, p_rx_clear: 2785834367, n_rx_clear: 2826626861 p_tx: 4240428801, n_tx: 4242381015, p_mybss_rx: 2267144908, n_mybss_rx: 2267340908, obss: 31, self: 1
+[67900.128505] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67900.435199] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+[67902.397994] p_cycle: 4200635269, n_cycle: 2178083603, p_rx_clear: 2897634734, n_rx_clear: 2935258407 p_tx: 4245670984, n_tx: 4247477292, p_mybss_rx: 2267539908, n_mybss_rx: 2267616908, obss: 29, self: 1
+[67902.639933] [MLME] vap-0(ath1):wlan_mlme_auth status 0 
+[67902.645581] [MLME] vap-0(ath1): [c4:f0:81:df:ea:a1]WPA or RSN ie: mc 2/16 uc 8/13 key 2 caps 0x80
+[67902.645581] 
+[67902.654972] [POWER] vap-0(ath1): [c4:f0:81:df:ea:a1]UAPSD bit settings from STA: 00
+[67902.662571] [POWER] vap-0(ath1):ieee80211_parse_htcap:switching to static SM power save
+[67902.670543] [POWER] vap-0(ath1):ieee80211_parse_htcap:calculated updaterates 0x2
+[67902.677922] [POWER] vap-0(ath1):ieee80211_parse_htcap: ni_htcap 0x63
+[67902.684272] [MLME] vap-0(ath1):Negotiated: txrates = fffe rxrates = fffe
+[67902.690944] [MLME] vap-0(ath1):ieee80211_mlme_recv_assoc_request
+[67902.697051] [MLME] vap-0(ath1): [c4:f0:81:df:ea:a1]station associated at aid 1: short preamble, short slot time, QoS, HT40 cap 0x111
+[67902.697051] 
+[67902.710448] [POWER] vap-0(ath1):ieee80211_update_noderates: updating rates: smen 0 dyn 0 ratechg 0 
+[67902.719505] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67902.724422] [IOCTL] vap-0(ath1):ieee80211_ioctl_getparam parameter is 0x130
+[67902.733319] [IOCTL] vap-0(ath1):[ieee80211_ioctl_setmlme] non sta mode, skip to set bssid
+[67902.740599] [MLME] vap-0(ath1):wlan_mlme_assoc_resp reason 0 reassoc 0 
+[67902.747403] [IOCTL] vap-0(ath1):DELETE CRYPTO KEY index 255, addr c4:f0:81:df:ea:a1
+[67902.754845] [IOCTL] vap-0(ath1):DELETE CRYPTO KEY index 255, addr c4:f0:81:df:ea:a1
+[67902.791617] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67902.812670] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67902.817119] [UNSPECIFIED] vap-0(ath1):ieee80211_set_key 74 keytype:0x3 RSN_HAS_UCAST_CIPHER: 0x0
+[67902.825656] [UNSPECIFIED] vap-0(ath1):ieee80211_set_key 80 IS_MULTICAST:0x0 HAS_UCAST_CIPHER:0x8
+[67902.834527] [IOCTL] vap-0(ath1):
+[67902.834527] 
+[67902.834527] ieee80211_ioctl_setkey: ******** SETKEY : error: 0 , key_idx= 65535, key_type=3, macaddr=c4:f0:81:df:ea:a1, key_len=16
+[67902.834527] 
+wrapd: wrapd_psta_add: 921: addr(c4:f0:81:df:ea:a1)
+[67902.854267] ######## [pengruofeng] [ol_ath_target_start]: into .............. ###################### 
+[67902.866168] send_vdev_create_cmd_non_tlv: ID = 2 Type = 2, Subtype = 4 VAP Addr = 7a:e2:eb:df:ea:a1:
+[67902.875438] send_set_ps_mode_cmd_non_tlv:set psmode=1
+[67902.880448] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[67902.886802] Enabling TX checksum bit for the vap ath12 features 4000 
+[67902.893083] Enabling SG bit for the vap ath12 features 4000 
+[67902.898794] Enabling SG bit for the vap ath12 features 4000 
+[67902.904368] Enabling TSO bit for the vap ath12 features 4000 
+[67902.910120] Enabling LRO bit for the vap ath12 features 4000 
+[67902.916265] osif_wrap_dev_add:109 Adding ath12 to the list mat
+[67902.921714] send_set_ps_mode_cmd_non_tlv:set psmode=0
+[67902.933168] VAP device ath12 created osifp: (c1624f00) os_if: (c0bb0000)
+wrapd: wrapd_psta_add: 1028: wrapd_psta_add Setting command: iwpriv ath12 shortgi 1 
+
+wrapd: wrapd_psta_add: 1034: proxySTA 0 is added to wifi1
+[67903.062242] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67903.160169] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[67903.166381] 8021q: adding VLAN 0 to HW filter on device ath12
+[67903.265411] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67903.269925] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+wrapd: wrapd_psta_conn: 671: proxySTA 0 is conn
+[67903.349166] [DEBUG] vap-2(ath12):set SIOC80211NWID, 10 characters
+[67903.354239]  
+[67903.354239]  DES SSID SET=OpenWrt_5g 
+[67903.360435] [ieee80211_ioctl_setmlme] set desired bssid 00:55:40:07:fa:00
+[67903.366309] ieee80211_match_rsn_info[830] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[67903.376642] [NODE] vap-2(ath12):ieee80211_setup_node forcing sta to associate in 19 mode
+[67903.376642] 
+[67903.385374] OL vap_start +
+[67903.387929] ol_ath_vdev_create_start_cmd : 296 freq_seg1 = 42 freq_seg2 = 0 precac_secondary_freq = 0 precac_running = 0 target_type = 11 domain = 1
+[67903.397425] p_cycle: 2178083603, n_cycle: 2303012869, p_rx_clear: 2935258407, n_rx_clear: 2976819988 p_tx: 4247477292, n_tx: 4249558120, p_mybss_rx: 2267616908, n_mybss_rx: 2268186408, obss: 32, self: 1
+[67903.419167] VDEV START
+[67903.421508] OL vap_start -
+[67903.421745] ol_vdev_start_resp_ev for vap 2 (c33e0000)
+[67903.421793] send_wmm_update_cmd_non_tlv:
+[67903.433465] Warning:Stop during VAP Init ! 
+[67903.437724] [IOCTL] vap-0(ath1):ieee80211_vap_iter_new_opmode: vap c0bb0000 tmpvap c28b0000 opmode 6
+[67903.446512] send_vdev_down_cmd_non_tlv for vap 2
+[67903.446603] [wifi1] FWLOG: [68779619] RATE: ChainMask 1, peer_mac ea:a1, phymode 10, ni_flags 0x06053006, vht_mcs_set 0xfffe, ht_mcs_set 0x00ff, legacy_rate_set 0x0ff0
+[67903.446620] [wifi1] FWLOG: [68779746] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xeaa1, 0x0 )
+[67903.446629] [wifi1] FWLOG: [68779746] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67903.446639] [wifi1] FWLOG: [68779746] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43dcd0 )
+[67903.446657] [wifi1] FWLOG: [68780348] vap-2 VDEV_MGR_VDEV_START ( 0x143c, 0x1, 0x4, 0x0 )
+[67903.446667] [wifi1] FWLOG: [68780348] UNKNOWN 14:20 ( 0x0 )
+[67903.992926] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67903.997462] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67904.002547] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67904.397246] p_cycle: 2303012869, n_cycle: 2427977537, p_rx_clear: 2976819988, n_rx_clear: 3015438562 p_tx: 4249558120, n_tx: 4250899559, p_mybss_rx: 2268186408, n_mybss_rx: 2268307408, obss: 29, self: 1
+[67904.446036] [wifi1] FWLOG: [68780430] VDEV_MGR_HP_START_TIME ( 0x1, 0x143c, 0xa11d6bf1 )
+[67904.453093] [wifi1] FWLOG: [68780430] VDEV_MGR_HP_START_TIME ( 0x0, 0x143c, 0xa11df001 )
+[67904.461167] [wifi1] FWLOG: [68780430] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67904.467945] [wifi1] FWLOG: [68780430] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67904.474705] [wifi1] FWLOG: [68780430] VDEV_MGR_AP_TBTT_CONFIG ( 0x0, 0x143c, 0x1, 0x10c24 )
+[67904.483040] [wifi1] FWLOG: [68780430] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67904.489828] [wifi1] FWLOG: [68780430] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67904.496583] [wifi1] FWLOG: [68780430] VDEV_MGR_HP_START_TIME ( 0x1, 0x143c, 0xa11d6bf1 )
+[67904.504652] [wifi1] FWLOG: [68780430] VDEV_MGR_HP_START_TIME ( 0x0, 0x143c, 0xa11df001 )
+[67904.512727] [wifi1] FWLOG: [68780430] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67904.519501] [wifi1] FWLOG: [68780430] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67904.526297] [wifi1] FWLOG: [68780430] VDEV_MGR_AP_TBTT_CONFIG ( 0x0, 0x143c, 0x1, 0x10c24 )
+[67904.551026] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67905.396357] p_cycle: 2427977537, n_cycle: 2552878858, p_rx_clear: 3015438562, n_rx_clear: 3049163829 p_tx: 4250899559, n_tx: 4251935921, p_mybss_rx: 2268307408, n_mybss_rx: 2268447908, obss: 27, self: 0
+[67905.435299] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67905.836186] ieee80211_match_rsn_info[830] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[67905.846380] [NODE] vap-2(ath12):ieee80211_setup_node forcing sta to associate in 19 mode
+[67905.846380] 
+[67905.855096] OL vap_start +
+[67905.857669] ol_ath_vdev_create_start_cmd : 296 freq_seg1 = 42 freq_seg2 = 0 precac_secondary_freq = 0 precac_running = 0 target_type = 11 domain = 1
+[67905.870926] VDEV START
+[67905.873363] OL vap_start -
+[67905.873521] ol_vdev_start_resp_ev for vap 2 (c33e0000)
+[67905.873566] send_wmm_update_cmd_non_tlv:
+[67905.909739] send_wmm_update_cmd_non_tlv:
+[67905.912861] su bfee 1 mu bfee 1 su bfer 1 mu bfer 0 impl bf 0 sounding dim 1
+[67905.919821] [IOCTL] vap-0(ath1):ieee80211_vap_iter_new_opmode: vap c0bb0000 tmpvap c28b0000 opmode 6
+[67905.928851] send_vdev_up_cmd_non_tlv for vap 2
+[67905.952634] ol_ath_key_set:Ignore set group key for psta
+[67906.396056] p_cycle: 2552878858, n_cycle: 2677841199, p_rx_clear: 3049163829, n_rx_clear: 3087728162 p_tx: 4251935921, n_tx: 4254618747, p_mybss_rx: 2268447908, n_mybss_rx: 2268778908, obss: 28, self: 2
+[67906.445255] [wifi1] FWLOG: [68782860] vap-2 VDEV_MGR_VDEV_START ( 0x143c, 0x1, 0x4, 0x0 )
+[67906.452398] [wifi1] FWLOG: [68782860] UNKNOWN 14:20 ( 0x0 )
+[67906.457960] [wifi1] FWLOG: [68782907] RATE: ChainMask 3, peer_mac fa:0, phymode 10, ni_flags 0x0621b806, vht_mcs_set 0xfffa, ht_mcs_set 0xffff, legacy_rate_set 0x0ff0
+[67906.473094] [wifi1] FWLOG: [68782921] VDEV_MGR_HP_START_TIME ( 0x1, 0x143c, 0xa142ec08 )
+[67906.480872] [wifi1] FWLOG: [68782921] VDEV_MGR_HP_START_TIME ( 0x2, 0x143c, 0xa142ec08 )
+[67906.488943] [wifi1] FWLOG: [68782921] VDEV_MGR_HP_START_TIME ( 0x0, 0x143c, 0xa141e001 )
+[67906.497015] [wifi1] FWLOG: [68782921] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x2 )
+[67906.503794] [wifi1] FWLOG: [68782921] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67906.510672] [wifi1] FWLOG: [68782921] VDEV_MGR_AP_TBTT_CONFIG ( 0x0, 0x143c, 0x1, 0x10c3a )
+[67906.518891] [wifi1] FWLOG: [68782941] WAL_DBGID_SECURITY_PM4_QUEUED (  )
+[67906.525575] [wifi1] FWLOG: [68782941] WAL_DBGID_SECURITY_UCAST_KEY_SET ( 0xfa00, 0x0 )
+[67906.533475] [wifi1] FWLOG: [68782941] WAL_DBGID_SECURITY_PM4_SENT (  )
+[67906.539992] [wifi1] FWLOG: [68782941] WAL_DBGID_SECURITY_ENCR_EN (  )
+[67906.546463] [wifi1] FWLOG: [68782941] WAL_DBGID_SECURITY_ALLOW_DATA ( 0x43db90 )
+[67906.553791] [wifi1] FWLOG: [68783015] VDEV_MGR_HP_START_TIME ( 0x2, 0x143c, 0xa1447c09 )
+[67906.561867] [wifi1] FWLOG: [68783015] VDEV_MGR_HP_START_TIME ( 0x2, 0x143c, 0xa1447c09 )
+[67906.569944] [wifi1] FWLOG: [68783015] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x3 )
+[67906.576704] [wifi1] FWLOG: [68783015] RESMGR_OCS_GEN_PERIODIC_NOA ( 0x0 )
+[67907.395263] p_cycle: 2677841199, n_cycle: 2802742654, p_rx_clear: 3087728162, n_rx_clear: 3120227894 p_tx: 4254618747, n_tx: 4255495761, p_mybss_rx: 2268778908, n_mybss_rx: 2268964908, obss: 26, self: 0
+[67907.444797] [wifi1] FWLOG: [68783847] WAL_DBGID_TX_BA_SETUP ( 0x43db90, 0xfa000000, 0x0, 0x40, 0x1 )
+[67907.452935] [wifi1] FWLOG: [68783848] RATE: ChainMask 3, peer_mac fa:0, phymode 10, ni_flags 0x0621b806, vht_mcs_set 0xfffa, ht_mcs_set 0xffff, legacy_rate_set 0x0ff0
+[67907.802255] [wifi0] FWLOG: [68788848] WAL_DBGID_RX_BA_SETUP ( 0xabcdef00, 0x0, 0x418f78 )
+[67908.002717] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67908.394727] p_cycle: 2802742654, n_cycle: 2927674332, p_rx_clear: 3120227894, n_rx_clear: 3151423955 p_tx: 4255495761, n_tx: 4257021060, p_mybss_rx: 2268964908, n_mybss_rx: 2269241408, obss: 23, self: 1
+[67909.297579] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.394171] p_cycle: 2927674332, n_cycle: 3052606140, p_rx_clear: 3151423955, n_rx_clear: 3197851937 p_tx: 4257021060, n_tx: 4258439806, p_mybss_rx: 2269241408, n_mybss_rx: 2270311408, obss: 36, self: 1
+
+root@W3:/# [67909.532418] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.550838] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.554925] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.567813] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.571901] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.636815] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67909.636815] 
+[67909.673276] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.677370] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.688778] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.692874] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.697936] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.709372] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.739165] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67909.739165] 
+[67909.806474] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.810563] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.819180] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.948600] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.957970] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.965608] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.969722] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.974731] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.983913] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.987983] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67909.993049] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+
+root@W3:/# 
+root@W3:/# [67910.046375] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67910.046375] 
+
+root@W3:/# [67910.086855] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+
+root@W3:/# [67910.111538] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.115724] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.128997] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.133100] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.138171] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+
+root@W3:/# [67910.148437] [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+[67910.157630] [UNSPECIFIED] vap-2(ath12):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x3  
+
+root@W3:/# 
+root@W3:/# [67910.227302] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.232380] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.236618] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+
+root@W3:/# [67910.251118] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67910.251118] 
+
+root@W3:/# 
+root@W3:/# 
+root@W3:/# [67910.443480] [wifi1] FWLOG: [68786615] WAL_DBGID_TX_BA_SETUP ( 0x43db90, 0xfa000006, 0x2, 0x40, 0x1 )
+[67910.451590] [wifi1] FWLOG: [68786620] WAL_DBGID_TX_BA_SETUP ( [UNSPECIFIED] vap-1(ath11):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+[67910.465962] [UNSPECIFIED] vap-2(ath12):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x2  
+[67910.476451] 0x43dcd0, 0xeaa10006, 0x2, 0x40, 0x1 )
+[67910.480663] [wifi1] FWLOG: [68786626] RATE: ChainMask 1, peer_mac ea:a1, phymode 10, ni_flags 0x06053006, vht_mcs_set 0xfffe, ht_mcs_set 0x00ff, legacy_rate_set 0x0ff0
+[67910.496278] [wifi1] FWLOG: [68786642] WAL_DBGID_TX_BA_SETUP ( 0x43dcd0, 0xeaa10000, 0x0, 0x40, 0x1 )
+[67910.547512] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67910.551601] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.528095] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.538669] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.797685] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.806905] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.815360] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.826115] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67911.889491] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67911.889491] 
+[67911.991863] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67911.991863] 
+[67912.081414] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.221225] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.249356] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.260130] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.270628] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.299090] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67912.299090] 
+[67912.380696] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.392564] p_cycle: 3302469744, n_cycle: 3427401737, p_rx_clear: 3271860649, n_rx_clear: 3303308451 p_tx: 4262616627, n_tx: 4264848676, p_mybss_rx: 2271298908, n_mybss_rx: 2271619408, obss: 24, self: 1
+[67912.409639] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67912.409639] 
+
+[67912.421545] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+root@W3:/# [67912.503921] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[67912.503921] 
+[67912.515076] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.519801] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.524906] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.534655] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.538894] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.546400] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.550531] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.555526] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.650761] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.656791] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.673365] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67912.708739] [POWER] vap-0(ath1): [54:c4:15:78:e2:ed]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[67912.708739] 
+[67913.302793] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.392101] p_cycle: 3427401737, n_cycle: 3552333381, p_rx_clear: 3303308451, n_rx_clear: 3334899085 p_tx: 4264848676, n_tx: 4267743390, p_mybss_rx: 2271619408, n_mybss_rx: 2271990908, obss: 23, self: 2
+[67913.417690] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.542817] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.546956] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.552010] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.562632] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.572904] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.583342] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.680658] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.684755] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.694747] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.703410] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.712743] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.858611] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.874443] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.885380] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.899051] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67913.908877] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67914.391466] p_cycle: 3552333381, n_cycle: 3677265186, p_rx_clear: 3334899085, n_rx_clear: 3372863177 p_tx: 4267743390, n_tx: 4269267301, p_mybss_rx: 2271990908, n_mybss_rx: 2272385408, obss: 29, self: 1
+[67914.596923] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67914.881162] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67914.892277] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67914.901694] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67914.911381] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.018925] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.036475] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.047539] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.057478] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.391254] p_cycle: 3677265186, n_cycle: 3802227705, p_rx_clear: 3372863177, n_rx_clear: 3407422956 p_tx: 4269267301, n_tx: 4271740453, p_mybss_rx: 2272385408, n_mybss_rx: 2272732908, obss: 26, self: 1
+[67915.424528] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.546904] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.551046] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67915.659518] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67916.388173] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67916.392315] p_cycle: 3802227705, n_cycle: 3927128807, p_rx_clear: 3407422956, n_rx_clear: 3452723777 p_tx: 4271740453, n_tx: 4272546911, p_mybss_rx: 2272732908, n_mybss_rx: 2272959908, obss: 36, self: 0
+[67916.416036] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67916.459322] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67916.484454] [WRAP] vap-0(ath1):wrap_rx_bridge: Iso(0)
+[67917.389851] p_cycle: 3927128807, n_cycle: 4052060800, p_rx_clear: 3452723777, n_rx_clear: 3522218621 p_tx: 4272546911, n_tx: 4273941866, p_mybss_rx: 2272959908, n_mybss_rx: 2273253908, obss: 54, self: 1
+
+[END] 2017/12/7 9:50:58

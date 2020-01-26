@@ -1,0 +1,638 @@
+[BEGIN] 2017/3/8 9:34:47
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# reboot
+root@OpenWrt:/# [   87.670000] br-lan: port 2(ath0) entered disabled state
+[   87.690000] device ath0 left promiscuous mode
+[   87.690000] br-lan: port 2(ath0) entered disabled state
+[   87.720000] ADDRCONF(NETDEV_UP): ath01: link is not ready
+[   87.720000] device ath01 left promiscuous mode
+[   87.730000] br-lan: port 3(ath01) entered disabled state
+[   87.750000] ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   87.780000] device eth1 left promiscuous mode
+[   87.780000] br-lan: port 1(eth1) entered disabled state
+wrapd: cleanup_ifaces: 236: Cleaning up wrapd sockets
+[   88.070000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[   88.080000] vap-1(ath01):ieee80211_setup_node forcing sta to associate in 8 mode
+[   88.080000] 
+[   88.090000] vap-0(ath0):ieee80211_vap_iter_get_chan : desired mode 8 vap_des_chan 86170d3cwlan_mlme_join_infra.. SETTING CHANNEL NUMBER 8 CURR CHANNEL is 1 flags 0x10080
+qcawifi disable radio wifi0
+[   91.740000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   91.860000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   91.890000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85c92b80
+[   91.890000] 
+[   91.910000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85c92b80
+[   91.910000] 
+[   91.920000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85c92b80
+[   91.920000] 
+[   91.930000] wlan_vap_delete : enter. vaphandle=0x85da8000
+[   91.940000] ieee80211_mbo_vdetach: MBO terminated
+[   91.950000] ieee80211_oce_vdetach: OCE terminated
+[   91.950000] wlan_vap_delete : exit. vaphandle=0x85da8000
+[   92.000000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85ca3b80
+[   92.000000] 
+[   92.010000] osif_wrap_dev_remove:158 Removing ath01 from the list
+[   92.020000] osif_wrap_dev_remove_vma:187 Removing ath01 from VMA list
+[   92.030000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   92.030000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85ca3b80
+[   92.030000] 
+[   92.050000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85ca3b80
+[   92.050000] 
+[   92.060000] wlan_vap_delete : enter. vaphandle=0x85cf0000
+[   92.070000] vap-1(ath01):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[   92.080000] wlan_vap_delete : exit. vaphandle=0x85cf0000
+[   92.120000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=850e9b80
+[   92.120000] 
+[   92.130000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[   92.140000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[   92.150000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   92.150000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=850e9b80
+[   92.150000] 
+[   92.160000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=850e9b80
+[   92.160000] 
+[   92.180000] wlan_vap_delete : enter. vaphandle=0x85138000
+[   92.190000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[   92.200000] wlan_vap_delete : exit. vaphandle=0x85138000
+Dec 31 19:40:23 watchquagga[1509]: Terminating on signal
+[   94.440000] Removing MTD device #3 (rootfs_data) with use count 1
+[   94.460000] Restarting system.
+
+
+U-Boot 1.1.4 (Mar  4 2017 - 11:41:40)
+
+ap147 - Honey Bee 2.0DRAM:  
+sri
+Honey Bee 2.0
+ath_ddr_initial_config(195): (16bit) ddr2 init
+ath_sys_frequency: cpu 650 ddr 597 ahb 216
+tap = 0x00000003
+Tap (low, high) = (0x9, 0x23)
+Tap values = (0x16, 0x16, 0x16, 0x16)
+128 MB
+Top of RAM usable for U-Boot at: 88000000
+Reserving 200k for U-Boot at: 87fcc000
+Reserving 192k for malloc() at: 87f9c000
+Reserving 44 Bytes for Board Info at: 87f9bfd4
+Reserving 36 Bytes for Global Data at: 87f9bfb0
+Reserving 128k for boot params() at: 87f7bfb0
+Stack Pointer at: 87f7bf98
+Now running in RAM - U-Boot at: 87fcc000
+Flash Manuf Id 0xef, DeviceId0 0x40, DeviceId1 0x18
+flash size 16MB, sector count = 256
+Flash: 16 MB
+*** Warning - bad CRC, using default environment
+
+Power up PLL with outdiv = 0 then switch to 3
+*** Warning *** : PCIe WLAN Module not found !!!
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ath_gmac_enet_initialize...
+No valid address in Flash. Using fixed address
+No valid address in Flash. Using fixed address
+ath_gmac_enet_initialize: reset mask:c02200 
+Honey Bee ---->S27 PHY*
+S27 reg init
+: cfg1 0x800c0000 cfg2 0x7114
+eth0: 00:03:7f:09:0b:ad
+athrs27_phy_setup ATHR_PHY_CONTROL 4 :1000
+athrs27_phy_setup ATHR_PHY_SPEC_STAUS 4 :10
+eth0 up
+Honey Bee ---->  MAC 1 S27 PHY *
+S27 reg init
+ATHRS27: resetting s27
+ATHRS27: s27 reset done
+: cfg1 0x800c0000 cfg2 0x7214
+eth1: 00:03:7f:09:0b:ad
+athrs27_phy_setup ATHR_PHY_CONTROL 0 :1000
+athrs27_phy_setup ATHR_PHY_SPEC_STAUS 0 :10
+athrs27_phy_setup ATHR_PHY_CONTROL 1 :1000
+athrs27_phy_setup ATHR_PHY_SPEC_STAUS 1 :10
+athrs27_phy_setup ATHR_PHY_CONTROL 2 :1000
+athrs27_phy_setup ATHR_PHY_SPEC_STAUS 2 :10
+athrs27_phy_setup ATHR_PHY_CONTROL 3 :1000
+athrs27_phy_setup ATHR_PHY_SPEC_STAUS 3 :10
+eth1 up
+eth0, eth1
+Setting 0x181162c0 to 0x2851a100
+Hit any key to stop autoboot:  0 
+## Booting image at 9fe80000 ...
+   Image Name:   MIPS OpenWrt Linux-3.3.8
+   Created:      2017-03-04   4:01:44 UTC
+   Image Type:   MIPS Linux Multi-File Image (lzma compressed)
+   Data Size:    1106590 Bytes =  1.1 MB
+   Load Address: 80060000
+   Entry Point:  80060000
+   Contents:
+   Image 0:  1106582 Bytes =  1.1 MB
+   Verifying Checksum at 0x9fe80040 ...OK
+   Uncompressing Multi-File Image ... OK
+No initrd
+## Transferring control to Linux (at address 80060000) ...
+## Giving linux memsize in bytes, 134217728
+
+Starting kernel ...
+
+[    0.000000] Linux version 3.3.8 (ll@ll-virtual-machine) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Sat Mar 4 12:00:49 CST 2017
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 00019374 (MIPS 24Kc)
+[    0.000000] SoC: Qualcomm Atheros QCA9531 rev 2
+[    0.000000] Clocks: CPU:650.000MHz, DDR:597.167MHz, AHB:216.666MHz, Ref:25.000MHz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 08000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone PFN ranges:
+[    0.000000]   Normal   0x00000000 -> 0x00008000
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] Early memory PFN ranges
+[    0.000000]     0: 0x00000000 -> 0x00008000
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 32512
+[    0.000000] Kernel command line:  board=AP147 console=ttyS0,115200 mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env),14528k(rootfs),1472k(kernel),64k(art),16000k@0x50000(firmware) rootfstype=squashfs,jffs2 noinitrd crashkernel=10M@20M oops=panic
+[    0.000000] PID hash table entries: 512 (order: -1, 2048 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.000000] Primary data cache 32kB, 4-way, VIPT, cache aliases, linesize 32 bytes
+[    0.000000] Writing ErrCtl register=00000000
+[    0.000000] Readback ErrCtl register=00000000
+[    0.000000] Memory: 126116k/131072k available (2331k kernel code, 4956k reserved, 634k data, 224k init, 0k highmem)
+[    0.000000] SLUB: Genslabs=9, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:83
+[    0.000000] Calibrating delay loop... 432.53 BogoMIPS (lpj=2162688)
+[    0.060000] pid_max: default: 32768 minimum: 301
+[    0.060000] Mount-cache hash table entries: 512
+[    0.070000] Performance counters: mips/24K PMU enabled, 2 32-bit counters available to each CPU, irq 13
+[    0.080000] NET: Registered protocol family 16
+[    0.080000] gpiochip_add: registered GPIOs 0 to 17 on device: ath79
+[    0.090000] MIPS: machine is Qualcomm Atheros AP147 reference board
+[    0.090000] AP147 Reference Board Id is 255
+[    0.100000] ar724x-pci ar724x-pci.0: PCIe link is down
+[    0.100000] registering PCI controller with io_map_base unset
+[    0.110000] 
+[    0.110000] WLAN firmware dump buffer allocation of 2097152 bytes @ address 0x87a00000- SUCCESS !!!
+[    0.120000] ar71xx: invalid MDIO id 1
+[    0.520000] bio: create slab <bio-0> at 0
+[    0.530000] PCI host bridge to bus 0000:00
+[    0.530000] pci_bus 0000:00: root bus resource [mem 0x10000000-0x11ffffff]
+[    0.540000] pci_bus 0000:00: root bus resource [io  0x0000]
+[    0.540000] Switching to clocksource MIPS
+[    0.550000] NET: Registered protocol family 2
+[    0.550000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.550000] TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.560000] TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.560000] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.570000] TCP reno registered
+[    0.570000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.580000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.580000] NET: Registered protocol family 1
+[    0.600000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.610000] JFFS2 version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.620000] msgmni has been set to 246
+[    0.620000] io scheduler noop registered
+[    0.620000] io scheduler deadline registered (default)
+[    0.630000] Serial: 8250/16550 driver, 1 ports, IRQ sharing disabled
+[    0.650000] serial8250.0: ttyS0 at MMIO 0x18020000 (irq = 11) is a 16550A
+[    0.660000] console [ttyS0] enabled, bootconsole disabled
+[    0.660000] console [ttyS0] enabled, bootconsole disabled
+[    0.680000] m25p80 spi0.0: found w25q128, expected m25p80
+[    0.680000] m25p80 spi0.0: w25q128 (16384 Kbytes)
+[    0.690000] 6 cmdlinepart partitions found on MTD device spi0.0
+[    0.690000] Creating 6 MTD partitions on "spi0.0":
+[    0.700000] 0x000000000000-0x000000040000 : "u-boot"
+[    0.700000] 0x000000040000-0x000000050000 : "u-boot-env"
+[    0.710000] 0x000000050000-0x000000e80000 : "rootfs"
+[    0.720000] mtd: partition "rootfs" set to be root filesystem
+[    0.720000] mtd: partition "rootfs_data" created automatically, ofs=970000, len=510000 
+[    0.730000] 0x000000970000-0x000000e80000 : "rootfs_data"
+[    0.740000] 0x000000e80000-0x000000ff0000 : "kernel"
+[    0.740000] 0x000000ff0000-0x000001000000 : "art"
+[    0.750000] 0x000000050000-0x000000ff0000 : "firmware"
+[    0.780000] ag71xx_mdio: probed
+[    0.910000] ag71xx_mdio: probed
+[    0.920000] eth0: Atheros AG71xx at 0xb9000000, irq 4
+[    1.470000] ag71xx ag71xx.0: eth0: connected to PHY at ag71xx-mdio.1:04 [uid=004dd042, driver=Generic PHY]
+[    1.480000] eth1: Atheros AG71xx at 0xba000000, irq 5
+[    2.040000] eth1: Found an AR934X built-in switch
+[    3.080000] TCP cubic registered
+[    3.080000] NET: Registered protocol family 17
+[    3.090000] 8021q: 802.1Q VLAN Support v1.8
+[    3.090000] ### of_selftest(): No testcase data in device tree; not running tests
+[    3.110000] VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+[    3.120000] Freeing unused kernel memory: 224k freed
+- preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+- regular preinit -
+[    8.150000] JFFS2 notice: (634) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (0 unchecked, 0 orphan) and 13 of xref (0 dead, 0 orphan) found.
+switching to jffs2
+- init -
+
+Please press Enter to activate this console. [   10.080000] ssdk_plat_init start
+[   10.080000] chip_version:0x0
+[   10.080000] chip_version:0x2
+[   10.090000] Register QCA PHY driver
+[   10.090000] PHY ID is 0x4dd042
+[   10.140000] qca probe f2 phy driver succeeded!
+[   10.150000] qca-ssdk module init succeeded!
+[   10.320000] NET: Registered protocol family 10
+[   10.670000] SCSI subsystem initialized
+[   10.770000] Button Hotplug driver version 0.4.1
+[   10.800000] bonding: Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+[   10.950000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   11.120000] nf_conntrack version 0.5.0 (1974 buckets, 7896 max)
+[   11.580000] nf_conntrack_rtsp v0.6.21 loading
+[   11.600000] nf_nat_rtsp v0.6.21 loading
+[   11.700000] AR71XX_RESET_REG_WDOG_CTRL: 0x0
+[   11.700000]  
+[   11.730000] fuse init (API version 7.18)
+[   16.240000] mem_manager: module license 'unspecified' taints kernel.
+[   16.250000] Disabling lock debugging due to kernel taint
+[   16.260000] __mm_init_module 
+[   16.470000] ath_dfs: Version 2.0.0
+[   16.470000] Copyright (c) 2005-2006 Atheros Communications, Inc. All Rights Reserved
+[   16.560000] ath_spectral: Version 2.0.0
+[   16.560000] Copyright (c) 2005-2009 Atheros Communications, Inc. All Rights Reserved
+[   17.690000] ath_hal: 0.9.17.1 (AR5416, AR9380, REGOPS_FUNC, PRIVATE_DIAG, WRITE_EEPROM, 11D)
+[   17.720000] ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+[   17.800000] ath_tx99: Version 2.0
+[   17.800000] Copyright (c) 2010 Atheros Communications, Inc, All Rights Reserved
+[   18.000000] ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+[   18.030000] __ath_attach: Set global_scn[0]
+[   18.030000] *** All the minfree values should be <= ATH_TXBUF-32, otherwise default value will be used instead ***
+[   18.040000] ACBKMinfree = 48
+[   18.050000] ACBEMinfree = 32
+[   18.050000] ACVIMinfree = 16
+[   18.050000] ACVOMinfree = 0
+[   18.050000] CABMinfree = 48
+[   18.060000] UAPSDMinfree = 0
+[   18.060000] ATH_TXBUF=2700
+[   18.070000] Enterprise mode: 0x03fc0000
+[   18.080000] Restoring Cal data from FS
+[   18.080000] 
+[   18.080000] ART Version : -48.0.0
+[   18.090000] SW Image Version : -48.0.0.0.0
+[   18.090000] Board Revision :  
+[   18.090000] ar9300_attach: nf_2_nom -110 nf_2_max -60 nf_2_min -125 
+[   18.100000] SPECTRAL : get_capability not registered
+[   18.110000] HAL_CAP_PHYDIAG : Capable
+[   18.110000] SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 237)
+[   18.120000] SPECTRAL : get_capability not registered
+[   18.130000] HAL_CAP_RADAR   : Capable
+[   18.130000] SPECTRAL : Need to fix the capablity check for SPECTRAL
+[   18.130000]  (spectral_attach : 242)
+[   18.140000] SPECTRAL : get_capability not registered
+[   18.140000] HAL_CAP_SPECTRAL_SCAN : Capable
+[   18.150000] SPECTRAL : get_tsf64 not registered
+[   18.150000] spectral_init_netlink 78 NULL SKB
+[   18.160000] SPECTRAL : No ADVANCED SPECTRAL SUPPORT
+[   18.160000] SPECTRAL :----- module attached
+[   18.170000] Green-AP : Green-AP : Attached
+[   18.170000] 
+[   18.180000] ath_get_caps[6155] rx chainmask mismatch actual 3 sc_chainmak 0
+[   18.190000] ath_get_caps[6130] tx chainmask mismatch actual 3 sc_chainmak 0
+[   18.200000] band steering initialized for direct attach hardware 
+[   18.210000] ieee80211_bsteering_attach: Band steering initialized
+[   18.210000] acfg_attach: 2884: Netlink socket created:86d8aa00
+[   18.220000] ath_attach_dfs[12576] dfsdomain 1
+[   18.230000] dfs_attach: event log enabled by default
+[   18.240000] SPECTRAL : module already attached
+[   18.240000] ath_attach: Set global_ic[1]..gloabl_ic ptr:861295f0
+[   18.250000] osif_wrap_attach:441 osif wrap attached
+[   18.250000] osif_wrap_devt_init:402 osif wrap dev table init done
+[   18.260000]  Wrap Attached: Wrap_com =86d8a000 ic->ic_wrap_com=86d8a000 &wrap_com->wc_devt=86d8a000 
+[   18.280000] ath_tx_paprd_init sc 86de8000 PAPRD disabled in HAL
+[   18.290000] wifi0: Atheros ???: mem=0xb8100000, irq=47
+[   18.290000] ath_da_pci:  (Atheros/multi-bss)
+[   18.800000] ath_ol_pci:  (Atheros/multi-bss)
+[   18.900000] __sa_init_module 
+qcawifi disable radio wifi0
+[   23.140000] ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   24.280000] ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   24.280000] device eth1 entered promiscuous mode
+[   24.290000] ADDRCONF(NETDEV_UP): br-lan: link is not ready
+qcawifi disable radio wifi0
+qcawifi disable radio wifi0
+qcawifi: enable radio wifi0
+[   29.330000] ath_net80211_dfs_clist_update: called, cmd=1, nollist=  (null), nentries=0
+[   29.340000] ath_attach_dfs[12576] dfsdomain 1
+[   29.350000] dfs_attach: event log enabled by default
+[   29.430000]  Disconnect_timeout value entered:10 
+[   29.440000]  reconfiguration_timeout value entered:60 
+[   29.660000] wlan_vap_create : enter. devhandle=0x86df0380, opmode=IEEE80211_M_HOSTAP, flags=0x1
+[   29.670000] ieee80211_mbo_vattach:MBO Initialized 
+[   29.680000] ieee80211_oce_vattach: OCE Initialized 
+[   29.680000] wlan_vap_create : exit. devhandle=0x86df0380, vap=0x86178000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+[   29.690000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   29.700000] VAP device ath0 created osifp: (86f0eb80) os_if: (86178000)
+[   29.730000] siwfreq
+[   29.730000] Set freq vap 0 stop send + 86178000
+[   29.740000] Set freq vap 0 stop send -86178000
+[   29.770000] Set wait done --86178000
+[   29.850000]  
+[   29.850000]  DES SSID SET= 
+[   29.860000] vap-0(ath0):set SIOC80211NWID, 13 characters
+[   29.860000]  
+[   29.860000]  DES SSID SET=ezviz_zjq_056 
+[   30.400000]  ieee80211_ioctl_siwmode: imr.ifm_active=131712, new mode=3, valid=1 
+[   30.410000]  DEVICE IS DOWN ifname=ath0
+[   30.420000]  DEVICE IS DOWN ifname=ath0
+[   30.600000] Warning: node not in table 0x85dde000
+[   30.700000] 8021q: adding VLAN 0 to HW filter on device ath0
+[   30.830000] device ath0 entered promiscuous mode
+[   30.830000] br-lan: port 2(ath0) entered forwarding state
+[   30.840000] br-lan: port 2(ath0) entered forwarding state
+[   30.840000] ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+[   30.890000] wlan_vap_create : enter. devhandle=0x86df0380, opmode=IEEE80211_M_STA, flags=0x102
+[   30.920000] wlan_vap_create : exit. devhandle=0x86df0380, vap=0x85cf0000, opmode=IEEE80211_M_STA, flags=0x102.
+[   30.950000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   30.950000] VAP device ath01 created osifp: (85d9b380) os_if: (85cf0000)
+[   30.960000] osif_wrap_dev_add:109 Adding ath01 to the list mat
+[   30.980000] siwfreq
+[   31.080000]  
+[   31.080000]  DES SSID SET= 
+[   31.090000] vap-1(ath01):set SIOC80211NWID, 18 characters
+[   31.100000]  
+[   31.100000]  DES SSID SET=aa_ezviz_989f40_pp 
+[   31.940000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[   31.950000] 8021q: adding VLAN 0 to HW filter on device ath01
+[   32.840000] br-lan: port 2(ath0) entered forwarding state
+[   33.310000] device ath01 entered promiscuous mode
+[   33.310000] br-lan: port 3(ath01) entered forwarding state
+[   33.320000] br-lan: port 3(ath01) entered forwarding state
+wrapd: wrapd_init_global: 2932: Connected to global_hostapd
+wrapd: wrapd_add[   34.450000] ath_ioctl: unsupported extended command 4
+_wifi: 1821: Add wifi command invoked!! - (wifi0)
+
+
+Allocated wrap_wifi_iface wrapd_alloc_wifi_iface:1672
+wrapd: wifi_ifname_to_num: 2881: WRAPD started on RADIO:0
+
+wrapd: wrapd_alloc_wifi_iface: 1728: Proxy noack WAR status: 0
+
+wrapd: wrapd_alloc_wifi_iface: 1741: mpsta_mac_addr:4a:19:b6:0:0:56
+wrapd: wrapd_add_sta: 2018: Add sta command invoked!! - (ath01)
+
+[   35.320000] br-lan: port 3(ath01) entered forwarding state
+[   37.140000] ADDRCONF(NETDEV_CHANGE): ath01: link becomes ready
+[   37.150000] osif_vap_stop: Scan in progress.. Cancelling it. vap: 0x85cf0000 
+[   40.800000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   40.800000] br-lan: port 3(ath01) entered disabled state
+cmd to global supp:add_cmd = ath01	/var/run/wpa_supplicant-ath01.conf	athr			br-lan
+[   41.130000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[   41.140000] 8021q: adding VLAN 0 to HW filter on device ath01
+[   41.140000] ADDRCONF(NETDEV_UP): ath01: link is not ready
+wrapd: wrapd_conn_to_mpsta_wpa_s: 316: MPSTA wpa_s(ath01) connected
+
+wrapd: wrapd_ctrl_iface_cmd: 433: DISCONNECT:OK
+
+wrapd: wrapd_ctrl_iface_cmd: 433: RECONNECT:OK
+
+Started wired client addition
+wrapd: wrapd_add_ap: 1950: Add ap command invoked!! - (ath0)
+
+[   44.450000] osif_vap_stop: Scan in progress.. Cancelling it. vap: 0x86178000 
+[   44.470000] br-lan: port 2(ath0) entered disabled state
+wrapd: wrapd_ctr[   44.490000]  ieee80211_ioctl_siwmode: imr.ifm_active=393856, new mode=3, valid=1 
+l_iface_cmd: 433: REMOVE ath0:OK
+
+wrapd: wrapd_remove_to_global: 1587: ap vap ath0 is removed from global hostapd
+[   44.510000]  DEVICE IS DOWN ifname=ath0
+[   44.510000]  DEVICE IS DOWN ifname=ath0
+[   44.770000] Warning: node not in table 0x85cce000
+[   44.830000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   44.840000] br-lan: port 2(ath0) entered forwarding state
+[   44.850000] br-lan: port 2(ath0) entered forwarding state
+[   44.850000] 8021q: adding VLAN 0 to HW filter on device ath0
+wrapd: wrapd_ctrl_iface_cmd: 433: ADD bss_config=ath0:/var/run/hostapd-ath0.conf:OK
+
+wrapd: wrapd_ap_add_to_global: 1525: ap vap ath0 is added to global hostapd
+wrapd: wrapd_conn_to_hostapd: 355: WRAP hostapd(ath0) connected
+
+[   44.930000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   44.950000] br-lan: port 2(ath0) entered disabled state
+wrapd: wrapd_ctrl_iface_cmd: 433: DISABLE:OK
+
+wrapd: wrapd_ap_enable_disable: 1566: ap vap DISABLED
+[   46.960000]  ieee80211_ioctl_siwmode: imr.ifm_active=393856, new mode=3, valid=1 
+[   46.970000]  DEVICE IS DOWN ifname=ath0
+[   46.970000]  DEVICE IS DOWN ifname=ath0
+[   46.980000] Warning: node not in table 0x85cca000
+[   47.050000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[   47.060000] br-lan: port 2(ath0) entered forwarding state
+[   47.070000] br-lan: port 2(ath0) entered forwarding state
+[   47.070000] 8021q: adding VLAN 0 to HW filter on device ath0
+wrapd: wrapd_ctrl_iface_cmd: 433: ENABLE:OK
+
+wrapd: wrapd_ap_enable_disable: 1566: ap vap ENABLED
+wrapd: wrapd_add_ap: 1965: (ath0) created in secmode = (SEC)
+
+[   49.070000] br-lan: port 2(ath0) entered forwarding state
+[   50.940000] fast-classifier: starting up
+[   50.940000] fast-classifier: registered
+[   52.390000] 
+[   52.390000]  WPS Enabled : Ignoring MAC Filtering
+[   54.330000] 
+[   54.330000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[   54.540000] wlan_vap_create : enter. devhandle=0x86df0380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[   54.550000] wlan_vap_create : exit. devhandle=0x86df0380, vap=0x85200000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[   54.560000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[   54.570000] VAP device ath02 created osifp: (85df2380) os_if: (85200000)
+[   54.580000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+
+
+
+BusyBox v1.19.4 (2017-03-04 10:58:19 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMM----EZVIZ---MMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+ ---------------------------------------------------------------
+   For those about to rock... (QCA9558.LN, unknown)
+ ---------------------------------------------------------------
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# [   70.330000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[   89.290000] vap-1(ath01):set SIOC80211NWID, 18 characters
+[   89.300000]  
+[   89.300000]  DES SSID SET=aa_ezviz_989f40_pp 
+[   89.310000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[   89.320000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[   89.330000] vap-1(ath01):ieee80211_setup_node forcing sta to associate in 8 mode
+[   89.330000] 
+[   89.340000] vap-0(ath0):ieee80211_vap_iter_get_chan : desired mode 8 vap_des_chan 86df0d3cwlan_mlme_join_infra.. SETTING CHANNEL NUMBER 8 CURR CHANNEL is 1 flags 0x10080
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:d[   89.450000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+a:ac)
+wrapd: wrapd_psta_remove:[   89.460000] vap-1(ath01):ieee80211_setup_node forcing sta to associate in 8 mode
+[   89.460000] 
+ 1075: Wireless [   89.460000] vap-0(ath0):ieee80211_vap_iter_get_chan : desired mode 8 vap_des_chan 86df0d3cPSTA remove
+
+wwlan_mlme_join_infra.. SETTING CHANNEL NUMBER 8 CURR CHANNEL is 8 flags 0x10080
+rapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+rm: can't remove[   89.510000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85df2380
+[   89.510000] 
+ '/var/run/wpa_s[   89.520000] osif_wrap_dev_remove:158 Removing ath02 from the list
+upplicant-ath02.[   89.530000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+lock': No such f[   89.530000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ile or directory[   89.540000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85df2380
+[   89.540000] 
+
+[   89.550000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85df2380
+[   89.550000] 
+[   89.570000] wlan_vap_delete : enter. vaphandle=0x85200000
+[   89.570000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[   89.580000] wlan_vap_delete : exit. vaphandle=0x85200000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[   90.520000] br-lan: port 3(ath01) entered forwarding state
+[   90.520000] br-lan: port 3(ath01) entered forwarding state
+[   90.530000] ADDRCONF(NETDEV_CHANGE): ath01: link becomes ready
+wrapd: wrapd_mps[   90.570000] max priority radio:wifi0
+ta_connect: 2540: force_client_mcast: 0 
+
+wrapd: wrapd_mpsta_connect: 2552: Max priority active radio = wifi0
+
+wrapd: wrapd_conn_all: 823: 0 connected
+[   92.520000] br-lan: port 3(ath01) entered forwarding state
+[  101.600000] 
+[  101.600000]  WPS Enabled : Ignoring MAC Filtering
+
+root@OpenWrt:/# iwwrapd: wrapd_pst[  102.670000] wlan_vap_create : enter. devhandle=0x86df0380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[  102.680000] wlan_vap_create : exit. devhandle=0x86df0380, vap=0x853e8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[  102.690000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[  102.700000] VAP device ath02 created osifp: (8521cb80) os_if: (853e8000)
+[  102.710000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+c[  103.050000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[  103.060000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+
+/bin/ash: iwc: not found
+root@OpenWrt:/# 
+root@OpenWrt:/# [  105.170000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[  105.170000]  
+[  105.170000]  DES SSID SET=aa_ezviz_989f40_pp 
+[  105.180000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[  105.190000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[  105.200000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[  105.200000] 
+
+root@OpenWrt:/# [  107.620000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[  107.630000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[  107.630000] 
+
+root@OpenWrt:/# [  107.820000] __ath_key_set:Ignore set group key for psta
+iwcroot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-37 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:2B11-76EB-DBDD-0AFB-8E78-1D9B-B52D-8729-EE67-0DBE-4A7C-0170-90D7-D2D4-541F-F085 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:13  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-39 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# ifcroot@OpenWrt:/# ifconfig 
+ath0      Link encap:Ethernet  HWaddr 44:19:B6:00:00:56  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:31 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:5597 (5.4 KiB)  TX bytes:0 (0.0 B)
+
+ath01     Link encap:Ethernet  HWaddr 4A:19:B6:00:00:56  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:14 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:6 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:3366 (3.2 KiB)  TX bytes:0 (0.0 B)
+
+ath02     Link encap:Ethernet  HWaddr 02:00:56:1E:DA:AC  
+          inet6 addr: fe80::56ff:fe1e:daac/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:3 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:372 (372.0 B)  TX bytes:0 (0.0 B)
+
+br-lan    Link encap:Ethernet  HWaddr 4A:19:B6:00:00:56  
+          inet addr:192.168.7.32  Bcast:192.168.7.255  Mask:255.255.255.0
+          inet6 addr: 2001:db8:1:0:4819:b6ff:fe00:56/64 Scope:Global
+          inet6 addr: fe80::4619:b6ff:fe00:55/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:46 errors:0 dropped:4 overruns:0 frame:0
+          TX packets:33 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:7005 (6.8 KiB)  TX bytes:9481 (9.2 KiB)
+
+eth1      Link encap:Ethernet  HWaddr 44:19:B6:00:00:55  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:5 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+wifi0     Link encap:UNSPEC  HWaddr 44-19-B6-00-00-56-00-4F-00-00-00-00-00-00-00-00  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:994 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:789 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:2699 
+          RX bytes:246492 (240.7 KiB)  TX bytes:188788 (184.3 KiB)
+          Interrupt:47 Memory:b8100000-b8120000 
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+[END] 2017/3/8 9:37:31

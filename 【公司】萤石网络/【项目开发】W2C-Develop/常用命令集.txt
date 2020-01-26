@@ -1,0 +1,3 @@
+/sbin/hotplug2 --override--persistent --set-rules-file/etc/hotplug2.rules --set-coldplug-cmd/sbin/udevtrigger --max-children 1
+
+hostapd -g /var/run/hostapd/global -B -P /var/run/hostapd-global.pid

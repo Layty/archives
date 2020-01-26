@@ -1,0 +1,3106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration version="1.0.8.4">
+  <Designer>
+    <Assets>
+      <Settings bpp="16">
+        <MemoryLocations>
+          <MemoryLocation address="0" id="default"/>
+        </MemoryLocations>
+      </Settings>
+    </Assets>
+    <Screens height="200" width="320">
+      <Screen active="true" background="000000" clearOnShow="true" export="true" name="Untitled" primary="true" visible="true">
+        <Objects/>
+      </Screen>
+    </Screens>
+    <Schemes defaultSchemeName="default">
+      <Scheme name="default">
+        <Alpha>100</Alpha>
+        <BackgroundOffset>0,0</BackgroundOffset>
+        <EmbossSize>3</EmbossSize>
+        <Colors>
+          <Primary>FFFFFF</Primary>
+          <Secondary>404040</Secondary>
+          <Disabled>C0C0C0</Disabled>
+          <Background>000000</Background>
+          <EmbossLight>C0C0C0</EmbossLight>
+          <EmbossDark>404040</EmbossDark>
+          <TextPrimary>000000</TextPrimary>
+          <TextSecondary>FFFFFF</TextSecondary>
+          <TextDisabled>404040</TextDisabled>
+          <GradientStart>000000</GradientStart>
+          <GradientEnd>FFFFFF</GradientEnd>
+        </Colors>
+        <FillStyle>Color</FillStyle>
+        <BackgroundType>None</BackgroundType>
+      </Scheme>
+    </Schemes>
+  </Designer>
+  <General>
+    <HarmonyPath path="../../../../.."/>
+    <Processor name="PIC32MZ2048ECH144"/>
+    <ForceOptimization flag="true"/>
+  </General>
+  <Manifest>
+    <Files>
+      <File>
+        <Name>can_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>can_PhaseSegment2LengthFreelyProgrammable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>spi_AudioErrorControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DualModeMasterRXTX_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_WriteErrorStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrGroup2Status_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPControlWord1_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_TransmitterByteSend_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TxBufferFree_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ctmu_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/ctmu/processor</Path>
+      </File>
+      <File>
+        <Name>ports_AnPinsMode_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_OTPConfigLockUnlock_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmDate_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>can_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/can/processor</Path>
+      </File>
+      <File>
+        <Name>can_PhaseSegment1Length_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>spi_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_RxUnderRun_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_RxEPStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>usart_RunInSleepMode_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>eth_TxPacketDescriptorAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_HoldPinControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_ClockSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>usart_RunInOverflow_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ByteSelectPin_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_TransmitterByteAcknowledge_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>osc_SecondaryEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscStopInSleep_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PinMode_PPS.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticePullUpPerPort_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLOutputDivisor_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>can_TimeStampEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_InterruptControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_PageMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_LockPFMSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>spi_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/spi/processor</Path>
+      </File>
+      <File>
+        <Name>wdt_SleepModePostscalerValue_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/wdt/templates</Path>
+      </File>
+      <File>
+        <Name>ddr_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/ddr/processor</Path>
+      </File>
+      <File>
+        <Name>ebi_FlashResetPin_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveInterruptOnStart_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_AddressPinEnableBits_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLClockLock_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>power_IdleStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_ECCModes_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverEnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscDivisor_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrGroupStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_Period32Bit_In16BitRegister_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>can_MemoryBufferAssign_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>eth_RMII_Support_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDTxState_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepGPRsRetentionControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverParityError_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_AddressModifyControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>spi_PinControl_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_UsartModuleStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_InterruptMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDTxLength_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ic_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FrameSyncPulsePolarity_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>can_ChannelForReceiveSet_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>spi_Buffer16bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_AddressLatchPolarity_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>can_PendingEventsGet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepModeControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>reset_NmiCounter_Default.h</Name>
+        <Path>Header Files/framework/peripheral/reset/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_JTAGEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_EndpointFIFO_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_ReadWritePolarity_Basic.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>usart_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/usart/processor</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveAddress10Bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_ReadChipSelectEnable_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/osc/processor</Path>
+      </File>
+      <File>
+        <Name>spi_FrameErrorStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>ic_EventsPerInterruptSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepModeOccurrence_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>eth_HashTable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>can_PropagationTimeSegment_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_MemoryTimingConfig_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MIIM_Config_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepPortPinsStateControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DualBufferControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>ic_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>eth_ReceiveOverflowCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepWakeupEventControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDControlWord_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MIIWriteReadData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineFlashType_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/processor</Path>
+      </File>
+      <File>
+        <Name>can_OperationModeSet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_LowPowerControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscStopInIdleEnable_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_ComparatorOutputEnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_ComparatorEnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_LeastRecentlyUsedState_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>osc_SecondaryReady_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_BufferOverFlow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_UsbClockSource_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_UPLLFrequencyRange_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_FlashSECCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>wdt_WindowEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/wdt/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDTxBufCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_LowVoltageStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrPG_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>spi_MasterControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>ic_BufferValue_32Bit_Variant.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineLock_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveBusCollisionDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_ConversionResults_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>can_ModuleInformation_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_SleepToStartupClock_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_StopInIdleControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>i2c_IPMI_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>usart_HandShakeMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmChimeControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_BufferWrite_32bit.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>eth_FCSErrorCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>spi_AudioTransmitMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCXOREnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/processor</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepModuleControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>int_VectorSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLFrequencyRange_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>can_TimeStampValue_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ConBufThreshold_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ResetPLL_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>power_HLVDStopInIdleControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>int_VariableOffset_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>can_PendingTransmissionsAbort_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ControlEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_ErrorInterruptControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXChainEnbl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFOutputEnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ReadyPin1Config_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_BootFlashBankRegion_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>pmp_AddressLatchStrobePortControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_ChannelScan_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>eth_ReceiveFilters_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MaxFrameLength_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCPolynomialLength_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PBClockOutputEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ChipSelectEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_BusStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>wdt_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/wdt/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPChipSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_ClockRunning_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>spi_BaudRate_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXDestinationPointer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChannelChangeNoticeMethod_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>oc_BufferValue_32Bit_Variant.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_MasterRXTX_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCAppendMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DataSetUpWaitStates_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>int_ShadowRegisterAssign_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrRptPri_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>wdt_PostscalerValue_Default.h</Name>
+        <Path>Header Files/framework/peripheral/wdt/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MIIM_Indicators_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache_pic32mz.S</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmMaskControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>spi_SlaveSelectControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>reset_ResetReasonStatus_MZ.h</Name>
+        <Path>Header Files/framework/peripheral/reset/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscChange_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_CounterAsyncWriteInProgress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_InvertingInputSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_TransmitterBusy_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mz.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>dmt_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/processor</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPLaneMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>can_FilterConfigure_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_BTPLLClockOut_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrCmdCode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_OperationMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>usart_TransmitterIdleIsLow_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PinChangeNoticePerPort_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>dma_Busy_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TxBufIntThreshold_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_Period16Bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_USB_PHY_SleepModeSet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCByteOrder_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>usart_Loopback_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>int_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/int/processor</Path>
+      </File>
+      <File>
+        <Name>int_INTCPUPriority_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGRegWrPerm_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>can_LatestFilterMatchGet_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>can_AllChannelEvents_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_HighFrequency_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>dma_RecentAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCType_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticeEdgeStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCWriteByteOrder_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>ic_BufferOverflowStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDPollingEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FrameSyncPulseEdge_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFVoltageRangeSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/processor</Path>
+      </File>
+      <File>
+        <Name>nvm_BootPageWriteProtect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_BufferRead_32bit.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverOverrunError_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_InterruptSignalControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>reset_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/reset/processor</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_ProvideData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_EP0Status_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_DataEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>power_SleepStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>int_CPUCurrentPriorityLevel_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMStartOperationControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_DataLineHoldTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_ClockSource_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXDisabled_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_RTCTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>can_TransmitErrorCountGet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MAC_Testing_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_RTCDate_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>can_ChannelForTransmitSet_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrInitID_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>can_TransmitChannelStatus_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_StartReadControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMStopInIdleControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_Step2_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_FlashPowerDownMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_Mode16Bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>adchs_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/adchs/processor</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveDataHoldEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>oc_AlternateClock_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TransferModeControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_TransmitRTS_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>power_HLVDEnableControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>oc_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_ChipSelectEnable_Basic.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>eth_FramesTransmittedOK_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_MemoryPaging_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>int_SourceControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscChangeActive_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sqi_WPPinControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmRepeatControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_PostscalerInterval_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ReadyPinSens_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineType_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPDDRMode_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_IgnoreDebugFreeze_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXPriority_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FIFOInterruptMode_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_Transmitter_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>osc_FRCTuning_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DataFormat_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_Counter32Bit_In16BitRegister.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>eth_ReceiveWmarks_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>reset_WdtoInSleep_Default.h</Name>
+        <Path>Header Files/framework/peripheral/reset/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TransferCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXPatternIgnoreByte_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineAddr_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_InvalidateOnPFMProgram_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_MasterStop_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_ChipXPolarity_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDPollCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/processor</Path>
+      </File>
+      <File>
+        <Name>cmp_NonInvertingInputSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_TraceOutput_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>power_HLVDBandGapVoltageStability_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ReadyMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FIFOCount_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_AudioProtocolMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_OperationMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_MasterStartRepeat_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>usart_Receiver_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDRxState_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_AddressControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_KeySequence_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_Enable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMOperationModeControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>usart_IrDAControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ClockFail_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>eth_ReceiveEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineMask_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMOperationAbortControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>spi_InputSamplePhase_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_OutputStatusGet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMEnableOperationControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_GeneralCallAddressDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>usart_BaudRate_In16BitRegister.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>can_SyncJumpWidth_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCBitOrder_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>int_EnableControl_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>can_ChannelUpdate_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_Triggering_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_OutputControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_TimerOperationMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>can_ChannelReset_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_SystemClockDivisorControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BurstControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverAddressMask_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_RxBufThreshold_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_GeneralCall_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>can_ChannelEventEnable_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticeEdgeControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFValueSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ArbitrationLoss_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>can_TransmitBufferGet_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_SlaveTX_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>usart_TransmitterBufferFull_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>eth_FramexReceivedOK_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>osc_OscSelect_Mz.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ChipSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_InvertOutputSelectControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>spi_ReceiveBufferStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/ports/processor</Path>
+      </File>
+      <File>
+        <Name>tmr_Prescale_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>can_ActiveStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ForceLock_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_ProvideQuadData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscEnable_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPModeCode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PortsWrite_MCU32_PPS.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DMABDFetch_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_InterruptStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_AlternateClock_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFRefVoltageRangeSelect_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>can_TimeStampPrescaler_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveAddressHoldEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_LowVoltageError_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverDataAvailable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sb_DMAPriority_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_SoftReset_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FrameSyncPulseCounter_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepEventStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmPulseInitial_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>wdt_TimerClear_WithKey.h</Name>
+        <Path>Header Files/framework/peripheral/wdt/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_DataTurnAroundTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_RxBufferCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_DeviceVerAndId_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_MemoryCharacteristics_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_ReceiveBufferSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrGroup0Status_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>can_BusLine3TimesSampling_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DataPinStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>eth_MAC_Configuration_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_InputBufferXStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLInputDivisor_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sb_CPUPriority_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_Step1_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticePerPortTurnOn_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_WritePulseWidth_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_RxBufferCountDecrement_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>osc_DreamModeControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveMask_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_RxBufIntThreshold_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>adc_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/adc/processor</Path>
+      </File>
+      <File>
+        <Name>int_SoftwareNMI_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DataHoldWaitStates_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOutputEnable_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ReadyPin3Config_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>power_HLVDLimitSelection_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>can_ModuleEvents_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_UPLLOutputDivisor_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>can_FilterEnable_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ReceivedByteAvailable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>ic_AlternateTimerSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscTrim_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_SlewDivisorStepControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLBypass_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/processor</Path>
+      </File>
+      <File>
+        <Name>oc_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_FlashSECStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPModeBytes_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ClockReadyStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticePullDownPerPort_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ReceivedByteGet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>ic_CaptureMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLMultiplier_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>spi_Buffer32bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDRxBufCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_AcksequenceIsInProgress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_BufferUnderFlow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLLockStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>spi_AudioProtocolControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCChannel_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_Word_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>eth_CollisionWindow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PBClockDivisor_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXDestinationSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_AddressSetupTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_TransmitUnderRunStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>oc_PulseWidth_32Bit_Variant.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FIFOShiftRegisterEmptyStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_OperationMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DataModeControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_OutputBufferXStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/processor</Path>
+      </File>
+      <File>
+        <Name>sb_PGRegRdPerm_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_SwapLockControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/processor</Path>
+      </File>
+      <File>
+        <Name>adcp_ReadyStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>ic_AlternateClock_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_StopDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>can_ErrorStateGet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>usart_TransmitterBreak_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>eth_AutoFlowControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_BootSelection_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>eth_RxPacketDescriptorAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>usart_TransmitterEmpty_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_OutputLevelSelectControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>dma_Crc_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelX_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>usart_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DataStrobeWaitStates_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_LaneMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_FlashWPMemoryRangeProvide_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>oc_FaultInput_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>dma_Suspend_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMKeySequence_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_MPLL_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_PostscalerValue_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>oc_TimerSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>reset_SoftwareResetTrigger_Default.h</Name>
+        <Path>Header Files/framework/peripheral/reset/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PBClockReady_PIC32_1.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_Transmitter9Bits_InDataOnly.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_DigitalComparator_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>oc_AlternateTimerSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>eth_Enable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMErrorStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>can_ReceiveErrorCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PortsDirection_MCU32_PPS.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGRegSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>spi_ReadDataSignStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ClockDivider_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPNumberOfAddressBytes_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_TransmitBufferEmptyStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_AddressPortPinControl_Basic.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/processor</Path>
+      </File>
+      <File>
+        <Name>oc_FaultStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_UPLLMultiplier_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DDRMode_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TransferCommand_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>can_TransmissionAbortStatus_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_ChipSelectoperation_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>spi_CommunicationWidth_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrClrMulti_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>spi_ReceiveFIFOStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_StaticMemoryWidthRegister_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrClear_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_ClockSourceSync_Inverted.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>ic_BufferIsEmptyStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPControlWord2_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_PatternMatch_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_Calibration_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmSync_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDProcessState_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>ebi_AddressHoldTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_DataCacheEnable_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/processor</Path>
+      </File>
+      <File>
+        <Name>devcon_AnalogChargePumpControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveAddress7Bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>ports_RemapOutput_PIC32_1.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_Base_Address_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MIIMReadWrite_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DataTransferSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FrameSyncPulseWidth_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXINTSource_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>int_ExternalINTEdgeSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TxData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_ModeSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PinModePerPort_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MAC_Resets_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMAddressControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticePullup_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_IncrementMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrRegion_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_TxEPStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>ic_EdgeCapture_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheHit_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_OutputSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_BufferType_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>dma_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/dma/processor</Path>
+      </File>
+      <File>
+        <Name>i2c_TransmitterByteComplete_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_FlashDEDStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_DeadManTimerStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>eth_ManualFlowControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineSelect_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_USBIDControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>power_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/power/processor</Path>
+      </File>
+      <File>
+        <Name>osc_BTPLLInputClockSource_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>bmx_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/bmx/processor</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverFramingError_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_WriteOperation_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_PrefetchEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/processor</Path>
+      </File>
+      <File>
+        <Name>dma_StartTransfer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXCellProgressPointer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>eth_AlignmentErrorCount_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_OsampDigitalFilter_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_CSOutputEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_FlashTiming_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXSourcePointer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>usart_BRGClockSourceSelect_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_MasterStart_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>usart_BaudRateHigh_In16BitRegister.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveInterruptOnStop_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticeInIdlePerPort_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_HalfSecond_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverAddressAutoDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFWideRangeControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXINTSourceFlag_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_StartDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>osc_BTPLLFrequencyRange_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>usart_Receiver9Bits_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TapDelay_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_HSUARTControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>power_HLVDStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>osc_UPLLInputDivisor_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheMiss_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_BusyStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_RxBufferReset_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPNumberOfDummyBytes_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>osc_BTPLLMultiplier_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_MasterReceiverClock1Byte_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>ic_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/ic/processor</Path>
+      </File>
+      <File>
+        <Name>pcache_PrefetchAbort_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>int_ProximityTimerControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXAbortIRQ_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>power_HLVDModeControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverPolarityInvert_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_Sync_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_BTPLLOutputDivisor_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverAddressDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ControlWord_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sys_common.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>pcache_WaitState_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ReceiveLatch_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXStartIRQ_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>dmt_Counter_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dmt/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TxOverFlow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>int_ProximityTimerEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TxBufferReset_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_TransmitterOverflow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ClockControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sb_InitPermGrp_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>spi_BaudRateClock_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_CSXActiveStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXPatternIgnore_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_StatusCheck_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXSourceStartAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_ReadWriteStrobePortControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FIFOControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticeInIdle_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_Mode32Bit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>spi_FrameSyncPulseDirection_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PortsRead_MCU32_PPS.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_EndpointOperations_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>int_VectorPriority_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>eth_Interrupt_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DualModeReadAddressControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>can_TransmitChannelFlush_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MIIMAddresses_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_FlashSECInt_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ReceiverOverflow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_WriteChipSelectEnable_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ReadyPin2Config_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>can_AllChannelOverflow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>wdt_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/wdt/processor</Path>
+      </File>
+      <File>
+        <Name>cmp_InterruptEventSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>eth_EthernetControllerStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>usart_TransmitterEnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>usb_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/usb/processor</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXAuto_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_ReadCycleTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveAddressDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ClockStretching_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_GatedTimeAccumulation_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_Counter16Bit_In16BitRegister.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ReferenceOscBaseClock_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ports_RemapInput_default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_SourceAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DMAEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>reset_ConfigRegReadError_Default.h</Name>
+        <Path>Header Files/framework/peripheral/reset/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DMAEngineBusy_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelBits_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>eth_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/eth/processor</Path>
+      </File>
+      <File>
+        <Name>i2c_BaudRate_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>can_BusActivityWakeup_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ClockReady_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_BaudRateAutoDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>reset_NmiControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/reset/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXDestinationStartAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrGroup3Status_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_SysLockUnlock_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPSDRCommandDDRData_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_StopInIdle_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_WriteEnablePortControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_PLLInputClockSource_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_DeviceRegsLockUnlock_PIC32MZ.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>osc_FRCDivisor_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>eth_InterPacketGaps_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_CounterAsyncWriteControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>bsp_config.h</Name>
+        <Path>Header Files/bsp/pic32mz_ec_sk</Path>
+      </File>
+      <File>
+        <Name>spi_FramedCommunication_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>usart_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>usart_TransmitterInterruptMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_TxBufThreshold_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PinChangeNotice_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_SoftReset_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMDataControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>power_DeepSleepGPROperation_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>spi_AudioCommunicationWidth_PIC32.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ConfigWord_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>eth_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ReservedAddressProtect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>power_PeripheralModuleControl_PIC32_2.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/processor</Path>
+      </File>
+      <File>
+        <Name>can_ReceivedMessageGet_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_HighSpeedSupport_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>spi_Buffer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>int_INTCPUVector_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveReadRequest_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>osc_OscSwitchInit_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>bsp_sys_init.c</Name>
+        <Path>Source Files/bsp/pic32mz_ec_sk</Path>
+      </File>
+      <File>
+        <Name>oc_CompareModeSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFEnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_LockBootSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_OutPutBufferEmpty_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_Calibration_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>int_SourceFlag_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>pcache_CacheLineValid_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pcache/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXEvent_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/processor</Path>
+      </File>
+      <File>
+        <Name>i2c_SMBus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrClrSingle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDBaseAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>can_ChannelEventGet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ConBufferReset_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_MemoryModificationControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXPatternLength_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>usart_LineControlMode_RXandTXCombined.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGRegAddr_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>oc_BufferSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/oc/templates</Path>
+      </File>
+      <File>
+        <Name>can_OperationModeRead_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>eth_RetransmissionMaximum_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXSourceSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPReadOpCode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_MUXModeSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>ports_LatchRead_MCU32_PPS.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>int_SingleVectorShadowSet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/int/templates</Path>
+      </File>
+      <File>
+        <Name>eth_CollisionCounts_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMLongWriteStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>usart_ReceiverInterruptMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_InputSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_InputBufferFull_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>osc_BTPLLInputDivisor_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_RxData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXPatternData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DMAProcessInProgress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>power_HighVoltageOnVDD1V8_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_CommandStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_BusIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>usart_WakeOnStart_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usart/templates</Path>
+      </File>
+      <File>
+        <Name>can_FilterToChannelLink_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXBusy_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_WriteEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>ic_BufferSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>adcp_Configuration_Default.h</Name>
+        <Path>Header Files/framework/peripheral/adcp/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_FlashBankRegionSelect_EC.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>nvm_EEPROMEnableControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/nvm/templates</Path>
+      </File>
+      <File>
+        <Name>spi_ClockPolarity_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveBufferOverwrite_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>dma_CRCData_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>can_BaudRatePrescale_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_SlewEnableControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ClockDiagStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNotice_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_CSDeassert_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>spi_ReceiverOverflow_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_ClockResetControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_Interrupts_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>cmp_CVREFBGRefVoltageRangeSelect_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/cmp/templates</Path>
+      </File>
+      <File>
+        <Name>tmr_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/tmr/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_PageReadTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_ChangeNoticePerPortStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>dma_LastBusAccess_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>eth_PauseTimer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXCellSize_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>ebi_WriteOutputControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ebi/templates</Path>
+      </File>
+      <File>
+        <Name>dma_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_AlarmTime_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ReceivedByteAcknowledge_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXChain_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPControlWord3_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_DualModeWriteAddressControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>can_ModuleEventEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>dma_AbortTransfer_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>dma_ChannelXTrigger_Default.h</Name>
+        <Path>Header Files/framework/peripheral/dma/templates</Path>
+      </File>
+      <File>
+        <Name>osc_OnWaitAction_Default.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_DataOutputEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>can_FilterMaskConfigure_pic32.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveClockHold_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_ModuleEnable_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+      <File>
+        <Name>can_BusSpeed_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDRxLength_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>usbhs_ModuleControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/usbhs/templates</Path>
+      </File>
+      <File>
+        <Name>spi_OutputDataPhase_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_BDCurrentAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>ports_PortsOpenDrain_MCU32_PPS.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>rtcc_EnableControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/rtcc/templates</Path>
+      </File>
+      <File>
+        <Name>oc_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/oc/processor</Path>
+      </File>
+      <File>
+        <Name>power_VoltageRegulatorControl_Default.h</Name>
+        <Path>Header Files/framework/peripheral/power/templates</Path>
+      </File>
+      <File>
+        <Name>spi_TransmitBufferFullStatus_Default.h</Name>
+        <Path>Header Files/framework/peripheral/spi/templates</Path>
+      </File>
+      <File>
+        <Name>can_StopInIdle_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>eth_StationAddress_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_SlaveRX_Default.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>ic_TimerSelect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/ic/templates</Path>
+      </File>
+      <File>
+        <Name>pmp_WriteEnablePolarity_Basic.h</Name>
+        <Path>Header Files/framework/peripheral/pmp/templates</Path>
+      </File>
+      <File>
+        <Name>eth_MIIMScanMode_Default.h</Name>
+        <Path>Header Files/framework/peripheral/eth/templates</Path>
+      </File>
+      <File>
+        <Name>sb_p32mz2048ech144.h</Name>
+        <Path>Header Files/framework/peripheral/sb/processor</Path>
+      </File>
+      <File>
+        <Name>sqi_XIPControlWord4_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>sb_PGVErrGroup1Status_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sb/templates</Path>
+      </File>
+      <File>
+        <Name>can_PhaseSegment2Length_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_OscCurrentGet_PIC32_1.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>sqi_ConBufAvailable_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/sqi/templates</Path>
+      </File>
+      <File>
+        <Name>can_DeviceNet_Default.h</Name>
+        <Path>Header Files/framework/peripheral/can/templates</Path>
+      </File>
+      <File>
+        <Name>osc_ClockSlewingStatus_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/osc/templates</Path>
+      </File>
+      <File>
+        <Name>ports_SlewRateControl_Unsupported.h</Name>
+        <Path>Header Files/framework/peripheral/ports/templates</Path>
+      </File>
+      <File>
+        <Name>devcon_JTAGUsesTDO_Default.h</Name>
+        <Path>Header Files/framework/peripheral/devcon/templates</Path>
+      </File>
+      <File>
+        <Name>i2c_SlaveDataDetect_Default.h</Name>
+        <Path>Header Files/framework/peripheral/i2c/templates</Path>
+      </File>
+    </Files>
+    <Templates>
+      <Template>
+        <Name>main.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_exceptions.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk</Path>
+        <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_usart_static_local.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ec_sk/framework/driver/usart/src</Path>
+        <Checksum>62F7F49D6A443F111DA38971475472FD</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_usart_mapping.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk/framework/driver/usart/src</Path>
+        <Checksum>115DDE4372E58D4116BC77DC36FD97DC</Checksum>
+        <ProjectFileChecksum>13DE3FBF8EF676E20278ABAC87C27DE1</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_ports_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk/framework/system/ports/src</Path>
+        <Checksum>85D7542A7E7B9AA2A0350FB0163912AD</Checksum>
+      </Template>
+      <Template>
+        <Name>app.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_config.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ec_sk</Path>
+        <Checksum>2E09653D25B5E648BB2FEEBB854BA415</Checksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk</Path>
+        <Checksum>DE624A86BE8B2E85441CE1A49BEBFF51</Checksum>
+        <ProjectFileChecksum>910EF790C1797BA42967D7CF481A0C0E</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ec_sk/framework/system/clk</Path>
+        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk/framework/system/clk/src</Path>
+        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+      </Template>
+      <Template>
+        <Name>system_init.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk</Path>
+        <Checksum>3D3F5FED557CCDB04B4C2978D8028C44</Checksum>
+      </Template>
+      <Template>
+        <Name>system_definitions.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ec_sk</Path>
+        <Checksum>A8B5EBC56287485D9B04BFBB33A3DDA5</Checksum>
+      </Template>
+      <Template>
+        <Name>app.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>drv_usart_static_byte_model.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk/framework/driver/usart/src</Path>
+        <Checksum>F91C429976AC25EB8B3639F0B0356E3B</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_usart_static.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ec_sk/framework/driver/usart</Path>
+        <Checksum>AE37BD63B6EC9F6ADD6B8006CE192FCB</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_usart_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk/framework/driver/usart/src</Path>
+        <Checksum>1199830DDF1ABBB3C30E425E1052A802</Checksum>
+      </Template>
+      <Template>
+        <Name>system_tasks.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ec_sk</Path>
+        <Checksum>BE644D0142ACA48D9CA2E6255A02CDBA</Checksum>
+      </Template>
+    </Templates>
+    <CompilerItems>
+      <C32>
+        <Include value="../../../../../../../bsp/pic32mz_ec_sk"/>
+      </C32>
+    </CompilerItems>
+    <Libraries>
+      <Library value="../../../../../../../bin/framework/peripheral/PIC32MZ2048ECH144_peripherals.a"/>
+    </Libraries>
+  </Manifest>
+</configuration>

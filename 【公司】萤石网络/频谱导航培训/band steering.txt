@@ -1,0 +1,499 @@
+================================================================= 2.4G overload的时候，steering设备到2.4G ==========================
+root@W3:/# lbt 
+Use `h' and `help' for help messages
+Use `dbg here' to see log messages; other dbg cmds for log level
+@ dbg here 
+@ 
+@ ban   
+(Sub)command not found: ban
+20.07.19.277896 LBDR cmd      ERR  : (Sub)command not found: ban
+@ bandmon s
+Channel 13 : Measured: 39 %*               Projected Increase: 0  %
+Channel 157: Measured: 8  %*               Projected Increase: 0  %
+@ 
+@ banf^H
+(Sub)command not found: banf
+20.07.31.031574 LBDR cmd      ERR  : (Sub)command not found: banf
+@ bandmon s
+Channel 13 : Measured: 39 %*               Projected Increase: 0  %
+Channel 157: Measured: 8  %*               Projected Increase: 0  %
+@ 
+@ 20.07.35.026909 LBDR csh      ERR  : shell read eof
+20.07.41.099641 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 64:76:BA:15:EA:B1 RSSI measurement 32 on APId 255 ChanId 157 ESSId 0  
+20.07.46.937474 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to ACTIVE APId 255 ChanId 157 ESSId 0  
+20.07.49.851957 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 80% on APId 255 ChanId 13  ESSId 0  
+20.07.49.855616 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  5% on APId 255 ChanId 157 ESSId 0  
+20.07.49.856808 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [80%]
+20.07.49.857694 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [5%]
+20.07.49.859040 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [13]
+20.07.49.859961 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 13
+20.07.49.860845 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 13 due to no STA's airtime was estimated
+20.08.12.113399 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 64:76:BA:15:EA:B1 disassociated on APId 255 ChanId 157 ESSId 0  
+
+@ 
+@ 
+@ bam^H
+(Sub)command not found: bam
+20.08.37.204444 LBDR cmd      ERR  : (Sub)command not found: bam
+@ 
+@ 
+@ 
+@ 20.08.50.172216 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 79% on APId 255 ChanId 13  ESSId 0  
+20.08.50.176043 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  5% on APId 255 ChanId 157 ESSId 0  
+20.08.50.177168 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [79%]
+20.08.50.178048 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [5%]
+20.08.50.179020 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [13]
+20.08.50.179890 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 13
+20.08.50.180727 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 13 due to no STA's airtime was estimated
+
+@ bandmon s 
+Channel 13 : Measured: 79 %* (overloaded)  Projected Increase: 0  %
+Channel 157: Measured: 5  %*               Projected Increase: 0  %
+@ 
+@ 
+@ 
+@ 20.09.13.494418 LBDR steerexec info : steerexecImplCmnLogTimerCreate: T_Steering timer registered for 64:76:BA:15:EA:B1 using handle 0x1c665d8
+20.09.13.496045 LBDR steerexec info : steerexecImplCmnLogTimerCreate: BTM timer registered for 64:76:BA:15:EA:B1 using handle 0x1c665d8
+20.09.13.497382 LBDR steerexec info : steerexecImplCmnAllowAssoc: Starting new steer for 64:76:BA:15:EA:B1 of type Pre-Association (transaction 0)
+20.09.13.498423 LBDR bandmon  info : bandmonCmnUpdatePreAssocSteering: Pre-association steer 64:76:BA:15:EA:B1 to channel(s) (157, 255)
+20.09.13.533613 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 157 ESSId 0  : STATIC
+20.09.13.563229 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 157 ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 2, Num of spatial streams: 1, PHY mode: 19, Max MCS: 9. Max TX power: 18, bandcap: 0
+
+@ 
+@ 
+@ 20.09.29.091960 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 64:76:BA:15:EA:B1 disassociated on APId 255 ChanId 157 ESSId 0  
+
+@ 
+@ 20.09.37.500146 LBDR steerexec info : steerexecImplCmnAllowAssoc: Starting new steer for 64:76:BA:15:EA:B1 of type Pre-Association (transaction 1)
+20.09.37.501779 LBDR bandmon  info : bandmonCmnUpdatePreAssocSteering: Pre-association steer 64:76:BA:15:EA:B1 to channel(s) (157, 255)
+20.09.37.536123 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 157 ESSId 0  : STATIC
+20.09.37.569516 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 157 ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 2, Num of spatial streams: 1, PHY mode: 19, Max MCS: 9. Max TX power: 18, bandcap: 0
+
+@ 
+@ stadb s
+Num entries = 91
+
+MAC Address              Age       Bands     Assoc? (age)                            Active? (age)       Flags     
+64:76:BA:15:EA:B1        1         25        APId 255 ChanId 157 ESSId 0   (11)      yes (11)            BTM PS  Steer Allowed
+@ 20.09.50.095209 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 19% on APId 255 ChanId 157 ESSId 0  
+20.09.50.292072 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 83% on APId 255 ChanId 13  ESSId 0  
+20.09.50.293413 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [83%]
+20.09.50.294375 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [19%]
+20.09.50.295397 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [13]
+20.09.50.296360 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 13
+20.09.50.297223 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 13 due to no STA's airtime was estimated
+
+@ 
+@ stadb s 64:76:BA:15:EA:B1 
+
+phy
+Band      MaxChWidth     NumStreams     PHYMode        MaxMCS         MaxTxPower     
+2         40MHz          1              HT             7              18             
+5         80MHz          1              VHT            9              18             
+
+bss
+BSS Info                      RSSI (age) (flags)       Reserved Airtime    Polluted (expiry secs)   
+APId 255 ChanId 157 ESSId 0   48 (0) (  )                                  no (0)                   
+APId 255 ChanId 13  ESSId 0   46 (2) (P )                                  no (0)                   
+
+measured rate
+BSS Info                      DLRate (Mbps)  ULRate (Mbps)  Age (seconds)  
+
+estimated rate
+BSS Info                      fullCap (Mbps) airtime (%)    Age (seconds)  
+@ 
+@ 20.10.18.103669 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+20.10.18.203243 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 64:76:BA:15:EA:B1 RSSI measurement 49 on APId 255 ChanId 157 ESSId 0  
+
+@ steerexec s
+Legacy overall state:
+  Current # STAs prohibited from steering: 0
+  Current # STAs marked as steering unfriendly: 0
+  Current # STAs blacklisted: 0
+
+Legacy per STA information:
+MAC               Transaction Secs since steer State     # Auth Rej Prohibited Unfriendly T_Steer Blacklist Consecutive Failures 
+64:76:BA:15:EA:B1 1           138              Idle      0          None       no                 None      0                    
+BTM overall state:
+  If no state is set, BTM clients can only be steered while Idle
+  Current # STAs marked as BTM unfriendly: 0
+  Current # STAs marked as BTM active unfriendly: 0
+
+802.11v BTM Compliant per STA information:
+MAC               Transaction Secs since steer(active failure) Unfriendly Compliance       Eligibility Token Timer          
+64:76:BA:15:EA:B1 1           0               (0             ) no         Idle             Idle        0                    
+
+802.11v BTM Compliant per STA statistics:
+MAC               NoResp Reject NoAssoc Success Consecutive Failures (active) BSSIDMismatch 
+64:76:BA:15:EA:B1 0      0      0       0       0                    (0     ) 0    
+
+================================================================= 5G overload的时候，steering设备到2.4G ==========================
+
+
+
+root@W3:/# lbt
+Use `h' and `help' for help messages
+Use `dbg here' to see log messages; other dbg cmds for log level
+@ 
+@ 
+@ dbg here
+@ 20.13.13.786787 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+20.13.15.650567 LBDR steerexec info : steerexecImplCmnIsInSteeringQuietPeriod: C4:F0:81:DF:EA:A1 became eligible for steering
+20.13.15.652100 LBDR steerexec info : steerexecImplCmnIsInSteeringQuietPeriod: 64:76:BA:15:EA:B1 became eligible for steering
+20.13.15.732527 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: C4:F0:81:DF:EA:A1 RSSI measurement 44 on APId 255 ChanId 13  ESSId 0  
+20.13.15.766765 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 64:76:BA:15:EA:B1 RSSI measurement 33 on APId 255 ChanId 157 ESSId 0  
+20.13.15.773100 LBDR steerexec info : steerexecImplCmnStartSteer: Starting new steer for 64:76:BA:15:EA:B1 of type Legacy  for reason IdleOffload (transaction 2)
+20.13.15.776251 LBDR steeralg info : steeralgCmnDoSteering: 64:76:BA:15:EA:B1 is being steered to (no. of BSSes: 1):
+20.13.15.777428 LBDR steeralg info : APId 255 ChanId 13  ESSId 0  
+20.13.15.779486 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 64:76:BA:15:EA:B1 disassociated on APId 255 ChanId 157 ESSId 0  
+20.13.16.393533 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 13  ESSId 0  : STATIC
+20.13.16.432931 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 13  ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 0, Num of spatial streams: 1, PHY mode: 8, Max MCS: 7. Max TX power: 19, bandcap: 0
+20.13.16.434855 LBDR steerexec info : steerexecImplCmnHandleAssocUpdateLegacy: Steering 64:76:BA:15:EA:B1 is complete (transaction 2)
+20.13.17.557540 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: 64:76:BA:15:EA:B1 RSSI measurement 51 on APId 255 ChanId 13  ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+
+@ 
+@ 
+@ 20.13.33.796789 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 13  ESSId 0  
+20.13.36.328782 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: C4:F0:81:DF:EA:A1 activity status changes to ACTIVE APId 255 ChanId 13  ESSId 0  
+20.13.37.945080 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client C4:F0:81:DF:EA:A1 disassociated on APId 255 ChanId 13  ESSId 0  
+20.13.44.315991 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 45% on APId 255 ChanId 13  ESSId 0  
+20.13.44.319692 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 72% on APId 255 ChanId 157 ESSId 0  
+20.13.44.320807 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [45%]
+20.13.44.321737 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [72%]
+20.13.44.322731 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [157]
+20.13.44.323679 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 157
+20.13.44.324547 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 157 due to no STA's airtime was estimated
+
+@ 20.13.57.307774 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to ACTIVE APId 255 ChanId 13  ESSId 0  
+20.13.59.767450 LBDR steerexec info : steerexecImplCmnAllowAssoc: Starting new steer for C4:F0:81:DF:EA:A1 of type Pre-Association (transaction 3)
+20.13.59.768718 LBDR bandmon  info : bandmonCmnUpdatePreAssocSteering: Pre-association steer C4:F0:81:DF:EA:A1 to channel(s) (13, 255)
+20.14.03.074848 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 64:76:BA:15:EA:B1 disassociated on APId 255 ChanId 13  ESSId 0  
+
+@ 20.14.14.455250 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 64:76:BA:15:EA:B1: RSSI 66 APId 255 ChanId 157 ESSId 0  
+20.14.14.515905 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 13  ESSId 0  : STATIC
+20.14.14.556077 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 13  ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 0, Num of spatial streams: 1, PHY mode: 8, Max MCS: 7. Max TX power: 19, bandcap: 0
+20.14.15.039396 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: 64:76:BA:15:EA:B1 RSSI measurement 56 on APId 255 ChanId 13  ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+
+@ 20.14.17.834961 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 64:76:BA:15:EA:B1: RSSI 66 APId 255 ChanId 157 ESSId 0  
+
+@ 
+@ 20.14.44.435762 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 33% on APId 255 ChanId 13  ESSId 0  
+20.14.44.439059 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 72% on APId 255 ChanId 157 ESSId 0  
+20.14.44.440230 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [33%]
+20.14.44.441228 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [72%]
+20.14.44.442263 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [157]
+20.14.44.443147 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 157
+20.14.44.444019 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 157 due to no STA's airtime was estimated
+
+@ 
+@ 20.14.48.056280 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 64:76:BA:15:EA:B1 disassociated on APId 255 ChanId 13  ESSId 0  
+
+
+@ 
+@ 20.19.34.282408 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to C4:F0:81:DF:EA:A1: RSSI 56 APId 255 ChanId 157 ESSId 0  
+20.19.36.826730 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from C4:F0:81:DF:EA:A1 on APId 255 ChanId 13  ESSId 0  : STATIC
+20.19.36.867093 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node C4:F0:81:DF:EA:A1 associated on APId 255 ChanId 13  ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 0, Num of spatial streams: 1, PHY mode: 8, Max MCS: 7. Max TX power: 20, bandcap: 0
+20.19.37.440966 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: C4:F0:81:DF:EA:A1 RSSI measurement 56 on APId 255 ChanId 13  ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+20.19.45.059089 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 72% on APId 255 ChanId 157 ESSId 0  
+20.19.45.905357 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 44% on APId 255 ChanId 13  ESSId 0  
+20.19.45.906739 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [44%]
+20.19.45.907664 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [72%]
+20.19.45.908790 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [157]
+20.19.45.909742 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 157
+20.19.45.910660 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 157 due to no STA's airtime was estimated
+20.19.54.435780 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client C4:F0:81:DF:EA:A1 disassociated on APId 255 ChanId 13  ESSId 0  
+20.20.00.585644 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to C4:F0:81:DF:EA:A1: RSSI 60 APId 255 ChanId 157 ESSId 0  
+20.20.03.115019 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from C4:F0:81:DF:EA:A1 on APId 255 ChanId 13  ESSId 0  : STATIC
+20.20.03.155245 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node C4:F0:81:DF:EA:A1 associated on APId 255 ChanId 13  ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 0, Num of spatial streams: 1, PHY mode: 8, Max MCS: 7. Max TX power: 20, bandcap: 0
+20.20.04.432876 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: C4:F0:81:DF:EA:A1 RSSI measurement 51 on APId 255 ChanId 13  ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+
+@ 
+@ 
+@ 
+@ 20.20.23.892958 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 64:76:BA:15:EA:B1: RSSI 65 APId 255 ChanId 157 ESSId 0  
+20.20.23.953144 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 13  ESSId 0  : STATIC
+20.20.23.989022 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 13  ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 0, Num of spatial streams: 1, PHY mode: 8, Max MCS: 7. Max TX power: 19, bandcap: 0
+20.20.24.426433 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: 64:76:BA:15:EA:B1 RSSI measurement 55 on APId 255 ChanId 13  ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+20.20.27.308347 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 64:76:BA:15:EA:B1: RSSI 65 APId 255 ChanId 157 ESSId 0  
+20.20.44.796857 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 13  ESSId 0  
+20.20.45.175537 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 49% on APId 255 ChanId 13  ESSId 0  
+20.20.45.179735 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 72% on APId 255 ChanId 157 ESSId 0  
+20.20.45.180866 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [49%]
+20.20.45.181799 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [72%]
+20.20.45.182851 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [157]
+20.20.45.183837 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 157
+20.20.45.184705 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 157 due to no STA's airtime was estimated
+
+@ steerexec s
+Legacy overall state:
+  Current # STAs prohibited from steering: 2
+    Next prohibit update: 16 seconds
+  Current # STAs marked as steering unfriendly: 0
+  Current # STAs blacklisted: 2
+    Next blacklist update: 204 seconds
+
+Legacy per STA information:
+MAC               Transaction Secs since steer State     # Auth Rej Prohibited Unfriendly T_Steer Blacklist Consecutive Failures 
+C4:F0:81:DF:EA:A1 3           285              Idle      1          Long       no                 Channel   0                    
+64:76:BA:15:EA:B1 2           238              Idle      1          Long       no                 Candidate 0                    
+BTM overall state:
+  If no state is set, BTM clients can only be steered while Idle
+  Current # STAs marked as BTM unfriendly: 0
+  Current # STAs marked as BTM active unfriendly: 0
+
+802.11v BTM Compliant per STA information:
+MAC               Transaction Secs since steer(active failure) Unfriendly Compliance       Eligibility Token Timer          
+C4:F0:81:DF:EA:A1 3           0               (0             ) no         Active           None        1                    
+64:76:BA:15:EA:B1 2           0               (0             ) no         Idle             None        0                    
+
+802.11v BTM Compliant per STA statistics:
+MAC               NoResp Reject NoAssoc Success Consecutive Failures (active) BSSIDMismatch 
+C4:F0:81:DF:EA:A1 0      0      0       1       0                    (0     ) 0             
+64:76:BA:15:EA:B1 0      1      0       0       1                    (0     ) 0   
+
+
+=========================== 2.4G与5G均没有overload ==========================================
+root@W3:/# lbt 
+Use `h' and `help' for help messages
+Use `dbg here' to see log messages; other dbg cmds for log level
+@ dbg here
+@ 
+@ 19.48.47.572450 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 40% on APId 255 ChanId 13  ESSId 0  
+19.48.47.575830 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 14% on APId 255 ChanId 157 ESSId 0  
+19.48.47.576945 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [40%]
+19.48.47.577820 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [14%]
+
+@ 
+@ bandmon s
+Channel 13 : Measured: 40 %*               Projected Increase: 0  %
+Channel 157: Measured: 14 %*               Projected Increase: 0  %
+@ 
+@ 
+@ 19.49.47.691821 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 38% on APId 255 ChanId 13  ESSId 0  
+19.49.47.695733 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 17% on APId 255 ChanId 157 ESSId 0  
+19.49.47.696841 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [38%]
+19.49.47.697718 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [17%]
+19.50.04.128283 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 157 ESSId 0  : STATIC
+19.50.04.170312 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 157 ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 2, Num of spatial streams: 1, PHY mode: 19, Max MCS: 9. Max TX power: 18, bandcap: 0
+
+@ 
+@ 19.50.22.724652 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 64:76:BA:15:EA:B1 disassociated on APId 255 ChanId 157 ESSId 0  
+19.50.34.132188 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 64:76:BA:15:EA:B1 on APId 255 ChanId 157 ESSId 0  : STATIC
+19.50.34.161281 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 64:76:BA:15:EA:B1 associated on APId 255 ChanId 157 ESSId 0  , Capabilities: BTM   SMPS, Max bandwidth: 2, Num of spatial streams: 1, PHY mode: 19, Max MCS: 9. Max TX power: 18, bandcap: 0
+
+@ 19.50.48.012070 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 38% on APId 255 ChanId 13  ESSId 0  
+19.50.48.015058 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 16% on APId 255 ChanId 157 ESSId 0  
+19.50.48.015610 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [38%]
+19.50.48.015997 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [16%]
+
+@ band19.51.05.043241 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+19.51.05.121957 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to ACTIVE APId 255 ChanId 157 ESSId 0  
+^H^H
+(Sub)command not found: band
+19.51.06.487971 LBDR cmd      ERR  : (Sub)command not found: band
+@ 
+@ stadb s
+Num entries = 74
+
+MAC Address              Age       Bands     Assoc? (age)                            Active? (age)       Flags     
+64:76:BA:15:EA:B1        2         25        APId 255 ChanId 157 ESSId 0   (35)      yes (4)             BTM PS  Steer Allowed
+@ 
+@ stadb s 64:76:BA:15:EA:B1
+
+phy
+Band      MaxChWidth     NumStreams     PHYMode        MaxMCS         MaxTxPower     
+2         40MHz          1              HT             7              18             
+5         80MHz          1              VHT            9              18             
+
+bss
+BSS Info                      RSSI (age) (flags)       Reserved Airtime    Polluted (expiry secs)   
+APId 255 ChanId 157 ESSId 0   49 (0) (  )                                  no (0)                   
+APId 255 ChanId 13  ESSId 0   49 (1) (P )                                  no (0)                   
+
+measured rate
+BSS Info                      DLRate (Mbps)  ULRate (Mbps)  Age (seconds)  
+
+estimated rate
+BSS Info                      fullCap (Mbps) airtime (%)    Age (seconds)  
+@ 
+@ 19.51.26.043294 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+19.51.26.173194 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 64:76:BA:15:EA:B1 RSSI measurement 51 on APId 255 ChanId 157 ESSId 0  
+
+@ 19.51.35.667371 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to ACTIVE APId 255 ChanId 157 ESSId 0  
+
+@ 19.51.47.932164 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 38% on APId 255 ChanId 13  ESSId 0  
+19.51.47.935204 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 15% on APId 255 ChanId 157 ESSId 0  
+19.51.47.936315 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 13 [38%]
+19.51.47.937197 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [15%]
+19.51.50.043116 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 64:76:BA:15:EA:B1 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+19.51.50.133086 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 64:76:BA:15:EA:B1 RSSI measurement 50 on APId 255 ChanId 157 ESSId 0  
+
+============================ 2.4G与5G均没有overload，使用TP-link网卡指定连接2.4G，网卡开始可以连接上2.4G，但很快触发disassociated，便迁移到5G ===============
+@ 17.45.56.335860 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 30:B4:9E:6E:51:B6 disassociated on APId 255 ChanId 157 ESSId 0  
+
+@ 
+@ 17.46.04.834098 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 64% on APId 255 ChanId 1   ESSId 0  
+17.46.04.838653 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  3% on APId 255 ChanId 157 ESSId 0  
+17.46.04.840196 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 1 [64%]
+17.46.04.841539 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [3%]
+
+@ 
+@ 17.46.22.638240 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 30:B4:9E:6E:51:B6 on APId 255 ChanId 1   ESSId 0  : NOT STATIC
+17.46.22.684082 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 30:B4:9E:6E:51:B6 associated on APId 255 ChanId 1   ESSId 0  , Capabilities:    , Max bandwidth: 0, Num of spatial streams: 2, PHY mode: 8, Max MCS: 15. Max TX power: 0, bandcap: 0
+17.46.23.110698 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: 30:B4:9E:6E:51:B6 RSSI measurement 58 on APId 255 ChanId 1   ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+17.46.48.125240 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 30:B4:9E:6E:51:B6 activity status changes to INACTIVE APId 255 ChanId 1   ESSId 0  
+17.46.48.160416 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 30:B4:9E:6E:51:B6 RSSI measurement 59 on APId 255 ChanId 1   ESSId 0  
+17.46.48.165966 LBDR steerexec info : steerexecImplCmnStartSteer: Starting new steer for 30:B4:9E:6E:51:B6 of type Legacy  for reason IdleUpgrade (transaction 3)
+17.46.48.167794 LBDR steeralg info : steeralgCmnDoSteering: 30:B4:9E:6E:51:B6 is being steered to (no. of BSSes: 1):
+17.46.48.169105 LBDR steeralg info : APId 255 ChanId 157 ESSId 0  
+17.46.48.175225 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 30:B4:9E:6E:51:B6 disassociated on APId 255 ChanId 1   ESSId 0  
+17.46.51.449710 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 30:B4:9E:6E:51:B6 on APId 255 ChanId 157 ESSId 0  : NOT STATIC
+17.46.51.485551 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 30:B4:9E:6E:51:B6 associated on APId 255 ChanId 157 ESSId 0  , Capabilities:    , Max bandwidth: 2, Num of spatial streams: 2, PHY mode: 19, Max MCS: 9. Max TX power: 0, bandcap: 0
+17.46.51.488606 LBDR steerexec info : steerexecImplCmnHandleAssocUpdateLegacy: Steering 30:B4:9E:6E:51:B6 is complete (transaction 3)
+17.47.04.753117 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 62% on APId 255 ChanId 1   ESSId 0  
+17.47.04.755469 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  3% on APId 255 ChanId 157 ESSId 0  
+17.47.04.756203 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 1 [62%]
+17.47.04.756780 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [3%]
+
+@ steerexec s
+Legacy overall state:
+  Current # STAs prohibited from steering: 1
+    Next prohibit update: 224 seconds
+  Current # STAs marked as steering unfriendly: 0
+  Current # STAs blacklisted: 0
+
+Legacy per STA information:
+MAC               Transaction Secs since steer State     # Auth Rej Prohibited Unfriendly T_Steer Blacklist Consecutive Failures 
+30:B4:9E:6E:51:B6 3           77               Idle      1          Long       no                 None      0                    
+BTM overall state:
+  If no state is set, BTM clients can only be steered while Idle
+  Current # STAs marked as BTM unfriendly: 0
+  Current # STAs marked as BTM active unfriendly: 0
+
+802.11v BTM Compliant per STA information:
+MAC               Transaction Secs since steer(active failure) Unfriendly Compliance       Eligibility Token Timer          
+
+802.11v BTM Compliant per STA statistics:
+MAC               NoResp Reject NoAssoc Success Consecutive Failures (active) BSSIDMismatch 
+
+
+@ stadb s 30:B4:9E:6E:51:B6
+
+phy
+Band      MaxChWidth     NumStreams     PHYMode        MaxMCS         MaxTxPower     
+2         20MHz          2              HT             15             0              
+5         80MHz          2              VHT            9              0              
+
+bss
+BSS Info                      RSSI (age) (flags)       Reserved Airtime    Polluted (expiry secs)   
+APId 255 ChanId 1   ESSId 0   60 (155) (P )                                no (0)                   
+APId 255 ChanId 157 ESSId 0   56 (6) (  )                                  no (0)                   
+
+measured rate
+BSS Info                      DLRate (Mbps)  ULRate (Mbps)  Age (seconds)  
+
+estimated rate
+BSS Info                      fullCap (Mbps) airtime (%)    Age (seconds)  
+  
+  
+================================== 2.4G发生overload，TPlink指定接入2.4G，进入Pre-association steer阶段，2.4G拒绝，直接接入5G ==================
+@ 17.58.14.475089 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 71% on APId 255 ChanId 11  ESSId 0  
+17.58.14.477409 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  3% on APId 255 ChanId 157 ESSId 0  
+17.58.14.478150 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 11 [71%]
+17.58.14.478725 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [3%]
+17.58.14.479545 LBDR estimator info : estimator_estimatePerSTAAirtimeOnChannel: Estimating per-STA airtime on channel [11]
+17.58.14.480162 LBDR steeralg info : steeralgCmnOffloadOverloadedChannel: Requested airtime estimate on channel 11
+17.58.14.480710 LBDR steeralg info : steeralgCmnHandlePerSTAAirtimeCompleteEvent: Ignore perSTAAirtimeComplete event on channel 11 due to no STA's airtime was estimated
+
+@ bandmon s
+Channel 11 : Measured: 71 %* (overloaded)  Projected Increase: 0  %
+Channel 157: Measured: 3  %*               Projected Increase: 0  %
+@ 
+@ 
+@ 
+@ 17.58.21.738840 LBDR steerexec info : steerexecImplCmnLogTimerCreate: T_Steering timer registered for 30:B4:9E:6E:51:B6 using handle 0x1c54d88
+17.58.21.741026 LBDR steerexec info : steerexecImplCmnAllowAssoc: Starting new steer for 30:B4:9E:6E:51:B6 of type Pre-Association (transaction 0)
+17.58.21.742659 LBDR bandmon  info : bandmonCmnUpdatePreAssocSteering: Pre-association steer 30:B4:9E:6E:51:B6 to channel(s) (157, 255)
+
+@ 
+@ 
+@ 
+@ 17.58.53.163192 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 30:B4:9E:6E:51:B6: RSSI 52 APId 255 ChanId 11  ESSId 0  
+17.58.53.170749 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 30:B4:9E:6E:51:B6: RSSI 53 APId 255 ChanId 11  ESSId 0  
+17.58.53.181238 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 30:B4:9E:6E:51:B6: RSSI 51 APId 255 ChanId 11  ESSId 0  
+17.58.53.193017 LBDR wlanif   debug: wlanifBSteerEventsHandleTxAuthFailInd: Tx'ed Auth reject to 30:B4:9E:6E:51:B6: RSSI 53 APId 255 ChanId 11  ESSId 0  
+17.58.53.373996 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 30:B4:9E:6E:51:B6 on APId 255 ChanId 157 ESSId 0  : NOT STATIC
+17.58.53.404630 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 30:B4:9E:6E:51:B6 associated on APId 255 ChanId 157 ESSId 0  , Capabilities:    , Max bandwidth: 2, Num of spatial streams: 2, PHY mode: 19, Max MCS: 9. Max TX power: 0, bandcap: 0
+
+======================= 2.4G没有发生overload，TPlink指定接入2.4G，开始接入2.4，慢慢转接入5G =====================
+@ 17.59.47.754515 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 30:B4:9E:6E:51:B6 disassociated on APId 255 ChanId 157 ESSId 0  
+
+@ 
+@ 18.00.15.365090 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 66% on APId 255 ChanId 11  ESSId 0  
+18.00.15.367818 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  3% on APId 255 ChanId 157 ESSId 0  
+18.00.15.369347 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 11 [66%]
+18.00.15.370736 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [3%]
+18.00.16.940227 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 30:B4:9E:6E:51:B6 on APId 255 ChanId 11  ESSId 0  : NOT STATIC
+18.00.16.976514 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 30:B4:9E:6E:51:B6 associated on APId 255 ChanId 11  ESSId 0  , Capabilities:    , Max bandwidth: 0, Num of spatial streams: 2, PHY mode: 8, Max MCS: 15. Max TX power: 0, bandcap: 0
+18.00.17.795578 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIXingInd: 30:B4:9E:6E:51:B6 RSSI measurement 59 on APId 255 ChanId 11  ESSId 0  ; Inactivity threshold xing: 0; Low threshold xing: 0; Rate threshold xing: 1; AP steering threshold xing: 0
+18.01.14.636018 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 62% on APId 255 ChanId 11  ESSId 0  
+18.01.14.638294 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  3% on APId 255 ChanId 157 ESSId 0  
+18.01.14.639849 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 11 [62%]
+18.01.14.641144 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [3%]
+18.01.41.535224 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 30:B4:9E:6E:51:B6 activity status changes to INACTIVE APId 255 ChanId 11  ESSId 0  
+18.01.41.576769 LBDR wlanif   debug: wlanifBSteerEventsHandleRSSIMeasurementInd: 30:B4:9E:6E:51:B6 RSSI measurement 60 on APId 255 ChanId 11  ESSId 0  
+18.01.41.582754 LBDR steerexec info : steerexecImplCmnStartSteer: Starting new steer for 30:B4:9E:6E:51:B6 of type Legacy  for reason IdleUpgrade (transaction 1)
+18.01.41.590249 LBDR steeralg info : steeralgCmnDoSteering: 30:B4:9E:6E:51:B6 is being steered to (no. of BSSes: 1):
+18.01.41.591970 LBDR steeralg info : APId 255 ChanId 157 ESSId 0  
+18.01.41.594320 LBDR wlanif   info : wlanifLinkEventsCmnGenerateDisassocEvent: Client 30:B4:9E:6E:51:B6 disassociated on APId 255 ChanId 11  ESSId 0  
+18.01.44.775325 LBDR wlanif   info : wlanifBSteerEventsHandleSMPSUpdateInd: SM Power Save mode received from 30:B4:9E:6E:51:B6 on APId 255 ChanId 157 ESSId 0  : NOT STATIC
+18.01.44.815661 LBDR wlanif   info : wlanifBSteerEventsHandleNodeAssociatedInd: Node 30:B4:9E:6E:51:B6 associated on APId 255 ChanId 157 ESSId 0  , Capabilities:    , Max bandwidth: 2, Num of spatial streams: 2, PHY mode: 19, Max MCS: 9. Max TX power: 0, bandcap: 0
+18.01.44.818573 LBDR steerexec info : steerexecImplCmnHandleAssocUpdateLegacy: Steering 30:B4:9E:6E:51:B6 is complete (transaction 1)
+
+@ 18.01.56.535226 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 30:B4:9E:6E:51:B6 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+
+@ steerexec s
+Legacy overall state:
+  Current # STAs prohibited from steering: 1
+    Next prohibit update: 281 seconds
+  Current # STAs marked as steering unfriendly: 0
+  Current # STAs blacklisted: 0
+
+Legacy per STA information:
+MAC               Transaction Secs since steer State     # Auth Rej Prohibited Unfriendly T_Steer Blacklist Consecutive Failures 
+30:B4:9E:6E:51:B6 1           20               Idle      1          Long       no                 None      0                    
+BTM overall state:
+  If no state is set, BTM clients can only be steered while Idle
+  Current # STAs marked as BTM unfriendly: 0
+  Current # STAs marked as BTM active unfriendly: 0
+
+802.11v BTM Compliant per STA information:
+MAC               Transaction Secs since steer(active failure) Unfriendly Compliance       Eligibility Token Timer          
+
+802.11v BTM Compliant per STA statistics:
+MAC               NoResp Reject NoAssoc Success Consecutive Failures (active) BSSIDMismatch 
+@ 18.02.12.299678 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 30:B4:9E:6E:51:B6 activity status changes to ACTIVE APId 255 ChanId 157 ESSId 0  
+18.02.14.953919 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization 69% on APId 255 ChanId 11  ESSId 0  
+18.02.14.955863 LBDR wlanif   debug: wlanifBSteerEventsHandleChanUtilInd: Channel utilization  3% on APId 255 ChanId 157 ESSId 0  
+18.02.14.956578 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 11 [69%]
+18.02.14.957151 LBDR bandmon  info : bandmonCmnDetermineOperatingRegion: Channel 157 [3%]
+
+@ stadb s 30:B4:9E:6E:51:B6
+
+phy
+Band      MaxChWidth     NumStreams     PHYMode        MaxMCS         MaxTxPower     
+2         20MHz          2              HT             7              0              
+5         80MHz          2              VHT            9              0              
+
+bss
+BSS Info                      RSSI (age) (flags)       Reserved Airtime    Polluted (expiry secs)   
+APId 255 ChanId 11  ESSId 0   18 (35) (P )                                 no (0)                   
+APId 255 ChanId 157 ESSId 0   53 (33) (P )                                 no (0)                   
+
+measured rate
+BSS Info                      DLRate (Mbps)  ULRate (Mbps)  Age (seconds)  
+
+estimated rate
+BSS Info                      fullCap (Mbps) airtime (%)    Age (seconds)  
+@ 18.02.24.535075 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 30:B4:9E:6E:51:B6 activity status changes to INACTIVE APId 255 ChanId 157 ESSId 0  
+18.02.28.482650 LBDR wlanif   debug: wlanifBSteerEventsHandleActivityChange: 30:B4:9E:6E:51:B6 activity status changes to ACTIVE APId 255 ChanId 157 ESSId 0  

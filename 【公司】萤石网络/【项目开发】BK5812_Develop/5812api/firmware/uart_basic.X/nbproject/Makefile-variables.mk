@@ -1,0 +1,55 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# pic32mz_ec_sk configuration
+CND_ARTIFACT_DIR_pic32mz_ec_sk=dist/pic32mz_ec_sk/production
+CND_ARTIFACT_NAME_pic32mz_ec_sk=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mz_ec_sk=dist/pic32mz_ec_sk/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mz_ec_sk=${CND_DISTDIR}/pic32mz_ec_sk/package
+CND_PACKAGE_NAME_pic32mz_ec_sk=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mz_ec_sk=${CND_DISTDIR}/pic32mz_ec_sk/package/uartbasic.x.tar
+# pic32mx795_pim_e16 configuration
+CND_ARTIFACT_DIR_pic32mx795_pim_e16=dist/pic32mx795_pim_e16/production
+CND_ARTIFACT_NAME_pic32mx795_pim_e16=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mx795_pim_e16=dist/pic32mx795_pim_e16/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mx795_pim_e16=${CND_DISTDIR}/pic32mx795_pim_e16/package
+CND_PACKAGE_NAME_pic32mx795_pim_e16=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mx795_pim_e16=${CND_DISTDIR}/pic32mx795_pim_e16/package/uartbasic.x.tar
+# pic32mx_usb_sk2 configuration
+CND_ARTIFACT_DIR_pic32mx_usb_sk2=dist/pic32mx_usb_sk2/production
+CND_ARTIFACT_NAME_pic32mx_usb_sk2=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mx_usb_sk2=dist/pic32mx_usb_sk2/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mx_usb_sk2=${CND_DISTDIR}/pic32mx_usb_sk2/package
+CND_PACKAGE_NAME_pic32mx_usb_sk2=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mx_usb_sk2=${CND_DISTDIR}/pic32mx_usb_sk2/package/uartbasic.x.tar
+# pic32mz_ef_sk configuration
+CND_ARTIFACT_DIR_pic32mz_ef_sk=dist/pic32mz_ef_sk/production
+CND_ARTIFACT_NAME_pic32mz_ef_sk=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mz_ef_sk=dist/pic32mz_ef_sk/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mz_ef_sk=${CND_DISTDIR}/pic32mz_ef_sk/package
+CND_PACKAGE_NAME_pic32mz_ef_sk=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mz_ef_sk=${CND_DISTDIR}/pic32mz_ef_sk/package/uartbasic.x.tar
+# pic32mz_ef_sk_16b configuration
+CND_ARTIFACT_DIR_pic32mz_ef_sk_16b=dist/pic32mz_ef_sk_16b/production
+CND_ARTIFACT_NAME_pic32mz_ef_sk_16b=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mz_ef_sk_16b=dist/pic32mz_ef_sk_16b/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mz_ef_sk_16b=${CND_DISTDIR}/pic32mz_ef_sk_16b/package
+CND_PACKAGE_NAME_pic32mz_ef_sk_16b=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mz_ef_sk_16b=${CND_DISTDIR}/pic32mz_ef_sk_16b/package/uartbasic.x.tar
+# pic32mx795_pim_e16_freertos configuration
+CND_ARTIFACT_DIR_pic32mx795_pim_e16_freertos=dist/pic32mx795_pim_e16_freertos/production
+CND_ARTIFACT_NAME_pic32mx795_pim_e16_freertos=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mx795_pim_e16_freertos=dist/pic32mx795_pim_e16_freertos/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mx795_pim_e16_freertos=${CND_DISTDIR}/pic32mx795_pim_e16_freertos/package
+CND_PACKAGE_NAME_pic32mx795_pim_e16_freertos=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mx795_pim_e16_freertos=${CND_DISTDIR}/pic32mx795_pim_e16_freertos/package/uartbasic.x.tar
+# pic32mz_ef_sk_freertos configuration
+CND_ARTIFACT_DIR_pic32mz_ef_sk_freertos=dist/pic32mz_ef_sk_freertos/production
+CND_ARTIFACT_NAME_pic32mz_ef_sk_freertos=uart_basic.X.production.hex
+CND_ARTIFACT_PATH_pic32mz_ef_sk_freertos=dist/pic32mz_ef_sk_freertos/production/uart_basic.X.production.hex
+CND_PACKAGE_DIR_pic32mz_ef_sk_freertos=${CND_DISTDIR}/pic32mz_ef_sk_freertos/package
+CND_PACKAGE_NAME_pic32mz_ef_sk_freertos=uartbasic.x.tar
+CND_PACKAGE_PATH_pic32mz_ef_sk_freertos=${CND_DISTDIR}/pic32mz_ef_sk_freertos/package/uartbasic.x.tar

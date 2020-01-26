@@ -1,0 +1,240 @@
+﻿一、快速编译httpd并打包
+make package/hik/httpd/compile
+make package/hik/httpd/install
+make target/install
+
+make package/hik/httpd/compile;make package/install;make target/install;cd ..;./make_img.sh;cd qsdk/
+
+
+
+二、SVN
+svn st|grep -v "?"|grep -v ".gz"|grep -v ".dtb"
+svn st|grep -v "?"|grep -v ".gz"|grep -v ".dtb"|grep -v "hik_www"
+
+
+三、防蹭网
+
+
+#查询
+iwpriv ath0 get_maccmd_sec;iwpriv ath1 get_maccmd_sec
+iwpriv ath0 getmac_sec;uci get wireless.@wifi-iface[0].maclist
+iwpriv ath0 get_maccmd_sec;uci get wireless.@wifi-iface[0].macfilter
+uci show hik_cfg
+
+uci get hik_cfg.sta_name.c4:6a:b7:48:84:fd
+
+#配置
+iwpriv ath0 get_maccmd_sec|awk -F':' '{printf $2}'
+
+
+uci get wireless.@wifi-iface[0].macfilter
+
+//open
+iwpriv ath0 maccmd_sec 0
+iwpriv ath1 maccmd_sec 0
+
+
+//allow
+iwpriv ath0 maccmd_sec 1
+iwpriv ath1 maccmd_sec 1
+
+//deny
+iwpriv ath0 maccmd_sec 2
+iwpriv ath1 maccmd_sec 2
+
+
+wlanconfig ath0 list|wc -l
+wlanconfig ath0 list|awk 'NR==2 {print $1}'
+
+cat /tmp/dhcp.leases|grep c4:6a:b7:48:84:fd
+cat /tmp/dhcp.leases|grep c4:6a:b7:48:84:fd |awk -F' ' '{print $4}'
+
+
+
+四、升级
+echo 3 > /proc/sys/vm/drop_caches
+
+ftpget -u admin -p 123456 192.168.7.10 ipq40xx-nor-apps\(9-30\).img
+sysupgrade -T ipq40xx-nor-apps\(9-30\).img 
+sysupgrade ipq40xx-nor-apps\(9-30\).img
+
+ftpget -u admin -p 123456 192.168.7.10 ipq40xx-nor-apps.img
+sysupgrade -T ipq40xx-nor-apps.img
+sysupgrade ipq40xx-nor-apps.img
+
+
+dumpimage -l ipq40xx-nor-apps.img
+dumpimage -i ipq40xx-nor-apps.img -o /tmp/hlos-53539d83da18934c8061780cd147de42a4c0c055.bin hlos-53539d83da18934c8061780cd147de42a4c0c055
+dumpimage -i ipq40xx-nor-apps.img  -o /tmp/rootfs-73be11f50c9325ae68c43b1ae01663c947d14314.bin rootfs-73be11f50c9325ae68c43b1ae01663c947d14314
+
+dd if=/tmp/hlos-53539d83da18934c8061780cd147de42a4c0c055.bin bs=1 conv=sync | mtd $append write - -e "/dev/mtd8" "/dev/mtd8"
+dd if=/tmp/rootfs-73be11f50c9325ae68c43b1ae01663c947d14314.bin bs=1 conv=sync | mtd $append write - -e "/dev/mtd9" "/dev/mtd9"
+
+
+五、反复重连
+iwpriv ath0 getdbgLVL
+iwpriv ath0 dbgLVL 0x41C00000
+iwpriv ath0 dbgLVL 0x01C00000
+iwpriv ath0 dbgLVL 0x03C00000
+iwpriv ath0 dbgLVL 0x83C00000
+
+
+六、内存压力测试
+#define CONFIG_SYS_SDRAM_BASE           0x80000000
+#define CONFIG_SYS_MEMTEST_START        CONFIG_SYS_SDRAM_BASE + 0x1300000
+#define CONFIG_SYS_MEMTEST_END          CONFIG_SYS_MEMTEST_START + 0x100
+
+mtest 80000000 8706f9c0 0 1
+mtest 80000000 87000000 0 1
+
+
+七、抗干扰测试
+
+iwpriv wifi0 dl_loglevel 1
+iwpriv wifi0 dl_loglevel 2
+
+//配置
+iwpriv ath0 txrx_fw_st_rst 0x3f;iwpriv ath0 dis_legacy 0x07;iwpriv ath0 g_dis_legacy;
+iwpriv wifi0 ani_enable 0;iwpriv wifi0 ani_cck_level 9;iwpriv wifi0 ani_ofdm_level 9
+iwpriv wifi0 ani_enable 0;iwpriv wifi0 ani_cck_level 0;iwpriv wifi0 ani_ofdm_level 0
+iwpriv wifi0 ani_enable 1
+iwpriv wifi0 get_ani_enable
+//查询
+iwpriv ath0 txrx_fw_stats 1;iwpriv ath0 txrx_fw_stats 3;iwpriv ath0 txrx_fw_stats 6
+
+iwpriv ath0 dis_legacy 0x17;iwpriv ath0 vie_ena 0
+iwpriv ath0 g_dis_legacy;iwpriv ath0 g_vie_ena
+
+
+iwpriv ath0 dis_legacy 0x0;iwpriv ath0 vie_ena 0
+
+iwpriv wifi0 dl_modon 23
+iwpriv wifi0 dl_modoff 23
+
+
+
+iwpriv wifi0 acs_rank_en 1;iwpriv wifi0 acs_2g_allch 1;iwpriv ath0 acsreport 1
+wifitool ath0 acsreport
+
+apstats -s -m
+iwpriv ath0 get_sko
+
+iwpriv ath0 wnm 0
+
+iwpriv wifi0 dl_modoff 21
+iwpriv wifi0 dl_modon 23
+
+
+
+iwpriv ath0 dis_legacy 0x03;iwpriv ath0 vie_ena 0;iwpriv ath0 wnm 0;iwpriv ath0 sko 200;iwpriv wifi0 nonaggr_swretry 0x10
+
+iwpriv wifi0 dl_loglevel 1;iwpriv wifi0 dl_modoff 21;iwpriv wifi0 dl_modon 23
+
+八、hostapd相关
+wpa_cli -g /var/run/hostapd/global raw REMOVE ath0 
+wpa_cli -g /var/run/hostapd/global raw ADD bss_config=ath0:/var/run/hostapd-ath0.conf
+
+wpa_cli -g /var/run/hostapd/global raw REMOVE ath1 
+wpa_cli -g /var/run/hostapd/global raw ADD bss_config=ath1:/var/run/hostapd-ath1.conf
+
+parent=$(cat /sys/class/net/${IFNAME}/parent)
+hostapd_cli -i ath0 -p /var/run/hostapd-wifi0 get_config
+env -i ACTION="wps-configured" INTERFACE=$IFNAME /sbin/hotplug-call iface
+
+hostapd_cli -i ath0 -p /var/run/hostapd get_config
+
+
+九、qcmbr调试
+/usr/sbin/Qcmbr -instance 2 -pcie 2 -interface wifi2 -console 1 -log /tmp/wifi2_cal.log
+athtestcmd -i wifi2 --tx tx99
+tx99tool
+
+
+十、内存泄漏
+ echo 3 > /proc/sys/vm/drop_caches
+ uci show  | grep skb_recycler
+
+ 
+十一、配置wrap模式
+uci set dhcp.lan.ignore='1'
+uci set network.lan.ifname='eth0 eth1'
+uci set network.lan.proto='dhcp'
+uci del network.lan.ipaddr
+uci commit
+
+uci set wireless.@wifi-iface[0].extender_device=wifi1
+uci set wireless.wifi1.qwrap_enable='1'    
+uci set wireless.wifi1.channel='36'
+uci set wireless.@wifi-iface[1].vap_ind='1'
+uci set wireless.@wifi-iface[1].athnewind='1'
+uci set wireless.@wifi-iface[1].mode='wrap' 
+uci commit
+
+uci add wireless wifi-iface
+uci set wireless.@wifi-iface[2]=wifi-iface
+uci set wireless.@wifi-iface[2].mode='sta'
+uci set wireless.@wifi-iface[2].network='lan'
+uci set wireless.@wifi-iface[2].disabled='0'
+uci set wireless.@wifi-iface[2].device='wifi1'
+uci set wireless.@wifi-iface[2].ssid=OpenWrt_5g
+uci set wireless.@wifi-iface[2].encryption='psk-mixed'
+uci set wireless.@wifi-iface[2].key='admin123'
+uci commit
+
+uci set wireless.@wifi-iface[0].macfilter='deny'
+uci set wireless.@wifi-iface[1].macfilter='deny'
+uci commit
+
+================ repeater AP ============================
+uci set network.wan6=interface
+uci set network.wan6.ifname='eth0'
+uci set network.wan6.proto='dhcpv6'
+
+uci set dhcp.lan.ignore='1'
+uci set network.lan.ifname='eth0 eth1'
+uci set network.lan.proto='dhcp'
+uci del network.lan.ipaddr
+
+uci set wireless.@wifi-iface[0].extender_device=wifi1
+
+uci set wireless.wifi1.channel=36
+uci set wireless.wifi1.qwrap_enable=1
+uci set wireless.wifi1.wlanaddr='00:00:00:00:00:00'
+uci set wireless.wifi1.disabled=0
+
+uci set wireless.@wifi-iface[1].mode=wrap
+uci set wireless.@wifi-iface[1].wpa_group_rekey=2000
+uci set wireless.@wifi-iface[1].device=wifi1
+uci set wireless.@wifi-iface[1].network=lan
+
+uci add wireless wifi-iface
+uci set wireless.@wifi-iface[2].mode=sta
+uci set wireless.@wifi-iface[2].device=wifi1
+uci set wireless.@wifi-iface[2].network=lan
+uci set wireless.@wifi-iface[2].encryption='psk-mixed'
+uci set wireless.@wifi-iface[2].key=admin123
+uci set wireless.@wifi-iface[2].wpa_group_rekey=2000
+uci set wireless.@wifi-iface[2].ssid=OpenWrt_5g
+uci commit
+uci export wireless
+wifi
+
+=============== root AP =====================
+uci set wireless.wifi0.disabled=0
+uci set wireless.@wifi-iface[0].ssid=OpenWrt
+uci set wireless.@wifi-iface[0].encryption='psk-mixed'
+uci set wireless.@wifi-iface[0].key=admin123
+
+uci set wireless.wifi1.disabled=0
+uci set wireless.wifi1.channel=36
+uci set wireless.@wifi-iface[1].ssid=OpenWrt_5g
+uci set wireless.@wifi-iface[1].encryption='psk-mixed'
+uci set wireless.@wifi-iface[1].key=admin123
+
+uci commit wireless
+uci export wireless
+wifi
+
+十二、中继调试
+iwpriv ath0 dbgLVL 0x800C0000;iwpriv ath0 dbgLVL_high 0
+iwpriv ath1 dbgLVL 0x800C0000;iwpriv ath0 dbgLVL_high 0

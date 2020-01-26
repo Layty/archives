@@ -1,0 +1,130 @@
+diff --git a/cmn_dev b/cmn_dev
+index 37319f5..4208db4 160000
+--- a/cmn_dev
++++ b/cmn_dev
+@@ -1 +1 @@
+-Subproject commit 37319f52affccb7df835ecf36418b5bd19c41392
++Subproject commit 4208db4f35fcbe4033383399c42f32667feeeced
+diff --git a/offload/htt/htt.c b/offload/htt/htt.c
+old mode 100755
+new mode 100644
+index b3c538a..f0cea0a
+--- a/offload/htt/htt.c
++++ b/offload/htt/htt.c
+@@ -88,6 +88,34 @@ htt_htc_pkt_pool_free(struct htt_pdev_t *pdev)
+     pdev->htt_htc_pkt_freelist = NULL;
+ 	printk("XXXXXX: %s %d\n", __func__, i);
+ }
++
++void htt_htc_misc_pkt_pool_free(struct htt_pdev_t *pdev)
++{
++    struct htt_htc_pkt_union *pkt, *next;
++    qdf_nbuf_t netbuf;
++    pkt = pdev->htt_htc_pkt_misclist;
++
++    while (pkt) {
++	next = pkt->u.next;
++	netbuf = (qdf_nbuf_t)(pkt->u.pkt.htc_pkt.pNetBufContext);;
++	qdf_nbuf_unmap(pdev->osdev, netbuf, QDF_DMA_TO_DEVICE);
++	qdf_nbuf_free(netbuf);
++	qdf_mem_free(pkt);
++	pkt = next;
++    }
++    pdev->htt_htc_pkt_misclist = NULL;
++}
++
++void htt_htc_misc_pkt_list_add(struct htt_pdev_t *pdev, struct htt_htc_pkt *pkt)
++{
++    struct htt_htc_pkt_union *u_pkt = (struct htt_htc_pkt_union *)pkt;
++
++    HTT_TX_MUTEX_ACQUIRE(&pdev->htt_tx_mutex);
++    u_pkt->u.next = pdev->htt_htc_pkt_misclist;
++    pdev->htt_htc_pkt_misclist = u_pkt;
++    HTT_TX_MUTEX_RELEASE(&pdev->htt_tx_mutex);
++}
++
+ void htt_pkt_buf_list_add(struct htt_pdev_t *pdev, void *buf, u_int64_t cookie,void *htt_htc_packet)
+ {
+ 	struct htt_pdev_buf_entry *ep = NULL;
+@@ -222,6 +250,7 @@ htt_attach(
+ #endif
+ 
+     qdf_mem_set(&pdev->stats, sizeof(pdev->stats), 0);
++    pdev->htt_htc_pkt_misclist = NULL;
+     pdev->htt_htc_pkt_freelist = NULL;
+ 
+     /* for efficiency, store a local copy of the is_high_latency flag */
+@@ -409,6 +438,7 @@ htt_detach(htt_pdev_handle pdev)
+     }
+ #endif /* QCA_PARTNER_DIRECTLINK_RX */
+ 
++    htt_htc_misc_pkt_pool_free(pdev);
+     htt_htc_pkt_pool_free(pdev);
+     HTT_TX_MUTEX_DESTROY(&pdev->htt_tx_mutex);
+     HTT_TX_NBUF_QUEUE_MUTEX_DESTROY(pdev);
+diff --git a/offload/htt/htt_h2t.c b/offload/htt/htt_h2t.c
+index 5d50987..395038e 100755
+--- a/offload/htt/htt_h2t.c
++++ b/offload/htt/htt_h2t.c
+@@ -196,7 +196,9 @@ htt_h2t_frag_desc_bank_cfg_msg(struct htt_pdev_t *pdev)
+             1); /* tag - not relevant here */
+ 
+         SET_HTC_PACKET_NET_BUF_CONTEXT(&pkt->htc_pkt, msg);
+-        htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt);
++
++        if(htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt) == A_OK)
++	    htt_htc_misc_pkt_list_add(pdev, pkt);
+ 
+ #if PEER_FLOW_CONTROL
+         /* cache flush to avoid early htt fetch */
+@@ -269,7 +271,8 @@ htt_h2t_ver_req_msg(struct htt_pdev_t *pdev)
+             1); /* tag - not relevant here */
+ 
+         SET_HTC_PACKET_NET_BUF_CONTEXT(&pkt->htc_pkt, msg);
+-        htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt);
++        if (htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt) == A_OK)
++	    htt_htc_misc_pkt_list_add(pdev, pkt);
+     }
+     return A_OK;
+ }
+@@ -492,7 +495,8 @@ htt_h2t_rx_ring_cfg_msg_ll(struct htt_pdev_t *pdev)
+             1); /* tag - not relevant here */
+ 
+         SET_HTC_PACKET_NET_BUF_CONTEXT(&pkt->htc_pkt, msg);
+-        htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt);
++        if(htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt) == A_OK)
++	    htt_htc_misc_pkt_list_add(pdev, pkt);
+     }
+     return A_OK;
+ }
+diff --git a/offload/htt/include/htt_internal.h b/offload/htt/include/htt_internal.h
+old mode 100755
+new mode 100644
+index 310ae00..892fba7
+--- a/offload/htt/include/htt_internal.h
++++ b/offload/htt/include/htt_internal.h
+@@ -425,6 +425,10 @@ htt_t2h_msg_handler_fast(void *htt_pdev, qdf_nbuf_t *nbuf_cmpl_arr,
+ 
+ void
+ htt_htc_pkt_pool_free(struct htt_pdev_t *pdev);
++
++void htt_htc_misc_pkt_list_add(struct htt_pdev_t *pdev, struct htt_htc_pkt *pkt);
++void htt_htc_misc_pkt_pool_free(struct htt_pdev_t *pdev);
++
+ void htt_pkt_buf_list_add(struct htt_pdev_t *pdev, void *buf, u_int64_t cookie,void *);
+ void htt_pkt_buf_list_del(struct htt_pdev_t *pdev, u_int64_t cookie);
+ 
+diff --git a/offload/htt/include/htt_types.h b/offload/htt/include/htt_types.h
+old mode 100755
+new mode 100644
+index 4933854..deecbe9
+--- a/offload/htt/include/htt_types.h
++++ b/offload/htt/include/htt_types.h
+@@ -172,6 +172,7 @@ struct htt_pdev_t {
+     qdf_nbuf_queue_t     txnbufq;
+ #endif
+ 
++    struct htt_htc_pkt_union *htt_htc_pkt_misclist;
+     struct htt_htc_pkt_union *htt_htc_pkt_freelist;
+     struct {
+         int is_high_latency;

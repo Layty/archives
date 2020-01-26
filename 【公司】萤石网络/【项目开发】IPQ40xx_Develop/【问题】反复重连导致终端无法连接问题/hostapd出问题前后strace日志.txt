@@ -1,0 +1,1101 @@
+31255 root      1332 S    sleep 1
+31256 root      1340 R    ps
+root@W3:/# strace -p 708
+Process 708 attached
+write(1, "ath0: STA f8:28:19:76:3a:f5 WPA:"..., 53) = 53
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625338, 413765}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<31>Nov  2 20:22:18 hostapd: ath"..., 83, MSG_NOSIGNAL) = 83
+ioctl(3, 0x8be4, 0xbed16890)            = 0
+ioctl(3, 0x8be4, 0xbed16820)            = 0
+ioctl(3, 0x8be6, 0xbed16600)            = 0
+write(1, "ath0: STA f8:28:19:76:3a:f5 IEEE"..., 59) = 59
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625338, 421408}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<31>Nov  2 20:22:18 hostapd: ath"..., 89, MSG_NOSIGNAL) = 89
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 ENOBUFS (No buffer space available)
+write(1, "netlink: recvfrom failed: ", 26) = 26
+write(1, "No buffer space available", 25) = 25
+write(1, "\n", 1)                       = 1
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 ENOBUFS (No buffer space available)
+write(1, "netlink: recvfrom failed: ", 26) = 26
+write(1, "No buffer space available", 25) = 25
+write(1, "\n", 1)                       = 1
+clock_gettime(0x7 /* CLOCK_??? */, {942, 380765079}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 0}) = 3 (in [9 17 18], left {0, 0})
+clock_gettime(0x7 /* CLOCK_??? */, {942, 382438496}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {942, 383065454}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {942, 383648621}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {942, 384228913}) = 0
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625338, 436465}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625338, 437917}, NULL) = 0
+recvfrom(9, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(9, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+write(1, "ath0: STA 34:68:95:14:93:d9 IEEE"..., 54) = 54
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625338, 441900}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<30>Nov  2 20:22:18 hostapd: ath"..., 84, MSG_NOSIGNAL) = 84
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+gettimeofday({1509625338, 447248}, NULL) = 0
+recvfrom(9, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+gettimeofday({1509625338, 448734}, NULL) = 0
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+open("/dev/urandom", O_RDONLY)          = 20
+ioctl(20, SNDCTL_TMR_TIMEBASE or SNDRV_TIMER_IOCTL_NEXT_DEVICE or TCGETS, 0xbed16834) = -1 EINVAL (Invalid argument)
+read(20, "mQ\234W\230\345Ps", 8)        = 8
+close(20)                               = 0
+clock_gettime(0x7 /* CLOCK_??? */, {942, 404115975}) = 0
+write(1, " !!!!!!!!!!!!!!!!!!!!! hostapd_n"..., 42) = 42
+write(1, "\n", 1)                       = 1
+ioctl(3, 0x8be6, 0xbed16540)            = 0
+recvfrom(17, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(17, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+recvfrom(17, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(18, "PING", 4095, 0, {sa_family=AF_LOCAL, sun_path="/tmp/wpa_ctrl_1575-1"}, [23]) = 4
+sendto(18, "PONG\n", 5, 0, {sa_family=AF_LOCAL, sun_path="/tmp/wpa_ctrl_1575-1"}, 23) = -1 ENOENT (No such file or directory)
+clock_gettime(0x7 /* CLOCK_??? */, {942, 753429433}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {5, 252088}) = 3 (in [9 17 18], left {5, 251998})
+clock_gettime(0x7 /* CLOCK_??? */, {942, 755242412}) = 0
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+open("/dev/urandom", O_RDONLY)          = 20
+ioctl(20, SNDCTL_TMR_TIMEBASE or SNDRV_TIMER_IOCTL_NEXT_DEVICE or TCGETS, 0xbed16834) = -1 EINVAL (Invalid argument)
+read(20, "\241\31S\263\365\34N2", 8)    = 8
+close(20)                               = 0
+clock_gettime(0x7 /* CLOCK_??? */, {942, 761095537}) = 0
+write(1, " !!!!!!!!!!!!!!!!!!!!! hostapd_n"..., 42) = 42
+write(1, "\n", 1)                       = 1
+ioctl(3, 0x8be6, 0xbed16540)            = 0
+recvfrom(9, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(9, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+write(1, "ath0: STA f8:28:19:76:3a:f5 IEEE"..., 54) = 54
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625338, 816719}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<30>Nov  2 20:22:18 hostapd: ath"..., 84, MSG_NOSIGNAL) = 84
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(9, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+write(1, "ath0: STA 24:fd:52:43:70:53 IEEE"..., 54) = 54
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625338, 824393}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<30>Nov  2 20:22:18 hostapd: ath"..., 84, MSG_NOSIGNAL) = 84
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 160949}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 161589}, NULL) = 0
+recvfrom(17, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+recvfrom(17, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(17, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(17, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(18, "DETACH", 4095, 0, {sa_family=AF_LOCAL, sun_path="/tmp/wpa_ctrl_1575-1"}, [23]) = 6
+sendto(18, "OK\n", 3, 0, {sa_family=AF_LOCAL, sun_path="/tmp/wpa_ctrl_1575-1"}, 23) = -1 ENOENT (No such file or directory)
+clock_gettime(0x7 /* CLOCK_??? */, {943, 116003350}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 889514}) = 2 (in [9 17], left {4, 889465})
+clock_gettime(0x7 /* CLOCK_??? */, {943, 116757266}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 166968}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 167592}, NULL) = 0
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+open("/dev/urandom", O_RDONLY)          = 20
+ioctl(20, SNDCTL_TMR_TIMEBASE or SNDRV_TIMER_IOCTL_NEXT_DEVICE or TCGETS, 0xbed16834) = -1 EINVAL (Invalid argument)
+read(20, "wp\357\235zw\323\312", 8)     = 8
+close(20)                               = 0
+clock_gettime(0x7 /* CLOCK_??? */, {943, 120184329}) = 0
+write(1, " !!!!!!!!!!!!!!!!!!!!! hostapd_n"..., 42) = 42
+write(1, "\n", 1)                       = 1
+ioctl(3, 0x8be6, 0xbed16540)            = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 499482}, NULL) = 0
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+open("/dev/urandom", O_RDONLY)          = 20
+ioctl(20, SNDCTL_TMR_TIMEBASE or SNDRV_TIMER_IOCTL_NEXT_DEVICE or TCGETS, 0xbed16834) = -1 EINVAL (Invalid argument)
+read(20, "\0267\354\237w\341\262\302", 8) = 8
+close(20)                               = 0
+clock_gettime(0x7 /* CLOCK_??? */, {943, 452398995}) = 0
+write(1, " !!!!!!!!!!!!!!!!!!!!! hostapd_n"..., 42) = 42
+write(1, "\n", 1)                       = 1
+ioctl(3, 0x8be6, 0xbed16540)            = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 503630}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 504358}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 505122}, NULL) = 0
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "t\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 116
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+clock_gettime(0x7 /* CLOCK_??? */, {943, 459506266}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 546011}) = 2 (in [9 17], left {4, 545960})
+clock_gettime(0x7 /* CLOCK_??? */, {943, 460332808}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 510678}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 511415}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 843910}, NULL) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625339, 844549}, NULL) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625339, 845125}, NULL) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625339, 845689}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625339, 846247}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625339, 846812}, NULL) = 0
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {943, 800837516}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 204680}) = 2 (in [9 17], left {4, 107513})
+clock_gettime(0x7 /* CLOCK_??? */, {943, 899015036}) = 0
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625339, 949366}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625339, 950077}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {943, 901833245}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 103684}) = 2 (in [9 17], left {3, 890623})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 116094765}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625340, 168307}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 119784286}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 885733}) = 2 (in [9 17], left {3, 761573})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 246021119}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625340, 298513}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 250266432}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 755251}) = 2 (in [9 17], left {3, 737275})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 270228244}) = 0
+recvfrom(9, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+gettimeofday({1509625340, 321326}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 274347432}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 731170}) = 2 (in [9 17], left {3, 572800})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 435674952}) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625340, 486720}, NULL) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625340, 488298}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625340, 489857}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 444132411}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 561385}) = 2 (in [9 17], left {3, 527507})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 479789348}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625340, 530930}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 483833619}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 521684}) = 2 (in [9 17], left {3, 491688})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 515445994}) = 0
+recvfrom(9, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+gettimeofday({1509625340, 566380}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 519197869}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 486320}) = 2 (in [9 17], left {3, 466293})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 542293411}) = 0
+recvfrom(9, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+gettimeofday({1509625340, 593445}, NULL) = 0
+recvfrom(9, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+gettimeofday({1509625340, 595070}, NULL) = 0
+recvfrom(9, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+gettimeofday({1509625340, 596524}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+recvfrom(17, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+recvfrom(17, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 551222869}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 454295}) = 2 (in [9 17], left {3, 441480})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 565891994}) = 0
+recvfrom(9, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+gettimeofday({1509625340, 616825}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 569554161}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 435963}) = 2 (in [9 17], left {3, 412753})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 594468348}) = 0
+recvfrom(9, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+gettimeofday({1509625340, 645443}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+recvfrom(17, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+recvfrom(17, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625340, 981417}, NULL) = 0
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625340, 982880}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 934420389}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 71097}) = 1 (in [9], left {3, 71006})
+clock_gettime(0x7 /* CLOCK_??? */, {944, 935971077}) = 0
+recvfrom(9, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+gettimeofday({1509625340, 986868}, NULL) = 0
+recvfrom(9, "\254\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 172
+gettimeofday({1509625340, 988191}, NULL) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {944, 941201452}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 64316}) = 2 (in [9 17], left {2, 993820})
+clock_gettime(0x7 /* CLOCK_??? */, {945, 13438785}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625341, 64701}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {945, 17820452}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {2, 987697}) = 2 (in [9 17], left {2, 492633})
+clock_gettime(0x7 /* CLOCK_??? */, {945, 514676514}) = 0
+recvfrom(9, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+gettimeofday({1509625341, 566864}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {945, 518341493}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {2, 487176}) = 2 (in [9 17], left {2, 390614})
+clock_gettime(0x7 /* CLOCK_??? */, {945, 616974722}) = 0
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625341, 670170}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {945, 622144472}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {2, 383373}) = 2 (in [9 17], left {2, 21726})
+clock_gettime(0x7 /* CLOCK_??? */, {945, 985997347}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625342, 37214}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {945, 991016826}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {2, 14501}) = 2 (in [9 17], left {1, 775372})
+clock_gettime(0x7 /* CLOCK_??? */, {946, 232074472}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625342, 283177}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {946, 236023159}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 769494}) = 2 (in [9 17], left {1, 768479})
+clock_gettime(0x7 /* CLOCK_??? */, {946, 238676222}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625342, 289944}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {946, 242930492}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 762587}) = 2 (in [9 17], left {1, 388960})
+clock_gettime(0x7 /* CLOCK_??? */, {946, 618420263}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625342, 669517}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {946, 622543117}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 382974}) = 2 (in [9 17], left {1, 264493})
+clock_gettime(0x7 /* CLOCK_??? */, {946, 742805867}) = 0
+recvfrom(9, "\310\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 200
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\310\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 200
+gettimeofday({1509625342, 795134}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {946, 746887388}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 258630}) = 2 (in [9 17], left {0, 445736})
+clock_gettime(0x7 /* CLOCK_??? */, {947, 561406137}) = 0
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, "\240\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 160
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625343, 612584}, NULL) = 0
+recvfrom(17, "\240\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 160
+gettimeofday({1509625343, 613242}, NULL) = 0
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625343, 613808}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {947, 564664137}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 440853}) = 1 (in [9], left {0, 440809})
+clock_gettime(0x7 /* CLOCK_??? */, {947, 565331699}) = 0
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {947, 566067241}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 439450}) = 2 (in [9 17], left {0, 342502})
+clock_gettime(0x7 /* CLOCK_??? */, {947, 663830054}) = 0
+recvfrom(9, "\330\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 216
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\330\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 216
+gettimeofday({1509625343, 714668}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {947, 665589804}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 339928}) = 2 (in [9 17], left {0, 234832})
+clock_gettime(0x7 /* CLOCK_??? */, {947, 771465908}) = 0
+recvfrom(9, "\340\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 224
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\340\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 224
+gettimeofday({1509625343, 822324}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {947, 773246012}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 232271}) = 2 (in [9 17], left {0, 224913})
+clock_gettime(0x7 /* CLOCK_??? */, {947, 781358803}) = 0
+recvfrom(9, "\340\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 224
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\340\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 224
+gettimeofday({1509625343, 832178}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {947, 783101449}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 222416}) = 0 (Timeout)
+clock_gettime(0x7 /* CLOCK_??? */, {948, 7105428}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {948, 8091616}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {948, 8753803}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 374312}) = 2 (in [9 17], left {3, 696542})
+clock_gettime(0x7 /* CLOCK_??? */, {948, 688487719}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625344, 740931}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {948, 692478636}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 690587}) = 2 (in [9 17], left {3, 545403})
+clock_gettime(0x7 /* CLOCK_??? */, {948, 839429198}) = 0
+recvfrom(9, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+gettimeofday({1509625344, 890733}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\234\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 156
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {948, 843795615}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 539270}) = 2 (in [9 17], left {2, 85255})
+clock_gettime(0x7 /* CLOCK_??? */, {950, 299828593}) = 0
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625346, 351888}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625346, 353485}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {950, 307454509}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {2, 75611}) = 2 (in [9 17], left {1, 630908})
+clock_gettime(0x7 /* CLOCK_??? */, {950, 754080488}) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625346, 805182}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {950, 758001634}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 625064}) = 2 (in [9 17], left {1, 622394})
+clock_gettime(0x7 /* CLOCK_??? */, {950, 762371696}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625346, 813509}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {950, 766977717}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 616088}) = 2 (in [9 17], left {1, 526148})
+clock_gettime(0x7 /* CLOCK_??? */, {950, 859112509}) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625346, 912764}, NULL) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625346, 914388}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625346, 916006}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625346, 917549}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {950, 873498134}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 509567}) = 2 (in [9 17], left {1, 464440})
+clock_gettime(0x7 /* CLOCK_??? */, {950, 920858675}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625346, 973507}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {950, 925217509}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 457848}) = 2 (in [9 17], left {1, 378890})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 5537613}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625347, 55778}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 7235134}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 375830}) = 2 (in [9 17], left {1, 229083})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 154763009}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625347, 205045}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 156533404}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 226532}) = 2 (in [9 17], left {1, 116781})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 267072029}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625347, 317337}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 268847133}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {1, 114218}) = 2 (in [9 17], left {0, 828576})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 555300779}) = 0
+recvfrom(9, "$\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 292
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "$\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 292
+gettimeofday({1509625347, 606027}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 556900216}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 826165}) = 2 (in [9 17], left {0, 489751})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 894188029}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625347, 944950}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 895863779}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 487202}) = 2 (in [9 17], left {0, 408276})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 975621549}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625348, 25888}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 977408591}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 405657}) = 2 (in [9 17], left {0, 404545})
+clock_gettime(0x7 /* CLOCK_??? */, {951, 979271633}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625348, 29521}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {951, 981055966}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 402010}) = 0 (Timeout)
+clock_gettime(0x7 /* CLOCK_??? */, {952, 384894070}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {952, 385574320}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {952, 386181841}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {952, 386821112}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {952, 387495528}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {9, 436232}) = 2 (in [9 17], left {9, 370661})
+clock_gettime(0x7 /* CLOCK_??? */, {952, 455383716}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625348, 506597}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {952, 459961049}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {9, 363766}) = 2 (in [9 17], left {9, 245410})
+clock_gettime(0x7 /* CLOCK_??? */, {952, 580888195}) = 0
+recvfrom(9, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+recvfrom(9, "\274\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 188
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+gettimeofday({1509625348, 634416}, NULL) = 0
+recvfrom(17, "\274\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 188
+gettimeofday({1509625348, 635973}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {952, 587573195}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {9, 236154}) = 2 (in [9 17], left {8, 734481})
+clock_gettime(0x7 /* CLOCK_??? */, {953, 90963069}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625349, 142032}, NULL) = 0
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625349, 142647}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {953, 93505903}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 730222}) = 2 (in [9 17], left {8, 426046})
+clock_gettime(0x7 /* CLOCK_??? */, {953, 398495486}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625349, 449257}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {953, 400183986}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 423544}) = 2 (in [9 17], left {7, 872417})
+clock_gettime(0x7 /* CLOCK_??? */, {953, 952161652}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625350, 2907}, NULL)  = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {953, 953775110}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 869952}) = 2 (in [9 17], left {7, 809274})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 15743777}) = 0
+recvfrom(9, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+gettimeofday({1509625350, 68297}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 19976527}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 803751}) = 2 (in [9 17], left {7, 794961})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 30892881}) = 0
+recvfrom(9, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+gettimeofday({1509625350, 83457}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 35113589}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 788614}) = 2 (in [9 17], left {7, 299641})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 525970672}) = 0
+recvfrom(9, "(\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 296
+recvfrom(9, "(\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 296
+recvfrom(9, " \1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 288
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "(\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 296
+gettimeofday({1509625350, 579856}, NULL) = 0
+recvfrom(17, "(\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 296
+gettimeofday({1509625350, 581227}, NULL) = 0
+recvfrom(17, " \1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 288
+gettimeofday({1509625350, 582583}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 534057380}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 289670}) = 2 (in [9 17], left {7, 195450})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 630216589}) = 0
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, "\240\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 160
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625350, 684393}, NULL) = 0
+recvfrom(17, "\240\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 160
+gettimeofday({1509625350, 687184}, NULL) = 0
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625350, 688796}, NULL) = 0
+recvfrom(17, "\244\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 164
+gettimeofday({1509625350, 690372}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 642000505}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 181727}) = 1 (in [9], left {7, 181639})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 643716297}) = 0
+recvfrom(9, "\244\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 164
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 645624026}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 178103}) = 2 (in [9 17], left {6, 947169})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 878461880}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625350, 930161}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 883490276}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 940237}) = 2 (in [9 17], left {6, 900841})
+clock_gettime(0x7 /* CLOCK_??? */, {954, 924917505}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625350, 977147}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {954, 930881942}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 892846}) = 2 (in [9 17], left {6, 627819})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 198127088}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625351, 249188}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 202217921}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 621510}) = 2 (in [9 17], left {6, 549585})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 276917880}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625351, 328183}, NULL) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625351, 329860}, NULL) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625351, 331390}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 286013880}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 537714}) = 2 (in [9 17], left {6, 276325})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 549554859}) = 0
+recvfrom(9, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+gettimeofday({1509625351, 601943}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 553421379}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 270306}) = 2 (in [9 17], left {6, 269519})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 556020713}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625351, 607254}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 560916213}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 262811}) = 2 (in [9 17], left {6, 230312})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 595327254}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625351, 646541}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 600300838}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 223427}) = 2 (in [9 17], left {6, 211023})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 614659463}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625351, 665844}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 618994858}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 204733}) = 2 (in [9 17], left {5, 914235})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 911431358}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625351, 962382}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 915171442}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {5, 908556}) = 2 (in [9 17], left {5, 872404})
+clock_gettime(0x7 /* CLOCK_??? */, {955, 953066483}) = 0
+recvfrom(9, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(9, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+write(1, "ath0: STA 60:af:6d:d1:f6:f1 IEEE"..., 54) = 54
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625352, 6508}, NULL)  = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<30>Nov  2 20:22:32 hostapd: ath"..., 84, MSG_NOSIGNAL) = 84
+write(1, "ath0: ", 6)                   = 6
+write(1, "AP-STA-DISCONNECTED 60:af:6d:d1:"..., 37) = 37
+write(1, "\n", 1)                       = 1
+sendmsg(10, {msg_name(23)={sa_family=AF_LOCAL, sun_path="/tmp/wpa_ctrl_1257-1"}, msg_iov(2)=[{"<3>", 3}, {"AP-STA-DISCONNECTED 60:af:6d:d1:"..., 37}], msg_controllen=0, msg_flags=0}, 0) = 40
+write(1, "ath0: STA 60:af:6d:d1:f6:f1 WPA:"..., 53) = 53
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625352, 15221}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<31>Nov  2 20:22:32 hostapd: ath"..., 83, MSG_NOSIGNAL) = 83
+ioctl(3, 0x8be4, 0xbed16890)            = 0
+ioctl(3, 0x8be4, 0xbed16820)            = 0
+ioctl(3, 0x8be6, 0xbed16600)            = 0
+write(1, "ath0: STA 60:af:6d:d1:f6:f1 IEEE"..., 59) = 59
+write(1, "\n", 1)                       = 1
+gettimeofday({1509625352, 22749}, NULL) = 0
+open("/etc/TZ", O_RDONLY)               = 20
+read(20, "UTC-8\n", 68)                 = 6
+close(20)                               = 0
+send(11, "<31>Nov  2 20:22:32 hostapd: ath"..., 89, MSG_NOSIGNAL) = 89
+recvfrom(9, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(9, "\244\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 164
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "X\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 88
+recvfrom(17, "D\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 68
+recvfrom(17, "H\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 72
+recvfrom(17, "\244\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 164
+gettimeofday({1509625352, 31961}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {955, 983641441}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {5, 840086}) = 2 (in [9 17], left {5, 149237})
+clock_gettime(0x7 /* CLOCK_??? */, {956, 676395024}) = 0
+recvfrom(9, "(\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 296
+recvfrom(9, " \1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 288
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "(\1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 296
+gettimeofday({1509625352, 729462}, NULL) = 0
+recvfrom(17, " \1\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 288
+gettimeofday({1509625352, 731015}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {956, 682486420}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {5, 141241}) = 2 (in [9 17], left {4, 980227})
+clock_gettime(0x7 /* CLOCK_??? */, {956, 845352836}) = 0
+recvfrom(9, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+gettimeofday({1509625352, 898077}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {956, 849747878}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 973980}) = 2 (in [9 17], left {4, 959376})
+clock_gettime(0x7 /* CLOCK_??? */, {956, 866435566}) = 0
+recvfrom(9, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\270\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 184
+gettimeofday({1509625352, 918886}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {956, 871055816}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 952672}) = 2 (in [9 17], left {4, 765166})
+clock_gettime(0x7 /* CLOCK_??? */, {957, 60797295}) = 0
+recvfrom(9, "\244\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 164
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\244\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 164
+gettimeofday({1509625353, 113432}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {957, 65072399}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 758655}) = 2 (in [9 17], left {4, 645845})
+clock_gettime(0x7 /* CLOCK_??? */, {957, 179763649}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625353, 231794}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {957, 185423982}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 638304}) = 2 (in [9 17], left {4, 542466})
+clock_gettime(0x7 /* CLOCK_??? */, {957, 283760815}) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625353, 336081}, NULL) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625353, 338176}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {957, 295618753}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 528109}) = 1 (in [9], left {4, 528004})
+clock_gettime(0x7 /* CLOCK_??? */, {957, 298003044}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625353, 349395}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {957, 301751690}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 521976}) = 2 (in [9 17], left {4, 189138})
+clock_gettime(0x7 /* CLOCK_??? */, {957, 637462232}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625353, 688545}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {957, 641601169}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {4, 182126}) = 2 (in [9 17], left {3, 860836})
+clock_gettime(0x7 /* CLOCK_??? */, {957, 964579106}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625354, 15568}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {957, 968278898}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 855449}) = 2 (in [9 17], left {3, 824709})
+clock_gettime(0x7 /* CLOCK_??? */, {958, 357627}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625354, 50599}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {958, 2031773}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 821696}) = 2 (in [9 17], left {3, 791111})
+clock_gettime(0x7 /* CLOCK_??? */, {958, 33381981}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625354, 83620}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {958, 35076669}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {3, 788651}) = 2 (in [9 17], left {2, 589354})
+clock_gettime(0x7 /* CLOCK_??? */, {959, 236341168}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625355, 288714}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {959, 240395980}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {2, 583332}) = 2 (in [9 17], left {0, 849203})
+clock_gettime(0x7 /* CLOCK_??? */, {960, 977009958}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625357, 29321}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {960, 981048020}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 842679}) = 2 (in [9 17], left {0, 132351})
+clock_gettime(0x7 /* CLOCK_??? */, {961, 693252832}) = 0
+recvfrom(9, "\274\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 188
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\274\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 188
+gettimeofday({1509625357, 744434}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {961, 695484311}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 128243}) = 2 (in [9 17], left {0, 29085})
+clock_gettime(0x7 /* CLOCK_??? */, {961, 796185769}) = 0
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, "\240\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 160
+recvfrom(9, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625357, 847580}, NULL) = 0
+recvfrom(17, "\240\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 160
+gettimeofday({1509625357, 848134}, NULL) = 0
+recvfrom(17, "\230\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 152
+gettimeofday({1509625357, 848683}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {961, 799507769}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 24220}) = 0 (Timeout)
+clock_gettime(0x7 /* CLOCK_??? */, {961, 824592290}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {961, 825082769}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {961, 825355623}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 560219}) = 2 (in [9 17], left {0, 283836})
+clock_gettime(0x7 /* CLOCK_??? */, {962, 103750915}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625358, 156077}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {962, 107661477}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {0, 277913}) = 0 (Timeout)
+clock_gettime(0x7 /* CLOCK_??? */, {962, 387362915}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {962, 387936394}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {962, 388455789}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {962, 389005144}) = 0
+clock_gettime(0x7 /* CLOCK_??? */, {962, 389515039}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {9, 998421}) = 2 (in [9 17], left {9, 232946})
+clock_gettime(0x7 /* CLOCK_??? */, {963, 156874164}) = 0
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625359, 207905}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {963, 160918476}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {9, 227018}) = 2 (in [9 17], left {9, 225042})
+clock_gettime(0x7 /* CLOCK_??? */, {963, 164560393}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625359, 215718}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {963, 168795830}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {9, 219141}) = 2 (in [9 17], left {8, 894886})
+clock_gettime(0x7 /* CLOCK_??? */, {963, 494817080}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625359, 545780}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {963, 498512643}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 889424}) = 2 (in [9 17], left {8, 761772})
+clock_gettime(0x7 /* CLOCK_??? */, {963, 628136392}) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625359, 679257}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {963, 632923767}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 755013}) = 2 (in [9 17], left {8, 657128})
+clock_gettime(0x7 /* CLOCK_??? */, {963, 734046830}) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625359, 785083}, NULL) = 0
+recvfrom(9, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+gettimeofday({1509625359, 786742}, NULL) = 0
+recvfrom(9, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+gettimeofday({1509625359, 788068}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\220\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 144
+recvfrom(17, "\200\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 128
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {963, 742376684}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 645560}) = 2 (in [9 17], left {8, 441313})
+clock_gettime(0x7 /* CLOCK_??? */, {963, 948610642}) = 0
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625360, 2528}, NULL)  = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {963, 954489226}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 433447}) = 2 (in [9 17], left {8, 314342})
+clock_gettime(0x7 /* CLOCK_??? */, {964, 77569184}) = 0
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625360, 128998}, NULL) = 0
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625360, 131360}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {964, 85895392}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {8, 302041}) = 2 (in [9 17], left {7, 956337})
+clock_gettime(0x7 /* CLOCK_??? */, {964, 433960163}) = 0
+recvfrom(9, "\264\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 180
+recvfrom(9, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\264\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 180
+gettimeofday({1509625360, 488169}, NULL) = 0
+recvfrom(17, "\260\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 176
+gettimeofday({1509625360, 489709}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {964, 441339225}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 946597}) = 2 (in [9 17], left {7, 509066})
+clock_gettime(0x7 /* CLOCK_??? */, {964, 880798141}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625360, 931864}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {964, 884741912}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 503195}) = 2 (in [9 17], left {7, 433169})
+clock_gettime(0x7 /* CLOCK_??? */, {964, 956509100}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625361, 7666}, NULL)  = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {964, 960913537}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 427023}) = 2 (in [9 17], left {7, 419766})
+clock_gettime(0x7 /* CLOCK_??? */, {964, 969989391}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625361, 22293}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {964, 973777016}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 414159}) = 2 (in [9 17], left {7, 317597})
+clock_gettime(0x7 /* CLOCK_??? */, {965, 71637099}) = 0
+recvfrom(9, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+gettimeofday({1509625361, 122481}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {965, 73348454}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 314588}) = 2 (in [9 17], left {7, 214917})
+clock_gettime(0x7 /* CLOCK_??? */, {965, 173761829}) = 0
+recvfrom(9, "\340\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 224
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\340\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 224
+gettimeofday({1509625361, 224498}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {965, 175364537}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 212572}) = 2 (in [9 17], left {7, 210031})
+clock_gettime(0x7 /* CLOCK_??? */, {965, 178606516}) = 0
+recvfrom(9, "\310\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 200
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\310\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 200
+gettimeofday({1509625361, 229398}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {965, 180297141}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 207639}) = 2 (in [9 17], left {7, 9579})
+clock_gettime(0x7 /* CLOCK_??? */, {965, 379177599}) = 0
+recvfrom(9, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\334\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 220
+gettimeofday({1509625361, 429924}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {965, 380789307}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {7, 7147}) = 2 (in [9 17], left {6, 907221})
+clock_gettime(0x7 /* CLOCK_??? */, {965, 481498307}) = 0
+recvfrom(9, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\304\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\v\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 196
+gettimeofday({1509625361, 532165}, NULL) = 0
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {965, 483027641}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 904909}) = 2 (in [9 17], left {6, 746889})
+clock_gettime(0x7 /* CLOCK_??? */, {965, 641793995}) = 0
+recvfrom(9, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+gettimeofday({1509625361, 691970}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\224\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 148
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {965, 643295411}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 744641}) = 2 (in [9 17], left {6, 334206})
+clock_gettime(0x7 /* CLOCK_??? */, {966, 55318411}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625362, 107046}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {966, 60894223}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 327042}) = 2 (in [9 17], left {6, 308530})
+clock_gettime(0x7 /* CLOCK_??? */, {966, 81491536}) = 0
+recvfrom(9, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+gettimeofday({1509625362, 132569}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\314\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 204
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {966, 85557286}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 302379}) = 2 (in [9 17], left {6, 216083})
+clock_gettime(0x7 /* CLOCK_??? */, {966, 173665182}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625362, 224709}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {966, 177811994}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 210125}) = 2 (in [9 17], left {6, 148153})
+clock_gettime(0x7 /* CLOCK_??? */, {966, 241545432}) = 0
+recvfrom(9, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+gettimeofday({1509625362, 292622}, NULL) = 0
+recvfrom(9, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+recvfrom(17, "\250\0\0\0\20\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\n\0\0\0C\20\1\0\0\0\0\0"..., 32768, MSG_DONTWAIT, {sa_family=AF_NETLINK, pid=0, groups=00000001}, [12]) = 168
+recvfrom(17, 0xbed16ba0, 32768, 64, 0xbed16b94, 0xbed16b90) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(0x7 /* CLOCK_??? */, {966, 245462265}) = 0
+select(20, [4 5 6 7 9 10 12 14 15 16 17 18 19], [], [], {6, 142474}^CProcess 708 detached
+ <detached ...

@@ -1,0 +1,1301 @@
+[BEGIN] 2017/3/7 18:43:29
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# iwcroot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:65B2-AA22-171F-F7B7-566A-97CC-381D-A79F-7ECE-CE46-A6FD-F7EC-B24C-DD2E-85B4-8392 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# [16278.630000] 
+[16278.630000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16278.720000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16278.730000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16278.740000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16278.750000] VAP device ath02 created osifp: (85dfcb80) os_if: (85ee8000)
+[16278.760000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16279.090000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16279.100000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16281.210000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16281.220000]  
+[16281.220000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16281.220000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16281.230000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16281.240000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16281.240000] 
+[16283.680000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16283.690000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16283.690000] 
+[16286.560000] __ath_key_set:Ignore set group key for psta
+
+root@OpenWrt:/# wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+iw[16287.440000] 
+[16287.440000]  WPS Enabled : Ignoring MAC Filtering
+[16287.470000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16287.480000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16287.500000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16287.500000] 
+[16287.510000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16287.510000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16287.520000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16287.530000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16287.530000] 
+[16287.540000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dfcb80
+[16287.540000] 
+[16287.550000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16287.560000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16287.570000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+cwrapd: wrapd_pst[16287.640000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16287.650000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16287.660000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16287.670000] VAP device ath02 created osifp: (8481eb80) os_if: (85ee8000)
+[16287.680000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+root@OpenWrt:/# iwconfig [16288.020000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16288.030000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16288.140000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16288.140000]  
+[16288.140000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16288.150000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16288.160000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16288.170000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16288.170000] 
+
+[16289.590000] 
+[16289.590000]  WPS Enabled : Ignoring MAC Filtering
+
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+
+^C[16291.630000] 
+[16291.630000]  WPS Enabled : Ignoring MAC Filtering
+iwc	
+[16293.660000] 
+[16293.660000]  WPS Enabled : Ignoring MAC Filtering
+^C[16294.180000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16294.180000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+
+root@OpenWrt:/# [16294.210000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16294.210000] 
+[16294.220000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16294.230000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16294.230000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16294.240000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16294.240000] 
+[16294.250000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481eb80
+[16294.250000] 
+[16294.260000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16294.270000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16294.280000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+
+root@OpenWrt:/# wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+
+root@OpenWrt:/# 
+root@OpenWrt:/# iw[16295.740000] 
+[16295.740000]  WPS Enabled : Ignoring MAC Filtering
+croot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:65B2-AA22-171F-F7B7-566A-97CC-381D-A79F-7ECE-CE46-A6FD-F7EC-B24C-DD2E-85B4-8392 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# iwcroot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:65B2-AA22-171F-F7B7-566A-97CC-381D-A79F-7ECE-CE46-A6FD-F7EC-B24C-DD2E-85B4-8392 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# [16310.970000] 
+[16310.970000]  WPS Enabled : Ignoring MAC Filtering
+
+root@OpenWrt:/# wrapd: wrapd_pst[16311.080000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16311.090000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16311.100000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16311.110000] VAP device ath02 created osifp: (85dff380) os_if: (85ee8000)
+[16311.120000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+
+root@OpenWrt:/# [16311.460000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16311.470000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16312.580000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16312.580000]  
+[16312.580000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16312.590000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16312.600000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16312.610000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16312.610000] 
+[16313.040000] 
+[16313.040000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless [16315.030000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+PSTA remove
+
+w[16315.030000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+rapd: wrapd_psta[16315.040000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+_disconn: 677: p[16315.050000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16315.050000] 
+roxySTA 0 is disconn
+[16315.090000] 
+[16315.090000]  WPS Enabled : Ignoring MAC Filtering
+[16317.130000] 
+[16317.130000]  WPS Enabled : Ignoring MAC Filtering
+[16318.620000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16318.630000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16318.650000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dff380
+[16318.650000] 
+[16318.660000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16318.660000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16318.670000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16318.680000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dff380
+[16318.680000] 
+[16318.690000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dff380
+[16318.690000] 
+[16318.700000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16318.710000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16318.710000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16319.070000] 
+[16319.070000]  WPS Enabled : Ignoring MAC Filtering
+[16333.930000] 
+[16333.930000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16334.040000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16334.050000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16334.060000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16334.070000] VAP device ath02 created osifp: (8481f380) os_if: (85ee8000)
+[16334.080000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16334.420000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16334.420000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16336.530000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16336.540000]  
+[16336.540000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16336.550000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16336.560000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16336.570000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16336.570000] 
+[16337.620000] 
+[16337.620000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove:[16338.980000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+ 1075: Wireless [16338.980000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+PSTA remove
+
+w[16338.990000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+rapd: wrapd_psta[16339.000000] ieee80211_match_rsn_info[806] pairwise 0x8, gtk 0x8 , keymgmt 0x2 
+_disconn: 677: p[16339.010000] ieee80211_match_rsn_info[806] pairwise 0x8, gtk 0x8 , keymgmt 0x2 
+roxySTA 0 is dis[16339.020000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16339.020000] 
+conn
+[16339.630000] 
+[16339.630000]  WPS Enabled : Ignoring MAC Filtering
+[16341.600000] 
+[16341.600000]  WPS Enabled : Ignoring MAC Filtering
+[16342.570000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16342.570000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16342.590000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481f380
+[16342.590000] 
+[16342.610000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16342.610000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16342.620000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16342.630000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481f380
+[16342.630000] 
+[16342.640000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481f380
+[16342.640000] 
+[16342.650000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16342.660000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16342.660000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16343.530000] 
+[16343.530000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16343.600000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16343.610000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16343.620000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16343.630000] VAP device ath02 created osifp: (85dffb80) os_if: (85ee8000)
+[16343.640000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16343.970000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16343.980000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16344.090000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16344.090000]  
+[16344.090000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16344.100000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16344.110000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16344.120000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16344.120000] 
+[16344.160000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16344.170000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16344.170000] 
+[16344.790000] __ath_key_set:Ignore set group key for psta
+[16345.010000] 
+[16345.010000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16345.900000] 
+[16345.900000]  WPS Enabled : Ignoring MAC Filtering
+[16346.130000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16346.130000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16346.160000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dffb80
+[16346.160000] 
+[16346.170000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16346.170000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16346.180000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16346.190000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dffb80
+[16346.190000] 
+[16346.200000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dffb80
+[16346.200000] 
+[16346.210000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16346.220000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16346.230000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16346.300000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16346.310000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16346.320000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16346.330000] VAP device ath02 created osifp: (8481f380) os_if: (85ee8000)
+[16346.340000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16346.720000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16346.720000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16347.830000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16347.840000]  
+[16347.840000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16347.850000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16347.860000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16347.870000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16347.870000] 
+[16350.280000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16350.290000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16350.290000] 
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16350.500000] 
+[16350.500000]  WPS Enabled : Ignoring MAC Filtering
+[16352.670000] 
+[16352.670000]  WPS Enabled : Ignoring MAC Filtering
+[16354.080000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16354.080000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16354.100000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481f380
+[16354.100000] 
+[16354.120000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16354.120000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16354.130000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16354.140000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481f380
+[16354.140000] 
+[16354.150000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481f380
+[16354.150000] 
+[16354.160000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16354.170000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16354.170000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16354.710000] 
+[16354.710000]  WPS Enabled : Ignoring MAC Filtering
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# iwcroot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:65B2-AA22-171F-F7B7-566A-97CC-381D-A79F-7ECE-CE46-A6FD-F7EC-B24C-DD2E-85B4-8392 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# [16363.180000] 
+[16363.180000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16363.320000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16363.330000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16363.340000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16363.350000] VAP device ath02 created osifp: (85dfcb80) os_if: (85ee8000)
+[16363.360000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16363.690000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16363.700000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+wrapd: wrapd_pst[16365.030000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+a_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: p[16365.050000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16365.050000] 
+roxySTA 0 is dis[16365.060000] osif_wrap_dev_remove:158 Removing ath02 from the list
+conn
+[16365.070000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16365.070000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16365.080000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16365.080000] 
+[16365.090000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dfcb80
+[16365.090000] 
+[16365.100000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16365.110000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16365.120000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16365.330000] 
+[16365.330000]  WPS Enabled : Ignoring MAC Filtering
+[16367.930000] 
+[16367.930000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16368.030000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16368.040000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16368.050000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16368.060000] VAP device ath02 created osifp: (8481eb80) os_if: (85ee8000)
+[16368.070000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16368.410000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16368.420000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16368.530000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16368.530000]  
+[16368.530000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16368.540000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16368.550000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16368.560000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16368.560000] 
+[16368.600000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16368.610000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16368.610000] 
+[16370.110000] __ath_key_set:Ignore set group key for psta
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16370.170000] 
+[16370.170000]  WPS Enabled : Ignoring MAC Filtering
+[16370.380000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16370.390000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16370.410000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16370.410000] 
+[16370.420000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16370.420000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16370.430000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16370.440000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16370.440000] 
+[16370.450000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481eb80
+[16370.450000] 
+[16370.460000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16370.470000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16370.480000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16370.530000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16370.540000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16370.550000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16370.560000] VAP device ath02 created osifp: (85dff380) os_if: (85ee8000)
+[16370.570000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16370.940000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16370.950000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16372.060000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16372.060000]  
+[16372.060000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16372.070000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16372.080000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16372.090000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16372.090000] 
+[16372.130000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16372.140000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16372.140000] 
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16372.820000] 
+[16372.820000]  WPS Enabled : Ignoring MAC Filtering
+[16374.810000] 
+[16374.810000]  WPS Enabled : Ignoring MAC Filtering
+[16376.090000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16376.090000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16376.110000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dff380
+[16376.110000] 
+[16376.130000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16376.130000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16376.140000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16376.150000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dff380
+[16376.150000] 
+[16376.160000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dff380
+[16376.160000] 
+[16376.170000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16376.180000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16376.180000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16376.960000] 
+[16376.960000]  WPS Enabled : Ignoring MAC Filtering
+[16378.300000] 
+[16378.300000]  WPS Enabled : Ignoring MAC Filtering
+[16379.200000] 
+[16379.200000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16379.310000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16379.320000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16379.330000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16379.340000] VAP device ath02 created osifp: (8481d380) os_if: (85ee8000)
+[16379.350000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16379.690000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16379.690000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+wrapd: wrapd_psta_remove: 1056: [16381.670000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is dis[16381.690000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481d380
+[16381.690000] 
+conn
+[16381.710000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16381.710000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16381.720000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16381.730000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481d380
+[16381.730000] 
+[16381.740000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481d380
+[16381.740000] 
+[16381.750000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16381.760000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16381.760000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+[16381.770000] 
+[16381.770000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16381.910000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16381.920000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16381.940000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16381.940000] VAP device ath02 created osifp: (85dffb80) os_if: (85ee8000)
+[16381.950000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16382.290000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16382.300000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16382.410000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16382.410000]  
+[16382.410000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16382.420000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16382.430000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16382.440000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16382.440000] 
+[16382.480000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16382.490000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16382.490000] 
+[16382.780000] __ath_key_set:Ignore set group key for psta
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16387.180000] 
+[16387.180000]  WPS Enabled : Ignoring MAC Filtering
+[16387.250000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16387.250000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16387.280000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dffb80
+[16387.280000] 
+[16387.290000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16387.300000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16387.300000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16387.310000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dffb80
+[16387.310000] 
+[16387.320000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dffb80
+[16387.320000] 
+[16387.330000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16387.340000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16387.350000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16387.440000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16387.450000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16387.460000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16387.470000] VAP device ath02 created osifp: (8481d380) os_if: (85ee8000)
+[16387.480000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16387.850000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16387.860000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16388.970000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16388.970000]  
+[16388.970000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16388.980000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16388.990000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16389.000000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16389.000000] 
+[16391.270000] 
+[16391.270000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16395.030000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16395.030000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16395.060000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481d380
+[16395.060000] 
+[16395.070000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16395.070000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16395.080000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16395.090000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481d380
+[16395.090000] 
+[16395.100000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481d380
+[16395.100000] 
+[16395.110000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16395.120000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16395.130000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16401.110000] 
+[16401.110000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16401.220000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16401.230000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16401.240000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16401.250000] VAP device ath02 created osifp: (85dfcb80) os_if: (85ee8000)
+[16401.260000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16401.590000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16401.600000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+wrapd: wrapd_pst[16403.610000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+a_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: p[16403.630000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16403.630000] 
+roxySTA 0 is dis[16403.640000] osif_wrap_dev_remove:158 Removing ath02 from the list
+conn
+[16403.650000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16403.660000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16403.670000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16403.670000] 
+[16403.680000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dfcb80
+[16403.680000] 
+[16403.690000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16403.700000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16403.700000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16403.770000] 
+[16403.770000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16403.920000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16403.930000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16403.940000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16403.950000] VAP device ath02 created osifp: (8481eb80) os_if: (85ee8000)
+[16403.950000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16404.300000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16404.300000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16404.410000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16404.420000]  
+[16404.420000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16404.430000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16404.440000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16404.450000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16404.450000] 
+
+root@OpenWrt:/# [16406.860000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16406.870000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16406.870000] 
+
+root@OpenWrt:/# 
+root@OpenWrt:/# [16407.810000] __ath_key_set:Ignore set group key for psta
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:65B2-AA22-171F-F7B7-566A-97CC-381D-A79F-7ECE-CE46-A6FD-F7EC-B24C-DD2E-85B4-8392 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-34 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:65B2-AA22-171F-F7B7-566A-97CC-381D-A79F-7ECE-CE46-A6FD-F7EC-B24C-DD2E-85B4-8392 [2]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-34 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16422.910000] 
+[16422.910000]  WPS Enabled : Ignoring MAC Filtering
+[16423.120000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16423.130000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16423.150000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16423.150000] 
+[16423.160000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16423.160000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16423.170000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16423.180000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16423.180000] 
+[16423.190000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481eb80
+[16423.190000] 
+[16423.200000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16423.210000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16423.220000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+[16424.860000] 
+[16424.860000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16425.950000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16425.960000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16425.970000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16425.980000] VAP device ath02 created osifp: (85dff380) os_if: (85ee8000)
+[16425.980000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16426.320000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16426.330000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16427.440000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16427.440000]  
+[16427.440000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16427.450000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16427.460000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16427.470000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16427.470000] 
+[16429.890000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16429.900000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16429.900000] 
+[16431.910000] __ath_key_set:Ignore set group key for psta
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-36 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:8A5C-F873-75EF-8516-6066-EAA6-E10D-4976-251E-F2D4-C1C6-2EA8-EB93-E2BC-8F53-8A40 [3]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16448.710000] 
+[16448.710000]  WPS Enabled : Ignoring MAC Filtering
+[16448.930000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16448.930000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16448.960000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dff380
+[16448.960000] 
+[16448.970000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16448.980000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16448.980000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16448.990000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dff380
+[16448.990000] 
+[16449.000000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dff380
+[16449.000000] 
+[16449.010000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16449.020000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16449.030000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16449.090000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16449.100000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16449.110000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16449.120000] VAP device ath02 created osifp: (8481eb80) os_if: (85ee8000)
+[16449.130000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16449.470000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16449.470000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16451.580000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16451.590000]  
+[16451.590000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16451.600000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16451.610000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16451.620000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16451.620000] 
+[16451.640000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16451.650000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16451.650000] 
+[16451.760000] __ath_key_set:Ignore set group key for psta
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16458.860000] 
+[16458.860000]  WPS Enabled : Ignoring MAC Filtering
+[16459.050000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16459.060000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16459.080000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16459.080000] 
+[16459.090000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16459.100000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16459.100000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16459.110000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481eb80
+[16459.110000] 
+[16459.120000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481eb80
+[16459.120000] 
+[16459.130000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16459.140000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16459.150000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16459.190000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16459.200000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16459.210000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16459.220000] VAP device ath02 created osifp: (85dfcb80) os_if: (85ee8000)
+[16459.220000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16459.570000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16459.580000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16459.690000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16459.690000]  
+[16459.690000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16459.700000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16459.710000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16459.720000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16459.720000] 
+[16461.210000] 
+[16461.210000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# [16463.150000] 
+[16463.150000]  WPS Enabled : Ignoring MAC Filtering
+root@OpenWrt:/# iwco[16465.100000] 
+[16465.100000]  WPS Enabled : Ignoring MAC Filterin[16465.730000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16465.740000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16465.760000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16465.760000] 
+[16465.770000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16465.770000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16465.780000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16465.790000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dfcb80
+[16465.790000] 
+[16465.800000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dfcb80
+[16465.800000] 
+[16465.810000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16465.820000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16465.820000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+
+/bin/ash: i: not found
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# [16467.050000] 
+[16467.050000]  WPS Enabled : Ignoring MAC Filtering
+wrapd: wrapd_pst[16467.130000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16467.140000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16467.150000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16467.160000] VAP device ath02 created osifp: (8481d380) os_if: (85ee8000)
+[16467.170000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# [16467.510000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16467.520000] 8021q: adding VLAN 0 to HW filter on device ath02
+
+root@OpenWrt:/# wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16468.630000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16468.640000]  
+[16468.640000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16468.640000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16468.650000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16468.660000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16468.660000] 
+[16468.700000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16468.710000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16468.710000] 
+[16469.050000] __ath_key_set:Ignore set group key for psta
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16469.910000] 
+[16469.910000]  WPS Enabled : Ignoring MAC Filtering
+[16470.110000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16470.120000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16470.140000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481d380
+[16470.140000] 
+[16470.150000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16470.160000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16470.160000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16470.170000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=8481d380
+[16470.170000] 
+[16470.180000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=8481d380
+[16470.180000] 
+[16470.190000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16470.200000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16470.210000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16470.240000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16470.250000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16470.260000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16470.270000] VAP device ath02 created osifp: (85dffb80) os_if: (85ee8000)
+[16470.270000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16470.640000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16470.650000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16472.760000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16472.770000]  
+[16472.770000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16472.770000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16472.780000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16472.790000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16472.790000] 
+[16472.830000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16472.840000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16472.840000] 
+
+root@OpenWrt:/# [16473.120000] __ath_key_set:Ignore set group key for psta
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# iroot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-36 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:8A5C-F873-75EF-8516-6066-EAA6-E10D-4976-251E-F2D4-C1C6-2EA8-EB93-E2BC-8F53-8A40 [3]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 0 is disconn
+[16484.350000] 
+[16484.350000]  WPS Enabled : Ignoring MAC Filtering
+[16484.490000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16484.490000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16484.520000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dffb80
+[16484.520000] 
+[16484.530000] osif_wrap_dev_remove:158 Removing ath02 from the list
+[16484.530000] osif_wrap_dev_remove_vma:187 Removing ath02 from VMA list
+[16484.540000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[16484.550000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b22ec arg=85dffb80
+[16484.550000] 
+[16484.560000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b29d0 arg=85dffb80
+[16484.560000] 
+[16484.570000] wlan_vap_delete : enter. vaphandle=0x85ee8000
+[16484.580000] vap-2(ath02):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[16484.590000] wlan_vap_delete : exit. vaphandle=0x85ee8000
+wrapd: wrapd_psta_remove: 1106: proxySTA 0 is removed from wifi0
+wrapd: wrapd_pst[16484.630000] wlan_vap_create : enter. devhandle=0x86170380, opmode=IEEE80211_M_STA, flags=0x300
+a_add: 913: addr[16484.640000] wlan_vap_create : exit. devhandle=0x86170380, vap=0x85ee8000, opmode=IEEE80211_M_STA, flags=0x300.
+(00:95:69:1e:da:[16484.650000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ac)
+[16484.660000] VAP device ath02 created osifp: (8481d380) os_if: (85ee8000)
+[16484.670000] osif_wrap_dev_add:109 Adding ath02 to the list mat
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath02 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 0 is added from wifi0
+[16485.010000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[16485.020000] 8021q: adding VLAN 0 to HW filter on device ath02
+wrapd: wrapd_psta_conn: 666: proxySTA 0 is conn
+[16485.130000] vap-2(ath02):set SIOC80211NWID, 18 characters
+[16485.140000]  
+[16485.140000]  DES SSID SET=aa_ezviz_989f40_pp 
+[16485.150000] [ieee80211_ioctl_setmlme] set desired bssid 44:19:b6:98:9f:48
+[16485.160000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16485.170000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16485.170000] 
+[16487.580000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[16487.590000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[16487.590000] 
+[16488.410000] __ath_key_set:Ignore set group key for psta
+
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-35 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+eth1      no wireless extensions.
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:8A5C-F873-75EF-8516-6066-EAA6-E10D-4976-251E-F2D4-C1C6-2EA8-EB93-E2BC-8F53-8A40 [3]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:6  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"aa_ezviz_989f40_pp"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 44:19:B6:98:9F:48   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-32 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+[END] 2017/3/7 18:48:08

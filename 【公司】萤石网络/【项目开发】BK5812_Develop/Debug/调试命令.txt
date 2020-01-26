@@ -1,0 +1,40 @@
+//表示信道0的BER
+55 30 02 30 00 7E
+
+观察单包的测试配置 / CMD_HIK_SEND_TXACK / hik_test_ack
+TX：55 33 02 13 00 7E ( 长度-命令-发送 )
+RX：55 33 02 13 01 7E ( 长度-命令-接收 )
+
+SET ADDR
+TX: 55 33 06 01 00 11 22 33 44 7E ( 长度-命令-地址 )
+	55 33 06 01 11 11 22 33 44 7E ( 长度-命令-地址 )
+	
+RX: 55 33 07 02 00 00 11 22 33 44 7E ( 长度-命令-管道-地址 )
+	55 33 07 02 01 11 11 22 33 44 7E ( 长度-命令-管道-地址 )
+	55 33 07 02 02 22 11 22 33 44 7E ( 长度-命令-管道-地址 )
+	
+
+发包不带ACK / CMD_HIK_TX_LIMIT(04) / hik_tx_packet_limit
+TX: 55 33 04 04 00 40 40 7E
+
+发包带ACK / CMD_HIK_TX_LIMIT(05) / hik_tx_packet_limit_ack
+TX: 55 33 04 05 00 40 40 7E
+	
+将发包数ID写入payload，可进行丢包率与速率测试 / CMD_HIK_PERIOD_TX_LIMIT_ACK_LOSS / CMD_HIK_PERIOD_RX_ACK_LOSS / hik_tx_packet_period_limit_ack_loss / hik_rx_packet_test_loss
+TX：55 33 08 0B 00 40 00 C0 C0 10 00 7E ( 长度-命令-信道-速率-长度-发送包数-退避模式-是否清包 )
+RX：55 33 02 0C 00 7E ( 长度-命令-信道 )
+
+SET ARD
+55 33 03 07 0A 05 7E ( 长度-命令-退避时间-重传次数 )
+
+
+测试RTSCTS机制 / CMD_HIK_SINGLE_RTS（0x12） / hik_test_single_rts
+TX：55 33 03 12 00 00 7E ( 长度-命令-信道-发送 )
+RX：55 33 03 12 00 01 7E ( 长度-命令-信道-接收 )
+	
+将发包数ID写入payload，使用RTS机制进行丢包率与速率测试 / CMD_HIK_TX_RTS（0x10） / CMD_HIK_RX_RTS（0x11） / hik_tx_packet_rts / hik_rx_packet_rts
+//TX：55 33 08 10 00 40 00 C0 C0 10 00 7E ( 长度-命令-信道-速率-长度-发送包数-退避模式-是否清包 )
+//RX：55 33 02 11 00 7E ( 长度-命令-信道 )
+
+TX：55 33 05 10 00 40 40 00 7E （长度-命令-速率-长度-调试）
+RX：55 33 03 11 00 00 7E ( 长度-命令-信道-调试 )

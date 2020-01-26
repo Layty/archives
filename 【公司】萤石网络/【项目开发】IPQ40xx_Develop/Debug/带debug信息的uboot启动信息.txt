@@ -1,0 +1,226 @@
+U-Boot 2012.07 [Chaos Calmer 15.05.1,r35193] (Jul 05 2017 - 14:28:19)
+
+U-Boot code: 87300000 -> 8736AE44  BSS: -> 8738C330
+smem ram ptable found: ver: 1 len: 3
+monitor len: 0008C330
+ramsize: 10000000
+TLB table at: 872f0000
+Top of RAM usable for U-Boot at: 872f0000
+Reserving 2560k for malloc() at: 87070000
+Reserving 32 Bytes for Board Info at: 8706ffe0
+Reserving 128 Bytes for Global Data at: 8706ff60
+New Stack Pointer is: 8706ff50
+DRAM:  256 MiB
+relocation Offset is: 00000000
+monitor flash len: 0006E15C
+machid : 0x8010000
+smem ptable found: ver: 4 len: 10
+Now running in RAM - U-Boot at: 87300000
+NAND:  SF: Detected GD25Q128 with page size 4 KiB, total 16 MiB
+ipq_spi: page_size: 0x100, sector_size: 0x1000, size: 0x1000000
+16 MiB
+MMC:   
+*** Warning - bad CRC, using default environment
+
+Destroy Hash Table: 8736dee4 table = (null)
+Create Hash Table: N=72
+INSERT: table 8736dee4, filled 1/73 rv 870700f0 ==> name="bootcmd" value="bootipq"
+INSERT: table 8736dee4, filled 2/73 rv 87070180 ==> name="bootdelay" value="2"
+INSERT: table 8736dee4, filled 3/73 rv 870703cc ==> name="baudrate" value="115200"
+INSERT: table 8736dee4, filled 4/73 rv 870703fc ==> name="ipaddr" value="192.168.1.11"
+INSERT: free(data = 87070068)
+INSERT: done
+In:    serial
+Out:   serial
+Err:   serial
+machid: 8010000
+flash_type: 0
+### main_loop entered: bootdelay=2
+
+### main_loop: bootcmd="bootipq"
+Hit any key to stop autoboot:  0 
+SF: Detected GD25Q128 with page size 4 KiB, total 16 MiB
+dram_bank_mmu_setup: bank: 0
+Can't get node offset for configuration unit name: 'config@4' (FDT_ERR_NOTFOUND)
+## Current stack ends at 0x8706fa80 *  kernel: config 'config@ap.dk01.1-c1' from image at 0x84000000
+## Booting kernel from FIT Image at 84000000 ...
+   Using 'config@ap.dk01.1-c1' configuration
+   Trying 'kernel@1' kernel subimage
+     Description:  ARM OpenWrt Linux-3.14.77
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x840000e4
+     Data Size:    3255610 Bytes = 3.1 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80208000
+     Entry Point:  0x80208000
+     Hash node:    'hash@1'
+     Hash algo:    crc32
+     Hash value:   7344202c
+     Hash len:     4
+     Hash node:    'hash@2'
+     Hash algo:    sha1
+     Hash value:   b3f1663221317cd9aaef2d7d2ee9e83d1dbcf7c6
+     Hash len:     20
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   kernel data at 0x840000e4, len = 0x0031ad3a (3255610)
+*  ramdisk: using config 'config@ap.dk01.1-c1' from image at 0x84000000
+*  ramdisk: no ramdisk in config
+*  fdt: using config 'config@ap.dk01.1-c1' from image at 0x84000000
+## Checking for 'FDT'/'FDT Image' at 84000000
+## Flattened Device Tree from FIT Image at 84000000
+   Using 'config@ap.dk01.1-c1' configuration
+   Trying 'fdt@ap.dk01.1-c1' FDT blob subimage
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x8432378c
+     Data Size:    34422 Bytes = 33.6 KiB
+     Architecture: ARM
+     Hash node:    'hash@1'
+     Hash algo:    crc32
+     Hash value:   2843f057
+     Hash len:     4
+     Hash node:    'hash@2'
+     Hash algo:    sha1
+     Hash value:   2318e2776ac672e073ca1e4d9ed774b409664885
+     Hash len:     20
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+Can't get 'load' property from FIT 0x84000000, node: offset 3290864, name fdt@ap.dk01.1-c1 (FDT_ERR_NOTFOUND)
+   Booting using the fdt blob at 0x8432378c
+   of_flat_tree at 0x8432378c size 0x00008676
+   Uncompressing Kernel Image ... OK
+   kernel loaded at 0x80208000, end = 0x80872ac8
+using: FDT
+using: FDT
+## initrd_high = 0xffffffff, copy_to_ram = 1
+   ramdisk load start = 0x00000000, ramdisk load end = 0x00000000
+## device tree at 8432378c ... 8432be01 (len=46710 [0xB676])
+   Loading Device Tree to 86ff4000, end 86fff675 ... OK
+BOOT Build Version:  CRM-BOOT.BF.3.1.1-00117
+
+TZ Build Version:  CRM-TZ.BF.2.7-00094
+
+mtdparts = mtdparts=spi0.0:256K@0x0(0:SBL1),128K@0x40000(0:MIBIB),384K@0x60000(0:QSEE),64K@0xc0000(0:CDT),64K@0xd0000(0:DDRPARAMS),64K@0xe0000(0:APPSBLENV),512K@0xf0000(0:APPSBL),64K@0x170000(0:ART),4M@0x180000(0:HLOS),10752K@0x580000(rootfs),
+
+---mtdparts_init---
+last_ids  : 
+env_ids   : nand2=spi0.0
+last_parts: 
+env_parts : mtdparts=spi0.0:256K@0x0(0:SBL1),128K@0x40000(0:MIBIB),384K@0x60000(0:QSEE),64K@0xc0000(0:CDT),64K@0xd0000(0:DDRPARAMS),64K@0xe0000(0:APPSBLENV),512K@0xf0000(0:APPSBL),64K@0x170000(0:ART),4M@0x180000(0:HLOS),10752K@0x580000(rootfs),
+
+last_partition : 
+env_partition  : <NULL>
+
+---parse_mtdids---
+mtdids = nand2=spi0.0
+
++ id nand2	        16777216 bytes	spi0.0
+
+---parse_mtdparts---
+mtdparts = mtdparts=spi0.0:256K@0x0(0:SBL1),128K@0x40000(0:MIBIB),384K@0x60000(0:QSEE),64K@0xc0000(0:CDT),64K@0xd0000(0:DDRPARAMS),64K@0xe0000(0:APPSBLENV),512K@0xf0000(0:APPSBL),64K@0x170000(0:ART),4M@0x180000(0:HLOS),10752K@0x580000(rootfs),
+
+--- current_save ---
+hdelete: DELETE key "partition"
+=> partition NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+===device_parse===
+--- id_find_by_mtd_id: 'spi0.0' (len = 6)
+entry: 'spi0.0' (len = 6)
+dev type = 2 (nand), dev num = 2, mtd-id = spi0.0
+parsing partitions 256K@0x0(0:SBL1),128K@0x40000(0:MIBIB),384K@0x60000(0:QSEE),64K@0xc0000(0:CDT),64K@0xd0000(0:DDRPARAMS),64K@0xe0000(0:APPSBLENV),512K@0xf0000(0:APPSBL),64K@0x170000(0:ART),4M@0x180000(0:HLOS),10752K@0x580000(rootfs),
++ partition: name 0:SBL1                 size 0x00040000 offset 0x00000000 mask flags 0
++ partition: name 0:MIBIB                size 0x00020000 offset 0x00040000 mask flags 0
++ partition: name 0:QSEE                 size 0x00060000 offset 0x00060000 mask flags 0
++ partition: name 0:CDT                  size 0x00010000 offset 0x000c0000 mask flags 0
++ partition: name 0:DDRPARAMS            size 0x00010000 offset 0x000d0000 mask flags 0
++ partition: name 0:APPSBLENV            size 0x00010000 offset 0x000e0000 mask flags 0
++ partition: name 0:APPSBL               size 0x00080000 offset 0x000f0000 mask flags 0
++ partition: name 0:ART                  size 0x00010000 offset 0x00170000 mask flags 0
++ partition: name 0:HLOS                 size 0x00400000 offset 0x00180000 mask flags 0
++ partition: name rootfs                 size 0x00a80000 offset 0x00580000 mask flags 0
+
+total partitions: 10
+part_sort_add: list empty
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+--- index partitions ---
+hdelete: DELETE key "mtddevnum"
+hdelete: DELETE key "mtddevname"
+=> mtddevnum NULL
+=> mtddevname NULL
+===
+
++ device: nand	2	spi0.0
+--- current_save ---
+=> partition nand2,0
+--- index partitions ---
+
+--- mtd_part_info: partition number 0 for device nand2 (spi0.0)
+=> mtddevnum 0,
+=> mtddevname 0:SBL1
+mtdparts_init: current_mtd_dev  = nand2, current_mtd_partnum = 0
+ 0: rootfs              0x00a80000	0x00580000	0
+ 1: 0:HLOS              0x00400000	0x00180000	0
+ 2: 0:ART               0x00010000	0x00170000	0
+ 3: 0:APPSBL            0x00080000	0x000f0000	0
+ 4: 0:APPSBLENV         0x00010000	0x000e0000	0
+ 5: 0:DDRPARAMS         0x00010000	0x000d0000	0
+ 6: 0:CDT               0x00010000	0x000c0000	0
+ 7: 0:QSEE              0x00060000	0x00060000	0
+ 8: 0:MIBIB             0x00020000	0x00040000	0
+ 9: 0:SBL1              0x00040000	0x00000000	0
+eth0 MAC Address from ART is not valid
+eth1 MAC Address from ART is not valid
+Using machid 0x8010000 from environment
+## Transferring control to Linux (at address 80208000)...
+
+Starting kernel ...

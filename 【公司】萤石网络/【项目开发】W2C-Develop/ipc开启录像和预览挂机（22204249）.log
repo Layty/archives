@@ -1,0 +1,1013 @@
+[BEGIN] 2017/3/22 20:42:49
+iwcroot@OpenWrt:/# iwconfig 
+ath01     IEEE 802.11ng  ESSID:"ezviz_70da00"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 9C:FC:01:70:FA:00   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-45 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi0     no wireless extensions.
+
+lo        no wireless extensions.
+
+ath04     IEEE 802.11ng  ESSID:"ezviz_70da00"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 9C:FC:01:70:FA:00   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-41 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+eth1      no wireless extensions.
+
+ath03     IEEE 802.11ng  ESSID:"ezviz_70da00"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 9C:FC:01:70:FA:00   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-40 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+eth0      no wireless extensions.
+
+ath0      IEEE 802.11ng  ESSID:"ezviz_zjq_056"  
+          Mode:Master  Frequency:2.447 GHz  Access Point: 44:19:B6:00:00:56   
+          Bit Rate:144.4 Mb/s   Tx-Power:20 dBm   
+          RTS thr:off   Fragment thr:off
+          Encryption key:48C9-C6FD-DDE2-CDC1-6BDF-DB6D-DDE1-B675-501E-72B0-8B08-42CD-7090-6BDF-F9BD-2944 [3]   Security mode:restricted
+          Power Management:off
+          Link Quality=0/94  Signal level=-95 dBm  Noise level=-95 dBm
+          Rx invalid nwid:10  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+ath02     IEEE 802.11ng  ESSID:"ezviz_70da00"  
+          Mode:Managed  Frequency:2.447 GHz  Access Point: 9C:FC:01:70:FA:00   
+          Bit Rate:144.4 Mb/s   Tx-Power:31 dBm   
+          RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=94/94  Signal level=-48 dBm  Noise level=-95 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+br-lan    no wireless extensions.
+
+bond0     no wireless extensions.
+
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# iwconfig root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  52M     24M   43      33      47    0    860   23904  EPSs         0          f              0               P 00:16:15     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  105   8605   53760  EPSs         0          f              0             PGM 00:11:36     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  52M     39M   41      33      47   15    918   25296  EPSs         0          f              0               P 00:16:16     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  120   8605   53760  EPSs         0          f              0             PGM 00:11:37     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  50M     28M   42      33      47    0    943   26208  EPSs         0          f              0               P 00:16:17     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  120   8605   53760  EPSs         0          f              0             PGM 00:11:38     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  50M     26M   42      33      47    0    966   27104  EPSs         0          f              0               P 00:16:18     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  120   8605   53760  EPSs         0          f              0             PGM 00:11:39     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  56M     32M   42      33      47    0   1037   27936  EPSs         0          f              0               P 00:16:19     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  120   8605   53760  EPSs         0          f              0             PGM 00:11:40     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  59M     22M   43      33      47    0   1060   28672  EPSs         0          f              0               P 00:16:20     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  120   8605   53760  EPSs         0          f              0             PGM 00:11:41     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    2    8  54M     17M   42      33      47    0   1076   29792  EPSs         0          f              0               P 00:16:20     RSN WME IEEE80211_MODE_11NG_HT20   0 
+00:15:00:a3:b2:dc    1    8  84M     51M   35      18      47  120   8605   53760  EPSs         0          f              0             PGM 00:11:42     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# iwpriv ath0 getdbgLVL;iwpriv ath0 getdbgLVL_high
+ath0      getdbgLVL:0x800c0000
+ath0      getdbgLVL_high:0  
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# [12772.880000] vap-0(ath0):[00:15:00:a3:b2:dc] send null data frame on channel 8, pwr mgt dis
+[12787.920000] vap-0(ath0):[00:15:00:a3:b2:dc] send null data frame on channel 8, pwr mgt dis
+[12802.960000] vap-0(ath0):[00:15:00:a3:b2:dc] send null data frame on channel 8, pwr mgt dis
+[12818.000000] vap-0(ath0):[00:15:00:a3:b2:dc] send null data frame on channel 8, pwr mgt dis
+[12833.040000] vap-0(ath0):[00:15:00:a3:b2:dc] send null data frame on channel 8, pwr mgt dis
+[12848.080000] vap-0(ath0):[00:15:00:a3:b2:dc] send null data frame on channel 8, pwr mgt dis
+[12863.120000] vap-0(ath0):wlan_mlme_deauth_request
+[12863.120000] vap-0(ath0): [00:15:00:a3:b2:dc]station with aid 1 leaves (refcnt 5) 
+[12863.120000] 
+wrapd: wrapd_hostapd_ctrl_iface_receive: 2521: @@@@@@@@@@@@@ [pengruofeng][hostapd-wifi0_ath0] recv buf (<3>AP-STA-DISCONNECTED 00:15:00:a3:b2:dc)  from (/var/run/hostapd-wifi0/ath0)
+
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:15:00:a3:b2:dc)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 1 is disconn
+[12863.370000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[12863.380000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+[12863.400000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b258c arg=86dbab80
+[12863.400000] 
+[12863.410000] osif_wrap_dev_remove:158 Removing ath03 from the list
+[12863.410000] osif_wrap_dev_remove_vma:187 Removing ath03 from VMA list
+[12863.420000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[12863.430000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b258c arg=86dbab80
+[12863.430000] 
+[12863.440000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b2c70 arg=86dbab80
+[12863.440000] 
+[12863.450000] vap-3(ath03):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+wrapd: wrapd_psta_remove: 1106: proxySTA 1 is removed from wifi0
+[13068.230000] Too much interference, Trying to change channels
+[13068.240000] vap-0(ath0):ieee80211_vap_scan_event_handler: orig=86318000 vap=86318000 scan_id 0 event 0 reason 0
+[13068.250000] vap-0(ath0):ieee80211_state_event: VAP state event 2, cur_state=5, vap_deleted_is_set=0
+[13068.260000] vap-1(ath01):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x1  
+[13068.270000] vap-2(ath02):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x1  
+[13068.270000] vap-4(ath04):mlme_sta_swbmiss_timer_disable: swbmiss disabled by SCANNER curmask 0x1  
+[13071.010000] vap-0(ath0):ieee80211_vap_scan_event_handler: orig=86318000 vap=86318000 scan_id 0 event 1 reason 1
+[13071.020000] vap-0(ath0):ieee80211_state_event: VAP state event 3, cur_state=5, vap_deleted_is_set=0
+[13071.020000] vap-1(ath01):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x0  
+[13071.030000] vap-2(ath02):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x0  
+[13071.040000] vap-4(ath04):mlme_sta_swbmiss_timer_enable: swbmiss enabled by SCANNER curmask 0x0  
+[13071.050000] vap-0(ath0):wlan_set_ieee80211_channel: restore short preamble setting
+[13071.100000] vap-0(ath0):wlan_set_ieee80211_channel failed to send fakewakeup
+[13071.110000] vap-0(ath0):wlan_set_ieee80211_channel switch channel 1
+[13071.120000] vap-0(ath0):wlan_set_ieee80211_channel failed to send fakewakeup
+[13071.130000] vap-0(ath0):wlan_set_ieee80211_channel failed to send fakewakeup
+[13071.130000] vap-0(ath0):wlan_set_ieee80211_channel failed to send fakewakeup
+[13072.570000] vap-1(ath01):mlme_sta_swbmiss_timer_handler: SW Beacon miss!!
+[13072.570000] vap-1(ath01):ieee80211_vap_iter_beacon_miss: SW iv_bmiss_count=0 reset=2 max=3 arg=85f38000 swbmiss=1
+[13072.600000] vap-2(ath02):mlme_sta_swbmiss_timer_handler: SW Beacon miss!!
+[13072.610000] vap-2(ath02):ieee80211_vap_iter_beacon_miss: SW iv_bmiss_count=0 reset=2 max=3 arg=851d0000 swbmiss=1
+[13072.630000] vap-4(ath04):mlme_sta_swbmiss_timer_handler: SW Beacon miss!!
+[13072.640000] vap-4(ath04):ieee80211_vap_iter_beacon_miss: SW iv_bmiss_count=0 reset=2 max=3 arg=85378000 swbmiss=1
+[13074.140000] vap-1(ath01):mlme_sta_swbmiss_timer_handler: SW Beacon miss!!
+[13074.140000] vap-1(ath01):ieee80211_vap_iter_beacon_miss: SW iv_bmiss_count=1 reset=2 max=3 arg=85f38000 swbmiss=1
+[13074.150000] vap-1(ath01):ieee80211_vap_iter_beacon_miss: Beacon miss, will indicate to OS!!
+[13074.170000] vap-2(ath02):mlme_sta_swbmiss_timer_handler: SW Beacon miss!!
+[13074.170000] vap-2(ath02):ieee80211_vap_iter_beacon_miss: SW iv_bmiss_count=1 reset=2 max=3 arg=851d0000 swbmiss=1
+[13074.180000] vap-2(ath02):ieee80211_vap_iter_beacon_miss: Beacon miss, will indicate to OS!!
+[13074.190000] br-lan: port 2(ath01) entered disabled state
+wrapd: wrapd_psta_disconn: 677: [13074.210000] vap-4(ath04):mlme_sta_swbmiss_timer_handler: SW Beacon miss!!
+proxySTA 0 is di[13074.210000] vap-4(ath04):ieee80211_vap_iter_beacon_miss: SW iv_bmiss_count=1 reset=2 max=3 arg=85378000 swbmiss=1
+sconn
+[13074.220000] vap-4(ath04):ieee80211_vap_iter_beacon_miss: Beacon miss, will indicate to OS!!
+[13077.800000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+wrapd: wrapd_pst[13077.820000] osif_vap_stop: Scan in progress.. Cancelling it. vap: 0x85378000 
+a_disconn: 677: proxySTA 2 is disconn
+[13080.400000] vap-0(ath0):Received Deauth with reason 3
+[13080.400000] vap-0(ath0):ieee80211_mlme_recv_deauth
+[13080.410000] vap-0(ath0): [00:95:69:1e:da:ac]station with aid 2 leaves (refcnt 4) 
+[13080.410000] 
+[13080.490000] 
+[13080.490000]  WPS Enabled : Ignoring MAC Filtering
+[13080.780000] vap-0(ath0):wlan_mlme_disassoc_request_with_callback
+[13080.790000] vap-0(ath0): [00:95:69:1e:da:ac]station with aid 0 leaves (refcnt 4) 
+[13080.790000] 
+[13080.840000] vap-0(ath0):Received Deauth with reason 3
+[13080.840000] vap-0(ath0):ieee80211_mlme_recv_deauth
+[13080.900000] 
+[13080.900000]  WPS Enabled : Ignoring MAC Filtering
+[13081.190000] vap-0(ath0):wlan_mlme_disassoc_request_with_callback
+[13081.200000] vap-0(ath0): [00:95:69:1e:da:ac]station with aid 0 leaves (refcnt 4) 
+[13081.200000] 
+[13081.460000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+[13081.480000] vap-0(ath0):wlan_mlme_auth status 0 
+[13081.480000] vap-0(ath0):wlan_mlme_auth status 0 
+wrapd: wrapd_mpsta_disconnect: 2678: Max priority active radio = 
+
+wrapd: wrapd_hostapd_ctrl_iface_receive: 2521: @@@@@@@@@@@@[13081.500000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b258c arg=853f8b80
+[13081.500000] 
+@ [pengruofeng][[13081.510000] osif_wrap_dev_remove:158 Removing ath04 from the list
+hostapd-wifi0_at[13081.520000] osif_wrap_dev_remove_vma:187 Removing ath04 from VMA list
+h0] recv buf (<3[13081.530000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+>AP-STA-DISCONNE[13081.530000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b258c arg=853f8b80
+[13081.530000] 
+CTED 00:95:69:1e[13081.550000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b2c70 arg=853f8b80
+[13081.550000] 
+:da:ac)  from (/[13081.560000] vap-4(ath04):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+var/run/hostapd-wifi0/ath0)
+
+wrapd: wrapd_psta_remove: 1056:  psta remove: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_remove: 1075: Wireless PSTA remove
+
+wrapd: wrapd_psta_disconn: 677: proxySTA 2 is disconn
+wrapd: wrapd_wpa_s_cmd: 526: FAIL
+
+rm: can't remove '/var/run/wpa_supplicant-ath04.lock': No such file or directory
+wrapd: wrapd_psta_remove: 1106: proxySTA 2 is removed from wifi0
+[13082.850000] vap-0(ath0):Received Deauth with reason 3
+[13082.860000] vap-0(ath0):ieee80211_mlme_recv_deauth
+[13083.150000] 
+[13083.150000]  WPS Enabled : Ignoring MAC Filtering
+[13083.160000] vap-0(ath0):wlan_mlme_auth status 0 
+[13083.170000] vap-0(ath0): [00:95:69:1e:da:ac]WPA or RSN ie: mc 2/16 uc 8/13 key 2 caps 0x0
+[13083.170000] 
+[13083.180000] vap-0(ath0): [00:95:69:1e:da:ac]UAPSD bit settings from STA: 00
+[13083.190000] vap-0(ath0):ieee80211_parse_htcap:SM powersave disabled
+[13083.200000] vap-0(ath0):ieee80211_parse_htcap:calculated updaterates 0x1
+[13083.200000] vap-0(ath0):ieee80211_parse_htcap: ni_htcap 0x112c
+[13083.210000] vap-0(ath0):ieee80211_mlme_recv_assoc_request
+[13083.210000] vap-0(ath0): [00:95:69:1e:da:ac]station associated at aid 1: short preamble, short slot time, QoS, HT20 cap 0x431
+[13083.210000] 
+[13083.230000] vap-0(ath0):ieee80211_update_noderates: updating rates: smen 1 dyn 0 ratechg 0 
+[13083.240000] vap-0(ath0):wlan_mlme_assoc_resp reason 0 reassoc 0 
+wrapd: wrapd_hos[13084.330000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+tapd_ctrl_iface_[13084.340000] VAP device ath03 created osifp: (86db9b80) os_if: (85378000)
+receive: 2521: @[13084.350000] osif_wrap_dev_add:109 Adding ath03 to the list mat
+@@@@@@@@@@@@ [pengruofeng][hostapd-wifi0_ath0] recv buf (<3>AP-STA-CONNECTED 00:95:69:1e:da:ac)  from (/var/run/hostapd-wifi0/ath0)
+
+wrapd: wrapd_psta_add: 913: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_vap_create: 733: cp.icp_name(ath03), cp.icp_opmode(1), cp.icp_flags(0x0300), ifr.ifr_name(wifi0)
+wrapd: wrapd_vap_create: 736: cp.icp_bssid(02:00:56:1e:da:ac) icp_mataddr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath03 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 1 is added from wifi0
+[13144.430000] 3142 comapre des_bssid  9c:fc:01:70:fa:00  siid : ezviz_70da00  BSSID :9c:fc:01:70:fa:00 
+[13144.430000] scanner_state_foreign_channel_event 3111 Scan termination called 
+[13144.460000] vap-1(ath01):set SIOC80211NWID, 12 characters
+[13144.470000]  
+[13144.470000]  DES SSID SET=ezviz_70da00 
+[13144.480000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13144.480000] vap-0(ath0):wlan_mlme_stop_bss flags = 0x0
+[13144.490000] vap-0(ath0):wlan_mlme_stop_bss: disassocing/deauth all stations 
+[13144.500000] vap-0(ath0):sta_disassoc: disassoc station 00:95:69:1e:da:ac 
+[13144.500000] vap-0(ath0): [00:95:69:1e:da:ac]station with aid 1 leaves (refcnt 4) 
+[13144.500000] 
+[13144.510000] vap-0(ath0):ieee80211_state_event: VAP state event 0, cur_state=5, vap_deleted_is_set=0
+[13144.520000] vap-0(ath0):ieee80211_state_event: VAP state transition RUN -> STOPPING 
+[13144.530000] vap-0(ath0):ieee80211_power_vap_event_handler VAP_DOWN , so reset the state 
+[13144.540000] vap-0(ath0):ieee80211_reset_bss
+[13144.540000] vap-0(ath0):wlan_mlme_connection_down
+[13144.550000] vap-0(ath0):osif_bringdown_vap_iter_func :vap down 
+[13144.550000] vap-1(ath01):ieee80211_setup_node forcing sta to associate in 8 mode
+[13144.550000] 
+[13144.560000] wlan_mlme_join_infra.. SETTING CHANNEL NUMBER 8 CURR CHANNEL is 1 flags 0x10080
+[13144.570000] vap-0(ath0):ieee80211_state_event: VAP state event 11, cur_state=8, vap_deleted_is_set=0
+[13144.580000] vap-0(ath0):ieee80211_state_event: VAP EVENT_NODE_FREED node count 1 
+[13144.590000] vap-0(ath0):ieee80211_state_event: VAP state transition STOPPING -> INIT 
+[13144.600000] vap-0(ath0):ieee80211_power_vap_event_handler VAP_DOWN , so reset the state 
+[13144.720000] Cannot support setting tx and rx keys individually
+wrapd: wrapd_hostapd_ctrl_iface_receive: 2521: @@@@@@@@@@@@@ [pengruofeng][hostapd-wifi0_ath0] recv buf (<3>AP-STA-DISCONNECTED 00:95:69:1e:da:ac)  from (/var/run/hostapd-wifi0/ath0)
+
+wrapd:[13144.750000] vap-0(ath0):wlan_mlme_start_bss
+ wrapd_psta_remo[13144.750000] vap-0(ath0):wlan_mlme_start_bss: Create infrastructure(AP) bss
+ve: 1056:  psta [13144.760000] vap-0(ath0):ieee80211_state_event: VAP state event 1, cur_state=0, vap_deleted_is_set=0
+remove: addr(00:[13144.770000] vap-0(ath0):ieee80211_state_event: VAP state transition INIT -> JOIN 
+95:69:1e:da:ac)[13144.780000] vap-0(ath0):ieee80211_mlme_create_infra_continue 
+
+wrapd: wrapd_ps[13144.790000] vap-0(ath0):ieee80211_state_event: VAP state event 5, cur_state=2, vap_deleted_is_set=0
+ta_remove: 1075:[13144.800000] vap-0(ath0):ieee80211_state_event: VAP state transition JOIN -> RUN 
+ Wireless PSTA r[13144.810000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_alloc 
+[13144.810000] 
+emove
+
+wrapd: [13144.820000] vap-0(ath0):wlan_mlme_connection_up
+wrapd_psta_disco[13144.820000] vap-0(ath0):osif_bringup_vap_iter_func :vap up 
+nn: 677: proxyST[13144.830000] vap-0(ath0):ieee80211_state_event: VAP state event 11, cur_state=5, vap_deleted_is_set=0
+A 1 is disconn
+[13144.840000] vap-0(ath0):ieee80211_state_event: VAP EVENT_NODE_FREED node count 1 
+[13144.850000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+[13144.860000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13144.870000] vap-1(ath01):ieee80211_setup_node forcing sta to associate in 8 mode
+[13144.870000] 
+[13144.870000] wlan_mlme_join_infra.. SETTING CHANNEL NUMBER 8 CURR CHANNEL is 8 flags 0x10080
+[13146.070000] vap-0(ath0):Received Deauth with reason 3
+[13146.070000] vap-0(ath0):ieee80211_mlme_recv_deauth
+[13146.130000] 
+[13146.130000]  WPS Enabled : Ignoring MAC Filtering
+[13146.430000] vap-0(ath0):wlan_mlme_disassoc_request_with_callback
+[13146.430000] vap-0(ath0): [00:95:69:1e:da:ac]station with aid 0 leaves (refcnt 4) 
+[13146.430000] 
+wrapd: wrapd_wpa[13147.300000] vap-0(ath0):wlan_mlme_auth status 0 
+_s_cmd: 526: FAIL
+
+[13147.310000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13147.320000] vap-1(ath01):ieee80211_setup_node forcing sta to associate in 8 mode
+[13147.320000] 
+[13147.320000] wlan_mlme_join_infra.. SETTING CHANNEL NUMBER 8 CURR CHANNEL is 8 flags 0x10080
+rm: can't remove[13147.340000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b258c arg=86db9b80
+[13147.340000] 
+ '/var/run/wpa_s[13147.350000] osif_wrap_dev_remove:158 Removing ath03 from the list
+upplicant-ath03.[13147.360000] osif_wrap_dev_remove_vma:187 Removing ath03 from VMA list
+lock': No such f[13147.370000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+ile or directory[13147.380000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b258c arg=86db9b80
+[13147.380000] 
+
+[13147.390000] _ieee80211_scan_unregister_event_handler: Failed to unregister evhandler=860b2c70 arg=86db9b80
+[13147.390000] 
+[13147.400000] vap-3(ath03):mlme_sta_swbmiss_timer_detach:id 0 name (SCANNER) is still allocated 
+[13147.430000] br-lan: port 2(ath01) entered forwarding state
+[13147.430000] br-lan: port 2(ath01) entered forwarding state
+wrapd: wrapd_psta_remove: 1106: proxySTA 1 is removed from wifi0
+[13148.000000] vap-0(ath0):Received Deauth with reason 3
+[13148.000000] vap-0(ath0):ieee80211_mlme_recv_deauth
+[13148.080000] 
+[13148.080000]  WPS Enabled : Ignoring MAC Filtering
+[13148.090000] vap-0(ath0):wlan_mlme_auth status 0 
+[13148.100000] vap-0(ath0): [00:95:69:1e:da:ac]WPA or RSN ie: mc 2/16 uc 8/13 key 2 caps 0x0
+[13148.100000] 
+[13148.110000] vap-0(ath0): [00:95:69:1e:da:ac]UAPSD bit settings from STA: 00
+[13148.120000] vap-0(ath0):ieee80211_parse_htcap:SM powersave disabled
+[13148.120000] vap-0(ath0):ieee80211_parse_htcap:calculated updaterates 0x1
+[13148.130000] vap-0(ath0):ieee80211_parse_htcap: ni_htcap 0x112c
+[13148.140000] vap-0(ath0):ieee80211_mlme_recv_assoc_request
+[13148.140000] vap-0(ath0): [00:95:69:1e:da:ac]station associated at aid 1: short preamble, short slot time, QoS, HT20 cap 0x431
+[13148.140000] 
+[13148.160000] vap-0(ath0):ieee80211_update_noderates: updating rates: smen 1 dyn 0 ratechg 0 
+[13148.170000] vap-0(ath0):wlan_mlme_assoc_resp reason 0 reassoc 0 
+wrapd: wrapd_mps[13148.470000] max priority radio:wifi0
+ta_connect: 2558: force_client_mcast: 0 
+
+wrapd: wrapd_mpsta_connect: 2570: Max priority active radio = wifi0
+
+[13148.750000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[13148.750000] 8021q: adding VLAN 0 to HW filter on device ath02
+[13148.760000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13148.770000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[13148.770000] 
+[13148.780000] ADDRCONF(NETDEV_UP): ath02: link is not ready
+[13149.430000] br-lan: port 2(ath01) entered forwarding state
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+[13151.210000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13151.220000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[13151.220000] 
+wrapd: wrapd_pst[13151.230000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+a_conn: 666: pro[13151.240000] VAP device ath03 created osifp: (86db9b80) os_if: (85378000)
+xySTA 0 is conn[13151.250000] osif_wrap_dev_add:109 Adding ath03 to the list mat
+
+wrapd: wrapd_conn_all: 823: 1 connected
+wrapd: wrapd_hostapd_ctrl_iface_receive: 2521: @@@@@@@@@@@@@ [pengruofeng][hostapd-wifi0_ath0] recv buf (<3>AP-STA-CONNECTED 00:95:69:1e:da:ac)  from (/var/run/hostapd-wifi0/ath0)
+
+wrapd: wrapd_psta_add: 913: addr(00:95:69:1e:da:ac)
+wrapd: wrapd_vap_create: 733: cp.icp_name(ath03), cp.icp_opmode(1), cp.icp_flags(0x0300), ifr.ifr_name(wifi0)
+wrapd: wrapd_vap_create: 736: cp.icp_bssid(02:00:56:1e:da:ac) icp_mataddr(00:95:69:1e:da:ac)
+wrapd: wrapd_psta_add: 1022: wrapd_psta_add Setting command: iwpriv ath03 shortgi 1 
+
+wrapd: wrapd_psta_add: 1028: proxySTA 1 is added from wifi0
+[13151.340000] ADDRCONF(NETDEV_CHANGE): ath02: link becomes ready
+[13151.600000] ieee80211_ucfg_getparam : parameter 0x284 not supported 
+[13151.610000] 8021q: adding VLAN 0 to HW filter on device ath03
+wrapd: wrapd_wpa_s_cmd: 526: OK
+
+wrapd: wrapd_psta_conn: 666: proxySTA 1 is conn
+[13151.640000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[13151.640000] 
+[13151.930000] __ieee80211_smart_ant_init: Smart Antenna is not supported 
+[13153.720000] vap-3(ath03):set SIOC80211NWID, 12 characters
+[13153.720000]  
+[13153.720000]  DES SSID SET=ezviz_70da00 
+[13153.730000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+[13153.740000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13153.750000] vap-3(ath03):ieee80211_setup_node forcing sta to associate in 8 mode
+[13153.750000] 
+[13156.170000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13156.180000] vap-3(ath03):ieee80211_setup_node forcing sta to associate in 8 mode
+[13156.180000] 
+[13156.290000] __ath_key_set:Ignore set group key for psta
+[13161.940000] vap-2(ath02):set SIOC80211NWID, 12 characters
+[13161.950000]  
+[13161.950000]  DES SSID SET=ezviz_70da00 
+[13161.950000] [ieee80211_ioctl_setmlme] set desired bssid 9c:fc:01:70:fa:00
+[13161.970000] ieee80211_match_rsn_info[806] pairwise 0xa, gtk 0x2 , keymgmt 0x2 
+[13161.980000] vap-2(ath02):ieee80211_setup_node forcing sta to associate in 8 mode
+[13161.980000] 
+[13162.050000] __ath_key_set:Ignore set group key for psta
+[13513.830000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[13513.830000] 
+[13513.840000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[13513.840000] 
+[13515.270000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[13515.270000] 
+[13515.280000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[13515.280000] 
+[14114.650000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[14114.650000] 
+[14114.650000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[14114.650000] 
+[14116.080000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[14116.080000] 
+[14116.090000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[14116.090000] 
+[14715.260000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[14715.260000] 
+[14715.260000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[14715.260000] 
+[14716.730000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[14716.730000] 
+[14716.740000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[14716.740000] 
+[15316.100000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[15316.100000] 
+[15316.110000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[15316.110000] 
+[15317.530000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[15317.530000] 
+[15317.530000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[15317.530000] 
+[15916.940000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[15916.940000] 
+[15916.940000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[15916.940000] 
+[15918.360000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[15918.360000] 
+[15918.370000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[15918.370000] 
+[16518.340000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[16518.340000] 
+[16518.350000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[16518.350000] 
+[16519.860000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[16519.860000] 
+[16519.870000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[16519.870000] 
+[17119.770000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[17119.770000] 
+[17119.770000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[17119.770000] 
+[17121.200000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[17121.200000] 
+[17121.210000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[17121.210000] 
+[17719.810000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[17719.810000] 
+[17719.810000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[17719.810000] 
+[17721.320000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[17721.320000] 
+[17721.330000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[17721.330000] 
+[18320.860000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[18320.860000] 
+[18320.870000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[18320.870000] 
+[18321.010000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[18321.010000] 
+[18322.300000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[18322.300000] 
+[18322.310000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[18322.310000] 
+[18322.340000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[18322.340000] 
+[18922.110000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[18922.110000] 
+[18922.110000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[18922.110000] 
+[18923.530000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[18923.530000] 
+[18923.540000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[18923.540000] 
+[19523.330000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[19523.330000] 
+[19523.330000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[19523.330000] 
+[19524.320000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[19524.320000] 
+[19524.740000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[19524.740000] 
+[19524.750000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[19524.750000] 
+[19524.830000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[19524.830000] 
+[20123.760000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[20123.760000] 
+[20123.770000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[20123.770000] 
+[20125.210000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[20125.210000] 
+[20125.220000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[20125.220000] 
+[20725.380000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[20725.380000] 
+[20725.390000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[20725.390000] 
+[20726.810000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[20726.810000] 
+[20726.820000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[20726.820000] 
+[21325.620000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[21325.620000] 
+[21325.630000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[21325.630000] 
+[21327.060000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[21327.060000] 
+[21327.060000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[21327.060000] 
+[21927.030000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[21927.030000] 
+[21927.040000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[21927.040000] 
+[21928.540000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[21928.540000] 
+[21928.550000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[21928.550000] 
+[22527.850000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[22527.850000] 
+[22527.850000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[22527.850000] 
+[22529.270000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[22529.270000] 
+[22529.270000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[22529.270000] 
+[23129.280000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[23129.280000] 
+[23129.280000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[23129.280000] 
+[23130.710000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[23130.710000] 
+[23130.720000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[23130.720000] 
+[23730.100000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[23730.100000] 
+[23730.110000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[23730.110000] 
+[23731.580000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[23731.580000] 
+[23731.590000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[23731.590000] 
+[24331.300000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[24331.300000] 
+[24331.310000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[24331.310000] 
+[24332.750000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[24332.750000] 
+[24332.760000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[24332.760000] 
+[24931.910000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[24931.910000] 
+[24931.910000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[24931.910000] 
+[24933.360000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[24933.360000] 
+[24933.370000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[24933.370000] 
+[25533.330000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[25533.330000] 
+[25533.340000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[25533.340000] 
+[25534.830000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[25534.830000] 
+[25534.840000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[25534.840000] 
+[26134.160000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[26134.160000] 
+[26134.160000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[26134.160000] 
+[26135.550000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[26135.550000] 
+[26135.560000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[26135.560000] 
+[26734.770000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[26734.770000] 
+[26734.780000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[26734.780000] 
+[26736.180000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[26736.180000] 
+[26736.190000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[26736.190000] 
+[27335.430000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[27335.430000] 
+[27335.440000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[27335.440000] 
+[27336.910000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[27336.910000] 
+[27336.920000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[27336.920000] 
+[27937.080000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[27937.080000] 
+[27937.090000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[27937.090000] 
+[27938.560000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[27938.560000] 
+[27938.560000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[27938.560000] 
+[28537.500000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[28537.500000] 
+[28537.510000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[28537.510000] 
+[28538.970000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[28538.970000] 
+[28538.980000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[28538.980000] 
+[29138.730000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[29138.730000] 
+[29138.740000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[29138.740000] 
+[29140.170000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[29140.170000] 
+[29140.180000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[29140.180000] 
+[29739.590000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[29739.590000] 
+[29739.590000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[29739.590000] 
+[29741.010000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[29741.010000] 
+[29741.020000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[29741.020000] 
+[30340.220000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[30340.220000] 
+[30340.230000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[30340.230000] 
+[30341.630000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[30341.630000] 
+[30341.640000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[30341.640000] 
+[30941.870000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[30941.870000] 
+[30941.880000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[30941.880000] 
+[30942.130000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[30942.130000] 
+[30943.320000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[30943.320000] 
+[30943.330000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[30943.330000] 
+[30943.360000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[30943.360000] 
+[31542.290000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[31542.290000] 
+[31542.300000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[31542.300000] 
+[31543.730000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[31543.730000] 
+[31543.740000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[31543.740000] 
+[32143.520000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[32143.520000] 
+[32143.520000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[32143.520000] 
+[32144.950000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[32144.950000] 
+[32144.950000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[32144.950000] 
+[32744.180000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[32744.180000] 
+[32744.190000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[32744.190000] 
+[32745.660000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[32745.660000] 
+[32745.660000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[32745.660000] 
+[33345.000000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[33345.000000] 
+[33345.010000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[33345.010000] 
+[33346.420000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[33346.420000] 
+[33346.430000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[33346.430000] 
+[33946.810000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[33946.810000] 
+[33946.820000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[33946.820000] 
+[33948.250000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[33948.250000] 
+[33948.260000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[33948.260000] 
+[34547.250000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[34547.250000] 
+[34547.260000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[34547.260000] 
+[34548.660000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[34548.660000] 
+[34548.660000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[34548.660000] 
+[35148.290000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[35148.290000] 
+[35148.300000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[35148.300000] 
+[35149.760000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[35149.760000] 
+[35149.770000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[35149.770000] 
+[35749.140000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[35749.140000] 
+[35749.140000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[35749.140000] 
+[35750.540000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[35750.540000] 
+[35750.550000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[35750.550000] 
+[36350.780000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[36350.780000] 
+[36350.790000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[36350.790000] 
+[36352.200000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[36352.200000] 
+[36352.210000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[36352.210000] 
+[36950.850000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[36950.850000] 
+[36950.850000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[36950.850000] 
+[36952.310000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[36952.310000] 
+[36952.320000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[36952.320000] 
+[37552.280000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[37552.280000] 
+[37552.290000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[37552.290000] 
+[37553.740000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[37553.740000] 
+[37553.740000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[37553.740000] 
+[38153.330000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[38153.330000] 
+[38153.330000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[38153.330000] 
+[38154.780000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[38154.780000] 
+[38154.790000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[38154.790000] 
+[38753.780000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[38753.780000] 
+[38753.790000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[38753.790000] 
+[38755.240000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[38755.240000] 
+[38755.250000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[38755.250000] 
+[39354.800000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[39354.800000] 
+[39354.810000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[39354.810000] 
+[39356.250000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[39356.250000] 
+[39356.260000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[39356.260000] 
+[39956.430000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[39956.430000] 
+[39956.440000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[39956.440000] 
+[39957.890000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[39957.890000] 
+[39957.900000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[39957.900000] 
+[40557.250000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[40557.250000] 
+[40557.250000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[40557.250000] 
+[40558.700000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[40558.700000] 
+[40558.700000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[40558.700000] 
+[41158.270000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[41158.270000] 
+[41158.280000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[41158.280000] 
+[41159.750000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[41159.750000] 
+[41159.760000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[41159.760000] 
+[41759.280000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[41759.280000] 
+[41759.290000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[41759.290000] 
+[41760.680000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[41760.680000] 
+[41760.690000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[41760.690000] 
+[42360.100000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[42360.100000] 
+[42360.110000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[42360.110000] 
+[42361.550000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[42361.550000] 
+[42361.560000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[42361.560000] 
+[42960.920000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[42960.920000] 
+[42960.920000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[42960.920000] 
+[42962.410000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[42962.410000] 
+[42962.420000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[42962.420000] 
+[43562.330000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[43562.330000] 
+[43562.340000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[43562.340000] 
+[43563.750000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[43563.750000] 
+[43563.760000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[43563.760000] 
+[44162.790000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[44162.790000] 
+[44162.790000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[44162.790000] 
+[44164.220000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[44164.220000] 
+[44164.230000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[44164.230000] 
+[44763.630000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[44763.630000] 
+[44763.640000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[44763.640000] 
+[44765.120000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[44765.120000] 
+[44765.130000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[44765.130000] 
+[45364.640000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[45364.640000] 
+[45364.650000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[45364.650000] 
+[45366.070000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[45366.070000] 
+[45366.080000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[45366.080000] 
+[45965.890000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[45965.890000] 
+[45965.900000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[45965.900000] 
+[45967.340000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[45967.340000] 
+[45967.350000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[45967.350000] 
+[46566.520000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[46566.520000] 
+[46566.530000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[46566.530000] 
+[46567.980000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[46567.980000] 
+[46567.990000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[46567.990000] 
+[47167.340000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[47167.340000] 
+[47167.350000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[47167.350000] 
+[47168.800000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[47168.800000] 
+[47168.810000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[47168.810000] 
+[47768.380000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[47768.380000] 
+[47768.390000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[47768.390000] 
+[47769.830000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[47769.830000] 
+[47769.840000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[47769.840000] 
+[48369.220000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[48369.220000] 
+[48369.220000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[48369.220000] 
+[48370.640000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[48370.640000] 
+[48370.650000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[48370.650000] 
+[48971.050000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[48971.050000] 
+[48971.060000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[48971.060000] 
+[48972.490000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[48972.490000] 
+[48972.500000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[48972.500000] 
+[49571.870000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[49571.870000] 
+[49571.880000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[49571.880000] 
+[49573.280000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[49573.280000] 
+[49573.290000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[49573.290000] 
+[50172.290000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[50172.290000] 
+[50172.300000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[50172.300000] 
+[50173.760000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[50173.760000] 
+[50173.770000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[50173.770000] 
+[50773.320000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[50773.320000] 
+[50773.330000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[50773.330000] 
+[50774.840000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[50774.840000] 
+[50774.850000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[50774.850000] 
+[51374.340000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[51374.340000] 
+[51374.340000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[51374.340000] 
+[51375.790000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[51375.790000] 
+[51375.800000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[51375.800000] 
+[51975.370000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[51975.370000] 
+[51975.380000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[51975.380000] 
+[51976.810000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[51976.810000] 
+[51976.820000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[51976.820000] 
+[52576.210000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[52576.210000] 
+[52576.210000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[52576.210000] 
+[52577.660000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[52577.660000] 
+[52577.670000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[52577.670000] 
+[53177.420000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[53177.420000] 
+[53177.430000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[53177.430000] 
+[53178.870000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[53178.870000] 
+[53178.880000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[53178.880000] 
+[53778.840000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[53778.840000] 
+[53778.850000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[53778.850000] 
+[53780.290000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[53780.290000] 
+[53780.300000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[53780.300000] 
+[54378.890000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[54378.890000] 
+[54378.900000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[54378.900000] 
+[54380.310000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[54380.310000] 
+[54380.320000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[54380.320000] 
+[54980.130000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[54980.130000] 
+[54980.140000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[54980.140000] 
+[54981.630000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[54981.630000] 
+[54981.640000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[54981.640000] 
+[55581.140000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[55581.140000] 
+[55581.150000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[55581.150000] 
+[55582.560000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[55582.560000] 
+[55582.570000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[55582.570000] 
+[56181.890000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[56181.890000] 
+[56181.900000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[56181.900000] 
+[56183.330000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[56183.330000] 
+[56183.340000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[56183.340000] 
+[56783.320000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[56783.320000] 
+[56783.330000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[56783.330000] 
+[56784.750000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[56784.750000] 
+[56784.760000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[56784.760000] 
+[57384.220000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[57384.220000] 
+[57384.230000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[57384.230000] 
+[57385.670000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[57385.670000] 
+[57385.680000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[57385.680000] 
+[57985.060000] vap-0(ath0): [00:95:69:1e:da:ac]pause LMAC node
+[57985.060000] 
+[57985.060000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode on, 1 sta's in ps mode
+[57985.060000] 
+[57986.190000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 1, off 0, len 1
+[57986.190000] 
+[57986.560000] vap-0(ath0): [00:95:69:1e:da:ac]unpause LMAC node
+[57986.560000] 
+[57986.560000] vap-0(ath0): [00:95:69:1e:da:ac]power save mode off, 0 sta's in ps mode
+[57986.560000] 
+[57986.600000] vap-0(ath0): [44:19:b6:00:00:56]ieee80211_beacon_update: TIM updated, pending 0, off 0, len 1
+[57986.600000] 
+
+root@OpenWrt:/# wlroot@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    1    8  61M     34M   48      47      47    0   2488   33456  EPSs         0          f              0               P 12:31:48     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# 
+root@OpenWrt:/# root@OpenWrt:/# wlanconfig ath0 list
+ADDR               AID CHAN TXRATE RXRATE RSSI MINRSSI MAXRSSI IDLE  TXSEQ  RXSEQ  CAPS        ACAPS     ERP    STATE MAXRATE(DOT11) HTCAPS ASSOCTIME    IEs   MODE                   PSMODE
+00:95:69:1e:da:ac    1    8  70M     30M   48      47      47    0   2490   33568  EPSs         0          f              0               P 12:32:32     RSN WME IEEE80211_MODE_11NG_HT20   0 
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+[END] 2017/3/23 9:25:09

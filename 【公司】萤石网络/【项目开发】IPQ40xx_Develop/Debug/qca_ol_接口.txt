@@ -1,0 +1,53 @@
+/* Register WMI event handlers */
+wmi_unified_register_event_handler
+int wmi_unified_register_event_handler(wmi_unified_t wmi_handle,
+                                       WMI_EVT_ID event_id,
+                                       wmi_unified_event_handler handler_func,
+                                       void* cookie)
+
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_DCS_INTERFERENCE_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_DEBUG_PRINT_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_FIPS_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_WLAN_PROFILE_DATA_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_TPC_CONFIG_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_GPIO_INPUT_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_NFCAL_POWER_ALL_CHANNELS_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_TPC_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_GENERIC_BUFFER_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_MCAST_LIST_AGEOUT_EVENTID,
+Ol_if_ath.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_TX_DATA_TRAFFIC_CTRL_EVENTID,
+Ol_if_athqvit.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_QVIT_EVENTID,
+Ol_if_athutf.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_UTF_EVENTID,
+Ol_if_beacon.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_HOST_SWBA_EVENTID,
+Ol_if_beacon.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_TBTTOFFSET_UPDATE_EVENTID,
+Ol_if_mgmt.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_MGMT_RX_EVENTID,
+Ol_if_nl.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):            wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_node.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_PEER_STA_KICKOUT_EVENTID, wmi_peer_sta_kickout_event_handler, NULL);
+Ol_if_node.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_PEER_STA_PS_STATECHG_EVENTID, wmi_peer_sta_ps_state_change_handler, NULL);
+Ol_if_phyerr.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_resmgr.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_VDEV_START_RESP_EVENTID,
+Ol_if_rtt.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_rtt.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_rtt.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_rtt.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_scan.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\umac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_SCAN_EVENTID,
+Ol_if_smart_ant.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PEER_RATECODE_LIST_EVENTID,
+Ol_if_smart_ant.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PEER_RATECODE_LIST_EVENTID,
+Ol_if_stats.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_CHAN_INFO_EVENTID,
+Ol_if_stats.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_stats.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_UPDATE_STATS_EVENTID,
+Ol_if_stats.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle,
+Ol_if_stats.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_BSS_CHAN_INFO_EVENTID,
+Ol_if_thermal.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        retval = wmi_unified_register_event_handler(scn->wmi_handle, WMI_TT_STATS_EVENTID,
+Ol_if_vap.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):        wmi_unified_register_event_handler(scn->wmi_handle, WMI_PDEV_RESERVE_AST_ENTRY_EVENTID,
+Ol_if_vap.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_VDEV_STOPPED_EVENTID,
+Ol_if_vap.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_ROAM_EVENTID,
+Ol_if_vap.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_MCAST_BUF_RELEASE_EVENTID,
+Ol_if_wow.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wlan\lmac_offload_if):    wmi_unified_register_event_handler(scn->wmi_handle, WMI_WOW_WAKEUP_HOST_EVENTID,
+Wds_addr.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wds):    wmi_unified_register_event_handler(wmi_handle, WMI_WDS_PEER_EVENTID,
+Wmi_unified.c (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\wmi):int wmi_unified_register_event_handler(wmi_unified_t wmi_handle,
+Wmi_unified_api.h (qsdk-qca-wifi-10.4-3.0.1264.297\qca\src\qca-wifi-10.4\offload\include):wmi_unified_register_event_handler(wmi_unified_t wmi_handle, WMI_EVT_ID event_id,
+									   
+wmi_unified_unregister_event_handler
+int wmi_unified_unregister_event_handler(wmi_unified_t wmi_handle,
+                                       WMI_EVT_ID event_id)

@@ -1,0 +1,89 @@
+#!/bin/sh
+echo " ===============  close phy0 az ===================="
+ssdk_sh debug phy set 0 0xd 0x7
+ssdk_sh debug phy set 0 0xe 0x3c
+ssdk_sh debug phy set 0 0xd 0x4007
+ssdk_sh debug phy set 0 0xe 0x0
+
+echo " ===============  close phy1 az ===================="
+ssdk_sh debug phy set 1 0xd 0x7
+ssdk_sh debug phy set 1 0xe 0x3c
+ssdk_sh debug phy set 1 0xd 0x4007
+ssdk_sh debug phy set 1 0xe 0x0
+
+echo " ===============  close phy2 az ===================="
+ssdk_sh debug phy set 2 0xd 0x7
+ssdk_sh debug phy set 2 0xe 0x3c
+ssdk_sh debug phy set 2 0xd 0x4007
+ssdk_sh debug phy set 2 0xe 0x0
+
+echo " ===============  close phy3 az ===================="
+ssdk_sh debug phy set 3 0xd 0x7
+ssdk_sh debug phy set 3 0xe 0x3c
+ssdk_sh debug phy set 3 0xd 0x4007
+ssdk_sh debug phy set 3 0xe 0x0
+
+echo " ===============  close phy4 az ===================="
+ssdk_sh debug phy set 4 0xd 0x7
+ssdk_sh debug phy set 4 0xe 0x3c
+ssdk_sh debug phy set 4 0xd 0x4007
+ssdk_sh debug phy set 4 0xe 0x0
+==========================================
+#!/bin/sh
+echo " ===============  get phy0  ===================="
+ssdk_sh debug phy get 0 0
+ssdk_sh debug phy get 0 1
+ssdk_sh debug phy get 0 5
+ssdk_sh debug phy get 0 0x11
+echo " ===============  get phy1  ===================="
+ssdk_sh debug phy get 1 0
+ssdk_sh debug phy get 1 1
+ssdk_sh debug phy get 1 5
+ssdk_sh debug phy get 1 0x11
+echo " ===============  get phy2  ===================="
+ssdk_sh debug phy get 2 0
+ssdk_sh debug phy get 2 1
+ssdk_sh debug phy get 2 5
+ssdk_sh debug phy get 2 0x11
+echo " ===============  get phy3  ===================="
+ssdk_sh debug phy get 3 0
+ssdk_sh debug phy get 3 1
+ssdk_sh debug phy get 3 5
+ssdk_sh debug phy get 3 0x11
+echo " ===============  get phy4  ===================="
+ssdk_sh debug phy get 4 0
+ssdk_sh debug phy get 4 1
+ssdk_sh debug phy get 4 5
+ssdk_sh debug phy get 4 0x11
+
+============================================
+#!/bin/sh
+echo " ===============  get port1 staus ===================="
+ssdk_sh debug reg get 0x80 4
+echo " ===============  get port2 staus ===================="
+ssdk_sh debug reg get 0x84 4
+echo " ===============  get port3 staus ===================="
+ssdk_sh debug reg get 0x88 4
+echo " ===============  get port4 staus ===================="
+ssdk_sh debug reg get 0x8c 4
+echo " ===============  get port5 staus ===================="
+ssdk_sh debug reg get 0x90 4
+
+===========================================
+#!/bin/sh
+echo " ===============  get port0 mib ===================="
+ssdk_sh mib statistics get 0
+echo " ===============  get port1 mib ===================="
+ssdk_sh mib statistics get 1
+echo " ===============  get port2 mib ===================="
+ssdk_sh mib statistics get 2
+echo " ===============  get port3 mib ===================="
+ssdk_sh mib statistics get 3
+echo " ===============  get port4 mib ===================="
+ssdk_sh mib statistics get 4
+echo " ===============  get port5 mib ===================="
+ssdk_sh mib statistics get 5
+
+
+
+===================================

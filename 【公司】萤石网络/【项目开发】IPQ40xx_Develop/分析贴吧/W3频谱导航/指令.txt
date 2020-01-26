@@ -1,0 +1,11 @@
+athtestcmd -i wifi0 --tx tx99 --txfreq 2462 --mode ht20 --tpcm tgtpwr
+athtestcmd -i wifi0 --tx tx99 --txfreq 2462 --mode ht20 --tpcm tgtpwr
+athtestcmd -i wifi0 --tx tx99 --txfreq 2462 --mode ht20 --tpcm tgtpwr --txrate 27 --txchain 3
+
+athtestcmd -i wifi0 --tx off
+
+
+athtestcmd -i wifi1 --tx tx99 --txfreq 5785 --mode vht80_0 --tpcm tgtpwr
+athtestcmd -i wifi1 --tx tx99 --txfreq 5785 --tpcm tgtpwr
+
+athtestcmd -i wifi1 --tx off

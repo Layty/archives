@@ -1,0 +1,40 @@
+9.18
+iwpriv wifi0 dl_loglevel 1
+iwpriv wifi0 dl_loglevel 2
+
+//≈‰÷√
+iwpriv ath0 txrx_fw_st_rst 0x3f;iwpriv ath0 dis_legacy 0x07;iwpriv ath0 g_dis_legacy;
+iwpriv wifi0 ani_enable 0;iwpriv wifi0 ani_cck_level 9;iwpriv wifi0 ani_ofdm_level 9
+
+//≤È—Ø
+iwpriv ath0 txrx_fw_stats 1;iwpriv ath0 txrx_fw_stats 3;iwpriv ath0 txrx_fw_stats 6
+
+iwpriv ath0 dis_legacy 0x17;iwpriv ath0 vie_ena 0
+iwpriv ath0 g_dis_legacy;iwpriv ath0 g_vie_ena
+
+
+iwpriv ath0 dis_legacy 0x0;iwpriv ath0 vie_ena 0
+
+iwpriv wifi0 dl_modon 23
+iwpriv wifi0 dl_modoff 23
+
+
+
+iwpriv wifi0 acs_rank_en 1;iwpriv wifi0 acs_2g_allch 1;iwpriv ath0 acsreport 1
+wifitool ath0 acsreport
+
+apstats -s -m
+iwpriv ath0 get_sko
+
+iwpriv ath0 wnm 0
+
+iwpriv wifi0 dl_modoff 21
+iwpriv wifi0 dl_modon 23
+
+
+
+iwpriv ath0 dis_legacy 0x03;iwpriv ath0 vie_ena 0;iwpriv ath0 wnm 0;iwpriv ath0 sko 200;iwpriv wifi0 nonaggr_swretry 0x10
+
+iwpriv wifi0 dl_loglevel 1;iwpriv wifi0 dl_modoff 21;iwpriv wifi0 dl_modon 23
+
+9.28

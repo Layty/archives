@@ -1,0 +1,1820 @@
+[BEGIN] 2017/11/27 16:48:47
+==================    打流之前，设置关闭网口节电功能    ============================================
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# cd 
+root@OpenWrt:~# ls
+closePhyAZ.sh     getPhyStauts.sh   getPortMib.sh     getPortStatus.sh
+root@OpenWrt:~# 
+root@OpenWrt:~# cat closePhyAZ.sh 
+#!/bin/sh
+echo "close phy0 az"
+ssdk_sh debug phy set 0 0xd 0x7
+ssdk_sh debug phy set 0 0xe 0x3c
+ssdk_sh debug phy set 0 0xd 0x4007
+ssdk_sh debug phy set 0 0xe 0x0
+
+echo "close phy1 az"
+ssdk_sh debug phy set 1 0xd 0x7
+ssdk_sh debug phy set 1 0xe 0x3c
+ssdk_sh debug phy set 1 0xd 0x4007
+ssdk_sh debug phy set 1 0xe 0x0
+
+echo "close phy2 az"
+ssdk_sh debug phy set 2 0xd 0x7
+ssdk_sh debug phy set 2 0xe 0x3c
+ssdk_sh debug phy set 2 0xd 0x4007
+ssdk_sh debug phy set 2 0xe 0x0
+
+echo "close phy3 az"
+ssdk_sh debug phy set 3 0xd 0x7
+ssdk_sh debug phy set 3 0xe 0x3c
+ssdk_sh debug phy set 3 0xd 0x4007
+ssdk_sh debug phy set 3 0xe 0x0
+
+echo "close phy4 az"
+ssdk_sh debug phy set 4 0xd 0x7
+ssdk_sh debug phy set 4 0xe 0x3c
+ssdk_sh debug phy set 4 0xd 0x4007
+ssdk_sh debug phy set 4 0xe 0x0
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./closePhyAZ.sh 
+close phy0 az
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+close phy1 az
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+close phy2 az
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+close phy3 az
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+close phy4 az
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+
+ SSDK Init OK!
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ls
+closePhyAZ.sh     getPhyStauts.sh   getPortMib.sh     getPortStatus.sh
+root@OpenWrt:~# cat getPhyStauts.sh 
+#!/bin/sh
+echo " ===============  get phy0  ===================="
+ssdk_sh debug phy get 0 0
+ssdk_sh debug phy get 0 1
+ssdk_sh debug phy get 0 5
+ssdk_sh debug phy get 0 0x11
+echo " ===============  get phy1  ===================="
+ssdk_sh debug phy get 1 0
+ssdk_sh debug phy get 1 1
+ssdk_sh debug phy get 1 5
+ssdk_sh debug phy get 1 0x11
+echo " ===============  get phy2  ===================="
+ssdk_sh debug phy get 2 0
+ssdk_sh debug phy get 2 1
+ssdk_sh debug phy get 2 5
+ssdk_sh debug phy get 2 0x11
+echo " ===============  get phy3  ===================="
+ssdk_sh debug phy get 3 0
+ssdk_sh debug phy get 3 1
+ssdk_sh debug phy get 3 5
+ssdk_sh debug phy get 3 0x11
+echo " ===============  get phy4  ===================="
+ssdk_sh debug phy get 4 0
+ssdk_sh debug phy get 4 1
+ssdk_sh debug phy get 4 5
+ssdk_sh debug phy get 4 0x11
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPhyStauts.sh 
+ ===============  get phy0  ====================
+
+ SSDK Init OK![Data]:0x1140
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0050
+operation done.
+
+ ===============  get phy1  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0010
+operation done.
+
+ ===============  get phy2  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0050
+operation done.
+
+ ===============  get phy3  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7969
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0xbc5c
+operation done.
+
+ ===============  get phy4  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0x0000
+operation done.
+
+
+ SSDK Init OK![Data]:0x0010
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# cat getP
+getPhyStauts.sh   getPortMib.sh     getPortStatus.sh
+root@OpenWrt:~# cat getPortStatus.sh 
+#!/bin/sh
+echo " ===============  get port1 staus ===================="
+ssdk_sh debug reg get 0x80 4
+echo " ===============  get port2 staus ===================="
+ssdk_sh debug reg get 0x84 4
+echo " ===============  get port3 staus ===================="
+ssdk_sh debug reg get 0x88 4
+echo " ===============  get port4 staus ===================="
+ssdk_sh debug reg get 0x8c 4
+echo " ===============  get port5 staus ===================="
+ssdk_sh debug reg get 0x90 4
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortStatus.sh 
+ ===============  get port1 staus ====================
+
+ SSDK Init OK![Data]:0x1cf2
+operation done.
+
+ ===============  get port2 staus ====================
+
+ SSDK Init OK![Data]:0x1cf2
+operation done.
+
+ ===============  get port3 staus ====================
+
+ SSDK Init OK![Data]:0x1cf2
+operation done.
+
+ ===============  get port4 staus ====================
+
+ SSDK Init OK![Data]:0x1ffe
+operation done.
+
+ ===============  get port5 staus ====================
+
+ SSDK Init OK![Data]:0x10c2
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# cat getPhyStauts.sh 
+#!/bin/sh
+echo " ===============  get phy0  ===================="
+ssdk_sh debug phy get 0 0
+ssdk_sh debug phy get 0 1
+ssdk_sh debug phy get 0 5
+ssdk_sh debug phy get 0 0x11
+echo " ===============  get phy1  ===================="
+ssdk_sh debug phy get 1 0
+ssdk_sh debug phy get 1 1
+ssdk_sh debug phy get 1 5
+ssdk_sh debug phy get 1 0x11
+echo " ===============  get phy2  ===================="
+ssdk_sh debug phy get 2 0
+ssdk_sh debug phy get 2 1
+ssdk_sh debug phy get 2 5
+ssdk_sh debug phy get 2 0x11
+echo " ===============  get phy3  ===================="
+ssdk_sh debug phy get 3 0
+ssdk_sh debug phy get 3 1
+ssdk_sh debug phy get 3 5
+ssdk_sh debug phy get 3 0x11
+echo " ===============  get phy4  ===================="
+ssdk_sh debug phy get 4 0
+ssdk_sh debug phy get 4 1
+ssdk_sh debug phy get 4 5
+ssdk_sh debug phy get 4 0x11
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPhyStauts.sh 
+ ===============  get phy0  ====================
+
+ SSDK Init OK![Data]:0x1140
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0050
+operation done.
+
+ ===============  get phy1  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0010
+operation done.
+
+ ===============  get phy2  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0050
+operation done.
+
+ ===============  get phy3  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x796d
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0xbc5c
+operation done.
+
+ ===============  get phy4  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0x0000
+operation done.
+
+
+ SSDK Init OK![Data]:0x0010
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# cat getPortMib.sh 
+#!/bin/sh
+echo " ===============  get port0 mib ===================="
+ssdk_sh mib statistics get 0
+echo " ===============  get port1 mib ===================="
+ssdk_sh mib statistics get 1
+echo " ===============  get port2 mib ===================="
+ssdk_sh mib statistics get 2
+echo " ===============  get port3 mib ===================="
+ssdk_sh mib statistics get 3
+echo " ===============  get port4 mib ===================="
+ssdk_sh mib statistics get 4
+echo " ===============  get port5 mib ===================="
+ssdk_sh mib statistics get 5
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x0000042e>  RxPause     <0x00000000>  RxMulti     <0x00000204>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000720>  
+Rx256Byte   <0x00000052>  Rx512Byte   <0x00000004>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x0002e9a2>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000034>  
+TxBroad     <0x00000013>  TxPause     <0x00000000>  TxMulti     <0x0000000d>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x000000c7>  
+Tx256Byte   <0x00000001>  Tx512Byte   <0x00000001>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00003dcd>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000144>  TxUniCast   <0x000000a9>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x0000009a>  RxPause     <0x00000000>  RxMulti     <0x000000a2>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x0000003b>  Rx128Byte   <0x00000167>  
+Rx256Byte   <0x0000002c>  Rx512Byte   <0x00000006>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x0000b2ca>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x000000f4>  TxPause     <0x00000000>  TxMulti     <0x000000ed>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x0000002f>  Tx128Byte   <0x000001fe>  
+Tx256Byte   <0x00000032>  Tx512Byte   <0x00000004>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x0000eaa7>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000098>  TxUniCast   <0x00000082>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000002>  RxPause     <0x00000000>  RxMulti     <0x0000000a>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000003>  Rx128Byte   <0x0000000c>  
+Rx256Byte   <0x00000001>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000546>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000002>  TxPause     <0x00000000>  TxMulti     <0x00000001>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000001>  Tx128Byte   <0x00000006>  
+Tx256Byte   <0x00000001>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x000002e9>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000004>  TxUniCast   <0x00000005>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000002>  RxPause     <0x00000000>  RxMulti     <0x00000004>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000002>  Rx128Byte   <0x00000005>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000226>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000007>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000001>  Tx128Byte   <0x00000008>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x0000032e>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000001>  TxUniCast   <0x00000002>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x000000e6>  RxPause     <0x00000000>  RxMulti     <0x000000f4>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x0000003f>  Rx128Byte   <0x00000341>  
+Rx256Byte   <0x00000049>  Rx512Byte   <0x00000008>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00016310>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x0000044b>  TxPause     <0x00000000>  TxMulti     <0x00000220>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x0000002a>  Tx128Byte   <0x0000077b>  
+Tx256Byte   <0x00000045>  Tx512Byte   <0x00000006>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x0002e7ed>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x000001f7>  TxUniCast   <0x00000185>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================     以下信息为打流挂死之后的输出      ============================================
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ls
+closePhyAZ.sh     getPhyStauts.sh   getPortMib.sh     getPortStatus.sh
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortStatus.sh 
+ ===============  get port1 staus ====================
+
+ SSDK Init OK![Data]:0x1cf2
+operation done.
+
+ ===============  get port2 staus ====================
+
+ SSDK Init OK![Data]:0x1cf2
+operation done.
+
+ ===============  get port3 staus ====================
+
+ SSDK Init OK![Data]:0x1cf2
+operation done.
+
+ ===============  get port4 staus ====================
+
+ SSDK Init OK![Data]:0x1ffe
+operation done.
+
+ ===============  get port5 staus ====================
+
+ SSDK Init OK![Data]:0x10c2
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPhyStauts.sh 
+ ===============  get phy0  ====================
+
+ SSDK Init OK![Data]:0x1140
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0050
+operation done.
+
+ ===============  get phy1  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0010
+operation done.
+
+ ===============  get phy2  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0x0050
+operation done.
+
+ ===============  get phy3  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7969
+operation done.
+
+
+ SSDK Init OK![Data]:0xcde1
+operation done.
+
+
+ SSDK Init OK![Data]:0xbc5c
+operation done.
+
+ ===============  get phy4  ====================
+
+ SSDK Init OK![Data]:0x1040
+operation done.
+
+
+ SSDK Init OK![Data]:0x7949
+operation done.
+
+
+ SSDK Init OK![Data]:0x0000
+operation done.
+
+
+ SSDK Init OK![Data]:0x0010
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ls
+closePhyAZ.sh     getPhyStauts.sh   getPortMib.sh     getPortStatus.sh
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000926>  RxPause     <0x00000000>  RxMulti     <0x00000234>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000ae6>  
+Rx256Byte   <0x0000006f>  Rx512Byte   <0x00000005>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00048468>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x000002d7>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x0000008f>  Rx64Byte    <0x00000000>  Rx128Byte   <0x000002ad>  
+Rx256Byte   <0x00000023>  Rx512Byte   <0x00000007>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x0000fef7>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x0000126e>  TxPause     <0x00000000>  TxMulti     <0x0000042a>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000008>  Tx128Byte   <0x000015ff>  
+Tx256Byte   <0x00000086>  Tx512Byte   <0x0000000b>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00087729>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000022>  RxPause     <0x00000000>  RxMulti     <0x00000008>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x0000002a>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x0000102c>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000009>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000002>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000009>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000325>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000022>  TxPause     <0x00000000>  TxMulti     <0x00000008>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x0000002a>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000f30>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+
+
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x0000003e>  RxPause     <0x00000000>  RxMulti     <0x00000009>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000042>  
+Rx256Byte   <0x00000005>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00001c88>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000012>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000010>  
+Rx256Byte   <0x00000002>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x0000061d>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x0000003e>  TxPause     <0x00000000>  TxMulti     <0x00000009>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000045>  
+Tx256Byte   <0x00000002>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00001ade>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+
+
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000041>  RxPause     <0x00000000>  RxMulti     <0x00000018>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000059>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x000021e6>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000009>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000002>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000009>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x0000032e>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000044>  TxPause     <0x00000000>  TxMulti     <0x00000018>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x0000005c>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x000020f0>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+
+
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x000005e8>  RxPause     <0x00000000>  RxMulti     <0x00000171>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000723>  
+Rx256Byte   <0x00000032>  Rx512Byte   <0x00000004>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x0002dc77>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x000000d4>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x0000001f>  Rx64Byte    <0x00000000>  Rx128Byte   <0x000000c6>  
+Rx256Byte   <0x0000000c>  Rx512Byte   <0x00000002>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x0000497b>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x000005e5>  TxPause     <0x00000000>  TxMulti     <0x00000171>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x0000004e>  Tx128Byte   <0x000006e4>  
+Tx256Byte   <0x00000020>  Tx512Byte   <0x00000004>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x0002b079>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+
+
+
+
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000014>  RxPause     <0x00000000>  RxMulti     <0x00000001>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000014>  
+Rx256Byte   <0x00000001>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x0000081d>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x0000000a>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000004>  Rx64Byte    <0x00000000>  Rx128Byte   <0x0000000a>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x000003cd>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000014>  TxPause     <0x00000000>  TxMulti     <0x00000001>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000004>  Tx128Byte   <0x00000010>  
+Tx256Byte   <0x00000001>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x000007af>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x0000003b>  RxPause     <0x00000000>  RxMulti     <0x0000000f>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000047>  
+Rx256Byte   <0x00000003>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00001ba9>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x0000000f>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000004>  Rx64Byte    <0x00000000>  Rx128Byte   <0x0000000f>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x0000051a>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x0000003b>  TxPause     <0x00000000>  TxMulti     <0x0000000f>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x0000000e>  Tx128Byte   <0x00000039>  
+Tx256Byte   <0x00000003>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00001a25>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# 
+root@OpenWrt:~# ./getPortMib.sh 
+ ===============  get port0 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000022>  RxPause     <0x00000000>  RxMulti     <0x00000011>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000032>  
+Rx256Byte   <0x00000001>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00001271>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port1 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port2 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port3 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port4 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000008>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000001>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000008>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x0000028c>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000022>  TxPause     <0x00000000>  TxMulti     <0x00000011>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000008>  Tx128Byte   <0x0000002a>  
+Tx256Byte   <0x00000001>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x0000115f>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+ ===============  get port5 mib ====================
+
+ SSDK Init OK!
+[MIB info] 
+RxBroad     <0x00000000>  RxPause     <0x00000000>  RxMulti     <0x00000000>  
+RxFcsErr    <0x00000000>  RxAlignErr  <0x00000000>  RxRunt      <0x00000000>  
+RxFragment  <0x00000000>  Rx64Byte    <0x00000000>  Rx128Byte   <0x00000000>  
+Rx256Byte   <0x00000000>  Rx512Byte   <0x00000000>  Rx1024Byte  <0x00000000>  
+Rx1518Byte  <0x00000000>  RxMaxByte   <0x00000000>  RxTooLong   <0x00000000>  
+RxGoodByte  <0x00000000>  RxGoodByte1 <0x00000000>  RxBadByte   <0x00000000>  
+RxBadByte1  <0x00000000>  RxOverFlow  <0x00000000>  Filtered    <0x00000000>  
+TxBroad     <0x00000000>  TxPause     <0x00000000>  TxMulti     <0x00000000>  
+TxUnderRun  <0x00000000>  Tx64Byte    <0x00000000>  Tx128Byte   <0x00000000>  
+Tx256Byte   <0x00000000>  Tx512Byte   <0x00000000>  Tx1024Byte  <0x00000000>  
+Tx1518Byte  <0x00000000>  TxMaxByte   <0x00000000>  TxOverSize  <0x00000000>  
+TxByte      <0x00000000>  TxByte1     <0x00000000>  TxCollision <0x00000000>  
+TxAbortCol  <0x00000000>  TxMultiCol  <0x00000000>  TxSingleCol <0x00000000>  
+TxExcDefer  <0x00000000>  TxDefer     <0x00000000>  TxLateCol   <0x00000000>  
+RxUniCast   <0x00000000>  TxUniCast   <0x00000000>  RxJmFcsErr  <0x00000000>  
+RxJmAligErr <0x00000000>  
+operation done.
+
+
+[END] 2017/11/27 18:03:12

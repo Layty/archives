@@ -1,0 +1,6 @@
+1、cd 到下面这个目录：X:\qca-networking-2017-spf-5-0_qca_oem.git\IPQ4019.ILQ.5.0\common\build\ipq
+2、将img_gen、nand_build_image_boot.sh拷贝到这个目录；
+3、执行命令：bash ./nand_build_image_boot.sh，最后生成：raw_nand_flash.bin.bin（100M左右）
+4、执行命令：./img_gen raw_nand_flash.bin -d -o prf_nand.bin生成ECC文件至 szs.bin(测试文件名)， ECC文件即使用烧片机烧录的文件。
+
+

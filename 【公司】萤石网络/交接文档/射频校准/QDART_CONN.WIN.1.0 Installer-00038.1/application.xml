@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+ ***************************************************************************** 
+ * 
+ * Copyright (c) 2016 Qualcomm Technologies, Inc. 
+ * All rights reserved. 
+ * Qualcomm Technologies, Inc. Confidential and Proprietary. 
+ * 
+ ****************************************************************************** 
+ 
+-->
+<SplashApplications xmlns="http://chipnet.qualcomm.com/aggregator/splashApplications/v1.0">
+     <Bundle>
+          <BundleID>0b0100398103fd8c</BundleID>
+          <BundleName>QDART_CONN.WIN.1.0</BundleName>
+          <BundleUrl>https://createpoint.qti.qualcomm.com/tools/#suite/0b0100398103fd8c</BundleUrl>
+          <ReleaseID>0b01003981ef41f5</ReleaseID>
+          <CreatePointUrl>https://createpoint.qti.qualcomm.com/tools/link/suite/0b0100398103fd8c/0b01003981ef41f5</CreatePointUrl>
+          <UpdateCheckUrl>https://createpoint.qti.qualcomm.com/service/public/suite/latest?suiteId=0b0100398103fd8c&amp;releaseId=0b01003981ef41f5</UpdateCheckUrl>
+     </Bundle>
+     <Applications>
+          <Application>
+               <Name>Qualcomm Atheros Radio Control Toolkit</Name>
+               <Version>3.0-00210</Version>
+               <Copyright endYear="2016" startYear="2007"/>
+               <SplashImage>./QCARCT.png</SplashImage>
+          </Application>
+          <Application>
+               <Name>Qualcomm Sequence Profiling Resource</Name>
+               <Version>5.0-00069</Version>
+               <Copyright endYear="2016" startYear="2007"/>
+               <SplashImage>./QSPR.png</SplashImage>
+          </Application>
+     </Applications>
+</SplashApplications>
